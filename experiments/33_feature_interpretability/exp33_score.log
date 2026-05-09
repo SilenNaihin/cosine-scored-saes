@@ -1,0 +1,692 @@
+======================================================================
+Exp 33: Feature Interpretability — Scoring Phase
+LLM: bedrock/us.anthropic.claude-sonnet-4-6
+======================================================================
+Loaded contexts: 199,184 tokens, layer 27
+Resuming from experiments/exp33_results.json
+
+==================================================
+Scoring standard
+==================================================
+Features: 200 total, 10 already scored, 190 remaining
+  [11/200] Feature 2343 (low): 10% [no] (11.9s) — Looking at the marked tokens: **Ast**ana, **ist**ram, **ast**emaker, **Mast**rop
+  [12/200] Feature 13592 (low): 86% [YES] (9.7s) — The neuron activates on the token immediately following a `||` delimiter in a st
+  [13/200] Feature 4780 (low): 30% [no] (10.3s) — The neuron detects the subword/token **"Den"** or **"Dem"** (capitalized), which
+  [14/200] Feature 4847 (low): 50% [YES] (9.3s) — ## Neuron Pattern
+
+This neuron detects the token/subword **"ant"** (case-insensi
+  [15/200] Feature 14202 (low): 10% [no] (11.9s) — The neuron appears to detect tokens that are part of **jewelry/accessories produ
+  [16/200] Feature 12836 (low): 80% [YES] (4.8s) — The neuron detects the word "common" (and its capitalized variant "Common"), spe
+  [17/200] Feature 292 (low): 40% [no] (10.6s) — The neuron appears to activate on tokens that are parts of proper names of famou
+  [18/200] Feature 12863 (low): 100% [YES] (4.1s) — The neuron detects the word "human" (case-insensitive), specifically the token *
+  [19/200] Feature 14241 (low): 50% [YES] (9.9s) — The neuron detects the word **"world"** (case-insensitive, including both "World
+  [20/200] Feature 9073 (low): 100% [YES] (6.6s) — The neuron detects the token/subword **"base"** (or its variants like "Base," "B
+  [21/200] Feature 15898 (low): 100% [YES] (5.1s) — The neuron detects the word **"great"** (case-insensitive), specifically the tok
+  [22/200] Feature 8114 (low): 50% [YES] (11.1s) — The neuron detects the token/subword **"Web"** or **"web"** (and closely related
+  [23/200] Feature 642 (low): 100% [YES] (5.8s) — ## Pattern Description
+
+This neuron detects tokens that begin with the letter **
+  [24/200] Feature 6081 (low): 100% [YES] (4.7s) — The neuron detects the word "lead" and its inflected forms ("leads," "leading," 
+  [25/200] Feature 16216 (low): 100% [YES] (8.4s) — The neuron detects the pattern of a **month name followed by a space/gap before 
+  [26/200] Feature 9064 (low): 17% [no] (11.3s) — The neuron detects the token sequence "**Ar**" (capital A followed by lowercase 
+  [27/200] Feature 12610 (low): 67% [YES] (10.9s) — The neuron appears to activate on the token **"We"** (capital W) at the beginnin
+  [28/200] Feature 13500 (low): 20% [no] (12.4s) — Looking at the marked tokens across all excerpts:
+
+- `**&**` — ampersand
+- `**Ba
+  [29/200] Feature 13496 (low): 30% [no] (10.7s) — The neuron appears to activate on tokens within text about **web accessibility s
+  [30/200] Feature 4383 (low): 0% [no] (11.9s) — The neuron detects the token/subword **"Aut"** or **"Auto"** (case-insensitive v
+  [31/200] Feature 10146 (low): 80% [YES] (12.4s) — The neuron detects the token "**Al**" as a capitalized subword/prefix, specifica
+  [32/200] Feature 2314 (low): 20% [no] (10.8s) — The neuron detects the substring **"ip"** (lowercase) appearing as part of a lar
+  [33/200] Feature 10342 (low): 25% [no] (13.3s) — ## Pattern Description
+
+The neuron detects **<author>t or "hidden" consonant digrap
+  [34/200] Feature 4321 (low): 0% [no] (10.9s) — The neuron detects the token sequence "**Am**" or "**am**" — specifically the le
+  [35/200] Feature 16132 (low): 100% [YES] (8.7s) — ## Pattern Description
+
+This neuron detects the subword token **"bit"** or **"bi
+  [36/200] Feature 2410 (low): 0% [no] (14.6s) — The neuron appears to activate on tokens that appear within **dental/oral health
+  [37/200] Feature 5844 (low): 100% [YES] (4.5s) — The neuron detects forms of the verb "live/lives/lived/living" — specifically co
+  [38/200] Feature 2311 (low): 30% [no] (11.1s) — ## Pattern Description
+
+This neuron detects the token **"Be"** (or **"be"**) at 
+  [39/200] Feature 8158 (low): 100% [YES] (5.5s) — The neuron detects forms of the verb **"grow"** (grow, grew, grown, growing, gro
+  [40/200] Feature 6748 (low): 14% [no] (10.5s) — The neuron appears to detect the token pattern "cl" (or "kl" as a variant) at th
+  [41/200] Feature 13624 (low): 100% [YES] (4.6s) — The neuron detects the word "As" (case-insensitive) when it appears at or near t
+  [42/200] Feature 7227 (low): 10% [no] (14.0s) — Looking at the marked tokens: **cho**, **ü**, **en**, **Gö**, **ie**, **ue**, **
+  [43/200] Feature 6896 (low): 10% [no] (9.2s) — The neuron appears to detect tokens that occur within or immediately adjacent to
+  [44/200] Feature 445 (low): 100% [YES] (4.9s) — The neuron detects the word **"love"** — specifically the exact token "love" (or
+  [45/200] Feature 11839 (low): 70% [YES] (10.4s) — The neuron detects the word "of" when it appears as part of a formal institution
+  [46/200] Feature 8007 (low): 100% [YES] (3.7s) — The neuron detects the **dollar sign (`$`) token when it immediately precedes a 
+  [47/200] Feature 13567 (low): 40% [no] (9.0s) — The neuron detects the token **"class"** (case-insensitively) as a standalone wo
+  [48/200] Feature 2289 (low): 90% [YES] (6.3s) — The neuron detects the word "turn" (and its inflected forms like "turned"), spec
+  [49/200] Feature 12404 (low): 50% [YES] (11.1s) — The neuron detects tokens that are the beginning of a capitalized word starting 
+  [50/200] Feature 11074 (low): 88% [YES] (10.7s) — The neuron detects the word "sweet" (or its prefix "sweet" in "sweetened"), rega
+  [51/200] Feature 8987 (medium): 90% [YES] (5.5s) — The neuron detects the words **"Note"** or **"Notice"** when used as attention-d
+  [52/200] Feature 2151 (medium): 62% [YES] (9.8s) — The neuron detects the word "to" (or "for") functioning as an infinitive marker 
+  [53/200] Feature 2061 (medium): 33% [no] (13.2s) — ## Pattern Description
+
+This neuron detects **punctuation marks and whitespace t
+  [54/200] Feature 6758 (medium): 30% [no] (8.7s) — ## Pattern Description
+
+This neuron detects tokens that appear in **regulatory/l
+  [55/200] Feature 15967 (medium): 100% [YES] (4.3s) — The neuron detects the word "create" (and its inflected forms: "creating," "crea
+  [56/200] Feature 11871 (medium): 100% [YES] (9.6s) — The neuron activates on **commas that follow a specific location, date, or prope
+  [57/200] Feature 12021 (medium): 0% [no] (4.7s) — The neuron appears to detect **hedged first-person disclosure phrases** — specif
+  [58/200] Feature 1407 (medium): 20% [no] (8.9s) — The neuron appears to detect tokens related to **personal finance and debt/credi
+  [59/200] Feature 14812 (medium): 100% [YES] (4.4s) — The neuron detects the word "need" (and its inflected forms: "needs," "needed," 
+  [60/200] Feature 10024 (medium): 70% [YES] (9.4s) — The neuron detects **colon characters (`:`) that immediately follow a label/fiel
+  [61/200] Feature 13047 (medium): 0% [no] (12.8s) — Looking at the marked tokens: **Bir**nberg, **bare**foot, **n** (in Birnberg), *
+  [62/200] Feature 8877 (medium): 22% [no] (15.4s) — Looking at the marked tokens: **prices**, **family**, **Family**, **Starbucks**,
+  [63/200] Feature 1248 (medium): 0% [no] (12.1s) — ## Pattern Description
+
+The neuron appears to detect the **"mah" (or similar) sy
+  [64/200] Feature 7683 (medium): 30% [no] (9.6s) — The neuron appears to detect tokens that are part of compound medical/technical 
+  [65/200] Feature 7502 (medium): 33% [no] (11.8s) — Looking at the marked tokens across all excerpts:
+
+- **M**unn → capital M mid-wo
+  [66/200] Feature 14150 (medium): 20% [no] (11.5s) — ## Pattern Description
+
+This neuron appears to activate on tokens that appear in
+  [67/200] Feature 10297 (medium): 10% [no] (9.9s) — ## Pattern Description
+
+This neuron detects **Arabic-origin names and words**, s
+  [68/200] Feature 653 (medium): 80% [YES] (8.2s) — ## Neuron Pattern Description
+
+This neuron detects tokens related to **Christian
+  [69/200] Feature 11709 (medium): 40% [no] (8.3s) — ## Pattern Description
+
+This neuron detects tokens related to **professional cer
+  [70/200] Feature 2113 (medium): 30% [no] (7.0s) — The neuron appears to activate on tokens that appear within contexts describing 
+  [71/200] Feature 14303 (medium): 100% [YES] (9.4s) — The neuron activates on the word "New" (or "new") when it appears at the **begin
+  [72/200] Feature 6334 (medium): 10% [no] (10.2s) — ## Pattern Description
+
+This neuron detects **infinitive verb phrases following 
+  [73/200] Feature 11554 (medium): 12% [no] (12.5s) — The neuron appears to activate on tokens that occur within text about **motorcyc
+  [74/200] Feature 1498 (medium): 40% [no] (8.4s) — The neuron detects tokens that are part of **radio station call numbers/frequenc
+  [75/200] Feature 5696 (medium): 50% [YES] (14.0s) — ## Pattern Description
+
+The neuron detects **subject pronouns** (I, we, he, you,
+  [76/200] Feature 11532 (medium): 50% [YES] (9.8s) — The neuron detects **sports score results expressed as numerical scorelines** (e
+  [77/200] Feature 11065 (medium): 90% [YES] (8.1s) — ## Pattern Description
+
+This neuron detects the word **"the"** when it follows a
+  [78/200] Feature 7682 (medium): 0% [no] (11.6s) — The neuron appears to detect the beginning of proper names (specifically first n
+  [79/200] Feature 1475 (medium): 60% [YES] (6.8s) — The neuron detects the existential/presentational construction "there + be" (e.g
+  [80/200] Feature 710 (medium): 38% [no] (11.2s) — The neuron appears to detect possessive or associative markers ('s, `s) and prep
+  [81/200] Feature 5116 (medium): 0% [no] (11.4s) — The neuron appears to activate on tokens that occur within **date or timestamp c
+  [82/200] Feature 2266 (medium): 0% [no] (11.2s) — The neuron appears to detect the subword/token sequence **"on"** preceded by a c
+  [83/200] Feature 8976 (medium): 40% [no] (4.2s) — The neuron appears to detect content related to **sensory experiences involving 
+  [84/200] Feature 11992 (medium): 10% [no] (10.7s) — ## Pattern Description
+
+This neuron appears to detect **partial or complete toke
+  [85/200] Feature 8749 (medium): 60% [YES] (8.2s) — The neuron detects possessive or genitive constructions that precede references 
+  [86/200] Feature 13152 (medium): 44% [no] (11.8s) — ## Neuron Description
+
+This neuron detects **line/section breaks or separators b
+  [87/200] Feature 11100 (medium): 0% [no] (12.2s) — ## Pattern Description
+
+The neuron appears to detect **abbreviated initials or t
+  [88/200] Feature 10469 (medium): 22% [no] (12.1s) — The neuron appears to detect tokens that immediately precede a noun phrase descr
+  [89/200] Feature 6060 (medium): 30% [no] (10.5s) — ## Pattern Description
+
+This neuron detects **conjunctive/contrastive pivot word
+  [90/200] Feature 13090 (medium): 40% [no] (11.3s) — ## Pattern Description
+
+The neuron appears to detect **short, common function wo
+  [91/200] Feature 1125 (medium): 60% [YES] (9.7s) — The neuron detects the word **"in"** when it appears in sports contexts, specifi
+  [92/200] Feature 9547 (medium): 0% [no] (12.9s) — Looking at the marked tokens across all excerpts:
+
+- `&` (ampersand)
+- `Elizabet
+  [93/200] Feature 11508 (medium): 80% [YES] (8.4s) — The neuron detects the word "of" when it follows a noun that marks a temporal bo
+  [94/200] Feature 1325 (medium): 67% [YES] (13.1s) — The neuron appears to activate on tokens that are part of a **registration/ident
+  [95/200] Feature 279 (medium): 0% [no] (6.6s) — ## Pattern Description
+
+This neuron detects **U.S. state names and county/region
+  [96/200] Feature 8905 (medium): 0% [no] (7.8s) — ## Pattern Description
+
+This neuron detects **passive voice past participles** —
+  [97/200] Feature 14788 (medium): 80% [YES] (10.2s) — The neuron detects forms of the verb **"play"** (play, plays, played, playing) s
+  [98/200] Feature 10560 (medium): 100% [YES] (4.9s) — The neuron detects the word **"From"** (case-insensitive), specifically when it 
+  [99/200] Feature 1610 (medium): 20% [no] (9.9s) — The neuron appears to activate on tokens within **direct quotes from athletes/co
+  [100/200] Feature 8708 (medium): 40% [no] (5.0s) — The neuron detects the phrase **"part of"** (or its close variant "part" followe
+  [101/200] Feature 9667 (medium): 0% [no] (9.5s) — ## Pattern Description
+
+This neuron detects **URL/domain name components** — spe
+  [102/200] Feature 15312 (medium): 0% [no] (8.8s) — ## Pattern Description
+
+This neuron detects **words that are part of official go
+  [103/200] Feature 3151 (medium): 0% [no] (11.7s) — The neuron appears to activate on tokens that occur within text discussing **dis
+  [104/200] Feature 2743 (medium): 14% [no] (11.0s) — The neuron appears to activate on tokens that appear in contexts describing **so
+  [105/200] Feature 7176 (medium): 40% [no] (9.5s) — The neuron detects the word "in" (or occasionally the word immediately before "i
+  [106/200] Feature 2394 (medium): 50% [YES] (10.2s) — The neuron appears to detect tokens that appear in contexts involving **social r
+  [107/200] Feature 4725 (medium): 70% [YES] (11.8s) — ## Pattern Description
+
+The neuron detects **prepositions or conjunctions that i
+  [108/200] Feature 994 (medium): 70% [YES] (9.0s) — ## Pattern Description
+
+This neuron detects **contrast or temporal transition ma
+  [109/200] Feature 14994 (medium): 80% [YES] (10.5s) — ## Pattern Description
+
+This neuron detects the letter **"X"** (uppercase or low
+  [110/200] Feature 8998 (medium): 60% [YES] (5.5s) — The neuron appears to detect tokens related to **cleaning, washing, or wiping ac
+  [111/200] Feature 9326 (medium): 17% [no] (12.5s) — The neuron appears to detect **subword tokens that are the middle or latter port
+  [112/200] Feature 2764 (medium): 40% [no] (4.4s) — The neuron detects words related to **sleep** — specifically the word "sleep" it
+  [113/200] Feature 7926 (medium): 80% [YES] (11.9s) — The neuron detects the pattern of a subject (often "I" or a person's name) follo
+  [114/200] Feature 12029 (medium): 70% [YES] (4.7s) — The neuron detects **punctuation marks (primarily commas, but also other punctua
+  [115/200] Feature 910 (medium): 20% [no] (10.5s) — The neuron detects **digits that appear as part of percentage figures**, specifi
+  [116/200] Feature 2942 (medium): 30% [no] (8.7s) — The neuron appears to detect tokens that appear in contexts describing **speed o
+  [117/200] Feature 3170 (medium): 40% [no] (6.4s) — The neuron detects tokens that introduce **audience-addressing conditional or ex
+  [118/200] Feature 2871 (medium): 100% [YES] (5.2s) — The neuron detects the phrase "I think" where the token **think** follows "I", s
+  [119/200] Feature 7116 (medium): 60% [YES] (8.6s) — The neuron appears to activate on tokens that immediately follow a sentence boun
+  [120/200] Feature 12297 (medium): 0% [no] (11.2s) — The neuron appears to detect **hyphenated compound words or brand/proper names w
+  [121/200] Feature 10740 (medium): 100% [YES] (7.9s) — The neuron detects **country/nation names** (or their partial tokens, such as "o
+  [122/200] Feature 10735 (medium): 40% [no] (10.4s) — ## Pattern Description
+
+This neuron appears to activate on **tokens within searc
+  [123/200] Feature 2481 (medium): 40% [no] (8.1s) — The neuron detects **auxiliary/linking verbs** (forms of "be" and "are") that fu
+  [124/200] Feature 16149 (medium): 10% [no] (10.0s) — ## Pattern Description
+
+This neuron appears to detect **prepositions and adjecti
+  [125/200] Feature 6339 (medium): 10% [no] (10.1s) — The neuron appears to activate on possessive or associative tokens that link a p
+  [126/200] Feature 9316 (medium): 50% [YES] (12.2s) — Looking at the marked tokens across all excerpts, they appear to be **digits or 
+  [127/200] Feature 15088 (medium): 10% [no] (7.3s) — The neuron appears to detect tokens related to **labor unions, worker organizati
+  [128/200] Feature 2497 (medium): 40% [no] (8.3s) — The neuron detects tokens that begin with the prefix **"De"/"de"** (case-insensi
+  [129/200] Feature 12950 (medium): 70% [YES] (7.8s) — The neuron appears to detect tokens that refer to **organizational personnel or 
+  [130/200] Feature 13837 (medium): 100% [YES] (4.6s) — The neuron detects the word "including" (and its variant "include") when used as
+  [131/200] Feature 9951 (medium): 100% [YES] (6.9s) — ## Pattern Description
+
+This neuron detects concepts related to **secrecy, conce
+  [132/200] Feature 11479 (medium): 100% [YES] (6.8s) — The neuron appears to detect tokens that immediately follow the preposition "for
+  [133/200] Feature 9946 (medium): 90% [YES] (6.6s) — ## Pattern Description
+
+The neuron detects **newline/paragraph break tokens that
+  [134/200] Feature 1460 (medium): 50% [YES] (10.9s) — The neuron appears to detect **file format conversion arrows and separators** in
+  [135/200] Feature 9568 (medium): 100% [YES] (4.6s) — ## Pattern Description
+
+The neuron detects the indefinite article **"A"** (capit
+  [136/200] Feature 1366 (medium): 20% [no] (10.9s) — The neuron appears to activate on **function words and common grammatical connec
+  [137/200] Feature 5941 (medium): 40% [no] (5.9s) — The neuron appears to detect tokens related to **fossil fuel / hydrocarbon energ
+  [138/200] Feature 7423 (medium): 0% [no] (9.4s) — ## Pattern Description
+
+This neuron appears to detect **tokens that are part of 
+  [139/200] Feature 1648 (medium): 38% [no] (12.5s) — ## Pattern Description
+
+This neuron detects **small integers (single or double-d
+  [140/200] Feature 103 (medium): 0% [no] (14.8s) — ## Pattern Description
+
+The neuron appears to detect **syllables or subword toke
+  [141/200] Feature 15380 (medium): 70% [YES] (5.8s) — The neuron detects the word **"where"** (case-insensitive), specifically activat
+  [142/200] Feature 3569 (medium): 60% [YES] (9.5s) — The neuron detects **range/span prepositions** — specifically the words "from," 
+  [143/200] Feature 2620 (medium): 20% [no] (11.0s) — The neuron activates on tokens that begin with "Th" (capital T followed by lower
+  [144/200] Feature 16278 (medium): 90% [YES] (5.4s) — The neuron detects the word **"within"** functioning as a preposition introducin
+  [145/200] Feature 11892 (medium): 33% [no] (11.8s) — The neuron detects the concept of **intelligence/smartness**, either as the word
+  [146/200] Feature 13990 (medium): 10% [no] (13.0s) — Looking at the marked tokens: **aving**, **aging**, **flooding**, **oming**, **a
+  [147/200] Feature 15169 (medium): 40% [no] (9.7s) — The neuron appears to activate on tokens that occur at the **beginning of bullet
+  [148/200] Feature 16010 (medium): 70% [YES] (5.3s) — The neuron activates on the word "save" (and its inflected forms like "saved") a
+  [149/200] Feature 203 (medium): 10% [no] (9.4s) — The neuron appears to activate on tokens within text about **youth development, 
+  [150/200] Feature 14837 (medium): 20% [no] (7.6s) — The neuron detects words and phrases related to **probability, likelihood, or ch
+  [151/200] Feature 7881 (high): 10% [no] (11.0s) — The neuron appears to detect language related to **medical/health treatments and
+  [152/200] Feature 12313 (high): 0% [no] (11.8s) — Looking at the marked tokens: **tube**, **passed**, **board**, **transitional**,
+  [153/200] Feature 12868 (high): 14% [no] (9.1s) — ## Pattern Description
+
+The neuron appears to detect **capitalized words or toke
+  [154/200] Feature 10815 (high): 88% [YES] (13.0s) — ## Pattern Description
+
+The marked tokens all occur at the **end of one complete
+  [155/200] Feature 11930 (high): 10% [no] (9.4s) — ## Pattern Description
+
+The neuron detects tokens that are the **first part of a
+  [156/200] Feature 11639 (high): 30% [no] (10.0s) — ## Pattern Description
+
+This neuron appears to detect **auxiliary/modal verbs an
+  [157/200] Feature 12939 (high): 43% [no] (12.5s) — ## Pattern Description
+
+This neuron detects tokens that appear in **comparative 
+  [158/200] Feature 750 (high): 33% [no] (11.7s) — Looking at the marked tokens across the excerpts, I notice they appear in contex
+  [159/200] Feature 2038 (high): 0% [no] (12.0s) — ## Pattern Description
+
+This neuron detects tokens that appear immediately after
+  [160/200] Feature 14517 (high): 90% [YES] (6.1s) — ## Pattern Description
+
+This neuron detects **"The"** (capitalized, definite art
+  [161/200] Feature 4694 (high): 50% [YES] (12.7s) — ## Neuron Description
+
+This neuron activates on tokens that begin with a capital
+  [162/200] Feature 11344 (high): 10% [no] (9.4s) — ## Pattern Description
+
+The neuron appears to activate on **function words and s
+  [163/200] Feature 7953 (high): 40% [no] (11.1s) — ## Pattern Description
+
+This neuron appears to activate on **tokens that immedia
+  [164/200] Feature 3991 (high): 0% [no] (10.6s) — Looking at the marked tokens: **8**, **2**, **of**, **the**, **embrace**, **our*
+  [165/200] Feature 15184 (high): 10% [no] (7.3s) — The neuron appears to detect tokens that occur in contexts describing **service 
+  [166/200] Feature 4177 (high): 60% [YES] (11.3s) — ## Pattern Description
+
+The neuron appears to detect **industry/sector/domain la
+  [167/200] Feature 7032 (high): 11% [no] (12.1s) — The neuron appears to activate on tokens that appear just before or within the c
+  [168/200] Feature 13902 (high): 30% [no] (10.0s) — ## Pattern Description
+
+This neuron appears to activate on tokens that occur wit
+  [169/200] Feature 16318 (high): 10% [no] (9.1s) — The neuron appears to detect concepts related to **high demand, scarcity, or cap
+  [170/200] Feature 13874 (high): 33% [no] (11.0s) — Looking at the marked tokens: **With**, **the**, **business**, **created**, **th
+  [171/200] Feature 6873 (high): 0% [no] (12.9s) — Looking at the marked tokens: **Call**, **Cast**, **Mix**, **Pop**, **pop**, **C
+  [172/200] Feature 10020 (high): 70% [YES] (6.9s) — The neuron detects the word "move/moved/moving" specifically in the context of *
+  [173/200] Feature 9526 (high): 20% [no] (12.1s) — The neuron detects **commas or prepositions that immediately follow a day-of-the
+  [174/200] Feature 11800 (high): 10% [no] (10.9s) — The neuron appears to detect tokens that are part of words describing the **begi
+  [175/200] Feature 1667 (high): 38% [no] (15.0s) — Looking at the marked tokens: **Ark**, **K** (in PERKINS), **OK**, **ek**, **Uk*
+  [176/200] Feature 16169 (high): 70% [YES] (11.2s) — The neuron appears to detect **prepositions indicating placement or surface cont
+  [177/200] Feature 920 (high): 0% [no] (10.9s) — Looking at the marked tokens across all excerpts:
+
+- **X** (DroidCamX)
+- **Secur
+  [178/200] Feature 7470 (high): 20% [no] (10.2s) — The neuron appears to detect tokens that are part of descriptions of **food and 
+  [179/200] Feature 7728 (high): 0% [no] (11.9s) — ## Pattern Description
+
+The neuron detects **acronyms and abbreviations**, speci
+  [180/200] Feature 11265 (high): 0% [no] (9.7s) — Looking at the marked tokens: **time** (×4), **road**, **sports**, **department*
+  [181/200] Feature 4462 (high): 30% [no] (4.9s) — The neuron appears to detect tokens related to **completing or accomplishing tas
+  [182/200] Feature 10750 (high): 14% [no] (12.1s) — Looking at the marked tokens:
+
+- **nd** (Tyndale)
+- **ind** (Swindon)
+- **nd**al
+  [183/200] Feature 303 (high): 20% [no] (9.2s) — The neuron appears to activate on **function words** (prepositions, auxiliary ve
+  [184/200] Feature 15340 (high): 40% [no] (10.9s) — The neuron appears to detect tokens that occur **between two items in a paired o
+  [185/200] Feature 11522 (high): 30% [no] (14.2s) — Looking at the marked tokens: **a**, **their**, **3**, **in**, **of**, **[space]
+  [186/200] Feature 13383 (high): 90% [YES] (5.4s) — The neuron detects words related to the act of consuming food orally — specifica
+  [187/200] Feature 11938 (high): 0% [no] (7.8s) — The neuron appears to detect **auxiliary/linking verbs and present participles (
+  [188/200] Feature 1700 (high): 90% [YES] (11.2s) — The neuron consistently activates on the word **"the"** (the definite article) w
+  [189/200] Feature 9043 (high): 0% [no] (12.2s) — ## Pattern Description
+
+The marked tokens are all **word-initial capitalized sub
+  [190/200] Feature 15177 (high): 10% [no] (9.9s) — ## Pattern Description
+
+The marked tokens are all **punctuation marks (commas, e
+  [191/200] Feature 11495 (high): 100% [YES] (4.7s) — ## Pattern Description
+
+This neuron detects **units of time duration** — specifi
+  [192/200] Feature 6899 (high): 30% [no] (10.4s) — The neuron appears to detect **unit rate or quantity expressions** — specificall
+  [193/200] Feature 11371 (high): 100% [YES] (4.0s) — The neuron detects tokens that express **cessation, discontinuation, or withdraw
+  [194/200] Feature 1941 (high): 100% [YES] (5.0s) — The neuron detects references to **holidays or festive occasions**, specifically
+  [195/200] Feature 3145 (high): 43% [no] (13.3s) — Looking at the marked tokens: **8**, **2**, **reck**, **ut**, **of**, **PL**, **
+  [196/200] Feature 6642 (high): 0% [no] (11.7s) — Looking at the marked tokens: **REAM**, **'s**, **to**, **uggling**, **too**, **
+  [197/200] Feature 599 (high): 0% [no] (11.5s) — The neuron appears to activate on tokens that are the beginning of words startin
+  [198/200] Feature 7005 (high): 0% [no] (11.3s) — ## Pattern Description
+
+The marked tokens are all **nouns that complete a compou
+  [199/200] Feature 13447 (high): 0% [no] (13.1s) — ## Pattern Description
+
+This neuron detects the token/subword **"prop"** (and it
+  [200/200] Feature 10514 (high): 0% [no] (12.1s) — Looking at the marked tokens: **H.R.**, **Hor**st, **Hor**owitz, **HP**IS, **HC*
+
+==================================================
+Scoring adaptive_l2
+==================================================
+Features: 200 total, 0 already scored, 200 remaining
+  [1/200] Feature 3693 (low): 20% [no] (12.7s) — ## Pattern Description
+
+The neuron detects tokens that are the **capitalized beg
+  [2/200] Feature 10684 (low): 70% [YES] (9.3s) — ## Pattern Description
+
+This neuron detects **digits within address suite number
+  [3/200] Feature 6020 (low): 20% [no] (10.3s) — The neuron appears to detect the concept of **randomness or chance**, activating
+  [4/200] Feature 6220 (low): 0% [no] (10.4s) — The neuron detects **nobiliary particles or name prefixes** in surnames — specif
+  [5/200] Feature 14190 (low): 90% [YES] (4.8s) — The neuron detects variations of the word "break" (break, broke, breaking, break
+  [6/200] Feature 12969 (low): 60% [YES] (9.3s) — ## Pattern Description
+
+This neuron detects the title/abbreviation **"Dr." or "D
+  [7/200] Feature 9850 (low): 30% [no] (8.6s) — The neuron detects **comma or colon delimiters that separate items in a list**, 
+  [8/200] Feature 5310 (low): 11% [no] (10.6s) — The neuron activates on proper name tokens (or their subword components) that ar
+  [9/200] Feature 10462 (low): 50% [YES] (12.4s) — Looking at the marked tokens across the excerpts: **stock**, **a**, **to**, **ma
+  [10/200] Feature 8608 (low): 70% [YES] (4.7s) — The neuron detects the word **"Chief"** (case-insensitive) when used as part of 
+  [11/200] Feature 839 (low): 43% [no] (10.4s) — The neuron detects the word "cut" and its morphological variants (cutting, cuts)
+  [12/200] Feature 15093 (low): 90% [YES] (4.8s) — The neuron detects the word "whole" (or the subword token "whole" as part of "wh
+  [13/200] Feature 13016 (low): 0% [no] (13.8s) — Looking at the marked tokens: **ung**, **ung**, **lung**, **ung**, **ng**, **ump
+  [14/200] Feature 6919 (low): 25% [no] (12.7s) — The neuron appears to detect tokens that occur at **boundaries or separators wit
+  [15/200] Feature 12170 (low): 62% [YES] (12.2s) — The neuron detects the morpheme "wonder" (or its German equivalent "wunder"), ap
+  [16/200] Feature 3845 (low): 10% [no] (10.6s) — The neuron detects the subword/morpheme **"ins"** (or its immediate continuation
+  [17/200] Feature 6342 (low): 100% [YES] (5.6s) — The neuron detects the token "BY" or "By" (case-insensitive), specifically the s
+  [18/200] Feature 12704 (low): 100% [YES] (4.3s) — The neuron detects the word "choose" and its inflected forms (chooses, chose, ch
+  [19/200] Feature 13610 (low): 100% [YES] (4.8s) — The neuron detects the word "help" (and its inflected forms "helped," "helping")
+  [20/200] Feature 16103 (low): 20% [no] (8.8s) — The neuron appears to detect content related to **tax-advantaged savings and edu
+  [21/200] Feature 645 (low): 0% [no] (5.1s) — ## Neuron Description
+
+This neuron appears to detect **tokens that are part of b
+  [22/200] Feature 873 (low): 12% [no] (8.8s) — ## Pattern Description
+
+The neuron appears to detect **items in enumerated lists
+  [23/200] Feature 14479 (low): 100% [YES] (6.0s) — ## Pattern Description
+
+This neuron detects the opening parenthesis **`(`** that
+  [24/200] Feature 12036 (low): 30% [no] (9.7s) — The neuron detects the morpheme/substring **"sel"** (case-insensitive), appearin
+  [25/200] Feature 11328 (low): 11% [no] (8.8s) — ## Pattern Description
+
+The neuron detects **domain name components in URLs**, s
+  [26/200] Feature 263 (low): 33% [no] (12.7s) — ## Pattern Description
+
+The neuron detects the subword/character sequence **"Rut
+  [27/200] Feature 6170 (low): 38% [no] (15.3s) — ## Pattern Description
+
+This neuron detects the token/subword fragment **"phen"/
+  [28/200] Feature 7363 (low): 100% [YES] (4.1s) — The neuron detects the word **"system"** (or **"systems"**), including when it a
+  [29/200] Feature 15387 (low): 70% [YES] (4.3s) — ## Pattern Description
+
+This neuron detects **opening square brackets `[`** that
+  [30/200] Feature 4870 (low): 40% [no] (10.1s) — The neuron detects tokens that are part of the word "African" (or closely relate
+  [31/200] Feature 12576 (low): 90% [YES] (5.8s) — The neuron detects the word "low" (case-insensitive) as a token, specifically wh
+  [32/200] Feature 535 (low): 0% [no] (11.2s) — The neuron appears to activate on tokens that occur within contexts describing *
+  [33/200] Feature 2150 (low): 25% [no] (13.2s) — The neuron appears to detect the **"soph/sof/syc/sync/coord"** pattern — specifi
+  [34/200] Feature 11315 (low): 90% [YES] (9.7s) — The neuron activates on the capital letter **H** at the beginning of a new sente
+  [35/200] Feature 442 (low): 40% [no] (8.4s) — ## Pattern Description
+
+The neuron detects **women's first names** (or the first
+  [36/200] Feature 5979 (low): 90% [YES] (9.0s) — The neuron detects a closing parenthesis **)** that immediately follows a source
+  [37/200] Feature 5436 (low): 20% [no] (11.3s) — The neuron detects the token sequence "**For**" or "**fore**" as a capitalized p
+  [38/200] Feature 6507 (low): 10% [no] (8.9s) — The neuron detects **subword tokens that are parts of domain names or URLs**, sp
+  [39/200] Feature 5287 (low): 17% [no] (10.0s) — Looking at the marked tokens: **Recev**, **ck**, **conce**, **reck**, **Conce**,
+  [40/200] Feature 697 (low): 100% [YES] (6.4s) — The neuron detects the word **"way"** (or **"ways"**) when used in the construct
+  [41/200] Feature 6101 (low): 20% [no] (8.2s) — The neuron appears to activate on tokens that occur within **geographic range or
+  [42/200] Feature 10205 (low): 100% [YES] (4.2s) — ## Neuron Description
+
+This neuron detects the word **"learning"** when it appea
+  [43/200] Feature 3485 (low): 10% [no] (10.6s) — The neuron primarily detects the word "empty" (and its morphological variants li
+  [44/200] Feature 3763 (low): 100% [YES] (4.6s) — The neuron detects the punctuation mark (dash or em-dash) that immediately follo
+  [45/200] Feature 10638 (low): 57% [YES] (12.0s) — ## Pattern Description
+
+This neuron detects **tokens that appear immediately aft
+  [46/200] Feature 12864 (low): 67% [YES] (12.9s) — ## Pattern Description
+
+This neuron detects the substring **"am"** appearing in 
+  [47/200] Feature 1856 (low): 22% [no] (9.1s) — The neuron appears to detect **punctuation marks and common function words that 
+  [48/200] Feature 5411 (low): 90% [YES] (4.6s) — The neuron detects the word "count" (and its inflected forms: "counting," "count
+  [49/200] Feature 9927 (low): 100% [YES] (8.2s) — The neuron detects the word "far" (or the beginning of words starting with "far-
+  [50/200] Feature 16091 (low): 70% [YES] (9.4s) — ## Pattern Description
+
+The neuron appears to detect **sentence/section boundary
+  [51/200] Feature 9538 (medium): 40% [no] (9.6s) — ## Pattern Description
+
+This neuron detects the preposition **"for"** when it in
+  [52/200] Feature 13222 (medium): 100% [YES] (4.5s) — The neuron detects the word **"set"** (in various forms: "set," "sets"), specifi
+  [53/200] Feature 4557 (medium): 12% [no] (10.1s) — ## Pattern Description
+
+This neuron activates on the token that **immediately fo
+  [54/200] Feature 16108 (medium): 20% [no] (8.6s) — The neuron detects verbs related to **formally asking for, seeking, or demanding
+  [55/200] Feature 13453 (medium): 100% [YES] (4.8s) — ## Pattern Description
+
+The neuron detects **nouns referring to work, tasks, or 
+  [56/200] Feature 4458 (medium): 100% [YES] (6.5s) — ## Pattern Description
+
+This neuron detects **newline/line-break transitions bet
+  [57/200] Feature 5517 (medium): 20% [no] (14.8s) — Looking at the marked tokens: "ateful" (Grateful), "ecstasy", "6" (1960s), "meth
+  [58/200] Feature 5962 (medium): 30% [no] (11.1s) — Looking at the marked tokens across all excerpts, they appear in contexts involv
+  [59/200] Feature 933 (medium): 33% [no] (10.8s) — ## Pattern Description
+
+This neuron detects **subword tokens that are parts of u
+  [60/200] Feature 5541 (medium): 10% [no] (9.9s) — ## Pattern Description
+
+This neuron detects **health risk and adverse effects la
+  [61/200] Feature 8717 (medium): 100% [YES] (10.3s) — The neuron activates on the digit **4** (or the word "Four") when it appears as 
+  [62/200] Feature 4226 (medium): 90% [YES] (8.3s) — The neuron detects the **last digit of a year** in a date string — specifically,
+  [63/200] Feature 10883 (medium): 38% [no] (11.4s) — The neuron appears to activate on tokens that immediately follow the name or abb
+  [64/200] Feature 8555 (medium): 0% [no] (10.3s) — The neuron appears to detect **underscore characters (`_`) used as separators or
+  [65/200] Feature 13082 (medium): 0% [no] (9.7s) — The neuron appears to activate on tokens that begin with or contain the letters 
+  [66/200] Feature 1584 (medium): 20% [no] (6.5s) — Looking at the marked tokens: **Career**, **Technical**, **CT**, **career**, **a
+  [67/200] Feature 1447 (medium): 0% [no] (13.6s) — ## Pattern Description
+
+The neuron detects **verb stems that are the beginning o
+  [68/200] Feature 3160 (medium): 30% [no] (11.3s) — The neuron appears to detect **function words and common grammatical tokens** (a
+  [69/200] Feature 12281 (medium): 90% [YES] (4.5s) — ## Pattern Description
+
+This neuron detects the word **"We"** (or its contractio
+  [70/200] Feature 3426 (medium): 50% [YES] (10.6s) — The neuron detects **digits that appear in the middle of patent/document identif
+  [71/200] Feature 8861 (medium): 12% [no] (10.4s) — Looking at the marked tokens: **Louisiana**, **is**, **will**, **8**, **the**, *
+  [72/200] Feature 4718 (medium): 100% [YES] (4.3s) — The neuron detects the word "travel" (and its inflected forms like "travelled" a
+  [73/200] Feature 9934 (medium): 90% [YES] (9.4s) — The neuron detects **colons used as title separators**, specifically the colon t
+  [74/200] Feature 4591 (medium): 10% [no] (10.2s) — The neuron detects tokens that are part of the word "compete" and its morphologi
+  [75/200] Feature 2870 (medium): 100% [YES] (6.0s) — The neuron detects the word "coming" (including the subword "ING" in "COMING"), 
+  [76/200] Feature 175 (medium): 100% [YES] (3.7s) — The neuron detects the word "This" (capitalized) when it appears at the beginnin
+  [77/200] Feature 15378 (medium): 89% [YES] (11.0s) — The neuron appears to detect tokens that are part of specific numbers or numeric
+  [78/200] Feature 11885 (medium): 20% [no] (10.6s) — The neuron detects the word "sing" and its morphological variants (singing, sing
+  [79/200] Feature 7814 (medium): 0% [no] (9.4s) — The neuron appears to activate on tokens within **Christian/religious devotional
+  [80/200] Feature 8321 (medium): 10% [no] (8.8s) — The neuron appears to detect tokens related to **clothing and body coverage**, p
+  [81/200] Feature 1328 (medium): 100% [YES] (5.4s) — The neuron detects words related to **subjective viewpoints or evaluations** — s
+  [82/200] Feature 12471 (medium): 38% [no] (12.6s) — ## Pattern Description
+
+This neuron detects **tokens that are the beginning of a
+  [83/200] Feature 4411 (medium): 50% [YES] (9.6s) — The neuron activates on **commas that appear within list-like enumerations**, sp
+  [84/200] Feature 1400 (medium): 80% [YES] (5.7s) — ## Pattern Description
+
+This neuron detects words or phrases expressing **associ
+  [85/200] Feature 4325 (medium): 30% [no] (10.3s) — The neuron appears to activate on tokens that appear **within comma-separated li
+  [86/200] Feature 13097 (medium): 40% [no] (9.1s) — The neuron appears to activate on tokens within a specific repeated passage abou
+  [87/200] Feature 2232 (medium): 30% [no] (10.9s) — Looking at the marked tokens: **the**, **microwave**, **wireless**, **FT**, **ad
+  [88/200] Feature 4305 (medium): 40% [no] (10.7s) — The neuron appears to detect **linking/copular verbs and auxiliary verbs** (is, 
+  [89/200] Feature 272 (medium): 30% [no] (5.2s) — ## Neuron Description
+
+This neuron detects tokens appearing in contexts related 
+  [90/200] Feature 10780 (medium): 90% [YES] (6.8s) — The neuron detects words related to the movement or passage of things through a 
+  [91/200] Feature 1488 (medium): 80% [YES] (7.8s) — The neuron detects possessive pronouns and determiners (*my*, *your*, *her*, *th
+  [92/200] Feature 10894 (medium): 10% [no] (10.5s) — The neuron appears to detect tokens that appear in contexts describing **parenta
+  [93/200] Feature 10260 (medium): 30% [no] (8.6s) — The neuron appears to activate on **common function words and short grammatical 
+  [94/200] Feature 4143 (medium): 0% [no] (12.1s) — Looking at the marked tokens across all excerpts, I need to find what they have 
+  [95/200] Feature 7289 (medium): 10% [no] (8.5s) — The neuron detects geographic body-of-water terms (such as "bay," "gulf," "valle
+  [96/200] Feature 9880 (medium): 30% [no] (8.2s) — The neuron appears to activate on tokens that appear shortly after a proper noun
+  [97/200] Feature 14246 (medium): 20% [no] (11.0s) — ## Pattern Description
+
+This neuron detects tokens that appear in **job-seeking,
+  [98/200] Feature 9064 (medium): 90% [YES] (11.6s) — ## Pattern Description
+
+The neuron detects the word **"all"** when it appears in
+  [99/200] Feature 2433 (medium): 40% [no] (9.3s) — ## Pattern Description
+
+This neuron detects **large-scale units of measurement o
+  [100/200] Feature 5251 (medium): 90% [YES] (5.5s) — The neuron detects the words **"overall"** and **"comprehensive"** (including th
+  [101/200] Feature 159 (medium): 100% [YES] (5.3s) — ## Neuron Description
+
+This neuron detects words referring to **mechanical/techn
+  [102/200] Feature 14466 (medium): 60% [YES] (7.4s) — The neuron detects words or subword tokens that describe a container, space, or 
+  [103/200] Feature 15179 (medium): 80% [YES] (4.7s) — The neuron detects **business entity type abbreviations** — specifically the tok
+  [104/200] Feature 9196 (medium): 40% [no] (12.1s) — Looking at the marked tokens across all excerpts: **&**, **with**, **generated**
+  [105/200] Feature 8229 (medium): 33% [no] (10.0s) — ## Pattern Description
+
+This neuron detects **boundary/transition points between
+  [106/200] Feature 1460 (medium): 40% [no] (10.8s) — The neuron detects tokens that appear in the context of **years/duration of expe
+  [107/200] Feature 9171 (medium): 40% [no] (11.0s) — ## Pattern Description
+
+This neuron detects **conjunctions and punctuation (comm
+  [108/200] Feature 9898 (medium): 30% [no] (8.1s) — The neuron appears to detect concepts related to **burdens, loads, or weights** 
+  [109/200] Feature 8174 (medium): 80% [YES] (5.8s) — ## Pattern Description
+
+This neuron detects tokens related to **oral/mouth conta
+  [110/200] Feature 6818 (medium): 70% [YES] (5.8s) — ## Pattern Description
+
+This neuron detects the **pipe character (`|`) that begi
+  [111/200] Feature 7031 (medium): 20% [no] (9.3s) — The neuron appears to detect **common function words and punctuation marks** (pr
+  [112/200] Feature 3758 (medium): 20% [no] (13.1s) — ## Pattern Description
+
+This neuron detects **morphemes that are parts of longer
+  [113/200] Feature 3455 (medium): 0% [no] (10.6s) — The neuron appears to detect tokens that occur within the context of **web acces
+  [114/200] Feature 3404 (medium): 100% [YES] (3.8s) — The neuron detects the word **"when"** functioning as a temporal/conditional sub
+  [115/200] Feature 5299 (medium): 40% [no] (10.5s) — The neuron detects passive voice verbs indicating formal appointment or selectio
+  [116/200] Feature 13046 (medium): 0% [no] (13.1s) — ## Pattern Description
+
+The neuron detects **gerund/present-participle verb form
+  [117/200] Feature 6454 (medium): 30% [no] (5.6s) — ## Pattern Description
+
+This neuron detects **invitations or calls-to-action enc
+  [118/200] Feature 14142 (medium): 20% [no] (12.0s) — The neuron appears to detect tokens that appear in contexts related to **recogni
+  [119/200] Feature 13572 (medium): 38% [no] (10.4s) — The neuron detects **digits that appear in the middle of patent/publication numb
+  [120/200] Feature 8179 (medium): 60% [YES] (9.0s) — The neuron detects the word "of" (or tokens immediately preceding/following it) 
+  [121/200] Feature 14955 (medium): 50% [YES] (9.1s) — The neuron appears to activate on **prepositions and determiners/adjectives that
+  [122/200] Feature 12639 (medium): 0% [no] (11.1s) — ## Pattern Description
+
+This neuron detects **content words that appear after "W
+  [123/200] Feature 8442 (medium): 0% [no] (7.3s) — ## Pattern Description
+
+This neuron appears to detect tokens that appear in **pr
+  [124/200] Feature 10354 (medium): 30% [no] (11.2s) — The neuron detects the token that begins a **press release wire service or news 
+  [125/200] Feature 9824 (medium): 20% [no] (6.5s) — The neuron appears to detect tokens that appear in **criminal justice/legal repo
+  [126/200] Feature 1781 (medium): 25% [no] (11.2s) — The neuron appears to detect tokens that appear **immediately after a word or ph
+  [127/200] Feature 7926 (medium): 10% [no] (9.3s) — ## Pattern Description
+
+This neuron detects **tokens that appear immediately aft
+  [128/200] Feature 7784 (medium): 30% [no] (8.8s) — The neuron detects tokens that are part of "unsurprising/expected outcome" const
+  [129/200] Feature 1158 (medium): 10% [no] (6.3s) — ## Pattern Description
+
+This neuron detects **career/life transitions and goal-d
+  [130/200] Feature 3111 (medium): 100% [YES] (12.0s) — The neuron detects the **pipe character `|` that begins a new row/field in a pat
+  [131/200] Feature 15776 (medium): 90% [YES] (8.1s) — The neuron detects the infinitive marker **"to"** when it follows a past partici
+  [132/200] Feature 7982 (medium): 100% [YES] (10.8s) — The neuron appears to detect **line/section breaks or structural boundaries in f
+  [133/200] Feature 14964 (medium): 60% [YES] (4.7s) — The neuron detects **first-person performative speech act verbs** (say, admit, w
+  [134/200] Feature 11103 (medium): 90% [YES] (4.8s) — The neuron detects large quantity words or number multiplier terms (like "hundre
+  [135/200] Feature 1637 (medium): 100% [YES] (7.4s) — The neuron detects tokens that are part of **verbs describing physical locomotio
+  [136/200] Feature 7831 (medium): 90% [YES] (8.0s) — The neuron detects **hedging/approximation adverbs** — words like "less," "virtu
+  [137/200] Feature 702 (medium): 40% [no] (9.6s) — ## Pattern Description
+
+This neuron detects **time duration expressions**, speci
+  [138/200] Feature 5718 (medium): 90% [YES] (5.7s) — The neuron detects words related to the concept of **entry/entrance/input** — sp
+  [139/200] Feature 14003 (medium): 30% [no] (8.2s) — The neuron detects the expletive/dummy pronoun "it" followed by a linking verb (
+  [140/200] Feature 12486 (medium): 30% [no] (9.1s) — The neuron appears to detect tokens that appear within **job posting / employmen
+  [141/200] Feature 9542 (medium): 10% [no] (11.3s) — ## Pattern Description
+
+This neuron detects **subword tokens that are internal s
+  [142/200] Feature 8223 (medium): 30% [no] (10.3s) — The neuron appears to activate on tokens that occur at or near a **boundary or d
+  [143/200] Feature 1634 (medium): 0% [no] (10.9s) — ## Pattern Description
+
+This neuron appears to activate on tokens that occur wit
+  [144/200] Feature 962 (medium): 90% [YES] (8.4s) — The neuron detects the coordinating conjunction **"and"** when it connects two a
+  [145/200] Feature 14269 (medium): 50% [YES] (10.4s) — The neuron appears to detect tokens occurring within **medical/clinical contexts
+  [146/200] Feature 718 (medium): 30% [no] (11.7s) — ## Pattern Description
+
+This neuron appears to detect tokens that occur within t
+  [147/200] Feature 6321 (medium): 60% [YES] (9.5s) — ## Pattern Description
+
+The neuron detects **plural noun endings**, specifically
+  [148/200] Feature 137 (medium): 44% [no] (13.0s) — Looking at the marked tokens across all excerpts, I need to find what they have 
+  [149/200] Feature 8474 (medium): 100% [YES] (6.0s) — The neuron detects the word **"is"** when it immediately follows a proper noun o
+  [150/200] Feature 16205 (medium): 80% [YES] (8.0s) — The neuron detects tokens that follow the word "some" as part of compound indefi
+  [151/200] Feature 6969 (high): 100% [YES] (10.1s) — Looking at the marked tokens, they all appear just before a **line break or newl
+  [152/200] Feature 13872 (high): 50% [YES] (8.9s) — The neuron detects the two-word phrase pattern "cost of" or "pay/paid for," spec
+  [153/200] Feature 15100 (high): 25% [no] (11.0s) — ## Pattern Description
+
+The neuron detects **abbreviated letter codes that follo
+  [154/200] Feature 14716 (high): 20% [no] (10.3s) — The neuron appears to activate on tokens that are part of a person's name abbrev
+  [155/200] Feature 15193 (high): 20% [no] (10.7s) — The neuron appears to activate on tokens that are part of **infinitive or purpos
+  [156/200] Feature 6340 (high): 30% [no] (11.5s) — The neuron appears to activate on **function words** (prepositions, determiners,
+  [157/200] Feature 1989 (high): 60% [YES] (9.9s) — ## Pattern Description
+
+This neuron detects **idiomatic prepositional phrases ex
+  [158/200] Feature 4627 (high): 44% [no] (11.1s) — Looking at the marked tokens: **of**, **Advanced**, **by**, **the**, **:**, **th
+  [159/200] Feature 230 (high): 20% [no] (14.9s) — Looking at the marked tokens: **to**, **line**, **They**, **me**, **to**, **left
+  [160/200] Feature 14251 (high): 20% [no] (13.9s) — Looking at the marked tokens across excerpts, I notice that many of them appear 
+  [161/200] Feature 14841 (high): 20% [no] (10.5s) — Looking at the marked tokens: **not**, **that**, **to**, **a**, **is**, **or**, 
+  [162/200] Feature 11158 (high): 100% [YES] (5.5s) — The neuron detects the indefinite article **"a"** when it precedes a noun phrase
+  [163/200] Feature 11506 (high): 100% [YES] (7.6s) — ## Pattern Description
+
+The neuron detects the pattern of **"A"** (the indefinit
+  [164/200] Feature 1027 (high): 30% [no] (13.1s) — Looking at the marked tokens across excerpts, I notice they are all tokens that 
+  [165/200] Feature 15721 (high): 10% [no] (11.3s) — ## Pattern Description
+
+This neuron appears to activate on tokens that are part 
+  [166/200] Feature 4067 (high): 25% [no] (8.2s) — The neuron appears to detect **conjunctions and prepositions used in list/enumer
+  [167/200] Feature 5329 (high): 0% [no] (12.8s) — Looking at the marked tokens: **more**, **it**, **and**, **'s**, **ways**, **not
+  [168/200] Feature 8269 (high): 0% [no] (13.1s) — ## Pattern Description
+
+This neuron detects **partial words (subword tokens) tha
+  [169/200] Feature 10125 (high): 0% [no] (10.7s) — Looking at the marked tokens: **aim**ed, **ney**ed, **ong**ed, **ENABLE**D, **sq
+  [170/200] Feature 7199 (high): 0% [no] (11.3s) — ## Pattern Description
+
+This neuron detects **short connector/separator tokens**
+  [171/200] Feature 6614 (high): 20% [no] (12.0s) — ## Pattern Description
+
+The neuron appears to detect **function words or short g
+  [172/200] Feature 3091 (high): 0% [no] (11.6s) — ## Pattern Description
+
+The neuron detects **verbs (or verb-like tokens) that fo
+  [173/200] Feature 13025 (high): 0% [no] (10.0s) — ## Pattern Description
+
+The neuron detects **geographic location names** (cities
+  [174/200] Feature 7652 (high): 12% [no] (13.7s) — Looking at the marked tokens: **see**, **the**, **'s**, **take**, **what**, **ca
+  [175/200] Feature 5536 (high): 60% [YES] (8.4s) — The neuron detects **sentence-ending punctuation marks** (periods, exclamation p
+  [176/200] Feature 7382 (high): 0% [no] (10.1s) — Looking at the marked tokens: **g**, **J**, **x**, **Mon**, **J**, **K**, **B**,
+  [177/200] Feature 972 (high): 0% [no] (8.0s) — The neuron appears to activate on tokens that appear in contexts expressing **al
+  [178/200] Feature 15626 (high): 0% [no] (13.9s) — Looking at the marked tokens: **teen**, **Gal**, **teen**, **Gal**, **Samsung**,
+  [179/200] Feature 13135 (high): 30% [no] (10.2s) — The neuron appears to activate on tokens that appear within **MLB.com sports jou
+  [180/200] Feature 4439 (high): 40% [no] (5.6s) — ## Pattern Description
+
+The neuron appears to detect **prepositions and function
+  [181/200] Feature 14523 (high): 50% [YES] (33.8s) — ## Pattern Description
+
+The marked tokens are all **present-tense verbs** (speci
+  [182/200] Feature 12351 (high): 30% [no] (11.1s) — ## Pattern Description
+
+The neuron appears to activate on **function words (auxi
+  [183/200] Feature 1915 (high): 22% [no] (10.2s) — ## Pattern Description
+
+The neuron detects **tokens that are the first part of a
+  [184/200] Feature 9523 (high): 60% [YES] (7.9s) — ## Pattern Description
+
+This neuron detects **sentence-initial or clause-initial
+  [185/200] Feature 12812 (high): 0% [no] (11.8s) — ## Pattern Description
+
+The neuron detects **name abbreviation boundaries** — sp
+  [186/200] Feature 12723 (high): 0% [no] (10.2s) — The neuron appears to detect tokens that are part of **ongoing or progressive ac
+  [187/200] Feature 5079 (high): 30% [no] (12.3s) — ## Pattern Description
+
+This neuron detects **prepositions or particles that fol
+  [188/200] Feature 4445 (high): 0% [no] (9.4s) — ## Pattern Description
+
+This neuron detects **proper noun compound phrases** whe
+  [189/200] Feature 2877 (high): 50% [YES] (10.3s) — The neuron appears to detect tokens that immediately follow a greeting or openin
+  [190/200] Feature 1739 (high): 43% [no] (14.7s) — Looking at the marked tokens: **was**, **parable**, **was**, **information**, **
+  [191/200] Feature 14400 (high): 14% [no] (12.7s) — Looking at the marked tokens across all excerpts: `,` (comma), `.` (period), `st
+  [192/200] Feature 1862 (high): 10% [no] (9.0s) — The neuron appears to detect tokens that occur in contexts expressing **negative
+  [193/200] Feature 7662 (high): 50% [YES] (9.8s) — ## Pattern Description
+
+This neuron detects **bullet point list item separators/
+  [194/200] Feature 13086 (high): 10% [no] (8.7s) — ## Pattern Description
+
+The neuron detects **tokens that are the beginning of pr
+  [195/200] Feature 12729 (high): 20% [no] (4.5s) — The neuron detects expressions of **eager anticipation or excitement about a fut
+  [196/200] Feature 11762 (high): 0% [no] (10.1s) — The neuron appears to detect tokens that are part of **modal or conditional nece
+  [197/200] Feature 10627 (high): 10% [no] (8.7s) — The neuron appears to detect tokens that occur **after a noun phrase referring t
+  [198/200] Feature 1892 (high): 20% [no] (10.7s) — ## Pattern Description
+
+This neuron detects **possessive or attributive markers*
+  [199/200] Feature 9126 (high): 20% [no] (10.0s) — The neuron appears to activate on tokens that are part of phrases describing a n
+  [200/200] Feature 2891 (high): 25% [no] (10.7s) — The neuron appears to activate on tokens that occur within a specific repeated p
+
+Results saved to experiments/exp33_results.json
+
+======================================================================
+SUMMARY
+======================================================================
+
+standard:
+  Alive features: 3308
+  Sampled: 200
+  Interpretability rate: 40.0%
+  Mean prediction accuracy: 43.3%
+  Low freq rate: 58.0% (n=50)
+  Medium freq rate: 40.0% (n=100)
+  High freq rate: 22.0% (n=50)
+  Est. total interpretable: 1,323
+
+adaptive_l2:
+  Alive features: 8830
+  Sampled: 200
+  Interpretability rate: 37.0%
+  Mean prediction accuracy: 42.8%
+  Low freq rate: 48.0% (n=50)
+  Medium freq rate: 40.0% (n=100)
+  High freq rate: 20.0% (n=50)
+  Est. total interpretable: 3,267
+
+Comparison:
+  Rate ratio (cosine/standard): 0.92x
+  Accuracy delta: -0.5%
+  Total interpretable ratio: 2.47x
+    Standard: 1,323
+    Cosine:   3,267

@@ -1,0 +1,344 @@
+Experiment 38: Optimal 500M Token SAE Training
+======================================================================
+Model: Qwen/Qwen3-8B
+Layers: [9, 18, 27]
+d_sae=16384, k=80, lr=0.0003, 500,000,000 tokens (122070 steps)
+Context length: 2048
+Init: sqrt(d) for all variants (NOT norm-adaptive)
+Checkpoints at: ['10%', '20%', '40%', '60%', '80%', '100%']
+Variants: ['adaptive_l2', 'group_G4']
+Total runs: 6
+Estimated time: ~60 hours on H100
+
+Note: Standard baselines from exp36 (exp36_results.json)
+
+Loading model...
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:00,  4.88it/s]
+Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:00,  4.83it/s]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:00<00:00,  4.80it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:00<00:00,  5.29it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00,  5.92it/s]
+Model loaded in 3.5s
+  Loaded existing results: ['adaptive_l2_L9', 'adaptive_l2_L18', 'adaptive_l2_L27', 'group_G4_L18', 'group_G4_L27']
+  Collecting eval activations for L9 (2,000,000 tokens)...
+    L9: 2,000,000 tokens in 174.5s (norm: mean=57.5, std=6.5)
+    L9: sqrt(d) init: scale_b = log(sqrt(4096)) = 4.1589 (mean_norm=57.5 for reference)
+  Collecting eval activations for L18 (2,000,000 tokens)...
+    L18: 2,000,000 tokens in 225.6s (norm: mean=97.7, std=9.9)
+    L18: sqrt(d) init: scale_b = log(sqrt(4096)) = 4.1589 (mean_norm=97.7 for reference)
+  Collecting eval activations for L27 (2,000,000 tokens)...
+    L27: 2,000,000 tokens in 301.1s (norm: mean=404.7, std=36.0)
+    L27: sqrt(d) init: scale_b = log(sqrt(4096)) = 4.1589 (mean_norm=404.7 for reference)
+
+---GPU---
+utilization.gpu [%], memory.used [MiB]
+0 %, 34261 MiB
+100 %, 34299 MiB
+
+  adaptive_l2_L9 already complete, skipping
+
+  adaptive_l2_L18 already complete, skipping
+
+  adaptive_l2_L27 already complete, skipping
+
+======================================================================
+  RUN: group_G4_L9 (encoder=group_G4, layer=9)
+======================================================================
+    sqrt(d) init: scale_b = 4.1589
+    Parameters: 134,238,216
+
+  Training group_G4/L9 | d_sae=16384, k=80, lr=0.0003, 500,000,000 tokens, 122070 steps
+    [group_G4/L9] step    500/122070 | loss=1757.5 | L0=80 | FVE=0.2165 | dead=0.072 | a=0.0007±0.0005 | 2.0M tok | ETA 11.4h
+    [group_G4/L9] step   1000/122070 | loss=1248.6 | L0=80 | FVE=0.4569 | dead=0.492 | a=0.0053±0.0010 | 4.1M tok | ETA 10.5h
+    [group_G4/L9] step   1500/122070 | loss=1007.5 | L0=80 | FVE=0.5564 | dead=0.607 | a=0.0168±0.0007 | 6.1M tok | ETA 10.2h
+    [group_G4/L9] step   2000/122070 | loss=899.4 | L0=80 | FVE=0.6018 | dead=0.608 | a=0.0297±0.0010 | 8.2M tok | ETA 10.0h
+    [group_G4/L9] step   2500/122070 | loss=835.0 | L0=80 | FVE=0.6315 | dead=0.608 | a=0.0401±0.0013 | 10.2M tok | ETA 9.8h
+    [group_G4/L9] step   3000/122070 | loss=787.5 | L0=80 | FVE=0.6508 | dead=0.597 | a=0.0466±0.0013 | 12.3M tok | ETA 9.7h
+    [group_G4/L9] step   3500/122070 | loss=755.8 | L0=80 | FVE=0.6664 | dead=0.591 | a=0.0502±0.0012 | 14.3M tok | ETA 9.6h
+    [group_G4/L9] step   4000/122070 | loss=726.6 | L0=80 | FVE=0.6773 | dead=0.584 | a=0.0507±0.0012 | 16.4M tok | ETA 9.6h
+    [group_G4/L9] step   4500/122070 | loss=703.6 | L0=80 | FVE=0.6860 | dead=0.578 | a=0.0485±0.0018 | 18.4M tok | ETA 9.5h
+    [group_G4/L9] step   5000/122070 | loss=678.2 | L0=80 | FVE=0.6962 | dead=0.578 | a=0.0443±0.0020 | 20.5M tok | ETA 9.5h
+    [group_G4/L9] step   5500/122070 | loss=695.1 | L0=80 | FVE=0.6898 | dead=0.571 | a=0.0386±0.0021 | 22.5M tok | ETA 9.5h
+    [group_G4/L9] step   6000/122070 | loss=685.3 | L0=80 | FVE=0.6980 | dead=0.567 | a=0.0298±0.0031 | 24.6M tok | ETA 9.5h
+    [group_G4/L9] step   6500/122070 | loss=671.5 | L0=80 | FVE=0.7061 | dead=0.561 | a=0.0222±0.0030 | 26.6M tok | ETA 9.4h
+    [group_G4/L9] step   7000/122070 | loss=648.8 | L0=80 | FVE=0.7109 | dead=0.555 | a=0.0172±0.0028 | 28.7M tok | ETA 9.4h
+    [group_G4/L9] step   7500/122070 | loss=645.1 | L0=80 | FVE=0.7127 | dead=0.547 | a=0.0136±0.0025 | 30.7M tok | ETA 9.3h
+    [group_G4/L9] step   8000/122070 | loss=649.3 | L0=80 | FVE=0.7149 | dead=0.538 | a=0.0112±0.0023 | 32.8M tok | ETA 9.3h
+    [group_G4/L9] step   8500/122070 | loss=636.8 | L0=80 | FVE=0.7195 | dead=0.532 | a=0.0089±0.0024 | 34.8M tok | ETA 9.2h
+    [group_G4/L9] step   9000/122070 | loss=638.8 | L0=80 | FVE=0.7174 | dead=0.522 | a=0.0077±0.0024 | 36.9M tok | ETA 9.2h
+    [group_G4/L9] step   9500/122070 | loss=623.2 | L0=80 | FVE=0.7215 | dead=0.513 | a=0.0066±0.0024 | 38.9M tok | ETA 9.1h
+    [group_G4/L9] step  10000/122070 | loss=623.8 | L0=80 | FVE=0.7238 | dead=0.507 | a=0.0059±0.0027 | 41.0M tok | ETA 9.1h
+    [group_G4/L9] step  10500/122070 | loss=648.6 | L0=80 | FVE=0.7136 | dead=0.495 | a=0.0053±0.0031 | 43.0M tok | ETA 9.1h
+    [group_G4/L9] step  11000/122070 | loss=637.1 | L0=80 | FVE=0.7178 | dead=0.487 | a=0.0044±0.0039 | 45.1M tok | ETA 9.0h
+    [group_G4/L9] step  11500/122070 | loss=635.3 | L0=80 | FVE=0.7191 | dead=0.476 | a=0.0042±0.0047 | 47.1M tok | ETA 9.0h
+    [group_G4/L9] step  12000/122070 | loss=607.9 | L0=80 | FVE=0.7279 | dead=0.471 | a=0.0039±0.0055 | 49.2M tok | ETA 9.0h
+    [group_G4/L9] Checkpoint saved at 10% (12207 steps)
+    [group_G4/L9] step  12500/122070 | loss=620.9 | L0=80 | FVE=0.7265 | dead=0.461 | a=0.0045±0.0063 | 51.2M tok | ETA 8.9h
+    [group_G4/L9] step  13000/122070 | loss=610.8 | L0=80 | FVE=0.7271 | dead=0.456 | a=0.0048±0.0072 | 53.2M tok | ETA 8.9h
+    [group_G4/L9] step  13500/122070 | loss=620.5 | L0=80 | FVE=0.7295 | dead=0.443 | a=0.0059±0.0082 | 55.3M tok | ETA 8.8h
+    [group_G4/L9] step  14000/122070 | loss=614.2 | L0=80 | FVE=0.7310 | dead=0.435 | a=0.0062±0.0089 | 57.3M tok | ETA 8.8h
+    [group_G4/L9] step  14500/122070 | loss=605.1 | L0=80 | FVE=0.7313 | dead=0.431 | a=0.0071±0.0097 | 59.4M tok | ETA 8.7h
+    [group_G4/L9] step  15000/122070 | loss=601.8 | L0=80 | FVE=0.7342 | dead=0.422 | a=0.0085±0.0107 | 61.4M tok | ETA 8.7h
+    [group_G4/L9] step  15500/122070 | loss=613.2 | L0=80 | FVE=0.7297 | dead=0.420 | a=0.0090±0.0114 | 63.5M tok | ETA 8.7h
+    [group_G4/L9] step  16000/122070 | loss=606.8 | L0=80 | FVE=0.7300 | dead=0.416 | a=0.0100±0.0121 | 65.5M tok | ETA 8.6h
+    [group_G4/L9] step  16500/122070 | loss=616.7 | L0=80 | FVE=0.7304 | dead=0.410 | a=0.0116±0.0130 | 67.6M tok | ETA 8.6h
+    [group_G4/L9] step  17000/122070 | loss=603.7 | L0=80 | FVE=0.7346 | dead=0.404 | a=0.0130±0.0137 | 69.6M tok | ETA 8.5h
+    [group_G4/L9] step  17500/122070 | loss=613.6 | L0=80 | FVE=0.7325 | dead=0.396 | a=0.0148±0.0144 | 71.7M tok | ETA 8.5h
+    [group_G4/L9] step  18000/122070 | loss=591.9 | L0=80 | FVE=0.7379 | dead=0.397 | a=0.0162±0.0152 | 73.7M tok | ETA 8.5h
+    [group_G4/L9] step  18500/122070 | loss=597.7 | L0=80 | FVE=0.7378 | dead=0.391 | a=0.0184±0.0158 | 75.8M tok | ETA 8.4h
+    [group_G4/L9] step  19000/122070 | loss=593.5 | L0=80 | FVE=0.7384 | dead=0.387 | a=0.0200±0.0165 | 77.8M tok | ETA 8.4h
+    [group_G4/L9] step  19500/122070 | loss=586.1 | L0=80 | FVE=0.7415 | dead=0.385 | a=0.0220±0.0171 | 79.9M tok | ETA 8.3h
+    [group_G4/L9] step  20000/122070 | loss=575.8 | L0=80 | FVE=0.7449 | dead=0.384 | a=0.0241±0.0178 | 81.9M tok | ETA 8.3h
+    [group_G4/L9] step  20500/122070 | loss=601.4 | L0=80 | FVE=0.7352 | dead=0.381 | a=0.0255±0.0184 | 84.0M tok | ETA 8.3h
+    [group_G4/L9] step  21000/122070 | loss=592.0 | L0=80 | FVE=0.7359 | dead=0.379 | a=0.0269±0.0189 | 86.0M tok | ETA 8.2h
+    [group_G4/L9] step  21500/122070 | loss=600.9 | L0=80 | FVE=0.7350 | dead=0.373 | a=0.0288±0.0194 | 88.1M tok | ETA 8.2h
+    [group_G4/L9] step  22000/122070 | loss=583.3 | L0=80 | FVE=0.7405 | dead=0.374 | a=0.0309±0.0200 | 90.1M tok | ETA 8.1h
+    [group_G4/L9] step  22500/122070 | loss=577.7 | L0=80 | FVE=0.7419 | dead=0.370 | a=0.0334±0.0205 | 92.2M tok | ETA 8.1h
+    [group_G4/L9] step  23000/122070 | loss=593.2 | L0=80 | FVE=0.7384 | dead=0.366 | a=0.0354±0.0211 | 94.2M tok | ETA 8.0h
+    [group_G4/L9] step  23500/122070 | loss=577.8 | L0=80 | FVE=0.7427 | dead=0.367 | a=0.0374±0.0215 | 96.3M tok | ETA 8.0h
+    [group_G4/L9] step  24000/122070 | loss=585.8 | L0=80 | FVE=0.7401 | dead=0.364 | a=0.0398±0.0221 | 98.3M tok | ETA 8.0h
+    [group_G4/L9] Checkpoint saved at 20% (24414 steps)
+    [group_G4/L9] step  24500/122070 | loss=577.9 | L0=80 | FVE=0.7464 | dead=0.361 | a=0.0424±0.0226 | 100.4M tok | ETA 7.9h
+    [group_G4/L9] step  25000/122070 | loss=588.1 | L0=80 | FVE=0.7425 | dead=0.358 | a=0.0445±0.0231 | 102.4M tok | ETA 7.9h
+    [group_G4/L9] step  25500/122070 | loss=589.5 | L0=80 | FVE=0.7374 | dead=0.359 | a=0.0466±0.0233 | 104.4M tok | ETA 7.9h
+    [group_G4/L9] step  26000/122070 | loss=587.8 | L0=80 | FVE=0.7393 | dead=0.356 | a=0.0482±0.0238 | 106.5M tok | ETA 7.8h
+    [group_G4/L9] step  26500/122070 | loss=600.8 | L0=80 | FVE=0.7380 | dead=0.357 | a=0.0503±0.0241 | 108.5M tok | ETA 7.8h
+    [group_G4/L9] step  27000/122070 | loss=588.8 | L0=80 | FVE=0.7402 | dead=0.355 | a=0.0524±0.0245 | 110.6M tok | ETA 7.7h
+    [group_G4/L9] step  27500/122070 | loss=575.2 | L0=80 | FVE=0.7452 | dead=0.354 | a=0.0549±0.0250 | 112.6M tok | ETA 7.7h
+    [group_G4/L9] step  28000/122070 | loss=567.5 | L0=80 | FVE=0.7469 | dead=0.351 | a=0.0575±0.0254 | 114.7M tok | ETA 7.6h
+    [group_G4/L9] step  28500/122070 | loss=581.8 | L0=80 | FVE=0.7434 | dead=0.351 | a=0.0599±0.0257 | 116.7M tok | ETA 7.6h
+    [group_G4/L9] step  29000/122070 | loss=573.8 | L0=80 | FVE=0.7465 | dead=0.348 | a=0.0621±0.0261 | 118.8M tok | ETA 7.6h
+    [group_G4/L9] step  29500/122070 | loss=566.5 | L0=80 | FVE=0.7466 | dead=0.347 | a=0.0643±0.0264 | 120.8M tok | ETA 7.5h
+    [group_G4/L9] step  30000/122070 | loss=565.0 | L0=80 | FVE=0.7489 | dead=0.346 | a=0.0669±0.0267 | 122.9M tok | ETA 7.5h
+    [group_G4/L9] step  30500/122070 | loss=572.6 | L0=80 | FVE=0.7490 | dead=0.346 | a=0.0692±0.0270 | 124.9M tok | ETA 7.4h
+    [group_G4/L9] step  31000/122070 | loss=583.0 | L0=80 | FVE=0.7406 | dead=0.345 | a=0.0711±0.0271 | 127.0M tok | ETA 7.4h
+    [group_G4/L9] step  31500/122070 | loss=579.1 | L0=80 | FVE=0.7416 | dead=0.343 | a=0.0732±0.0274 | 129.0M tok | ETA 7.4h
+    [group_G4/L9] step  32000/122070 | loss=597.2 | L0=80 | FVE=0.7392 | dead=0.341 | a=0.0757±0.0277 | 131.1M tok | ETA 7.3h
+    [group_G4/L9] step  32500/122070 | loss=576.0 | L0=80 | FVE=0.7450 | dead=0.341 | a=0.0779±0.0280 | 133.1M tok | ETA 7.3h
+    [group_G4/L9] step  33000/122070 | loss=564.6 | L0=80 | FVE=0.7482 | dead=0.342 | a=0.0803±0.0282 | 135.2M tok | ETA 7.2h
+    [group_G4/L9] step  33500/122070 | loss=570.0 | L0=80 | FVE=0.7488 | dead=0.339 | a=0.0827±0.0285 | 137.2M tok | ETA 7.2h
+    [group_G4/L9] step  34000/122070 | loss=574.5 | L0=80 | FVE=0.7439 | dead=0.340 | a=0.0850±0.0288 | 139.3M tok | ETA 7.1h
+    [group_G4/L9] step  34500/122070 | loss=569.3 | L0=80 | FVE=0.7467 | dead=0.338 | a=0.0873±0.0291 | 141.3M tok | ETA 7.1h
+    [group_G4/L9] step  35000/122070 | loss=571.4 | L0=80 | FVE=0.7492 | dead=0.338 | a=0.0896±0.0291 | 143.4M tok | ETA 7.1h
+    [group_G4/L9] step  35500/122070 | loss=574.4 | L0=80 | FVE=0.7481 | dead=0.337 | a=0.0921±0.0293 | 145.4M tok | ETA 7.0h
+    [group_G4/L9] step  36000/122070 | loss=584.6 | L0=80 | FVE=0.7413 | dead=0.336 | a=0.0936±0.0293 | 147.5M tok | ETA 7.0h
+    [group_G4/L9] step  36500/122070 | loss=576.6 | L0=80 | FVE=0.7421 | dead=0.336 | a=0.0954±0.0295 | 149.5M tok | ETA 7.0h
+    [group_G4/L9] step  37000/122070 | loss=572.1 | L0=80 | FVE=0.7461 | dead=0.336 | a=0.0978±0.0297 | 151.6M tok | ETA 6.9h
+    [group_G4/L9] step  37500/122070 | loss=570.7 | L0=80 | FVE=0.7473 | dead=0.334 | a=0.1002±0.0298 | 153.6M tok | ETA 6.9h
+    [group_G4/L9] step  38000/122070 | loss=576.5 | L0=80 | FVE=0.7457 | dead=0.334 | a=0.1023±0.0300 | 155.6M tok | ETA 6.8h
+    [group_G4/L9] step  38500/122070 | loss=578.8 | L0=80 | FVE=0.7467 | dead=0.334 | a=0.1048±0.0302 | 157.7M tok | ETA 6.8h
+    [group_G4/L9] step  39000/122070 | loss=571.4 | L0=80 | FVE=0.7464 | dead=0.332 | a=0.1070±0.0304 | 159.7M tok | ETA 6.7h
+    [group_G4/L9] step  39500/122070 | loss=570.5 | L0=80 | FVE=0.7495 | dead=0.333 | a=0.1093±0.0304 | 161.8M tok | ETA 6.7h
+    [group_G4/L9] step  40000/122070 | loss=572.2 | L0=80 | FVE=0.7484 | dead=0.331 | a=0.1113±0.0306 | 163.8M tok | ETA 6.7h
+    [group_G4/L9] step  40500/122070 | loss=572.8 | L0=80 | FVE=0.7493 | dead=0.331 | a=0.1138±0.0307 | 165.9M tok | ETA 6.6h
+    [group_G4/L9] step  41000/122070 | loss=578.8 | L0=80 | FVE=0.7438 | dead=0.331 | a=0.1154±0.0307 | 167.9M tok | ETA 6.6h
+    [group_G4/L9] step  41500/122070 | loss=575.5 | L0=80 | FVE=0.7470 | dead=0.331 | a=0.1173±0.0308 | 170.0M tok | ETA 6.5h
+    [group_G4/L9] step  42000/122070 | loss=565.5 | L0=80 | FVE=0.7485 | dead=0.329 | a=0.1196±0.0309 | 172.0M tok | ETA 6.5h
+    [group_G4/L9] step  42500/122070 | loss=572.3 | L0=80 | FVE=0.7481 | dead=0.330 | a=0.1215±0.0309 | 174.1M tok | ETA 6.5h
+    [group_G4/L9] step  43000/122070 | loss=575.4 | L0=80 | FVE=0.7461 | dead=0.329 | a=0.1239±0.0310 | 176.1M tok | ETA 6.4h
+    [group_G4/L9] step  43500/122070 | loss=561.7 | L0=80 | FVE=0.7494 | dead=0.330 | a=0.1259±0.0311 | 178.2M tok | ETA 6.4h
+    [group_G4/L9] step  44000/122070 | loss=560.3 | L0=80 | FVE=0.7522 | dead=0.330 | a=0.1278±0.0311 | 180.2M tok | ETA 6.3h
+    [group_G4/L9] step  44500/122070 | loss=564.2 | L0=80 | FVE=0.7493 | dead=0.329 | a=0.1302±0.0311 | 182.3M tok | ETA 6.3h
+    [group_G4/L9] step  45000/122070 | loss=572.9 | L0=80 | FVE=0.7490 | dead=0.326 | a=0.1323±0.0313 | 184.3M tok | ETA 6.3h
+    [group_G4/L9] step  45500/122070 | loss=562.2 | L0=80 | FVE=0.7500 | dead=0.328 | a=0.1345±0.0313 | 186.4M tok | ETA 6.2h
+    [group_G4/L9] step  46000/122070 | loss=572.5 | L0=80 | FVE=0.7460 | dead=0.326 | a=0.1362±0.0312 | 188.4M tok | ETA 6.2h
+    [group_G4/L9] step  46500/122070 | loss=569.3 | L0=80 | FVE=0.7471 | dead=0.326 | a=0.1380±0.0314 | 190.5M tok | ETA 6.1h
+    [group_G4/L9] step  47000/122070 | loss=571.0 | L0=80 | FVE=0.7472 | dead=0.326 | a=0.1400±0.0314 | 192.5M tok | ETA 6.1h
+    [group_G4/L9] step  47500/122070 | loss=571.7 | L0=80 | FVE=0.7481 | dead=0.326 | a=0.1421±0.0315 | 194.6M tok | ETA 6.1h
+    [group_G4/L9] step  48000/122070 | loss=565.0 | L0=80 | FVE=0.7478 | dead=0.327 | a=0.1439±0.0314 | 196.6M tok | ETA 6.0h
+    [group_G4/L9] step  48500/122070 | loss=561.5 | L0=80 | FVE=0.7499 | dead=0.327 | a=0.1459±0.0314 | 198.7M tok | ETA 6.0h
+    [group_G4/L9] Checkpoint saved at 40% (48828 steps)
+    [group_G4/L9] step  49000/122070 | loss=564.4 | L0=80 | FVE=0.7491 | dead=0.326 | a=0.1482±0.0314 | 200.7M tok | ETA 5.9h
+    [group_G4/L9] step  49500/122070 | loss=565.5 | L0=80 | FVE=0.7497 | dead=0.325 | a=0.1503±0.0315 | 202.8M tok | ETA 5.9h
+    [group_G4/L9] step  50000/122070 | loss=560.3 | L0=80 | FVE=0.7520 | dead=0.324 | a=0.1520±0.0314 | 204.8M tok | ETA 5.8h
+    [group_G4/L9] step  50500/122070 | loss=569.7 | L0=80 | FVE=0.7498 | dead=0.324 | a=0.1541±0.0313 | 206.8M tok | ETA 5.8h
+    [group_G4/L9] step  51000/122070 | loss=579.5 | L0=80 | FVE=0.7442 | dead=0.324 | a=0.1557±0.0313 | 208.9M tok | ETA 5.8h
+    [group_G4/L9] step  51500/122070 | loss=554.9 | L0=80 | FVE=0.7505 | dead=0.325 | a=0.1572±0.0313 | 210.9M tok | ETA 5.7h
+    [group_G4/L9] step  52000/122070 | loss=573.9 | L0=80 | FVE=0.7457 | dead=0.323 | a=0.1590±0.0313 | 213.0M tok | ETA 5.7h
+    [group_G4/L9] step  52500/122070 | loss=575.2 | L0=80 | FVE=0.7441 | dead=0.324 | a=0.1607±0.0313 | 215.0M tok | ETA 5.7h
+    [group_G4/L9] step  53000/122070 | loss=562.4 | L0=80 | FVE=0.7503 | dead=0.324 | a=0.1626±0.0313 | 217.1M tok | ETA 5.6h
+    [group_G4/L9] step  53500/122070 | loss=566.8 | L0=80 | FVE=0.7487 | dead=0.323 | a=0.1646±0.0313 | 219.1M tok | ETA 5.6h
+    [group_G4/L9] step  54000/122070 | loss=568.7 | L0=80 | FVE=0.7488 | dead=0.322 | a=0.1667±0.0312 | 221.2M tok | ETA 5.5h
+    [group_G4/L9] step  54500/122070 | loss=570.9 | L0=80 | FVE=0.7474 | dead=0.323 | a=0.1683±0.0312 | 223.2M tok | ETA 5.5h
+    [group_G4/L9] step  55000/122070 | loss=562.7 | L0=80 | FVE=0.7503 | dead=0.323 | a=0.1704±0.0312 | 225.3M tok | ETA 5.4h
+    [group_G4/L9] step  55500/122070 | loss=570.2 | L0=80 | FVE=0.7506 | dead=0.324 | a=0.1720±0.0311 | 227.3M tok | ETA 5.4h
+    [group_G4/L9] step  56000/122070 | loss=565.6 | L0=80 | FVE=0.7459 | dead=0.322 | a=0.1736±0.0310 | 229.4M tok | ETA 5.4h
+    [group_G4/L9] step  56500/122070 | loss=579.7 | L0=80 | FVE=0.7455 | dead=0.321 | a=0.1750±0.0309 | 231.4M tok | ETA 5.3h
+    [group_G4/L9] step  57000/122070 | loss=570.0 | L0=80 | FVE=0.7472 | dead=0.322 | a=0.1768±0.0308 | 233.5M tok | ETA 5.3h
+    [group_G4/L9] step  57500/122070 | loss=570.1 | L0=80 | FVE=0.7480 | dead=0.322 | a=0.1785±0.0308 | 235.5M tok | ETA 5.2h
+    [group_G4/L9] step  58000/122070 | loss=568.2 | L0=80 | FVE=0.7511 | dead=0.320 | a=0.1804±0.0308 | 237.6M tok | ETA 5.2h
+    [group_G4/L9] step  58500/122070 | loss=570.1 | L0=80 | FVE=0.7471 | dead=0.320 | a=0.1819±0.0308 | 239.6M tok | ETA 5.2h
+    [group_G4/L9] step  59000/122070 | loss=577.0 | L0=80 | FVE=0.7467 | dead=0.320 | a=0.1837±0.0306 | 241.7M tok | ETA 5.1h
+    [group_G4/L9] step  59500/122070 | loss=571.8 | L0=80 | FVE=0.7504 | dead=0.320 | a=0.1855±0.0306 | 243.7M tok | ETA 5.1h
+    [group_G4/L9] step  60000/122070 | loss=555.1 | L0=80 | FVE=0.7513 | dead=0.321 | a=0.1869±0.0305 | 245.8M tok | ETA 5.0h
+    [group_G4/L9] step  60500/122070 | loss=555.1 | L0=80 | FVE=0.7530 | dead=0.320 | a=0.1885±0.0305 | 247.8M tok | ETA 5.0h
+    [group_G4/L9] step  61000/122070 | loss=565.1 | L0=80 | FVE=0.7509 | dead=0.320 | a=0.1903±0.0305 | 249.9M tok | ETA 5.0h
+    [group_G4/L9] step  61500/122070 | loss=561.0 | L0=80 | FVE=0.7493 | dead=0.322 | a=0.1914±0.0303 | 251.9M tok | ETA 4.9h
+    [group_G4/L9] step  62000/122070 | loss=564.6 | L0=80 | FVE=0.7492 | dead=0.319 | a=0.1931±0.0303 | 254.0M tok | ETA 4.9h
+    [group_G4/L9] step  62500/122070 | loss=555.2 | L0=80 | FVE=0.7525 | dead=0.320 | a=0.1944±0.0303 | 256.0M tok | ETA 4.8h
+    [group_G4/L9] step  63000/122070 | loss=578.2 | L0=80 | FVE=0.7468 | dead=0.318 | a=0.1960±0.0302 | 258.0M tok | ETA 4.8h
+    [group_G4/L9] step  63500/122070 | loss=559.1 | L0=80 | FVE=0.7536 | dead=0.321 | a=0.1974±0.0300 | 260.1M tok | ETA 4.8h
+    [group_G4/L9] step  64000/122070 | loss=571.2 | L0=80 | FVE=0.7493 | dead=0.319 | a=0.1992±0.0300 | 262.1M tok | ETA 4.7h
+    [group_G4/L9] step  64500/122070 | loss=567.1 | L0=80 | FVE=0.7495 | dead=0.317 | a=0.2004±0.0300 | 264.2M tok | ETA 4.7h
+    [group_G4/L9] step  65000/122070 | loss=555.0 | L0=80 | FVE=0.7526 | dead=0.318 | a=0.2021±0.0300 | 266.2M tok | ETA 4.6h
+    [group_G4/L9] step  65500/122070 | loss=561.9 | L0=80 | FVE=0.7525 | dead=0.318 | a=0.2038±0.0298 | 268.3M tok | ETA 4.6h
+    [group_G4/L9] step  66000/122070 | loss=552.1 | L0=80 | FVE=0.7537 | dead=0.317 | a=0.2051±0.0297 | 270.3M tok | ETA 4.5h
+    [group_G4/L9] step  66500/122070 | loss=565.7 | L0=80 | FVE=0.7488 | dead=0.319 | a=0.2062±0.0296 | 272.4M tok | ETA 4.5h
+    [group_G4/L9] step  67000/122070 | loss=566.7 | L0=80 | FVE=0.7478 | dead=0.317 | a=0.2076±0.0295 | 274.4M tok | ETA 4.5h
+    [group_G4/L9] step  67500/122070 | loss=565.3 | L0=80 | FVE=0.7497 | dead=0.318 | a=0.2090±0.0294 | 276.5M tok | ETA 4.4h
+    [group_G4/L9] step  68000/122070 | loss=561.1 | L0=80 | FVE=0.7484 | dead=0.318 | a=0.2101±0.0293 | 278.5M tok | ETA 4.4h
+    [group_G4/L9] step  68500/122070 | loss=562.3 | L0=80 | FVE=0.7528 | dead=0.320 | a=0.2117±0.0292 | 280.6M tok | ETA 4.3h
+    [group_G4/L9] step  69000/122070 | loss=566.1 | L0=80 | FVE=0.7505 | dead=0.318 | a=0.2133±0.0291 | 282.6M tok | ETA 4.3h
+    [group_G4/L9] step  69500/122070 | loss=579.3 | L0=80 | FVE=0.7473 | dead=0.317 | a=0.2146±0.0290 | 284.7M tok | ETA 4.3h
+    [group_G4/L9] step  70000/122070 | loss=559.6 | L0=80 | FVE=0.7499 | dead=0.319 | a=0.2157±0.0289 | 286.7M tok | ETA 4.2h
+    [group_G4/L9] step  70500/122070 | loss=561.7 | L0=80 | FVE=0.7486 | dead=0.316 | a=0.2172±0.0289 | 288.8M tok | ETA 4.2h
+    [group_G4/L9] step  71000/122070 | loss=555.8 | L0=80 | FVE=0.7541 | dead=0.318 | a=0.2185±0.0287 | 290.8M tok | ETA 4.1h
+    [group_G4/L9] step  71500/122070 | loss=571.4 | L0=80 | FVE=0.7469 | dead=0.317 | a=0.2195±0.0285 | 292.9M tok | ETA 4.1h
+    [group_G4/L9] step  72000/122070 | loss=558.3 | L0=80 | FVE=0.7518 | dead=0.320 | a=0.2209±0.0285 | 294.9M tok | ETA 4.1h
+    [group_G4/L9] step  72500/122070 | loss=566.3 | L0=80 | FVE=0.7499 | dead=0.318 | a=0.2219±0.0284 | 297.0M tok | ETA 4.0h
+    [group_G4/L9] step  73000/122070 | loss=566.8 | L0=80 | FVE=0.7484 | dead=0.318 | a=0.2231±0.0283 | 299.0M tok | ETA 4.0h
+    [group_G4/L9] Checkpoint saved at 60% (73242 steps)
+    [group_G4/L9] step  73500/122070 | loss=565.0 | L0=80 | FVE=0.7506 | dead=0.320 | a=0.2241±0.0282 | 301.1M tok | ETA 3.9h
+    [group_G4/L9] step  74000/122070 | loss=564.6 | L0=80 | FVE=0.7503 | dead=0.316 | a=0.2255±0.0281 | 303.1M tok | ETA 3.9h
+    [group_G4/L9] step  74500/122070 | loss=567.7 | L0=80 | FVE=0.7464 | dead=0.319 | a=0.2266±0.0280 | 305.2M tok | ETA 3.9h
+    [group_G4/L9] step  75000/122070 | loss=571.7 | L0=80 | FVE=0.7496 | dead=0.318 | a=0.2278±0.0279 | 307.2M tok | ETA 3.8h
+    [group_G4/L9] step  75500/122070 | loss=560.3 | L0=80 | FVE=0.7523 | dead=0.317 | a=0.2291±0.0279 | 309.2M tok | ETA 3.8h
+    [group_G4/L9] step  76000/122070 | loss=559.4 | L0=80 | FVE=0.7529 | dead=0.318 | a=0.2300±0.0277 | 311.3M tok | ETA 3.7h
+    [group_G4/L9] step  76500/122070 | loss=556.9 | L0=80 | FVE=0.7514 | dead=0.319 | a=0.2309±0.0276 | 313.3M tok | ETA 3.7h
+    [group_G4/L9] step  77000/122070 | loss=558.5 | L0=80 | FVE=0.7512 | dead=0.318 | a=0.2320±0.0275 | 315.4M tok | ETA 3.7h
+    [group_G4/L9] step  77500/122070 | loss=560.3 | L0=80 | FVE=0.7503 | dead=0.319 | a=0.2330±0.0274 | 317.4M tok | ETA 3.6h
+    [group_G4/L9] step  78000/122070 | loss=582.5 | L0=80 | FVE=0.7464 | dead=0.317 | a=0.2341±0.0273 | 319.5M tok | ETA 3.6h
+    [group_G4/L9] step  78500/122070 | loss=558.9 | L0=80 | FVE=0.7508 | dead=0.318 | a=0.2351±0.0272 | 321.5M tok | ETA 3.5h
+    [group_G4/L9] step  79000/122070 | loss=560.5 | L0=80 | FVE=0.7520 | dead=0.316 | a=0.2363±0.0271 | 323.6M tok | ETA 3.5h
+    [group_G4/L9] step  79500/122070 | loss=561.1 | L0=80 | FVE=0.7529 | dead=0.320 | a=0.2372±0.0269 | 325.6M tok | ETA 3.5h
+    [group_G4/L9] step  80000/122070 | loss=561.6 | L0=80 | FVE=0.7516 | dead=0.317 | a=0.2383±0.0269 | 327.7M tok | ETA 3.4h
+    [group_G4/L9] step  80500/122070 | loss=551.7 | L0=80 | FVE=0.7552 | dead=0.317 | a=0.2394±0.0268 | 329.7M tok | ETA 3.4h
+    [group_G4/L9] step  81000/122070 | loss=556.8 | L0=80 | FVE=0.7534 | dead=0.316 | a=0.2403±0.0267 | 331.8M tok | ETA 3.3h
+    [group_G4/L9] step  81500/122070 | loss=567.0 | L0=80 | FVE=0.7498 | dead=0.318 | a=0.2411±0.0265 | 333.8M tok | ETA 3.3h
+    [group_G4/L9] step  82000/122070 | loss=568.4 | L0=80 | FVE=0.7478 | dead=0.317 | a=0.2420±0.0264 | 335.9M tok | ETA 3.3h
+    [group_G4/L9] step  82500/122070 | loss=554.4 | L0=80 | FVE=0.7521 | dead=0.317 | a=0.2430±0.0264 | 337.9M tok | ETA 3.2h
+    [group_G4/L9] step  83000/122070 | loss=556.8 | L0=80 | FVE=0.7537 | dead=0.317 | a=0.2438±0.0263 | 340.0M tok | ETA 3.2h
+    [group_G4/L9] step  83500/122070 | loss=562.8 | L0=80 | FVE=0.7504 | dead=0.316 | a=0.2446±0.0262 | 342.0M tok | ETA 3.1h
+    [group_G4/L9] step  84000/122070 | loss=571.8 | L0=80 | FVE=0.7500 | dead=0.316 | a=0.2457±0.0262 | 344.1M tok | ETA 3.1h
+    [group_G4/L9] step  84500/122070 | loss=558.3 | L0=80 | FVE=0.7513 | dead=0.316 | a=0.2464±0.0261 | 346.1M tok | ETA 3.0h
+    [group_G4/L9] step  85000/122070 | loss=555.2 | L0=80 | FVE=0.7520 | dead=0.319 | a=0.2472±0.0260 | 348.2M tok | ETA 3.0h
+    [group_G4/L9] step  85500/122070 | loss=568.7 | L0=80 | FVE=0.7483 | dead=0.316 | a=0.2483±0.0260 | 350.2M tok | ETA 3.0h
+    [group_G4/L9] step  86000/122070 | loss=563.4 | L0=80 | FVE=0.7500 | dead=0.316 | a=0.2491±0.0259 | 352.3M tok | ETA 2.9h
+    [group_G4/L9] step  86500/122070 | loss=571.9 | L0=80 | FVE=0.7454 | dead=0.316 | a=0.2498±0.0258 | 354.3M tok | ETA 2.9h
+    [group_G4/L9] step  87000/122070 | loss=564.8 | L0=80 | FVE=0.7502 | dead=0.317 | a=0.2503±0.0257 | 356.4M tok | ETA 2.8h
+    [group_G4/L9] step  87500/122070 | loss=566.9 | L0=80 | FVE=0.7477 | dead=0.318 | a=0.2511±0.0257 | 358.4M tok | ETA 2.8h
+    [group_G4/L9] step  88000/122070 | loss=563.8 | L0=80 | FVE=0.7507 | dead=0.316 | a=0.2519±0.0256 | 360.4M tok | ETA 2.8h
+    [group_G4/L9] step  88500/122070 | loss=560.7 | L0=80 | FVE=0.7517 | dead=0.315 | a=0.2525±0.0255 | 362.5M tok | ETA 2.7h
+    [group_G4/L9] step  89000/122070 | loss=579.4 | L0=80 | FVE=0.7467 | dead=0.317 | a=0.2533±0.0255 | 364.5M tok | ETA 2.7h
+    [group_G4/L9] step  89500/122070 | loss=555.1 | L0=80 | FVE=0.7537 | dead=0.316 | a=0.2540±0.0254 | 366.6M tok | ETA 2.6h
+    [group_G4/L9] step  90000/122070 | loss=557.2 | L0=80 | FVE=0.7520 | dead=0.317 | a=0.2545±0.0254 | 368.6M tok | ETA 2.6h
+    [group_G4/L9] step  90500/122070 | loss=559.9 | L0=80 | FVE=0.7509 | dead=0.318 | a=0.2553±0.0253 | 370.7M tok | ETA 2.6h
+    [group_G4/L9] step  91000/122070 | loss=551.4 | L0=80 | FVE=0.7550 | dead=0.316 | a=0.2560±0.0252 | 372.7M tok | ETA 2.5h
+    [group_G4/L9] step  91500/122070 | loss=570.8 | L0=80 | FVE=0.7487 | dead=0.314 | a=0.2566±0.0251 | 374.8M tok | ETA 2.5h
+    [group_G4/L9] step  92000/122070 | loss=555.7 | L0=80 | FVE=0.7512 | dead=0.315 | a=0.2570±0.0250 | 376.8M tok | ETA 2.4h
+    [group_G4/L9] step  92500/122070 | loss=563.0 | L0=80 | FVE=0.7497 | dead=0.316 | a=0.2577±0.0250 | 378.9M tok | ETA 2.4h
+    [group_G4/L9] step  93000/122070 | loss=549.9 | L0=80 | FVE=0.7536 | dead=0.316 | a=0.2582±0.0250 | 380.9M tok | ETA 2.4h
+    [group_G4/L9] step  93500/122070 | loss=573.9 | L0=80 | FVE=0.7460 | dead=0.315 | a=0.2587±0.0249 | 383.0M tok | ETA 2.3h
+    [group_G4/L9] step  94000/122070 | loss=560.0 | L0=80 | FVE=0.7513 | dead=0.316 | a=0.2592±0.0248 | 385.0M tok | ETA 2.3h
+    [group_G4/L9] step  94500/122070 | loss=568.9 | L0=80 | FVE=0.7489 | dead=0.315 | a=0.2597±0.0248 | 387.1M tok | ETA 2.2h
+    [group_G4/L9] step  95000/122070 | loss=559.7 | L0=80 | FVE=0.7538 | dead=0.315 | a=0.2603±0.0247 | 389.1M tok | ETA 2.2h
+    [group_G4/L9] step  95500/122070 | loss=557.4 | L0=80 | FVE=0.7517 | dead=0.316 | a=0.2607±0.0247 | 391.2M tok | ETA 2.2h
+    [group_G4/L9] step  96000/122070 | loss=560.1 | L0=80 | FVE=0.7521 | dead=0.318 | a=0.2613±0.0246 | 393.2M tok | ETA 2.1h
+    [group_G4/L9] step  96500/122070 | loss=565.4 | L0=80 | FVE=0.7499 | dead=0.315 | a=0.2618±0.0246 | 395.3M tok | ETA 2.1h
+    [group_G4/L9] step  97000/122070 | loss=569.3 | L0=80 | FVE=0.7517 | dead=0.316 | a=0.2621±0.0245 | 397.3M tok | ETA 2.0h
+    [group_G4/L9] step  97500/122070 | loss=564.1 | L0=80 | FVE=0.7491 | dead=0.317 | a=0.2627±0.0245 | 399.4M tok | ETA 2.0h
+    [group_G4/L9] Checkpoint saved at 80% (97656 steps)
+    [group_G4/L9] step  98000/122070 | loss=560.1 | L0=80 | FVE=0.7507 | dead=0.316 | a=0.2631±0.0244 | 401.4M tok | ETA 2.0h
+    [group_G4/L9] step  98500/122070 | loss=581.5 | L0=80 | FVE=0.7446 | dead=0.314 | a=0.2634±0.0244 | 403.5M tok | ETA 1.9h
+    [group_G4/L9] step  99000/122070 | loss=570.8 | L0=80 | FVE=0.7464 | dead=0.314 | a=0.2637±0.0243 | 405.5M tok | ETA 1.9h
+    [group_G4/L9] step  99500/122070 | loss=566.5 | L0=80 | FVE=0.7477 | dead=0.314 | a=0.2641±0.0242 | 407.6M tok | ETA 1.8h
+    [group_G4/L9] step 100000/122070 | loss=567.6 | L0=80 | FVE=0.7489 | dead=0.315 | a=0.2646±0.0242 | 409.6M tok | ETA 1.8h
+    [group_G4/L9] step 100500/122070 | loss=558.9 | L0=80 | FVE=0.7523 | dead=0.316 | a=0.2647±0.0241 | 411.6M tok | ETA 1.8h
+    [group_G4/L9] step 101000/122070 | loss=565.2 | L0=80 | FVE=0.7513 | dead=0.317 | a=0.2651±0.0241 | 413.7M tok | ETA 1.7h
+    [group_G4/L9] step 101500/122070 | loss=566.2 | L0=80 | FVE=0.7495 | dead=0.314 | a=0.2655±0.0241 | 415.7M tok | ETA 1.7h
+    [group_G4/L9] step 102000/122070 | loss=566.8 | L0=80 | FVE=0.7482 | dead=0.317 | a=0.2657±0.0240 | 417.8M tok | ETA 1.6h
+    [group_G4/L9] step 102500/122070 | loss=568.4 | L0=80 | FVE=0.7485 | dead=0.314 | a=0.2660±0.0240 | 419.8M tok | ETA 1.6h
+    [group_G4/L9] step 103000/122070 | loss=564.8 | L0=80 | FVE=0.7493 | dead=0.315 | a=0.2663±0.0239 | 421.9M tok | ETA 1.5h
+    [group_G4/L9] step 103500/122070 | loss=581.7 | L0=80 | FVE=0.7436 | dead=0.315 | a=0.2666±0.0239 | 423.9M tok | ETA 1.5h
+    [group_G4/L9] step 104000/122070 | loss=557.4 | L0=80 | FVE=0.7500 | dead=0.316 | a=0.2667±0.0238 | 426.0M tok | ETA 1.5h
+    [group_G4/L9] step 104500/122070 | loss=561.3 | L0=80 | FVE=0.7520 | dead=0.314 | a=0.2671±0.0238 | 428.0M tok | ETA 1.4h
+    [group_G4/L9] step 105000/122070 | loss=566.0 | L0=80 | FVE=0.7510 | dead=0.315 | a=0.2673±0.0238 | 430.1M tok | ETA 1.4h
+    [group_G4/L9] step 105500/122070 | loss=565.7 | L0=80 | FVE=0.7504 | dead=0.315 | a=0.2675±0.0237 | 432.1M tok | ETA 1.3h
+    [group_G4/L9] step 106000/122070 | loss=562.2 | L0=80 | FVE=0.7504 | dead=0.315 | a=0.2677±0.0237 | 434.2M tok | ETA 1.3h
+    [group_G4/L9] step 106500/122070 | loss=557.4 | L0=80 | FVE=0.7514 | dead=0.317 | a=0.2679±0.0237 | 436.2M tok | ETA 1.3h
+    [group_G4/L9] step 107000/122070 | loss=558.3 | L0=80 | FVE=0.7505 | dead=0.316 | a=0.2680±0.0237 | 438.3M tok | ETA 1.2h
+    [group_G4/L9] step 107500/122070 | loss=569.2 | L0=80 | FVE=0.7488 | dead=0.315 | a=0.2682±0.0237 | 440.3M tok | ETA 1.2h
+    [group_G4/L9] step 108000/122070 | loss=556.7 | L0=80 | FVE=0.7518 | dead=0.317 | a=0.2683±0.0236 | 442.4M tok | ETA 1.1h
+    [group_G4/L9] step 108500/122070 | loss=545.0 | L0=80 | FVE=0.7544 | dead=0.319 | a=0.2684±0.0236 | 444.4M tok | ETA 1.1h
+    [group_G4/L9] step 109000/122070 | loss=569.5 | L0=80 | FVE=0.7486 | dead=0.318 | a=0.2686±0.0236 | 446.5M tok | ETA 1.1h
+    [group_G4/L9] step 109500/122070 | loss=564.3 | L0=80 | FVE=0.7511 | dead=0.315 | a=0.2688±0.0236 | 448.5M tok | ETA 1.0h
+    [group_G4/L9] step 110000/122070 | loss=564.5 | L0=80 | FVE=0.7488 | dead=0.314 | a=0.2688±0.0235 | 450.6M tok | ETA 1.0h
+    [group_G4/L9] step 110500/122070 | loss=564.9 | L0=80 | FVE=0.7508 | dead=0.314 | a=0.2690±0.0235 | 452.6M tok | ETA 0.9h
+    [group_G4/L9] step 111000/122070 | loss=546.5 | L0=80 | FVE=0.7533 | dead=0.317 | a=0.2691±0.0235 | 454.7M tok | ETA 0.9h
+    [group_G4/L9] step 111500/122070 | loss=549.4 | L0=80 | FVE=0.7531 | dead=0.317 | a=0.2691±0.0235 | 456.7M tok | ETA 0.9h
+    [group_G4/L9] step 112000/122070 | loss=566.8 | L0=80 | FVE=0.7497 | dead=0.317 | a=0.2694±0.0235 | 458.8M tok | ETA 0.8h
+    [group_G4/L9] step 112500/122070 | loss=557.7 | L0=80 | FVE=0.7518 | dead=0.318 | a=0.2694±0.0234 | 460.8M tok | ETA 0.8h
+    [group_G4/L9] step 113000/122070 | loss=578.5 | L0=80 | FVE=0.7464 | dead=0.315 | a=0.2695±0.0234 | 462.8M tok | ETA 0.7h
+    [group_G4/L9] step 113500/122070 | loss=575.8 | L0=80 | FVE=0.7464 | dead=0.314 | a=0.2695±0.0234 | 464.9M tok | ETA 0.7h
+    [group_G4/L9] step 114000/122070 | loss=569.1 | L0=80 | FVE=0.7477 | dead=0.314 | a=0.2696±0.0234 | 466.9M tok | ETA 0.7h
+    [group_G4/L9] step 114500/122070 | loss=574.7 | L0=80 | FVE=0.7479 | dead=0.315 | a=0.2697±0.0234 | 469.0M tok | ETA 0.6h
+    [group_G4/L9] step 115000/122070 | loss=564.9 | L0=80 | FVE=0.7513 | dead=0.315 | a=0.2697±0.0234 | 471.0M tok | ETA 0.6h
+    [group_G4/L9] step 115500/122070 | loss=572.5 | L0=80 | FVE=0.7481 | dead=0.316 | a=0.2698±0.0234 | 473.1M tok | ETA 0.5h
+    [group_G4/L9] step 116000/122070 | loss=571.1 | L0=80 | FVE=0.7469 | dead=0.314 | a=0.2698±0.0234 | 475.1M tok | ETA 0.5h
+    [group_G4/L9] step 116500/122070 | loss=565.0 | L0=80 | FVE=0.7489 | dead=0.316 | a=0.2698±0.0234 | 477.2M tok | ETA 0.5h
+    [group_G4/L9] step 117000/122070 | loss=567.5 | L0=80 | FVE=0.7472 | dead=0.313 | a=0.2698±0.0234 | 479.2M tok | ETA 0.4h
+    [group_G4/L9] step 117500/122070 | loss=573.4 | L0=80 | FVE=0.7490 | dead=0.317 | a=0.2698±0.0233 | 481.3M tok | ETA 0.4h
+    [group_G4/L9] step 118000/122070 | loss=560.1 | L0=80 | FVE=0.7522 | dead=0.314 | a=0.2698±0.0233 | 483.3M tok | ETA 0.3h
+    [group_G4/L9] step 118500/122070 | loss=573.3 | L0=80 | FVE=0.7491 | dead=0.316 | a=0.2699±0.0233 | 485.4M tok | ETA 0.3h
+    [group_G4/L9] step 119000/122070 | loss=564.9 | L0=80 | FVE=0.7484 | dead=0.316 | a=0.2699±0.0233 | 487.4M tok | ETA 0.2h
+    [group_G4/L9] step 119500/122070 | loss=566.3 | L0=80 | FVE=0.7490 | dead=0.317 | a=0.2699±0.0233 | 489.5M tok | ETA 0.2h
+    [group_G4/L9] step 120000/122070 | loss=560.6 | L0=80 | FVE=0.7500 | dead=0.316 | a=0.2699±0.0233 | 491.5M tok | ETA 0.2h
+    [group_G4/L9] step 120500/122070 | loss=586.7 | L0=80 | FVE=0.7445 | dead=0.315 | a=0.2699±0.0233 | 493.6M tok | ETA 0.1h
+    [group_G4/L9] step 121000/122070 | loss=563.0 | L0=80 | FVE=0.7496 | dead=0.316 | a=0.2699±0.0233 | 495.6M tok | ETA 0.1h
+    [group_G4/L9] step 121500/122070 | loss=570.9 | L0=80 | FVE=0.7492 | dead=0.314 | a=0.2699±0.0233 | 497.7M tok | ETA 0.0h
+    [group_G4/L9] step 122000/122070 | loss=580.7 | L0=80 | FVE=0.7467 | dead=0.314 | a=0.2699±0.0233 | 499.7M tok | ETA 0.0h
+    [group_G4/L9] step 122070/122070 | loss=570.2 | L0=80 | FVE=0.7488 | dead=0.314 | a=0.2699±0.0233 | 500.0M tok | ETA 0.0h
+    [group_G4/L9] Checkpoint saved at 100% (122070 steps)
+    [group_G4/L9] Done in 9.9h (35665s)
+    Checkpoint 10%: FVE=0.7182, dead=0.366
+    Checkpoint 20%: FVE=0.7358, dead=0.332
+    Checkpoint 40%: FVE=0.7448, dead=0.310
+    Checkpoint 60%: FVE=0.7479, dead=0.302
+    Checkpoint 80%: FVE=0.7486, dead=0.299
+
+  Full evaluation -- group_G4_L9
+    [group_G4/L9] FVE=0.7484 | dead=0.299 | alive=11491/16384 | L0=79
+
+    Ablation [group_G4/L9] (100 feats, 200 samples)...
+    [group_G4/L9] 11478 alive features (of 16384)
+      feat  4610 | n=200 | cos->KL=0.340 | inner->KL=0.220 | SAE->KL=0.247
+      feat  1530 | n=200 | cos->KL=0.241 | inner->KL=0.228 | SAE->KL=0.230
+      feat   914 | n=200 | cos->KL=0.109 | inner->KL=0.067 | SAE->KL=0.070
+      feat  1405 | n=200 | cos->KL=0.181 | inner->KL=0.126 | SAE->KL=0.130
+      feat  3526 | n=200 | cos->KL=-0.058 | inner->KL=-0.048 | SAE->KL=-0.042
+      feat  6626 | n=200 | cos->KL=0.099 | inner->KL=0.052 | SAE->KL=0.059
+      feat  2601 | n=200 | cos->KL=0.077 | inner->KL=0.024 | SAE->KL=-0.067
+      feat 15946 | n=200 | cos->KL=0.176 | inner->KL=0.153 | SAE->KL=0.172
+    [group_G4/L9] Summary (100 features): cos->KL=0.1674 | SAE->KL=0.1127 | cos>inner: 92/100
+  Results saved to experiments/exp38_results.json
+
+  group_G4_L18 already complete, skipping
+
+  group_G4_L27 already complete, skipping
+
+======================================================================
+  EXP38 SUMMARY
+======================================================================
+
+  adaptive_l2:
+  Layer |    FVE |  Dead% |  Alive |  cos>inn
+  ------+--------+--------+--------+---------
+Traceback (most recent call last):
+  File "/home/<user>/MechInter--RNH/experiments/exp38_optimal_500m.py", line 931, in <module>
+    main()
+  File "/home/<user>/MechInter--RNH/experiments/exp38_optimal_500m.py", line 896, in main
+    f"{cos_wins:>3s}/{n_feat:<4s}{extra}")
+      ^^^^^^^^^^^^^^
+ValueError: Unknown format code 's' for object of type 'int'

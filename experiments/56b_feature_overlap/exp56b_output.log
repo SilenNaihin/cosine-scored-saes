@@ -1,0 +1,104 @@
+======================================================================
+Exp 56b: Feature Overlap Analysis (standard vs perfeature_l2)
+======================================================================
+
+Loading Qwen/Qwen3-8B...
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.83it/s]
+Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:01,  1.85it/s]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:01,  1.84it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  2.03it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.71it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.28it/s]
+Model loaded in 4.3s
+
+Collecting 100,000 tokens of L18 activations...
+Streaming FineWeb (skipping first 200,000 docs)...
+  3,404 / 100,000 tokens
+  10,702 / 100,000 tokens
+  21,274 / 100,000 tokens
+  31,911 / 100,000 tokens
+  42,514 / 100,000 tokens
+  53,289 / 100,000 tokens
+  60,506 / 100,000 tokens
+  71,448 / 100,000 tokens
+  82,178 / 100,000 tokens
+  93,129 / 100,000 tokens
+  100,718 / 100,000 tokens
+Collected 100,000 tokens
+Collection done in 39.6s
+
+Encoding through standard...
+  standard: 17288 alive features (26.4%) in 18.1s
+
+Encoding through perfeature_l2...
+  perfeature_l2: 18570 alive features (28.3%) in 11.9s
+
+Computing feature correlations...
+  Computing correlations: 17288 x 18570 alive features
+    Chunk 0/9
+    Chunk 5/9
+Correlations computed in 24.4s
+
+============================================================
+Feature Matching: standard -> perfeature_l2
+============================================================
+  Strong matches (corr >= 0.7): 7114 / 17288 (41.1%)
+  Weak matches   (corr 0.3-0.7): 7216 / 17288 (41.7%)
+  Unmatched      (corr < 0.3): 2958 / 17288 (17.1%)
+
+Feature Matching: perfeature_l2 -> standard
+  Strong matches (corr >= 0.7): 7147 / 18570 (38.5%)
+  Weak matches   (corr 0.3-0.7): 7515 / 18570 (40.5%)
+  Unmatched      (corr < 0.3): 3908 / 18570 (21.0%)
+
+Unmatched standard feature frequencies:
+  Mean: 0.002511, Median: 0.001790
+Matched standard feature frequencies:
+  Mean: 0.005172, Median: 0.002420
+
+Unmatched perfeature_l2 feature frequencies:
+  Mean: 0.002521, Median: 0.001850
+Matched perfeature_l2 feature frequencies:
+  Mean: 0.004869, Median: 0.002360
+
+Correlation distribution (standard -> perfeature_l2):
+  [0.0-0.1):    146 (  0.8%)
+  [0.1-0.2):    994 (  5.7%)
+  [0.2-0.3):   1818 ( 10.5%)
+  [0.3-0.4):   1986 ( 11.5%)
+  [0.4-0.5):   1798 ( 10.4%)
+  [0.5-0.6):   1767 ( 10.2%)
+  [0.6-0.7):   1665 (  9.6%)
+  [0.7-0.8):   1777 ( 10.3%)
+  [0.8-0.9):   2582 ( 14.9%)
+  [0.9-1.0):   2755 ( 15.9%)
+
+Correlation distribution (perfeature_l2 -> standard):
+  [0.0-0.1):    293 (  1.6%)
+  [0.1-0.2):   1381 (  7.4%)
+  [0.2-0.3):   2234 ( 12.0%)
+  [0.3-0.4):   2143 ( 11.5%)
+  [0.4-0.5):   1894 ( 10.2%)
+  [0.5-0.6):   1762 (  9.5%)
+  [0.6-0.7):   1716 (  9.2%)
+  [0.7-0.8):   1802 (  9.7%)
+  [0.8-0.9):   2590 ( 13.9%)
+  [0.9-1.0):   2755 ( 14.8%)
+
+Computing decoder similarity for matched pairs...
+  Decoder cosine similarity for 7114 strongly-matched pairs:
+    Mean: 0.9130
+    Median: 0.9426
+    Min: 0.0064
+    >0.9: 4953 (69.6%)
+    >0.7: 6864 (96.5%)
+
+Computing Jaccard-style overlap via decoder directions...
+  Of 5000 sampled standard features:
+    632 (12.6%) have a perfeature_l2 feature with decoder cos_sim > 0.8
+    424 (8.5%) have a perfeature_l2 feature with decoder cos_sim > 0.9
+
+Results saved to experiments/exp56b_results.json

@@ -1,0 +1,102 @@
+======================================================================
+Exp 57b: TPP Probe Weight Analysis
+======================================================================
+
+============================================================
+Running TPP on standard...
+============================================================
+
+============================================================
+Running tpp evaluation
+============================================================
+
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 202.07it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/tpp/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Loading probes from artifacts/tpp/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_probes.pkl
+Loading activations from artifacts/tpp/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Loading probes from artifacts/tpp/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_probes.pkl
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [17:49<00:00, 1069.10s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [17:49<00:00, 1069.10s/it]
+
+Combined results saved to /scratch/saebench_results/exp57b/standard/exp57b-standard_combined.json
+  TPP completed in 18.2 min
+
+============================================================
+Running TPP on perfeature_l2...
+============================================================
+
+============================================================
+Running tpp evaluation
+============================================================
+
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 202.10it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/tpp/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Loading probes from artifacts/tpp/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_probes.pkl
+Loading activations from artifacts/tpp/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Loading probes from artifacts/tpp/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_probes.pkl
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [18:13<00:00, 1093.05s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [18:13<00:00, 1093.05s/it]
+
+Combined results saved to /scratch/saebench_results/exp57b/perfeature_l2/exp57b-perfeature_l2_combined.json
+  TPP completed in 18.5 min
+
+============================================================
+Decoder Projection Analysis
+============================================================
+
+  standard decoder projection analysis (100 random probes):
+    Alive features: 65536
+    Mean total projection: 815.6030 ± 14.3296
+    Concentration: top5=0.0004 top20=0.0015 top50=0.0035 top100=0.0066
+    Effective dim: 49342.5 ± 73.8
+
+  perfeature_l2 decoder projection analysis (100 random probes):
+    Alive features: 65536
+    Mean total projection: 815.5570 ± 14.4214
+    Concentration: top5=0.0004 top20=0.0015 top50=0.0035 top100=0.0066
+    Effective dim: 49359.3 ± 66.7
+
+============================================================
+Activation Difference Analysis
+============================================================
+
+  Computing activation differences on bias_in_bios...
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.94it/s]
+Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:01,  1.91it/s]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:01,  1.92it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  2.10it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.77it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.35it/s]
+Traceback (most recent call last):
+  File "/home/<user>/MechInter--RNH/experiments/exp57b_tpp_probe_analysis.py", line 469, in <module>
+    main()
+  File "/home/<user>/MechInter--RNH/experiments/exp57b_tpp_probe_analysis.py", line 425, in main
+    results["activation_diff"] = analyze_activation_differences(sae_std, sae_cos)
+  File "/home/<user>/MechInter--RNH/experiments/exp57b_tpp_probe_analysis.py", line 289, in analyze_activation_differences
+    ds = load_dataset("LabHC/bias_in_bios_class_set1", split="test")
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.10/site-packages/datasets/load.py", line 2062, in load_dataset
+    builder_instance = load_dataset_builder(
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.10/site-packages/datasets/load.py", line 1782, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.10/site-packages/datasets/load.py", line 1652, in dataset_module_factory
+    raise e1 from None
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.10/site-packages/datasets/load.py", line 1578, in dataset_module_factory
+    raise DatasetNotFoundError(f"Dataset '{path}' doesn't exist on the Hub or cannot be accessed.") from e
+datasets.exceptions.DatasetNotFoundError: Dataset 'LabHC/bias_in_bios_class_set1' doesn't exist on the Hub or cannot be accessed.

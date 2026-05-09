@@ -1,0 +1,416 @@
+Experiment 24: LayerNorm Negative Control (Pythia-2.8B)
+======================================================================
+Model: EleutherAI/pythia-2.8b-deduped
+Layers: [8, 16, 24]
+d_model: 2560, d_sae: 10240, k: 50, lr: 0.0003
+Tokens: 5,000,000 train, 500,000 eval
+Steps: 1220, Warmup: 61
+Ablation: 30 features x 50 samples
+Variants: ['standard', 'cosine', 'adaptive_l2']
+Device: cuda
+
+Loading model...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/388 [00:00<?, ?it/s]
+Loading weights:  10%|▉         | 38/388 [00:00<00:00, 362.99it/s]
+Loading weights:  19%|█▉        | 75/388 [00:02<00:11, 27.47it/s] 
+Loading weights: 100%|██████████| 388/388 [00:02<00:00, 164.94it/s]
+Model loaded in 71.8s
+
+======================================================================
+  LAYER 8 (of 32)
+======================================================================
+  Collecting train activations for layer 8 (5,000,000 tokens)...
+  Layer 8: 5,000,000 train tokens in 278.2s (norm: mean=63.7, std=6.2)
+  Collecting eval activations for layer 8 (500,000 tokens)...
+  Layer 8: 500,000 eval tokens in 51.2s (norm: mean=63.7, std=6.2)
+
+  --- VARIANT: standard (L8) ---
+
+  Training standard | L8 | d_sae=10240, k=50, lr=0.0003, 5,000,000 tokens, 1220 steps
+    [    standard] step   100/1220 | loss=1835.9617 | L0=50 | FVE=-0.0012 | cos=0.7695 | dead=0.957 | tok=0.4M | 113.7K/s | ETA=1m
+    [    standard] step   200/1220 | loss=1341.0255 | L0=50 | FVE=0.2255 | cos=0.8215 | dead=0.824 | tok=0.8M | 114.4K/s | ETA=1m
+    [    standard] step   300/1220 | loss=1247.8188 | L0=50 | FVE=0.2849 | cos=0.8361 | dead=0.827 | tok=1.2M | 114.6K/s | ETA=1m
+    [    standard] step   400/1220 | loss=1187.3835 | L0=50 | FVE=0.2950 | cos=0.8440 | dead=0.900 | tok=1.6M | 114.7K/s | ETA=0m
+    [    standard] step   500/1220 | loss=1141.6001 | L0=50 | FVE=0.3178 | cos=0.8500 | dead=0.900 | tok=2.0M | 114.7K/s | ETA=0m
+    [    standard] step   600/1220 | loss=1117.2065 | L0=50 | FVE=0.3330 | cos=0.8529 | dead=0.896 | tok=2.5M | 114.7K/s | ETA=0m
+    [    standard] step   700/1220 | loss=1098.0129 | L0=50 | FVE=0.3422 | cos=0.8560 | dead=0.898 | tok=2.9M | 114.7K/s | ETA=0m
+    [    standard] step   800/1220 | loss=1091.7445 | L0=50 | FVE=0.3479 | cos=0.8575 | dead=0.898 | tok=3.3M | 114.7K/s | ETA=0m
+    [    standard] step   900/1220 | loss=1091.4509 | L0=50 | FVE=0.3551 | cos=0.8578 | dead=0.898 | tok=3.7M | 114.7K/s | ETA=0m
+    [    standard] step  1000/1220 | loss=1081.2523 | L0=50 | FVE=0.3564 | cos=0.8584 | dead=0.896 | tok=4.1M | 114.7K/s | ETA=0m
+    [    standard] step  1100/1220 | loss=1081.2413 | L0=50 | FVE=0.3554 | cos=0.8584 | dead=0.896 | tok=4.5M | 114.7K/s | ETA=0m
+    [    standard] step  1200/1220 | loss=1091.3950 | L0=50 | FVE=0.3722 | cos=0.8573 | dead=0.824 | tok=4.9M | 114.7K/s | ETA=0m
+    [    standard] step  1220/1220 | loss=1078.8475 | L0=50 | FVE=0.3579 | cos=0.8587 | dead=0.895 | tok=5.0M | 114.6K/s | ETA=0m
+    [standard] Done in 43.6s
+
+  Reconstruction — standard
+    [standard] L2=1079.3910 | cos=0.8589 | L0=50 | FVE=0.3585 | dead=0.772
+
+  Norm Invariance — standard
+    [standard] scale=0.5: ratio=0.558 | agree=0.999 | cos=0.9940
+    [standard] scale=2.0: ratio=1.907 | agree=0.961 | cos=0.9525
+    [standard] scale=5.0: ratio=4.627 | agree=0.774 | cos=0.8814
+
+    Ablation [standard] (30 feats, 50 samples)...
+    [standard] 2067 alive features (of 10240)
+      feat  2224 | n=50 | cos→KL=0.824 | inner→KL=0.760 | SAE→KL=0.600 | norm→KL=-0.470
+      feat   724 | n=50 | cos→KL=0.597 | inner→KL=0.491 | SAE→KL=0.418 | norm→KL=-0.393
+      feat  1901 | n=50 | cos→KL=0.671 | inner→KL=0.594 | SAE→KL=0.392 | norm→KL=-0.159
+      feat   540 | n=50 | cos→KL=0.644 | inner→KL=0.581 | SAE→KL=0.367 | norm→KL=-0.296
+      feat  1972 | n=50 | cos→KL=0.769 | inner→KL=0.628 | SAE→KL=0.291 | norm→KL=-0.429
+      feat   721 | n=50 | cos→KL=0.681 | inner→KL=0.631 | SAE→KL=0.463 | norm→KL=-0.177
+      feat  4323 | n=50 | cos→KL=0.609 | inner→KL=0.491 | SAE→KL=0.236 | norm→KL=-0.449
+    [standard] Summary (30 features): cos→KL=0.6620 | inner→KL=0.5687 | SAE→KL=0.3833 | cos>inner: 30/30
+
+  --- VARIANT: cosine (L8) ---
+
+  Training cosine | L8 | d_sae=10240, k=50, lr=0.0003, 5,000,000 tokens, 1220 steps
+    [      cosine] step   100/1220 | loss=1427.8528 | L0=50 | FVE=0.1568 | cos=0.8095 | dead=0.799 | tok=0.4M | 108.9K/s | ETA=1m | scale=51.3
+    [      cosine] step   200/1220 | loss=1233.0627 | L0=50 | FVE=0.2879 | cos=0.8437 | dead=0.864 | tok=0.8M | 109.0K/s | ETA=1m | scale=51.6
+    [      cosine] step   300/1220 | loss=1156.0518 | L0=50 | FVE=0.3375 | cos=0.8557 | dead=0.870 | tok=1.2M | 108.9K/s | ETA=1m | scale=51.8
+    [      cosine] step   400/1220 | loss=1072.6053 | L0=50 | FVE=0.3631 | cos=0.8607 | dead=0.871 | tok=1.6M | 108.9K/s | ETA=1m | scale=52.1
+    [      cosine] step   500/1220 | loss=1032.2666 | L0=50 | FVE=0.3831 | cos=0.8660 | dead=0.867 | tok=2.0M | 108.8K/s | ETA=0m | scale=52.4
+    [      cosine] step   600/1220 | loss=1015.3070 | L0=50 | FVE=0.3938 | cos=0.8678 | dead=0.861 | tok=2.5M | 108.8K/s | ETA=0m | scale=52.7
+    [      cosine] step   700/1220 | loss=1009.3079 | L0=50 | FVE=0.3953 | cos=0.8689 | dead=0.862 | tok=2.9M | 108.8K/s | ETA=0m | scale=52.9
+    [      cosine] step   800/1220 | loss=1002.2720 | L0=50 | FVE=0.4014 | cos=0.8705 | dead=0.860 | tok=3.3M | 108.7K/s | ETA=0m | scale=53.1
+    [      cosine] step   900/1220 | loss=1008.0450 | L0=50 | FVE=0.4044 | cos=0.8699 | dead=0.859 | tok=3.7M | 108.7K/s | ETA=0m | scale=53.2
+    [      cosine] step  1000/1220 | loss=997.3331 | L0=50 | FVE=0.4064 | cos=0.8708 | dead=0.858 | tok=4.1M | 108.7K/s | ETA=0m | scale=53.3
+    [      cosine] step  1100/1220 | loss=997.4783 | L0=50 | FVE=0.4054 | cos=0.8707 | dead=0.858 | tok=4.5M | 108.6K/s | ETA=0m | scale=53.4
+    [      cosine] step  1200/1220 | loss=1049.8932 | L0=50 | FVE=0.3961 | cos=0.8694 | dead=0.857 | tok=4.9M | 108.6K/s | ETA=0m | scale=53.4
+    [      cosine] step  1220/1220 | loss=994.3781 | L0=50 | FVE=0.4082 | cos=0.8711 | dead=0.858 | tok=5.0M | 108.6K/s | ETA=0m | scale=53.4
+    [cosine] Done in 46.0s
+
+  Reconstruction — cosine
+    [cosine] L2=1001.8050 | cos=0.8711 | L0=50 | FVE=0.4047 | dead=0.781
+
+  Norm Invariance — cosine
+    [cosine] scale=0.5: ratio=0.999 | agree=1.000 | cos=1.0000
+    [cosine] scale=2.0: ratio=1.000 | agree=1.000 | cos=1.0000
+    [cosine] scale=5.0: ratio=1.001 | agree=1.000 | cos=1.0000
+
+    Ablation [cosine] (30 feats, 50 samples)...
+    [cosine] 1787 alive features (of 10240)
+      feat  3084 | n=50 | cos→KL=0.707 | inner→KL=0.595 | SAE→KL=0.422 | norm→KL=-0.431
+      feat  1349 | n=50 | cos→KL=0.609 | inner→KL=0.494 | SAE→KL=0.419 | norm→KL=-0.437
+      feat  3074 | n=50 | cos→KL=0.697 | inner→KL=0.656 | SAE→KL=0.300 | norm→KL=0.025
+      feat  3384 | n=50 | cos→KL=0.654 | inner→KL=0.586 | SAE→KL=0.393 | norm→KL=-0.316
+      feat  1729 | n=50 | cos→KL=0.688 | inner→KL=0.531 | SAE→KL=0.310 | norm→KL=-0.478
+      feat   277 | n=50 | cos→KL=0.606 | inner→KL=0.501 | SAE→KL=0.363 | norm→KL=-0.385
+      feat  4191 | n=50 | cos→KL=0.379 | inner→KL=0.200 | SAE→KL=0.034 | norm→KL=-0.452
+    [cosine] Summary (30 features): cos→KL=0.6438 | inner→KL=0.5422 | SAE→KL=0.3594 | cos>inner: 30/30
+
+  --- VARIANT: adaptive_l2 (L8) ---
+
+  Training adaptive_l2 | L8 | d_sae=10240, k=50, lr=0.0003, 5,000,000 tokens, 1220 steps
+    [ adaptive_l2] step   100/1220 | loss=1428.5054 | L0=50 | FVE=0.1565 | cos=0.8094 | dead=0.792 | tok=0.4M | 108.2K/s | ETA=1m | a=0.0154 b=51.3
+    [ adaptive_l2] step   200/1220 | loss=1229.3105 | L0=50 | FVE=0.2899 | cos=0.8439 | dead=0.865 | tok=0.8M | 108.2K/s | ETA=1m | a=0.0211 b=51.5
+    [ adaptive_l2] step   300/1220 | loss=1150.0693 | L0=50 | FVE=0.3409 | cos=0.8560 | dead=0.870 | tok=1.2M | 108.2K/s | ETA=1m | a=0.0269 b=51.7
+    [ adaptive_l2] step   400/1220 | loss=1070.4420 | L0=50 | FVE=0.3644 | cos=0.8610 | dead=0.873 | tok=1.6M | 108.2K/s | ETA=1m | a=0.0326 b=51.9
+    [ adaptive_l2] step   500/1220 | loss=1029.5242 | L0=50 | FVE=0.3848 | cos=0.8663 | dead=0.868 | tok=2.0M | 108.1K/s | ETA=0m | a=0.0378 b=52.1
+    [ adaptive_l2] step   600/1220 | loss=1014.7068 | L0=50 | FVE=0.3942 | cos=0.8678 | dead=0.862 | tok=2.5M | 108.1K/s | ETA=0m | a=0.0422 b=52.3
+    [ adaptive_l2] step   700/1220 | loss=1004.8235 | L0=50 | FVE=0.3980 | cos=0.8694 | dead=0.862 | tok=2.9M | 108.1K/s | ETA=0m | a=0.0458 b=52.4
+    [ adaptive_l2] step   800/1220 | loss=997.0861 | L0=50 | FVE=0.4045 | cos=0.8711 | dead=0.860 | tok=3.3M | 108.0K/s | ETA=0m | a=0.0483 b=52.5
+    [ adaptive_l2] step   900/1220 | loss=1004.2352 | L0=50 | FVE=0.4066 | cos=0.8704 | dead=0.859 | tok=3.7M | 108.0K/s | ETA=0m | a=0.0501 b=52.6
+    [ adaptive_l2] step  1000/1220 | loss=994.1216 | L0=50 | FVE=0.4083 | cos=0.8711 | dead=0.858 | tok=4.1M | 108.0K/s | ETA=0m | a=0.0511 b=52.6
+    [ adaptive_l2] step  1100/1220 | loss=992.4218 | L0=50 | FVE=0.4084 | cos=0.8714 | dead=0.859 | tok=4.5M | 108.0K/s | ETA=0m | a=0.0516 b=52.7
+    [ adaptive_l2] step  1200/1220 | loss=1033.6804 | L0=50 | FVE=0.4054 | cos=0.8704 | dead=0.858 | tok=4.9M | 107.9K/s | ETA=0m | a=0.0517 b=52.7
+    [ adaptive_l2] step  1220/1220 | loss=988.4373 | L0=50 | FVE=0.4117 | cos=0.8718 | dead=0.857 | tok=5.0M | 107.9K/s | ETA=0m | a=0.0517 b=52.7
+    [adaptive_l2] Done in 46.3s
+
+  Reconstruction — adaptive_l2
+    [adaptive_l2] L2=995.7716 | cos=0.8716 | L0=50 | FVE=0.4083 | dead=0.752
+
+  Norm Invariance — adaptive_l2
+    [adaptive_l2] scale=0.5: ratio=0.964 | agree=1.000 | cos=0.9998
+    [adaptive_l2] scale=2.0: ratio=1.037 | agree=1.000 | cos=0.9998
+    [adaptive_l2] scale=5.0: ratio=1.088 | agree=1.000 | cos=0.9996
+
+    Ablation [adaptive_l2] (30 feats, 50 samples)...
+    [adaptive_l2] 1907 alive features (of 10240)
+      feat  1667 | n=50 | cos→KL=0.705 | inner→KL=0.672 | SAE→KL=0.219 | norm→KL=-0.227
+      feat  3382 | n=50 | cos→KL=0.658 | inner→KL=0.526 | SAE→KL=0.364 | norm→KL=-0.462
+      feat  3592 | n=50 | cos→KL=0.691 | inner→KL=0.608 | SAE→KL=0.506 | norm→KL=-0.269
+      feat  3384 | n=50 | cos→KL=0.648 | inner→KL=0.583 | SAE→KL=0.408 | norm→KL=-0.312
+      feat  2826 | n=50 | cos→KL=0.327 | inner→KL=0.198 | SAE→KL=0.207 | norm→KL=-0.309
+      feat  4191 | n=50 | cos→KL=0.601 | inner→KL=0.494 | SAE→KL=0.387 | norm→KL=-0.437
+      feat  3904 | n=50 | cos→KL=0.524 | inner→KL=0.373 | SAE→KL=0.195 | norm→KL=-0.446
+    [adaptive_l2] Summary (30 features): cos→KL=0.6552 | inner→KL=0.5544 | SAE→KL=0.3729 | cos>inner: 30/30
+
+======================================================================
+  LAYER 16 (of 32)
+======================================================================
+  Collecting train activations for layer 16 (5,000,000 tokens)...
+  Layer 16: 5,000,000 train tokens in 476.9s (norm: mean=94.1, std=40.5)
+  Collecting eval activations for layer 16 (500,000 tokens)...
+  Layer 16: 500,000 eval tokens in 72.0s (norm: mean=94.1, std=40.4)
+
+  --- VARIANT: standard (L16) ---
+
+  Training standard | L16 | d_sae=10240, k=50, lr=0.0003, 5,000,000 tokens, 1220 steps
+    [    standard] step   100/1220 | loss=3895.7817 | L0=50 | FVE=0.4071 | cos=0.7625 | dead=0.771 | tok=0.4M | 115.0K/s | ETA=1m
+    [    standard] step   200/1220 | loss=2905.1890 | L0=50 | FVE=0.3585 | cos=0.8127 | dead=0.761 | tok=0.8M | 115.2K/s | ETA=1m
+    [    standard] step   300/1220 | loss=2811.6262 | L0=50 | FVE=0.5010 | cos=0.8187 | dead=0.808 | tok=1.2M | 114.6K/s | ETA=1m
+    [    standard] step   400/1220 | loss=2717.2334 | L0=50 | FVE=0.4605 | cos=0.8250 | dead=0.808 | tok=1.6M | 114.4K/s | ETA=0m
+    [    standard] step   500/1220 | loss=2687.4214 | L0=50 | FVE=0.5144 | cos=0.8271 | dead=0.818 | tok=2.0M | 114.4K/s | ETA=0m
+    [    standard] step   600/1220 | loss=2603.3372 | L0=50 | FVE=0.4921 | cos=0.8331 | dead=0.818 | tok=2.5M | 114.4K/s | ETA=0m
+    [    standard] step   700/1220 | loss=2608.8572 | L0=50 | FVE=0.5260 | cos=0.8323 | dead=0.827 | tok=2.9M | 114.5K/s | ETA=0m
+    [    standard] step   800/1220 | loss=2534.4868 | L0=50 | FVE=0.4560 | cos=0.8378 | dead=0.822 | tok=3.3M | 114.5K/s | ETA=0m
+    [    standard] step   900/1220 | loss=2549.4629 | L0=50 | FVE=0.5047 | cos=0.8367 | dead=0.830 | tok=3.7M | 114.6K/s | ETA=0m
+    [    standard] step  1000/1220 | loss=2554.5190 | L0=50 | FVE=0.5139 | cos=0.8359 | dead=0.830 | tok=4.1M | 114.6K/s | ETA=0m
+    [    standard] step  1100/1220 | loss=2540.8401 | L0=50 | FVE=0.4627 | cos=0.8370 | dead=0.826 | tok=4.5M | 114.7K/s | ETA=0m
+    [    standard] step  1200/1220 | loss=2493.4705 | L0=50 | FVE=0.4145 | cos=0.8388 | dead=0.818 | tok=4.9M | 114.7K/s | ETA=0m
+    [    standard] step  1220/1220 | loss=2549.8984 | L0=50 | FVE=0.5014 | cos=0.8368 | dead=0.830 | tok=5.0M | 114.7K/s | ETA=0m
+    [standard] Done in 43.6s
+
+  Reconstruction — standard
+    [standard] L2=2533.7519 | cos=0.8373 | L0=50 | FVE=0.4953 | dead=0.828
+
+  Norm Invariance — standard
+    [standard] scale=0.5: ratio=0.550 | agree=1.000 | cos=0.9949
+    [standard] scale=2.0: ratio=1.908 | agree=0.990 | cos=0.9810
+    [standard] scale=5.0: ratio=4.633 | agree=0.951 | cos=0.9581
+
+    Ablation [standard] (30 feats, 50 samples)...
+    [standard] 1745 alive features (of 10240)
+      feat  1063 | n=50 | cos→KL=0.692 | inner→KL=0.532 | SAE→KL=0.198 | norm→KL=-0.262
+      feat  3986 | n=50 | cos→KL=0.632 | inner→KL=0.640 | SAE→KL=0.482 | norm→KL=0.167
+      feat  6525 | n=50 | cos→KL=0.603 | inner→KL=0.488 | SAE→KL=0.275 | norm→KL=-0.295
+      feat  2083 | n=50 | cos→KL=0.565 | inner→KL=0.449 | SAE→KL=0.320 | norm→KL=-0.366
+      feat  2923 | n=50 | cos→KL=0.405 | inner→KL=0.365 | SAE→KL=0.268 | norm→KL=0.006
+      feat  2240 | n=50 | cos→KL=0.678 | inner→KL=0.529 | SAE→KL=0.162 | norm→KL=-0.326
+      feat  5784 | n=50 | cos→KL=0.735 | inner→KL=0.669 | SAE→KL=0.631 | norm→KL=-0.384
+    [standard] Summary (30 features): cos→KL=0.5848 | inner→KL=0.5539 | SAE→KL=0.3825 | cos>inner: 27/30
+
+  --- VARIANT: cosine (L16) ---
+
+  Training cosine | L16 | d_sae=10240, k=50, lr=0.0003, 5,000,000 tokens, 1220 steps
+    [      cosine] step   100/1220 | loss=4835.7827 | L0=50 | FVE=0.1284 | cos=0.8183 | dead=0.844 | tok=0.4M | 109.4K/s | ETA=1m | scale=51.4
+    [      cosine] step   200/1220 | loss=3368.7017 | L0=50 | FVE=0.2563 | cos=0.8492 | dead=0.876 | tok=0.8M | 109.2K/s | ETA=1m | scale=52.1
+    [      cosine] step   300/1220 | loss=4095.8784 | L0=50 | FVE=0.2720 | cos=0.8587 | dead=0.875 | tok=1.2M | 109.7K/s | ETA=1m | scale=53.2
+    [      cosine] step   400/1220 | loss=3523.0435 | L0=50 | FVE=0.3007 | cos=0.8599 | dead=0.872 | tok=1.6M | 109.9K/s | ETA=1m | scale=54.3
+    [      cosine] step   500/1220 | loss=3839.4192 | L0=50 | FVE=0.3082 | cos=0.8629 | dead=0.872 | tok=2.0M | 110.0K/s | ETA=0m | scale=55.3
+    [      cosine] step   600/1220 | loss=3464.3179 | L0=50 | FVE=0.3246 | cos=0.8630 | dead=0.872 | tok=2.5M | 110.1K/s | ETA=0m | scale=56.2
+    [      cosine] step   700/1220 | loss=3706.2266 | L0=50 | FVE=0.3278 | cos=0.8612 | dead=0.871 | tok=2.9M | 110.1K/s | ETA=0m | scale=57.0
+    [      cosine] step   800/1220 | loss=3043.7310 | L0=50 | FVE=0.3469 | cos=0.8640 | dead=0.871 | tok=3.3M | 110.1K/s | ETA=0m | scale=57.6
+    [      cosine] step   900/1220 | loss=3394.2334 | L0=50 | FVE=0.3407 | cos=0.8611 | dead=0.872 | tok=3.7M | 108.1K/s | ETA=0m | scale=58.0
+    [      cosine] step  1000/1220 | loss=3466.0720 | L0=50 | FVE=0.3404 | cos=0.8578 | dead=0.874 | tok=4.1M | 108.1K/s | ETA=0m | scale=58.3
+    [      cosine] step  1100/1220 | loss=3111.2727 | L0=50 | FVE=0.3421 | cos=0.8572 | dead=0.874 | tok=4.5M | 108.1K/s | ETA=0m | scale=58.4
+    [      cosine] step  1200/1220 | loss=2834.9146 | L0=50 | FVE=0.3344 | cos=0.8574 | dead=0.873 | tok=4.9M | 108.2K/s | ETA=0m | scale=58.4
+    [      cosine] step  1220/1220 | loss=3359.9258 | L0=50 | FVE=0.3430 | cos=0.8575 | dead=0.873 | tok=5.0M | 108.2K/s | ETA=0m | scale=58.4
+    [cosine] Done in 46.2s
+
+  Reconstruction — cosine
+    [cosine] L2=3307.6242 | cos=0.8577 | L0=50 | FVE=0.3405 | dead=0.863
+
+  Norm Invariance — cosine
+    [cosine] scale=0.5: ratio=0.972 | agree=1.000 | cos=0.9979
+    [cosine] scale=2.0: ratio=1.014 | agree=1.000 | cos=0.9990
+    [cosine] scale=5.0: ratio=1.023 | agree=1.000 | cos=0.9980
+
+    Ablation [cosine] (30 feats, 50 samples)...
+    [cosine] 1386 alive features (of 10240)
+      feat  7238 | n=50 | cos→KL=0.474 | inner→KL=0.232 | SAE→KL=-0.017 | norm→KL=-0.339
+      feat  6563 | n=50 | cos→KL=0.020 | inner→KL=0.976 | SAE→KL=0.728 | norm→KL=0.991
+      feat  1964 | n=50 | cos→KL=0.445 | inner→KL=0.316 | SAE→KL=0.423 | norm→KL=-0.025
+      feat  9274 | n=50 | cos→KL=0.323 | inner→KL=0.093 | SAE→KL=-0.112 | norm→KL=-0.266
+      feat  8926 | n=50 | cos→KL=0.640 | inner→KL=0.409 | SAE→KL=0.253 | norm→KL=-0.543
+      feat  5268 | n=50 | cos→KL=0.602 | inner→KL=0.479 | SAE→KL=0.171 | norm→KL=-0.296
+      feat  8826 | n=50 | cos→KL=0.434 | inner→KL=0.331 | SAE→KL=0.275 | norm→KL=-0.164
+    [cosine] Summary (30 features): cos→KL=0.4430 | inner→KL=0.3630 | SAE→KL=0.2510 | cos>inner: 27/30
+
+  --- VARIANT: adaptive_l2 (L16) ---
+
+  Training adaptive_l2 | L16 | d_sae=10240, k=50, lr=0.0003, 5,000,000 tokens, 1220 steps
+    [ adaptive_l2] step   100/1220 | loss=4798.5186 | L0=50 | FVE=0.1351 | cos=0.8179 | dead=0.837 | tok=0.4M | 110.0K/s | ETA=1m | a=0.0182 b=51.3
+    [ adaptive_l2] step   200/1220 | loss=3286.3667 | L0=50 | FVE=0.2749 | cos=0.8499 | dead=0.873 | tok=0.8M | 110.2K/s | ETA=1m | a=0.0431 b=52.1
+    [ adaptive_l2] step   300/1220 | loss=3767.1516 | L0=50 | FVE=0.3302 | cos=0.8605 | dead=0.872 | tok=1.2M | 110.2K/s | ETA=1m | a=0.0728 b=53.2
+    [ adaptive_l2] step   400/1220 | loss=3070.6948 | L0=50 | FVE=0.3916 | cos=0.8647 | dead=0.868 | tok=1.6M | 110.0K/s | ETA=1m | a=0.1023 b=54.5
+    [ adaptive_l2] step   500/1220 | loss=3078.2974 | L0=50 | FVE=0.4444 | cos=0.8620 | dead=0.876 | tok=2.0M | 109.2K/s | ETA=0m | a=0.1288 b=55.7
+    [ adaptive_l2] step   600/1220 | loss=2665.7825 | L0=50 | FVE=0.4811 | cos=0.8645 | dead=0.873 | tok=2.5M | 109.2K/s | ETA=0m | a=0.1508 b=56.8
+    [ adaptive_l2] step   700/1220 | loss=2563.8286 | L0=50 | FVE=0.5346 | cos=0.8649 | dead=0.873 | tok=2.9M | 109.1K/s | ETA=0m | a=0.1665 b=57.7
+    [ adaptive_l2] step   800/1220 | loss=2320.2727 | L0=50 | FVE=0.5024 | cos=0.8659 | dead=0.875 | tok=3.3M | 109.2K/s | ETA=0m | a=0.1775 b=58.2
+    [ adaptive_l2] step   900/1220 | loss=2352.0032 | L0=50 | FVE=0.5432 | cos=0.8645 | dead=0.877 | tok=3.7M | 109.2K/s | ETA=0m | a=0.1838 b=58.6
+    [ adaptive_l2] step  1000/1220 | loss=2343.9954 | L0=50 | FVE=0.5541 | cos=0.8629 | dead=0.875 | tok=4.1M | 109.3K/s | ETA=0m | a=0.1871 b=58.8
+    [ adaptive_l2] step  1100/1220 | loss=2296.8652 | L0=50 | FVE=0.5145 | cos=0.8634 | dead=0.875 | tok=4.5M | 109.3K/s | ETA=0m | a=0.1884 b=58.8
+    [ adaptive_l2] step  1200/1220 | loss=2233.7595 | L0=50 | FVE=0.4755 | cos=0.8638 | dead=0.875 | tok=4.9M | 109.2K/s | ETA=0m | a=0.1886 b=58.8
+    [ adaptive_l2] step  1220/1220 | loss=2311.7859 | L0=50 | FVE=0.5480 | cos=0.8641 | dead=0.875 | tok=5.0M | 109.2K/s | ETA=0m | a=0.1886 b=58.8
+    [adaptive_l2] Done in 45.7s
+
+  Reconstruction — adaptive_l2
+    [adaptive_l2] L2=2302.4049 | cos=0.8642 | L0=50 | FVE=0.5414 | dead=0.851
+
+  Norm Invariance — adaptive_l2
+    [adaptive_l2] scale=0.5: ratio=0.800 | agree=1.000 | cos=0.9929
+    [adaptive_l2] scale=2.0: ratio=1.191 | agree=1.000 | cos=0.9973
+    [adaptive_l2] scale=5.0: ratio=1.452 | agree=0.999 | cos=0.9934
+
+    Ablation [adaptive_l2] (30 feats, 50 samples)...
+    [adaptive_l2] 1383 alive features (of 10240)
+      feat  2150 | n=50 | cos→KL=0.299 | inner→KL=0.994 | SAE→KL=0.970 | norm→KL=0.996
+      feat  7238 | n=50 | cos→KL=0.161 | inner→KL=0.990 | SAE→KL=0.980 | norm→KL=0.995
+      feat  9617 | n=50 | cos→KL=0.387 | inner→KL=0.242 | SAE→KL=0.153 | norm→KL=-0.206
+      feat  9274 | n=50 | cos→KL=0.486 | inner→KL=0.204 | SAE→KL=-0.021 | norm→KL=-0.518
+      feat  2083 | n=50 | cos→KL=0.480 | inner→KL=0.300 | SAE→KL=0.242 | norm→KL=-0.400
+      feat  3599 | n=50 | cos→KL=0.336 | inner→KL=0.217 | SAE→KL=0.309 | norm→KL=-0.229
+      feat  4278 | n=50 | cos→KL=0.348 | inner→KL=0.257 | SAE→KL=0.309 | norm→KL=-0.100
+    [adaptive_l2] Summary (30 features): cos→KL=0.3947 | inner→KL=0.2661 | SAE→KL=0.1940 | cos>inner: 28/30
+
+======================================================================
+  LAYER 24 (of 32)
+======================================================================
+  Collecting train activations for layer 24 (5,000,000 tokens)...
+  Layer 24: 5,000,000 train tokens in 680.0s (norm: mean=226.3, std=81.8)
+  Collecting eval activations for layer 24 (500,000 tokens)...
+  Layer 24: 500,000 eval tokens in 93.0s (norm: mean=226.9, std=81.7)
+
+  --- VARIANT: standard (L24) ---
+
+  Training standard | L24 | d_sae=10240, k=50, lr=0.0003, 5,000,000 tokens, 1220 steps
+    [    standard] step   100/1220 | loss=17364.1094 | L0=50 | FVE=0.1725 | cos=0.7701 | dead=0.936 | tok=0.4M | 114.3K/s | ETA=1m
+    [    standard] step   200/1220 | loss=9198.0430 | L0=50 | FVE=0.5032 | cos=0.8969 | dead=0.951 | tok=0.8M | 115.1K/s | ETA=1m
+    [    standard] step   300/1220 | loss=8660.1426 | L0=50 | FVE=0.5258 | cos=0.9018 | dead=0.945 | tok=1.2M | 115.3K/s | ETA=1m
+    [    standard] step   400/1220 | loss=8288.9102 | L0=50 | FVE=0.5416 | cos=0.9044 | dead=0.955 | tok=1.6M | 115.3K/s | ETA=0m
+    [    standard] step   500/1220 | loss=8083.6191 | L0=50 | FVE=0.5141 | cos=0.9059 | dead=0.940 | tok=2.0M | 115.4K/s | ETA=0m
+    [    standard] step   600/1220 | loss=7940.6035 | L0=50 | FVE=0.5459 | cos=0.9077 | dead=0.955 | tok=2.5M | 115.4K/s | ETA=0m
+    [    standard] step   700/1220 | loss=7878.2461 | L0=50 | FVE=0.5706 | cos=0.9091 | dead=0.957 | tok=2.9M | 115.4K/s | ETA=0m
+    [    standard] step   800/1220 | loss=7799.7490 | L0=50 | FVE=0.5508 | cos=0.9092 | dead=0.955 | tok=3.3M | 114.4K/s | ETA=0m
+    [    standard] step   900/1220 | loss=7757.0586 | L0=50 | FVE=0.5667 | cos=0.9096 | dead=0.957 | tok=3.7M | 114.4K/s | ETA=0m
+    [    standard] step  1000/1220 | loss=7717.1904 | L0=50 | FVE=0.5234 | cos=0.9107 | dead=0.946 | tok=4.1M | 114.4K/s | ETA=0m
+    [    standard] step  1100/1220 | loss=7703.1914 | L0=50 | FVE=0.5642 | cos=0.9104 | dead=0.957 | tok=4.5M | 114.4K/s | ETA=0m
+    [    standard] step  1200/1220 | loss=7736.9805 | L0=50 | FVE=0.5835 | cos=0.9108 | dead=0.956 | tok=4.9M | 114.5K/s | ETA=0m
+    [    standard] step  1220/1220 | loss=7698.5752 | L0=50 | FVE=0.5828 | cos=0.9108 | dead=0.957 | tok=5.0M | 114.5K/s | ETA=0m
+    [standard] Done in 43.7s
+
+  Reconstruction — standard
+    [standard] L2=7713.4227 | cos=0.9113 | L0=50 | FVE=0.5648 | dead=0.950
+
+  Norm Invariance — standard
+    [standard] scale=0.5: ratio=0.520 | agree=1.000 | cos=0.9970
+    [standard] scale=2.0: ratio=1.962 | agree=0.990 | cos=0.9922
+    [standard] scale=5.0: ratio=4.848 | agree=0.958 | cos=0.9835
+
+    Ablation [standard] (30 feats, 50 samples)...
+    [standard] 460 alive features (of 10240)
+      feat  7509 | n=50 | cos→KL=0.572 | inner→KL=0.451 | SAE→KL=0.085 | norm→KL=-0.007
+      feat  2410 | n=50 | cos→KL=0.147 | inner→KL=0.261 | SAE→KL=0.270 | norm→KL=0.327
+      feat  9054 | n=50 | cos→KL=0.507 | inner→KL=0.377 | SAE→KL=0.336 | norm→KL=-0.062
+      feat  2672 | n=50 | cos→KL=0.274 | inner→KL=-0.059 | SAE→KL=-0.392 | norm→KL=-0.532
+      feat   326 | n=50 | cos→KL=0.064 | inner→KL=0.942 | SAE→KL=0.636 | norm→KL=0.968
+      feat  6675 | n=50 | cos→KL=0.361 | inner→KL=0.241 | SAE→KL=-0.034 | norm→KL=-0.173
+      feat  4068 | n=50 | cos→KL=0.321 | inner→KL=0.076 | SAE→KL=-0.015 | norm→KL=-0.381
+    [standard] Summary (30 features): cos→KL=0.2712 | inner→KL=0.4412 | SAE→KL=0.2133 | cos>inner: 17/30
+
+  --- VARIANT: cosine (L24) ---
+
+  Training cosine | L24 | d_sae=10240, k=50, lr=0.0003, 5,000,000 tokens, 1220 steps
+    [      cosine] step   100/1220 | loss=16345.7432 | L0=50 | FVE=0.0979 | cos=0.8815 | dead=0.984 | tok=0.4M | 110.9K/s | ETA=1m | scale=52.0
+    [      cosine] step   200/1220 | loss=15005.5762 | L0=50 | FVE=0.1909 | cos=0.8927 | dead=0.989 | tok=0.8M | 110.9K/s | ETA=1m | scale=52.9
+    [      cosine] step   300/1220 | loss=14450.0977 | L0=50 | FVE=0.2224 | cos=0.8893 | dead=0.989 | tok=1.2M | 110.8K/s | ETA=1m | scale=53.5
+    [      cosine] step   400/1220 | loss=12875.4844 | L0=50 | FVE=0.2884 | cos=0.8967 | dead=0.988 | tok=1.6M | 109.2K/s | ETA=1m | scale=54.2
+    [      cosine] step   500/1220 | loss=11762.1094 | L0=50 | FVE=0.2934 | cos=0.8962 | dead=0.988 | tok=2.0M | 109.4K/s | ETA=0m | scale=54.8
+    [      cosine] step   600/1220 | loss=11758.1504 | L0=50 | FVE=0.3287 | cos=0.8976 | dead=0.986 | tok=2.5M | 109.3K/s | ETA=0m | scale=55.4
+    [      cosine] step   700/1220 | loss=11746.3652 | L0=50 | FVE=0.3608 | cos=0.8995 | dead=0.984 | tok=2.9M | 109.4K/s | ETA=0m | scale=55.9
+    [      cosine] step   800/1220 | loss=10981.4590 | L0=50 | FVE=0.3679 | cos=0.8991 | dead=0.985 | tok=3.3M | 109.5K/s | ETA=0m | scale=56.3
+    [      cosine] step   900/1220 | loss=10846.7109 | L0=50 | FVE=0.3941 | cos=0.9010 | dead=0.985 | tok=3.7M | 109.5K/s | ETA=0m | scale=56.6
+    [      cosine] step  1000/1220 | loss=10399.2148 | L0=50 | FVE=0.3578 | cos=0.9019 | dead=0.985 | tok=4.1M | 109.6K/s | ETA=0m | scale=56.7
+    [      cosine] step  1100/1220 | loss=10675.9033 | L0=50 | FVE=0.3962 | cos=0.9015 | dead=0.985 | tok=4.5M | 109.6K/s | ETA=0m | scale=56.8
+    [      cosine] step  1200/1220 | loss=11092.8418 | L0=50 | FVE=0.4038 | cos=0.9020 | dead=0.984 | tok=4.9M | 109.6K/s | ETA=0m | scale=56.8
+    [      cosine] step  1220/1220 | loss=10911.4756 | L0=50 | FVE=0.4096 | cos=0.9019 | dead=0.984 | tok=5.0M | 109.6K/s | ETA=0m | scale=56.8
+    [cosine] Done in 45.6s
+
+  Reconstruction — cosine
+    [cosine] L2=10766.9893 | cos=0.9022 | L0=50 | FVE=0.3929 | dead=0.977
+
+  Norm Invariance — cosine
+    [cosine] scale=0.5: ratio=0.993 | agree=1.000 | cos=0.9985
+    [cosine] scale=2.0: ratio=1.004 | agree=1.000 | cos=0.9992
+    [cosine] scale=5.0: ratio=1.006 | agree=1.000 | cos=0.9987
+
+    Ablation [cosine] (30 feats, 50 samples)...
+    [cosine] 187 alive features (of 10240)
+      feat  2192 | n=50 | cos→KL=0.330 | inner→KL=0.314 | SAE→KL=0.353 | norm→KL=0.192
+      feat   609 | n=50 | cos→KL=0.398 | inner→KL=0.193 | SAE→KL=0.196 | norm→KL=-0.047
+      feat  3571 | n=50 | cos→KL=0.680 | inner→KL=0.560 | SAE→KL=0.355 | norm→KL=0.061
+      feat  3077 | n=50 | cos→KL=0.463 | inner→KL=-0.269 | SAE→KL=-0.473 | norm→KL=-0.623
+      feat  2018 | n=50 | cos→KL=0.181 | inner→KL=0.971 | SAE→KL=0.795 | norm→KL=0.977
+      feat  5273 | n=50 | cos→KL=0.332 | inner→KL=0.026 | SAE→KL=-0.010 | norm→KL=-0.144
+      feat  6313 | n=50 | cos→KL=-0.112 | inner→KL=-0.285 | SAE→KL=-0.259 | norm→KL=-0.344
+    [cosine] Summary (30 features): cos→KL=0.1774 | inner→KL=0.0762 | SAE→KL=0.0540 | cos>inner: 12/30
+
+  --- VARIANT: adaptive_l2 (L24) ---
+
+  Training adaptive_l2 | L24 | d_sae=10240, k=50, lr=0.0003, 5,000,000 tokens, 1220 steps
+    [ adaptive_l2] step   100/1220 | loss=15445.6582 | L0=50 | FVE=0.1128 | cos=0.8846 | dead=0.986 | tok=0.4M | 108.4K/s | ETA=1m | a=0.0260 b=51.9
+    [ adaptive_l2] step   200/1220 | loss=13691.3916 | L0=50 | FVE=0.2603 | cos=0.8934 | dead=0.989 | tok=0.8M | 108.9K/s | ETA=1m | a=0.0455 b=52.6
+    [ adaptive_l2] step   300/1220 | loss=11955.5596 | L0=50 | FVE=0.3474 | cos=0.8971 | dead=0.988 | tok=1.2M | 109.0K/s | ETA=1m | a=0.0649 b=53.4
+    [ adaptive_l2] step   400/1220 | loss=10518.7266 | L0=50 | FVE=0.4193 | cos=0.8989 | dead=0.978 | tok=1.6M | 109.3K/s | ETA=1m | a=0.0835 b=54.1
+    [ adaptive_l2] step   500/1220 | loss=8943.6123 | L0=50 | FVE=0.4628 | cos=0.9031 | dead=0.963 | tok=2.0M | 109.5K/s | ETA=0m | a=0.0986 b=54.8
+    [ adaptive_l2] step   600/1220 | loss=8338.6104 | L0=50 | FVE=0.5231 | cos=0.9060 | dead=0.968 | tok=2.5M | 109.6K/s | ETA=0m | a=0.1073 b=55.2
+    [ adaptive_l2] step   700/1220 | loss=8087.0918 | L0=50 | FVE=0.5592 | cos=0.9087 | dead=0.959 | tok=2.9M | 109.6K/s | ETA=0m | a=0.1121 b=55.4
+    [ adaptive_l2] step   800/1220 | loss=7827.1631 | L0=50 | FVE=0.5493 | cos=0.9103 | dead=0.914 | tok=3.3M | 109.6K/s | ETA=0m | a=0.1150 b=55.5
+    [ adaptive_l2] step   900/1220 | loss=7683.1279 | L0=50 | FVE=0.5708 | cos=0.9118 | dead=0.956 | tok=3.7M | 109.4K/s | ETA=0m | a=0.1169 b=55.6
+    [ adaptive_l2] step  1000/1220 | loss=7575.1206 | L0=50 | FVE=0.5322 | cos=0.9132 | dead=0.963 | tok=4.1M | 109.2K/s | ETA=0m | a=0.1179 b=55.7
+    [ adaptive_l2] step  1100/1220 | loss=7568.2627 | L0=50 | FVE=0.5718 | cos=0.9131 | dead=0.967 | tok=4.5M | 109.1K/s | ETA=0m | a=0.1183 b=55.7
+    [ adaptive_l2] step  1200/1220 | loss=7600.4980 | L0=50 | FVE=0.5909 | cos=0.9137 | dead=0.970 | tok=4.9M | 109.1K/s | ETA=0m | a=0.1184 b=55.7
+    [ adaptive_l2] step  1220/1220 | loss=7563.5049 | L0=50 | FVE=0.5901 | cos=0.9134 | dead=0.967 | tok=5.0M | 109.0K/s | ETA=0m | a=0.1184 b=55.7
+    [adaptive_l2] Done in 45.8s
+
+  Reconstruction — adaptive_l2
+    [adaptive_l2] L2=7573.5676 | cos=0.9140 | L0=50 | FVE=0.5724 | dead=0.884
+
+  Norm Invariance — adaptive_l2
+    [adaptive_l2] scale=0.5: ratio=0.909 | agree=1.000 | cos=0.9992
+    [adaptive_l2] scale=2.0: ratio=1.093 | agree=1.000 | cos=0.9988
+    [adaptive_l2] scale=5.0: ratio=1.223 | agree=0.999 | cos=0.9952
+
+    Ablation [adaptive_l2] (30 feats, 50 samples)...
+    [adaptive_l2] 867 alive features (of 10240)
+      feat  2267 | n=50 | cos→KL=0.190 | inner→KL=0.172 | SAE→KL=0.252 | norm→KL=0.078
+      feat  1523 | n=50 | cos→KL=0.224 | inner→KL=0.107 | SAE→KL=0.121 | norm→KL=-0.041
+      feat  6349 | n=50 | cos→KL=0.147 | inner→KL=-0.171 | SAE→KL=-0.201 | norm→KL=-0.339
+      feat  3813 | n=50 | cos→KL=-0.122 | inner→KL=-0.449 | SAE→KL=-0.480 | norm→KL=-0.527
+      feat   126 | n=50 | cos→KL=0.167 | inner→KL=0.945 | SAE→KL=0.761 | norm→KL=0.955
+      feat  3468 | n=50 | cos→KL=0.192 | inner→KL=0.139 | SAE→KL=0.146 | norm→KL=0.029
+      feat  3895 | n=50 | cos→KL=0.112 | inner→KL=-0.124 | SAE→KL=-0.189 | norm→KL=-0.360
+    [adaptive_l2] Summary (30 features): cos→KL=0.1339 | inner→KL=0.0633 | SAE→KL=0.0074 | cos>inner: 12/30
+
+======================================================================
+  SUMMARY TABLE — Pythia-2.8B (LayerNorm), 5M tokens
+======================================================================
+
+  Layer  Variant            FVE   Dead%   cos→KL   SAE→KL  cos>inn 2x ratio
+  -----  -------------- ------- ------- -------- -------- -------- --------
+      8  standard        0.3585   77.2%   0.6620   0.3833    30/30    1.907
+      8  cosine          0.4047   78.1%   0.6438   0.3594    30/30    1.000
+      8  adaptive_l2     0.4083   75.2%   0.6552   0.3729    30/30    1.037
+     16  standard        0.4953   82.8%   0.5848   0.3825    27/30    1.908
+     16  cosine          0.3405   86.3%   0.4430   0.2510    27/30    1.014
+     16  adaptive_l2     0.5414   85.1%   0.3947   0.1940    28/30    1.191
+     24  standard        0.5648   95.0%   0.2712   0.2133    17/30    1.962
+     24  cosine          0.3929   97.7%   0.1774   0.0540    12/30    1.004
+     24  adaptive_l2     0.5724   88.4%   0.1339   0.0074    12/30    1.093
+
+  KEY COMPARISON vs Qwen3-8B (RMSNorm):
+  On Qwen3-8B: cosine SAEs get +8 FVE, 3.3x alive, cos>inner 70-90%
+  On Pythia-2.8B (LayerNorm):
+
+    L8:
+      FVE:   std=0.3585  cos=0.4047 (+0.0462)  ada=0.4083 (+0.0497)
+      Alive: std=2335  cos=2237 (1.0x)  ada=2538 (1.1x)
+      cos>inner: std=30/30  cos=30/30  ada=30/30
+
+    L16:
+      FVE:   std=0.4953  cos=0.3405 (-0.1548)  ada=0.5414 (+0.0461)
+      Alive: std=1765  cos=1403 (0.8x)  ada=1525 (0.9x)
+      cos>inner: std=27/30  cos=27/30  ada=28/30
+
+    L24:
+      FVE:   std=0.5648  cos=0.3929 (-0.1720)  ada=0.5724 (+0.0076)
+      Alive: std=507  cos=235 (0.5x)  ada=1187 (2.3x)
+      cos>inner: std=17/30  cos=12/30  ada=12/30
+
+Results: experiments/exp24_results.json
+Checkpoints: checkpoints/exp24/
+Done!

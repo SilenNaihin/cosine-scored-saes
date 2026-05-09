@@ -1,0 +1,95 @@
+{
+  "config": {
+    "model": "Qwen/Qwen3-8B",
+    "layer": 18,
+    "n_tokens": 100000,
+    "corr_threshold": 0.7,
+    "decoder_sim_threshold": 0.7
+  },
+  "feature_counts": {
+    "std_alive": 64450,
+    "cos_alive": 64672,
+    "std_matched": 8661,
+    "cos_matched": 9506,
+    "std_unique": 55789,
+    "cos_unique": 55166
+  },
+  "norm_analysis": {
+    "token_norm_quartiles": [
+      94.12601470947266,
+      100.25885772705078,
+      107.4230728149414
+    ],
+    "token_norm_mean": 203.4886474609375,
+    "cosine_unique": {
+      "n_features": 55166,
+      "n_features_active": 55166,
+      "mean_freq": 0.0017283894121646881,
+      "median_freq": 0.0005300000193528831,
+      "activation_norm_mean": 4431.9013671875,
+      "activation_norm_median": 100.25872802734375,
+      "activation_norm_std": 1107.0340576171875,
+      "quartile_fracs": [
+        0.12082403540785665,
+        0.1435394830722258,
+        0.16697261504213026,
+        0.5686638664777873
+      ],
+      "n_activations": 9534833
+    },
+    "standard_unique": {
+      "n_features": 55789,
+      "n_features_active": 55789,
+      "mean_freq": 0.0054121967405080795,
+      "median_freq": 0.006049999967217445,
+      "activation_norm_mean": 9689.4013671875,
+      "activation_norm_median": 100.25872802734375,
+      "activation_norm_std": 1107.0340576171875,
+      "quartile_fracs": [
+        0.0402069225170583,
+        0.045867067292342904,
+        0.0512293393438666,
+        0.8626967039657809
+      ],
+      "n_activations": 30194104
+    },
+    "cosine_matched": {
+      "n_features": 9506,
+      "n_features_active": 9506,
+      "mean_freq": 0.002705210354179144,
+      "median_freq": 0.0006699999794363976,
+      "activation_norm_mean": 2837.08251953125,
+      "activation_norm_median": 100.25898742675781,
+      "activation_norm_std": 1107.050537109375,
+      "quartile_fracs": [
+        0.14554360307873818,
+        0.17667707663752885,
+        0.20239129902203826,
+        0.4753880212616947
+      ],
+      "n_activations": 2571573
+    },
+    "standard_matched": {
+      "n_features": 8661,
+      "n_features_active": 8661,
+      "mean_freq": 0.002269380958750844,
+      "median_freq": 0.000590000010561198,
+      "activation_norm_mean": 269.58258056640625,
+      "activation_norm_median": 100.25898742675781,
+      "activation_norm_std": 1107.03955078125,
+      "quartile_fracs": [
+        0.2043656840384002,
+        0.2351993959840469,
+        0.25787848554396287,
+        0.30255643443359004
+      ],
+      "n_activations": 1965511
+    },
+    "cross_architecture": {
+      "n_tokens_sampled": 50000,
+      "std_features_active_mean": 327.747314453125,
+      "cos_features_active_mean": 122.09200286865234,
+      "std_features_active_median": 77.0
+    }
+  }
+}

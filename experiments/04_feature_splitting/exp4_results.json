@@ -1,0 +1,28 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "layer": 18,
+  "cos_threshold_high": 0.95,
+  "cos_threshold_med": 0.9,
+  "geometry": {
+    "n_features": 65536,
+    "d_model": 4096,
+    "n_pairs_high": 0,
+    "n_pairs_med": 0,
+    "cos_distribution": {
+      "n_sampled": 5000,
+      "mean": 0.0020469469018280506,
+      "std": 0.0290515273809433,
+      "max": 0.62109375,
+      "percentiles": {
+        "p50": 0.0003528594970703125,
+        "p90": 0.0341796875,
+        "p95": 0.048583984375,
+        "p99": 0.09130859375,
+        "p99.5": 0.11474609375,
+        "p99.9": 0.177734375
+      }
+    },
+    "encoder_analysis": []
+  },
+  "activation_analysis": []
+}

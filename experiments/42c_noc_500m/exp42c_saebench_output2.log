@@ -1,0 +1,1528 @@
+
+============================================================
+Running core evaluation
+============================================================
+
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Skipping exp42c_standard_16k_L13_custom_sae as results already exist
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [00:00<00:00, 20.49it/s]
+
+============================================================
+Running sparse_probing evaluation
+============================================================
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/288 [00:00<?, ?it/s]
+Loading weights:  32%|███▏      | 91/288 [00:00<00:00, 886.23it/s]
+Loading weights:  63%|██████▎   | 181/288 [00:00<00:00, 893.12it/s]
+Loading weights:  95%|█████████▌| 274/288 [00:00<00:00, 907.60it/s]
+Loading weights: 100%|██████████| 288/288 [00:00<00:00, 910.49it/s]
+Loaded pretrained model google/gemma-2-2b into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Skipping exp42c_standard_16k_L13_custom_sae as results already exist
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [00:00<00:00, 1221.05it/s]
+
+Combined results saved to experiments/exp42c_saebench_results/exp42c_standard_16k_L13_combined.json
+
+============================================================
+Running core evaluation
+============================================================
+
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]
+
+Loading weights:   0%|          | 0/288 [00:00<?, ?it/s][A
+
+Loading weights:  28%|██▊       | 80/288 [00:00<00:00, 749.10it/s][A
+
+Loading weights:  58%|█████▊    | 168/288 [00:00<00:00, 822.82it/s][A
+
+Loading weights:  92%|█████████▏| 265/288 [00:00<00:00, 875.72it/s][A
+Loading weights: 100%|██████████| 288/288 [00:00<00:00, 871.50it/s]
+Loaded pretrained model google/gemma-2-2b into HookedTransformer
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sae_lens/training/activations_store.py:357: UserWarning: Dataset is not tokenized. Pre-tokenizing will improve performance and allows for more control over special tokens. See https://decoderesearch.github.io/SAELens/training_saes/#pretokenizing-datasets for more info.
+  warnings.warn(
+
+
+Reconstruction Batches:   0%|          | 0/100 [00:00<?, ?it/s][A
+
+Reconstruction Batches:   1%|          | 1/100 [00:00<01:35,  1.04it/s][A
+
+Reconstruction Batches:   2%|▏         | 2/100 [00:01<00:51,  1.90it/s][A
+
+Reconstruction Batches:   3%|▎         | 3/100 [00:01<00:39,  2.48it/s][A
+
+Reconstruction Batches:   4%|▍         | 4/100 [00:01<00:34,  2.77it/s][A
+
+Reconstruction Batches:   5%|▌         | 5/100 [00:02<00:31,  3.03it/s][A
+
+Reconstruction Batches:   6%|▌         | 6/100 [00:02<00:27,  3.45it/s][A
+
+Reconstruction Batches:   7%|▋         | 7/100 [00:02<00:27,  3.42it/s][A
+
+Reconstruction Batches:   8%|▊         | 8/100 [00:02<00:26,  3.47it/s][A
+
+Reconstruction Batches:   9%|▉         | 9/100 [00:03<00:24,  3.71it/s][A
+
+Reconstruction Batches:  10%|█         | 10/100 [00:03<00:23,  3.77it/s][A
+
+Reconstruction Batches:  11%|█         | 11/100 [00:03<00:24,  3.66it/s][A
+
+Reconstruction Batches:  12%|█▏        | 12/100 [00:03<00:22,  3.91it/s][A
+
+Reconstruction Batches:  13%|█▎        | 13/100 [00:03<00:20,  4.21it/s][A
+
+Reconstruction Batches:  14%|█▍        | 14/100 [00:04<00:19,  4.44it/s][A
+
+Reconstruction Batches:  15%|█▌        | 15/100 [00:04<00:18,  4.60it/s][A
+
+Reconstruction Batches:  16%|█▌        | 16/100 [00:04<00:17,  4.67it/s][A
+
+Reconstruction Batches:  17%|█▋        | 17/100 [00:04<00:17,  4.68it/s][A
+
+Reconstruction Batches:  18%|█▊        | 18/100 [00:05<00:17,  4.73it/s][A
+
+Reconstruction Batches:  19%|█▉        | 19/100 [00:05<00:16,  4.83it/s][A
+
+Reconstruction Batches:  20%|██        | 20/100 [00:05<00:16,  4.90it/s][A
+
+Reconstruction Batches:  21%|██        | 21/100 [00:05<00:16,  4.93it/s][A
+
+Reconstruction Batches:  22%|██▏       | 22/100 [00:05<00:15,  4.98it/s][A
+
+Reconstruction Batches:  23%|██▎       | 23/100 [00:06<00:15,  4.98it/s][A
+
+Reconstruction Batches:  24%|██▍       | 24/100 [00:06<00:15,  5.00it/s][A
+
+Reconstruction Batches:  25%|██▌       | 25/100 [00:06<00:15,  4.98it/s][A
+
+Reconstruction Batches:  26%|██▌       | 26/100 [00:06<00:14,  5.01it/s][A
+
+Reconstruction Batches:  27%|██▋       | 27/100 [00:06<00:14,  5.04it/s][A
+
+Reconstruction Batches:  28%|██▊       | 28/100 [00:06<00:14,  4.99it/s][A
+
+Reconstruction Batches:  29%|██▉       | 29/100 [00:07<00:14,  5.03it/s][A
+
+Reconstruction Batches:  30%|███       | 30/100 [00:07<00:13,  5.01it/s][A
+
+Reconstruction Batches:  31%|███       | 31/100 [00:07<00:13,  5.02it/s][A
+
+Reconstruction Batches:  32%|███▏      | 32/100 [00:07<00:13,  5.05it/s][A
+
+Reconstruction Batches:  33%|███▎      | 33/100 [00:07<00:13,  5.05it/s][A
+
+Reconstruction Batches:  34%|███▍      | 34/100 [00:08<00:13,  5.01it/s][A
+
+Reconstruction Batches:  35%|███▌      | 35/100 [00:08<00:12,  5.00it/s][A
+
+Reconstruction Batches:  36%|███▌      | 36/100 [00:08<00:12,  4.95it/s][A
+
+Reconstruction Batches:  37%|███▋      | 37/100 [00:08<00:12,  4.96it/s][A
+
+Reconstruction Batches:  38%|███▊      | 38/100 [00:08<00:12,  5.00it/s][A
+
+Reconstruction Batches:  39%|███▉      | 39/100 [00:09<00:12,  5.02it/s][A
+
+Reconstruction Batches:  40%|████      | 40/100 [00:09<00:11,  5.03it/s][A
+
+Reconstruction Batches:  41%|████      | 41/100 [00:09<00:11,  5.03it/s][A
+
+Reconstruction Batches:  42%|████▏     | 42/100 [00:09<00:11,  4.99it/s][A
+
+Reconstruction Batches:  43%|████▎     | 43/100 [00:09<00:11,  5.03it/s][A
+
+Reconstruction Batches:  44%|████▍     | 44/100 [00:10<00:11,  5.06it/s][A
+
+Reconstruction Batches:  45%|████▌     | 45/100 [00:10<00:10,  5.04it/s][A
+
+Reconstruction Batches:  46%|████▌     | 46/100 [00:10<00:10,  5.02it/s][A
+
+Reconstruction Batches:  47%|████▋     | 47/100 [00:10<00:10,  5.02it/s][A
+
+Reconstruction Batches:  48%|████▊     | 48/100 [00:10<00:10,  5.05it/s][A
+
+Reconstruction Batches:  49%|████▉     | 49/100 [00:11<00:10,  5.00it/s][A
+
+Reconstruction Batches:  50%|█████     | 50/100 [00:11<00:09,  5.05it/s][A
+
+Reconstruction Batches:  51%|█████     | 51/100 [00:11<00:09,  5.06it/s][A
+
+Reconstruction Batches:  52%|█████▏    | 52/100 [00:11<00:09,  5.03it/s][A
+
+Reconstruction Batches:  53%|█████▎    | 53/100 [00:11<00:09,  5.03it/s][A
+
+Reconstruction Batches:  54%|█████▍    | 54/100 [00:12<00:09,  5.05it/s][A
+
+Reconstruction Batches:  55%|█████▌    | 55/100 [00:12<00:08,  5.02it/s][A
+
+Reconstruction Batches:  56%|█████▌    | 56/100 [00:12<00:08,  4.97it/s][A
+
+Reconstruction Batches:  57%|█████▋    | 57/100 [00:12<00:08,  5.01it/s][A
+
+Reconstruction Batches:  58%|█████▊    | 58/100 [00:12<00:08,  5.04it/s][A
+
+Reconstruction Batches:  59%|█████▉    | 59/100 [00:13<00:08,  5.03it/s][A
+
+Reconstruction Batches:  60%|██████    | 60/100 [00:13<00:07,  5.05it/s][A
+
+Reconstruction Batches:  61%|██████    | 61/100 [00:13<00:07,  5.04it/s][A
+
+Reconstruction Batches:  62%|██████▏   | 62/100 [00:13<00:07,  4.91it/s][A
+
+Reconstruction Batches:  63%|██████▎   | 63/100 [00:13<00:07,  4.86it/s][A
+
+Reconstruction Batches:  64%|██████▍   | 64/100 [00:14<00:07,  4.94it/s][A
+
+Reconstruction Batches:  65%|██████▌   | 65/100 [00:14<00:07,  4.94it/s][A
+
+Reconstruction Batches:  66%|██████▌   | 66/100 [00:14<00:06,  4.93it/s][A
+
+Reconstruction Batches:  67%|██████▋   | 67/100 [00:14<00:06,  4.96it/s][A
+
+Reconstruction Batches:  68%|██████▊   | 68/100 [00:14<00:06,  4.93it/s][A
+
+Reconstruction Batches:  69%|██████▉   | 69/100 [00:15<00:06,  4.98it/s][A
+
+Reconstruction Batches:  70%|███████   | 70/100 [00:15<00:06,  4.99it/s][A
+
+Reconstruction Batches:  71%|███████   | 71/100 [00:15<00:05,  4.99it/s][A
+
+Reconstruction Batches:  72%|███████▏  | 72/100 [00:15<00:05,  4.97it/s][A
+
+Reconstruction Batches:  73%|███████▎  | 73/100 [00:15<00:05,  4.95it/s][A
+
+Reconstruction Batches:  74%|███████▍  | 74/100 [00:16<00:05,  4.99it/s][A
+
+Reconstruction Batches:  75%|███████▌  | 75/100 [00:16<00:04,  5.03it/s][A
+
+Reconstruction Batches:  76%|███████▌  | 76/100 [00:16<00:04,  5.03it/s][A
+
+Reconstruction Batches:  77%|███████▋  | 77/100 [00:16<00:04,  5.03it/s][A
+
+Reconstruction Batches:  78%|███████▊  | 78/100 [00:16<00:04,  5.06it/s][A
+
+Reconstruction Batches:  79%|███████▉  | 79/100 [00:17<00:04,  5.02it/s][A
+
+Reconstruction Batches:  80%|████████  | 80/100 [00:17<00:03,  5.05it/s][A
+
+Reconstruction Batches:  81%|████████  | 81/100 [00:17<00:03,  5.08it/s][A
+
+Reconstruction Batches:  82%|████████▏ | 82/100 [00:17<00:03,  5.06it/s][A
+
+Reconstruction Batches:  83%|████████▎ | 83/100 [00:17<00:03,  5.06it/s][A
+
+Reconstruction Batches:  84%|████████▍ | 84/100 [00:18<00:03,  5.06it/s][A
+
+Reconstruction Batches:  85%|████████▌ | 85/100 [00:18<00:02,  5.06it/s][A
+
+Reconstruction Batches:  86%|████████▌ | 86/100 [00:18<00:02,  5.00it/s][A
+
+Reconstruction Batches:  87%|████████▋ | 87/100 [00:18<00:02,  5.03it/s][A
+
+Reconstruction Batches:  88%|████████▊ | 88/100 [00:18<00:02,  4.98it/s][A
+
+Reconstruction Batches:  89%|████████▉ | 89/100 [00:19<00:02,  5.01it/s][A
+
+Reconstruction Batches:  90%|█████████ | 90/100 [00:19<00:01,  5.00it/s][A
+
+Reconstruction Batches:  91%|█████████ | 91/100 [00:19<00:01,  5.01it/s][A
+
+Reconstruction Batches:  92%|█████████▏| 92/100 [00:19<00:01,  5.04it/s][A
+
+Reconstruction Batches:  93%|█████████▎| 93/100 [00:19<00:01,  5.01it/s][A
+
+Reconstruction Batches:  94%|█████████▍| 94/100 [00:20<00:01,  5.04it/s][A
+
+Reconstruction Batches:  95%|█████████▌| 95/100 [00:20<00:00,  5.06it/s][A
+
+Reconstruction Batches:  96%|█████████▌| 96/100 [00:20<00:00,  5.02it/s][A
+
+Reconstruction Batches:  97%|█████████▋| 97/100 [00:20<00:00,  4.96it/s][A
+
+Reconstruction Batches:  98%|█████████▊| 98/100 [00:20<00:00,  5.00it/s][A
+
+Reconstruction Batches:  99%|█████████▉| 99/100 [00:21<00:00,  4.95it/s][A
+
+Reconstruction Batches: 100%|██████████| 100/100 [00:21<00:00,  5.00it/s][A
+Reconstruction Batches: 100%|██████████| 100/100 [00:21<00:00,  4.68it/s]
+
+
+Sparsity and Variance Batches:   0%|          | 0/1000 [00:00<?, ?it/s][A
+
+Sparsity and Variance Batches:   0%|          | 2/1000 [00:00<00:51, 19.48it/s][A
+
+Sparsity and Variance Batches:   0%|          | 5/1000 [00:00<00:46, 21.53it/s][A
+
+Sparsity and Variance Batches:   1%|          | 8/1000 [00:00<00:44, 22.09it/s][A
+
+Sparsity and Variance Batches:   1%|          | 11/1000 [00:00<00:44, 22.21it/s][A
+
+Sparsity and Variance Batches:   1%|▏         | 14/1000 [00:00<00:43, 22.62it/s][A
+
+Sparsity and Variance Batches:   2%|▏         | 17/1000 [00:00<00:43, 22.77it/s][A
+
+Sparsity and Variance Batches:   2%|▏         | 20/1000 [00:00<00:42, 22.83it/s][A
+
+Sparsity and Variance Batches:   2%|▏         | 23/1000 [00:01<00:43, 22.25it/s][A
+
+Sparsity and Variance Batches:   3%|▎         | 26/1000 [00:01<00:47, 20.47it/s][A
+
+Sparsity and Variance Batches:   3%|▎         | 29/1000 [00:01<00:45, 21.52it/s][A
+
+Sparsity and Variance Batches:   3%|▎         | 32/1000 [00:01<00:43, 22.23it/s][A
+
+Sparsity and Variance Batches:   4%|▎         | 35/1000 [00:01<00:42, 22.79it/s][A
+
+Sparsity and Variance Batches:   4%|▍         | 38/1000 [00:01<00:41, 23.15it/s][A
+
+Sparsity and Variance Batches:   4%|▍         | 41/1000 [00:01<00:41, 23.17it/s][A
+
+Sparsity and Variance Batches:   4%|▍         | 44/1000 [00:01<00:41, 23.12it/s][A
+
+Sparsity and Variance Batches:   5%|▍         | 47/1000 [00:02<00:41, 22.99it/s][A
+
+Sparsity and Variance Batches:   5%|▌         | 50/1000 [00:02<00:41, 23.14it/s][A
+
+Sparsity and Variance Batches:   5%|▌         | 53/1000 [00:02<00:41, 22.94it/s][A
+
+Sparsity and Variance Batches:   6%|▌         | 56/1000 [00:02<00:42, 22.02it/s][A
+
+Sparsity and Variance Batches:   6%|▌         | 59/1000 [00:02<00:42, 22.17it/s][A
+
+Sparsity and Variance Batches:   6%|▌         | 62/1000 [00:02<00:41, 22.42it/s][A
+
+Sparsity and Variance Batches:   6%|▋         | 65/1000 [00:02<00:41, 22.27it/s][A
+
+Sparsity and Variance Batches:   7%|▋         | 68/1000 [00:03<00:42, 21.96it/s][A
+
+Sparsity and Variance Batches:   7%|▋         | 71/1000 [00:03<00:42, 21.90it/s][A
+
+Sparsity and Variance Batches:   7%|▋         | 74/1000 [00:03<00:41, 22.27it/s][A
+
+Sparsity and Variance Batches:   8%|▊         | 77/1000 [00:03<00:40, 22.59it/s][A
+
+Sparsity and Variance Batches:   8%|▊         | 80/1000 [00:03<00:40, 22.52it/s][A
+
+Sparsity and Variance Batches:   8%|▊         | 83/1000 [00:03<00:40, 22.53it/s][A
+
+Sparsity and Variance Batches:   9%|▊         | 86/1000 [00:03<00:40, 22.79it/s][A
+
+Sparsity and Variance Batches:   9%|▉         | 89/1000 [00:03<00:40, 22.48it/s][A
+
+Sparsity and Variance Batches:   9%|▉         | 92/1000 [00:04<00:40, 22.68it/s][A
+
+Sparsity and Variance Batches:  10%|▉         | 95/1000 [00:04<00:40, 22.60it/s][A
+
+Sparsity and Variance Batches:  10%|▉         | 98/1000 [00:04<00:40, 22.39it/s][A
+
+Sparsity and Variance Batches:  10%|█         | 101/1000 [00:04<00:39, 22.57it/s][A
+
+Sparsity and Variance Batches:  10%|█         | 104/1000 [00:04<00:39, 22.71it/s][A
+
+Sparsity and Variance Batches:  11%|█         | 107/1000 [00:04<00:39, 22.84it/s][A
+
+Sparsity and Variance Batches:  11%|█         | 110/1000 [00:04<00:39, 22.79it/s][A
+
+Sparsity and Variance Batches:  11%|█▏        | 113/1000 [00:05<00:39, 22.55it/s][A
+
+Sparsity and Variance Batches:  12%|█▏        | 116/1000 [00:05<00:38, 22.70it/s][A
+
+Sparsity and Variance Batches:  12%|█▏        | 119/1000 [00:05<00:39, 22.52it/s][A
+
+Sparsity and Variance Batches:  12%|█▏        | 122/1000 [00:05<00:38, 22.83it/s][A
+
+Sparsity and Variance Batches:  12%|█▎        | 125/1000 [00:05<00:38, 22.78it/s][A
+
+Sparsity and Variance Batches:  13%|█▎        | 128/1000 [00:05<00:38, 22.42it/s][A
+
+Sparsity and Variance Batches:  13%|█▎        | 131/1000 [00:05<00:38, 22.57it/s][A
+
+Sparsity and Variance Batches:  13%|█▎        | 134/1000 [00:05<00:38, 22.64it/s][A
+
+Sparsity and Variance Batches:  14%|█▎        | 137/1000 [00:06<00:38, 22.71it/s][A
+
+Sparsity and Variance Batches:  14%|█▍        | 140/1000 [00:06<00:37, 22.76it/s][A
+
+Sparsity and Variance Batches:  14%|█▍        | 143/1000 [00:06<00:37, 22.77it/s][A
+
+Sparsity and Variance Batches:  15%|█▍        | 146/1000 [00:06<00:37, 22.86it/s][A
+
+Sparsity and Variance Batches:  15%|█▍        | 149/1000 [00:06<00:37, 22.77it/s][A
+
+Sparsity and Variance Batches:  15%|█▌        | 152/1000 [00:06<00:37, 22.60it/s][A
+
+Sparsity and Variance Batches:  16%|█▌        | 155/1000 [00:06<00:37, 22.56it/s][A
+
+Sparsity and Variance Batches:  16%|█▌        | 158/1000 [00:07<00:37, 22.27it/s][A
+
+Sparsity and Variance Batches:  16%|█▌        | 161/1000 [00:07<00:37, 22.27it/s][A
+
+Sparsity and Variance Batches:  16%|█▋        | 164/1000 [00:07<00:37, 22.42it/s][A
+
+Sparsity and Variance Batches:  17%|█▋        | 167/1000 [00:07<00:37, 22.43it/s][A
+
+Sparsity and Variance Batches:  17%|█▋        | 170/1000 [00:07<00:37, 22.32it/s][A
+
+Sparsity and Variance Batches:  17%|█▋        | 173/1000 [00:07<00:36, 22.71it/s][A
+
+Sparsity and Variance Batches:  18%|█▊        | 176/1000 [00:07<00:36, 22.74it/s][A
+
+Sparsity and Variance Batches:  18%|█▊        | 179/1000 [00:07<00:36, 22.59it/s][A
+
+Sparsity and Variance Batches:  18%|█▊        | 182/1000 [00:08<00:36, 22.72it/s][A
+
+Sparsity and Variance Batches:  18%|█▊        | 185/1000 [00:08<00:35, 22.81it/s][A
+
+Sparsity and Variance Batches:  19%|█▉        | 188/1000 [00:08<00:35, 22.72it/s][A
+
+Sparsity and Variance Batches:  19%|█▉        | 191/1000 [00:08<00:35, 22.74it/s][A
+
+Sparsity and Variance Batches:  19%|█▉        | 194/1000 [00:08<00:35, 22.81it/s][A
+
+Sparsity and Variance Batches:  20%|█▉        | 197/1000 [00:08<00:34, 23.21it/s][A
+
+Sparsity and Variance Batches:  20%|██        | 200/1000 [00:08<00:35, 22.78it/s][A
+
+Sparsity and Variance Batches:  20%|██        | 203/1000 [00:09<00:35, 22.61it/s][A
+
+Sparsity and Variance Batches:  21%|██        | 206/1000 [00:09<00:35, 22.31it/s][A
+
+Sparsity and Variance Batches:  21%|██        | 209/1000 [00:09<00:35, 22.25it/s][A
+
+Sparsity and Variance Batches:  21%|██        | 212/1000 [00:09<00:35, 22.17it/s][A
+
+Sparsity and Variance Batches:  22%|██▏       | 215/1000 [00:09<00:35, 22.31it/s][A
+
+Sparsity and Variance Batches:  22%|██▏       | 218/1000 [00:09<00:35, 22.20it/s][A
+
+Sparsity and Variance Batches:  22%|██▏       | 221/1000 [00:09<00:34, 22.44it/s][A
+
+Sparsity and Variance Batches:  22%|██▏       | 224/1000 [00:09<00:34, 22.23it/s][A
+
+Sparsity and Variance Batches:  23%|██▎       | 227/1000 [00:10<00:34, 22.40it/s][A
+
+Sparsity and Variance Batches:  23%|██▎       | 230/1000 [00:10<00:34, 22.49it/s][A
+
+Sparsity and Variance Batches:  23%|██▎       | 233/1000 [00:10<00:34, 22.54it/s][A
+
+Sparsity and Variance Batches:  24%|██▎       | 236/1000 [00:10<00:34, 22.47it/s][A
+
+Sparsity and Variance Batches:  24%|██▍       | 239/1000 [00:10<00:33, 22.69it/s][A
+
+Sparsity and Variance Batches:  24%|██▍       | 242/1000 [00:10<00:33, 22.55it/s][A
+
+Sparsity and Variance Batches:  24%|██▍       | 245/1000 [00:10<00:33, 22.71it/s][A
+
+Sparsity and Variance Batches:  25%|██▍       | 248/1000 [00:11<00:33, 22.30it/s][A
+
+Sparsity and Variance Batches:  25%|██▌       | 251/1000 [00:11<00:33, 22.08it/s][A
+
+Sparsity and Variance Batches:  25%|██▌       | 254/1000 [00:11<00:33, 22.28it/s][A
+
+Sparsity and Variance Batches:  26%|██▌       | 257/1000 [00:11<00:33, 22.38it/s][A
+
+Sparsity and Variance Batches:  26%|██▌       | 260/1000 [00:11<00:32, 22.44it/s][A
+
+Sparsity and Variance Batches:  26%|██▋       | 263/1000 [00:11<00:32, 22.55it/s][A
+
+Sparsity and Variance Batches:  27%|██▋       | 266/1000 [00:11<00:32, 22.47it/s][A
+
+Sparsity and Variance Batches:  27%|██▋       | 269/1000 [00:11<00:32, 22.61it/s][A
+
+Sparsity and Variance Batches:  27%|██▋       | 272/1000 [00:12<00:31, 22.80it/s][A
+
+Sparsity and Variance Batches:  28%|██▊       | 275/1000 [00:12<00:32, 22.65it/s][A
+
+Sparsity and Variance Batches:  28%|██▊       | 278/1000 [00:12<00:32, 22.37it/s][A
+
+Sparsity and Variance Batches:  28%|██▊       | 281/1000 [00:12<00:32, 22.29it/s][A
+
+Sparsity and Variance Batches:  28%|██▊       | 284/1000 [00:12<00:33, 21.66it/s][A
+
+Sparsity and Variance Batches:  29%|██▊       | 287/1000 [00:12<00:33, 21.51it/s][A
+
+Sparsity and Variance Batches:  29%|██▉       | 290/1000 [00:12<00:32, 21.99it/s][A
+
+Sparsity and Variance Batches:  29%|██▉       | 293/1000 [00:13<00:32, 21.97it/s][A
+
+Sparsity and Variance Batches:  30%|██▉       | 296/1000 [00:13<00:31, 22.20it/s][A
+
+Sparsity and Variance Batches:  30%|██▉       | 299/1000 [00:13<00:31, 21.99it/s][A
+
+Sparsity and Variance Batches:  30%|███       | 302/1000 [00:13<00:31, 22.09it/s][A
+
+Sparsity and Variance Batches:  30%|███       | 305/1000 [00:13<00:31, 22.35it/s][A
+
+Sparsity and Variance Batches:  31%|███       | 308/1000 [00:13<00:30, 22.64it/s][A
+
+Sparsity and Variance Batches:  31%|███       | 311/1000 [00:13<00:30, 22.47it/s][A
+
+Sparsity and Variance Batches:  31%|███▏      | 314/1000 [00:13<00:29, 22.89it/s][A
+
+Sparsity and Variance Batches:  32%|███▏      | 317/1000 [00:14<00:29, 23.21it/s][A
+
+Sparsity and Variance Batches:  32%|███▏      | 320/1000 [00:14<00:30, 22.62it/s][A
+
+Sparsity and Variance Batches:  32%|███▏      | 323/1000 [00:14<00:29, 23.08it/s][A
+
+Sparsity and Variance Batches:  33%|███▎      | 326/1000 [00:14<00:29, 22.91it/s][A
+
+Sparsity and Variance Batches:  33%|███▎      | 329/1000 [00:14<00:29, 23.07it/s][A
+
+Sparsity and Variance Batches:  33%|███▎      | 332/1000 [00:14<00:28, 23.05it/s][A
+
+Sparsity and Variance Batches:  34%|███▎      | 335/1000 [00:14<00:28, 23.03it/s][A
+
+Sparsity and Variance Batches:  34%|███▍      | 338/1000 [00:15<00:29, 22.59it/s][A
+
+Sparsity and Variance Batches:  34%|███▍      | 341/1000 [00:15<00:29, 22.55it/s][A
+
+Sparsity and Variance Batches:  34%|███▍      | 344/1000 [00:15<00:28, 22.63it/s][A
+
+Sparsity and Variance Batches:  35%|███▍      | 347/1000 [00:15<00:28, 22.75it/s][A
+
+Sparsity and Variance Batches:  35%|███▌      | 350/1000 [00:15<00:28, 22.89it/s][A
+
+Sparsity and Variance Batches:  35%|███▌      | 353/1000 [00:15<00:28, 22.61it/s][A
+
+Sparsity and Variance Batches:  36%|███▌      | 356/1000 [00:15<00:27, 23.15it/s][A
+
+Sparsity and Variance Batches:  36%|███▌      | 359/1000 [00:15<00:27, 23.21it/s][A
+
+Sparsity and Variance Batches:  36%|███▌      | 362/1000 [00:16<00:27, 23.00it/s][A
+
+Sparsity and Variance Batches:  36%|███▋      | 365/1000 [00:16<00:27, 23.15it/s][A
+
+Sparsity and Variance Batches:  37%|███▋      | 368/1000 [00:16<00:27, 23.12it/s][A
+
+Sparsity and Variance Batches:  37%|███▋      | 371/1000 [00:16<00:27, 23.07it/s][A
+
+Sparsity and Variance Batches:  37%|███▋      | 374/1000 [00:16<00:27, 23.10it/s][A
+
+Sparsity and Variance Batches:  38%|███▊      | 377/1000 [00:16<00:27, 23.05it/s][A
+
+Sparsity and Variance Batches:  38%|███▊      | 380/1000 [00:16<00:27, 22.43it/s][A
+
+Sparsity and Variance Batches:  38%|███▊      | 383/1000 [00:16<00:27, 22.19it/s][A
+
+Sparsity and Variance Batches:  39%|███▊      | 386/1000 [00:17<00:28, 21.68it/s][A
+
+Sparsity and Variance Batches:  39%|███▉      | 389/1000 [00:17<00:28, 21.29it/s][A
+
+Sparsity and Variance Batches:  39%|███▉      | 392/1000 [00:17<00:28, 21.06it/s][A
+
+Sparsity and Variance Batches:  40%|███▉      | 395/1000 [00:17<00:29, 20.73it/s][A
+
+Sparsity and Variance Batches:  40%|███▉      | 398/1000 [00:17<00:29, 20.50it/s][A
+
+Sparsity and Variance Batches:  40%|████      | 401/1000 [00:17<00:28, 20.72it/s][A
+
+Sparsity and Variance Batches:  40%|████      | 404/1000 [00:18<00:29, 20.54it/s][A
+
+Sparsity and Variance Batches:  41%|████      | 407/1000 [00:18<00:28, 20.64it/s][A
+
+Sparsity and Variance Batches:  41%|████      | 410/1000 [00:18<00:29, 20.32it/s][A
+
+Sparsity and Variance Batches:  41%|████▏     | 413/1000 [00:18<00:28, 20.94it/s][A
+
+Sparsity and Variance Batches:  42%|████▏     | 416/1000 [00:18<00:27, 21.61it/s][A
+
+Sparsity and Variance Batches:  42%|████▏     | 419/1000 [00:18<00:26, 21.91it/s][A
+
+Sparsity and Variance Batches:  42%|████▏     | 422/1000 [00:18<00:26, 21.91it/s][A
+
+Sparsity and Variance Batches:  42%|████▎     | 425/1000 [00:18<00:25, 22.16it/s][A
+
+Sparsity and Variance Batches:  43%|████▎     | 428/1000 [00:19<00:26, 21.84it/s][A
+
+Sparsity and Variance Batches:  43%|████▎     | 431/1000 [00:19<00:25, 22.06it/s][A
+
+Sparsity and Variance Batches:  43%|████▎     | 434/1000 [00:19<00:25, 21.87it/s][A
+
+Sparsity and Variance Batches:  44%|████▎     | 437/1000 [00:19<00:25, 22.22it/s][A
+
+Sparsity and Variance Batches:  44%|████▍     | 440/1000 [00:19<00:25, 22.33it/s][A
+
+Sparsity and Variance Batches:  44%|████▍     | 443/1000 [00:19<00:24, 22.50it/s][A
+
+Sparsity and Variance Batches:  45%|████▍     | 446/1000 [00:19<00:24, 22.54it/s][A
+
+Sparsity and Variance Batches:  45%|████▍     | 449/1000 [00:20<00:24, 22.63it/s][A
+
+Sparsity and Variance Batches:  45%|████▌     | 452/1000 [00:20<00:24, 22.66it/s][A
+
+Sparsity and Variance Batches:  46%|████▌     | 455/1000 [00:20<00:24, 22.42it/s][A
+
+Sparsity and Variance Batches:  46%|████▌     | 458/1000 [00:20<00:23, 22.78it/s][A
+
+Sparsity and Variance Batches:  46%|████▌     | 461/1000 [00:20<00:24, 22.41it/s][A
+
+Sparsity and Variance Batches:  46%|████▋     | 464/1000 [00:20<00:24, 21.78it/s][A
+
+Sparsity and Variance Batches:  47%|████▋     | 467/1000 [00:20<00:24, 21.90it/s][A
+
+Sparsity and Variance Batches:  47%|████▋     | 470/1000 [00:21<00:24, 21.63it/s][A
+
+Sparsity and Variance Batches:  47%|████▋     | 473/1000 [00:21<00:24, 21.91it/s][A
+
+Sparsity and Variance Batches:  48%|████▊     | 476/1000 [00:21<00:23, 22.17it/s][A
+
+Sparsity and Variance Batches:  48%|████▊     | 479/1000 [00:21<00:23, 22.48it/s][A
+
+Sparsity and Variance Batches:  48%|████▊     | 482/1000 [00:21<00:23, 22.32it/s][A
+
+Sparsity and Variance Batches:  48%|████▊     | 485/1000 [00:21<00:22, 22.57it/s][A
+
+Sparsity and Variance Batches:  49%|████▉     | 488/1000 [00:21<00:22, 22.55it/s][A
+
+Sparsity and Variance Batches:  49%|████▉     | 491/1000 [00:21<00:22, 22.42it/s][A
+
+Sparsity and Variance Batches:  49%|████▉     | 494/1000 [00:22<00:22, 22.92it/s][A
+
+Sparsity and Variance Batches:  50%|████▉     | 497/1000 [00:22<00:21, 23.19it/s][A
+
+Sparsity and Variance Batches:  50%|█████     | 500/1000 [00:22<00:21, 22.88it/s][A
+
+Sparsity and Variance Batches:  50%|█████     | 503/1000 [00:22<00:21, 22.83it/s][A
+
+Sparsity and Variance Batches:  51%|█████     | 506/1000 [00:22<00:21, 22.58it/s][A
+
+Sparsity and Variance Batches:  51%|█████     | 509/1000 [00:22<00:21, 22.50it/s][A
+
+Sparsity and Variance Batches:  51%|█████     | 512/1000 [00:22<00:22, 21.85it/s][A
+
+Sparsity and Variance Batches:  52%|█████▏    | 515/1000 [00:23<00:22, 21.65it/s][A
+
+Sparsity and Variance Batches:  52%|█████▏    | 518/1000 [00:23<00:22, 21.72it/s][A
+
+Sparsity and Variance Batches:  52%|█████▏    | 521/1000 [00:23<00:21, 21.85it/s][A
+
+Sparsity and Variance Batches:  52%|█████▏    | 524/1000 [00:23<00:21, 21.98it/s][A
+
+Sparsity and Variance Batches:  53%|█████▎    | 527/1000 [00:23<00:22, 21.50it/s][A
+
+Sparsity and Variance Batches:  53%|█████▎    | 530/1000 [00:23<00:21, 21.65it/s][A
+
+Sparsity and Variance Batches:  53%|█████▎    | 533/1000 [00:23<00:21, 21.93it/s][A
+
+Sparsity and Variance Batches:  54%|█████▎    | 536/1000 [00:23<00:20, 22.33it/s][A
+
+Sparsity and Variance Batches:  54%|█████▍    | 539/1000 [00:24<00:20, 22.37it/s][A
+
+Sparsity and Variance Batches:  54%|█████▍    | 542/1000 [00:24<00:20, 22.43it/s][A
+
+Sparsity and Variance Batches:  55%|█████▍    | 545/1000 [00:24<00:20, 22.51it/s][A
+
+Sparsity and Variance Batches:  55%|█████▍    | 548/1000 [00:24<00:19, 22.61it/s][A
+
+Sparsity and Variance Batches:  55%|█████▌    | 551/1000 [00:24<00:19, 22.75it/s][A
+
+Sparsity and Variance Batches:  55%|█████▌    | 554/1000 [00:24<00:19, 22.88it/s][A
+
+Sparsity and Variance Batches:  56%|█████▌    | 557/1000 [00:24<00:19, 22.99it/s][A
+
+Sparsity and Variance Batches:  56%|█████▌    | 560/1000 [00:25<00:19, 22.60it/s][A
+
+Sparsity and Variance Batches:  56%|█████▋    | 563/1000 [00:25<00:19, 22.85it/s][A
+
+Sparsity and Variance Batches:  57%|█████▋    | 566/1000 [00:25<00:19, 22.81it/s][A
+
+Sparsity and Variance Batches:  57%|█████▋    | 569/1000 [00:25<00:18, 22.91it/s][A
+
+Sparsity and Variance Batches:  57%|█████▋    | 572/1000 [00:25<00:18, 23.11it/s][A
+
+Sparsity and Variance Batches:  57%|█████▊    | 575/1000 [00:25<00:18, 23.01it/s][A
+
+Sparsity and Variance Batches:  58%|█████▊    | 578/1000 [00:25<00:18, 22.79it/s][A
+
+Sparsity and Variance Batches:  58%|█████▊    | 581/1000 [00:25<00:18, 23.17it/s][A
+
+Sparsity and Variance Batches:  58%|█████▊    | 584/1000 [00:26<00:18, 23.09it/s][A
+
+Sparsity and Variance Batches:  59%|█████▊    | 587/1000 [00:26<00:17, 23.15it/s][A
+
+Sparsity and Variance Batches:  59%|█████▉    | 590/1000 [00:26<00:17, 23.07it/s][A
+
+Sparsity and Variance Batches:  59%|█████▉    | 593/1000 [00:26<00:17, 23.22it/s][A
+
+Sparsity and Variance Batches:  60%|█████▉    | 596/1000 [00:26<00:17, 23.12it/s][A
+
+Sparsity and Variance Batches:  60%|█████▉    | 599/1000 [00:26<00:17, 23.40it/s][A
+
+Sparsity and Variance Batches:  60%|██████    | 602/1000 [00:26<00:17, 22.95it/s][A
+
+Sparsity and Variance Batches:  60%|██████    | 605/1000 [00:26<00:17, 22.38it/s][A
+
+Sparsity and Variance Batches:  61%|██████    | 608/1000 [00:27<00:17, 22.27it/s][A
+
+Sparsity and Variance Batches:  61%|██████    | 611/1000 [00:27<00:17, 22.18it/s][A
+
+Sparsity and Variance Batches:  61%|██████▏   | 614/1000 [00:27<00:16, 22.82it/s][A
+
+Sparsity and Variance Batches:  62%|██████▏   | 617/1000 [00:27<00:16, 22.93it/s][A
+
+Sparsity and Variance Batches:  62%|██████▏   | 620/1000 [00:27<00:17, 22.32it/s][A
+
+Sparsity and Variance Batches:  62%|██████▏   | 623/1000 [00:27<00:16, 22.90it/s][A
+
+Sparsity and Variance Batches:  63%|██████▎   | 626/1000 [00:27<00:16, 23.08it/s][A
+
+Sparsity and Variance Batches:  63%|██████▎   | 629/1000 [00:28<00:16, 22.99it/s][A
+
+Sparsity and Variance Batches:  63%|██████▎   | 632/1000 [00:28<00:15, 23.00it/s][A
+
+Sparsity and Variance Batches:  64%|██████▎   | 635/1000 [00:28<00:15, 23.12it/s][A
+
+Sparsity and Variance Batches:  64%|██████▍   | 638/1000 [00:28<00:15, 23.08it/s][A
+
+Sparsity and Variance Batches:  64%|██████▍   | 641/1000 [00:28<00:15, 23.02it/s][A
+
+Sparsity and Variance Batches:  64%|██████▍   | 644/1000 [00:28<00:15, 23.00it/s][A
+
+Sparsity and Variance Batches:  65%|██████▍   | 647/1000 [00:28<00:15, 23.08it/s][A
+
+Sparsity and Variance Batches:  65%|██████▌   | 650/1000 [00:28<00:15, 23.09it/s][A
+
+Sparsity and Variance Batches:  65%|██████▌   | 653/1000 [00:29<00:15, 22.10it/s][A
+
+Sparsity and Variance Batches:  66%|██████▌   | 656/1000 [00:29<00:15, 22.45it/s][A
+
+Sparsity and Variance Batches:  66%|██████▌   | 659/1000 [00:29<00:15, 22.59it/s][A
+
+Sparsity and Variance Batches:  66%|██████▌   | 662/1000 [00:29<00:14, 22.54it/s][A
+
+Sparsity and Variance Batches:  66%|██████▋   | 665/1000 [00:29<00:14, 22.91it/s][A
+
+Sparsity and Variance Batches:  67%|██████▋   | 668/1000 [00:29<00:14, 22.34it/s][A
+
+Sparsity and Variance Batches:  67%|██████▋   | 671/1000 [00:29<00:14, 22.73it/s][A
+
+Sparsity and Variance Batches:  67%|██████▋   | 674/1000 [00:30<00:14, 23.16it/s][A
+
+Sparsity and Variance Batches:  68%|██████▊   | 677/1000 [00:30<00:13, 23.15it/s][A
+
+Sparsity and Variance Batches:  68%|██████▊   | 680/1000 [00:30<00:13, 23.08it/s][A
+
+Sparsity and Variance Batches:  68%|██████▊   | 683/1000 [00:30<00:13, 23.06it/s][A
+
+Sparsity and Variance Batches:  69%|██████▊   | 686/1000 [00:30<00:13, 23.08it/s][A
+
+Sparsity and Variance Batches:  69%|██████▉   | 689/1000 [00:30<00:13, 22.89it/s][A
+
+Sparsity and Variance Batches:  69%|██████▉   | 692/1000 [00:30<00:13, 23.25it/s][A
+
+Sparsity and Variance Batches:  70%|██████▉   | 695/1000 [00:30<00:13, 23.24it/s][A
+
+Sparsity and Variance Batches:  70%|██████▉   | 698/1000 [00:31<00:13, 22.37it/s][A
+
+Sparsity and Variance Batches:  70%|███████   | 701/1000 [00:31<00:13, 22.55it/s][A
+
+Sparsity and Variance Batches:  70%|███████   | 704/1000 [00:31<00:13, 22.39it/s][A
+
+Sparsity and Variance Batches:  71%|███████   | 707/1000 [00:31<00:12, 22.92it/s][A
+
+Sparsity and Variance Batches:  71%|███████   | 710/1000 [00:31<00:12, 23.03it/s][A
+
+Sparsity and Variance Batches:  71%|███████▏  | 713/1000 [00:31<00:12, 23.15it/s][A
+
+Sparsity and Variance Batches:  72%|███████▏  | 716/1000 [00:31<00:12, 22.84it/s][A
+
+Sparsity and Variance Batches:  72%|███████▏  | 719/1000 [00:31<00:12, 22.70it/s][A
+
+Sparsity and Variance Batches:  72%|███████▏  | 722/1000 [00:32<00:12, 22.79it/s][A
+
+Sparsity and Variance Batches:  72%|███████▎  | 725/1000 [00:32<00:12, 22.84it/s][A
+
+Sparsity and Variance Batches:  73%|███████▎  | 728/1000 [00:32<00:12, 22.66it/s][A
+
+Sparsity and Variance Batches:  73%|███████▎  | 731/1000 [00:32<00:11, 22.81it/s][A
+
+Sparsity and Variance Batches:  73%|███████▎  | 734/1000 [00:32<00:11, 22.59it/s][A
+
+Sparsity and Variance Batches:  74%|███████▎  | 737/1000 [00:32<00:11, 22.90it/s][A
+
+Sparsity and Variance Batches:  74%|███████▍  | 740/1000 [00:32<00:11, 22.71it/s][A
+
+Sparsity and Variance Batches:  74%|███████▍  | 743/1000 [00:33<00:11, 21.94it/s][A
+
+Sparsity and Variance Batches:  75%|███████▍  | 746/1000 [00:33<00:11, 22.09it/s][A
+
+Sparsity and Variance Batches:  75%|███████▍  | 749/1000 [00:33<00:11, 22.34it/s][A
+
+Sparsity and Variance Batches:  75%|███████▌  | 752/1000 [00:33<00:11, 22.39it/s][A
+
+Sparsity and Variance Batches:  76%|███████▌  | 755/1000 [00:33<00:10, 22.53it/s][A
+
+Sparsity and Variance Batches:  76%|███████▌  | 758/1000 [00:33<00:10, 22.11it/s][A
+
+Sparsity and Variance Batches:  76%|███████▌  | 761/1000 [00:33<00:10, 22.62it/s][A
+
+Sparsity and Variance Batches:  76%|███████▋  | 764/1000 [00:33<00:10, 22.71it/s][A
+
+Sparsity and Variance Batches:  77%|███████▋  | 767/1000 [00:34<00:10, 22.75it/s][A
+
+Sparsity and Variance Batches:  77%|███████▋  | 770/1000 [00:34<00:10, 22.26it/s][A
+
+Sparsity and Variance Batches:  77%|███████▋  | 773/1000 [00:34<00:09, 22.78it/s][A
+
+Sparsity and Variance Batches:  78%|███████▊  | 776/1000 [00:34<00:09, 23.04it/s][A
+
+Sparsity and Variance Batches:  78%|███████▊  | 779/1000 [00:34<00:09, 23.10it/s][A
+
+Sparsity and Variance Batches:  78%|███████▊  | 782/1000 [00:34<00:09, 23.22it/s][A
+
+Sparsity and Variance Batches:  78%|███████▊  | 785/1000 [00:34<00:09, 23.14it/s][A
+
+Sparsity and Variance Batches:  79%|███████▉  | 788/1000 [00:35<00:09, 22.73it/s][A
+
+Sparsity and Variance Batches:  79%|███████▉  | 791/1000 [00:35<00:09, 22.82it/s][A
+
+Sparsity and Variance Batches:  79%|███████▉  | 794/1000 [00:35<00:09, 22.74it/s][A
+
+Sparsity and Variance Batches:  80%|███████▉  | 797/1000 [00:35<00:08, 22.83it/s][A
+
+Sparsity and Variance Batches:  80%|████████  | 800/1000 [00:35<00:08, 22.80it/s][A
+
+Sparsity and Variance Batches:  80%|████████  | 803/1000 [00:35<00:08, 22.51it/s][A
+
+Sparsity and Variance Batches:  81%|████████  | 806/1000 [00:35<00:08, 22.60it/s][A
+
+Sparsity and Variance Batches:  81%|████████  | 809/1000 [00:35<00:08, 22.69it/s][A
+
+Sparsity and Variance Batches:  81%|████████  | 812/1000 [00:36<00:08, 22.73it/s][A
+
+Sparsity and Variance Batches:  82%|████████▏ | 815/1000 [00:36<00:08, 23.08it/s][A
+
+Sparsity and Variance Batches:  82%|████████▏ | 818/1000 [00:36<00:07, 22.94it/s][A
+
+Sparsity and Variance Batches:  82%|████████▏ | 821/1000 [00:36<00:07, 22.56it/s][A
+
+Sparsity and Variance Batches:  82%|████████▏ | 824/1000 [00:36<00:07, 22.85it/s][A
+
+Sparsity and Variance Batches:  83%|████████▎ | 827/1000 [00:36<00:07, 22.83it/s][A
+
+Sparsity and Variance Batches:  83%|████████▎ | 830/1000 [00:36<00:07, 22.71it/s][A
+
+Sparsity and Variance Batches:  83%|████████▎ | 833/1000 [00:37<00:07, 21.75it/s][A
+
+Sparsity and Variance Batches:  84%|████████▎ | 836/1000 [00:37<00:07, 22.16it/s][A
+
+Sparsity and Variance Batches:  84%|████████▍ | 839/1000 [00:37<00:07, 22.36it/s][A
+
+Sparsity and Variance Batches:  84%|████████▍ | 842/1000 [00:37<00:07, 22.13it/s][A
+
+Sparsity and Variance Batches:  84%|████████▍ | 845/1000 [00:37<00:06, 22.78it/s][A
+
+Sparsity and Variance Batches:  85%|████████▍ | 848/1000 [00:37<00:06, 23.14it/s][A
+
+Sparsity and Variance Batches:  85%|████████▌ | 851/1000 [00:37<00:06, 22.77it/s][A
+
+Sparsity and Variance Batches:  85%|████████▌ | 854/1000 [00:37<00:06, 23.27it/s][A
+
+Sparsity and Variance Batches:  86%|████████▌ | 857/1000 [00:38<00:06, 22.97it/s][A
+
+Sparsity and Variance Batches:  86%|████████▌ | 860/1000 [00:38<00:06, 23.15it/s][A
+
+Sparsity and Variance Batches:  86%|████████▋ | 863/1000 [00:38<00:05, 22.95it/s][A
+
+Sparsity and Variance Batches:  87%|████████▋ | 866/1000 [00:38<00:05, 23.05it/s][A
+
+Sparsity and Variance Batches:  87%|████████▋ | 869/1000 [00:38<00:05, 23.07it/s][A
+
+Sparsity and Variance Batches:  87%|████████▋ | 872/1000 [00:38<00:05, 22.83it/s][A
+
+Sparsity and Variance Batches:  88%|████████▊ | 875/1000 [00:38<00:05, 23.07it/s][A
+
+Sparsity and Variance Batches:  88%|████████▊ | 878/1000 [00:38<00:05, 22.56it/s][A
+
+Sparsity and Variance Batches:  88%|████████▊ | 881/1000 [00:39<00:05, 22.46it/s][A
+
+Sparsity and Variance Batches:  88%|████████▊ | 884/1000 [00:39<00:05, 21.14it/s][A
+
+Sparsity and Variance Batches:  89%|████████▊ | 887/1000 [00:39<00:05, 21.44it/s][A
+
+Sparsity and Variance Batches:  89%|████████▉ | 890/1000 [00:39<00:05, 21.97it/s][A
+
+Sparsity and Variance Batches:  89%|████████▉ | 893/1000 [00:39<00:04, 22.37it/s][A
+
+Sparsity and Variance Batches:  90%|████████▉ | 896/1000 [00:39<00:04, 22.57it/s][A
+
+Sparsity and Variance Batches:  90%|████████▉ | 899/1000 [00:39<00:04, 22.67it/s][A
+
+Sparsity and Variance Batches:  90%|█████████ | 902/1000 [00:40<00:04, 22.77it/s][A
+
+Sparsity and Variance Batches:  90%|█████████ | 905/1000 [00:40<00:04, 22.73it/s][A
+
+Sparsity and Variance Batches:  91%|█████████ | 908/1000 [00:40<00:04, 22.81it/s][A
+
+Sparsity and Variance Batches:  91%|█████████ | 911/1000 [00:40<00:03, 22.84it/s][A
+
+Sparsity and Variance Batches:  91%|█████████▏| 914/1000 [00:40<00:03, 22.85it/s][A
+
+Sparsity and Variance Batches:  92%|█████████▏| 917/1000 [00:40<00:03, 22.89it/s][A
+
+Sparsity and Variance Batches:  92%|█████████▏| 920/1000 [00:40<00:03, 22.75it/s][A
+
+Sparsity and Variance Batches:  92%|█████████▏| 923/1000 [00:40<00:03, 22.69it/s][A
+
+Sparsity and Variance Batches:  93%|█████████▎| 926/1000 [00:41<00:03, 22.21it/s][A
+
+Sparsity and Variance Batches:  93%|█████████▎| 929/1000 [00:41<00:03, 22.55it/s][A
+
+Sparsity and Variance Batches:  93%|█████████▎| 932/1000 [00:41<00:02, 22.71it/s][A
+
+Sparsity and Variance Batches:  94%|█████████▎| 935/1000 [00:41<00:02, 22.57it/s][A
+
+Sparsity and Variance Batches:  94%|█████████▍| 938/1000 [00:41<00:02, 22.68it/s][A
+
+Sparsity and Variance Batches:  94%|█████████▍| 941/1000 [00:41<00:02, 22.90it/s][A
+
+Sparsity and Variance Batches:  94%|█████████▍| 944/1000 [00:41<00:02, 22.55it/s][A
+
+Sparsity and Variance Batches:  95%|█████████▍| 947/1000 [00:42<00:02, 22.72it/s][A
+
+Sparsity and Variance Batches:  95%|█████████▌| 950/1000 [00:42<00:02, 22.74it/s][A
+
+Sparsity and Variance Batches:  95%|█████████▌| 953/1000 [00:42<00:02, 22.55it/s][A
+
+Sparsity and Variance Batches:  96%|█████████▌| 956/1000 [00:42<00:01, 22.45it/s][A
+
+Sparsity and Variance Batches:  96%|█████████▌| 959/1000 [00:42<00:01, 22.65it/s][A
+
+Sparsity and Variance Batches:  96%|█████████▌| 962/1000 [00:42<00:01, 22.70it/s][A
+
+Sparsity and Variance Batches:  96%|█████████▋| 965/1000 [00:42<00:01, 22.74it/s][A
+
+Sparsity and Variance Batches:  97%|█████████▋| 968/1000 [00:42<00:01, 22.12it/s][A
+
+Sparsity and Variance Batches:  97%|█████████▋| 971/1000 [00:43<00:01, 22.04it/s][A
+
+Sparsity and Variance Batches:  97%|█████████▋| 974/1000 [00:43<00:01, 21.90it/s][A
+
+Sparsity and Variance Batches:  98%|█████████▊| 977/1000 [00:43<00:01, 22.07it/s][A
+
+Sparsity and Variance Batches:  98%|█████████▊| 980/1000 [00:43<00:00, 22.50it/s][A
+
+Sparsity and Variance Batches:  98%|█████████▊| 983/1000 [00:43<00:00, 22.52it/s][A
+
+Sparsity and Variance Batches:  99%|█████████▊| 986/1000 [00:43<00:00, 22.79it/s][A
+
+Sparsity and Variance Batches:  99%|█████████▉| 989/1000 [00:43<00:00, 23.02it/s][A
+
+Sparsity and Variance Batches:  99%|█████████▉| 992/1000 [00:44<00:00, 22.90it/s][A
+
+Sparsity and Variance Batches: 100%|█████████▉| 995/1000 [00:44<00:00, 22.47it/s][A
+
+Sparsity and Variance Batches: 100%|█████████▉| 998/1000 [00:44<00:00, 22.66it/s][A
+Sparsity and Variance Batches: 100%|██████████| 1000/1000 [00:44<00:00, 22.52it/s]
+Saved evaluation results to: experiments/exp42c_saebench_results/core/exp42c_no_C_16k_L13_custom_sae_eval_results.json
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [01:16<00:00, 76.78s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [01:16<00:00, 76.78s/it]
+
+============================================================
+Running sparse_probing evaluation
+============================================================
+
+
+Loading weights:   0%|          | 0/288 [00:00<?, ?it/s]
+Loading weights:  28%|██▊       | 80/288 [00:00<00:00, 768.92it/s]
+Loading weights:  58%|█████▊    | 168/288 [00:00<00:00, 827.20it/s]
+Loading weights:  90%|████████▉ | 258/288 [00:00<00:00, 859.44it/s]
+Loading weights: 100%|██████████| 288/288 [00:00<00:00, 864.20it/s]
+Loaded pretrained model google/gemma-2-2b into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/sparse_probing/google/gemma-2-2b/blocks.13.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 79 epochs
+Test accuracy for 0: 0.89000004529953
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 53 epochs
+Test accuracy for 1: 0.9020000696182251
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 74 epochs
+Test accuracy for 2: 0.9020000696182251
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 54 epochs
+Test accuracy for 6: 0.9630000591278076
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 54 epochs
+Test accuracy for 9: 0.9460000395774841
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.786
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.636
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.726
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.966
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 9: 0.845
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.686
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.658
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.698
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.936
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 9: 0.85
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.716
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.73
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.822
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.926
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 9: 0.856
+Loading activations from artifacts/sparse_probing/google/gemma-2-2b/blocks.13.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 62 epochs
+Test accuracy for 11: 0.9270000457763672
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 49 epochs
+Test accuracy for 13: 0.9280000329017639
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 43 epochs
+Test accuracy for 14: 0.9030000567436218
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 42 epochs
+Test accuracy for 18: 0.8320000171661377
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 39 epochs
+Test accuracy for 19: 0.9170000553131104
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 11: 0.723
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 13: 0.694
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 14: 0.718
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 18: 0.734
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 19: 0.848
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 11: 0.762
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 13: 0.654
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 14: 0.72
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 18: 0.73
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 19: 0.858
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 11: 0.784
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 13: 0.674
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 14: 0.825
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 18: 0.745
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 19: 0.859
+Loading activations from artifacts/sparse_probing/google/gemma-2-2b/blocks.13.hook_resid_post/LabHC_bias_in_bios_class_set3_activations.pt
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 37 epochs
+Test accuracy for 20: 0.937000036239624
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 54 epochs
+Test accuracy for 21: 0.8850000500679016
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 100 epochs
+Test accuracy for 22: 0.8720000386238098
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 58 epochs
+Test accuracy for 25: 0.9240000247955322
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 63 epochs
+Test accuracy for 26: 0.8450000286102295
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 20: 0.735
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 21: 0.667
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 22: 0.561
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 25: 0.883
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 26: 0.652
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 20: 0.834
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 21: 0.677
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 22: 0.669
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 25: 0.86
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 26: 0.675
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 20: 0.886
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 21: 0.822
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 22: 0.699
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 25: 0.863
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 26: 0.746
+Loading activations from artifacts/sparse_probing/google/gemma-2-2b/blocks.13.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 59 epochs
+Test accuracy for 1: 0.9010000228881836
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 52 epochs
+Test accuracy for 2: 0.8540000319480896
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 45 epochs
+Test accuracy for 3: 0.8350000381469727
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 61 epochs
+Test accuracy for 5: 0.800000011920929
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 72 epochs
+Test accuracy for 6: 0.8030000329017639
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.732
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.559
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 3: 0.571
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 5: 0.569
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.592
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.675
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.628
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 3: 0.608
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 5: 0.598
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.649
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.663
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.678
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 3: 0.615
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 5: 0.626
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.676
+Loading activations from artifacts/sparse_probing/google/gemma-2-2b/blocks.13.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_sentiment_activations.pt
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for 1.0: 0.9190000295639038
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 44 epochs
+Test accuracy for 5.0: 0.9310000538825989
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1.0: 0.67
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 5.0: 0.67
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1.0: 0.726
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 5.0: 0.726
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1.0: 0.737
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 5.0: 0.737
+Loading activations from artifacts/sparse_probing/google/gemma-2-2b/blocks.13.hook_resid_post/codeparrot_github-code_activations.pt
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 75 epochs
+Test accuracy for C: 0.8890000581741333
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 79 epochs
+Test accuracy for Python: 0.89000004529953
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 26 epochs
+Test accuracy for HTML: 0.9610000252723694
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 64 epochs
+Test accuracy for Java: 0.9040000438690186
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 58 epochs
+Test accuracy for PHP: 0.8880000710487366
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for C: 0.624
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for Python: 0.616
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for HTML: 0.736
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for Java: 0.676
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for PHP: 0.634
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for C: 0.646
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for Python: 0.606
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for HTML: 0.761
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for Java: 0.681
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for PHP: 0.644
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for C: 0.666
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for Python: 0.647
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for HTML: 0.893
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for Java: 0.679
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for PHP: 0.638
+Loading activations from artifacts/sparse_probing/google/gemma-2-2b/blocks.13.hook_resid_post/fancyzhx_ag_news_activations.pt
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 39 epochs
+Test accuracy for 0: 0.9020000696182251
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 36 epochs
+Test accuracy for 1: 0.9460000395774841
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 37 epochs
+Test accuracy for 2: 0.8890000581741333
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 55 epochs
+Test accuracy for 3: 0.9170000553131104
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.784
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.751
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.639
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 3: 0.725
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.67
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.859
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.635
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 3: 0.768
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.789
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.897
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.708
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 3: 0.779
+Loading activations from artifacts/sparse_probing/google/gemma-2-2b/blocks.13.hook_resid_post/Helsinki-NLP_europarl_activations.pt
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 56 epochs
+Test accuracy for en: 0.9930000305175781
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 47 epochs
+Test accuracy for fr: 0.9610000252723694
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 49 epochs
+Test accuracy for de: 0.9640000462532043
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for es: 0.968000054359436
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 71 epochs
+Test accuracy for nl: 0.9510000348091125
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for en: 0.998
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for fr: 0.837
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for de: 0.942
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for es: 0.822
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for nl: 0.994
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for en: 0.998
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for fr: 0.928
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for de: 0.931
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for es: 0.901
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for nl: 0.995
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for en: 0.998
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for fr: 0.902
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for de: 0.908
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for es: 0.878
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for nl: 0.996
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [01:46<00:00, 106.95s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [01:46<00:00, 106.95s/it]
+
+Combined results saved to experiments/exp42c_saebench_results/exp42c_no_C_16k_L13_combined.json
+DONE

@@ -1,0 +1,318 @@
+Experiment 13: Cosine-Based Ablation
+======================================================================
+Model: Qwen/Qwen3-8B
+Layers: [9, 18, 27]
+Variants: ['standard', 'cosine_l2', 'cosine_cosloss', 'adaptive_l2', 'adaptive_cosloss']
+Checkpoints: checkpoints/exp10/
+Ablation: 30 features × 50 samples, dual mode (inner_product + cosine)
+
+Loading model...
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.68it/s]
+Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:01,  1.72it/s]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:01,  1.76it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.93it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.55it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.15it/s]
+Model loaded in 4.0s
+
+Collecting FineWeb texts...
+  Downloading ~5,000 docs from FineWeb...
+  Collected 5,000 texts in 15.5s
+
+======================================================================
+  LAYER 9
+======================================================================
+  Converting texts -> layer 9 activations (target 500,000)...
+  Layer 9: 500,000 tokens in 16.6s (norm: mean=58.1, std=6.7)
+  Median ||x|| = 58.0 (used as cosine ablation constant C)
+    Loaded standard/L9 from checkpoints/exp10/standard_L9.pt
+
+    Dual ablation [standard/L9] (30 feats, 50 samples, median_norm=58.0)...
+      feat  8949 | n=50 | IP: sae→KL=+0.216 cos→KL=+0.268 | COS: sae→KL=+0.262 cos→KL=+0.350
+      feat 15898 | n=50 | IP: sae→KL=+0.400 cos→KL=+0.543 | COS: sae→KL=+0.308 cos→KL=+0.461
+      feat   923 | n=50 | IP: sae→KL=+0.196 cos→KL=+0.131 | COS: sae→KL=+0.197 cos→KL=+0.145
+      feat  8061 | n=50 | IP: sae→KL=+0.152 cos→KL=+0.231 | COS: sae→KL=+0.124 cos→KL=+0.200
+      feat  3247 | n=50 | IP: sae→KL=-0.058 cos→KL=+0.200 | COS: sae→KL=-0.022 cos→KL=+0.193
+      feat  2552 | n=50 | IP: sae→KL=+0.223 cos→KL=+0.310 | COS: sae→KL=+0.214 cos→KL=+0.289
+      feat  7927 | n=50 | IP: sae→KL=-0.241 cos→KL=+0.227 | COS: sae→KL=-0.198 cos→KL=+0.306
+    [standard/L9] Summary (30 features):
+      IP ablation:  SAE→KL=0.2375  cos→KL=0.2817  norm→KL=-0.1537  SAE>inner=18/30
+      COS ablation: SAE→KL=0.2415  cos→KL=0.2909  norm→KL=-0.1920  SAE>inner=19/30
+      Delta:        SAE→KL=+0.0040  cos→KL=+0.0092  norm→KL=-0.0384
+    Loaded cosine_l2/L9 from checkpoints/exp10/cosine_l2_L9.pt
+
+    Dual ablation [cosine_l2/L9] (30 feats, 50 samples, median_norm=58.0)...
+      feat  2742 | n=50 | IP: sae→KL=+0.297 cos→KL=+0.302 | COS: sae→KL=+0.301 cos→KL=+0.270
+      feat 14334 | n=50 | IP: sae→KL=-0.096 cos→KL=+0.255 | COS: sae→KL=-0.032 cos→KL=+0.274
+      feat  6039 | n=50 | IP: sae→KL=+0.081 cos→KL=+0.213 | COS: sae→KL=+0.148 cos→KL=+0.320
+      feat  3394 | n=50 | IP: sae→KL=+0.116 cos→KL=+0.124 | COS: sae→KL=+0.143 cos→KL=+0.252
+      feat  2604 | n=50 | IP: sae→KL=+0.184 cos→KL=+0.015 | COS: sae→KL=+0.200 cos→KL=+0.023
+      feat  7700 | n=50 | IP: sae→KL=+0.179 cos→KL=+0.344 | COS: sae→KL=+0.242 cos→KL=+0.467
+      feat 11570 | n=50 | IP: sae→KL=+0.188 cos→KL=+0.400 | COS: sae→KL=+0.193 cos→KL=+0.420
+    [cosine_l2/L9] Summary (30 features):
+      IP ablation:  SAE→KL=0.1821  cos→KL=0.2275  norm→KL=-0.1870  SAE>inner=14/30
+      COS ablation: SAE→KL=0.2133  cos→KL=0.2572  norm→KL=-0.2344  SAE>inner=15/30
+      Delta:        SAE→KL=+0.0312  cos→KL=+0.0297  norm→KL=-0.0474
+    Loaded cosine_cosloss/L9 from checkpoints/exp10/cosine_cosloss_L9.pt
+
+    Dual ablation [cosine_cosloss/L9] (30 feats, 50 samples, median_norm=58.0)...
+      feat  6565 | n=50 | IP: sae→KL=-0.097 cos→KL=-0.350 | COS: sae→KL=-0.092 cos→KL=-0.386
+      feat  6039 | n=50 | IP: sae→KL=+0.221 cos→KL=+0.030 | COS: sae→KL=+0.232 cos→KL=+0.048
+      feat 14334 | n=50 | IP: sae→KL=+0.041 cos→KL=+0.055 | COS: sae→KL=+0.054 cos→KL=+0.057
+      feat  2742 | n=50 | IP: sae→KL=+0.284 cos→KL=+0.474 | COS: sae→KL=+0.286 cos→KL=+0.448
+      feat  3602 | n=50 | IP: sae→KL=+0.477 cos→KL=+0.305 | COS: sae→KL=+0.531 cos→KL=+0.258
+      feat  4313 | n=50 | IP: sae→KL=+0.138 cos→KL=+0.169 | COS: sae→KL=+0.064 cos→KL=+0.093
+      feat 15063 | n=50 | IP: sae→KL=+0.285 cos→KL=+0.299 | COS: sae→KL=+0.304 cos→KL=+0.261
+    [cosine_cosloss/L9] Summary (30 features):
+      IP ablation:  SAE→KL=0.2205  cos→KL=0.2625  norm→KL=-0.1835  SAE>inner=17/30
+      COS ablation: SAE→KL=0.2349  cos→KL=0.2579  norm→KL=-0.2241  SAE>inner=19/30
+      Delta:        SAE→KL=+0.0144  cos→KL=-0.0047  norm→KL=-0.0406
+    Loaded adaptive_l2/L9 from checkpoints/exp10/adaptive_l2_L9.pt
+
+    Dual ablation [adaptive_l2/L9] (30 feats, 50 samples, median_norm=58.0)...
+      feat  2742 | n=50 | IP: sae→KL=+0.339 cos→KL=+0.218 | COS: sae→KL=+0.343 cos→KL=+0.221
+      feat  6565 | n=50 | IP: sae→KL=+0.312 cos→KL=+0.220 | COS: sae→KL=+0.280 cos→KL=+0.206
+      feat  2604 | n=50 | IP: sae→KL=+0.161 cos→KL=+0.010 | COS: sae→KL=+0.163 cos→KL=+0.009
+      feat 14334 | n=50 | IP: sae→KL=+0.088 cos→KL=+0.153 | COS: sae→KL=+0.086 cos→KL=+0.132
+      feat  6039 | n=50 | IP: sae→KL=+0.224 cos→KL=+0.357 | COS: sae→KL=+0.256 cos→KL=+0.371
+      feat  4313 | n=50 | IP: sae→KL=+0.179 cos→KL=+0.194 | COS: sae→KL=+0.164 cos→KL=+0.177
+      feat  9204 | n=50 | IP: sae→KL=+0.202 cos→KL=+0.336 | COS: sae→KL=+0.246 cos→KL=+0.394
+    [adaptive_l2/L9] Summary (30 features):
+      IP ablation:  SAE→KL=0.2106  cos→KL=0.2559  norm→KL=-0.1780  SAE>inner=14/30
+      COS ablation: SAE→KL=0.2169  cos→KL=0.2655  norm→KL=-0.2094  SAE>inner=14/30
+      Delta:        SAE→KL=+0.0063  cos→KL=+0.0096  norm→KL=-0.0314
+    Loaded adaptive_cosloss/L9 from checkpoints/exp10/adaptive_cosloss_L9.pt
+
+    Dual ablation [adaptive_cosloss/L9] (30 feats, 50 samples, median_norm=58.0)...
+      feat  6039 | n=50 | IP: sae→KL=+0.234 cos→KL=+0.030 | COS: sae→KL=+0.237 cos→KL=+0.029
+      feat 14334 | n=50 | IP: sae→KL=+0.007 cos→KL=+0.022 | COS: sae→KL=+0.027 cos→KL=+0.038
+      feat  2742 | n=50 | IP: sae→KL=+0.056 cos→KL=+0.189 | COS: sae→KL=+0.042 cos→KL=+0.165
+      feat  6565 | n=50 | IP: sae→KL=+0.214 cos→KL=+0.244 | COS: sae→KL=+0.228 cos→KL=+0.251
+      feat  3602 | n=50 | IP: sae→KL=-0.176 cos→KL=+0.090 | COS: sae→KL=-0.147 cos→KL=+0.074
+      feat 16263 | n=50 | IP: sae→KL=-0.047 cos→KL=+0.008 | COS: sae→KL=-0.043 cos→KL=+0.011
+      feat 13338 | n=50 | IP: sae→KL=-0.019 cos→KL=+0.094 | COS: sae→KL=-0.016 cos→KL=+0.096
+    [adaptive_cosloss/L9] Summary (30 features):
+      IP ablation:  SAE→KL=0.1860  cos→KL=0.2330  norm→KL=-0.1605  SAE>inner=12/30
+      COS ablation: SAE→KL=0.1914  cos→KL=0.2203  norm→KL=-0.1818  SAE>inner=14/30
+      Delta:        SAE→KL=+0.0054  cos→KL=-0.0127  norm→KL=-0.0213
+  Results saved to experiments/exp13_results.json
+
+======================================================================
+  LAYER 18
+======================================================================
+  Converting texts -> layer 18 activations (target 500,000)...
+  Layer 18: 500,000 tokens in 29.0s (norm: mean=99.9, std=9.8)
+  Median ||x|| = 99.2 (used as cosine ablation constant C)
+    Loaded standard/L18 from checkpoints/exp10/standard_L18.pt
+
+    Dual ablation [standard/L18] (30 feats, 50 samples, median_norm=99.2)...
+      feat  6319 | n=50 | IP: sae→KL=+0.245 cos→KL=+0.246 | COS: sae→KL=+0.243 cos→KL=+0.244
+      feat   281 | n=50 | IP: sae→KL=+0.145 cos→KL=+0.229 | COS: sae→KL=+0.133 cos→KL=+0.237
+      feat  4195 | n=50 | IP: sae→KL=+0.385 cos→KL=+0.329 | COS: sae→KL=+0.439 cos→KL=+0.371
+      feat  9046 | n=50 | IP: sae→KL=+0.327 cos→KL=+0.321 | COS: sae→KL=+0.300 cos→KL=+0.308
+      feat 13138 | n=50 | IP: sae→KL=+0.354 cos→KL=+0.327 | COS: sae→KL=+0.332 cos→KL=+0.316
+      feat 13327 | n=50 | IP: sae→KL=+0.294 cos→KL=+0.331 | COS: sae→KL=+0.289 cos→KL=+0.312
+      feat   753 | n=50 | IP: sae→KL=+0.296 cos→KL=+0.334 | COS: sae→KL=+0.270 cos→KL=+0.318
+    [standard/L18] Summary (30 features):
+      IP ablation:  SAE→KL=0.3556  cos→KL=0.3712  norm→KL=-0.0654  SAE>inner=20/30
+      COS ablation: SAE→KL=0.3376  cos→KL=0.3562  norm→KL=-0.1410  SAE>inner=20/30
+      Delta:        SAE→KL=-0.0180  cos→KL=-0.0150  norm→KL=-0.0756
+    Loaded cosine_l2/L18 from checkpoints/exp10/cosine_l2_L18.pt
+
+    Dual ablation [cosine_l2/L18] (30 feats, 50 samples, median_norm=99.2)...
+      feat 14334 | n=50 | IP: sae→KL=+0.207 cos→KL=+0.244 | COS: sae→KL=+0.182 cos→KL=+0.188
+      feat  3394 | n=50 | IP: sae→KL=+0.256 cos→KL=+0.425 | COS: sae→KL=+0.237 cos→KL=+0.407
+      feat  2962 | n=50 | IP: sae→KL=+0.281 cos→KL=+0.247 | COS: sae→KL=+0.275 cos→KL=+0.267
+      feat  1741 | n=50 | IP: sae→KL=+0.141 cos→KL=+0.365 | COS: sae→KL=+0.222 cos→KL=+0.422
+      feat  6565 | n=50 | IP: sae→KL=+0.186 cos→KL=+0.287 | COS: sae→KL=+0.106 cos→KL=+0.211
+      feat   937 | n=50 | IP: sae→KL=+0.282 cos→KL=+0.451 | COS: sae→KL=+0.283 cos→KL=+0.454
+      feat   978 | n=50 | IP: sae→KL=+0.232 cos→KL=+0.551 | COS: sae→KL=+0.101 cos→KL=+0.449
+    [cosine_l2/L18] Summary (30 features):
+      IP ablation:  SAE→KL=0.2421  cos→KL=0.3165  norm→KL=-0.1226  SAE>inner=11/30
+      COS ablation: SAE→KL=0.2233  cos→KL=0.3024  norm→KL=-0.1753  SAE>inner=12/30
+      Delta:        SAE→KL=-0.0188  cos→KL=-0.0141  norm→KL=-0.0527
+    Loaded cosine_cosloss/L18 from checkpoints/exp10/cosine_cosloss_L18.pt
+
+    Dual ablation [cosine_cosloss/L18] (30 feats, 50 samples, median_norm=99.2)...
+      feat  2962 | n=50 | IP: sae→KL=+0.294 cos→KL=+0.258 | COS: sae→KL=+0.318 cos→KL=+0.254
+      feat 14334 | n=50 | IP: sae→KL=+0.186 cos→KL=+0.201 | COS: sae→KL=+0.225 cos→KL=+0.234
+      feat  3394 | n=50 | IP: sae→KL=+0.088 cos→KL=+0.386 | COS: sae→KL=+0.111 cos→KL=+0.392
+      feat 10662 | n=50 | IP: sae→KL=+0.118 cos→KL=+0.271 | COS: sae→KL=+0.175 cos→KL=+0.271
+      feat  5593 | n=50 | IP: sae→KL=+0.288 cos→KL=+0.439 | COS: sae→KL=+0.262 cos→KL=+0.309
+      feat  6565 | n=50 | IP: sae→KL=+0.128 cos→KL=+0.333 | COS: sae→KL=+0.035 cos→KL=+0.166
+      feat  9866 | n=50 | IP: sae→KL=+0.157 cos→KL=+0.079 | COS: sae→KL=+0.154 cos→KL=+0.013
+    [cosine_cosloss/L18] Summary (30 features):
+      IP ablation:  SAE→KL=0.2147  cos→KL=0.3170  norm→KL=-0.1104  SAE>inner=7/30
+      COS ablation: SAE→KL=0.2324  cos→KL=0.3068  norm→KL=-0.1756  SAE>inner=9/30
+      Delta:        SAE→KL=+0.0176  cos→KL=-0.0102  norm→KL=-0.0652
+    Loaded adaptive_l2/L18 from checkpoints/exp10/adaptive_l2_L18.pt
+
+    Dual ablation [adaptive_l2/L18] (30 feats, 50 samples, median_norm=99.2)...
+      feat  3394 | n=50 | IP: sae→KL=+0.220 cos→KL=+0.414 | COS: sae→KL=+0.193 cos→KL=+0.407
+      feat 14334 | n=50 | IP: sae→KL=+0.181 cos→KL=+0.244 | COS: sae→KL=+0.151 cos→KL=+0.188
+      feat  2962 | n=50 | IP: sae→KL=+0.270 cos→KL=+0.280 | COS: sae→KL=+0.257 cos→KL=+0.260
+      feat  2742 | n=50 | IP: sae→KL=+0.127 cos→KL=+0.188 | COS: sae→KL=+0.093 cos→KL=+0.238
+      feat   937 | n=50 | IP: sae→KL=+0.362 cos→KL=+0.296 | COS: sae→KL=+0.424 cos→KL=+0.370
+      feat  5566 | n=50 | IP: sae→KL=+0.322 cos→KL=+0.376 | COS: sae→KL=+0.277 cos→KL=+0.330
+      feat  6531 | n=50 | IP: sae→KL=+0.262 cos→KL=+0.058 | COS: sae→KL=+0.257 cos→KL=+0.101
+    [adaptive_l2/L18] Summary (30 features):
+      IP ablation:  SAE→KL=0.2561  cos→KL=0.3176  norm→KL=-0.0940  SAE>inner=11/30
+      COS ablation: SAE→KL=0.2356  cos→KL=0.3129  norm→KL=-0.1643  SAE>inner=12/30
+      Delta:        SAE→KL=-0.0206  cos→KL=-0.0047  norm→KL=-0.0703
+    Loaded adaptive_cosloss/L18 from checkpoints/exp10/adaptive_cosloss_L18.pt
+
+    Dual ablation [adaptive_cosloss/L18] (30 feats, 50 samples, median_norm=99.2)...
+      feat 14334 | n=50 | IP: sae→KL=+0.205 cos→KL=+0.228 | COS: sae→KL=+0.203 cos→KL=+0.153
+      feat 10662 | n=50 | IP: sae→KL=+0.092 cos→KL=+0.286 | COS: sae→KL=+0.097 cos→KL=+0.227
+      feat  3394 | n=50 | IP: sae→KL=+0.083 cos→KL=+0.393 | COS: sae→KL=+0.096 cos→KL=+0.391
+      feat  2962 | n=50 | IP: sae→KL=+0.314 cos→KL=+0.267 | COS: sae→KL=+0.313 cos→KL=+0.264
+      feat   978 | n=50 | IP: sae→KL=+0.265 cos→KL=+0.416 | COS: sae→KL=+0.275 cos→KL=+0.436
+      feat  2742 | n=50 | IP: sae→KL=-0.007 cos→KL=+0.151 | COS: sae→KL=-0.059 cos→KL=+0.278
+      feat  6019 | n=50 | IP: sae→KL=+0.283 cos→KL=+0.328 | COS: sae→KL=+0.263 cos→KL=+0.297
+    [adaptive_cosloss/L18] Summary (30 features):
+      IP ablation:  SAE→KL=0.2329  cos→KL=0.3166  norm→KL=-0.1024  SAE>inner=9/30
+      COS ablation: SAE→KL=0.2408  cos→KL=0.3054  norm→KL=-0.1526  SAE>inner=12/30
+      Delta:        SAE→KL=+0.0079  cos→KL=-0.0112  norm→KL=-0.0502
+  Results saved to experiments/exp13_results.json
+
+======================================================================
+  LAYER 27
+======================================================================
+  Converting texts -> layer 27 activations (target 500,000)...
+  Layer 27: 500,000 tokens in 41.9s (norm: mean=406.4, std=35.3)
+  Median ||x|| = 410.5 (used as cosine ablation constant C)
+    Loaded standard/L27 from checkpoints/exp10/standard_L27.pt
+
+    Dual ablation [standard/L27] (30 feats, 50 samples, median_norm=410.5)...
+      feat  9985 | n=50 | IP: sae→KL=+0.003 cos→KL=-0.020 | COS: sae→KL=-0.151 cos→KL=+0.017
+      feat  4380 | n=50 | IP: sae→KL=+0.193 cos→KL=+0.419 | COS: sae→KL=+0.177 cos→KL=+0.428
+      feat  6277 | n=50 | IP: sae→KL=+0.276 cos→KL=+0.209 | COS: sae→KL=+0.175 cos→KL=+0.161
+      feat  4640 | n=50 | IP: sae→KL=+0.221 cos→KL=+0.425 | COS: sae→KL=+0.189 cos→KL=+0.420
+      feat  4946 | n=50 | IP: sae→KL=+0.097 cos→KL=+0.419 | COS: sae→KL=+0.116 cos→KL=+0.438
+      feat 16225 | n=50 | IP: sae→KL=+0.188 cos→KL=+0.514 | COS: sae→KL=+0.152 cos→KL=+0.511
+      feat 14955 | n=50 | IP: sae→KL=+0.536 cos→KL=+0.603 | COS: sae→KL=+0.485 cos→KL=+0.576
+    [standard/L27] Summary (30 features):
+      IP ablation:  SAE→KL=0.2161  cos→KL=0.3786  norm→KL=-0.0953  SAE>inner=2/30
+      COS ablation: SAE→KL=0.1601  cos→KL=0.3557  norm→KL=-0.2191  SAE>inner=3/30
+      Delta:        SAE→KL=-0.0560  cos→KL=-0.0230  norm→KL=-0.1238
+    Loaded cosine_l2/L27 from checkpoints/exp10/cosine_l2_L27.pt
+
+    Dual ablation [cosine_l2/L27] (30 feats, 50 samples, median_norm=410.5)...
+      feat  3394 | n=50 | IP: sae→KL=+0.016 cos→KL=+0.312 | COS: sae→KL=+0.018 cos→KL=+0.317
+      feat 14334 | n=50 | IP: sae→KL=-0.130 cos→KL=+0.307 | COS: sae→KL=-0.167 cos→KL=+0.294
+      feat  6039 | n=50 | IP: sae→KL=-0.213 cos→KL=+0.319 | COS: sae→KL=-0.248 cos→KL=+0.273
+      feat  6531 | n=50 | IP: sae→KL=-0.127 cos→KL=-0.040 | COS: sae→KL=-0.107 cos→KL=+0.011
+      feat  1741 | n=50 | IP: sae→KL=+0.125 cos→KL=+0.376 | COS: sae→KL=+0.126 cos→KL=+0.362
+      feat  7005 | n=50 | IP: sae→KL=+0.165 cos→KL=+0.274 | COS: sae→KL=+0.102 cos→KL=+0.252
+      feat 13492 | n=50 | IP: sae→KL=-0.055 cos→KL=+0.033 | COS: sae→KL=+0.009 cos→KL=+0.021
+    [cosine_l2/L27] Summary (30 features):
+      IP ablation:  SAE→KL=0.0361  cos→KL=0.2114  norm→KL=-0.0917  SAE>inner=5/30
+      COS ablation: SAE→KL=0.0146  cos→KL=0.2001  norm→KL=-0.2181  SAE>inner=11/30
+      Delta:        SAE→KL=-0.0215  cos→KL=-0.0113  norm→KL=-0.1264
+    Loaded cosine_cosloss/L27 from checkpoints/exp10/cosine_cosloss_L27.pt
+
+    Dual ablation [cosine_cosloss/L27] (30 feats, 50 samples, median_norm=410.5)...
+      feat  3394 | n=50 | IP: sae→KL=+0.356 cos→KL=+0.438 | COS: sae→KL=+0.321 cos→KL=+0.433
+      feat  1741 | n=50 | IP: sae→KL=+0.275 cos→KL=+0.522 | COS: sae→KL=+0.270 cos→KL=+0.500
+      feat 14334 | n=50 | IP: sae→KL=+0.069 cos→KL=+0.442 | COS: sae→KL=+0.060 cos→KL=+0.362
+      feat   978 | n=50 | IP: sae→KL=+0.231 cos→KL=+0.275 | COS: sae→KL=+0.168 cos→KL=+0.227
+      feat  7005 | n=50 | IP: sae→KL=-0.261 cos→KL=+0.348 | COS: sae→KL=-0.327 cos→KL=+0.277
+      feat  7245 | n=50 | IP: sae→KL=+0.109 cos→KL=+0.333 | COS: sae→KL=+0.025 cos→KL=+0.257
+      feat  7332 | n=50 | IP: sae→KL=+0.075 cos→KL=+0.237 | COS: sae→KL=+0.096 cos→KL=+0.287
+    [cosine_cosloss/L27] Summary (30 features):
+      IP ablation:  SAE→KL=0.1299  cos→KL=0.3060  norm→KL=-0.1620  SAE>inner=7/30
+      COS ablation: SAE→KL=0.1087  cos→KL=0.2736  norm→KL=-0.2764  SAE>inner=8/30
+      Delta:        SAE→KL=-0.0212  cos→KL=-0.0324  norm→KL=-0.1144
+    Loaded adaptive_l2/L27 from checkpoints/exp10/adaptive_l2_L27.pt
+
+    Dual ablation [adaptive_l2/L27] (30 feats, 50 samples, median_norm=410.5)...
+      feat  3394 | n=50 | IP: sae→KL=+0.130 cos→KL=+0.296 | COS: sae→KL=+0.131 cos→KL=+0.334
+      feat 14334 | n=50 | IP: sae→KL=+0.138 cos→KL=+0.431 | COS: sae→KL=+0.106 cos→KL=+0.420
+      feat  6039 | n=50 | IP: sae→KL=+0.050 cos→KL=+0.216 | COS: sae→KL=-0.083 cos→KL=+0.161
+      feat  1741 | n=50 | IP: sae→KL=-0.118 cos→KL=+0.234 | COS: sae→KL=-0.141 cos→KL=+0.232
+      feat  9519 | n=50 | IP: sae→KL=+0.164 cos→KL=+0.420 | COS: sae→KL=+0.208 cos→KL=+0.424
+      feat  5172 | n=50 | IP: sae→KL=+0.087 cos→KL=+0.466 | COS: sae→KL=-0.056 cos→KL=+0.399
+      feat  1788 | n=50 | IP: sae→KL=+0.324 cos→KL=+0.406 | COS: sae→KL=+0.293 cos→KL=+0.438
+    [adaptive_l2/L27] Summary (30 features):
+      IP ablation:  SAE→KL=0.0922  cos→KL=0.2869  norm→KL=-0.0948  SAE>inner=3/30
+      COS ablation: SAE→KL=0.0477  cos→KL=0.2571  norm→KL=-0.2223  SAE>inner=7/30
+      Delta:        SAE→KL=-0.0445  cos→KL=-0.0298  norm→KL=-0.1275
+    Loaded adaptive_cosloss/L27 from checkpoints/exp10/adaptive_cosloss_L27.pt
+
+    Dual ablation [adaptive_cosloss/L27] (30 feats, 50 samples, median_norm=410.5)...
+      feat  3394 | n=50 | IP: sae→KL=+0.356 cos→KL=+0.430 | COS: sae→KL=+0.345 cos→KL=+0.441
+      feat  1741 | n=50 | IP: sae→KL=+0.314 cos→KL=+0.494 | COS: sae→KL=+0.296 cos→KL=+0.524
+      feat 14334 | n=50 | IP: sae→KL=+0.273 cos→KL=+0.559 | COS: sae→KL=+0.215 cos→KL=+0.566
+      feat   978 | n=50 | IP: sae→KL=+0.238 cos→KL=+0.266 | COS: sae→KL=+0.211 cos→KL=+0.248
+      feat  7005 | n=50 | IP: sae→KL=+0.086 cos→KL=+0.577 | COS: sae→KL=-0.119 cos→KL=+0.458
+      feat 13118 | n=50 | IP: sae→KL=+0.121 cos→KL=+0.033 | COS: sae→KL=+0.145 cos→KL=+0.055
+      feat  7332 | n=50 | IP: sae→KL=+0.207 cos→KL=+0.236 | COS: sae→KL=+0.213 cos→KL=+0.228
+    [adaptive_cosloss/L27] Summary (30 features):
+      IP ablation:  SAE→KL=0.1451  cos→KL=0.2907  norm→KL=-0.1271  SAE>inner=8/30
+      COS ablation: SAE→KL=0.1391  cos→KL=0.2842  norm→KL=-0.2057  SAE>inner=10/30
+      Delta:        SAE→KL=-0.0060  cos→KL=-0.0065  norm→KL=-0.0786
+  Results saved to experiments/exp13_results.json
+
+Analysis written to experiments/exp13_analysis.md
+
+======================================================================
+  CROSS-LAYER SUMMARY: SAE→KL under both ablation modes
+======================================================================
+
+  Layer 9 (median_norm=58.0):
+  Variant              |  IP SAE→KL |  COS SAE→KL |    Delta | IP SAE>inn | COS SAE>inn
+  ---------------------+------------+-------------+----------+------------+------------
+  standard             |     0.2375 |      0.2415 |  +0.0040 |   18/30    |    19/30  
+  cosine_l2            |     0.1821 |      0.2133 |  +0.0312 |   14/30    |    15/30  
+  cosine_cosloss       |     0.2205 |      0.2349 |  +0.0144 |   17/30    |    19/30  
+  adaptive_l2          |     0.2106 |      0.2169 |  +0.0063 |   14/30    |    14/30  
+  adaptive_cosloss     |     0.1860 |      0.1914 |  +0.0054 |   12/30    |    14/30  
+
+  Layer 18 (median_norm=99.2):
+  Variant              |  IP SAE→KL |  COS SAE→KL |    Delta | IP SAE>inn | COS SAE>inn
+  ---------------------+------------+-------------+----------+------------+------------
+  standard             |     0.3556 |      0.3376 |  -0.0180 |   20/30    |    20/30  
+  cosine_l2            |     0.2421 |      0.2233 |  -0.0188 |   11/30    |    12/30  
+  cosine_cosloss       |     0.2147 |      0.2324 |  +0.0176 |    7/30    |     9/30  
+  adaptive_l2          |     0.2561 |      0.2356 |  -0.0206 |   11/30    |    12/30  
+  adaptive_cosloss     |     0.2329 |      0.2408 |  +0.0079 |    9/30    |    12/30  
+
+  Layer 27 (median_norm=410.5):
+  Variant              |  IP SAE→KL |  COS SAE→KL |    Delta | IP SAE>inn | COS SAE>inn
+  ---------------------+------------+-------------+----------+------------+------------
+  standard             |     0.2161 |      0.1601 |  -0.0560 |    2/30    |     3/30  
+  cosine_l2            |     0.0361 |      0.0146 |  -0.0215 |    5/30    |    11/30  
+  cosine_cosloss       |     0.1299 |      0.1087 |  -0.0212 |    7/30    |     8/30  
+  adaptive_l2          |     0.0922 |      0.0477 |  -0.0445 |    3/30    |     7/30  
+  adaptive_cosloss     |     0.1451 |      0.1391 |  -0.0060 |    8/30    |    10/30  
+
+======================================================================
+  VALIDATION: norm→KL (should drop under cosine ablation)
+======================================================================
+
+  Layer 9:
+    standard            : IP norm→KL=-0.1537  COS norm→KL=-0.1920  delta=-0.0384
+    cosine_l2           : IP norm→KL=-0.1870  COS norm→KL=-0.2344  delta=-0.0474
+    cosine_cosloss      : IP norm→KL=-0.1835  COS norm→KL=-0.2241  delta=-0.0406
+    adaptive_l2         : IP norm→KL=-0.1780  COS norm→KL=-0.2094  delta=-0.0314
+    adaptive_cosloss    : IP norm→KL=-0.1605  COS norm→KL=-0.1818  delta=-0.0213
+
+  Layer 18:
+    standard            : IP norm→KL=-0.0654  COS norm→KL=-0.1410  delta=-0.0756
+    cosine_l2           : IP norm→KL=-0.1226  COS norm→KL=-0.1753  delta=-0.0527
+    cosine_cosloss      : IP norm→KL=-0.1104  COS norm→KL=-0.1756  delta=-0.0652
+    adaptive_l2         : IP norm→KL=-0.0940  COS norm→KL=-0.1643  delta=-0.0703
+    adaptive_cosloss    : IP norm→KL=-0.1024  COS norm→KL=-0.1526  delta=-0.0502
+
+  Layer 27:
+    standard            : IP norm→KL=-0.0953  COS norm→KL=-0.2191  delta=-0.1238
+    cosine_l2           : IP norm→KL=-0.0917  COS norm→KL=-0.2181  delta=-0.1264
+    cosine_cosloss      : IP norm→KL=-0.1620  COS norm→KL=-0.2764  delta=-0.1144
+    adaptive_l2         : IP norm→KL=-0.0948  COS norm→KL=-0.2223  delta=-0.1275
+    adaptive_cosloss    : IP norm→KL=-0.1271  COS norm→KL=-0.2057  delta=-0.0786
+
+Results: experiments/exp13_results.json
+Analysis: experiments/exp13_analysis.md

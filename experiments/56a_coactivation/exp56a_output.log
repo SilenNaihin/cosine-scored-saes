@@ -1,0 +1,229 @@
+======================================================================
+Exp 56a: Feature Co-activation Analysis
+======================================================================
+
+Loading Qwen/Qwen3-8B...
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.84it/s]
+Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:01,  1.80it/s]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:01,  1.82it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.97it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.63it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.22it/s]
+Model loaded in 3.9s
+
+============================================================
+Dataset: LabHC/bias_in_bios_class_set1
+============================================================
+  Loaded 1000 examples across 27 classes in 2.5s
+    21: 312 examples
+    19: 100 examples
+    2: 79 examples
+    18: 59 examples
+    22: 47 examples
+  Collecting L18 activations...
+  Activations collected in 7.5s
+
+  SAE: standard
+    Support: mean=6.7 median=3.0 broad=44.0 entropy=0.860 gini=0.583 (0.9s)
+
+  SAE: adaptive_l2
+    Support: mean=5.6 median=3.0 broad=42.6 entropy=0.860 gini=0.589 (1.2s)
+
+  SAE: perfeature_l2
+    Support: mean=6.8 median=3.0 broad=38.7 entropy=0.858 gini=0.582 (2.4s)
+
+  SAE: no_C
+    Support: mean=6.4 median=3.0 broad=47.4 entropy=0.720 gini=0.690 (10.1s)
+
+============================================================
+Dataset: LabHC/bias_in_bios_class_set2
+============================================================
+  Loaded 1000 examples across 27 classes in 1.6s
+    21: 312 examples
+    19: 100 examples
+    2: 79 examples
+    18: 59 examples
+    22: 47 examples
+  Collecting L18 activations...
+  Activations collected in 5.9s
+
+  SAE: standard
+    Support: mean=6.7 median=3.0 broad=44.0 entropy=0.860 gini=0.583 (8.5s)
+
+  SAE: adaptive_l2
+    Support: mean=5.6 median=3.0 broad=42.6 entropy=0.860 gini=0.589 (7.2s)
+
+  SAE: perfeature_l2
+    Support: mean=6.8 median=3.0 broad=38.7 entropy=0.858 gini=0.582 (1.8s)
+
+  SAE: no_C
+    Support: mean=6.4 median=3.0 broad=47.4 entropy=0.720 gini=0.690 (1.7s)
+
+============================================================
+Dataset: LabHC/bias_in_bios_class_set3
+============================================================
+  Loaded 1000 examples across 27 classes in 1.7s
+    21: 312 examples
+    19: 100 examples
+    2: 79 examples
+    18: 59 examples
+    22: 47 examples
+  Collecting L18 activations...
+  Activations collected in 5.2s
+
+  SAE: standard
+    Support: mean=6.7 median=3.0 broad=44.0 entropy=0.860 gini=0.583 (7.4s)
+
+  SAE: adaptive_l2
+    Support: mean=5.6 median=3.0 broad=42.6 entropy=0.860 gini=0.589 (2.2s)
+
+  SAE: perfeature_l2
+    Support: mean=6.8 median=3.0 broad=38.7 entropy=0.858 gini=0.582 (2.3s)
+
+  SAE: no_C
+    Support: mean=6.4 median=3.0 broad=47.4 entropy=0.720 gini=0.690 (2.3s)
+
+============================================================
+Dataset: canrager/amazon_reviews_mcauley_1and5
+============================================================
+  Loaded 1000 examples across 1 classes in 2.5s
+    0: 1000 examples
+  Collecting L18 activations...
+  Activations collected in 5.7s
+
+  SAE: standard
+    Support: mean=0.0 median=0.0 broad=0.0 entropy=0.000 gini=0.000 (0.5s)
+
+  SAE: adaptive_l2
+    Support: mean=0.0 median=0.0 broad=0.0 entropy=0.000 gini=0.000 (0.7s)
+
+  SAE: perfeature_l2
+    Support: mean=0.0 median=0.0 broad=0.0 entropy=0.000 gini=0.000 (0.7s)
+
+  SAE: no_C
+    Support: mean=0.0 median=0.0 broad=0.0 entropy=0.000 gini=0.000 (0.5s)
+
+============================================================
+Dataset: canrager/amazon_reviews_mcauley_1and5_sentiment
+============================================================
+  Loaded 1000 examples across 1 classes in 1.7s
+    negative: 1000 examples
+  Collecting L18 activations...
+  Activations collected in 5.7s
+
+  SAE: standard
+    Support: mean=0.0 median=0.0 broad=0.0 entropy=0.000 gini=0.000 (0.5s)
+
+  SAE: adaptive_l2
+    Support: mean=0.0 median=0.0 broad=0.0 entropy=0.000 gini=0.000 (0.7s)
+
+  SAE: perfeature_l2
+    Support: mean=0.0 median=0.0 broad=0.0 entropy=0.000 gini=0.000 (0.7s)
+
+  SAE: no_C
+    Support: mean=0.0 median=0.0 broad=0.0 entropy=0.000 gini=0.000 (0.6s)
+
+============================================================
+Dataset: codeparrot/github-code
+============================================================
+  Loaded 1000 examples across 23 classes in 2.7s
+    JavaScript: 178 examples
+    PHP: 108 examples
+    HTML: 104 examples
+    Markdown: 96 examples
+    Java: 87 examples
+  Collecting L18 activations...
+  Activations collected in 6.5s
+
+  SAE: standard
+    Support: mean=1.8 median=1.0 broad=47.8 entropy=0.900 gini=0.558 (1.6s)
+
+  SAE: adaptive_l2
+    Support: mean=2.1 median=1.5 broad=43.1 entropy=0.904 gini=0.545 (1.8s)
+
+  SAE: perfeature_l2
+    Support: mean=2.1 median=1.0 broad=44.0 entropy=0.905 gini=0.544 (1.2s)
+
+  SAE: no_C
+    Support: mean=1.7 median=1.0 broad=42.4 entropy=0.791 gini=0.634 (2.6s)
+
+============================================================
+Dataset: fancyzhx/ag_news
+============================================================
+  Loaded 1000 examples across 4 classes in 1.8s
+    Sports: 274 examples
+    World: 268 examples
+    Sci/Tech: 253 examples
+    Business: 205 examples
+  Collecting L18 activations...
+  Activations collected in 4.6s
+
+  SAE: standard
+    Support: mean=0.8 median=0.5 broad=45.2 entropy=0.735 gini=0.808 (2.5s)
+
+  SAE: adaptive_l2
+    Support: mean=1.0 median=1.0 broad=40.0 entropy=0.736 gini=0.809 (2.4s)
+
+  SAE: perfeature_l2
+    Support: mean=0.8 median=1.0 broad=40.2 entropy=0.732 gini=0.808 (1.0s)
+
+  SAE: no_C
+    Support: mean=0.8 median=0.5 broad=51.5 entropy=0.602 gini=0.861 (1.0s)
+
+============================================================
+Dataset: Helsinki-NLP/europarl
+============================================================
+  ERROR loading dataset: Config name is missing.
+Please pick one among the available configs: ['bg-cs', 'bg-da', 'bg-de', 'bg-el', 'bg-en', 'bg-es', 'bg-et', 'bg-fi', 'bg-fr', 'bg-hu', 'bg-it', 'bg-lt', 'bg-lv', 'bg-nl', 'bg-pl', 'bg-pt', 'bg-ro', 'bg-sk', 'bg-sl', 'bg-sv', 'cs-da', 'cs-de', 'cs-el', 'cs-en', 'cs-es', 'cs-et', 'cs-fi', 'cs-fr', 'cs-hu', 'cs-it', 'cs-lt', 'cs-lv', 'cs-nl', 'cs-pl', 'cs-pt', 'cs-ro', 'cs-sk', 'cs-sl', 'cs-sv', 'da-de', 'da-el', 'da-en', 'da-es', 'da-et', 'da-fi', 'da-fr', 'da-hu', 'da-it', 'da-lt', 'da-lv', 'da-nl', 'da-pl', 'da-pt', 'da-ro', 'da-sk', 'da-sl', 'da-sv', 'de-el', 'de-en', 'de-es', 'de-et', 'de-fi', 'de-fr', 'de-hu', 'de-it', 'de-lt', 'de-lv', 'de-nl', 'de-pl', 'de-pt', 'de-ro', 'de-sk', 'de-sl', 'de-sv', 'el-en', 'el-es', 'el-et', 'el-fi', 'el-fr', 'el-hu', 'el-it', 'el-lt', 'el-lv', 'el-nl', 'el-pl', 'el-pt', 'el-ro', 'el-sk', 'el-sl', 'el-sv', 'en-es', 'en-et', 'en-fi', 'en-fr', 'en-hu', 'en-it', 'en-lt', 'en-lv', 'en-nl', 'en-pl', 'en-pt', 'en-ro', 'en-sk', 'en-sl', 'en-sv', 'es-et', 'es-fi', 'es-fr', 'es-hu', 'es-it', 'es-lt', 'es-lv', 'es-nl', 'es-pl', 'es-pt', 'es-ro', 'es-sk', 'es-sl', 'es-sv', 'et-fi', 'et-fr', 'et-hu', 'et-it', 'et-lt', 'et-lv', 'et-nl', 'et-pl', 'et-pt', 'et-ro', 'et-sk', 'et-sl', 'et-sv', 'fi-fr', 'fi-hu', 'fi-it', 'fi-lt', 'fi-lv', 'fi-nl', 'fi-pl', 'fi-pt', 'fi-ro', 'fi-sk', 'fi-sl', 'fi-sv', 'fr-hu', 'fr-it', 'fr-lt', 'fr-lv', 'fr-nl', 'fr-pl', 'fr-pt', 'fr-ro', 'fr-sk', 'fr-sl', 'fr-sv', 'hu-it', 'hu-lt', 'hu-lv', 'hu-nl', 'hu-pl', 'hu-pt', 'hu-ro', 'hu-sk', 'hu-sl', 'hu-sv', 'it-lt', 'it-lv', 'it-nl', 'it-pl', 'it-pt', 'it-ro', 'it-sk', 'it-sl', 'it-sv', 'lt-lv', 'lt-nl', 'lt-pl', 'lt-pt', 'lt-ro', 'lt-sk', 'lt-sl', 'lt-sv', 'lv-nl', 'lv-pl', 'lv-pt', 'lv-ro', 'lv-sk', 'lv-sl', 'lv-sv', 'nl-pl', 'nl-pt', 'nl-ro', 'nl-sk', 'nl-sl', 'nl-sv', 'pl-pt', 'pl-ro', 'pl-sk', 'pl-sl', 'pl-sv', 'pt-ro', 'pt-sk', 'pt-sl', 'pt-sv', 'ro-sk', 'ro-sl', 'ro-sv', 'sk-sl', 'sk-sv', 'sl-sv']
+Example of usage:
+	`load_dataset('Helsinki-NLP/europarl', 'bg-cs')`
+Traceback (most recent call last):
+  File "/home/<user>/MechInter--RNH/experiments/exp56a_coactivation.py", line 549, in main
+    examples_by_class = load_dataset_with_labels(ds_name, tokenizer, N_EXAMPLES)
+  File "/home/<user>/MechInter--RNH/experiments/exp56a_coactivation.py", line 383, in load_dataset_with_labels
+    ds = load_dataset("Helsinki-NLP/europarl", split="train", streaming=True,
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.10/site-packages/datasets/load.py", line 2062, in load_dataset
+    builder_instance = load_dataset_builder(
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.10/site-packages/datasets/load.py", line 1819, in load_dataset_builder
+    builder_instance: DatasetBuilder = builder_cls(
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.10/site-packages/datasets/builder.py", line 343, in __init__
+    self.config, self.config_id = self._create_builder_config(
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.10/site-packages/datasets/builder.py", line 555, in _create_builder_config
+    raise ValueError(
+ValueError: Config name is missing.
+Please pick one among the available configs: ['bg-cs', 'bg-da', 'bg-de', 'bg-el', 'bg-en', 'bg-es', 'bg-et', 'bg-fi', 'bg-fr', 'bg-hu', 'bg-it', 'bg-lt', 'bg-lv', 'bg-nl', 'bg-pl', 'bg-pt', 'bg-ro', 'bg-sk', 'bg-sl', 'bg-sv', 'cs-da', 'cs-de', 'cs-el', 'cs-en', 'cs-es', 'cs-et', 'cs-fi', 'cs-fr', 'cs-hu', 'cs-it', 'cs-lt', 'cs-lv', 'cs-nl', 'cs-pl', 'cs-pt', 'cs-ro', 'cs-sk', 'cs-sl', 'cs-sv', 'da-de', 'da-el', 'da-en', 'da-es', 'da-et', 'da-fi', 'da-fr', 'da-hu', 'da-it', 'da-lt', 'da-lv', 'da-nl', 'da-pl', 'da-pt', 'da-ro', 'da-sk', 'da-sl', 'da-sv', 'de-el', 'de-en', 'de-es', 'de-et', 'de-fi', 'de-fr', 'de-hu', 'de-it', 'de-lt', 'de-lv', 'de-nl', 'de-pl', 'de-pt', 'de-ro', 'de-sk', 'de-sl', 'de-sv', 'el-en', 'el-es', 'el-et', 'el-fi', 'el-fr', 'el-hu', 'el-it', 'el-lt', 'el-lv', 'el-nl', 'el-pl', 'el-pt', 'el-ro', 'el-sk', 'el-sl', 'el-sv', 'en-es', 'en-et', 'en-fi', 'en-fr', 'en-hu', 'en-it', 'en-lt', 'en-lv', 'en-nl', 'en-pl', 'en-pt', 'en-ro', 'en-sk', 'en-sl', 'en-sv', 'es-et', 'es-fi', 'es-fr', 'es-hu', 'es-it', 'es-lt', 'es-lv', 'es-nl', 'es-pl', 'es-pt', 'es-ro', 'es-sk', 'es-sl', 'es-sv', 'et-fi', 'et-fr', 'et-hu', 'et-it', 'et-lt', 'et-lv', 'et-nl', 'et-pl', 'et-pt', 'et-ro', 'et-sk', 'et-sl', 'et-sv', 'fi-fr', 'fi-hu', 'fi-it', 'fi-lt', 'fi-lv', 'fi-nl', 'fi-pl', 'fi-pt', 'fi-ro', 'fi-sk', 'fi-sl', 'fi-sv', 'fr-hu', 'fr-it', 'fr-lt', 'fr-lv', 'fr-nl', 'fr-pl', 'fr-pt', 'fr-ro', 'fr-sk', 'fr-sl', 'fr-sv', 'hu-it', 'hu-lt', 'hu-lv', 'hu-nl', 'hu-pl', 'hu-pt', 'hu-ro', 'hu-sk', 'hu-sl', 'hu-sv', 'it-lt', 'it-lv', 'it-nl', 'it-pl', 'it-pt', 'it-ro', 'it-sk', 'it-sl', 'it-sv', 'lt-lv', 'lt-nl', 'lt-pl', 'lt-pt', 'lt-ro', 'lt-sk', 'lt-sl', 'lt-sv', 'lv-nl', 'lv-pl', 'lv-pt', 'lv-ro', 'lv-sk', 'lv-sl', 'lv-sv', 'nl-pl', 'nl-pt', 'nl-ro', 'nl-sk', 'nl-sl', 'nl-sv', 'pl-pt', 'pl-ro', 'pl-sk', 'pl-sl', 'pl-sv', 'pt-ro', 'pt-sk', 'pt-sl', 'pt-sv', 'ro-sk', 'ro-sl', 'ro-sv', 'sk-sl', 'sk-sv', 'sl-sv']
+Example of usage:
+	`load_dataset('Helsinki-NLP/europarl', 'bg-cs')`
+
+======================================================================
+SUMMARY: Mean Concept Support Size Across All Datasets
+======================================================================
+
+  standard:
+    Discriminative support: 5.5 ± 8.3
+    Broad support (>20%):   44.8 ± 11.1
+    Normalized entropy:     0.8610 ± 0.0481
+    Gini coefficient:       0.5905 ± 0.0922
+
+  adaptive_l2:
+    Discriminative support: 4.7 ± 6.6
+    Broad support (>20%):   42.6 ± 8.8
+    Normalized entropy:     0.8620 ± 0.0495
+    Gini coefficient:       0.5924 ± 0.0943
+
+  perfeature_l2:
+    Discriminative support: 5.6 ± 7.9
+    Broad support (>20%):   39.8 ± 10.3
+    Normalized entropy:     0.8603 ± 0.0496
+    Gini coefficient:       0.5870 ± 0.0947
+
+  no_C:
+    Discriminative support: 5.2 ± 7.5
+    Broad support (>20%):   46.7 ± 11.5
+    Normalized entropy:     0.7269 ± 0.0523
+    Gini coefficient:       0.6883 ± 0.0766
+
+Results saved to experiments/exp56a_results.json

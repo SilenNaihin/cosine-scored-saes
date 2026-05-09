@@ -1,0 +1,663 @@
+Experiment 48: Input Normalization Verification
+======================================================================
+Model: Qwen/Qwen3-8B
+Layers: [27]
+d_sae=65536, k=80, lr=5e-05, 50,000,000 tokens (24414 steps)
+Variants: ['standard_inputnorm', 'unnormed_perfeature_b', 'adaptive_l2', 'standard', 'perfeature_base_delta', 'noc_baseline', 'noc_enc_free', 'perfeature_bd_no_enc_norm']
+Total runs: 8 (in 1 parallel group of 8)
+Cache dir: /data/cache
+
+Loading model...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/399 [00:00<00:56,  7.05it/s]
+Loading weights:   1%|          | 2/399 [00:00<01:01,  6.48it/s]
+Loading weights:   6%|▌         | 24/399 [00:00<00:04, 81.67it/s]
+Loading weights:  12%|█▏        | 48/399 [00:00<00:02, 127.68it/s]
+Loading weights:  18%|█▊        | 72/399 [00:00<00:02, 160.42it/s]
+Loading weights:  25%|██▌       | 100/399 [00:00<00:01, 194.90it/s]
+Loading weights:  31%|███▏      | 125/399 [00:00<00:01, 206.79it/s]
+Loading weights:  37%|███▋      | 149/399 [00:00<00:01, 209.84it/s]
+Loading weights:  45%|████▍     | 179/399 [00:01<00:00, 229.62it/s]
+Loading weights:  51%|█████     | 204/399 [00:01<00:00, 229.49it/s]
+Loading weights:  59%|█████▉    | 235/399 [00:01<00:00, 246.58it/s]
+Loading weights:  65%|██████▌   | 260/399 [00:01<00:00, 239.31it/s]
+Loading weights:  73%|███████▎  | 290/399 [00:01<00:00, 253.71it/s]
+Loading weights:  79%|███████▉  | 316/399 [00:01<00:00, 252.88it/s]
+Loading weights:  86%|████████▋ | 345/399 [00:01<00:00, 262.41it/s]
+Loading weights:  93%|█████████▎| 372/399 [00:01<00:00, 261.10it/s]
+Loading weights: 100%|██████████| 399/399 [00:01<00:00, 211.04it/s]
+[cache] Reusing L27 cache at /data/cache/qwen3_8b_L27_50000000.bin
+  Collecting eval activations for L27 (2,000,000 tokens)...
+    L27: 2,000,000 tokens in 231.3s (norm: mean=404.7, std=35.7)
+
+######################################################################
+  LAYER 27 (mean_norm=404.7)
+######################################################################
+/home/<user>/MechInter--RNH/src/activation_cache.py:280: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return torch.from_numpy(arr).view(torch.bfloat16)
+  standard_inputnorm: 536,940,544 params (no scale params)
+  unnormed_perfeature_b: 537,006,081 params (per-feature scale_b, init=4.1589, exp=64.0)
+  adaptive_l2: 536,940,546 params (scale_b init=4.1589, exp=64.0)
+  standard: 536,940,544 params (no scale params)
+  perfeature_base_delta: 537,071,617 params (per-feature scale_b, init=4.1589, exp=64.0)
+  noc_baseline: 536,875,008 params (no scale params)
+  noc_enc_free: 536,875,008 params (no scale params)
+  perfeature_bd_no_enc_norm: 537,071,617 params (per-feature scale_b, init=4.1589, exp=64.0)
+
+======================================================================
+  Parallel group of 8 SAEs at L27, 24414 steps
+  Variants: ['standard_inputnorm', 'unnormed_perfeature_b', 'adaptive_l2', 'standard', 'perfeature_base_delta', 'noc_baseline', 'noc_enc_free', 'perfeature_bd_no_enc_norm']
+======================================================================
+    [standard_inputnorm/L27] b_dec init (norm=275.1)
+    [unnormed_perfeature_b/L27] b_dec init (norm=275.1)
+    [adaptive_l2/L27] b_dec init (norm=275.1)
+    [standard/L27] b_dec init (norm=275.1)
+    [perfeature_base_delta/L27] b_dec init (norm=275.1)
+    [noc_baseline/L27] b_dec init (norm=275.1)
+    [noc_enc_free/L27] b_dec init (norm=275.1)
+    [perfeature_bd_no_enc_norm/L27] b_dec init (norm=275.1)
+
+  --- step 500/24414 (1.0M tok, 1.3k tok/s, ETA 10.38h) ---
+    [standard_inputnorm/L27] loss=89428.0 recon=89428.0 auxk=0.000 | FVE=0.0068 L0=80 dead=0.000(0) ||w||=1.015+-0.018
+    [unnormed_perfeature_b/L27] loss=75463.7 recon=75463.7 auxk=0.000 | FVE=0.1628 L0=80 dead=0.000(0) a=0.0062 b_mean=4.163+-0.002 ||w||=1.020+-0.015
+    [adaptive_l2/L27] loss=75510.5 recon=75510.5 auxk=0.000 | FVE=0.1623 L0=80 dead=0.000(0) a=0.0062 b=4.165(exp=64.4) ||w||=0.992+-0.009
+    [standard/L27] loss=71937.9 recon=71937.9 auxk=0.000 | FVE=0.2006 L0=80 dead=0.000(0) ||w||=0.986+-0.002
+    [perfeature_base_delta/L27] loss=74997.6 recon=74997.6 auxk=0.000 | FVE=0.1681 L0=80 dead=0.000(0) a_base=0.0062 a_delta=0.0036+-0.0022 b_mean=4.162+-0.002 ||w||=0.992+-0.009
+    [noc_baseline/L27] loss=90792.0 recon=90792.0 auxk=0.000 | FVE=-0.0078 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=90799.9 recon=90799.9 auxk=0.000 | FVE=-0.0079 L0=80 dead=0.000(0) ||w||=0.999+-0.003
+    [perfeature_bd_no_enc_norm/L27] loss=90900.2 recon=90900.2 auxk=0.000 | FVE=-0.0089 L0=80 dead=0.000(0) a_base=-0.0142 a_delta=-0.0002+-0.0009 b_mean=4.159+-0.001 ||w||=0.999+-0.003
+
+  --- step 1000/24414 (2.0M tok, 1.3k tok/s, ETA 10.12h) ---
+    [standard_inputnorm/L27] loss=87599.1 recon=87599.1 auxk=0.000 | FVE=0.0392 L0=80 dead=0.000(0) ||w||=1.059+-0.172
+    [unnormed_perfeature_b/L27] loss=54678.6 recon=54678.6 auxk=0.000 | FVE=0.3995 L0=80 dead=0.000(0) a=0.0250 b_mean=4.165+-0.008 ||w||=1.046+-0.078
+    [adaptive_l2/L27] loss=55023.1 recon=55023.1 auxk=0.000 | FVE=0.3956 L0=80 dead=0.000(0) a=0.0250 b=4.184(exp=65.6) ||w||=0.983+-0.036
+    [standard/L27] loss=55062.6 recon=55062.6 auxk=0.000 | FVE=0.3954 L0=80 dead=0.000(0) ||w||=0.964+-0.009
+    [perfeature_base_delta/L27] loss=52698.0 recon=52698.0 auxk=0.000 | FVE=0.4210 L0=80 dead=0.000(0) a_base=0.0249 a_delta=0.0062+-0.0080 b_mean=4.165+-0.008 ||w||=0.985+-0.032
+    [noc_baseline/L27] loss=62408.3 recon=62408.3 auxk=0.000 | FVE=0.3147 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=62447.0 recon=62447.0 auxk=0.000 | FVE=0.3143 L0=80 dead=0.000(0) ||w||=0.996+-0.016
+    [perfeature_bd_no_enc_norm/L27] loss=62981.7 recon=62981.7 auxk=0.000 | FVE=0.3085 L0=80 dead=0.000(0) a_base=-0.0552 a_delta=-0.0018+-0.0036 b_mean=4.157+-0.004 ||w||=0.995+-0.014
+
+  --- step 1500/24414 (3.1M tok, 1.3k tok/s, ETA 9.90h) ---
+    [standard_inputnorm/L27] loss=84685.4 recon=84685.4 auxk=0.000 | FVE=0.0646 L0=80 dead=0.000(0) ||w||=1.107+-0.360
+    [unnormed_perfeature_b/L27] loss=41799.2 recon=41799.2 auxk=0.000 | FVE=0.5375 L0=80 dead=0.000(0) a=0.0498 b_mean=4.167+-0.013 ||w||=1.067+-0.132
+    [adaptive_l2/L27] loss=43108.5 recon=43108.5 auxk=0.000 | FVE=0.5230 L0=80 dead=0.000(0) a=0.0499 b=4.208(exp=67.2) ||w||=0.981+-0.043
+    [standard/L27] loss=44689.0 recon=44689.0 auxk=0.000 | FVE=0.5055 L0=80 dead=0.000(0) ||w||=0.940+-0.016
+    [perfeature_base_delta/L27] loss=40883.3 recon=40883.3 auxk=0.000 | FVE=0.5476 L0=80 dead=0.000(0) a_base=0.0498 a_delta=0.0078+-0.0125 b_mean=4.167+-0.012 ||w||=0.986+-0.032
+    [noc_baseline/L27] loss=47754.1 recon=47754.1 auxk=0.000 | FVE=0.4718 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=47878.4 recon=47878.4 auxk=0.000 | FVE=0.4705 L0=80 dead=0.000(0) ||w||=0.990+-0.031
+    [perfeature_bd_no_enc_norm/L27] loss=48874.2 recon=48874.2 auxk=0.000 | FVE=0.4595 L0=80 dead=0.000(0) a_base=-0.1015 a_delta=-0.0044+-0.0059 b_mean=4.154+-0.006 ||w||=0.989+-0.024
+
+  --- step 2000/24414 (4.1M tok, 1.3k tok/s, ETA 9.68h) ---
+    [standard_inputnorm/L27] loss=83554.6 recon=83554.6 auxk=0.000 | FVE=0.0851 L0=80 dead=0.000(0) ||w||=1.147+-0.522
+    [unnormed_perfeature_b/L27] loss=36272.0 recon=36272.0 auxk=0.000 | FVE=0.6020 L0=80 dead=0.000(0) a=0.0734 b_mean=4.168+-0.015 ||w||=1.081+-0.161
+    [adaptive_l2/L27] loss=37506.5 recon=37506.5 auxk=0.000 | FVE=0.5885 L0=80 dead=0.000(0) a=0.0748 b=4.233(exp=68.9) ||w||=0.983+-0.041
+    [standard/L27] loss=39826.0 recon=39826.0 auxk=0.000 | FVE=0.5630 L0=80 dead=0.000(0) ||w||=0.920+-0.021
+    [perfeature_base_delta/L27] loss=35751.5 recon=35751.5 auxk=0.000 | FVE=0.6077 L0=80 dead=0.000(0) a_base=0.0743 a_delta=0.0089+-0.0155 b_mean=4.168+-0.015 ||w||=0.989+-0.027
+    [noc_baseline/L27] loss=41463.8 recon=41463.8 auxk=0.000 | FVE=0.5452 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=41560.3 recon=41560.3 auxk=0.000 | FVE=0.5442 L0=80 dead=0.000(0) ||w||=0.983+-0.042
+    [perfeature_bd_no_enc_norm/L27] loss=42602.9 recon=42602.9 auxk=0.000 | FVE=0.5328 L0=80 dead=0.000(0) a_base=-0.1516 a_delta=-0.0063+-0.0073 b_mean=4.153+-0.007 ||w||=0.984+-0.031
+
+  --- step 2500/24414 (5.1M tok, 1.3k tok/s, ETA 9.46h) ---
+    [standard_inputnorm/L27] loss=82068.9 recon=82068.9 auxk=0.000 | FVE=0.1001 L0=80 dead=0.000(0) ||w||=1.184+-0.668
+    [unnormed_perfeature_b/L27] loss=33486.9 recon=33486.9 auxk=0.000 | FVE=0.6322 L0=80 dead=0.000(0) a=0.0937 b_mean=4.169+-0.016 ||w||=1.091+-0.177
+    [adaptive_l2/L27] loss=34125.0 recon=34125.0 auxk=0.000 | FVE=0.6252 L0=80 dead=0.000(0) a=0.0997 b=4.258(exp=70.6) ||w||=0.987+-0.037
+    [standard/L27] loss=36919.2 recon=36919.2 auxk=0.000 | FVE=0.5945 L0=80 dead=0.000(0) ||w||=0.905+-0.025
+    [perfeature_base_delta/L27] loss=32798.6 recon=32798.6 auxk=0.000 | FVE=0.6397 L0=80 dead=0.000(0) a_base=0.0978 a_delta=0.0096+-0.0176 b_mean=4.168+-0.017 ||w||=0.993+-0.023
+    [noc_baseline/L27] loss=38154.1 recon=38154.1 auxk=0.000 | FVE=0.5811 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=38220.5 recon=38220.5 auxk=0.000 | FVE=0.5803 L0=80 dead=0.000(0) ||w||=0.978+-0.051
+    [perfeature_bd_no_enc_norm/L27] loss=39305.8 recon=39305.8 auxk=0.000 | FVE=0.5684 L0=80 dead=0.000(0) a_base=-0.1985 a_delta=-0.0078+-0.0083 b_mean=4.151+-0.008 ||w||=0.980+-0.036
+
+  --- step 3000/24414 (6.1M tok, 1.3k tok/s, ETA 9.24h) ---
+    [standard_inputnorm/L27] loss=80211.4 recon=80211.4 auxk=0.000 | FVE=0.1146 L0=80 dead=0.000(0) ||w||=1.220+-0.809
+    [unnormed_perfeature_b/L27] loss=30854.4 recon=30854.4 auxk=0.000 | FVE=0.6589 L0=80 dead=0.000(0) a=0.1087 b_mean=4.169+-0.017 ||w||=1.098+-0.185
+    [adaptive_l2/L27] loss=30600.2 recon=30600.2 auxk=0.000 | FVE=0.6617 L0=80 dead=0.000(0) a=0.1243 b=4.282(exp=72.4) ||w||=0.995+-0.033
+    [standard/L27] loss=34069.6 recon=34069.6 auxk=0.000 | FVE=0.6233 L0=80 dead=0.000(0) ||w||=0.893+-0.029
+    [perfeature_base_delta/L27] loss=29935.7 recon=29935.7 auxk=0.000 | FVE=0.6690 L0=80 dead=0.000(0) a_base=0.1184 a_delta=0.0098+-0.0189 b_mean=4.168+-0.018 ||w||=0.999+-0.021
+    [noc_baseline/L27] loss=34779.5 recon=34779.5 auxk=0.000 | FVE=0.6156 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=34742.3 recon=34742.3 auxk=0.000 | FVE=0.6160 L0=80 dead=0.000(0) ||w||=0.973+-0.058
+    [perfeature_bd_no_enc_norm/L27] loss=35801.5 recon=35801.5 auxk=0.000 | FVE=0.6043 L0=80 dead=0.000(0) a_base=-0.2414 a_delta=-0.0091+-0.0091 b_mean=4.150+-0.009 ||w||=0.977+-0.040
+
+  --- step 3500/24414 (7.2M tok, 1.3k tok/s, ETA 9.03h) ---
+    [standard_inputnorm/L27] loss=77776.3 recon=77776.3 auxk=0.000 | FVE=0.1227 L0=80 dead=0.000(0) ||w||=1.255+-0.946
+    [unnormed_perfeature_b/L27] loss=29363.1 recon=29363.1 auxk=0.000 | FVE=0.6683 L0=80 dead=0.000(0) a=0.1190 b_mean=4.169+-0.017 ||w||=1.104+-0.190
+    [adaptive_l2/L27] loss=28270.9 recon=28270.9 auxk=0.000 | FVE=0.6807 L0=80 dead=0.000(0) a=0.1467 b=4.304(exp=74.0) ||w||=1.012+-0.031
+    [standard/L27] loss=32144.7 recon=32144.7 auxk=0.000 | FVE=0.6369 L0=80 dead=0.000(0) ||w||=0.884+-0.032
+    [perfeature_base_delta/L27] loss=28305.2 recon=28305.2 auxk=0.000 | FVE=0.6803 L0=80 dead=0.000(0) a_base=0.1332 a_delta=0.0095+-0.0197 b_mean=4.168+-0.019 ||w||=1.008+-0.021
+    [noc_baseline/L27] loss=32801.1 recon=32801.1 auxk=0.000 | FVE=0.6296 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=32711.7 recon=32711.7 auxk=0.000 | FVE=0.6306 L0=80 dead=0.000(0) ||w||=0.969+-0.064
+    [perfeature_bd_no_enc_norm/L27] loss=33671.0 recon=33671.0 auxk=0.000 | FVE=0.6198 L0=80 dead=0.000(0) a_base=-0.2807 a_delta=-0.0104+-0.0097 b_mean=4.148+-0.010 ||w||=0.975+-0.044
+
+  --- step 4000/24414 (8.2M tok, 1.3k tok/s, ETA 8.81h) ---
+    [standard_inputnorm/L27] loss=78975.8 recon=78975.8 auxk=0.000 | FVE=0.1306 L0=80 dead=0.000(0) ||w||=1.290+-1.081
+    [unnormed_perfeature_b/L27] loss=28638.7 recon=28638.7 auxk=0.000 | FVE=0.6844 L0=80 dead=0.000(0) a=0.1273 b_mean=4.169+-0.018 ||w||=1.111+-0.192
+    [adaptive_l2/L27] loss=27333.4 recon=27333.4 auxk=0.000 | FVE=0.6987 L0=80 dead=0.000(0) a=0.1634 b=4.319(exp=75.1) ||w||=1.029+-0.031
+    [standard/L27] loss=31278.2 recon=31278.2 auxk=0.000 | FVE=0.6553 L0=80 dead=0.000(0) ||w||=0.878+-0.035
+    [perfeature_base_delta/L27] loss=27570.5 recon=27570.5 auxk=0.000 | FVE=0.6961 L0=80 dead=0.000(0) a_base=0.1441 a_delta=0.0090+-0.0204 b_mean=4.168+-0.020 ||w||=1.016+-0.022
+    [noc_baseline/L27] loss=32026.3 recon=32026.3 auxk=0.000 | FVE=0.6471 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=31892.8 recon=31892.8 auxk=0.000 | FVE=0.6486 L0=80 dead=0.000(0) ||w||=0.966+-0.070
+    [perfeature_bd_no_enc_norm/L27] loss=32910.6 recon=32910.6 auxk=0.000 | FVE=0.6374 L0=80 dead=0.000(0) a_base=-0.3167 a_delta=-0.0115+-0.0103 b_mean=4.147+-0.010 ||w||=0.972+-0.047
+
+  --- step 4500/24414 (9.2M tok, 1.3k tok/s, ETA 8.59h) ---
+    [standard_inputnorm/L27] loss=79622.1 recon=79622.1 auxk=0.000 | FVE=0.1368 L0=80 dead=0.000(0) ||w||=1.324+-1.214
+    [unnormed_perfeature_b/L27] loss=28351.2 recon=28351.2 auxk=0.000 | FVE=0.6921 L0=80 dead=0.000(0) a=0.1330 b_mean=4.168+-0.018 ||w||=1.117+-0.193
+    [adaptive_l2/L27] loss=26949.9 recon=26949.9 auxk=0.000 | FVE=0.7073 L0=80 dead=0.000(0) a=0.1728 b=4.326(exp=75.6) ||w||=1.040+-0.030
+    [standard/L27] loss=30825.0 recon=30825.0 auxk=0.000 | FVE=0.6652 L0=80 dead=0.000(0) ||w||=0.873+-0.038
+    [perfeature_base_delta/L27] loss=27204.9 recon=27204.9 auxk=0.000 | FVE=0.7045 L0=80 dead=0.000(0) a_base=0.1514 a_delta=0.0084+-0.0209 b_mean=4.167+-0.020 ||w||=1.023+-0.022
+    [noc_baseline/L27] loss=31508.6 recon=31508.6 auxk=0.000 | FVE=0.6579 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=31353.8 recon=31353.8 auxk=0.000 | FVE=0.6596 L0=80 dead=0.000(0) ||w||=0.963+-0.075
+    [perfeature_bd_no_enc_norm/L27] loss=32375.3 recon=32375.3 auxk=0.000 | FVE=0.6485 L0=80 dead=0.000(0) a_base=-0.3494 a_delta=-0.0126+-0.0108 b_mean=4.146+-0.011 ||w||=0.970+-0.050
+    [standard_inputnorm/L27] Checkpoint at step 4882
+    [unnormed_perfeature_b/L27] Checkpoint at step 4882
+    [adaptive_l2/L27] Checkpoint at step 4882
+    [standard/L27] Checkpoint at step 4882
+    [perfeature_base_delta/L27] Checkpoint at step 4882
+    [noc_baseline/L27] Checkpoint at step 4882
+    [noc_enc_free/L27] Checkpoint at step 4882
+    [perfeature_bd_no_enc_norm/L27] Checkpoint at step 4882
+
+  --- step 5000/24414 (10.2M tok, 1.3k tok/s, ETA 8.39h) ---
+    [standard_inputnorm/L27] loss=76004.1 recon=76004.1 auxk=0.000 | FVE=0.1513 L0=80 dead=0.000(0) ||w||=1.359+-1.347
+    [unnormed_perfeature_b/L27] loss=26811.5 recon=26811.5 auxk=0.000 | FVE=0.7003 L0=80 dead=0.000(0) a=0.1377 b_mean=4.168+-0.018 ||w||=1.122+-0.194
+    [adaptive_l2/L27] loss=25554.1 recon=25554.1 auxk=0.000 | FVE=0.7144 L0=80 dead=0.000(0) a=0.1794 b=4.330(exp=75.9) ||w||=1.048+-0.030
+    [standard/L27] loss=29104.6 recon=29104.6 auxk=0.000 | FVE=0.6747 L0=80 dead=0.000(0) ||w||=0.869+-0.041
+    [perfeature_base_delta/L27] loss=25785.9 recon=25785.9 auxk=0.000 | FVE=0.7118 L0=80 dead=0.000(0) a_base=0.1572 a_delta=0.0079+-0.0214 b_mean=4.166+-0.021 ||w||=1.029+-0.023
+    [noc_baseline/L27] loss=29858.9 recon=29858.9 auxk=0.000 | FVE=0.6664 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=29645.4 recon=29645.4 auxk=0.000 | FVE=0.6688 L0=80 dead=0.000(0) ||w||=0.960+-0.080
+    [perfeature_bd_no_enc_norm/L27] loss=30546.9 recon=30546.9 auxk=0.000 | FVE=0.6587 L0=80 dead=0.000(0) a_base=-0.3790 a_delta=-0.0135+-0.0113 b_mean=4.145+-0.011 ||w||=0.969+-0.053
+
+  --- step 5500/24414 (11.3M tok, 1.3k tok/s, ETA 8.23h) ---
+    [standard_inputnorm/L27] loss=77186.3 recon=77186.3 auxk=0.983 | FVE=0.1510 L0=80 dead=0.910(59651) ||w||=1.393+-1.480
+    [unnormed_perfeature_b/L27] loss=26449.6 recon=26449.6 auxk=1.000 | FVE=0.7085 L0=80 dead=0.000(1) a=0.1419 b_mean=4.168+-0.019 ||w||=1.127+-0.195
+    [adaptive_l2/L27] loss=25267.6 recon=25267.6 auxk=0.000 | FVE=0.7216 L0=80 dead=0.000(0) a=0.1847 b=4.332(exp=76.1) ||w||=1.054+-0.030
+    [standard/L27] loss=28503.0 recon=28503.0 auxk=0.000 | FVE=0.6859 L0=80 dead=0.000(0) ||w||=0.867+-0.044
+    [perfeature_base_delta/L27] loss=25450.1 recon=25450.1 auxk=0.000 | FVE=0.7195 L0=80 dead=0.000(0) a_base=0.1621 a_delta=0.0074+-0.0219 b_mean=4.166+-0.021 ||w||=1.034+-0.023
+    [noc_baseline/L27] loss=29267.7 recon=29267.7 auxk=0.000 | FVE=0.6776 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=29024.7 recon=29024.7 auxk=0.000 | FVE=0.6803 L0=80 dead=0.000(0) ||w||=0.958+-0.085
+    [perfeature_bd_no_enc_norm/L27] loss=29941.6 recon=29941.6 auxk=0.000 | FVE=0.6702 L0=80 dead=0.000(0) a_base=-0.4050 a_delta=-0.0143+-0.0116 b_mean=4.144+-0.012 ||w||=0.968+-0.055
+
+  --- step 6000/24414 (12.3M tok, 1.3k tok/s, ETA 8.06h) ---
+    [standard_inputnorm/L27] loss=75450.1 recon=75450.1 auxk=0.982 | FVE=0.1614 L0=80 dead=0.921(60345) ||w||=1.428+-1.611
+    [unnormed_perfeature_b/L27] loss=25726.1 recon=25726.1 auxk=0.000 | FVE=0.7137 L0=80 dead=0.000(0) a=0.1451 b_mean=4.167+-0.019 ||w||=1.131+-0.196
+    [adaptive_l2/L27] loss=24657.5 recon=24657.5 auxk=0.000 | FVE=0.7256 L0=80 dead=0.000(0) a=0.1889 b=4.333(exp=76.2) ||w||=1.060+-0.030
+    [standard/L27] loss=27584.8 recon=27584.8 auxk=0.000 | FVE=0.6930 L0=80 dead=0.000(0) ||w||=0.866+-0.046
+    [perfeature_base_delta/L27] loss=24827.9 recon=24827.9 auxk=0.000 | FVE=0.7237 L0=80 dead=0.000(0) a_base=0.1660 a_delta=0.0069+-0.0224 b_mean=4.165+-0.022 ||w||=1.039+-0.024
+    [noc_baseline/L27] loss=28421.0 recon=28421.0 auxk=0.000 | FVE=0.6838 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=28199.0 recon=28199.0 auxk=0.000 | FVE=0.6863 L0=80 dead=0.000(0) ||w||=0.957+-0.089
+    [perfeature_bd_no_enc_norm/L27] loss=29167.0 recon=29167.0 auxk=0.000 | FVE=0.6755 L0=80 dead=0.000(0) a_base=-0.4275 a_delta=-0.0149+-0.0119 b_mean=4.144+-0.012 ||w||=0.968+-0.057
+
+  --- step 6500/24414 (13.3M tok, 1.3k tok/s, ETA 7.86h) ---
+    [standard_inputnorm/L27] loss=75570.4 recon=75570.4 auxk=0.983 | FVE=0.1680 L0=80 dead=0.926(60676) ||w||=1.462+-1.743
+    [unnormed_perfeature_b/L27] loss=25388.5 recon=25388.5 auxk=0.000 | FVE=0.7201 L0=80 dead=0.000(0) a=0.1488 b_mean=4.167+-0.020 ||w||=1.134+-0.197
+    [adaptive_l2/L27] loss=24420.2 recon=24420.2 auxk=0.000 | FVE=0.7307 L0=80 dead=0.000(0) a=0.1935 b=4.334(exp=76.2) ||w||=1.065+-0.031
+    [standard/L27] loss=27153.6 recon=27153.6 auxk=0.000 | FVE=0.7006 L0=80 dead=0.000(0) ||w||=0.865+-0.049
+    [perfeature_base_delta/L27] loss=24500.5 recon=24500.5 auxk=0.000 | FVE=0.7299 L0=80 dead=0.000(0) a_base=0.1702 a_delta=0.0065+-0.0228 b_mean=4.165+-0.022 ||w||=1.044+-0.024
+    [noc_baseline/L27] loss=28083.5 recon=28083.5 auxk=0.000 | FVE=0.6905 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=27844.8 recon=27844.8 auxk=0.000 | FVE=0.6931 L0=80 dead=0.000(0) ||w||=0.956+-0.092
+    [perfeature_bd_no_enc_norm/L27] loss=28875.5 recon=28875.5 auxk=0.000 | FVE=0.6817 L0=80 dead=0.000(0) a_base=-0.4472 a_delta=-0.0153+-0.0121 b_mean=4.143+-0.012 ||w||=0.969+-0.058
+
+  --- step 7000/24414 (14.3M tok, 1.3k tok/s, ETA 7.67h) ---
+    [standard_inputnorm/L27] loss=75758.9 recon=75758.8 auxk=0.983 | FVE=0.1746 L0=80 dead=0.929(60859) ||w||=1.497+-1.875
+    [unnormed_perfeature_b/L27] loss=25361.2 recon=25361.2 auxk=0.000 | FVE=0.7233 L0=80 dead=0.000(0) a=0.1518 b_mean=4.167+-0.020 ||w||=1.138+-0.198
+    [adaptive_l2/L27] loss=24485.7 recon=24485.7 auxk=0.000 | FVE=0.7328 L0=80 dead=0.000(0) a=0.1973 b=4.334(exp=76.3) ||w||=1.069+-0.031
+    [standard/L27] loss=27116.9 recon=27116.9 auxk=0.000 | FVE=0.7041 L0=80 dead=0.000(0) ||w||=0.866+-0.051
+    [perfeature_base_delta/L27] loss=24539.1 recon=24539.1 auxk=0.000 | FVE=0.7322 L0=80 dead=0.000(0) a_base=0.1737 a_delta=0.0061+-0.0232 b_mean=4.164+-0.022 ||w||=1.048+-0.024
+    [noc_baseline/L27] loss=28083.0 recon=28083.0 auxk=0.000 | FVE=0.6937 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=27815.9 recon=27815.9 auxk=0.000 | FVE=0.6966 L0=80 dead=0.000(0) ||w||=0.955+-0.096
+    [perfeature_bd_no_enc_norm/L27] loss=28814.8 recon=28814.8 auxk=0.000 | FVE=0.6857 L0=80 dead=0.000(0) a_base=-0.4643 a_delta=-0.0155+-0.0123 b_mean=4.143+-0.012 ||w||=0.970+-0.060
+
+  --- step 7500/24414 (15.4M tok, 1.3k tok/s, ETA 7.46h) ---
+    [standard_inputnorm/L27] loss=75365.7 recon=75365.6 auxk=0.984 | FVE=0.1786 L0=80 dead=0.931(61004) ||w||=1.531+-2.008
+    [unnormed_perfeature_b/L27] loss=24153.6 recon=24153.6 auxk=0.000 | FVE=0.7364 L0=80 dead=0.000(0) a=0.1540 b_mean=4.166+-0.020 ||w||=1.141+-0.199
+    [adaptive_l2/L27] loss=23355.1 recon=23355.1 auxk=0.000 | FVE=0.7451 L0=80 dead=0.000(0) a=0.2005 b=4.334(exp=76.2) ||w||=1.073+-0.031
+    [standard/L27] loss=25633.9 recon=25633.9 auxk=0.000 | FVE=0.7202 L0=80 dead=0.000(0) ||w||=0.867+-0.053
+    [perfeature_base_delta/L27] loss=23358.8 recon=23358.8 auxk=0.000 | FVE=0.7450 L0=80 dead=0.000(0) a_base=0.1763 a_delta=0.0057+-0.0237 b_mean=4.164+-0.023 ||w||=1.052+-0.025
+    [noc_baseline/L27] loss=26503.1 recon=26503.1 auxk=0.000 | FVE=0.7108 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=26230.4 recon=26230.4 auxk=0.000 | FVE=0.7138 L0=80 dead=0.000(0) ||w||=0.955+-0.099
+    [perfeature_bd_no_enc_norm/L27] loss=27221.0 recon=27221.0 auxk=0.000 | FVE=0.7030 L0=80 dead=0.000(0) a_base=-0.4781 a_delta=-0.0157+-0.0124 b_mean=4.143+-0.013 ||w||=0.972+-0.061
+
+  --- step 8000/24414 (16.4M tok, 1.3k tok/s, ETA 7.26h) ---
+    [standard_inputnorm/L27] loss=73543.8 recon=73543.8 auxk=0.984 | FVE=0.1913 L0=80 dead=0.932(61089) ||w||=1.565+-2.139
+    [unnormed_perfeature_b/L27] loss=23937.2 recon=23937.2 auxk=0.000 | FVE=0.7365 L0=80 dead=0.000(0) a=0.1566 b_mean=4.166+-0.021 ||w||=1.143+-0.200
+    [adaptive_l2/L27] loss=23228.2 recon=23228.2 auxk=0.000 | FVE=0.7443 L0=80 dead=0.000(0) a=0.2042 b=4.334(exp=76.3) ||w||=1.077+-0.031
+    [standard/L27] loss=25298.8 recon=25298.8 auxk=0.000 | FVE=0.7215 L0=80 dead=0.000(0) ||w||=0.868+-0.055
+    [perfeature_base_delta/L27] loss=23215.1 recon=23215.1 auxk=0.000 | FVE=0.7444 L0=80 dead=0.000(0) a_base=0.1794 a_delta=0.0053+-0.0241 b_mean=4.163+-0.023 ||w||=1.056+-0.025
+    [noc_baseline/L27] loss=26206.8 recon=26206.8 auxk=0.000 | FVE=0.7116 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=25983.0 recon=25983.0 auxk=0.000 | FVE=0.7141 L0=80 dead=0.000(0) ||w||=0.955+-0.101
+    [perfeature_bd_no_enc_norm/L27] loss=27041.9 recon=27041.9 auxk=0.000 | FVE=0.7024 L0=80 dead=0.000(0) a_base=-0.4894 a_delta=-0.0158+-0.0125 b_mean=4.143+-0.013 ||w||=0.974+-0.062
+
+  --- step 8500/24414 (17.4M tok, 1.3k tok/s, ETA 7.05h) ---
+    [standard_inputnorm/L27] loss=74125.7 recon=74125.6 auxk=0.985 | FVE=0.1913 L0=80 dead=0.933(61129) ||w||=1.600+-2.271
+    [unnormed_perfeature_b/L27] loss=23869.3 recon=23869.3 auxk=0.000 | FVE=0.7392 L0=80 dead=0.000(0) a=0.1591 b_mean=4.165+-0.021 ||w||=1.146+-0.201
+    [adaptive_l2/L27] loss=23212.1 recon=23212.1 auxk=0.000 | FVE=0.7464 L0=80 dead=0.000(0) a=0.2077 b=4.335(exp=76.3) ||w||=1.081+-0.031
+    [standard/L27] loss=25183.5 recon=25183.5 auxk=0.000 | FVE=0.7248 L0=80 dead=0.000(0) ||w||=0.870+-0.057
+    [perfeature_base_delta/L27] loss=23161.7 recon=23161.7 auxk=0.000 | FVE=0.7469 L0=80 dead=0.000(0) a_base=0.1824 a_delta=0.0049+-0.0246 b_mean=4.163+-0.024 ||w||=1.060+-0.025
+    [noc_baseline/L27] loss=26130.8 recon=26130.8 auxk=0.000 | FVE=0.7146 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=25903.6 recon=25903.6 auxk=0.000 | FVE=0.7171 L0=80 dead=0.000(0) ||w||=0.956+-0.104
+    [perfeature_bd_no_enc_norm/L27] loss=26974.0 recon=26974.0 auxk=0.000 | FVE=0.7054 L0=80 dead=0.000(0) a_base=-0.4995 a_delta=-0.0159+-0.0126 b_mean=4.143+-0.013 ||w||=0.976+-0.063
+
+  --- step 9000/24414 (18.4M tok, 1.3k tok/s, ETA 6.84h) ---
+    [standard_inputnorm/L27] loss=72427.9 recon=72427.9 auxk=0.985 | FVE=0.2009 L0=80 dead=0.933(61157) ||w||=1.635+-2.405
+    [unnormed_perfeature_b/L27] loss=23336.2 recon=23336.2 auxk=0.000 | FVE=0.7422 L0=80 dead=0.000(0) a=0.1613 b_mean=4.165+-0.022 ||w||=1.148+-0.202
+    [adaptive_l2/L27] loss=22766.6 recon=22766.6 auxk=0.000 | FVE=0.7485 L0=80 dead=0.000(0) a=0.2109 b=4.335(exp=76.3) ||w||=1.084+-0.031
+    [standard/L27] loss=24580.5 recon=24580.5 auxk=0.000 | FVE=0.7284 L0=80 dead=0.000(0) ||w||=0.872+-0.059
+    [perfeature_base_delta/L27] loss=22686.0 recon=22686.0 auxk=0.000 | FVE=0.7493 L0=80 dead=0.000(0) a_base=0.1849 a_delta=0.0045+-0.0250 b_mean=4.162+-0.024 ||w||=1.064+-0.026
+    [noc_baseline/L27] loss=25514.5 recon=25514.5 auxk=0.000 | FVE=0.7182 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=25329.4 recon=25329.4 auxk=0.000 | FVE=0.7203 L0=80 dead=0.000(0) ||w||=0.957+-0.106
+    [perfeature_bd_no_enc_norm/L27] loss=26373.2 recon=26373.2 auxk=0.000 | FVE=0.7087 L0=80 dead=0.000(0) a_base=-0.5078 a_delta=-0.0159+-0.0127 b_mean=4.143+-0.013 ||w||=0.978+-0.064
+
+  --- step 9500/24414 (19.5M tok, 1.3k tok/s, ETA 6.63h) ---
+    [standard_inputnorm/L27] loss=72931.0 recon=72931.0 auxk=0.986 | FVE=0.2015 L0=80 dead=0.933(61169) ||w||=1.669+-2.536
+    [unnormed_perfeature_b/L27] loss=23093.5 recon=23093.5 auxk=0.000 | FVE=0.7467 L0=80 dead=0.000(0) a=0.1636 b_mean=4.164+-0.022 ||w||=1.150+-0.203
+    [adaptive_l2/L27] loss=22568.3 recon=22568.3 auxk=0.000 | FVE=0.7525 L0=80 dead=0.000(0) a=0.2141 b=4.335(exp=76.3) ||w||=1.088+-0.031
+    [standard/L27] loss=24219.2 recon=24219.2 auxk=0.000 | FVE=0.7344 L0=80 dead=0.000(0) ||w||=0.874+-0.061
+    [perfeature_base_delta/L27] loss=22458.2 recon=22458.2 auxk=0.000 | FVE=0.7537 L0=80 dead=0.000(0) a_base=0.1875 a_delta=0.0041+-0.0255 b_mean=4.162+-0.025 ||w||=1.067+-0.026
+    [noc_baseline/L27] loss=25181.5 recon=25181.5 auxk=0.000 | FVE=0.7240 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=24988.2 recon=24988.2 auxk=0.000 | FVE=0.7261 L0=80 dead=0.000(0) ||w||=0.958+-0.108
+    [perfeature_bd_no_enc_norm/L27] loss=26111.3 recon=26111.3 auxk=0.000 | FVE=0.7138 L0=80 dead=0.000(0) a_base=-0.5153 a_delta=-0.0159+-0.0127 b_mean=4.143+-0.013 ||w||=0.981+-0.065
+    [standard_inputnorm/L27] Checkpoint at step 9765
+    [unnormed_perfeature_b/L27] Checkpoint at step 9765
+    [adaptive_l2/L27] Checkpoint at step 9765
+    [standard/L27] Checkpoint at step 9765
+    [perfeature_base_delta/L27] Checkpoint at step 9765
+    [noc_baseline/L27] Checkpoint at step 9765
+    [noc_enc_free/L27] Checkpoint at step 9765
+    [perfeature_bd_no_enc_norm/L27] Checkpoint at step 9765
+
+  --- step 10000/24414 (20.5M tok, 1.3k tok/s, ETA 6.43h) ---
+    [standard_inputnorm/L27] loss=72816.3 recon=72816.3 auxk=0.986 | FVE=0.2078 L0=80 dead=0.934(61178) ||w||=1.703+-2.668
+    [unnormed_perfeature_b/L27] loss=22899.6 recon=22899.6 auxk=0.000 | FVE=0.7504 L0=80 dead=0.000(0) a=0.1657 b_mean=4.164+-0.023 ||w||=1.152+-0.204
+    [adaptive_l2/L27] loss=22368.5 recon=22368.5 auxk=0.000 | FVE=0.7562 L0=80 dead=0.000(0) a=0.2173 b=4.335(exp=76.3) ||w||=1.091+-0.031
+    [standard/L27] loss=23920.7 recon=23920.7 auxk=0.000 | FVE=0.7393 L0=80 dead=0.000(0) ||w||=0.877+-0.063
+    [perfeature_base_delta/L27] loss=22307.4 recon=22307.4 auxk=0.000 | FVE=0.7569 L0=80 dead=0.000(0) a_base=0.1900 a_delta=0.0038+-0.0259 b_mean=4.162+-0.025 ||w||=1.071+-0.026
+    [noc_baseline/L27] loss=24903.9 recon=24903.9 auxk=0.000 | FVE=0.7287 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=24686.0 recon=24686.0 auxk=0.000 | FVE=0.7310 L0=80 dead=0.000(0) ||w||=0.959+-0.109
+    [perfeature_bd_no_enc_norm/L27] loss=25804.5 recon=25804.5 auxk=0.000 | FVE=0.7188 L0=80 dead=0.000(0) a_base=-0.5212 a_delta=-0.0159+-0.0128 b_mean=4.143+-0.013 ||w||=0.983+-0.066
+
+  --- step 10500/24414 (21.5M tok, 1.3k tok/s, ETA 6.21h) ---
+    [standard_inputnorm/L27] loss=72538.1 recon=72538.0 auxk=0.986 | FVE=0.2088 L0=80 dead=0.934(61184) ||w||=1.737+-2.797
+    [unnormed_perfeature_b/L27] loss=22666.2 recon=22666.2 auxk=0.000 | FVE=0.7524 L0=80 dead=0.000(0) a=0.1681 b_mean=4.164+-0.023 ||w||=1.155+-0.205
+    [adaptive_l2/L27] loss=22222.3 recon=22222.3 auxk=0.000 | FVE=0.7572 L0=80 dead=0.000(0) a=0.2207 b=4.335(exp=76.4) ||w||=1.094+-0.031
+    [standard/L27] loss=23655.5 recon=23655.5 auxk=0.000 | FVE=0.7416 L0=80 dead=0.000(0) ||w||=0.880+-0.064
+    [perfeature_base_delta/L27] loss=22090.6 recon=22090.6 auxk=0.000 | FVE=0.7587 L0=80 dead=0.000(0) a_base=0.1929 a_delta=0.0035+-0.0263 b_mean=4.161+-0.025 ||w||=1.074+-0.027
+    [noc_baseline/L27] loss=24646.3 recon=24646.3 auxk=0.000 | FVE=0.7309 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=24418.2 recon=24418.2 auxk=0.000 | FVE=0.7334 L0=80 dead=0.000(0) ||w||=0.961+-0.110
+    [perfeature_bd_no_enc_norm/L27] loss=25542.0 recon=25542.0 auxk=0.000 | FVE=0.7211 L0=80 dead=0.000(0) a_base=-0.5267 a_delta=-0.0159+-0.0128 b_mean=4.143+-0.013 ||w||=0.986+-0.067
+
+  --- step 11000/24414 (22.5M tok, 1.3k tok/s, ETA 6.00h) ---
+    [standard_inputnorm/L27] loss=71277.6 recon=71277.6 auxk=0.986 | FVE=0.2179 L0=80 dead=0.934(61192) ||w||=1.771+-2.929
+    [unnormed_perfeature_b/L27] loss=22413.8 recon=22413.8 auxk=0.000 | FVE=0.7537 L0=80 dead=0.000(0) a=0.1706 b_mean=4.163+-0.024 ||w||=1.157+-0.207
+    [adaptive_l2/L27] loss=21994.8 recon=21994.8 auxk=0.000 | FVE=0.7583 L0=80 dead=0.000(0) a=0.2239 b=4.336(exp=76.4) ||w||=1.097+-0.031
+    [standard/L27] loss=23366.8 recon=23366.8 auxk=0.000 | FVE=0.7432 L0=80 dead=0.000(0) ||w||=0.883+-0.065
+    [perfeature_base_delta/L27] loss=21852.6 recon=21852.6 auxk=0.000 | FVE=0.7599 L0=80 dead=0.000(0) a_base=0.1957 a_delta=0.0033+-0.0267 b_mean=4.161+-0.026 ||w||=1.077+-0.027
+    [noc_baseline/L27] loss=24361.2 recon=24361.2 auxk=0.000 | FVE=0.7325 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=24143.8 recon=24143.8 auxk=0.000 | FVE=0.7348 L0=80 dead=0.000(0) ||w||=0.964+-0.111
+    [perfeature_bd_no_enc_norm/L27] loss=25298.5 recon=25298.5 auxk=0.000 | FVE=0.7221 L0=80 dead=0.000(0) a_base=-0.5320 a_delta=-0.0159+-0.0129 b_mean=4.143+-0.013 ||w||=0.988+-0.067
+
+  --- step 11500/24414 (23.6M tok, 1.3k tok/s, ETA 5.78h) ---
+    [standard_inputnorm/L27] loss=69554.3 recon=69554.2 auxk=0.986 | FVE=0.2282 L0=80 dead=0.934(61194) ||w||=1.805+-3.060
+    [unnormed_perfeature_b/L27] loss=21643.5 recon=21643.5 auxk=0.000 | FVE=0.7595 L0=80 dead=0.000(0) a=0.1723 b_mean=4.163+-0.024 ||w||=1.159+-0.208
+    [adaptive_l2/L27] loss=21286.3 recon=21286.3 auxk=0.000 | FVE=0.7635 L0=80 dead=0.000(0) a=0.2264 b=4.335(exp=76.3) ||w||=1.100+-0.031
+    [standard/L27] loss=22550.1 recon=22550.1 auxk=0.000 | FVE=0.7495 L0=80 dead=0.000(0) ||w||=0.886+-0.067
+    [perfeature_base_delta/L27] loss=21151.7 recon=21151.7 auxk=0.000 | FVE=0.7650 L0=80 dead=0.000(0) a_base=0.1977 a_delta=0.0030+-0.0271 b_mean=4.161+-0.026 ||w||=1.081+-0.027
+    [noc_baseline/L27] loss=23461.3 recon=23461.3 auxk=0.000 | FVE=0.7395 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=23209.4 recon=23209.4 auxk=0.000 | FVE=0.7423 L0=80 dead=0.000(0) ||w||=0.966+-0.112
+    [perfeature_bd_no_enc_norm/L27] loss=24350.7 recon=24350.7 auxk=0.000 | FVE=0.7296 L0=80 dead=0.000(0) a_base=-0.5362 a_delta=-0.0159+-0.0129 b_mean=4.143+-0.013 ||w||=0.991+-0.068
+
+  --- step 12000/24414 (24.6M tok, 1.3k tok/s, ETA 5.56h) ---
+    [standard_inputnorm/L27] loss=70950.5 recon=70950.5 auxk=0.986 | FVE=0.2263 L0=80 dead=0.934(61196) ||w||=1.838+-3.190
+    [unnormed_perfeature_b/L27] loss=21744.5 recon=21744.5 auxk=0.000 | FVE=0.7625 L0=80 dead=0.000(0) a=0.1747 b_mean=4.162+-0.025 ||w||=1.162+-0.209
+    [adaptive_l2/L27] loss=21373.8 recon=21373.8 auxk=0.000 | FVE=0.7666 L0=80 dead=0.000(0) a=0.2292 b=4.335(exp=76.3) ||w||=1.103+-0.031
+    [standard/L27] loss=22613.5 recon=22613.5 auxk=0.000 | FVE=0.7530 L0=80 dead=0.000(0) ||w||=0.889+-0.068
+    [perfeature_base_delta/L27] loss=21225.1 recon=21225.1 auxk=0.000 | FVE=0.7682 L0=80 dead=0.000(0) a_base=0.2003 a_delta=0.0028+-0.0274 b_mean=4.161+-0.026 ||w||=1.084+-0.028
+    [noc_baseline/L27] loss=23570.9 recon=23570.9 auxk=0.000 | FVE=0.7428 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=23366.5 recon=23366.5 auxk=0.000 | FVE=0.7450 L0=80 dead=0.000(0) ||w||=0.969+-0.112
+    [perfeature_bd_no_enc_norm/L27] loss=24496.6 recon=24496.6 auxk=0.000 | FVE=0.7326 L0=80 dead=0.000(0) a_base=-0.5401 a_delta=-0.0159+-0.0130 b_mean=4.143+-0.013 ||w||=0.993+-0.069
+
+  --- step 12500/24414 (25.6M tok, 1.3k tok/s, ETA 5.34h) ---
+    [standard_inputnorm/L27] loss=69862.8 recon=69862.8 auxk=0.987 | FVE=0.2309 L0=80 dead=0.934(61199) ||w||=1.872+-3.319
+    [unnormed_perfeature_b/L27] loss=22500.5 recon=22500.5 auxk=0.000 | FVE=0.7519 L0=80 dead=0.000(0) a=0.1767 b_mean=4.162+-0.025 ||w||=1.164+-0.209
+    [adaptive_l2/L27] loss=22158.4 recon=22158.4 auxk=0.000 | FVE=0.7557 L0=80 dead=0.000(0) a=0.2318 b=4.334(exp=76.3) ||w||=1.105+-0.031
+    [standard/L27] loss=23246.8 recon=23246.8 auxk=0.000 | FVE=0.7437 L0=80 dead=0.000(0) ||w||=0.893+-0.069
+    [perfeature_base_delta/L27] loss=22029.2 recon=22029.2 auxk=0.000 | FVE=0.7571 L0=80 dead=0.000(0) a_base=0.2027 a_delta=0.0027+-0.0277 b_mean=4.160+-0.027 ||w||=1.087+-0.028
+    [noc_baseline/L27] loss=24441.1 recon=24441.1 auxk=0.000 | FVE=0.7307 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=24200.8 recon=24200.8 auxk=0.000 | FVE=0.7333 L0=80 dead=0.000(0) ||w||=0.972+-0.113
+    [perfeature_bd_no_enc_norm/L27] loss=25380.0 recon=25380.0 auxk=0.000 | FVE=0.7202 L0=80 dead=0.000(0) a_base=-0.5431 a_delta=-0.0158+-0.0130 b_mean=4.143+-0.013 ||w||=0.996+-0.070
+
+  --- step 13000/24414 (26.6M tok, 1.3k tok/s, ETA 5.13h) ---
+    [standard_inputnorm/L27] loss=69563.0 recon=69562.9 auxk=0.987 | FVE=0.2370 L0=80 dead=0.934(61200) ||w||=1.905+-3.450
+    [unnormed_perfeature_b/L27] loss=22185.4 recon=22185.4 auxk=0.000 | FVE=0.7563 L0=80 dead=0.000(0) a=0.1782 b_mean=4.162+-0.026 ||w||=1.167+-0.210
+    [adaptive_l2/L27] loss=21834.2 recon=21834.2 auxk=0.000 | FVE=0.7601 L0=80 dead=0.000(0) a=0.2336 b=4.333(exp=76.2) ||w||=1.108+-0.031
+    [standard/L27] loss=22891.5 recon=22891.5 auxk=0.000 | FVE=0.7485 L0=80 dead=0.000(0) ||w||=0.896+-0.070
+    [perfeature_base_delta/L27] loss=21709.5 recon=21709.5 auxk=0.000 | FVE=0.7615 L0=80 dead=0.000(0) a_base=0.2044 a_delta=0.0025+-0.0280 b_mean=4.160+-0.027 ||w||=1.090+-0.028
+    [noc_baseline/L27] loss=24006.9 recon=24006.9 auxk=0.000 | FVE=0.7364 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=23802.9 recon=23802.9 auxk=0.000 | FVE=0.7387 L0=80 dead=0.000(0) ||w||=0.975+-0.113
+    [perfeature_bd_no_enc_norm/L27] loss=25018.8 recon=25018.8 auxk=1.001 | FVE=0.7253 L0=80 dead=0.000(5) a_base=-0.5460 a_delta=-0.0158+-0.0130 b_mean=4.143+-0.013 ||w||=0.998+-0.071
+
+  --- step 13500/24414 (27.6M tok, 1.3k tok/s, ETA 4.92h) ---
+    [standard_inputnorm/L27] loss=69308.7 recon=69308.7 auxk=0.987 | FVE=0.2378 L0=80 dead=0.934(61204) ||w||=1.939+-3.580
+    [unnormed_perfeature_b/L27] loss=21808.0 recon=21808.0 auxk=0.000 | FVE=0.7598 L0=80 dead=0.000(0) a=0.1800 b_mean=4.162+-0.026 ||w||=1.169+-0.211
+    [adaptive_l2/L27] loss=21513.5 recon=21513.5 auxk=0.000 | FVE=0.7631 L0=80 dead=0.000(0) a=0.2358 b=4.333(exp=76.1) ||w||=1.110+-0.031
+    [standard/L27] loss=22478.9 recon=22478.9 auxk=0.000 | FVE=0.7524 L0=80 dead=0.000(0) ||w||=0.899+-0.071
+    [perfeature_base_delta/L27] loss=21390.0 recon=21390.0 auxk=0.000 | FVE=0.7644 L0=80 dead=0.000(0) a_base=0.2065 a_delta=0.0024+-0.0282 b_mean=4.160+-0.027 ||w||=1.093+-0.029
+    [noc_baseline/L27] loss=23609.2 recon=23609.2 auxk=0.000 | FVE=0.7402 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=23355.2 recon=23355.2 auxk=0.000 | FVE=0.7429 L0=80 dead=0.000(0) ||w||=0.978+-0.113
+    [perfeature_bd_no_enc_norm/L27] loss=24559.5 recon=24559.5 auxk=1.001 | FVE=0.7296 L0=80 dead=0.000(15) a_base=-0.5488 a_delta=-0.0158+-0.0130 b_mean=4.143+-0.013 ||w||=1.001+-0.071
+
+  --- step 14000/24414 (28.7M tok, 1.3k tok/s, ETA 4.71h) ---
+    [standard_inputnorm/L27] loss=69865.6 recon=69865.6 auxk=0.987 | FVE=0.2429 L0=80 dead=0.934(61205) ||w||=1.973+-3.710
+    [unnormed_perfeature_b/L27] loss=21964.7 recon=21964.7 auxk=0.000 | FVE=0.7615 L0=80 dead=0.000(0) a=0.1818 b_mean=4.161+-0.027 ||w||=1.172+-0.212
+    [adaptive_l2/L27] loss=21684.1 recon=21684.1 auxk=0.000 | FVE=0.7646 L0=80 dead=0.000(0) a=0.2377 b=4.332(exp=76.1) ||w||=1.113+-0.031
+    [standard/L27] loss=22630.0 recon=22630.0 auxk=0.000 | FVE=0.7543 L0=80 dead=0.000(0) ||w||=0.902+-0.072
+    [perfeature_base_delta/L27] loss=21534.5 recon=21534.5 auxk=0.000 | FVE=0.7662 L0=80 dead=0.000(0) a_base=0.2085 a_delta=0.0024+-0.0285 b_mean=4.160+-0.027 ||w||=1.095+-0.029
+    [noc_baseline/L27] loss=23759.0 recon=23759.0 auxk=0.000 | FVE=0.7422 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=23490.1 recon=23490.1 auxk=0.000 | FVE=0.7451 L0=80 dead=0.000(0) ||w||=0.981+-0.113
+    [perfeature_bd_no_enc_norm/L27] loss=24748.8 recon=24748.8 auxk=1.001 | FVE=0.7314 L0=80 dead=0.001(50) a_base=-0.5513 a_delta=-0.0158+-0.0131 b_mean=4.143+-0.013 ||w||=1.003+-0.072
+
+  --- step 14500/24414 (29.7M tok, 1.3k tok/s, ETA 4.49h) ---
+    [standard_inputnorm/L27] loss=67457.1 recon=67457.1 auxk=0.987 | FVE=0.2515 L0=80 dead=0.934(61206) ||w||=2.005+-3.838
+    [unnormed_perfeature_b/L27] loss=21345.4 recon=21345.4 auxk=0.000 | FVE=0.7629 L0=80 dead=0.000(0) a=0.1834 b_mean=4.161+-0.027 ||w||=1.175+-0.212
+    [adaptive_l2/L27] loss=21089.5 recon=21089.5 auxk=0.000 | FVE=0.7657 L0=80 dead=0.000(0) a=0.2395 b=4.330(exp=76.0) ||w||=1.115+-0.031
+    [standard/L27] loss=21990.3 recon=21990.3 auxk=0.000 | FVE=0.7557 L0=80 dead=0.000(0) ||w||=0.906+-0.073
+    [perfeature_base_delta/L27] loss=20919.3 recon=20919.3 auxk=0.000 | FVE=0.7676 L0=80 dead=0.000(0) a_base=0.2103 a_delta=0.0023+-0.0286 b_mean=4.160+-0.028 ||w||=1.098+-0.029
+    [noc_baseline/L27] loss=23070.0 recon=23070.0 auxk=0.000 | FVE=0.7439 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=22806.6 recon=22806.6 auxk=0.000 | FVE=0.7468 L0=80 dead=0.000(0) ||w||=0.985+-0.113
+    [perfeature_bd_no_enc_norm/L27] loss=24025.8 recon=24025.8 auxk=1.001 | FVE=0.7332 L0=80 dead=0.002(122) a_base=-0.5538 a_delta=-0.0157+-0.0131 b_mean=4.143+-0.013 ||w||=1.006+-0.073
+    [standard_inputnorm/L27] Checkpoint at step 14648
+    [unnormed_perfeature_b/L27] Checkpoint at step 14648
+    [adaptive_l2/L27] Checkpoint at step 14648
+    [standard/L27] Checkpoint at step 14648
+    [perfeature_base_delta/L27] Checkpoint at step 14648
+    [noc_baseline/L27] Checkpoint at step 14648
+    [noc_enc_free/L27] Checkpoint at step 14648
+    [perfeature_bd_no_enc_norm/L27] Checkpoint at step 14648
+
+  --- step 15000/24414 (30.7M tok, 1.3k tok/s, ETA 4.28h) ---
+    [standard_inputnorm/L27] loss=67966.8 recon=67966.8 auxk=0.987 | FVE=0.2527 L0=80 dead=0.934(61208) ||w||=2.039+-3.966
+    [unnormed_perfeature_b/L27] loss=21343.9 recon=21343.9 auxk=0.000 | FVE=0.7650 L0=80 dead=0.000(0) a=0.1852 b_mean=4.161+-0.027 ||w||=1.178+-0.212
+    [adaptive_l2/L27] loss=21120.7 recon=21120.7 auxk=0.000 | FVE=0.7675 L0=80 dead=0.000(0) a=0.2413 b=4.329(exp=75.9) ||w||=1.118+-0.031
+    [standard/L27] loss=22019.5 recon=22019.5 auxk=0.000 | FVE=0.7576 L0=80 dead=0.000(0) ||w||=0.909+-0.073
+    [perfeature_base_delta/L27] loss=20958.7 recon=20958.7 auxk=0.000 | FVE=0.7693 L0=80 dead=0.000(0) a_base=0.2123 a_delta=0.0023+-0.0288 b_mean=4.160+-0.028 ||w||=1.101+-0.030
+    [noc_baseline/L27] loss=23092.0 recon=23092.0 auxk=0.000 | FVE=0.7460 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=22847.3 recon=22847.3 auxk=0.000 | FVE=0.7486 L0=80 dead=0.000(0) ||w||=0.988+-0.112
+    [perfeature_bd_no_enc_norm/L27] loss=24034.0 recon=24034.0 auxk=1.001 | FVE=0.7355 L0=80 dead=0.003(212) a_base=-0.5562 a_delta=-0.0157+-0.0131 b_mean=4.143+-0.013 ||w||=1.009+-0.074
+
+  --- step 15500/24414 (31.7M tok, 1.3k tok/s, ETA 4.06h) ---
+    [standard_inputnorm/L27] loss=66404.5 recon=66404.5 auxk=0.987 | FVE=0.2597 L0=80 dead=0.934(61208) ||w||=2.071+-4.094
+    [unnormed_perfeature_b/L27] loss=20947.1 recon=20947.1 auxk=0.000 | FVE=0.7662 L0=80 dead=0.000(0) a=0.1868 b_mean=4.161+-0.028 ||w||=1.181+-0.213
+    [adaptive_l2/L27] loss=20802.1 recon=20802.1 auxk=0.000 | FVE=0.7678 L0=80 dead=0.000(0) a=0.2428 b=4.328(exp=75.8) ||w||=1.120+-0.031
+    [standard/L27] loss=21597.0 recon=21597.0 auxk=0.000 | FVE=0.7589 L0=80 dead=0.000(0) ||w||=0.913+-0.074
+    [perfeature_base_delta/L27] loss=20602.6 recon=20602.6 auxk=0.000 | FVE=0.7700 L0=80 dead=0.000(0) a_base=0.2142 a_delta=0.0023+-0.0290 b_mean=4.160+-0.028 ||w||=1.104+-0.030
+    [noc_baseline/L27] loss=22670.5 recon=22670.5 auxk=0.000 | FVE=0.7471 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=22421.2 recon=22421.2 auxk=0.000 | FVE=0.7499 L0=80 dead=0.000(0) ||w||=0.991+-0.112
+    [perfeature_bd_no_enc_norm/L27] loss=23593.4 recon=23593.4 auxk=1.001 | FVE=0.7367 L0=80 dead=0.006(378) a_base=-0.5580 a_delta=-0.0157+-0.0131 b_mean=4.143+-0.013 ||w||=1.011+-0.074
+
+  --- step 16000/24414 (32.8M tok, 1.2k tok/s, ETA 3.84h) ---
+    [standard_inputnorm/L27] loss=67106.0 recon=67105.9 auxk=0.987 | FVE=0.2598 L0=80 dead=0.934(61209) ||w||=2.104+-4.220
+    [unnormed_perfeature_b/L27] loss=21045.3 recon=21045.3 auxk=0.000 | FVE=0.7676 L0=80 dead=0.000(0) a=0.1887 b_mean=4.161+-0.028 ||w||=1.184+-0.213
+    [adaptive_l2/L27] loss=20856.8 recon=20856.8 auxk=0.000 | FVE=0.7696 L0=80 dead=0.000(0) a=0.2447 b=4.326(exp=75.7) ||w||=1.122+-0.031
+    [standard/L27] loss=21666.8 recon=21666.8 auxk=0.000 | FVE=0.7607 L0=80 dead=0.000(0) ||w||=0.916+-0.075
+    [perfeature_base_delta/L27] loss=20699.9 recon=20699.9 auxk=0.000 | FVE=0.7714 L0=80 dead=0.000(0) a_base=0.2163 a_delta=0.0024+-0.0290 b_mean=4.160+-0.028 ||w||=1.106+-0.030
+    [noc_baseline/L27] loss=22736.5 recon=22736.5 auxk=0.000 | FVE=0.7491 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=22468.3 recon=22468.3 auxk=0.000 | FVE=0.7520 L0=80 dead=0.000(0) ||w||=0.995+-0.112
+    [perfeature_bd_no_enc_norm/L27] loss=23722.1 recon=23722.1 auxk=1.001 | FVE=0.7381 L0=80 dead=0.009(575) a_base=-0.5596 a_delta=-0.0156+-0.0131 b_mean=4.143+-0.013 ||w||=1.013+-0.075
+
+  --- step 16500/24414 (33.8M tok, 1.2k tok/s, ETA 3.61h) ---
+    [standard_inputnorm/L27] loss=65637.3 recon=65637.3 auxk=0.987 | FVE=0.2696 L0=80 dead=0.934(61210) ||w||=2.136+-4.346
+    [unnormed_perfeature_b/L27] loss=20745.6 recon=20745.6 auxk=0.000 | FVE=0.7688 L0=80 dead=0.000(0) a=0.1896 b_mean=4.161+-0.028 ||w||=1.187+-0.212
+    [adaptive_l2/L27] loss=20565.3 recon=20565.3 auxk=0.000 | FVE=0.7708 L0=80 dead=0.000(0) a=0.2456 b=4.324(exp=75.5) ||w||=1.125+-0.032
+    [standard/L27] loss=21324.2 recon=21324.2 auxk=0.000 | FVE=0.7624 L0=80 dead=0.000(0) ||w||=0.920+-0.075
+    [perfeature_base_delta/L27] loss=20359.2 recon=20359.2 auxk=0.000 | FVE=0.7731 L0=80 dead=0.000(0) a_base=0.2174 a_delta=0.0025+-0.0291 b_mean=4.160+-0.028 ||w||=1.109+-0.031
+    [noc_baseline/L27] loss=22387.1 recon=22387.1 auxk=0.000 | FVE=0.7507 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=22103.9 recon=22103.9 auxk=0.000 | FVE=0.7539 L0=80 dead=0.000(0) ||w||=0.998+-0.112
+    [perfeature_bd_no_enc_norm/L27] loss=23305.1 recon=23305.0 auxk=1.001 | FVE=0.7404 L0=80 dead=0.013(830) a_base=-0.5611 a_delta=-0.0156+-0.0131 b_mean=4.143+-0.013 ||w||=1.016+-0.076
+
+  --- step 17000/24414 (34.8M tok, 1.2k tok/s, ETA 3.39h) ---
+    [standard_inputnorm/L27] loss=65937.2 recon=65937.2 auxk=0.988 | FVE=0.2713 L0=80 dead=0.934(61214) ||w||=2.168+-4.470
+    [unnormed_perfeature_b/L27] loss=20525.3 recon=20525.3 auxk=0.000 | FVE=0.7728 L0=80 dead=0.000(0) a=0.1909 b_mean=4.161+-0.028 ||w||=1.191+-0.212
+    [adaptive_l2/L27] loss=20362.0 recon=20362.0 auxk=0.000 | FVE=0.7746 L0=80 dead=0.000(0) a=0.2469 b=4.323(exp=75.4) ||w||=1.127+-0.032
+    [standard/L27] loss=21024.5 recon=21024.5 auxk=0.000 | FVE=0.7673 L0=80 dead=0.000(0) ||w||=0.923+-0.076
+    [perfeature_base_delta/L27] loss=20193.4 recon=20193.4 auxk=0.000 | FVE=0.7765 L0=80 dead=0.000(0) a_base=0.2190 a_delta=0.0026+-0.0292 b_mean=4.160+-0.028 ||w||=1.112+-0.031
+    [noc_baseline/L27] loss=22141.2 recon=22141.2 auxk=0.000 | FVE=0.7551 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21883.9 recon=21883.9 auxk=0.000 | FVE=0.7580 L0=80 dead=0.000(0) ||w||=1.001+-0.111
+    [perfeature_bd_no_enc_norm/L27] loss=23093.0 recon=23093.0 auxk=1.001 | FVE=0.7445 L0=80 dead=0.017(1087) a_base=-0.5630 a_delta=-0.0156+-0.0131 b_mean=4.143+-0.013 ||w||=1.018+-0.076
+
+  --- step 17500/24414 (35.8M tok, 1.2k tok/s, ETA 3.17h) ---
+    [standard_inputnorm/L27] loss=66426.1 recon=66426.0 auxk=0.988 | FVE=0.2689 L0=80 dead=0.934(61216) ||w||=2.200+-4.595
+    [unnormed_perfeature_b/L27] loss=20835.1 recon=20835.1 auxk=0.000 | FVE=0.7703 L0=80 dead=0.000(0) a=0.1926 b_mean=4.161+-0.028 ||w||=1.194+-0.212
+    [adaptive_l2/L27] loss=20712.2 recon=20712.2 auxk=0.000 | FVE=0.7716 L0=80 dead=0.000(0) a=0.2485 b=4.321(exp=75.3) ||w||=1.129+-0.032
+    [standard/L27] loss=21370.5 recon=21370.5 auxk=0.000 | FVE=0.7644 L0=80 dead=0.000(0) ||w||=0.927+-0.076
+    [perfeature_base_delta/L27] loss=20508.8 recon=20508.8 auxk=0.000 | FVE=0.7739 L0=80 dead=0.000(0) a_base=0.2209 a_delta=0.0027+-0.0292 b_mean=4.160+-0.028 ||w||=1.114+-0.031
+    [noc_baseline/L27] loss=22512.7 recon=22512.7 auxk=0.000 | FVE=0.7520 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=22209.2 recon=22209.2 auxk=0.000 | FVE=0.7553 L0=80 dead=0.000(0) ||w||=1.005+-0.111
+    [perfeature_bd_no_enc_norm/L27] loss=23482.2 recon=23482.2 auxk=1.001 | FVE=0.7412 L0=80 dead=0.021(1390) a_base=-0.5649 a_delta=-0.0155+-0.0131 b_mean=4.143+-0.013 ||w||=1.021+-0.077
+
+  --- step 18000/24414 (36.9M tok, 1.2k tok/s, ETA 2.94h) ---
+    [standard_inputnorm/L27] loss=64727.4 recon=64727.4 auxk=0.988 | FVE=0.2792 L0=80 dead=0.934(61219) ||w||=2.232+-4.719
+    [unnormed_perfeature_b/L27] loss=20168.5 recon=20168.5 auxk=0.000 | FVE=0.7751 L0=80 dead=0.000(0) a=0.1938 b_mean=4.161+-0.029 ||w||=1.198+-0.211
+    [adaptive_l2/L27] loss=20066.2 recon=20066.2 auxk=0.000 | FVE=0.7762 L0=80 dead=0.000(0) a=0.2496 b=4.319(exp=75.1) ||w||=1.132+-0.032
+    [standard/L27] loss=20715.8 recon=20715.8 auxk=0.000 | FVE=0.7690 L0=80 dead=0.000(0) ||w||=0.930+-0.077
+    [perfeature_base_delta/L27] loss=19889.1 recon=19889.1 auxk=0.000 | FVE=0.7782 L0=80 dead=0.000(0) a_base=0.2223 a_delta=0.0028+-0.0292 b_mean=4.160+-0.028 ||w||=1.117+-0.031
+    [noc_baseline/L27] loss=21829.2 recon=21829.2 auxk=0.000 | FVE=0.7568 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21549.0 recon=21549.0 auxk=0.000 | FVE=0.7599 L0=80 dead=0.000(0) ||w||=1.008+-0.110
+    [perfeature_bd_no_enc_norm/L27] loss=22788.6 recon=22788.6 auxk=1.001 | FVE=0.7460 L0=80 dead=0.026(1678) a_base=-0.5661 a_delta=-0.0155+-0.0131 b_mean=4.143+-0.013 ||w||=1.023+-0.078
+
+  --- step 18500/24414 (37.9M tok, 1.2k tok/s, ETA 2.72h) ---
+    [standard_inputnorm/L27] loss=66009.0 recon=66009.0 auxk=0.988 | FVE=0.2760 L0=80 dead=0.934(61220) ||w||=2.264+-4.843
+    [unnormed_perfeature_b/L27] loss=20660.8 recon=20660.8 auxk=0.000 | FVE=0.7730 L0=80 dead=0.000(0) a=0.1950 b_mean=4.161+-0.029 ||w||=1.201+-0.211
+    [adaptive_l2/L27] loss=20582.0 recon=20582.0 auxk=0.000 | FVE=0.7739 L0=80 dead=0.000(0) a=0.2508 b=4.317(exp=75.0) ||w||=1.134+-0.032
+    [standard/L27] loss=21184.9 recon=21184.9 auxk=0.000 | FVE=0.7673 L0=80 dead=0.000(0) ||w||=0.934+-0.077
+    [perfeature_base_delta/L27] loss=20338.2 recon=20338.2 auxk=0.000 | FVE=0.7766 L0=80 dead=0.000(0) a_base=0.2237 a_delta=0.0030+-0.0292 b_mean=4.160+-0.028 ||w||=1.119+-0.032
+    [noc_baseline/L27] loss=22292.4 recon=22292.4 auxk=0.000 | FVE=0.7553 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21990.4 recon=21990.4 auxk=0.000 | FVE=0.7586 L0=80 dead=0.000(0) ||w||=1.012+-0.110
+    [perfeature_bd_no_enc_norm/L27] loss=23259.3 recon=23259.3 auxk=1.001 | FVE=0.7446 L0=80 dead=0.031(2014) a_base=-0.5675 a_delta=-0.0155+-0.0131 b_mean=4.143+-0.013 ||w||=1.025+-0.079
+
+  --- step 19000/24414 (38.9M tok, 1.2k tok/s, ETA 2.49h) ---
+    [standard_inputnorm/L27] loss=64249.8 recon=64249.8 auxk=0.987 | FVE=0.2846 L0=80 dead=0.934(61221) ||w||=2.295+-4.965
+    [unnormed_perfeature_b/L27] loss=19953.6 recon=19953.6 auxk=0.000 | FVE=0.7775 L0=80 dead=0.000(0) a=0.1959 b_mean=4.161+-0.029 ||w||=1.205+-0.210
+    [adaptive_l2/L27] loss=19850.8 recon=19850.8 auxk=0.000 | FVE=0.7787 L0=80 dead=0.000(0) a=0.2516 b=4.315(exp=74.8) ||w||=1.136+-0.032
+    [standard/L27] loss=20393.4 recon=20393.4 auxk=0.000 | FVE=0.7726 L0=80 dead=0.000(0) ||w||=0.937+-0.077
+    [perfeature_base_delta/L27] loss=19633.3 recon=19633.3 auxk=0.000 | FVE=0.7811 L0=80 dead=0.000(0) a_base=0.2248 a_delta=0.0032+-0.0291 b_mean=4.160+-0.028 ||w||=1.122+-0.032
+    [noc_baseline/L27] loss=21457.2 recon=21457.2 auxk=0.000 | FVE=0.7610 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21153.2 recon=21153.2 auxk=0.000 | FVE=0.7643 L0=80 dead=0.000(0) ||w||=1.015+-0.109
+    [perfeature_bd_no_enc_norm/L27] loss=22413.3 recon=22413.2 auxk=1.001 | FVE=0.7502 L0=80 dead=0.036(2371) a_base=-0.5690 a_delta=-0.0154+-0.0131 b_mean=4.143+-0.013 ||w||=1.028+-0.079
+
+  --- step 19500/24414 (39.9M tok, 1.2k tok/s, ETA 2.26h) ---
+    [standard_inputnorm/L27] loss=64721.6 recon=64721.6 auxk=0.988 | FVE=0.2841 L0=80 dead=0.934(61222) ||w||=2.326+-5.087
+    [unnormed_perfeature_b/L27] loss=20032.0 recon=20032.0 auxk=0.000 | FVE=0.7780 L0=80 dead=0.000(0) a=0.1969 b_mean=4.161+-0.029 ||w||=1.209+-0.209
+    [adaptive_l2/L27] loss=19950.7 recon=19950.7 auxk=0.000 | FVE=0.7789 L0=80 dead=0.000(0) a=0.2527 b=4.313(exp=74.7) ||w||=1.138+-0.032
+    [standard/L27] loss=20465.7 recon=20465.7 auxk=0.000 | FVE=0.7732 L0=80 dead=0.000(0) ||w||=0.940+-0.078
+    [perfeature_base_delta/L27] loss=19748.6 recon=19748.6 auxk=0.000 | FVE=0.7812 L0=80 dead=0.000(0) a_base=0.2260 a_delta=0.0033+-0.0291 b_mean=4.161+-0.028 ||w||=1.124+-0.032
+    [noc_baseline/L27] loss=21553.8 recon=21553.8 auxk=0.000 | FVE=0.7614 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21262.5 recon=21262.5 auxk=0.000 | FVE=0.7646 L0=80 dead=0.000(0) ||w||=1.019+-0.109
+    [perfeature_bd_no_enc_norm/L27] loss=22511.7 recon=22511.7 auxk=1.001 | FVE=0.7507 L0=80 dead=0.042(2729) a_base=-0.5706 a_delta=-0.0154+-0.0131 b_mean=4.143+-0.013 ||w||=1.030+-0.080
+    [standard_inputnorm/L27] Checkpoint at step 19531
+    [unnormed_perfeature_b/L27] Checkpoint at step 19531
+    [adaptive_l2/L27] Checkpoint at step 19531
+    [standard/L27] Checkpoint at step 19531
+    [perfeature_base_delta/L27] Checkpoint at step 19531
+    [noc_baseline/L27] Checkpoint at step 19531
+    [noc_enc_free/L27] Checkpoint at step 19531
+    [perfeature_bd_no_enc_norm/L27] Checkpoint at step 19531
+
+  --- step 20000/24414 (41.0M tok, 1.2k tok/s, ETA 2.03h) ---
+    [standard_inputnorm/L27] loss=63633.8 recon=63633.7 auxk=0.988 | FVE=0.2937 L0=80 dead=0.934(61224) ||w||=2.356+-5.203
+    [unnormed_perfeature_b/L27] loss=19980.9 recon=19980.9 auxk=0.000 | FVE=0.7779 L0=80 dead=0.000(0) a=0.1980 b_mean=4.161+-0.029 ||w||=1.212+-0.208
+    [adaptive_l2/L27] loss=19969.3 recon=19969.3 auxk=0.000 | FVE=0.7781 L0=80 dead=0.000(0) a=0.2538 b=4.311(exp=74.5) ||w||=1.141+-0.033
+    [standard/L27] loss=20496.6 recon=20496.6 auxk=0.000 | FVE=0.7722 L0=80 dead=0.000(0) ||w||=0.943+-0.078
+    [perfeature_base_delta/L27] loss=19715.3 recon=19715.3 auxk=0.000 | FVE=0.7809 L0=80 dead=0.000(0) a_base=0.2273 a_delta=0.0035+-0.0290 b_mean=4.161+-0.028 ||w||=1.126+-0.032
+    [noc_baseline/L27] loss=21588.9 recon=21588.9 auxk=0.000 | FVE=0.7603 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21302.1 recon=21302.1 auxk=0.000 | FVE=0.7634 L0=80 dead=0.000(0) ||w||=1.022+-0.109
+    [perfeature_bd_no_enc_norm/L27] loss=22538.7 recon=22538.7 auxk=1.001 | FVE=0.7496 L0=80 dead=0.048(3140) a_base=-0.5715 a_delta=-0.0153+-0.0131 b_mean=4.143+-0.013 ||w||=1.032+-0.081
+
+  --- step 20500/24414 (42.0M tok, 1.2k tok/s, ETA 1.81h) ---
+    [standard_inputnorm/L27] loss=64301.7 recon=64301.6 auxk=0.988 | FVE=0.2867 L0=80 dead=0.934(61226) ||w||=2.382+-5.305
+    [unnormed_perfeature_b/L27] loss=19867.1 recon=19867.1 auxk=0.000 | FVE=0.7792 L0=80 dead=0.000(0) a=0.1986 b_mean=4.161+-0.029 ||w||=1.215+-0.208
+    [adaptive_l2/L27] loss=19834.9 recon=19834.9 auxk=0.000 | FVE=0.7796 L0=80 dead=0.000(0) a=0.2544 b=4.309(exp=74.4) ||w||=1.142+-0.033
+    [standard/L27] loss=20312.6 recon=20312.6 auxk=0.000 | FVE=0.7743 L0=80 dead=0.000(0) ||w||=0.946+-0.078
+    [perfeature_base_delta/L27] loss=19607.6 recon=19607.6 auxk=0.000 | FVE=0.7821 L0=80 dead=0.000(0) a_base=0.2281 a_delta=0.0036+-0.0290 b_mean=4.161+-0.028 ||w||=1.128+-0.032
+    [noc_baseline/L27] loss=21441.3 recon=21441.3 auxk=0.000 | FVE=0.7619 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21156.6 recon=21156.6 auxk=0.000 | FVE=0.7651 L0=80 dead=0.000(0) ||w||=1.025+-0.108
+    [perfeature_bd_no_enc_norm/L27] loss=22410.1 recon=22410.1 auxk=1.001 | FVE=0.7511 L0=80 dead=0.054(3529) a_base=-0.5723 a_delta=-0.0153+-0.0131 b_mean=4.143+-0.013 ||w||=1.034+-0.081
+
+  --- step 21000/24414 (43.0M tok, 1.2k tok/s, ETA 1.58h) ---
+    [standard_inputnorm/L27] loss=65410.3 recon=65410.3 auxk=0.989 | FVE=0.2862 L0=80 dead=0.934(61229) ||w||=2.405+-5.395
+    [unnormed_perfeature_b/L27] loss=20384.6 recon=20384.6 auxk=0.000 | FVE=0.7771 L0=80 dead=0.000(0) a=0.1997 b_mean=4.162+-0.029 ||w||=1.217+-0.207
+    [adaptive_l2/L27] loss=20367.8 recon=20367.8 auxk=0.000 | FVE=0.7773 L0=80 dead=0.000(0) a=0.2554 b=4.308(exp=74.3) ||w||=1.144+-0.033
+    [standard/L27] loss=20846.6 recon=20846.6 auxk=0.000 | FVE=0.7721 L0=80 dead=0.000(0) ||w||=0.948+-0.078
+    [perfeature_base_delta/L27] loss=20148.3 recon=20148.3 auxk=0.000 | FVE=0.7797 L0=80 dead=0.000(0) a_base=0.2293 a_delta=0.0038+-0.0289 b_mean=4.161+-0.028 ||w||=1.130+-0.032
+    [noc_baseline/L27] loss=22007.2 recon=22007.2 auxk=0.000 | FVE=0.7596 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21696.4 recon=21696.4 auxk=0.000 | FVE=0.7630 L0=80 dead=0.000(0) ||w||=1.027+-0.108
+    [perfeature_bd_no_enc_norm/L27] loss=23049.1 recon=23049.1 auxk=1.001 | FVE=0.7481 L0=80 dead=0.060(3916) a_base=-0.5731 a_delta=-0.0153+-0.0131 b_mean=4.143+-0.013 ||w||=1.036+-0.082
+
+  --- step 21500/24414 (44.0M tok, 1.2k tok/s, ETA 1.35h) ---
+    [standard_inputnorm/L27] loss=65763.5 recon=65763.4 auxk=0.988 | FVE=0.2869 L0=80 dead=0.934(61235) ||w||=2.425+-5.472
+    [unnormed_perfeature_b/L27] loss=20386.3 recon=20386.3 auxk=0.000 | FVE=0.7785 L0=80 dead=0.000(0) a=0.2001 b_mean=4.162+-0.029 ||w||=1.219+-0.206
+    [adaptive_l2/L27] loss=20364.9 recon=20364.9 auxk=0.000 | FVE=0.7787 L0=80 dead=0.000(0) a=0.2558 b=4.306(exp=74.1) ||w||=1.144+-0.033
+    [standard/L27] loss=20804.1 recon=20804.1 auxk=0.000 | FVE=0.7739 L0=80 dead=0.000(0) ||w||=0.950+-0.079
+    [perfeature_base_delta/L27] loss=20116.1 recon=20116.1 auxk=0.000 | FVE=0.7814 L0=80 dead=0.000(0) a_base=0.2298 a_delta=0.0040+-0.0288 b_mean=4.161+-0.028 ||w||=1.131+-0.033
+    [noc_baseline/L27] loss=22031.3 recon=22031.3 auxk=0.000 | FVE=0.7608 L0=80 dead=0.000(0) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21718.0 recon=21718.0 auxk=0.000 | FVE=0.7642 L0=80 dead=0.000(0) ||w||=1.029+-0.107
+    [perfeature_bd_no_enc_norm/L27] loss=23029.7 recon=23029.6 auxk=1.001 | FVE=0.7499 L0=80 dead=0.065(4289) a_base=-0.5735 a_delta=-0.0152+-0.0131 b_mean=4.143+-0.013 ||w||=1.037+-0.082
+
+  --- step 22000/24414 (45.1M tok, 1.2k tok/s, ETA 1.12h) ---
+    [standard_inputnorm/L27] loss=63290.5 recon=63290.4 auxk=0.988 | FVE=0.2986 L0=80 dead=0.934(61236) ||w||=2.442+-5.538
+    [unnormed_perfeature_b/L27] loss=19638.1 recon=19638.1 auxk=0.000 | FVE=0.7821 L0=80 dead=0.000(0) a=0.2006 b_mean=4.162+-0.029 ||w||=1.221+-0.206
+    [adaptive_l2/L27] loss=19618.5 recon=19618.5 auxk=0.000 | FVE=0.7823 L0=80 dead=0.000(0) a=0.2563 b=4.305(exp=74.0) ||w||=1.145+-0.033
+    [standard/L27] loss=20069.3 recon=20069.3 auxk=1.001 | FVE=0.7773 L0=80 dead=0.000(1) ||w||=0.951+-0.079
+    [perfeature_base_delta/L27] loss=19383.0 recon=19383.0 auxk=0.000 | FVE=0.7849 L0=80 dead=0.000(0) a_base=0.2303 a_delta=0.0041+-0.0287 b_mean=4.161+-0.028 ||w||=1.131+-0.033
+    [noc_baseline/L27] loss=21126.4 recon=21126.4 auxk=1.001 | FVE=0.7658 L0=80 dead=0.000(1) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=20828.3 recon=20828.3 auxk=0.000 | FVE=0.7691 L0=80 dead=0.000(0) ||w||=1.030+-0.107
+    [perfeature_bd_no_enc_norm/L27] loss=22070.8 recon=22070.8 auxk=1.001 | FVE=0.7552 L0=80 dead=0.071(4656) a_base=-0.5737 a_delta=-0.0152+-0.0131 b_mean=4.143+-0.013 ||w||=1.038+-0.082
+
+  --- step 22500/24414 (46.1M tok, 1.2k tok/s, ETA 0.89h) ---
+    [standard_inputnorm/L27] loss=63958.1 recon=63958.0 auxk=0.987 | FVE=0.2981 L0=80 dead=0.934(61237) ||w||=2.455+-5.592
+    [unnormed_perfeature_b/L27] loss=19913.8 recon=19913.8 auxk=0.000 | FVE=0.7811 L0=80 dead=0.000(0) a=0.2011 b_mean=4.162+-0.029 ||w||=1.222+-0.205
+    [adaptive_l2/L27] loss=19906.8 recon=19906.8 auxk=0.000 | FVE=0.7812 L0=80 dead=0.000(0) a=0.2567 b=4.304(exp=74.0) ||w||=1.146+-0.033
+    [standard/L27] loss=20350.1 recon=20350.1 auxk=0.000 | FVE=0.7763 L0=80 dead=0.000(0) ||w||=0.952+-0.079
+    [perfeature_base_delta/L27] loss=19662.0 recon=19662.0 auxk=0.000 | FVE=0.7839 L0=80 dead=0.000(0) a_base=0.2309 a_delta=0.0042+-0.0287 b_mean=4.161+-0.028 ||w||=1.132+-0.033
+    [noc_baseline/L27] loss=21424.8 recon=21424.7 auxk=1.001 | FVE=0.7648 L0=80 dead=0.000(2) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21172.3 recon=21172.3 auxk=0.000 | FVE=0.7675 L0=80 dead=0.000(0) ||w||=1.031+-0.107
+    [perfeature_bd_no_enc_norm/L27] loss=22446.0 recon=22446.0 auxk=1.001 | FVE=0.7534 L0=80 dead=0.077(5032) a_base=-0.5739 a_delta=-0.0152+-0.0131 b_mean=4.143+-0.013 ||w||=1.038+-0.082
+
+  --- step 23000/24414 (47.1M tok, 1.2k tok/s, ETA 0.66h) ---
+    [standard_inputnorm/L27] loss=62646.1 recon=62646.1 auxk=0.988 | FVE=0.3034 L0=80 dead=0.934(61240) ||w||=2.466+-5.633
+    [unnormed_perfeature_b/L27] loss=19413.3 recon=19413.3 auxk=0.000 | FVE=0.7838 L0=80 dead=0.000(0) a=0.2010 b_mean=4.162+-0.029 ||w||=1.223+-0.205
+    [adaptive_l2/L27] loss=19376.1 recon=19376.1 auxk=0.000 | FVE=0.7842 L0=80 dead=0.000(0) a=0.2567 b=4.302(exp=73.9) ||w||=1.146+-0.033
+    [standard/L27] loss=19818.1 recon=19818.1 auxk=0.000 | FVE=0.7793 L0=80 dead=0.000(0) ||w||=0.952+-0.079
+    [perfeature_base_delta/L27] loss=19192.6 recon=19192.6 auxk=0.000 | FVE=0.7863 L0=80 dead=0.000(0) a_base=0.2308 a_delta=0.0042+-0.0286 b_mean=4.161+-0.028 ||w||=1.132+-0.033
+    [noc_baseline/L27] loss=20918.9 recon=20918.9 auxk=1.001 | FVE=0.7673 L0=80 dead=0.000(2) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=20650.8 recon=20650.8 auxk=0.000 | FVE=0.7702 L0=80 dead=0.000(0) ||w||=1.032+-0.106
+    [perfeature_bd_no_enc_norm/L27] loss=21873.1 recon=21873.1 auxk=1.001 | FVE=0.7565 L0=80 dead=0.082(5372) a_base=-0.5738 a_delta=-0.0151+-0.0130 b_mean=4.143+-0.013 ||w||=1.039+-0.082
+
+  --- step 23500/24414 (48.1M tok, 1.2k tok/s, ETA 0.43h) ---
+    [standard_inputnorm/L27] loss=63248.2 recon=63248.2 auxk=0.988 | FVE=0.2998 L0=80 dead=0.934(61241) ||w||=2.473+-5.662
+    [unnormed_perfeature_b/L27] loss=19746.1 recon=19746.1 auxk=0.000 | FVE=0.7810 L0=80 dead=0.000(0) a=0.2015 b_mean=4.162+-0.029 ||w||=1.223+-0.205
+    [adaptive_l2/L27] loss=19751.5 recon=19751.5 auxk=0.000 | FVE=0.7809 L0=80 dead=0.000(0) a=0.2571 b=4.302(exp=73.9) ||w||=1.146+-0.033
+    [standard/L27] loss=20210.3 recon=20210.2 auxk=1.001 | FVE=0.7759 L0=80 dead=0.000(1) ||w||=0.953+-0.079
+    [perfeature_base_delta/L27] loss=19561.5 recon=19561.5 auxk=0.000 | FVE=0.7831 L0=80 dead=0.000(0) a_base=0.2314 a_delta=0.0043+-0.0286 b_mean=4.161+-0.028 ||w||=1.132+-0.033
+    [noc_baseline/L27] loss=21339.7 recon=21339.7 auxk=1.001 | FVE=0.7636 L0=80 dead=0.000(4) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21053.1 recon=21053.0 auxk=1.001 | FVE=0.7667 L0=80 dead=0.000(3) ||w||=1.032+-0.106
+    [perfeature_bd_no_enc_norm/L27] loss=22308.2 recon=22308.2 auxk=1.001 | FVE=0.7527 L0=80 dead=0.086(5626) a_base=-0.5736 a_delta=-0.0151+-0.0130 b_mean=4.143+-0.013 ||w||=1.039+-0.082
+
+  --- step 24000/24414 (49.2M tok, 1.2k tok/s, ETA 0.19h) ---
+    [standard_inputnorm/L27] loss=61398.8 recon=61398.8 auxk=0.987 | FVE=0.3080 L0=80 dead=0.934(61241) ||w||=2.478+-5.679
+    [unnormed_perfeature_b/L27] loss=19614.2 recon=19614.2 auxk=0.000 | FVE=0.7787 L0=80 dead=0.000(0) a=0.2015 b_mean=4.162+-0.029 ||w||=1.224+-0.204
+    [adaptive_l2/L27] loss=19631.2 recon=19631.2 auxk=0.000 | FVE=0.7785 L0=80 dead=0.000(0) a=0.2571 b=4.302(exp=73.8) ||w||=1.146+-0.033
+    [standard/L27] loss=20047.2 recon=20047.2 auxk=1.000 | FVE=0.7738 L0=80 dead=0.000(1) ||w||=0.953+-0.079
+    [perfeature_base_delta/L27] loss=19371.0 recon=19371.0 auxk=1.000 | FVE=0.7814 L0=80 dead=0.000(1) a_base=0.2313 a_delta=0.0043+-0.0285 b_mean=4.161+-0.027 ||w||=1.132+-0.033
+    [noc_baseline/L27] loss=21155.6 recon=21155.6 auxk=1.001 | FVE=0.7615 L0=80 dead=0.000(3) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=20895.7 recon=20895.7 auxk=1.001 | FVE=0.7644 L0=80 dead=0.000(4) ||w||=1.032+-0.106
+    [perfeature_bd_no_enc_norm/L27] loss=22097.7 recon=22097.6 auxk=1.001 | FVE=0.7507 L0=80 dead=0.090(5903) a_base=-0.5736 a_delta=-0.0151+-0.0130 b_mean=4.143+-0.013 ||w||=1.039+-0.082
+    [standard_inputnorm/L27] Checkpoint at step 24414
+    [unnormed_perfeature_b/L27] Checkpoint at step 24414
+    [adaptive_l2/L27] Checkpoint at step 24414
+    [standard/L27] Checkpoint at step 24414
+    [perfeature_base_delta/L27] Checkpoint at step 24414
+    [noc_baseline/L27] Checkpoint at step 24414
+    [noc_enc_free/L27] Checkpoint at step 24414
+    [perfeature_bd_no_enc_norm/L27] Checkpoint at step 24414
+
+  --- step 24414/24414 (50.0M tok, 1.2k tok/s, ETA 0.00h) ---
+    [standard_inputnorm/L27] loss=63434.2 recon=63434.2 auxk=0.988 | FVE=0.3011 L0=80 dead=0.934(61243) ||w||=2.479+-5.683
+    [unnormed_perfeature_b/L27] loss=20098.1 recon=20098.1 auxk=0.000 | FVE=0.7782 L0=80 dead=0.000(0) a=0.2014 b_mean=4.162+-0.029 ||w||=1.224+-0.204
+    [adaptive_l2/L27] loss=20096.0 recon=20096.0 auxk=0.000 | FVE=0.7782 L0=80 dead=0.000(0) a=0.2570 b=4.301(exp=73.8) ||w||=1.146+-0.033
+    [standard/L27] loss=20523.1 recon=20523.1 auxk=0.000 | FVE=0.7735 L0=80 dead=0.000(0) ||w||=0.953+-0.079
+    [perfeature_base_delta/L27] loss=19851.8 recon=19851.8 auxk=0.000 | FVE=0.7809 L0=80 dead=0.000(0) a_base=0.2312 a_delta=0.0043+-0.0285 b_mean=4.161+-0.027 ||w||=1.132+-0.033
+    [noc_baseline/L27] loss=21708.5 recon=21708.5 auxk=1.002 | FVE=0.7606 L0=80 dead=0.000(7) ||w||=1.000+-0.000
+    [noc_enc_free/L27] loss=21396.7 recon=21396.7 auxk=1.001 | FVE=0.7640 L0=80 dead=0.000(7) ||w||=1.032+-0.106
+    [perfeature_bd_no_enc_norm/L27] loss=22626.7 recon=22626.7 auxk=1.001 | FVE=0.7503 L0=80 dead=0.093(6076) a_base=-0.5736 a_delta=-0.0151+-0.0130 b_mean=4.143+-0.013 ||w||=1.039+-0.082
+    [standard_inputnorm/L27] Done in 11.5h (41284s)
+    [standard_inputnorm/L27] Saved /data/checkpoints/exp48/standard_inputnorm_L27_final.pt
+    [unnormed_perfeature_b/L27] Done in 11.5h (41286s)
+    [unnormed_perfeature_b/L27] Saved /data/checkpoints/exp48/unnormed_perfeature_b_L27_final.pt
+    [adaptive_l2/L27] Done in 11.5h (41288s)
+    [adaptive_l2/L27] Saved /data/checkpoints/exp48/adaptive_l2_L27_final.pt
+    [standard/L27] Done in 11.5h (41290s)
+    [standard/L27] Saved /data/checkpoints/exp48/standard_L27_final.pt
+    [perfeature_base_delta/L27] Done in 11.5h (41292s)
+    [perfeature_base_delta/L27] Saved /data/checkpoints/exp48/perfeature_base_delta_L27_final.pt
+    [noc_baseline/L27] Done in 11.5h (41294s)
+    [noc_baseline/L27] Saved /data/checkpoints/exp48/noc_baseline_L27_final.pt
+    [noc_enc_free/L27] Done in 11.5h (41296s)
+    [noc_enc_free/L27] Saved /data/checkpoints/exp48/noc_enc_free_L27_final.pt
+    [perfeature_bd_no_enc_norm/L27] Done in 11.5h (41299s)
+    [perfeature_bd_no_enc_norm/L27] Saved /data/checkpoints/exp48/perfeature_bd_no_enc_norm_L27_final.pt
+
+  Group done in 11.47h
+    [standard_inputnorm/L27] FVE=0.2971 dead=0.935 alive=4,284 L0=84.7
+    [unnormed_perfeature_b/L27] FVE=0.7696 dead=0.004 alive=65,275 L0=80.0
+    [adaptive_l2/L27] FVE=0.7698 dead=0.000 alive=65,504 L0=80.1
+    [standard/L27] FVE=0.7649 dead=0.000 alive=65,530 L0=80.1
+    [perfeature_base_delta/L27] FVE=0.7722 dead=0.003 alive=65,335 L0=80.1
+    [noc_baseline/L27] FVE=0.7511 dead=0.003 alive=65,310 L0=79.9
+    [noc_enc_free/L27] FVE=0.7544 dead=0.003 alive=65,313 L0=79.8
+    [perfeature_bd_no_enc_norm/L27] FVE=0.7398 dead=0.200 alive=52,401 L0=79.8
+    [ablation] Collecting 200 texts + clean forwards (L27)...
+    [ablation] Collected 200 texts
+    [standard_inputnorm/L27] Ablation (100 features, 200 samples)...
+    [standard_inputnorm/L27] cos>inner: 58/100 (cos_corr=0.586, inner_corr=0.581)
+    [unnormed_perfeature_b/L27] Ablation (100 features, 200 samples)...
+    [unnormed_perfeature_b/L27] cos>inner: 61/100 (cos_corr=0.370, inner_corr=0.360)
+    [adaptive_l2/L27] Ablation (100 features, 200 samples)...
+    [adaptive_l2/L27] cos>inner: 54/100 (cos_corr=0.382, inner_corr=0.376)
+    [standard/L27] Ablation (100 features, 200 samples)...
+    [standard/L27] cos>inner: 56/100 (cos_corr=0.396, inner_corr=0.388)
+    [perfeature_base_delta/L27] Ablation (100 features, 200 samples)...
+    [perfeature_base_delta/L27] cos>inner: 61/100 (cos_corr=0.366, inner_corr=0.355)
+    [noc_baseline/L27] Ablation (100 features, 200 samples)...
+    [noc_baseline/L27] cos>inner: 60/100 (cos_corr=0.389, inner_corr=0.381)
+    [noc_enc_free/L27] Ablation (100 features, 200 samples)...
+    [noc_enc_free/L27] cos>inner: 67/100 (cos_corr=0.386, inner_corr=0.374)
+    [perfeature_bd_no_enc_norm/L27] Ablation (100 features, 200 samples)...
+    [perfeature_bd_no_enc_norm/L27] cos>inner: 61/100 (cos_corr=0.415, inner_corr=0.404)
+
+======================================================================
+  EXP48 FINAL SUMMARY — Input Normalization Verification (L27)
+======================================================================
+
+  Layer 27 (norm=404.7)
+  Variant                   |    FVE |  Dead% |  Alive |  cos>inn |    ||W_enc||
+  --------------------------+--------+--------+--------+----------+-------------
+  standard_inputnorm        | 0.2971 |  93.5% |   4284 |   58/100 | 2.479+-5.683
+  unnormed_perfeature_b     | 0.7696 |   0.4% |  65275 |   61/100 | 1.224+-0.204
+  adaptive_l2               | 0.7698 |   0.0% |  65504 |   54/100 | 1.146+-0.033
+  standard                  | 0.7649 |   0.0% |  65530 |   56/100 | 0.953+-0.079
+  perfeature_base_delta     | 0.7722 |   0.3% |  65335 |   61/100 | 1.132+-0.033
+  noc_baseline              | 0.7511 |   0.3% |  65310 |   60/100 | 1.000+-0.000
+  noc_enc_free              | 0.7544 |   0.3% |  65313 |   67/100 | 1.032+-0.106
+  perfeature_bd_no_enc_norm | 0.7398 |  20.0% |  52401 |   61/100 | 1.039+-0.082
+
+  MECHANISM VERIFICATION:
+    Key test (standard_inputnorm): CONFIRMED: input norm alone kills features
+    Per-feature scale_b: RESCUED features (dead=0.4%)
+    Adaptive cosine reference: dead=0.0%
+    Base+delta (exp47): CONFIRMED robust (dead=0.3%)
+    NoC baseline: dead=0.3%
+    NoC enc-free: CONFIRMED norm-restoration sufficient (dead=0.3%)
+    Per-feature bd+norm-restore: FAILED (dead=20.0%)
+
+Results: experiments/exp48_results.json
+Checkpoints: /data/checkpoints/exp48/
+Done!

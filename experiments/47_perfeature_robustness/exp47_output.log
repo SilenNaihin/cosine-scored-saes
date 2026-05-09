@@ -1,0 +1,379 @@
+Experiment 47: Per-feature robustness fixes at L27
+  50,000,000 tokens, 24414 steps
+  Variants: perfeature_original, perfeature_base_delta, perfeature_var_reg, perfeature_gaussian, adaptive_l2
+
+Loading model...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]
+Fetching 5 files:  20%|██        | 1/5 [01:43<06:52, 103.13s/it]
+Fetching 5 files: 100%|██████████| 5/5 [01:43<00:00, 20.63s/it] 
+
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/399 [00:00<01:27,  4.53it/s]
+Loading weights:   7%|▋         | 28/399 [00:00<00:03, 106.41it/s]
+Loading weights:  15%|█▌        | 60/399 [00:00<00:01, 179.37it/s]
+Loading weights:  23%|██▎       | 91/399 [00:00<00:01, 219.42it/s]
+Loading weights:  30%|███       | 120/399 [00:00<00:01, 237.04it/s]
+Loading weights:  37%|███▋      | 149/399 [00:00<00:01, 246.69it/s]
+Loading weights:  45%|████▌     | 181/399 [00:00<00:00, 264.75it/s]
+Loading weights:  53%|█████▎    | 213/399 [00:00<00:00, 273.08it/s]
+Loading weights:  61%|██████    | 242/399 [00:01<00:00, 275.83it/s]
+Loading weights:  68%|██████▊   | 271/399 [00:01<00:00, 269.51it/s]
+Loading weights:  76%|███████▌  | 302/399 [00:01<00:00, 275.72it/s]
+Loading weights:  84%|████████▎ | 334/399 [00:01<00:00, 284.31it/s]
+Loading weights:  91%|█████████ | 363/399 [00:01<00:00, 285.22it/s]
+Loading weights:  98%|█████████▊| 392/399 [00:01<00:00, 278.35it/s]
+Loading weights: 100%|██████████| 399/399 [00:01<00:00, 247.28it/s]
+Collecting eval data...
+  Collecting eval activations for L27 (2,000,000 tokens)...
+    L27: 2,000,000 tokens in 231.2s (norm: mean=404.7, std=35.7)
+  L27 mean activation norm: 404.7
+
+======================================================================
+  perfeature_original — L27
+======================================================================
+
+  Training perfeature_original/L27 | d_sae=65536, k=80, lr=5e-05, 50,000,000 tokens (24414 steps)
+    [perfeature_original/L27] b_dec init (norm=275.1)
+    [perfeature_original/L27]   500/24414 | loss=76782.2 recon=76782.2 auxk=0.000 | FVE=0.1493 L0=80 dead=0.000(0) a_mean=0.0031 a_std=0.0017 | 1.0M ETA 3.1h
+    [perfeature_original/L27]  1000/24414 | loss=60066.0 recon=60066.0 auxk=0.000 | FVE=0.3404 L0=80 dead=0.000(0) a_mean=0.0050 a_std=0.0062 | 2.0M ETA 2.7h
+    [perfeature_original/L27]  1500/24414 | loss=49283.9 recon=49283.9 auxk=0.000 | FVE=0.4609 L0=80 dead=0.000(0) a_mean=0.0062 a_std=0.0103 | 3.1M ETA 2.6h
+    [perfeature_original/L27]  2000/24414 | loss=43643.7 recon=43643.7 auxk=0.000 | FVE=0.5220 L0=80 dead=0.000(0) a_mean=0.0073 a_std=0.0140 | 4.1M ETA 2.5h
+    [perfeature_original/L27]  2500/24414 | loss=40493.2 recon=40493.2 auxk=0.000 | FVE=0.5546 L0=80 dead=0.000(0) a_mean=0.0084 a_std=0.0175 | 5.1M ETA 2.4h
+    [perfeature_original/L27]  3000/24414 | loss=37530.6 recon=37530.6 auxk=0.000 | FVE=0.5888 L0=80 dead=0.000(0) a_mean=0.0095 a_std=0.0208 | 6.1M ETA 2.3h
+    [perfeature_original/L27]  3500/24414 | loss=34621.2 recon=34621.2 auxk=0.000 | FVE=0.6098 L0=80 dead=0.000(0) a_mean=0.0105 a_std=0.0239 | 7.2M ETA 2.3h
+    [perfeature_original/L27]  4000/24414 | loss=35427.9 recon=35427.9 auxk=0.000 | FVE=0.6140 L0=80 dead=0.000(0) a_mean=0.0116 a_std=0.0270 | 8.2M ETA 2.2h
+    [perfeature_original/L27]  4500/24414 | loss=33293.4 recon=33293.4 auxk=0.000 | FVE=0.6316 L0=80 dead=0.000(0) a_mean=0.0127 a_std=0.0298 | 9.2M ETA 2.1h
+    [perfeature_original/L27] Checkpoint at step 4882
+    [perfeature_original/L27]  5000/24414 | loss=32267.0 recon=32267.0 auxk=0.000 | FVE=0.6458 L0=80 dead=0.000(0) a_mean=0.0137 a_std=0.0326 | 10.2M ETA 2.1h
+    [perfeature_original/L27]  5500/24414 | loss=31493.4 recon=31493.4 auxk=1.311 | FVE=0.6515 L0=80 dead=0.671(44000) a_mean=0.0148 a_std=0.0352 | 11.3M ETA 2.1h
+    [perfeature_original/L27]  6000/24414 | loss=30083.4 recon=30083.4 auxk=1.753 | FVE=0.6625 L0=80 dead=0.808(52922) a_mean=0.0158 a_std=0.0377 | 12.3M ETA 2.0h
+    [perfeature_original/L27]  6500/24414 | loss=29981.6 recon=29981.5 auxk=1.808 | FVE=0.6718 L0=80 dead=0.814(53329) a_mean=0.0169 a_std=0.0401 | 13.3M ETA 2.0h
+    [perfeature_original/L27]  7000/24414 | loss=29615.1 recon=29615.0 auxk=1.813 | FVE=0.6731 L0=80 dead=0.814(53332) a_mean=0.0178 a_std=0.0423 | 14.3M ETA 2.0h
+    [perfeature_original/L27]  7500/24414 | loss=28655.0 recon=28655.0 auxk=1.871 | FVE=0.6834 L0=80 dead=0.813(53294) a_mean=0.0188 a_std=0.0444 | 15.4M ETA 1.9h
+    [perfeature_original/L27]  8000/24414 | loss=27643.3 recon=27643.3 auxk=1.931 | FVE=0.6895 L0=80 dead=0.812(53241) a_mean=0.0197 a_std=0.0465 | 16.4M ETA 1.9h
+    [perfeature_original/L27]  8500/24414 | loss=28573.7 recon=28573.6 auxk=1.837 | FVE=0.6892 L0=80 dead=0.812(53193) a_mean=0.0206 a_std=0.0484 | 17.4M ETA 1.8h
+    [perfeature_original/L27]  9000/24414 | loss=27499.1 recon=27499.0 auxk=1.885 | FVE=0.6937 L0=80 dead=0.811(53129) a_mean=0.0215 a_std=0.0502 | 18.4M ETA 1.8h
+    [perfeature_original/L27]  9500/24414 | loss=26864.6 recon=26864.5 auxk=1.911 | FVE=0.7004 L0=80 dead=0.810(53063) a_mean=0.0223 a_std=0.0519 | 19.5M ETA 1.8h
+    [perfeature_original/L27] Checkpoint at step 9765
+    [perfeature_original/L27] 10000/24414 | loss=26732.9 recon=26732.8 auxk=1.881 | FVE=0.7024 L0=80 dead=0.809(53007) a_mean=0.0231 a_std=0.0535 | 20.5M ETA 1.7h
+    [perfeature_original/L27] 10500/24414 | loss=28178.1 recon=28178.1 auxk=1.761 | FVE=0.6888 L0=80 dead=0.808(52965) a_mean=0.0238 a_std=0.0551 | 21.5M ETA 1.7h
+    [perfeature_original/L27] 11000/24414 | loss=26852.5 recon=26852.4 auxk=1.807 | FVE=0.7006 L0=80 dead=0.808(52941) a_mean=0.0246 a_std=0.0566 | 22.5M ETA 1.6h
+    [perfeature_original/L27] 11500/24414 | loss=26680.3 recon=26680.3 auxk=1.773 | FVE=0.7007 L0=80 dead=0.807(52916) a_mean=0.0252 a_std=0.0580 | 23.6M ETA 1.6h
+    [perfeature_original/L27] 12000/24414 | loss=26949.5 recon=26949.4 auxk=1.725 | FVE=0.7036 L0=80 dead=0.807(52916) a_mean=0.0259 a_std=0.0594 | 24.6M ETA 1.5h
+    [perfeature_original/L27] 12500/24414 | loss=26600.9 recon=26600.9 auxk=1.699 | FVE=0.7056 L0=80 dead=0.808(52956) a_mean=0.0265 a_std=0.0607 | 25.6M ETA 1.4h
+    [perfeature_original/L27] 13000/24414 | loss=25836.6 recon=25836.6 auxk=1.708 | FVE=0.7120 L0=80 dead=0.808(52970) a_mean=0.0270 a_std=0.0620 | 26.6M ETA 1.4h
+    [perfeature_original/L27] 13500/24414 | loss=25561.3 recon=25561.2 auxk=1.672 | FVE=0.7130 L0=80 dead=0.809(53046) a_mean=0.0275 a_std=0.0632 | 27.6M ETA 1.3h
+    [perfeature_original/L27] 14000/24414 | loss=25532.7 recon=25532.6 auxk=1.620 | FVE=0.7161 L0=80 dead=0.811(53123) a_mean=0.0280 a_std=0.0644 | 28.7M ETA 1.3h
+    [perfeature_original/L27] 14500/24414 | loss=25257.6 recon=25257.6 auxk=1.588 | FVE=0.7191 L0=80 dead=0.813(53256) a_mean=0.0284 a_std=0.0656 | 29.7M ETA 1.2h
+    [perfeature_original/L27] Checkpoint at step 14648
+    [perfeature_original/L27] 15000/24414 | loss=25208.3 recon=25208.3 auxk=1.534 | FVE=0.7224 L0=80 dead=0.815(53397) a_mean=0.0287 a_std=0.0668 | 30.7M ETA 1.2h
+    [perfeature_original/L27] 15500/24414 | loss=24916.4 recon=24916.4 auxk=1.500 | FVE=0.7245 L0=80 dead=0.816(53506) a_mean=0.0290 a_std=0.0679 | 31.7M ETA 1.1h
+    [perfeature_original/L27] 16000/24414 | loss=25368.1 recon=25368.1 auxk=1.420 | FVE=0.7229 L0=80 dead=0.819(53654) a_mean=0.0292 a_std=0.0691 | 32.8M ETA 1.0h
+    [perfeature_original/L27] 16500/24414 | loss=24868.0 recon=24868.0 auxk=1.390 | FVE=0.7246 L0=80 dead=0.822(53841) a_mean=0.0292 a_std=0.0702 | 33.8M ETA 1.0h
+    [perfeature_original/L27] 17000/24414 | loss=24999.0 recon=24999.0 auxk=1.328 | FVE=0.7232 L0=80 dead=0.824(53979) a_mean=0.0292 a_std=0.0713 | 34.8M ETA 0.9h
+    [perfeature_original/L27] 17500/24414 | loss=24696.3 recon=24696.2 auxk=1.294 | FVE=0.7253 L0=80 dead=0.825(54089) a_mean=0.0291 a_std=0.0725 | 35.8M ETA 0.9h
+    [perfeature_original/L27] 18000/24414 | loss=25248.4 recon=25248.3 auxk=1.230 | FVE=0.7239 L0=80 dead=0.827(54225) a_mean=0.0289 a_std=0.0737 | 36.9M ETA 0.8h
+    [perfeature_original/L27] 18500/24414 | loss=25245.0 recon=25244.9 auxk=1.196 | FVE=0.7255 L0=80 dead=0.829(54329) a_mean=0.0285 a_std=0.0749 | 37.9M ETA 0.7h
+    [perfeature_original/L27] 19000/24414 | loss=24222.3 recon=24222.2 auxk=1.185 | FVE=0.7303 L0=80 dead=0.831(54451) a_mean=0.0280 a_std=0.0761 | 38.9M ETA 0.7h
+    [perfeature_original/L27] 19500/24414 | loss=24396.8 recon=24396.7 auxk=1.136 | FVE=0.7320 L0=80 dead=0.832(54534) a_mean=0.0273 a_std=0.0773 | 39.9M ETA 0.6h
+    [perfeature_original/L27] Checkpoint at step 19531
+    [perfeature_original/L27] 20000/24414 | loss=24475.6 recon=24475.5 auxk=1.093 | FVE=0.7315 L0=80 dead=0.833(54606) a_mean=0.0266 a_std=0.0785 | 41.0M ETA 0.6h
+    [perfeature_original/L27] 20500/24414 | loss=25852.5 recon=25852.4 auxk=1.028 | FVE=0.7198 L0=80 dead=0.834(54654) a_mean=0.0257 a_std=0.0796 | 42.0M ETA 0.5h
+    [perfeature_original/L27] 21000/24414 | loss=25292.2 recon=25292.2 auxk=1.012 | FVE=0.7217 L0=80 dead=0.835(54691) a_mean=0.0249 a_std=0.0807 | 43.0M ETA 0.4h
+    [perfeature_original/L27] 21500/24414 | loss=24757.5 recon=24757.5 auxk=1.010 | FVE=0.7261 L0=80 dead=0.835(54738) a_mean=0.0240 a_std=0.0815 | 44.0M ETA 0.4h
+    [perfeature_original/L27] 22000/24414 | loss=24963.7 recon=24963.7 auxk=0.990 | FVE=0.7261 L0=80 dead=0.836(54766) a_mean=0.0232 a_std=0.0823 | 45.1M ETA 0.3h
+    [perfeature_original/L27] 22500/24414 | loss=24556.3 recon=24556.3 auxk=0.985 | FVE=0.7293 L0=80 dead=0.836(54802) a_mean=0.0225 a_std=0.0830 | 46.1M ETA 0.2h
+    [perfeature_original/L27] 23000/24414 | loss=25143.3 recon=25143.2 auxk=0.960 | FVE=0.7246 L0=80 dead=0.837(54821) a_mean=0.0218 a_std=0.0835 | 47.1M ETA 0.2h
+    [perfeature_original/L27] 23500/24414 | loss=23958.0 recon=23958.0 auxk=0.987 | FVE=0.7322 L0=80 dead=0.837(54838) a_mean=0.0214 a_std=0.0839 | 48.1M ETA 0.1h
+    [perfeature_original/L27] 24000/24414 | loss=24479.6 recon=24479.5 auxk=0.971 | FVE=0.7283 L0=80 dead=0.837(54843) a_mean=0.0211 a_std=0.0841 | 49.2M ETA 0.1h
+    [perfeature_original/L27] 24414/24414 | loss=24434.5 recon=24434.4 auxk=0.971 | FVE=0.7304 L0=80 dead=0.837(54852) a_mean=0.0210 a_std=0.0842 | 50.0M ETA 0.0h
+    [perfeature_original/L27] Checkpoint at step 24414
+    [perfeature_original/L27] Done in 3.1h (11265s)
+    [perfeature_original/L27] FVE=0.7199 dead=0.838 alive=10,625 L0=80.1
+    [perfeature_original/L27] Ablation (100 features, 200 samples)...
+    [perfeature_original/L27] cos>inner: 71/100
+
+  Saved results for perfeature_original
+
+======================================================================
+  perfeature_base_delta — L27
+======================================================================
+
+  Training perfeature_base_delta/L27 | d_sae=65536, k=80, lr=5e-05, 50,000,000 tokens (24414 steps)
+    [perfeature_base_delta/L27] b_dec init (norm=277.2)
+    [perfeature_base_delta/L27]   500/24414 | loss=73946.8 recon=73946.8 auxk=0.000 | FVE=0.1719 L0=80 dead=0.000(0) a_base=0.0062 delta_std=0.0021 | 1.0M ETA 3.2h
+    [perfeature_base_delta/L27]  1000/24414 | loss=51183.8 recon=51183.8 auxk=0.000 | FVE=0.4344 L0=80 dead=0.000(0) a_base=0.0249 delta_std=0.0081 | 2.0M ETA 2.8h
+    [perfeature_base_delta/L27]  1500/24414 | loss=41120.4 recon=41120.4 auxk=0.000 | FVE=0.5465 L0=80 dead=0.000(0) a_base=0.0497 delta_std=0.0126 | 3.1M ETA 2.7h
+    [perfeature_base_delta/L27]  2000/24414 | loss=35620.5 recon=35620.5 auxk=0.000 | FVE=0.6063 L0=80 dead=0.000(0) a_base=0.0742 delta_std=0.0155 | 4.1M ETA 2.6h
+    [perfeature_base_delta/L27]  2500/24414 | loss=31860.0 recon=31860.0 auxk=0.000 | FVE=0.6409 L0=80 dead=0.000(0) a_base=0.0973 delta_std=0.0175 | 5.1M ETA 2.5h
+    [perfeature_base_delta/L27]  3000/24414 | loss=29930.5 recon=29930.5 auxk=0.000 | FVE=0.6680 L0=80 dead=0.000(0) a_base=0.1176 delta_std=0.0187 | 6.1M ETA 2.4h
+    [perfeature_base_delta/L27]  3500/24414 | loss=29148.5 recon=29148.5 auxk=0.000 | FVE=0.6805 L0=80 dead=0.000(0) a_base=0.1328 delta_std=0.0196 | 7.2M ETA 2.3h
+    [perfeature_base_delta/L27]  4000/24414 | loss=27619.6 recon=27619.6 auxk=0.000 | FVE=0.6973 L0=80 dead=0.000(0) a_base=0.1435 delta_std=0.0203 | 8.2M ETA 2.3h
+    [perfeature_base_delta/L27]  4500/24414 | loss=27116.5 recon=27116.5 auxk=0.000 | FVE=0.7015 L0=80 dead=0.000(0) a_base=0.1513 delta_std=0.0208 | 9.2M ETA 2.2h
+    [perfeature_base_delta/L27] Checkpoint at step 4882
+    [perfeature_base_delta/L27]  5000/24414 | loss=25608.5 recon=25608.5 auxk=0.000 | FVE=0.7158 L0=80 dead=0.000(0) a_base=0.1569 delta_std=0.0213 | 10.2M ETA 2.2h
+    [perfeature_base_delta/L27]  5500/24414 | loss=25164.3 recon=25164.3 auxk=0.000 | FVE=0.7250 L0=80 dead=0.000(0) a_base=0.1622 delta_std=0.0219 | 11.3M ETA 2.1h
+    [perfeature_base_delta/L27]  6000/24414 | loss=24600.8 recon=24600.8 auxk=0.000 | FVE=0.7290 L0=80 dead=0.000(0) a_base=0.1666 delta_std=0.0223 | 12.3M ETA 2.0h
+    [perfeature_base_delta/L27]  6500/24414 | loss=24046.1 recon=24046.1 auxk=0.000 | FVE=0.7316 L0=80 dead=0.000(0) a_base=0.1702 delta_std=0.0228 | 13.3M ETA 2.0h
+    [perfeature_base_delta/L27]  7000/24414 | loss=23413.5 recon=23413.5 auxk=0.000 | FVE=0.7389 L0=80 dead=0.000(0) a_base=0.1734 delta_std=0.0233 | 14.3M ETA 1.9h
+    [perfeature_base_delta/L27]  7500/24414 | loss=23488.9 recon=23488.9 auxk=0.000 | FVE=0.7410 L0=80 dead=0.000(0) a_base=0.1765 delta_std=0.0237 | 15.4M ETA 1.9h
+    [perfeature_base_delta/L27]  8000/24414 | loss=23105.4 recon=23105.4 auxk=0.000 | FVE=0.7447 L0=80 dead=0.000(0) a_base=0.1794 delta_std=0.0242 | 16.4M ETA 1.8h
+    [perfeature_base_delta/L27]  8500/24414 | loss=22445.9 recon=22445.9 auxk=0.000 | FVE=0.7506 L0=80 dead=0.000(0) a_base=0.1822 delta_std=0.0247 | 17.4M ETA 1.8h
+    [perfeature_base_delta/L27]  9000/24414 | loss=22002.6 recon=22002.6 auxk=0.000 | FVE=0.7560 L0=80 dead=0.000(0) a_base=0.1851 delta_std=0.0251 | 18.4M ETA 1.7h
+    [perfeature_base_delta/L27]  9500/24414 | loss=21954.8 recon=21954.8 auxk=0.000 | FVE=0.7547 L0=80 dead=0.000(0) a_base=0.1881 delta_std=0.0255 | 19.5M ETA 1.6h
+    [perfeature_base_delta/L27] Checkpoint at step 9765
+    [perfeature_base_delta/L27] 10000/24414 | loss=21937.3 recon=21937.3 auxk=0.000 | FVE=0.7587 L0=80 dead=0.000(0) a_base=0.1905 delta_std=0.0259 | 20.5M ETA 1.6h
+    [perfeature_base_delta/L27] 10500/24414 | loss=22830.4 recon=22830.4 auxk=0.000 | FVE=0.7477 L0=80 dead=0.000(0) a_base=0.1931 delta_std=0.0263 | 21.5M ETA 1.5h
+    [perfeature_base_delta/L27] 11000/24414 | loss=22538.1 recon=22538.1 auxk=0.000 | FVE=0.7512 L0=80 dead=0.000(0) a_base=0.1950 delta_std=0.0267 | 22.5M ETA 1.5h
+    [perfeature_base_delta/L27] 11500/24414 | loss=22613.3 recon=22613.3 auxk=0.000 | FVE=0.7521 L0=80 dead=0.000(0) a_base=0.1975 delta_std=0.0272 | 23.6M ETA 1.4h
+    [perfeature_base_delta/L27] 12000/24414 | loss=21682.8 recon=21682.8 auxk=0.000 | FVE=0.7544 L0=80 dead=0.000(0) a_base=0.1996 delta_std=0.0275 | 24.6M ETA 1.4h
+    [perfeature_base_delta/L27] 12500/24414 | loss=22198.4 recon=22198.4 auxk=0.000 | FVE=0.7566 L0=80 dead=0.000(0) a_base=0.2024 delta_std=0.0278 | 25.6M ETA 1.3h
+    [perfeature_base_delta/L27] 13000/24414 | loss=21403.4 recon=21403.4 auxk=0.000 | FVE=0.7623 L0=80 dead=0.000(0) a_base=0.2040 delta_std=0.0281 | 26.6M ETA 1.3h
+    [perfeature_base_delta/L27] 13500/24414 | loss=21347.7 recon=21347.7 auxk=0.000 | FVE=0.7632 L0=80 dead=0.000(0) a_base=0.2064 delta_std=0.0284 | 27.6M ETA 1.2h
+    [perfeature_base_delta/L27] 14000/24414 | loss=20864.8 recon=20864.8 auxk=0.000 | FVE=0.7671 L0=80 dead=0.000(0) a_base=0.2084 delta_std=0.0287 | 28.7M ETA 1.1h
+    [perfeature_base_delta/L27] 14500/24414 | loss=20818.0 recon=20818.0 auxk=0.000 | FVE=0.7698 L0=80 dead=0.000(0) a_base=0.2103 delta_std=0.0289 | 29.7M ETA 1.1h
+    [perfeature_base_delta/L27] Checkpoint at step 14648
+    [perfeature_base_delta/L27] 15000/24414 | loss=20671.1 recon=20671.1 auxk=0.000 | FVE=0.7722 L0=80 dead=0.000(0) a_base=0.2123 delta_std=0.0291 | 30.7M ETA 1.0h
+    [perfeature_base_delta/L27] 15500/24414 | loss=20587.5 recon=20587.5 auxk=0.000 | FVE=0.7728 L0=80 dead=0.000(0) a_base=0.2144 delta_std=0.0293 | 31.7M ETA 1.0h
+    [perfeature_base_delta/L27] 16000/24414 | loss=20240.2 recon=20240.2 auxk=0.000 | FVE=0.7743 L0=80 dead=0.000(0) a_base=0.2159 delta_std=0.0294 | 32.8M ETA 0.9h
+    [perfeature_base_delta/L27] 16500/24414 | loss=19843.0 recon=19843.0 auxk=0.000 | FVE=0.7791 L0=80 dead=0.000(0) a_base=0.2175 delta_std=0.0295 | 33.8M ETA 0.9h
+    [perfeature_base_delta/L27] 17000/24414 | loss=20257.0 recon=20257.0 auxk=0.000 | FVE=0.7749 L0=80 dead=0.000(0) a_base=0.2191 delta_std=0.0296 | 34.8M ETA 0.8h
+    [perfeature_base_delta/L27] 17500/24414 | loss=19645.4 recon=19645.4 auxk=0.000 | FVE=0.7823 L0=80 dead=0.000(0) a_base=0.2206 delta_std=0.0297 | 35.8M ETA 0.8h
+    [perfeature_base_delta/L27] 18000/24414 | loss=19858.6 recon=19858.6 auxk=0.000 | FVE=0.7785 L0=80 dead=0.000(0) a_base=0.2222 delta_std=0.0297 | 36.9M ETA 0.7h
+    [perfeature_base_delta/L27] 18500/24414 | loss=19339.7 recon=19339.7 auxk=0.000 | FVE=0.7825 L0=80 dead=0.000(0) a_base=0.2235 delta_std=0.0297 | 37.9M ETA 0.7h
+    [perfeature_base_delta/L27] 19000/24414 | loss=19931.9 recon=19931.9 auxk=0.000 | FVE=0.7800 L0=80 dead=0.000(0) a_base=0.2250 delta_std=0.0297 | 38.9M ETA 0.6h
+    [perfeature_base_delta/L27] 19500/24414 | loss=19702.0 recon=19702.0 auxk=0.000 | FVE=0.7825 L0=80 dead=0.000(0) a_base=0.2260 delta_std=0.0297 | 39.9M ETA 0.5h
+    [perfeature_base_delta/L27] Checkpoint at step 19531
+    [perfeature_base_delta/L27] 20000/24414 | loss=19600.8 recon=19600.8 auxk=0.000 | FVE=0.7824 L0=80 dead=0.000(0) a_base=0.2275 delta_std=0.0296 | 41.0M ETA 0.5h
+    [perfeature_base_delta/L27] 20500/24414 | loss=20408.7 recon=20408.7 auxk=0.000 | FVE=0.7743 L0=80 dead=0.000(0) a_base=0.2284 delta_std=0.0295 | 42.0M ETA 0.4h
+    [perfeature_base_delta/L27] 21000/24414 | loss=20622.0 recon=20622.0 auxk=0.000 | FVE=0.7736 L0=80 dead=0.000(0) a_base=0.2289 delta_std=0.0295 | 43.0M ETA 0.4h
+    [perfeature_base_delta/L27] 21500/24414 | loss=20223.8 recon=20223.8 auxk=0.000 | FVE=0.7724 L0=80 dead=0.000(0) a_base=0.2295 delta_std=0.0294 | 44.0M ETA 0.3h
+    [perfeature_base_delta/L27] 22000/24414 | loss=20138.8 recon=20138.8 auxk=0.000 | FVE=0.7790 L0=80 dead=0.000(0) a_base=0.2301 delta_std=0.0293 | 45.1M ETA 0.3h
+    [perfeature_base_delta/L27] 22500/24414 | loss=20206.5 recon=20206.5 auxk=0.000 | FVE=0.7786 L0=80 dead=0.000(0) a_base=0.2305 delta_std=0.0292 | 46.1M ETA 0.2h
+    [perfeature_base_delta/L27] 23000/24414 | loss=19823.0 recon=19823.0 auxk=0.000 | FVE=0.7804 L0=80 dead=0.000(0) a_base=0.2310 delta_std=0.0292 | 47.1M ETA 0.2h
+    [perfeature_base_delta/L27] 23500/24414 | loss=19605.2 recon=19605.2 auxk=0.000 | FVE=0.7810 L0=80 dead=0.000(0) a_base=0.2309 delta_std=0.0291 | 48.1M ETA 0.1h
+    [perfeature_base_delta/L27] 24000/24414 | loss=20049.7 recon=20049.7 auxk=0.000 | FVE=0.7789 L0=80 dead=0.000(0) a_base=0.2311 delta_std=0.0291 | 49.2M ETA 0.0h
+    [perfeature_base_delta/L27] 24414/24414 | loss=19902.1 recon=19902.1 auxk=0.000 | FVE=0.7816 L0=80 dead=0.000(0) a_base=0.2312 delta_std=0.0291 | 50.0M ETA 0.0h
+    [perfeature_base_delta/L27] Checkpoint at step 24414
+    [perfeature_base_delta/L27] Done in 2.7h (9696s)
+    [perfeature_base_delta/L27] FVE=0.7721 dead=0.004 alive=65,288 L0=80.3
+    [perfeature_base_delta/L27] Ablation (100 features, 200 samples)...
+    [perfeature_base_delta/L27] cos>inner: 74/100
+
+  Saved results for perfeature_base_delta
+
+======================================================================
+  perfeature_var_reg — L27
+======================================================================
+
+  Training perfeature_var_reg/L27 | d_sae=65536, k=80, lr=5e-05, 50,000,000 tokens (24414 steps)
+    Variance reg: weight=0.1, decay 2000-8000
+    [perfeature_var_reg/L27] b_dec init (norm=276.8)
+    [perfeature_var_reg/L27]   500/24414 | loss=77853.1 recon=77853.1 auxk=0.000 | FVE=0.1455 L0=80 dead=0.000(0) a_mean=0.0032 a_std=0.0017 vreg=0.000000 | 1.0M ETA 3.1h
+    [perfeature_var_reg/L27]  1000/24414 | loss=58581.8 recon=58581.8 auxk=0.000 | FVE=0.3485 L0=80 dead=0.000(0) a_mean=0.0051 a_std=0.0063 vreg=0.000004 | 2.0M ETA 2.8h
+    [perfeature_var_reg/L27]  1500/24414 | loss=48537.5 recon=48537.5 auxk=0.000 | FVE=0.4634 L0=80 dead=0.000(0) a_mean=0.0064 a_std=0.0104 vreg=0.000011 | 3.1M ETA 2.6h
+    [perfeature_var_reg/L27]  2000/24414 | loss=43270.2 recon=43270.2 auxk=0.000 | FVE=0.5191 L0=80 dead=0.000(0) a_mean=0.0075 a_std=0.0140 vreg=0.000020 | 4.1M ETA 2.5h
+    [perfeature_var_reg/L27]  2500/24414 | loss=39985.9 recon=39985.9 auxk=0.000 | FVE=0.5582 L0=80 dead=0.000(0) a_mean=0.0086 a_std=0.0175 vreg=0.000028 | 5.1M ETA 2.4h
+    [perfeature_var_reg/L27]  3000/24414 | loss=38916.7 recon=38916.7 auxk=0.000 | FVE=0.5765 L0=80 dead=0.000(0) a_mean=0.0097 a_std=0.0207 vreg=0.000036 | 6.1M ETA 2.4h
+    [perfeature_var_reg/L27]  3500/24414 | loss=35190.3 recon=35190.3 auxk=0.000 | FVE=0.6079 L0=80 dead=0.000(0) a_mean=0.0108 a_std=0.0239 vreg=0.000043 | 7.2M ETA 2.3h
+    [perfeature_var_reg/L27]  4000/24414 | loss=33983.7 recon=33983.7 auxk=0.000 | FVE=0.6230 L0=80 dead=0.000(0) a_mean=0.0118 a_std=0.0269 vreg=0.000048 | 8.2M ETA 2.3h
+    [perfeature_var_reg/L27]  4500/24414 | loss=33168.6 recon=33168.6 auxk=0.000 | FVE=0.6316 L0=80 dead=0.000(0) a_mean=0.0129 a_std=0.0297 vreg=0.000052 | 9.2M ETA 2.2h
+    [perfeature_var_reg/L27] Checkpoint at step 4882
+    [perfeature_var_reg/L27]  5000/24414 | loss=31603.9 recon=31603.9 auxk=0.000 | FVE=0.6471 L0=80 dead=0.000(0) a_mean=0.0140 a_std=0.0325 vreg=0.000053 | 10.2M ETA 2.1h
+    [perfeature_var_reg/L27]  5500/24414 | loss=30939.4 recon=30939.4 auxk=1.343 | FVE=0.6571 L0=80 dead=0.658(43098) a_mean=0.0151 a_std=0.0351 vreg=0.000051 | 11.3M ETA 2.1h
+    [perfeature_var_reg/L27]  6000/24414 | loss=30613.3 recon=30613.3 auxk=1.781 | FVE=0.6635 L0=80 dead=0.805(52728) a_mean=0.0162 a_std=0.0376 vreg=0.000047 | 12.3M ETA 2.1h
+    [perfeature_var_reg/L27]  6500/24414 | loss=29954.7 recon=29954.7 auxk=1.837 | FVE=0.6683 L0=80 dead=0.810(53052) a_mean=0.0172 a_std=0.0400 vreg=0.000040 | 13.3M ETA 2.0h
+    [perfeature_var_reg/L27]  7000/24414 | loss=28742.7 recon=28742.7 auxk=1.916 | FVE=0.6803 L0=80 dead=0.809(53051) a_mean=0.0182 a_std=0.0422 vreg=0.000030 | 14.3M ETA 2.0h
+    [perfeature_var_reg/L27]  7500/24414 | loss=28422.1 recon=28422.1 auxk=1.914 | FVE=0.6847 L0=80 dead=0.809(52989) a_mean=0.0192 a_std=0.0444 vreg=0.000016 | 15.4M ETA 2.0h
+    [perfeature_var_reg/L27]  8000/24414 | loss=27778.7 recon=27778.6 auxk=1.952 | FVE=0.6917 L0=80 dead=0.808(52944) a_mean=0.0202 a_std=0.0464 vreg=0.000000 | 16.4M ETA 1.9h
+    [perfeature_var_reg/L27]  8500/24414 | loss=31081.1 recon=31081.1 auxk=1.824 | FVE=0.6745 L0=80 dead=0.807(52888) a_mean=0.0211 a_std=0.0484 vreg=0.000000 | 17.4M ETA 1.9h
+    [perfeature_var_reg/L27]  9000/24414 | loss=28390.6 recon=28390.5 auxk=1.878 | FVE=0.6909 L0=80 dead=0.806(52829) a_mean=0.0220 a_std=0.0502 vreg=0.000000 | 18.4M ETA 1.8h
+    [perfeature_var_reg/L27]  9500/24414 | loss=27928.4 recon=27928.3 auxk=1.869 | FVE=0.6946 L0=80 dead=0.805(52776) a_mean=0.0228 a_std=0.0519 vreg=0.000000 | 19.5M ETA 1.8h
+    [perfeature_var_reg/L27] Checkpoint at step 9765
+    [perfeature_var_reg/L27] 10000/24414 | loss=27148.8 recon=27148.7 auxk=1.878 | FVE=0.7000 L0=80 dead=0.804(52722) a_mean=0.0236 a_std=0.0536 vreg=0.000000 | 20.5M ETA 1.7h
+    [perfeature_var_reg/L27] 10500/24414 | loss=27636.5 recon=27636.4 auxk=1.826 | FVE=0.6928 L0=80 dead=0.804(52689) a_mean=0.0244 a_std=0.0552 vreg=0.000000 | 21.5M ETA 1.7h
+    [perfeature_var_reg/L27] 11000/24414 | loss=26815.6 recon=26815.5 auxk=1.849 | FVE=0.7027 L0=80 dead=0.804(52668) a_mean=0.0251 a_std=0.0567 vreg=0.000000 | 22.5M ETA 1.6h
+    [perfeature_var_reg/L27] 11500/24414 | loss=27175.8 recon=27175.7 auxk=1.767 | FVE=0.7011 L0=80 dead=0.803(52642) a_mean=0.0258 a_std=0.0581 vreg=0.000000 | 23.6M ETA 1.6h
+    [perfeature_var_reg/L27] 12000/24414 | loss=26661.9 recon=26661.9 auxk=1.759 | FVE=0.7020 L0=80 dead=0.803(52647) a_mean=0.0265 a_std=0.0596 vreg=0.000000 | 24.6M ETA 1.5h
+    [perfeature_var_reg/L27] 12500/24414 | loss=27131.8 recon=27131.8 auxk=1.695 | FVE=0.7046 L0=80 dead=0.804(52688) a_mean=0.0271 a_std=0.0609 vreg=0.000000 | 25.6M ETA 1.5h
+    [perfeature_var_reg/L27] 13000/24414 | loss=26401.7 recon=26401.6 auxk=1.689 | FVE=0.7112 L0=80 dead=0.805(52725) a_mean=0.0277 a_std=0.0622 vreg=0.000000 | 26.6M ETA 1.4h
+    [perfeature_var_reg/L27] 13500/24414 | loss=25839.6 recon=25839.6 auxk=1.672 | FVE=0.7126 L0=80 dead=0.805(52775) a_mean=0.0282 a_std=0.0635 vreg=0.000000 | 27.6M ETA 1.4h
+    [perfeature_var_reg/L27] 14000/24414 | loss=25659.4 recon=25659.4 auxk=1.625 | FVE=0.7158 L0=80 dead=0.807(52855) a_mean=0.0287 a_std=0.0648 vreg=0.000000 | 28.7M ETA 1.3h
+    [perfeature_var_reg/L27] 14500/24414 | loss=25506.2 recon=25506.1 auxk=1.588 | FVE=0.7190 L0=80 dead=0.808(52980) a_mean=0.0291 a_std=0.0660 vreg=0.000000 | 29.7M ETA 1.2h
+    [perfeature_var_reg/L27] Checkpoint at step 14648
+    [perfeature_var_reg/L27] 15000/24414 | loss=25418.8 recon=25418.8 auxk=1.538 | FVE=0.7205 L0=80 dead=0.811(53122) a_mean=0.0294 a_std=0.0672 vreg=0.000000 | 30.7M ETA 1.2h
+    [perfeature_var_reg/L27] 15500/24414 | loss=25300.1 recon=25300.0 auxk=1.482 | FVE=0.7197 L0=80 dead=0.812(53230) a_mean=0.0297 a_std=0.0683 vreg=0.000000 | 31.7M ETA 1.1h
+    [perfeature_var_reg/L27] 16000/24414 | loss=24822.7 recon=24822.6 auxk=1.456 | FVE=0.7247 L0=80 dead=0.815(53392) a_mean=0.0299 a_std=0.0695 vreg=0.000000 | 32.8M ETA 1.1h
+    [perfeature_var_reg/L27] 16500/24414 | loss=24922.1 recon=24922.1 auxk=1.394 | FVE=0.7244 L0=80 dead=0.817(53551) a_mean=0.0300 a_std=0.0707 vreg=0.000000 | 33.8M ETA 1.0h
+    [perfeature_var_reg/L27] 17000/24414 | loss=24567.8 recon=24567.7 auxk=1.365 | FVE=0.7261 L0=80 dead=0.820(53713) a_mean=0.0300 a_std=0.0718 vreg=0.000000 | 34.8M ETA 0.9h
+    [perfeature_var_reg/L27] 17500/24414 | loss=24684.5 recon=24684.5 auxk=1.309 | FVE=0.7265 L0=80 dead=0.821(53837) a_mean=0.0299 a_std=0.0730 vreg=0.000000 | 35.8M ETA 0.9h
+    [perfeature_var_reg/L27] 18000/24414 | loss=24193.4 recon=24193.4 auxk=1.284 | FVE=0.7308 L0=80 dead=0.824(53976) a_mean=0.0296 a_std=0.0742 vreg=0.000000 | 36.9M ETA 0.8h
+    [perfeature_var_reg/L27] 18500/24414 | loss=24357.5 recon=24357.5 auxk=1.228 | FVE=0.7323 L0=80 dead=0.825(54095) a_mean=0.0292 a_std=0.0754 vreg=0.000000 | 37.9M ETA 0.7h
+    [perfeature_var_reg/L27] 19000/24414 | loss=24145.1 recon=24145.0 auxk=1.195 | FVE=0.7316 L0=80 dead=0.827(54191) a_mean=0.0287 a_std=0.0766 vreg=0.000000 | 38.9M ETA 0.7h
+    [perfeature_var_reg/L27] 19500/24414 | loss=23542.6 recon=23542.5 auxk=1.168 | FVE=0.7371 L0=80 dead=0.828(54265) a_mean=0.0280 a_std=0.0779 vreg=0.000000 | 39.9M ETA 0.6h
+    [perfeature_var_reg/L27] Checkpoint at step 19531
+    [perfeature_var_reg/L27] 20000/24414 | loss=24251.6 recon=24251.6 auxk=1.110 | FVE=0.7342 L0=80 dead=0.829(54334) a_mean=0.0272 a_std=0.0791 vreg=0.000000 | 41.0M ETA 0.6h
+    [perfeature_var_reg/L27] 20500/24414 | loss=24673.4 recon=24673.4 auxk=1.063 | FVE=0.7280 L0=80 dead=0.830(54386) a_mean=0.0264 a_std=0.0803 vreg=0.000000 | 42.0M ETA 0.5h
+    [perfeature_var_reg/L27] 21000/24414 | loss=25197.3 recon=25197.3 auxk=1.014 | FVE=0.7211 L0=80 dead=0.831(54429) a_mean=0.0255 a_std=0.0813 vreg=0.000000 | 43.0M ETA 0.4h
+    [perfeature_var_reg/L27] 21500/24414 | loss=25391.8 recon=25391.8 auxk=0.998 | FVE=0.7257 L0=80 dead=0.831(54462) a_mean=0.0246 a_std=0.0822 vreg=0.000000 | 44.0M ETA 0.4h
+    [perfeature_var_reg/L27] 22000/24414 | loss=24313.8 recon=24313.8 auxk=1.005 | FVE=0.7281 L0=80 dead=0.831(54490) a_mean=0.0238 a_std=0.0830 vreg=0.000000 | 45.1M ETA 0.3h
+    [perfeature_var_reg/L27] 22500/24414 | loss=24887.3 recon=24887.3 auxk=0.974 | FVE=0.7285 L0=80 dead=0.832(54518) a_mean=0.0231 a_std=0.0837 vreg=0.000000 | 46.1M ETA 0.2h
+    [perfeature_var_reg/L27] 23000/24414 | loss=24799.6 recon=24799.5 auxk=0.972 | FVE=0.7279 L0=80 dead=0.832(54539) a_mean=0.0225 a_std=0.0843 vreg=0.000000 | 47.1M ETA 0.2h
+    [perfeature_var_reg/L27] 23500/24414 | loss=24863.5 recon=24863.4 auxk=0.963 | FVE=0.7269 L0=80 dead=0.833(54563) a_mean=0.0220 a_std=0.0847 vreg=0.000000 | 48.1M ETA 0.1h
+    [perfeature_var_reg/L27] 24000/24414 | loss=24316.2 recon=24316.2 auxk=0.975 | FVE=0.7308 L0=80 dead=0.833(54583) a_mean=0.0217 a_std=0.0849 vreg=0.000000 | 49.2M ETA 0.1h
+    [perfeature_var_reg/L27] 24414/24414 | loss=24294.1 recon=24294.1 auxk=0.976 | FVE=0.7296 L0=80 dead=0.833(54595) a_mean=0.0216 a_std=0.0849 vreg=0.000000 | 50.0M ETA 0.0h
+    [perfeature_var_reg/L27] Checkpoint at step 24414
+    [perfeature_var_reg/L27] Done in 3.1h (11321s)
+    [perfeature_var_reg/L27] FVE=0.7213 dead=0.834 alive=10,891 L0=80.0
+    [perfeature_var_reg/L27] Ablation (100 features, 200 samples)...
+    [perfeature_var_reg/L27] cos>inner: 82/100
+
+  Saved results for perfeature_var_reg
+
+======================================================================
+  perfeature_gaussian — L27
+======================================================================
+
+  Training perfeature_gaussian/L27 | d_sae=65536, k=80, lr=5e-05, 50,000,000 tokens (24414 steps)
+    [perfeature_gaussian/L27] b_dec init (norm=277.0)
+    [perfeature_gaussian/L27]   500/24414 | loss=75484.9 recon=75484.9 auxk=0.000 | FVE=0.1654 L0=80 dead=0.000(0) a_mean=0.0011 a_std=0.0516 | 1.0M ETA 3.1h
+    [perfeature_gaussian/L27]  1000/24414 | loss=57847.6 recon=57847.6 auxk=0.000 | FVE=0.3603 L0=80 dead=0.000(0) a_mean=0.0020 a_std=0.0531 | 2.0M ETA 2.7h
+    [perfeature_gaussian/L27]  1500/24414 | loss=47962.2 recon=47962.2 auxk=0.000 | FVE=0.4709 L0=80 dead=0.000(0) a_mean=0.0027 a_std=0.0544 | 3.1M ETA 2.6h
+    [perfeature_gaussian/L27]  2000/24414 | loss=42195.3 recon=42195.3 auxk=0.000 | FVE=0.5317 L0=80 dead=0.000(0) a_mean=0.0035 a_std=0.0559 | 4.1M ETA 2.5h
+    [perfeature_gaussian/L27]  2500/24414 | loss=39922.9 recon=39922.9 auxk=0.000 | FVE=0.5634 L0=80 dead=0.000(0) a_mean=0.0042 a_std=0.0575 | 5.1M ETA 2.4h
+    [perfeature_gaussian/L27]  3000/24414 | loss=36663.5 recon=36663.5 auxk=0.000 | FVE=0.5932 L0=80 dead=0.000(0) a_mean=0.0050 a_std=0.0592 | 6.1M ETA 2.4h
+    [perfeature_gaussian/L27]  3500/24414 | loss=35656.6 recon=35656.6 auxk=0.000 | FVE=0.6047 L0=80 dead=0.000(0) a_mean=0.0057 a_std=0.0608 | 7.2M ETA 2.3h
+    [perfeature_gaussian/L27]  4000/24414 | loss=34848.9 recon=34848.9 auxk=0.000 | FVE=0.6194 L0=80 dead=0.000(0) a_mean=0.0065 a_std=0.0625 | 8.2M ETA 2.2h
+    [perfeature_gaussian/L27]  4500/24414 | loss=32607.2 recon=32607.2 auxk=0.000 | FVE=0.6372 L0=80 dead=0.000(0) a_mean=0.0072 a_std=0.0642 | 9.2M ETA 2.2h
+    [perfeature_gaussian/L27] Checkpoint at step 4882
+    [perfeature_gaussian/L27]  5000/24414 | loss=36043.7 recon=36043.6 auxk=0.802 | FVE=0.6177 L0=80 dead=0.390(25591) a_mean=0.0078 a_std=0.0658 | 10.2M ETA 2.1h
+    [perfeature_gaussian/L27]  5500/24414 | loss=30991.3 recon=30991.2 auxk=1.204 | FVE=0.6529 L0=80 dead=0.863(56577) a_mean=0.0080 a_std=0.0678 | 11.3M ETA 2.1h
+    [perfeature_gaussian/L27]  6000/24414 | loss=31077.9 recon=31077.8 auxk=1.229 | FVE=0.6579 L0=80 dead=0.874(57259) a_mean=0.0082 a_std=0.0695 | 12.3M ETA 2.1h
+    [perfeature_gaussian/L27]  6500/24414 | loss=30766.7 recon=30766.7 auxk=1.222 | FVE=0.6621 L0=80 dead=0.873(57181) a_mean=0.0085 a_std=0.0711 | 13.3M ETA 2.1h
+    [perfeature_gaussian/L27]  7000/24414 | loss=30094.7 recon=30094.7 auxk=1.238 | FVE=0.6692 L0=80 dead=0.872(57122) a_mean=0.0087 a_std=0.0726 | 14.3M ETA 2.0h
+    [perfeature_gaussian/L27]  7500/24414 | loss=29447.5 recon=29447.5 auxk=1.250 | FVE=0.6757 L0=80 dead=0.870(57048) a_mean=0.0090 a_std=0.0741 | 15.4M ETA 2.0h
+    [perfeature_gaussian/L27]  8000/24414 | loss=31334.4 recon=31334.4 auxk=1.225 | FVE=0.6653 L0=80 dead=0.869(56967) a_mean=0.0092 a_std=0.0755 | 16.4M ETA 1.9h
+    [perfeature_gaussian/L27]  8500/24414 | loss=28331.7 recon=28331.6 auxk=1.259 | FVE=0.6851 L0=80 dead=0.868(56896) a_mean=0.0093 a_std=0.0768 | 17.4M ETA 1.9h
+    [perfeature_gaussian/L27]  9000/24414 | loss=27293.4 recon=27293.3 auxk=1.286 | FVE=0.6949 L0=80 dead=0.867(56832) a_mean=0.0095 a_std=0.0781 | 18.4M ETA 1.8h
+    [perfeature_gaussian/L27]  9500/24414 | loss=28358.4 recon=28358.4 auxk=1.222 | FVE=0.6864 L0=80 dead=0.866(56776) a_mean=0.0096 a_std=0.0793 | 19.5M ETA 1.8h
+    [perfeature_gaussian/L27] Checkpoint at step 9765
+    [perfeature_gaussian/L27] 10000/24414 | loss=27449.7 recon=27449.6 auxk=1.244 | FVE=0.6940 L0=80 dead=0.866(56738) a_mean=0.0097 a_std=0.0805 | 20.5M ETA 1.7h
+    [perfeature_gaussian/L27] 10500/24414 | loss=28115.3 recon=28115.2 auxk=1.200 | FVE=0.6865 L0=80 dead=0.865(56714) a_mean=0.0097 a_std=0.0816 | 21.5M ETA 1.7h
+    [perfeature_gaussian/L27] 11000/24414 | loss=28731.5 recon=28731.5 auxk=1.154 | FVE=0.6859 L0=80 dead=0.865(56679) a_mean=0.0097 a_std=0.0827 | 22.5M ETA 1.7h
+    [perfeature_gaussian/L27] 11500/24414 | loss=27989.1 recon=27989.0 auxk=1.157 | FVE=0.6929 L0=80 dead=0.865(56661) a_mean=0.0097 a_std=0.0837 | 23.6M ETA 1.6h
+    [perfeature_gaussian/L27] 12000/24414 | loss=27357.6 recon=27357.6 auxk=1.155 | FVE=0.6969 L0=80 dead=0.864(56653) a_mean=0.0096 a_std=0.0847 | 24.6M ETA 1.5h
+    [perfeature_gaussian/L27] 12500/24414 | loss=27494.1 recon=27494.0 auxk=1.127 | FVE=0.6965 L0=80 dead=0.865(56692) a_mean=0.0094 a_std=0.0857 | 25.6M ETA 1.5h
+    [perfeature_gaussian/L27] 13000/24414 | loss=26947.3 recon=26947.3 auxk=1.122 | FVE=0.7002 L0=80 dead=0.865(56719) a_mean=0.0092 a_std=0.0867 | 26.6M ETA 1.4h
+    [perfeature_gaussian/L27] 13500/24414 | loss=26913.7 recon=26913.7 auxk=1.099 | FVE=0.7016 L0=80 dead=0.866(56752) a_mean=0.0089 a_std=0.0876 | 27.6M ETA 1.4h
+    [perfeature_gaussian/L27] 14000/24414 | loss=26221.6 recon=26221.6 auxk=1.096 | FVE=0.7087 L0=80 dead=0.867(56802) a_mean=0.0085 a_std=0.0885 | 28.7M ETA 1.3h
+    [perfeature_gaussian/L27] 14500/24414 | loss=26009.3 recon=26009.3 auxk=1.076 | FVE=0.7092 L0=80 dead=0.868(56866) a_mean=0.0081 a_std=0.0894 | 29.7M ETA 1.2h
+    [perfeature_gaussian/L27] Checkpoint at step 14648
+    [perfeature_gaussian/L27] 15000/24414 | loss=25691.5 recon=25691.5 auxk=1.057 | FVE=0.7119 L0=80 dead=0.869(56923) a_mean=0.0075 a_std=0.0903 | 30.7M ETA 1.2h
+    [perfeature_gaussian/L27] 15500/24414 | loss=26052.4 recon=26052.3 auxk=1.024 | FVE=0.7110 L0=80 dead=0.870(56995) a_mean=0.0069 a_std=0.0912 | 31.7M ETA 1.1h
+    [perfeature_gaussian/L27] 16000/24414 | loss=25889.0 recon=25889.0 auxk=1.003 | FVE=0.7126 L0=80 dead=0.871(57079) a_mean=0.0061 a_std=0.0920 | 32.8M ETA 1.1h
+    [perfeature_gaussian/L27] 16500/24414 | loss=26189.6 recon=26189.5 auxk=0.972 | FVE=0.7113 L0=80 dead=0.872(57141) a_mean=0.0053 a_std=0.0928 | 33.8M ETA 1.0h
+    [perfeature_gaussian/L27] 17000/24414 | loss=25687.4 recon=25687.4 auxk=0.963 | FVE=0.7159 L0=80 dead=0.873(57211) a_mean=0.0043 a_std=0.0937 | 34.8M ETA 0.9h
+    [perfeature_gaussian/L27] 17500/24414 | loss=25203.2 recon=25203.1 auxk=0.948 | FVE=0.7186 L0=80 dead=0.874(57272) a_mean=0.0033 a_std=0.0945 | 35.8M ETA 0.9h
+    [perfeature_gaussian/L27] 18000/24414 | loss=25166.5 recon=25166.5 auxk=0.933 | FVE=0.7168 L0=80 dead=0.875(57325) a_mean=0.0022 a_std=0.0953 | 36.9M ETA 0.8h
+    [perfeature_gaussian/L27] 18500/24414 | loss=25003.7 recon=25003.7 auxk=0.915 | FVE=0.7213 L0=80 dead=0.875(57376) a_mean=0.0011 a_std=0.0960 | 37.9M ETA 0.8h
+    [perfeature_gaussian/L27] 19000/24414 | loss=25382.8 recon=25382.8 auxk=0.894 | FVE=0.7188 L0=80 dead=0.876(57424) a_mean=-0.0002 a_std=0.0968 | 38.9M ETA 0.7h
+    [perfeature_gaussian/L27] 19500/24414 | loss=25621.2 recon=25621.2 auxk=0.875 | FVE=0.7201 L0=80 dead=0.877(57467) a_mean=-0.0014 a_std=0.0975 | 39.9M ETA 0.6h
+    [perfeature_gaussian/L27] Checkpoint at step 19531
+    [perfeature_gaussian/L27] 20000/24414 | loss=24710.5 recon=24710.5 auxk=0.870 | FVE=0.7222 L0=80 dead=0.877(57507) a_mean=-0.0026 a_std=0.0981 | 41.0M ETA 0.6h
+    [perfeature_gaussian/L27] 20500/24414 | loss=25731.1 recon=25731.1 auxk=0.847 | FVE=0.7209 L0=80 dead=0.878(57544) a_mean=-0.0037 a_std=0.0987 | 42.0M ETA 0.5h
+    [perfeature_gaussian/L27] 21000/24414 | loss=25883.7 recon=25883.7 auxk=0.828 | FVE=0.7137 L0=80 dead=0.878(57571) a_mean=-0.0047 a_std=0.0992 | 43.0M ETA 0.4h
+    [perfeature_gaussian/L27] 21500/24414 | loss=25869.6 recon=25869.6 auxk=0.820 | FVE=0.7140 L0=80 dead=0.879(57603) a_mean=-0.0056 a_std=0.0996 | 44.0M ETA 0.4h
+    [perfeature_gaussian/L27] 22000/24414 | loss=25888.1 recon=25888.0 auxk=0.817 | FVE=0.7138 L0=80 dead=0.879(57632) a_mean=-0.0063 a_std=0.0999 | 45.1M ETA 0.3h
+    [perfeature_gaussian/L27] 22500/24414 | loss=26036.5 recon=26036.5 auxk=0.811 | FVE=0.7141 L0=80 dead=0.880(57659) a_mean=-0.0069 a_std=0.1002 | 46.1M ETA 0.2h
+    [perfeature_gaussian/L27] 23000/24414 | loss=25311.9 recon=25311.9 auxk=0.818 | FVE=0.7201 L0=80 dead=0.880(57676) a_mean=-0.0074 a_std=0.1004 | 47.1M ETA 0.2h
+    [perfeature_gaussian/L27] 23500/24414 | loss=25455.3 recon=25455.3 auxk=0.815 | FVE=0.7191 L0=80 dead=0.880(57689) a_mean=-0.0077 a_std=0.1005 | 48.1M ETA 0.1h
+    [perfeature_gaussian/L27] 24000/24414 | loss=25288.2 recon=25288.2 auxk=0.814 | FVE=0.7180 L0=80 dead=0.880(57702) a_mean=-0.0079 a_std=0.1006 | 49.2M ETA 0.1h
+    [perfeature_gaussian/L27] 24414/24414 | loss=25990.9 recon=25990.9 auxk=0.803 | FVE=0.7147 L0=80 dead=0.881(57711) a_mean=-0.0079 a_std=0.1006 | 50.0M ETA 0.0h
+    [perfeature_gaussian/L27] Checkpoint at step 24414
+    [perfeature_gaussian/L27] Done in 3.1h (11339s)
+    [perfeature_gaussian/L27] FVE=0.7086 dead=0.882 alive=7,737 L0=80.3
+    [perfeature_gaussian/L27] Ablation (100 features, 200 samples)...
+    [perfeature_gaussian/L27] cos>inner: 77/100
+
+  Saved results for perfeature_gaussian
+
+======================================================================
+  adaptive_l2 — L27
+======================================================================
+
+  Training adaptive_l2/L27 | d_sae=65536, k=80, lr=5e-05, 50,000,000 tokens (24414 steps)
+    [adaptive_l2/L27] b_dec init (norm=277.5)
+    [adaptive_l2/L27]   500/24414 | loss=75434.8 recon=75434.8 auxk=0.000 | FVE=0.1625 L0=80 dead=0.000(0) a=0.0062 | 1.0M ETA 3.1h
+    [adaptive_l2/L27]  1000/24414 | loss=53961.2 recon=53961.2 auxk=0.000 | FVE=0.4055 L0=80 dead=0.000(0) a=0.0250 | 2.0M ETA 2.7h
+    [adaptive_l2/L27]  1500/24414 | loss=42420.4 recon=42420.4 auxk=0.000 | FVE=0.5304 L0=80 dead=0.000(0) a=0.0499 | 3.1M ETA 2.6h
+    [adaptive_l2/L27]  2000/24414 | loss=37293.3 recon=37293.3 auxk=0.000 | FVE=0.5891 L0=80 dead=0.000(0) a=0.0748 | 4.1M ETA 2.5h
+    [adaptive_l2/L27]  2500/24414 | loss=33843.4 recon=33843.4 auxk=0.000 | FVE=0.6273 L0=80 dead=0.000(0) a=0.0997 | 5.1M ETA 2.4h
+    [adaptive_l2/L27]  3000/24414 | loss=31115.5 recon=31115.5 auxk=0.000 | FVE=0.6554 L0=80 dead=0.000(0) a=0.1242 | 6.1M ETA 2.3h
+    [adaptive_l2/L27]  3500/24414 | loss=28740.3 recon=28740.3 auxk=0.000 | FVE=0.6809 L0=80 dead=0.000(0) a=0.1469 | 7.2M ETA 2.3h
+    [adaptive_l2/L27]  4000/24414 | loss=27371.5 recon=27371.5 auxk=0.000 | FVE=0.6982 L0=80 dead=0.000(0) a=0.1634 | 8.2M ETA 2.2h
+    [adaptive_l2/L27]  4500/24414 | loss=25686.0 recon=25686.0 auxk=0.000 | FVE=0.7092 L0=80 dead=0.000(0) a=0.1725 | 9.2M ETA 2.2h
+    [adaptive_l2/L27] Checkpoint at step 4882
+    [adaptive_l2/L27]  5000/24414 | loss=25756.0 recon=25756.0 auxk=0.000 | FVE=0.7171 L0=80 dead=0.000(0) a=0.1796 | 10.2M ETA 2.1h
+    [adaptive_l2/L27]  5500/24414 | loss=25584.7 recon=25584.7 auxk=0.000 | FVE=0.7189 L0=80 dead=0.000(0) a=0.1849 | 11.3M ETA 2.1h
+    [adaptive_l2/L27]  6000/24414 | loss=24309.6 recon=24309.6 auxk=0.000 | FVE=0.7271 L0=80 dead=0.000(0) a=0.1890 | 12.3M ETA 2.0h
+    [adaptive_l2/L27]  6500/24414 | loss=24293.0 recon=24293.0 auxk=0.000 | FVE=0.7308 L0=80 dead=0.000(0) a=0.1935 | 13.3M ETA 1.9h
+    [adaptive_l2/L27]  7000/24414 | loss=23821.7 recon=23821.7 auxk=0.000 | FVE=0.7381 L0=80 dead=0.000(0) a=0.1967 | 14.3M ETA 1.9h
+    [adaptive_l2/L27]  7500/24414 | loss=23573.5 recon=23573.5 auxk=0.000 | FVE=0.7380 L0=80 dead=0.000(0) a=0.2007 | 15.4M ETA 1.8h
+    [adaptive_l2/L27]  8000/24414 | loss=22869.6 recon=22869.6 auxk=0.000 | FVE=0.7481 L0=80 dead=0.000(0) a=0.2039 | 16.4M ETA 1.8h
+    [adaptive_l2/L27]  8500/24414 | loss=22563.9 recon=22563.9 auxk=0.000 | FVE=0.7497 L0=80 dead=0.000(0) a=0.2073 | 17.4M ETA 1.7h
+    [adaptive_l2/L27]  9000/24414 | loss=22656.2 recon=22656.2 auxk=0.000 | FVE=0.7496 L0=80 dead=0.000(0) a=0.2108 | 18.4M ETA 1.7h
+    [adaptive_l2/L27]  9500/24414 | loss=22376.0 recon=22376.0 auxk=0.000 | FVE=0.7541 L0=80 dead=0.000(0) a=0.2140 | 19.5M ETA 1.6h
+    [adaptive_l2/L27] Checkpoint at step 9765
+    [adaptive_l2/L27] 10000/24414 | loss=21747.7 recon=21747.7 auxk=0.000 | FVE=0.7563 L0=80 dead=0.000(0) a=0.2172 | 20.5M ETA 1.6h
+    [adaptive_l2/L27] 10500/24414 | loss=23331.1 recon=23331.1 auxk=0.000 | FVE=0.7426 L0=80 dead=0.000(0) a=0.2201 | 21.5M ETA 1.5h
+    [adaptive_l2/L27] 11000/24414 | loss=22507.1 recon=22507.1 auxk=0.000 | FVE=0.7524 L0=80 dead=0.000(0) a=0.2229 | 22.5M ETA 1.5h
+    [adaptive_l2/L27] 11500/24414 | loss=22449.4 recon=22449.4 auxk=0.000 | FVE=0.7523 L0=80 dead=0.000(0) a=0.2258 | 23.6M ETA 1.4h
+    [adaptive_l2/L27] 12000/24414 | loss=21278.7 recon=21278.7 auxk=0.000 | FVE=0.7590 L0=80 dead=0.000(0) a=0.2282 | 24.6M ETA 1.3h
+    [adaptive_l2/L27] 12500/24414 | loss=21616.0 recon=21616.0 auxk=0.000 | FVE=0.7582 L0=80 dead=0.000(0) a=0.2311 | 25.6M ETA 1.3h
+    [adaptive_l2/L27] 13000/24414 | loss=21906.8 recon=21906.8 auxk=0.000 | FVE=0.7569 L0=80 dead=0.000(0) a=0.2334 | 26.6M ETA 1.2h
+    [adaptive_l2/L27] 13500/24414 | loss=21687.8 recon=21687.8 auxk=0.000 | FVE=0.7594 L0=80 dead=0.000(0) a=0.2356 | 27.6M ETA 1.2h
+    [adaptive_l2/L27] 14000/24414 | loss=20901.5 recon=20901.5 auxk=0.000 | FVE=0.7670 L0=80 dead=0.000(0) a=0.2374 | 28.7M ETA 1.1h
+    [adaptive_l2/L27] 14500/24414 | loss=20626.1 recon=20626.1 auxk=0.000 | FVE=0.7691 L0=80 dead=0.000(0) a=0.2392 | 29.7M ETA 1.1h
+    [adaptive_l2/L27] Checkpoint at step 14648
+    [adaptive_l2/L27] 15000/24414 | loss=21474.6 recon=21474.6 auxk=0.000 | FVE=0.7646 L0=80 dead=0.000(0) a=0.2411 | 30.7M ETA 1.0h
+    [adaptive_l2/L27] 15500/24414 | loss=20910.2 recon=20910.2 auxk=0.000 | FVE=0.7696 L0=80 dead=0.000(0) a=0.2425 | 31.7M ETA 1.0h
+    [adaptive_l2/L27] 16000/24414 | loss=20179.2 recon=20179.2 auxk=0.000 | FVE=0.7734 L0=80 dead=0.000(0) a=0.2441 | 32.8M ETA 0.9h
+    [adaptive_l2/L27] 16500/24414 | loss=20473.6 recon=20473.6 auxk=0.000 | FVE=0.7720 L0=80 dead=0.000(0) a=0.2456 | 33.8M ETA 0.8h
+    [adaptive_l2/L27] 17000/24414 | loss=20397.9 recon=20397.9 auxk=0.000 | FVE=0.7775 L0=80 dead=0.000(0) a=0.2470 | 34.8M ETA 0.8h
+    [adaptive_l2/L27] 17500/24414 | loss=20637.8 recon=20637.8 auxk=0.000 | FVE=0.7755 L0=80 dead=0.000(0) a=0.2483 | 35.8M ETA 0.7h
+    [adaptive_l2/L27] 18000/24414 | loss=19973.4 recon=19973.4 auxk=0.000 | FVE=0.7791 L0=80 dead=0.000(0) a=0.2494 | 36.9M ETA 0.7h
+    [adaptive_l2/L27] 18500/24414 | loss=19825.9 recon=19825.9 auxk=0.000 | FVE=0.7784 L0=80 dead=0.000(0) a=0.2505 | 37.9M ETA 0.6h
+    [adaptive_l2/L27] 19000/24414 | loss=19603.0 recon=19603.0 auxk=0.000 | FVE=0.7815 L0=80 dead=0.000(0) a=0.2516 | 38.9M ETA 0.6h
+    [adaptive_l2/L27] 19500/24414 | loss=20064.8 recon=20064.8 auxk=0.000 | FVE=0.7782 L0=80 dead=0.000(0) a=0.2527 | 39.9M ETA 0.5h
+    [adaptive_l2/L27] Checkpoint at step 19531
+    [adaptive_l2/L27] 20000/24414 | loss=19700.1 recon=19700.1 auxk=0.000 | FVE=0.7797 L0=80 dead=0.000(0) a=0.2536 | 41.0M ETA 0.5h
+    [adaptive_l2/L27] 20500/24414 | loss=19868.2 recon=19868.2 auxk=0.000 | FVE=0.7758 L0=80 dead=0.000(0) a=0.2544 | 42.0M ETA 0.4h
+    [adaptive_l2/L27] 21000/24414 | loss=20307.2 recon=20307.2 auxk=0.000 | FVE=0.7749 L0=80 dead=0.000(0) a=0.2549 | 43.0M ETA 0.4h
+    [adaptive_l2/L27] 21500/24414 | loss=20653.6 recon=20653.6 auxk=0.000 | FVE=0.7742 L0=80 dead=0.000(0) a=0.2555 | 44.0M ETA 0.3h
+    [adaptive_l2/L27] 22000/24414 | loss=20119.8 recon=20119.8 auxk=0.000 | FVE=0.7761 L0=80 dead=0.000(0) a=0.2561 | 45.1M ETA 0.3h
+    [adaptive_l2/L27] 22500/24414 | loss=20436.7 recon=20436.7 auxk=0.000 | FVE=0.7742 L0=80 dead=0.000(0) a=0.2565 | 46.1M ETA 0.2h
+    [adaptive_l2/L27] 23000/24414 | loss=20186.2 recon=20186.2 auxk=0.000 | FVE=0.7736 L0=80 dead=0.000(0) a=0.2567 | 47.1M ETA 0.2h
+    [adaptive_l2/L27] 23500/24414 | loss=20240.5 recon=20240.5 auxk=0.000 | FVE=0.7756 L0=80 dead=0.000(0) a=0.2569 | 48.1M ETA 0.1h
+    [adaptive_l2/L27] 24000/24414 | loss=20716.5 recon=20716.5 auxk=0.000 | FVE=0.7750 L0=80 dead=0.000(0) a=0.2572 | 49.2M ETA 0.0h
+    [adaptive_l2/L27] 24414/24414 | loss=20036.2 recon=20036.2 auxk=0.000 | FVE=0.7787 L0=80 dead=0.000(0) a=0.2572 | 50.0M ETA 0.0h
+    [adaptive_l2/L27] Checkpoint at step 24414
+    [adaptive_l2/L27] Done in 2.6h (9345s)
+    [adaptive_l2/L27] FVE=0.7695 dead=0.001 alive=65,489 L0=80.1
+    [adaptive_l2/L27] Ablation (100 features, 200 samples)...
+    [adaptive_l2/L27] cos>inner: 71/100
+
+  Saved results for adaptive_l2
+
+======================================================================
+  Summary — L27 at 50M tokens
+======================================================================
+  perfeature_original       | FVE=0.7199 | dead=0.838 | alive=10,625 | cos>inner=71/100 a_mean=0.0210
+  perfeature_base_delta     | FVE=0.7721 | dead=0.004 | alive=65,288 | cos>inner=74/100 a_base=0.2312 delta_std=0.0291
+  perfeature_var_reg        | FVE=0.7213 | dead=0.834 | alive=10,891 | cos>inner=82/100 a_mean=0.0216
+  perfeature_gaussian       | FVE=0.7086 | dead=0.882 | alive=7,737 | cos>inner=77/100 a_mean=-0.0079
+  adaptive_l2               | FVE=0.7695 | dead=0.001 | alive=65,489 | cos>inner=71/100 a=0.2572
+
+Results: experiments/exp47_results.json
+Checkpoints: /mnt/checkpoints/exp47/

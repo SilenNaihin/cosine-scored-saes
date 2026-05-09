@@ -1,0 +1,1618 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "layer": 18,
+  "n_tokens": 1060,
+  "features": [
+    {
+      "feature_idx": 20938,
+      "n_active": 1060,
+      "outlier_pairs": [
+        {
+          "high_cos_token": "5",
+          "low_cos_token": "2",
+          "high_cos": 0.166015625,
+          "low_cos": 0.07275390625,
+          "high_sae_act": 15.125,
+          "low_sae_act": 14.375,
+          "high_norm": 75.5,
+          "low_norm": 126.0,
+          "high_kl": 0.006153131369501352,
+          "low_kl": 0.009165558964014053,
+          "high_logit_cos": 0.9673786163330078,
+          "low_logit_cos": 0.9994146823883057,
+          "rnh_correct": false
+        },
+        {
+          "high_cos_token": ".",
+          "low_cos_token": " of",
+          "high_cos": 0.1884765625,
+          "low_cos": 0.10009765625,
+          "high_sae_act": 17.25,
+          "low_sae_act": 17.25,
+          "high_norm": 83.0,
+          "low_norm": 102.0,
+          "high_kl": 0.3637956976890564,
+          "low_kl": 0.006312025710940361,
+          "high_logit_cos": 0.9901293516159058,
+          "low_logit_cos": 0.9990888833999634,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": ".",
+          "low_cos_token": " of",
+          "high_cos": 0.1884765625,
+          "low_cos": 0.10009765625,
+          "high_sae_act": 17.25,
+          "low_sae_act": 17.25,
+          "high_norm": 83.0,
+          "low_norm": 102.0,
+          "high_kl": 0.3637956976890564,
+          "low_kl": 0.006312025710940361,
+          "high_logit_cos": 0.9901293516159058,
+          "low_logit_cos": 0.9990888833999634,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": "2",
+          "low_cos_token": " be",
+          "high_cos": 0.1875,
+          "low_cos": 0.1015625,
+          "high_sae_act": 16.875,
+          "low_sae_act": 16.875,
+          "high_norm": 80.5,
+          "low_norm": 119.5,
+          "high_kl": 0.007651823107153177,
+          "low_kl": 0.0036957962438464165,
+          "high_logit_cos": 0.9976267218589783,
+          "low_logit_cos": 0.9994226694107056,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": ".",
+          "low_cos_token": " all",
+          "high_cos": 0.1953125,
+          "low_cos": 0.1103515625,
+          "high_sae_act": 18.0,
+          "low_sae_act": 17.625,
+          "high_norm": 83.0,
+          "low_norm": 107.0,
+          "high_kl": 0.05209527164697647,
+          "low_kl": 0.011168530210852623,
+          "high_logit_cos": 0.9954802989959717,
+          "low_logit_cos": 0.9983111023902893,
+          "rnh_correct": true
+        }
+      ],
+      "false_positives": [
+        {
+          "idx": 613,
+          "cos": 0.1337890625,
+          "sae_act": 22.25,
+          "norm": 123.0,
+          "inner_prod": 16.4560546875,
+          "token": " arithmetic",
+          "kl_divergence": 0.005985405296087265,
+          "logit_cosine": 0.9991949796676636
+        },
+        {
+          "idx": 761,
+          "cos": 0.14453125,
+          "sae_act": 23.625,
+          "norm": 132.0,
+          "inner_prod": 19.078125,
+          "token": ".nn",
+          "kl_divergence": 0.003967794589698315,
+          "logit_cosine": 0.9989769458770752
+        },
+        {
+          "idx": 246,
+          "cos": 0.1455078125,
+          "sae_act": 23.75,
+          "norm": 129.0,
+          "inner_prod": 18.7705078125,
+          "token": " transport",
+          "kl_divergence": 0.005489243194460869,
+          "logit_cosine": 0.9997599720954895
+        },
+        {
+          "idx": 611,
+          "cos": 0.1396484375,
+          "sae_act": 22.875,
+          "norm": 116.5,
+          "inner_prod": 16.26904296875,
+          "token": " theorem",
+          "kl_divergence": 0.0013902876526117325,
+          "logit_cosine": 0.9994064569473267
+        },
+        {
+          "idx": 731,
+          "cos": 0.1357421875,
+          "sae_act": 22.375,
+          "norm": 118.5,
+          "inner_prod": 16.08544921875,
+          "token": "ederal",
+          "kl_divergence": 0.007944496348500252,
+          "logit_cosine": 0.9993319511413574
+        }
+      ],
+      "low_norm_misses": [
+        {
+          "idx": 382,
+          "cos": 0.1875,
+          "sae_act": 16.875,
+          "norm": 80.5,
+          "inner_prod": 15.09375,
+          "token": "2",
+          "kl_divergence": 0.007651823107153177,
+          "logit_cosine": 0.9976267218589783
+        },
+        {
+          "idx": 710,
+          "cos": 0.185546875,
+          "sae_act": 16.75,
+          "norm": 82.5,
+          "inner_prod": 15.3076171875,
+          "token": ".",
+          "kl_divergence": 0.03963041305541992,
+          "logit_cosine": 0.9937804937362671
+        },
+        {
+          "idx": 757,
+          "cos": 0.1884765625,
+          "sae_act": 17.25,
+          "norm": 83.0,
+          "inner_prod": 15.6435546875,
+          "token": ".",
+          "kl_divergence": 0.3637956976890564,
+          "logit_cosine": 0.9901293516159058
+        },
+        {
+          "idx": 1059,
+          "cos": 0.1865234375,
+          "sae_act": 17.0,
+          "norm": 84.0,
+          "inner_prod": 15.66796875,
+          "token": ".",
+          "kl_divergence": 0.32479003071784973,
+          "logit_cosine": 0.9858190417289734
+        },
+        {
+          "idx": 137,
+          "cos": 0.1953125,
+          "sae_act": 18.0,
+          "norm": 83.0,
+          "inner_prod": 16.2109375,
+          "token": ".",
+          "kl_divergence": 0.05209527164697647,
+          "logit_cosine": 0.9954802989959717
+        }
+      ]
+    },
+    {
+      "feature_idx": 64644,
+      "n_active": 988,
+      "outlier_pairs": [
+        {
+          "high_cos_token": " a",
+          "low_cos_token": ".nn",
+          "high_cos": 0.21484375,
+          "low_cos": 0.10693359375,
+          "high_sae_act": 14.0,
+          "low_sae_act": 13.0,
+          "high_norm": 84.0,
+          "low_norm": 132.0,
+          "high_kl": 0.30209997296333313,
+          "low_kl": 0.0077449665404856205,
+          "high_logit_cos": 0.9903497695922852,
+          "low_logit_cos": 0.9978475570678711,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": "2",
+          "low_cos_token": ".nn",
+          "high_cos": 0.2080078125,
+          "low_cos": 0.10693359375,
+          "high_sae_act": 12.5625,
+          "low_sae_act": 13.0,
+          "high_norm": 80.5,
+          "low_norm": 132.0,
+          "high_kl": 0.2732231318950653,
+          "low_kl": 0.0077449665404856205,
+          "high_logit_cos": 0.9916395545005798,
+          "low_logit_cos": 0.9978475570678711,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " United",
+          "low_cos_token": " genome",
+          "high_cos": 0.25390625,
+          "low_cos": 0.1552734375,
+          "high_sae_act": 20.5,
+          "low_sae_act": 15.5,
+          "high_norm": 99.0,
+          "low_norm": 124.0,
+          "high_kl": 0.03383409231901169,
+          "low_kl": 0.08151355385780334,
+          "high_logit_cos": 0.9932191371917725,
+          "low_logit_cos": 0.9929472208023071,
+          "rnh_correct": false
+        },
+        {
+          "high_cos_token": "5",
+          "low_cos_token": " existing",
+          "high_cos": 0.15234375,
+          "low_cos": 0.06396484375,
+          "high_sae_act": 8.625,
+          "low_sae_act": 8.0,
+          "high_norm": 75.5,
+          "low_norm": 110.0,
+          "high_kl": 0.008549779653549194,
+          "low_kl": 0.004340662620961666,
+          "high_logit_cos": 0.9696020483970642,
+          "low_logit_cos": 0.9990406036376953,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": "3",
+          "low_cos_token": " cell",
+          "high_cos": 0.1884765625,
+          "low_cos": 0.10107421875,
+          "high_sae_act": 11.5,
+          "low_sae_act": 10.9375,
+          "high_norm": 79.5,
+          "low_norm": 113.0,
+          "high_kl": 0.01833089254796505,
+          "low_kl": 0.005553234368562698,
+          "high_logit_cos": 0.9847869873046875,
+          "low_logit_cos": 0.9988788366317749,
+          "rnh_correct": true
+        }
+      ],
+      "false_positives": [
+        {
+          "idx": 19,
+          "cos": 0.03662109375,
+          "sae_act": 7.125,
+          "norm": 114.0,
+          "inner_prod": 4.1748046875,
+          "token": " energy",
+          "kl_divergence": 0.003882621182128787,
+          "logit_cosine": 0.9996066093444824
+        },
+        {
+          "idx": 169,
+          "cos": 0.041015625,
+          "sae_act": 7.3125,
+          "norm": 109.0,
+          "inner_prod": 4.470703125,
+          "token": " techniques",
+          "kl_divergence": 0.0014186217449605465,
+          "logit_cosine": 0.9998040795326233
+        },
+        {
+          "idx": 1044,
+          "cos": 0.03466796875,
+          "sae_act": 6.5,
+          "norm": 100.5,
+          "inner_prod": 3.484130859375,
+          "token": ",",
+          "kl_divergence": 0.003562138881534338,
+          "logit_cosine": 0.9985445141792297
+        },
+        {
+          "idx": 401,
+          "cos": 0.0247802734375,
+          "sae_act": 5.8125,
+          "norm": 106.5,
+          "inner_prod": 2.63909912109375,
+          "token": " Banks",
+          "kl_divergence": 0.006728976033627987,
+          "logit_cosine": 0.999776303768158
+        },
+        {
+          "idx": 122,
+          "cos": 0.031982421875,
+          "sae_act": 6.0,
+          "norm": 101.5,
+          "inner_prod": 3.2462158203125,
+          "token": "th",
+          "kl_divergence": 0.002257833257317543,
+          "logit_cosine": 0.9998403191566467
+        }
+      ],
+      "low_norm_misses": [
+        {
+          "idx": 499,
+          "cos": 0.06982421875,
+          "sae_act": 3.859375,
+          "norm": 93.5,
+          "inner_prod": 6.528564453125,
+          "token": " one",
+          "kl_divergence": 0.004920267034322023,
+          "logit_cosine": 0.9983657598495483
+        },
+        {
+          "idx": 462,
+          "cos": 0.0751953125,
+          "sae_act": 4.3125,
+          "norm": 88.0,
+          "inner_prod": 6.6171875,
+          "token": ".",
+          "kl_divergence": 0.010281315073370934,
+          "logit_cosine": 0.9961079359054565
+        },
+        {
+          "idx": 781,
+          "cos": 0.068359375,
+          "sae_act": 3.953125,
+          "norm": 138.0,
+          "inner_prod": 9.43359375,
+          "token": "head",
+          "kl_divergence": 0.008060854859650135,
+          "logit_cosine": 0.9996510148048401
+        },
+        {
+          "idx": 120,
+          "cos": 0.0654296875,
+          "sae_act": 3.703125,
+          "norm": 78.5,
+          "inner_prod": 5.13623046875,
+          "token": "1",
+          "kl_divergence": 0.003511514514684677,
+          "logit_cosine": 0.9993799924850464
+        },
+        {
+          "idx": 373,
+          "cos": 0.050048828125,
+          "sae_act": 2.390625,
+          "norm": 106.5,
+          "inner_prod": 5.3302001953125,
+          "token": " quick",
+          "kl_divergence": 0.00479391124099493,
+          "logit_cosine": 0.9991143941879272
+        }
+      ]
+    },
+    {
+      "feature_idx": 59854,
+      "n_active": 809,
+      "outlier_pairs": [
+        {
+          "high_cos_token": " States",
+          "low_cos_token": " is",
+          "high_cos": 0.08251953125,
+          "low_cos": -0.0125732421875,
+          "high_sae_act": 2.859375,
+          "low_sae_act": 2.6875,
+          "high_norm": 121.5,
+          "low_norm": 96.5,
+          "high_kl": 0.019302450120449066,
+          "low_kl": 0.0008975984528660774,
+          "high_logit_cos": 0.9993239641189575,
+          "low_logit_cos": 0.999920666217804,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " States",
+          "low_cos_token": " concise",
+          "high_cos": 0.08251953125,
+          "low_cos": 0.00090789794921875,
+          "high_sae_act": 2.859375,
+          "low_sae_act": 3.078125,
+          "high_norm": 121.5,
+          "low_norm": 103.5,
+          "high_kl": 0.019302450120449066,
+          "low_kl": 0.0003572906134650111,
+          "high_logit_cos": 0.9993239641189575,
+          "low_logit_cos": 0.9999060034751892,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": "1",
+          "low_cos_token": " simultaneously",
+          "high_cos": 0.07421875,
+          "low_cos": -0.003814697265625,
+          "high_sae_act": 3.875,
+          "low_sae_act": 3.40625,
+          "high_norm": 102.5,
+          "low_norm": 109.0,
+          "high_kl": 0.0013004086213186383,
+          "low_kl": 0.009016525000333786,
+          "high_logit_cos": 0.9988861083984375,
+          "low_logit_cos": 0.9995503425598145,
+          "rnh_correct": false
+        },
+        {
+          "high_cos_token": " Amazon",
+          "low_cos_token": "-blind",
+          "high_cos": 0.0888671875,
+          "low_cos": 0.0126953125,
+          "high_sae_act": 4.96875,
+          "low_sae_act": 4.78125,
+          "high_norm": 125.5,
+          "low_norm": 120.5,
+          "high_kl": 0.005670816637575626,
+          "low_kl": 8.532337960787117e-05,
+          "high_logit_cos": 0.9992386102676392,
+          "low_logit_cos": 0.9999498724937439,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": "akespeare",
+          "low_cos_token": " simultaneously",
+          "high_cos": 0.08984375,
+          "low_cos": 0.01397705078125,
+          "high_sae_act": 5.0625,
+          "low_sae_act": 4.84375,
+          "high_norm": 134.0,
+          "low_norm": 104.0,
+          "high_kl": 0.003844060003757477,
+          "low_kl": 0.0008834261097945273,
+          "high_logit_cos": 0.9996747970581055,
+          "low_logit_cos": 0.9997731447219849,
+          "rnh_correct": true
+        }
+      ],
+      "false_positives": [
+        {
+          "idx": 571,
+          "cos": 0.05078125,
+          "sae_act": 9.1875,
+          "norm": 126.5,
+          "inner_prod": 6.423828125,
+          "token": " trap",
+          "kl_divergence": 0.0016868654638528824,
+          "logit_cosine": 0.9996848106384277
+        },
+        {
+          "idx": 1005,
+          "cos": 0.0211181640625,
+          "sae_act": 5.84375,
+          "norm": 110.5,
+          "inner_prod": 2.33355712890625,
+          "token": " can",
+          "kl_divergence": 0.0007531065493822098,
+          "logit_cosine": 0.9998244643211365
+        },
+        {
+          "idx": 1011,
+          "cos": 0.0302734375,
+          "sae_act": 6.5,
+          "norm": 106.5,
+          "inner_prod": 3.22412109375,
+          "token": " allowing",
+          "kl_divergence": 0.0008102470310404897,
+          "logit_cosine": 0.9992303848266602
+        },
+        {
+          "idx": 448,
+          "cos": 0.031494140625,
+          "sae_act": 6.53125,
+          "norm": 116.0,
+          "inner_prod": 3.6533203125,
+          "token": " randomized",
+          "kl_divergence": 0.0005384963005781174,
+          "logit_cosine": 0.9994962811470032
+        },
+        {
+          "idx": 620,
+          "cos": 0.055419921875,
+          "sae_act": 8.9375,
+          "norm": 122.0,
+          "inner_prod": 6.76123046875,
+          "token": " uniquely",
+          "kl_divergence": 0.005917573347687721,
+          "logit_cosine": 0.9995750188827515
+        }
+      ],
+      "low_norm_misses": [
+        {
+          "idx": 626,
+          "cos": 0.06103515625,
+          "sae_act": 0.0,
+          "norm": 118.0,
+          "inner_prod": 7.2021484375,
+          "token": " human",
+          "kl_divergence": 0.007979298010468483,
+          "logit_cosine": 0.9994993209838867
+        },
+        {
+          "idx": 712,
+          "cos": 0.08251953125,
+          "sae_act": 2.859375,
+          "norm": 121.5,
+          "inner_prod": 10.026123046875,
+          "token": " States",
+          "kl_divergence": 0.019302450120449066,
+          "logit_cosine": 0.9993239641189575
+        },
+        {
+          "idx": 1020,
+          "cos": 0.05810546875,
+          "sae_act": 0.0,
+          "norm": 120.5,
+          "inner_prod": 7.001708984375,
+          "token": " Industrial",
+          "kl_divergence": 0.0050391945987939835,
+          "logit_cosine": 0.9997398853302002
+        },
+        {
+          "idx": 584,
+          "cos": 0.04638671875,
+          "sae_act": 0.0,
+          "norm": 105.0,
+          "inner_prod": 4.87060546875,
+          "token": ",",
+          "kl_divergence": 0.004482406657189131,
+          "logit_cosine": 0.9973993301391602
+        },
+        {
+          "idx": 179,
+          "cos": 0.0380859375,
+          "sae_act": 0.0,
+          "norm": 94.0,
+          "inner_prod": 3.580078125,
+          "token": ",",
+          "kl_divergence": 0.032519154250621796,
+          "logit_cosine": 0.9986777901649475
+        }
+      ]
+    },
+    {
+      "feature_idx": 63114,
+      "n_active": 724,
+      "outlier_pairs": [
+        {
+          "high_cos_token": " itself",
+          "low_cos_token": " United",
+          "high_cos": 0.08349609375,
+          "low_cos": 0.0005645751953125,
+          "high_sae_act": 4.71875,
+          "low_sae_act": 4.65625,
+          "high_norm": 100.5,
+          "low_norm": 99.0,
+          "high_kl": 0.1322157382965088,
+          "low_kl": 0.0019962266087532043,
+          "high_logit_cos": 0.9862001538276672,
+          "low_logit_cos": 0.9999042749404907,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " the",
+          "low_cos_token": " a",
+          "high_cos": 0.0810546875,
+          "low_cos": 0.0016326904296875,
+          "high_sae_act": 3.21875,
+          "low_sae_act": 2.859375,
+          "high_norm": 95.0,
+          "low_norm": 84.0,
+          "high_kl": 0.1636355221271515,
+          "low_kl": 0.0021847046446055174,
+          "high_logit_cos": 0.9738591313362122,
+          "low_logit_cos": 0.99989914894104,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " pivot",
+          "low_cos_token": " human",
+          "high_cos": 0.07421875,
+          "low_cos": -0.004150390625,
+          "high_sae_act": 2.140625,
+          "low_sae_act": 2.171875,
+          "high_norm": 85.5,
+          "low_norm": 118.0,
+          "high_kl": 0.0054242610931396484,
+          "low_kl": 0.0027700746431946754,
+          "high_logit_cos": 0.9984515309333801,
+          "low_logit_cos": 0.9998995661735535,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " the",
+          "low_cos_token": " general",
+          "high_cos": 0.0810546875,
+          "low_cos": 0.00390625,
+          "high_sae_act": 3.21875,
+          "low_sae_act": 3.109375,
+          "high_norm": 95.0,
+          "low_norm": 98.5,
+          "high_kl": 0.1636355221271515,
+          "low_kl": 0.001422856468707323,
+          "high_logit_cos": 0.9738591313362122,
+          "low_logit_cos": 0.9998549222946167,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " and",
+          "low_cos_token": " architecture",
+          "high_cos": 0.1259765625,
+          "low_cos": 0.050048828125,
+          "high_sae_act": 7.40625,
+          "low_sae_act": 6.8125,
+          "high_norm": 102.0,
+          "low_norm": 121.5,
+          "high_kl": 0.5864495038986206,
+          "low_kl": 0.006963455118238926,
+          "high_logit_cos": 0.8796935677528381,
+          "low_logit_cos": 0.9982632994651794,
+          "rnh_correct": true
+        }
+      ],
+      "false_positives": [
+        {
+          "idx": 711,
+          "cos": 0.0005645751953125,
+          "sae_act": 4.65625,
+          "norm": 99.0,
+          "inner_prod": 0.0558929443359375,
+          "token": " United",
+          "kl_divergence": 0.0019962266087532043,
+          "logit_cosine": 0.9999042749404907
+        },
+        {
+          "idx": 176,
+          "cos": 0.0263671875,
+          "sae_act": 5.65625,
+          "norm": 127.0,
+          "inner_prod": 3.3486328125,
+          "token": " upon",
+          "kl_divergence": 7.148582517402247e-05,
+          "logit_cosine": 0.9995753765106201
+        },
+        {
+          "idx": 816,
+          "cos": 0.03125,
+          "sae_act": 5.78125,
+          "norm": 97.5,
+          "inner_prod": 3.046875,
+          "token": " in",
+          "kl_divergence": 0.0033106375485658646,
+          "logit_cosine": 0.9954800605773926
+        },
+        {
+          "idx": 382,
+          "cos": 0.004852294921875,
+          "sae_act": 3.34375,
+          "norm": 80.5,
+          "inner_prod": 0.3906097412109375,
+          "token": "2",
+          "kl_divergence": 0.000587527989409864,
+          "logit_cosine": 0.9999231100082397
+        },
+        {
+          "idx": 421,
+          "cos": 0.03369140625,
+          "sae_act": 5.875,
+          "norm": 110.5,
+          "inner_prod": 3.722900390625,
+          "token": " a",
+          "kl_divergence": 0.007621400989592075,
+          "logit_cosine": 0.9984703660011292
+        }
+      ],
+      "low_norm_misses": [
+        {
+          "idx": 789,
+          "cos": 0.0595703125,
+          "sae_act": 0.0,
+          "norm": 106.5,
+          "inner_prod": 6.34423828125,
+          "token": "init",
+          "kl_divergence": 0.016753019765019417,
+          "logit_cosine": 0.9959958791732788
+        },
+        {
+          "idx": 359,
+          "cos": 0.05615234375,
+          "sae_act": 0.0,
+          "norm": 90.0,
+          "inner_prod": 5.0537109375,
+          "token": " if",
+          "kl_divergence": 0.004174127243459225,
+          "logit_cosine": 0.9992454051971436
+        },
+        {
+          "idx": 352,
+          "cos": 0.0458984375,
+          "sae_act": 0.0,
+          "norm": 89.5,
+          "inner_prod": 4.10791015625,
+          "token": " =",
+          "kl_divergence": 0.007680587470531464,
+          "logit_cosine": 0.998457670211792
+        },
+        {
+          "idx": 360,
+          "cos": 0.052734375,
+          "sae_act": 0.0,
+          "norm": 91.0,
+          "inner_prod": 4.798828125,
+          "token": " x",
+          "kl_divergence": 0.004808105528354645,
+          "logit_cosine": 0.9985706806182861
+        },
+        {
+          "idx": 362,
+          "cos": 0.07421875,
+          "sae_act": 2.140625,
+          "norm": 85.5,
+          "inner_prod": 6.345703125,
+          "token": " pivot",
+          "kl_divergence": 0.0054242610931396484,
+          "logit_cosine": 0.9984515309333801
+        }
+      ]
+    },
+    {
+      "feature_idx": 27634,
+      "n_active": 569,
+      "outlier_pairs": [
+        {
+          "high_cos_token": ".",
+          "low_cos_token": " cat",
+          "high_cos": 0.69921875,
+          "low_cos": 0.451171875,
+          "high_sae_act": 6.6875,
+          "low_sae_act": 6.15625,
+          "high_norm": 82.5,
+          "low_norm": 132.0,
+          "high_kl": 4.2479095458984375,
+          "low_kl": 0.20142513513565063,
+          "high_logit_cos": 0.741670548915863,
+          "low_logit_cos": 0.9801673889160156,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": ".",
+          "low_cos_token": " rain",
+          "high_cos": 0.6796875,
+          "low_cos": 0.4453125,
+          "high_sae_act": 5.34375,
+          "low_sae_act": 5.375,
+          "high_norm": 83.0,
+          "low_norm": 133.0,
+          "high_kl": 1.4445269107818604,
+          "low_kl": 0.6570615768432617,
+          "high_logit_cos": 0.8527216911315918,
+          "low_logit_cos": 0.951389729976654,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": ".",
+          "low_cos_token": " rain",
+          "high_cos": 0.6796875,
+          "low_cos": 0.4453125,
+          "high_sae_act": 5.34375,
+          "low_sae_act": 5.375,
+          "high_norm": 83.0,
+          "low_norm": 133.0,
+          "high_kl": 1.4445269107818604,
+          "low_kl": 0.6570615768432617,
+          "high_logit_cos": 0.8527216911315918,
+          "low_logit_cos": 0.951389729976654,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " The",
+          "low_cos_token": "line",
+          "high_cos": 0.66796875,
+          "low_cos": 0.435546875,
+          "high_sae_act": 2.71875,
+          "low_sae_act": 2.078125,
+          "high_norm": 81.0,
+          "low_norm": 125.5,
+          "high_kl": 1.966817855834961,
+          "low_kl": 0.17141249775886536,
+          "high_logit_cos": 0.7921022772789001,
+          "low_logit_cos": 0.9852778911590576,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": ".",
+          "low_cos_token": " d",
+          "high_cos": 0.6640625,
+          "low_cos": 0.44921875,
+          "high_sae_act": 4.0625,
+          "low_sae_act": 4.21875,
+          "high_norm": 83.0,
+          "low_norm": 124.5,
+          "high_kl": 6.720311164855957,
+          "low_kl": 0.06088496372103691,
+          "high_logit_cos": -0.22256961464881897,
+          "low_logit_cos": 0.9853570461273193,
+          "rnh_correct": true
+        }
+      ],
+      "false_positives": [
+        {
+          "idx": 982,
+          "cos": 0.50390625,
+          "sae_act": 14.875,
+          "norm": 140.0,
+          "inner_prod": 70.546875,
+          "token": " computing",
+          "kl_divergence": 0.07069247961044312,
+          "logit_cosine": 0.9662750363349915
+        },
+        {
+          "idx": 463,
+          "cos": 0.5390625,
+          "sae_act": 18.75,
+          "norm": 134.0,
+          "inner_prod": 72.234375,
+          "token": "akespeare",
+          "kl_divergence": 0.018576160073280334,
+          "logit_cosine": 0.9944194555282593
+        },
+        {
+          "idx": 295,
+          "cos": 0.482421875,
+          "sae_act": 8.875,
+          "norm": 127.5,
+          "inner_prod": 61.5087890625,
+          "token": "sort",
+          "kl_divergence": 0.5639819502830505,
+          "logit_cosine": 0.982170045375824
+        },
+        {
+          "idx": 173,
+          "cos": 0.52734375,
+          "sae_act": 13.8125,
+          "norm": 127.0,
+          "inner_prod": 66.97265625,
+          "token": "fit",
+          "kl_divergence": 0.13514629006385803,
+          "logit_cosine": 0.9009367823600769
+        },
+        {
+          "idx": 216,
+          "cos": 0.54296875,
+          "sae_act": 17.875,
+          "norm": 130.0,
+          "inner_prod": 70.5859375,
+          "token": " mitochond",
+          "kl_divergence": 0.017693959176540375,
+          "logit_cosine": 0.9909794926643372
+        }
+      ],
+      "low_norm_misses": [
+        {
+          "idx": 704,
+          "cos": 0.6015625,
+          "sae_act": 0.0,
+          "norm": 85.5,
+          "inner_prod": 51.43359375,
+          "token": ",",
+          "kl_divergence": 1.5641058683395386,
+          "logit_cosine": 0.495151549577713
+        },
+        {
+          "idx": 847,
+          "cos": 0.6328125,
+          "sae_act": 0.0,
+          "norm": 81.0,
+          "inner_prod": 51.2578125,
+          "token": " the",
+          "kl_divergence": 1.1947468519210815,
+          "logit_cosine": 0.7221916913986206
+        },
+        {
+          "idx": 679,
+          "cos": 0.63671875,
+          "sae_act": 0.0,
+          "norm": 82.5,
+          "inner_prod": 52.529296875,
+          "token": " The",
+          "kl_divergence": 5.27283239364624,
+          "logit_cosine": 0.49091553688049316
+        },
+        {
+          "idx": 819,
+          "cos": 0.578125,
+          "sae_act": 0.0,
+          "norm": 92.0,
+          "inner_prod": 53.1875,
+          "token": ":",
+          "kl_divergence": 0.1977105736732483,
+          "logit_cosine": 0.9076688885688782
+        },
+        {
+          "idx": 41,
+          "cos": 0.5859375,
+          "sae_act": 0.0,
+          "norm": 86.0,
+          "inner_prod": 50.390625,
+          "token": ",",
+          "kl_divergence": 1.853915810585022,
+          "logit_cosine": 0.878862738609314
+        }
+      ]
+    },
+    {
+      "feature_idx": 34587,
+      "n_active": 539,
+      "outlier_pairs": [
+        {
+          "high_cos_token": " late",
+          "low_cos_token": " trading",
+          "high_cos": 0.1005859375,
+          "low_cos": 0.042236328125,
+          "high_sae_act": 5.84375,
+          "low_sae_act": 5.15625,
+          "high_norm": 99.5,
+          "low_norm": 111.0,
+          "high_kl": 0.005064715631306171,
+          "low_kl": 0.00565701350569725,
+          "high_logit_cos": 0.9955324530601501,
+          "low_logit_cos": 0.9996514916419983,
+          "rnh_correct": false
+        },
+        {
+          "high_cos_token": " century",
+          "low_cos_token": " dead",
+          "high_cos": 0.076171875,
+          "low_cos": 0.0216064453125,
+          "high_sae_act": 2.84375,
+          "low_sae_act": 2.84375,
+          "high_norm": 98.0,
+          "low_norm": 119.0,
+          "high_kl": 0.0071272533386945724,
+          "low_kl": 0.002845401642844081,
+          "high_logit_cos": 0.99837726354599,
+          "low_logit_cos": 0.9997258186340332,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " century",
+          "low_cos_token": " dead",
+          "high_cos": 0.076171875,
+          "low_cos": 0.0216064453125,
+          "high_sae_act": 2.84375,
+          "low_sae_act": 2.84375,
+          "high_norm": 98.0,
+          "low_norm": 119.0,
+          "high_kl": 0.0071272533386945724,
+          "low_kl": 0.002845401642844081,
+          "high_logit_cos": 0.99837726354599,
+          "low_logit_cos": 0.9997258186340332,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " late",
+          "low_cos_token": " textile",
+          "high_cos": 0.12158203125,
+          "low_cos": 0.0703125,
+          "high_sae_act": 8.4375,
+          "low_sae_act": 7.25,
+          "high_norm": 103.5,
+          "low_norm": 118.5,
+          "high_kl": 0.000811504025477916,
+          "low_kl": 0.003625780576840043,
+          "high_logit_cos": 0.9985435009002686,
+          "low_logit_cos": 0.9969098567962646,
+          "rnh_correct": false
+        },
+        {
+          "high_cos_token": " in",
+          "low_cos_token": " box",
+          "high_cos": 0.10400390625,
+          "low_cos": 0.053466796875,
+          "high_sae_act": 6.0,
+          "low_sae_act": 5.46875,
+          "high_norm": 99.0,
+          "low_norm": 116.5,
+          "high_kl": 0.006644117645919323,
+          "low_kl": 0.013635724782943726,
+          "high_logit_cos": 0.9964190125465393,
+          "low_logit_cos": 0.9993711709976196,
+          "rnh_correct": false
+        }
+      ],
+      "false_positives": [],
+      "low_norm_misses": [
+        {
+          "idx": 733,
+          "cos": 0.0439453125,
+          "sae_act": 0.0,
+          "norm": 90.0,
+          "inner_prod": 3.955078125,
+          "token": ".",
+          "kl_divergence": 0.0808684453368187,
+          "logit_cosine": 0.9534898996353149
+        },
+        {
+          "idx": 464,
+          "cos": 0.04296875,
+          "sae_act": 0.0,
+          "norm": 98.0,
+          "inner_prod": 4.2109375,
+          "token": " wrote",
+          "kl_divergence": 0.004135990049690008,
+          "logit_cosine": 0.9973616003990173
+        },
+        {
+          "idx": 631,
+          "cos": 0.05224609375,
+          "sae_act": 0.0,
+          "norm": 79.5,
+          "inner_prod": 4.153564453125,
+          "token": "3",
+          "kl_divergence": 0.0022798352874815464,
+          "logit_cosine": 0.9987165331840515
+        },
+        {
+          "idx": 782,
+          "cos": 0.04296875,
+          "sae_act": 0.0,
+          "norm": 99.0,
+          "inner_prod": 4.25390625,
+          "token": ",",
+          "kl_divergence": 0.006845441181212664,
+          "logit_cosine": 0.9969315528869629
+        },
+        {
+          "idx": 762,
+          "cos": 0.03955078125,
+          "sae_act": 0.0,
+          "norm": 105.0,
+          "inner_prod": 4.15283203125,
+          "token": " as",
+          "kl_divergence": 0.007684662472456694,
+          "logit_cosine": 0.9995129108428955
+        }
+      ]
+    },
+    {
+      "feature_idx": 10935,
+      "n_active": 500,
+      "outlier_pairs": [
+        {
+          "high_cos_token": ".",
+          "low_cos_token": " Activation",
+          "high_cos": 0.166015625,
+          "low_cos": 0.048828125,
+          "high_sae_act": 5.53125,
+          "low_sae_act": 5.0,
+          "high_norm": 91.5,
+          "low_norm": 120.0,
+          "high_kl": 0.13259342312812805,
+          "low_kl": 0.025141913443803787,
+          "high_logit_cos": 0.8934413194656372,
+          "low_logit_cos": 0.9976809620857239,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": ".",
+          "low_cos_token": " reactions",
+          "high_cos": 0.166015625,
+          "low_cos": 0.0498046875,
+          "high_sae_act": 5.53125,
+          "low_sae_act": 5.40625,
+          "high_norm": 91.5,
+          "low_norm": 115.0,
+          "high_kl": 0.13259342312812805,
+          "low_kl": 0.019900161772966385,
+          "high_logit_cos": 0.8934413194656372,
+          "low_logit_cos": 0.9942154884338379,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": ".",
+          "low_cos_token": " Activation",
+          "high_cos": 0.154296875,
+          "low_cos": 0.048828125,
+          "high_sae_act": 4.90625,
+          "low_sae_act": 5.0,
+          "high_norm": 95.5,
+          "low_norm": 120.0,
+          "high_kl": 0.18589691817760468,
+          "low_kl": 0.025141913443803787,
+          "high_logit_cos": 0.9548721313476562,
+          "low_logit_cos": 0.9976809620857239,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " and",
+          "low_cos_token": " derivatives",
+          "high_cos": 0.125,
+          "low_cos": 0.0233154296875,
+          "high_sae_act": 3.53125,
+          "low_sae_act": 3.25,
+          "high_norm": 91.5,
+          "low_norm": 111.5,
+          "high_kl": 0.08444377779960632,
+          "low_kl": 0.006097413599491119,
+          "high_logit_cos": 0.9884282350540161,
+          "low_logit_cos": 0.9988232254981995,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": ".",
+          "low_cos_token": "-dependent",
+          "high_cos": 0.1533203125,
+          "low_cos": 0.0517578125,
+          "high_sae_act": 4.46875,
+          "low_sae_act": 4.40625,
+          "high_norm": 92.0,
+          "low_norm": 116.5,
+          "high_kl": 0.3571077585220337,
+          "low_kl": 0.270510733127594,
+          "high_logit_cos": 0.9342659711837769,
+          "low_logit_cos": 0.996694803237915,
+          "rnh_correct": true
+        }
+      ],
+      "false_positives": [
+        {
+          "idx": 398,
+          "cos": 0.0023040771484375,
+          "sae_act": 2.6875,
+          "norm": 121.0,
+          "inner_prod": 0.2787933349609375,
+          "token": " financial",
+          "kl_divergence": 0.0006859912537038326,
+          "logit_cosine": 0.9998825192451477
+        },
+        {
+          "idx": 399,
+          "cos": 0.0233154296875,
+          "sae_act": 3.25,
+          "norm": 111.5,
+          "inner_prod": 2.59967041015625,
+          "token": " derivatives",
+          "kl_divergence": 0.006097413599491119,
+          "logit_cosine": 0.9988232254981995
+        },
+        {
+          "idx": 1047,
+          "cos": 0.0201416015625,
+          "sae_act": 2.875,
+          "norm": 118.5,
+          "inner_prod": 2.38677978515625,
+          "token": " textile",
+          "kl_divergence": 0.002874903380870819,
+          "logit_cosine": 0.9991987347602844
+        },
+        {
+          "idx": 245,
+          "cos": 0.0252685546875,
+          "sae_act": 3.25,
+          "norm": 120.5,
+          "inner_prod": 3.04486083984375,
+          "token": " electron",
+          "kl_divergence": 0.005651889368891716,
+          "logit_cosine": 0.9979907870292664
+        },
+        {
+          "idx": 707,
+          "cos": 0.0252685546875,
+          "sae_act": 3.15625,
+          "norm": 103.5,
+          "inner_prod": 2.61529541015625,
+          "token": " the",
+          "kl_divergence": 0.03663776442408562,
+          "logit_cosine": 0.9982169270515442
+        }
+      ],
+      "low_norm_misses": [
+        {
+          "idx": 942,
+          "cos": 0.09765625,
+          "sae_act": 0.0,
+          "norm": 100.0,
+          "inner_prod": 9.765625,
+          "token": " covers",
+          "kl_divergence": 0.1997813731431961,
+          "logit_cosine": 0.99040687084198
+        },
+        {
+          "idx": 421,
+          "cos": 0.0732421875,
+          "sae_act": 0.0,
+          "norm": 110.5,
+          "inner_prod": 8.09326171875,
+          "token": " a",
+          "kl_divergence": 0.044652026146650314,
+          "logit_cosine": 0.9875019192695618
+        },
+        {
+          "idx": 476,
+          "cos": 0.08349609375,
+          "sae_act": 0.0,
+          "norm": 87.5,
+          "inner_prod": 7.305908203125,
+          "token": ".",
+          "kl_divergence": 0.44418585300445557,
+          "logit_cosine": 0.748916745185852
+        },
+        {
+          "idx": 425,
+          "cos": 0.08837890625,
+          "sae_act": 0.0,
+          "norm": 107.0,
+          "inner_prod": 9.45654296875,
+          "token": " researchers",
+          "kl_divergence": 0.31490522623062134,
+          "logit_cosine": 0.9671428203582764
+        },
+        {
+          "idx": 431,
+          "cos": 0.068359375,
+          "sae_act": 0.0,
+          "norm": 102.5,
+          "inner_prod": 7.0068359375,
+          "token": " reduced",
+          "kl_divergence": 0.039458099752664566,
+          "logit_cosine": 0.9959296584129333
+        }
+      ]
+    },
+    {
+      "feature_idx": 3459,
+      "n_active": 466,
+      "outlier_pairs": [
+        {
+          "high_cos_token": ")\n",
+          "low_cos_token": " textile",
+          "high_cos": 0.0693359375,
+          "low_cos": -0.02099609375,
+          "high_sae_act": 4.96875,
+          "low_sae_act": 4.65625,
+          "high_norm": 91.0,
+          "low_norm": 118.5,
+          "high_kl": 0.2832987606525421,
+          "low_kl": 0.002138638636097312,
+          "high_logit_cos": 0.9951968789100647,
+          "low_logit_cos": 0.9997949600219727,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": "().__",
+          "low_cos_token": " textile",
+          "high_cos": 0.0625,
+          "low_cos": -0.02099609375,
+          "high_sae_act": 4.53125,
+          "low_sae_act": 4.65625,
+          "high_norm": 94.5,
+          "low_norm": 118.5,
+          "high_kl": 0.012792190536856651,
+          "low_kl": 0.002138638636097312,
+          "high_logit_cos": 0.9985873699188232,
+          "low_logit_cos": 0.9997949600219727,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " x",
+          "low_cos_token": " fe",
+          "high_cos": 0.0654296875,
+          "low_cos": -0.014892578125,
+          "high_sae_act": 3.515625,
+          "low_sae_act": 3.390625,
+          "high_norm": 91.0,
+          "low_norm": 111.0,
+          "high_kl": 0.010998853482306004,
+          "low_kl": 0.005030753090977669,
+          "high_logit_cos": 0.9969224333763123,
+          "low_logit_cos": 0.9993577599525452,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " x",
+          "low_cos_token": " housing",
+          "high_cos": 0.0654296875,
+          "low_cos": -0.014404296875,
+          "high_sae_act": 3.515625,
+          "low_sae_act": 3.484375,
+          "high_norm": 91.0,
+          "low_norm": 114.0,
+          "high_kl": 0.010998853482306004,
+          "low_kl": 0.002470063976943493,
+          "high_logit_cos": 0.9969224333763123,
+          "low_logit_cos": 0.9996193051338196,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " if",
+          "low_cos_token": " sm",
+          "high_cos": 0.060302734375,
+          "low_cos": -0.016357421875,
+          "high_sae_act": 4.28125,
+          "low_sae_act": 4.03125,
+          "high_norm": 90.0,
+          "low_norm": 110.0,
+          "high_kl": 0.025626804679632187,
+          "low_kl": 0.002183698583394289,
+          "high_logit_cos": 0.9925934076309204,
+          "low_logit_cos": 0.9997153878211975,
+          "rnh_correct": true
+        }
+      ],
+      "false_positives": [
+        {
+          "idx": 1047,
+          "cos": -0.02099609375,
+          "sae_act": 4.65625,
+          "norm": 118.5,
+          "inner_prod": -2.488037109375,
+          "token": " textile",
+          "kl_divergence": 0.002138638636097312,
+          "logit_cosine": 0.9997949600219727
+        },
+        {
+          "idx": 1053,
+          "cos": -0.019775390625,
+          "sae_act": 4.625,
+          "norm": 113.0,
+          "inner_prod": -2.234619140625,
+          "token": "el",
+          "kl_divergence": 0.004760323092341423,
+          "logit_cosine": 0.9998735785484314
+        },
+        {
+          "idx": 489,
+          "cos": -0.01409912109375,
+          "sae_act": 4.375,
+          "norm": 120.5,
+          "inner_prod": -1.698944091796875,
+          "token": "uding",
+          "kl_divergence": 0.00426262803375721,
+          "logit_cosine": 0.9998393058776855
+        },
+        {
+          "idx": 1052,
+          "cos": -0.016357421875,
+          "sae_act": 4.03125,
+          "norm": 110.0,
+          "inner_prod": -1.79931640625,
+          "token": " sm",
+          "kl_divergence": 0.002183698583394289,
+          "logit_cosine": 0.9997153878211975
+        }
+      ],
+      "low_norm_misses": [
+        {
+          "idx": 356,
+          "cos": 0.038330078125,
+          "sae_act": 0.0,
+          "norm": 92.0,
+          "inner_prod": 3.5263671875,
+          "token": " x",
+          "kl_divergence": 0.03735166788101196,
+          "logit_cosine": 0.998073399066925
+        },
+        {
+          "idx": 609,
+          "cos": 0.03955078125,
+          "sae_act": 0.0,
+          "norm": 97.0,
+          "inner_prod": 3.83642578125,
+          "token": " The",
+          "kl_divergence": 0.002765886252745986,
+          "logit_cosine": 0.9993593096733093
+        },
+        {
+          "idx": 375,
+          "cos": 0.0322265625,
+          "sae_act": 0.0,
+          "norm": 85.5,
+          "inner_prod": 2.75537109375,
+          "token": "(right",
+          "kl_divergence": 0.0052378010004758835,
+          "logit_cosine": 0.999347448348999
+        },
+        {
+          "idx": 376,
+          "cos": 0.031982421875,
+          "sae_act": 0.0,
+          "norm": 93.5,
+          "inner_prod": 2.9903564453125,
+          "token": ")",
+          "kl_divergence": 0.0916069969534874,
+          "logit_cosine": 0.9983590841293335
+        },
+        {
+          "idx": 597,
+          "cos": 0.04296875,
+          "sae_act": 0.0,
+          "norm": 120.0,
+          "inner_prod": 5.15625,
+          "token": " has",
+          "kl_divergence": 0.0164506696164608,
+          "logit_cosine": 0.9967360496520996
+        }
+      ]
+    },
+    {
+      "feature_idx": 33257,
+      "n_active": 395,
+      "outlier_pairs": [],
+      "false_positives": [],
+      "low_norm_misses": [
+        {
+          "idx": 463,
+          "cos": 0.01220703125,
+          "sae_act": 0.0,
+          "norm": 134.0,
+          "inner_prod": 1.6357421875,
+          "token": "akespeare",
+          "kl_divergence": 0.0009108129888772964,
+          "logit_cosine": 0.9999578595161438
+        },
+        {
+          "idx": 515,
+          "cos": 0.015380859375,
+          "sae_act": 0.0,
+          "norm": 116.0,
+          "inner_prod": 1.7841796875,
+          "token": " layers",
+          "kl_divergence": 0.003609750419855118,
+          "logit_cosine": 0.9998354911804199
+        },
+        {
+          "idx": 509,
+          "cos": 0.01007080078125,
+          "sae_act": 0.0,
+          "norm": 120.0,
+          "inner_prod": 1.20849609375,
+          "token": " neural",
+          "kl_divergence": 0.0006326246075332165,
+          "logit_cosine": 0.999895453453064
+        },
+        {
+          "idx": 843,
+          "cos": 0.00946044921875,
+          "sae_act": 0.0,
+          "norm": 111.0,
+          "inner_prod": 1.05010986328125,
+          "token": " pressures",
+          "kl_divergence": 0.0050202347338199615,
+          "logit_cosine": 0.9996806979179382
+        },
+        {
+          "idx": 764,
+          "cos": 0.0206298828125,
+          "sae_act": 0.0,
+          "norm": 105.0,
+          "inner_prod": 2.1661376953125,
+          "token": "\n\n",
+          "kl_divergence": 0.0024353773333132267,
+          "logit_cosine": 0.9986571073532104
+        }
+      ]
+    },
+    {
+      "feature_idx": 14202,
+      "n_active": 374,
+      "outlier_pairs": [
+        {
+          "high_cos_token": ",",
+          "low_cos_token": "ynthesis",
+          "high_cos": 0.1259765625,
+          "low_cos": 0.061279296875,
+          "high_sae_act": 5.1875,
+          "low_sae_act": 4.8125,
+          "high_norm": 92.0,
+          "low_norm": 139.0,
+          "high_kl": 0.02573178894817829,
+          "low_kl": 0.0014091210905462503,
+          "high_logit_cos": 0.9934812784194946,
+          "low_logit_cos": 0.9997354745864868,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": ",",
+          "low_cos_token": "ynthesis",
+          "high_cos": 0.1259765625,
+          "low_cos": 0.061279296875,
+          "high_sae_act": 5.1875,
+          "low_sae_act": 4.8125,
+          "high_norm": 92.0,
+          "low_norm": 139.0,
+          "high_kl": 0.02573178894817829,
+          "low_kl": 0.0014091210905462503,
+          "high_logit_cos": 0.9934812784194946,
+          "low_logit_cos": 0.9997354745864868,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " and",
+          "low_cos_token": " Amazon",
+          "high_cos": 0.091796875,
+          "low_cos": 0.0341796875,
+          "high_sae_act": 2.703125,
+          "low_sae_act": 2.375,
+          "high_norm": 89.5,
+          "low_norm": 125.5,
+          "high_kl": 0.002741132862865925,
+          "low_kl": 0.0011942880228161812,
+          "high_logit_cos": 0.9986083507537842,
+          "low_logit_cos": 0.9997785091400146,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " two",
+          "low_cos_token": " cat",
+          "high_cos": 0.154296875,
+          "low_cos": 0.099609375,
+          "high_sae_act": 9.375,
+          "low_sae_act": 7.65625,
+          "high_norm": 102.5,
+          "low_norm": 132.0,
+          "high_kl": 0.09190434962511063,
+          "low_kl": 0.005202125757932663,
+          "high_logit_cos": 0.9936950206756592,
+          "low_logit_cos": 0.998988151550293,
+          "rnh_correct": true
+        },
+        {
+          "high_cos_token": " where",
+          "low_cos_token": " Amazon",
+          "high_cos": 0.08740234375,
+          "low_cos": 0.0341796875,
+          "high_sae_act": 2.25,
+          "low_sae_act": 2.375,
+          "high_norm": 92.5,
+          "low_norm": 125.5,
+          "high_kl": 0.0069455550983548164,
+          "low_kl": 0.0011942880228161812,
+          "high_logit_cos": 0.9993172883987427,
+          "low_logit_cos": 0.9997785091400146,
+          "rnh_correct": true
+        }
+      ],
+      "false_positives": [],
+      "low_norm_misses": [
+        {
+          "idx": 842,
+          "cos": 0.068359375,
+          "sae_act": 0.0,
+          "norm": 84.0,
+          "inner_prod": 5.7421875,
+          "token": " and",
+          "kl_divergence": 0.031629230827093124,
+          "logit_cosine": 0.9629026651382446
+        },
+        {
+          "idx": 844,
+          "cos": 0.06640625,
+          "sae_act": 0.0,
+          "norm": 88.0,
+          "inner_prod": 5.84375,
+          "token": ",",
+          "kl_divergence": 0.002043462358415127,
+          "logit_cosine": 0.9979729056358337
+        },
+        {
+          "idx": 450,
+          "cos": 0.06396484375,
+          "sae_act": 0.0,
+          "norm": 99.5,
+          "inner_prod": 6.364501953125,
+          "token": " with",
+          "kl_divergence": 0.0019231813494116068,
+          "logit_cosine": 0.9996533393859863
+        },
+        {
+          "idx": 851,
+          "cos": 0.0615234375,
+          "sae_act": 0.0,
+          "norm": 108.0,
+          "inner_prod": 6.64453125,
+          "token": " water",
+          "kl_divergence": 0.002304217778146267,
+          "logit_cosine": 0.9995883107185364
+        },
+        {
+          "idx": 459,
+          "cos": 0.0625,
+          "sae_act": 0.0,
+          "norm": 95.5,
+          "inner_prod": 5.96875,
+          "token": "2",
+          "kl_divergence": 0.0030252840369939804,
+          "logit_cosine": 0.9994307160377502
+        }
+      ]
+    }
+  ]
+}

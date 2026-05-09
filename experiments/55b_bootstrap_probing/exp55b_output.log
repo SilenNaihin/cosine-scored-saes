@@ -1,0 +1,3837 @@
+======================================================================
+Exp 55b: Bootstrap Sparse Probing Confidence Intervals
+Seeds: [42, 123, 456, 789, 1337]
+======================================================================
+
+============================================================
+SAE: standard
+============================================================
+
+  Seed 1/5: 42
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 202.53it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 42 epochs
+Test accuracy for 0: 0.9290000200271606
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 34 epochs
+Test accuracy for 1: 0.9570000171661377
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 37 epochs
+Test accuracy for 2: 0.9390000700950623
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 28 epochs
+Test accuracy for 6: 0.9790000319480896
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 9: 0.9580000638961792
+Num non-zero elements: 1
+Test accuracy for 0: 0.513
+Num non-zero elements: 1
+Test accuracy for 1: 0.781
+Num non-zero elements: 1
+Test accuracy for 2: 0.918
+Num non-zero elements: 1
+Test accuracy for 6: 0.556
+Num non-zero elements: 1
+Test accuracy for 9: 0.543
+Num non-zero elements: 2
+Test accuracy for 0: 0.589
+Num non-zero elements: 2
+Test accuracy for 1: 0.787
+Num non-zero elements: 2
+Test accuracy for 2: 0.906
+Num non-zero elements: 2
+Test accuracy for 6: 0.737
+Num non-zero elements: 2
+Test accuracy for 9: 0.567
+Num non-zero elements: 5
+Test accuracy for 0: 0.599
+Num non-zero elements: 5
+Test accuracy for 1: 0.792
+Num non-zero elements: 5
+Test accuracy for 2: 0.918
+Num non-zero elements: 5
+Test accuracy for 6: 0.983
+Num non-zero elements: 5
+Test accuracy for 9: 0.657
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for 11: 0.9490000605583191
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 44 epochs
+Test accuracy for 13: 0.9460000395774841
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 36 epochs
+Test accuracy for 14: 0.9410000443458557
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 35 epochs
+Test accuracy for 18: 0.8940000534057617
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 19: 0.9420000314712524
+Num non-zero elements: 1
+Test accuracy for 11: 0.527
+Num non-zero elements: 1
+Test accuracy for 13: 0.641
+Num non-zero elements: 1
+Test accuracy for 14: 0.808
+Num non-zero elements: 1
+Test accuracy for 18: 0.555
+Num non-zero elements: 1
+Test accuracy for 19: 0.562
+Num non-zero elements: 2
+Test accuracy for 11: 0.54
+Num non-zero elements: 2
+Test accuracy for 13: 0.631
+Num non-zero elements: 2
+Test accuracy for 14: 0.572
+Num non-zero elements: 2
+Test accuracy for 18: 0.541
+Num non-zero elements: 2
+Test accuracy for 19: 0.838
+Num non-zero elements: 5
+Test accuracy for 11: 0.636
+Num non-zero elements: 5
+Test accuracy for 13: 0.648
+Num non-zero elements: 5
+Test accuracy for 14: 0.827
+Num non-zero elements: 5
+Test accuracy for 18: 0.653
+Num non-zero elements: 5
+Test accuracy for 19: 0.851
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set3_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 35 epochs
+Test accuracy for 20: 0.9450000524520874
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 74 epochs
+Test accuracy for 21: 0.9230000376701355
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 42 epochs
+Test accuracy for 22: 0.9030000567436218
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for 25: 0.9470000267028809
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 40 epochs
+Test accuracy for 26: 0.8910000324249268
+Num non-zero elements: 1
+Test accuracy for 20: 0.817
+Num non-zero elements: 1
+Test accuracy for 21: 0.521
+Num non-zero elements: 1
+Test accuracy for 22: 0.489
+Num non-zero elements: 1
+Test accuracy for 25: 0.542
+Num non-zero elements: 1
+Test accuracy for 26: 0.575
+Num non-zero elements: 2
+Test accuracy for 20: 0.879
+Num non-zero elements: 2
+Test accuracy for 21: 0.583
+Num non-zero elements: 2
+Test accuracy for 22: 0.616
+Num non-zero elements: 2
+Test accuracy for 25: 0.553
+Num non-zero elements: 2
+Test accuracy for 26: 0.604
+Num non-zero elements: 5
+Test accuracy for 20: 0.912
+Num non-zero elements: 5
+Test accuracy for 21: 0.615
+Num non-zero elements: 5
+Test accuracy for 22: 0.85
+Num non-zero elements: 5
+Test accuracy for 25: 0.798
+Num non-zero elements: 5
+Test accuracy for 26: 0.65
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 33 epochs
+Test accuracy for 1: 0.9430000185966492
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 2: 0.9280000329017639
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 28 epochs
+Test accuracy for 3: 0.9070000648498535
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 37 epochs
+Test accuracy for 5: 0.9040000438690186
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 47 epochs
+Test accuracy for 6: 0.8630000352859497
+Num non-zero elements: 1
+Test accuracy for 1: 0.807
+Num non-zero elements: 1
+Test accuracy for 2: 0.794
+Num non-zero elements: 1
+Test accuracy for 3: 0.612
+Num non-zero elements: 1
+Test accuracy for 5: 0.76
+Num non-zero elements: 1
+Test accuracy for 6: 0.569
+Num non-zero elements: 2
+Test accuracy for 1: 0.866
+Num non-zero elements: 2
+Test accuracy for 2: 0.874
+Num non-zero elements: 2
+Test accuracy for 3: 0.683
+Num non-zero elements: 2
+Test accuracy for 5: 0.764
+Num non-zero elements: 2
+Test accuracy for 6: 0.643
+Num non-zero elements: 5
+Test accuracy for 1: 0.884
+Num non-zero elements: 5
+Test accuracy for 2: 0.886
+Num non-zero elements: 5
+Test accuracy for 3: 0.688
+Num non-zero elements: 5
+Test accuracy for 5: 0.865
+Num non-zero elements: 5
+Test accuracy for 6: 0.759
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_sentiment_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 58 epochs
+Test accuracy for 1.0: 0.9670000672340393
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 54 epochs
+Test accuracy for 5.0: 0.9670000672340393
+Num non-zero elements: 1
+Test accuracy for 1.0: 0.914
+Num non-zero elements: 1
+Test accuracy for 5.0: 0.914
+Num non-zero elements: 2
+Test accuracy for 1.0: 0.939
+Num non-zero elements: 2
+Test accuracy for 5.0: 0.939
+Num non-zero elements: 5
+Test accuracy for 1.0: 0.962
+Num non-zero elements: 5
+Test accuracy for 5.0: 0.962
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/codeparrot_github-code_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for C: 0.9310000538825989
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for Python: 0.9500000476837158
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 36 epochs
+Test accuracy for HTML: 0.9720000624656677
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for Java: 0.9250000715255737
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 34 epochs
+Test accuracy for PHP: 0.9460000395774841
+Num non-zero elements: 1
+Test accuracy for C: 0.461
+Num non-zero elements: 1
+Test accuracy for Python: 0.503
+Num non-zero elements: 1
+Test accuracy for HTML: 0.55
+Num non-zero elements: 1
+Test accuracy for Java: 0.5
+Num non-zero elements: 1
+Test accuracy for PHP: 0.565
+Num non-zero elements: 2
+Test accuracy for C: 0.525
+Num non-zero elements: 2
+Test accuracy for Python: 0.531
+Num non-zero elements: 2
+Test accuracy for HTML: 0.801
+Num non-zero elements: 2
+Test accuracy for Java: 0.636
+Num non-zero elements: 2
+Test accuracy for PHP: 0.549
+Num non-zero elements: 5
+Test accuracy for C: 0.621
+Num non-zero elements: 5
+Test accuracy for Python: 0.587
+Num non-zero elements: 5
+Test accuracy for HTML: 0.776
+Num non-zero elements: 5
+Test accuracy for Java: 0.619
+Num non-zero elements: 5
+Test accuracy for PHP: 0.589
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/fancyzhx_ag_news_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 22 epochs
+Test accuracy for 0: 0.9310000538825989
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 36 epochs
+Test accuracy for 1: 0.9800000190734863
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 39 epochs
+Test accuracy for 2: 0.9180000424385071
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 47 epochs
+Test accuracy for 3: 0.9530000686645508
+Num non-zero elements: 1
+Test accuracy for 0: 0.646
+Num non-zero elements: 1
+Test accuracy for 1: 0.958
+Num non-zero elements: 1
+Test accuracy for 2: 0.654
+Num non-zero elements: 1
+Test accuracy for 3: 0.577
+Num non-zero elements: 2
+Test accuracy for 0: 0.736
+Num non-zero elements: 2
+Test accuracy for 1: 0.96
+Num non-zero elements: 2
+Test accuracy for 2: 0.661
+Num non-zero elements: 2
+Test accuracy for 3: 0.687
+Num non-zero elements: 5
+Test accuracy for 0: 0.755
+Num non-zero elements: 5
+Test accuracy for 1: 0.958
+Num non-zero elements: 5
+Test accuracy for 2: 0.691
+Num non-zero elements: 5
+Test accuracy for 3: 0.697
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/Helsinki-NLP_europarl_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for en: 0.9900000691413879
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 34 epochs
+Test accuracy for fr: 0.9820000529289246
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 58 epochs
+Test accuracy for de: 0.9910000562667847
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for es: 0.9690000414848328
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for nl: 0.9810000658035278
+Num non-zero elements: 1
+Test accuracy for en: 0.605
+Num non-zero elements: 1
+Test accuracy for fr: 0.533
+Num non-zero elements: 1
+Test accuracy for de: 0.995
+Num non-zero elements: 1
+Test accuracy for es: 0.996
+Num non-zero elements: 1
+Test accuracy for nl: 0.556
+Num non-zero elements: 2
+Test accuracy for en: 0.705
+Num non-zero elements: 2
+Test accuracy for fr: 0.542
+Num non-zero elements: 2
+Test accuracy for de: 0.995
+Num non-zero elements: 2
+Test accuracy for es: 0.997
+Num non-zero elements: 2
+Test accuracy for nl: 0.55
+Num non-zero elements: 5
+Test accuracy for en: 0.804
+Num non-zero elements: 5
+Test accuracy for fr: 0.579
+Num non-zero elements: 5
+Test accuracy for de: 0.993
+Num non-zero elements: 5
+Test accuracy for es: 0.997
+Num non-zero elements: 5
+Test accuracy for nl: 0.672
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [04:35<00:00, 275.66s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [04:35<00:00, 275.66s/it]
+    Top-1: 0.6817 (292s)
+
+  Seed 2/5: 123
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 196.51it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for 0: 0.921000063419342
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 44 epochs
+Test accuracy for 1: 0.9580000638961792
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 33 epochs
+Test accuracy for 2: 0.9360000491142273
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 40 epochs
+Test accuracy for 6: 0.9810000658035278
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 9: 0.9640000462532043
+Num non-zero elements: 1
+Test accuracy for 0: 0.494
+Num non-zero elements: 1
+Test accuracy for 1: 0.782
+Num non-zero elements: 1
+Test accuracy for 2: 0.91
+Num non-zero elements: 1
+Test accuracy for 6: 0.572
+Num non-zero elements: 1
+Test accuracy for 9: 0.541
+Num non-zero elements: 2
+Test accuracy for 0: 0.589
+Num non-zero elements: 2
+Test accuracy for 1: 0.791
+Num non-zero elements: 2
+Test accuracy for 2: 0.907
+Num non-zero elements: 2
+Test accuracy for 6: 0.732
+Num non-zero elements: 2
+Test accuracy for 9: 0.582
+Num non-zero elements: 5
+Test accuracy for 0: 0.839
+Num non-zero elements: 5
+Test accuracy for 1: 0.785
+Num non-zero elements: 5
+Test accuracy for 2: 0.915
+Num non-zero elements: 5
+Test accuracy for 6: 0.933
+Num non-zero elements: 5
+Test accuracy for 9: 0.631
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 47 epochs
+Test accuracy for 11: 0.9570000171661377
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 39 epochs
+Test accuracy for 13: 0.9440000653266907
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 38 epochs
+Test accuracy for 14: 0.9380000233650208
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 45 epochs
+Test accuracy for 18: 0.9020000696182251
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 36 epochs
+Test accuracy for 19: 0.9480000734329224
+Num non-zero elements: 1
+Test accuracy for 11: 0.526
+Num non-zero elements: 1
+Test accuracy for 13: 0.622
+Num non-zero elements: 1
+Test accuracy for 14: 0.532
+Num non-zero elements: 1
+Test accuracy for 18: 0.529
+Num non-zero elements: 1
+Test accuracy for 19: 0.558
+Num non-zero elements: 2
+Test accuracy for 11: 0.541
+Num non-zero elements: 2
+Test accuracy for 13: 0.617
+Num non-zero elements: 2
+Test accuracy for 14: 0.587
+Num non-zero elements: 2
+Test accuracy for 18: 0.537
+Num non-zero elements: 2
+Test accuracy for 19: 0.838
+Num non-zero elements: 5
+Test accuracy for 11: 0.634
+Num non-zero elements: 5
+Test accuracy for 13: 0.635
+Num non-zero elements: 5
+Test accuracy for 14: 0.825
+Num non-zero elements: 5
+Test accuracy for 18: 0.661
+Num non-zero elements: 5
+Test accuracy for 19: 0.848
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set3_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 29 epochs
+Test accuracy for 20: 0.9450000524520874
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 45 epochs
+Test accuracy for 21: 0.9220000505447388
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for 22: 0.8990000486373901
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 41 epochs
+Test accuracy for 25: 0.9430000185966492
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 44 epochs
+Test accuracy for 26: 0.8850000500679016
+Num non-zero elements: 1
+Test accuracy for 20: 0.826
+Num non-zero elements: 1
+Test accuracy for 21: 0.525
+Num non-zero elements: 1
+Test accuracy for 22: 0.493
+Num non-zero elements: 1
+Test accuracy for 25: 0.543
+Num non-zero elements: 1
+Test accuracy for 26: 0.566
+Num non-zero elements: 2
+Test accuracy for 20: 0.878
+Num non-zero elements: 2
+Test accuracy for 21: 0.581
+Num non-zero elements: 2
+Test accuracy for 22: 0.822
+Num non-zero elements: 2
+Test accuracy for 25: 0.545
+Num non-zero elements: 2
+Test accuracy for 26: 0.614
+Num non-zero elements: 5
+Test accuracy for 20: 0.919
+Num non-zero elements: 5
+Test accuracy for 21: 0.766
+Num non-zero elements: 5
+Test accuracy for 22: 0.85
+Num non-zero elements: 5
+Test accuracy for 25: 0.795
+Num non-zero elements: 5
+Test accuracy for 26: 0.618
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 48 epochs
+Test accuracy for 1: 0.9420000314712524
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for 2: 0.9180000424385071
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for 3: 0.909000039100647
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for 5: 0.9080000519752502
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 34 epochs
+Test accuracy for 6: 0.8750000596046448
+Num non-zero elements: 1
+Test accuracy for 1: 0.802
+Num non-zero elements: 1
+Test accuracy for 2: 0.801
+Num non-zero elements: 1
+Test accuracy for 3: 0.599
+Num non-zero elements: 1
+Test accuracy for 5: 0.759
+Num non-zero elements: 1
+Test accuracy for 6: 0.579
+Num non-zero elements: 2
+Test accuracy for 1: 0.862
+Num non-zero elements: 2
+Test accuracy for 2: 0.866
+Num non-zero elements: 2
+Test accuracy for 3: 0.676
+Num non-zero elements: 2
+Test accuracy for 5: 0.765
+Num non-zero elements: 2
+Test accuracy for 6: 0.648
+Num non-zero elements: 5
+Test accuracy for 1: 0.885
+Num non-zero elements: 5
+Test accuracy for 2: 0.88
+Num non-zero elements: 5
+Test accuracy for 3: 0.71
+Num non-zero elements: 5
+Test accuracy for 5: 0.873
+Num non-zero elements: 5
+Test accuracy for 6: 0.769
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_sentiment_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 61 epochs
+Test accuracy for 1.0: 0.971000075340271
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 65 epochs
+Test accuracy for 5.0: 0.971000075340271
+Num non-zero elements: 1
+Test accuracy for 1.0: 0.914
+Num non-zero elements: 1
+Test accuracy for 5.0: 0.914
+Num non-zero elements: 2
+Test accuracy for 1.0: 0.939
+Num non-zero elements: 2
+Test accuracy for 5.0: 0.939
+Num non-zero elements: 5
+Test accuracy for 1.0: 0.962
+Num non-zero elements: 5
+Test accuracy for 5.0: 0.962
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/codeparrot_github-code_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 44 epochs
+Test accuracy for C: 0.9480000734329224
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 38 epochs
+Test accuracy for Python: 0.9670000672340393
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for HTML: 0.9720000624656677
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for Java: 0.9300000667572021
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 33 epochs
+Test accuracy for PHP: 0.9380000233650208
+Num non-zero elements: 1
+Test accuracy for C: 0.47
+Num non-zero elements: 1
+Test accuracy for Python: 0.503
+Num non-zero elements: 1
+Test accuracy for HTML: 0.547
+Num non-zero elements: 1
+Test accuracy for Java: 0.501
+Num non-zero elements: 1
+Test accuracy for PHP: 0.567
+Num non-zero elements: 2
+Test accuracy for C: 0.548
+Num non-zero elements: 2
+Test accuracy for Python: 0.523
+Num non-zero elements: 2
+Test accuracy for HTML: 0.785
+Num non-zero elements: 2
+Test accuracy for Java: 0.624
+Num non-zero elements: 2
+Test accuracy for PHP: 0.561
+Num non-zero elements: 5
+Test accuracy for C: 0.61
+Num non-zero elements: 5
+Test accuracy for Python: 0.581
+Num non-zero elements: 5
+Test accuracy for HTML: 0.796
+Num non-zero elements: 5
+Test accuracy for Java: 0.625
+Num non-zero elements: 5
+Test accuracy for PHP: 0.587
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/fancyzhx_ag_news_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 42 epochs
+Test accuracy for 0: 0.9350000619888306
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 30 epochs
+Test accuracy for 1: 0.971000075340271
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 35 epochs
+Test accuracy for 2: 0.9280000329017639
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 29 epochs
+Test accuracy for 3: 0.9310000538825989
+Num non-zero elements: 1
+Test accuracy for 0: 0.643
+Num non-zero elements: 1
+Test accuracy for 1: 0.956
+Num non-zero elements: 1
+Test accuracy for 2: 0.658
+Num non-zero elements: 1
+Test accuracy for 3: 0.558
+Num non-zero elements: 2
+Test accuracy for 0: 0.73
+Num non-zero elements: 2
+Test accuracy for 1: 0.96
+Num non-zero elements: 2
+Test accuracy for 2: 0.67
+Num non-zero elements: 2
+Test accuracy for 3: 0.619
+Num non-zero elements: 5
+Test accuracy for 0: 0.76
+Num non-zero elements: 5
+Test accuracy for 1: 0.962
+Num non-zero elements: 5
+Test accuracy for 2: 0.667
+Num non-zero elements: 5
+Test accuracy for 3: 0.685
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/Helsinki-NLP_europarl_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 19 epochs
+Test accuracy for en: 0.9880000352859497
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 29 epochs
+Test accuracy for fr: 0.9810000658035278
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 35 epochs
+Test accuracy for de: 0.9850000739097595
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 29 epochs
+Test accuracy for es: 0.9820000529289246
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 41 epochs
+Test accuracy for nl: 0.9890000224113464
+Num non-zero elements: 1
+Test accuracy for en: 0.615
+Num non-zero elements: 1
+Test accuracy for fr: 0.557
+Num non-zero elements: 1
+Test accuracy for de: 0.993
+Num non-zero elements: 1
+Test accuracy for es: 0.994
+Num non-zero elements: 1
+Test accuracy for nl: 0.554
+Num non-zero elements: 2
+Test accuracy for en: 0.698
+Num non-zero elements: 2
+Test accuracy for fr: 0.546
+Num non-zero elements: 2
+Test accuracy for de: 0.995
+Num non-zero elements: 2
+Test accuracy for es: 0.995
+Num non-zero elements: 2
+Test accuracy for nl: 0.55
+Num non-zero elements: 5
+Test accuracy for en: 0.797
+Num non-zero elements: 5
+Test accuracy for fr: 0.563
+Num non-zero elements: 5
+Test accuracy for de: 0.996
+Num non-zero elements: 5
+Test accuracy for es: 0.995
+Num non-zero elements: 5
+Test accuracy for nl: 0.679
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:51<00:00, 231.90s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:51<00:00, 231.90s/it]
+    Top-1: 0.6737 (248s)
+
+  Seed 3/5: 456
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 196.95it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 42 epochs
+Test accuracy for 0: 0.9360000491142273
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 34 epochs
+Test accuracy for 1: 0.9540000557899475
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 2: 0.9350000619888306
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 31 epochs
+Test accuracy for 6: 0.9760000705718994
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 28 epochs
+Test accuracy for 9: 0.9650000333786011
+Num non-zero elements: 1
+Test accuracy for 0: 0.513
+Num non-zero elements: 1
+Test accuracy for 1: 0.773
+Num non-zero elements: 1
+Test accuracy for 2: 0.911
+Num non-zero elements: 1
+Test accuracy for 6: 0.548
+Num non-zero elements: 1
+Test accuracy for 9: 0.54
+Num non-zero elements: 2
+Test accuracy for 0: 0.605
+Num non-zero elements: 2
+Test accuracy for 1: 0.795
+Num non-zero elements: 2
+Test accuracy for 2: 0.911
+Num non-zero elements: 2
+Test accuracy for 6: 0.741
+Num non-zero elements: 2
+Test accuracy for 9: 0.565
+Num non-zero elements: 5
+Test accuracy for 0: 0.83
+Num non-zero elements: 5
+Test accuracy for 1: 0.783
+Num non-zero elements: 5
+Test accuracy for 2: 0.919
+Num non-zero elements: 5
+Test accuracy for 6: 0.938
+Num non-zero elements: 5
+Test accuracy for 9: 0.65
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 26 epochs
+Test accuracy for 11: 0.9620000720024109
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for 13: 0.9340000152587891
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 37 epochs
+Test accuracy for 14: 0.9360000491142273
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 29 epochs
+Test accuracy for 18: 0.8910000324249268
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 19: 0.9420000314712524
+Num non-zero elements: 1
+Test accuracy for 11: 0.523
+Num non-zero elements: 1
+Test accuracy for 13: 0.624
+Num non-zero elements: 1
+Test accuracy for 14: 0.534
+Num non-zero elements: 1
+Test accuracy for 18: 0.547
+Num non-zero elements: 1
+Test accuracy for 19: 0.559
+Num non-zero elements: 2
+Test accuracy for 11: 0.534
+Num non-zero elements: 2
+Test accuracy for 13: 0.636
+Num non-zero elements: 2
+Test accuracy for 14: 0.81
+Num non-zero elements: 2
+Test accuracy for 18: 0.545
+Num non-zero elements: 2
+Test accuracy for 19: 0.843
+Num non-zero elements: 5
+Test accuracy for 11: 0.641
+Num non-zero elements: 5
+Test accuracy for 13: 0.628
+Num non-zero elements: 5
+Test accuracy for 14: 0.877
+Num non-zero elements: 5
+Test accuracy for 18: 0.66
+Num non-zero elements: 5
+Test accuracy for 19: 0.857
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set3_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 20: 0.9420000314712524
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 50 epochs
+Test accuracy for 21: 0.9220000505447388
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 41 epochs
+Test accuracy for 22: 0.9030000567436218
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 26 epochs
+Test accuracy for 25: 0.956000030040741
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 31 epochs
+Test accuracy for 26: 0.8760000467300415
+Num non-zero elements: 1
+Test accuracy for 20: 0.817
+Num non-zero elements: 1
+Test accuracy for 21: 0.53
+Num non-zero elements: 1
+Test accuracy for 22: 0.507
+Num non-zero elements: 1
+Test accuracy for 25: 0.538
+Num non-zero elements: 1
+Test accuracy for 26: 0.565
+Num non-zero elements: 2
+Test accuracy for 20: 0.893
+Num non-zero elements: 2
+Test accuracy for 21: 0.612
+Num non-zero elements: 2
+Test accuracy for 22: 0.827
+Num non-zero elements: 2
+Test accuracy for 25: 0.563
+Num non-zero elements: 2
+Test accuracy for 26: 0.597
+Num non-zero elements: 5
+Test accuracy for 20: 0.911
+Num non-zero elements: 5
+Test accuracy for 21: 0.607
+Num non-zero elements: 5
+Test accuracy for 22: 0.824
+Num non-zero elements: 5
+Test accuracy for 25: 0.79
+Num non-zero elements: 5
+Test accuracy for 26: 0.645
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for 1: 0.9390000700950623
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for 2: 0.9350000619888306
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 31 epochs
+Test accuracy for 3: 0.9010000228881836
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 36 epochs
+Test accuracy for 5: 0.9130000472068787
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 28 epochs
+Test accuracy for 6: 0.8570000529289246
+Num non-zero elements: 1
+Test accuracy for 1: 0.805
+Num non-zero elements: 1
+Test accuracy for 2: 0.798
+Num non-zero elements: 1
+Test accuracy for 3: 0.616
+Num non-zero elements: 1
+Test accuracy for 5: 0.764
+Num non-zero elements: 1
+Test accuracy for 6: 0.583
+Num non-zero elements: 2
+Test accuracy for 1: 0.856
+Num non-zero elements: 2
+Test accuracy for 2: 0.861
+Num non-zero elements: 2
+Test accuracy for 3: 0.69
+Num non-zero elements: 2
+Test accuracy for 5: 0.765
+Num non-zero elements: 2
+Test accuracy for 6: 0.655
+Num non-zero elements: 5
+Test accuracy for 1: 0.882
+Num non-zero elements: 5
+Test accuracy for 2: 0.888
+Num non-zero elements: 5
+Test accuracy for 3: 0.712
+Num non-zero elements: 5
+Test accuracy for 5: 0.869
+Num non-zero elements: 5
+Test accuracy for 6: 0.74
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_sentiment_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 49 epochs
+Test accuracy for 1.0: 0.9690000414848328
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 35 epochs
+Test accuracy for 5.0: 0.968000054359436
+Num non-zero elements: 1
+Test accuracy for 1.0: 0.914
+Num non-zero elements: 1
+Test accuracy for 5.0: 0.914
+Num non-zero elements: 2
+Test accuracy for 1.0: 0.939
+Num non-zero elements: 2
+Test accuracy for 5.0: 0.939
+Num non-zero elements: 5
+Test accuracy for 1.0: 0.962
+Num non-zero elements: 5
+Test accuracy for 5.0: 0.962
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/codeparrot_github-code_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 22 epochs
+Test accuracy for C: 0.9290000200271606
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 34 epochs
+Test accuracy for Python: 0.9640000462532043
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 31 epochs
+Test accuracy for HTML: 0.9780000448226929
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 22 epochs
+Test accuracy for Java: 0.909000039100647
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 28 epochs
+Test accuracy for PHP: 0.9410000443458557
+Num non-zero elements: 1
+Test accuracy for C: 0.48
+Num non-zero elements: 1
+Test accuracy for Python: 0.502
+Num non-zero elements: 1
+Test accuracy for HTML: 0.555
+Num non-zero elements: 1
+Test accuracy for Java: 0.5
+Num non-zero elements: 1
+Test accuracy for PHP: 0.565
+Num non-zero elements: 2
+Test accuracy for C: 0.544
+Num non-zero elements: 2
+Test accuracy for Python: 0.542
+Num non-zero elements: 2
+Test accuracy for HTML: 0.79
+Num non-zero elements: 2
+Test accuracy for Java: 0.622
+Num non-zero elements: 2
+Test accuracy for PHP: 0.575
+Num non-zero elements: 5
+Test accuracy for C: 0.621
+Num non-zero elements: 5
+Test accuracy for Python: 0.587
+Num non-zero elements: 5
+Test accuracy for HTML: 0.781
+Num non-zero elements: 5
+Test accuracy for Java: 0.621
+Num non-zero elements: 5
+Test accuracy for PHP: 0.587
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/fancyzhx_ag_news_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 39 epochs
+Test accuracy for 0: 0.9390000700950623
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 1: 0.968000054359436
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 60 epochs
+Test accuracy for 2: 0.9300000667572021
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for 3: 0.9490000605583191
+Num non-zero elements: 1
+Test accuracy for 0: 0.642
+Num non-zero elements: 1
+Test accuracy for 1: 0.961
+Num non-zero elements: 1
+Test accuracy for 2: 0.658
+Num non-zero elements: 1
+Test accuracy for 3: 0.571
+Num non-zero elements: 2
+Test accuracy for 0: 0.734
+Num non-zero elements: 2
+Test accuracy for 1: 0.956
+Num non-zero elements: 2
+Test accuracy for 2: 0.659
+Num non-zero elements: 2
+Test accuracy for 3: 0.607
+Num non-zero elements: 5
+Test accuracy for 0: 0.747
+Num non-zero elements: 5
+Test accuracy for 1: 0.958
+Num non-zero elements: 5
+Test accuracy for 2: 0.69
+Num non-zero elements: 5
+Test accuracy for 3: 0.701
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/Helsinki-NLP_europarl_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 30 epochs
+Test accuracy for en: 0.9920000433921814
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for fr: 0.9480000734329224
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for de: 0.9780000448226929
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 43 epochs
+Test accuracy for es: 0.984000027179718
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 31 epochs
+Test accuracy for nl: 0.9790000319480896
+Num non-zero elements: 1
+Test accuracy for en: 0.61
+Num non-zero elements: 1
+Test accuracy for fr: 0.554
+Num non-zero elements: 1
+Test accuracy for de: 0.5
+Num non-zero elements: 1
+Test accuracy for es: 0.995
+Num non-zero elements: 1
+Test accuracy for nl: 0.555
+Num non-zero elements: 2
+Test accuracy for en: 0.713
+Num non-zero elements: 2
+Test accuracy for fr: 0.561
+Num non-zero elements: 2
+Test accuracy for de: 0.993
+Num non-zero elements: 2
+Test accuracy for es: 0.995
+Num non-zero elements: 2
+Test accuracy for nl: 0.556
+Num non-zero elements: 5
+Test accuracy for en: 0.788
+Num non-zero elements: 5
+Test accuracy for fr: 0.578
+Num non-zero elements: 5
+Test accuracy for de: 0.993
+Num non-zero elements: 5
+Test accuracy for es: 0.996
+Num non-zero elements: 5
+Test accuracy for nl: 0.684
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:44<00:00, 224.71s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:44<00:00, 224.71s/it]
+    Top-1: 0.6630 (242s)
+
+  Seed 4/5: 789
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 186.91it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for 0: 0.9260000586509705
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 31 epochs
+Test accuracy for 1: 0.956000030040741
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for 2: 0.9390000700950623
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 28 epochs
+Test accuracy for 6: 0.9790000319480896
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 31 epochs
+Test accuracy for 9: 0.9690000414848328
+Num non-zero elements: 1
+Test accuracy for 0: 0.513
+Num non-zero elements: 1
+Test accuracy for 1: 0.788
+Num non-zero elements: 1
+Test accuracy for 2: 0.91
+Num non-zero elements: 1
+Test accuracy for 6: 0.573
+Num non-zero elements: 1
+Test accuracy for 9: 0.533
+Num non-zero elements: 2
+Test accuracy for 0: 0.591
+Num non-zero elements: 2
+Test accuracy for 1: 0.792
+Num non-zero elements: 2
+Test accuracy for 2: 0.909
+Num non-zero elements: 2
+Test accuracy for 6: 0.74
+Num non-zero elements: 2
+Test accuracy for 9: 0.576
+Num non-zero elements: 5
+Test accuracy for 0: 0.601
+Num non-zero elements: 5
+Test accuracy for 1: 0.785
+Num non-zero elements: 5
+Test accuracy for 2: 0.913
+Num non-zero elements: 5
+Test accuracy for 6: 0.938
+Num non-zero elements: 5
+Test accuracy for 9: 0.65
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 11: 0.9500000476837158
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for 13: 0.9380000233650208
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for 14: 0.9230000376701355
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 48 epochs
+Test accuracy for 18: 0.9140000343322754
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 49 epochs
+Test accuracy for 19: 0.9510000348091125
+Num non-zero elements: 1
+Test accuracy for 11: 0.53
+Num non-zero elements: 1
+Test accuracy for 13: 0.629
+Num non-zero elements: 1
+Test accuracy for 14: 0.521
+Num non-zero elements: 1
+Test accuracy for 18: 0.537
+Num non-zero elements: 1
+Test accuracy for 19: 0.564
+Num non-zero elements: 2
+Test accuracy for 11: 0.539
+Num non-zero elements: 2
+Test accuracy for 13: 0.639
+Num non-zero elements: 2
+Test accuracy for 14: 0.798
+Num non-zero elements: 2
+Test accuracy for 18: 0.552
+Num non-zero elements: 2
+Test accuracy for 19: 0.836
+Num non-zero elements: 5
+Test accuracy for 11: 0.639
+Num non-zero elements: 5
+Test accuracy for 13: 0.634
+Num non-zero elements: 5
+Test accuracy for 14: 0.832
+Num non-zero elements: 5
+Test accuracy for 18: 0.67
+Num non-zero elements: 5
+Test accuracy for 19: 0.858
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set3_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 28 epochs
+Test accuracy for 20: 0.9460000395774841
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 30 epochs
+Test accuracy for 21: 0.9160000681877136
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 34 epochs
+Test accuracy for 22: 0.9100000262260437
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 45 epochs
+Test accuracy for 25: 0.9530000686645508
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 26: 0.8920000195503235
+Num non-zero elements: 1
+Test accuracy for 20: 0.814
+Num non-zero elements: 1
+Test accuracy for 21: 0.525
+Num non-zero elements: 1
+Test accuracy for 22: 0.584
+Num non-zero elements: 1
+Test accuracy for 25: 0.533
+Num non-zero elements: 1
+Test accuracy for 26: 0.567
+Num non-zero elements: 2
+Test accuracy for 20: 0.897
+Num non-zero elements: 2
+Test accuracy for 21: 0.602
+Num non-zero elements: 2
+Test accuracy for 22: 0.486
+Num non-zero elements: 2
+Test accuracy for 25: 0.545
+Num non-zero elements: 2
+Test accuracy for 26: 0.609
+Num non-zero elements: 5
+Test accuracy for 20: 0.913
+Num non-zero elements: 5
+Test accuracy for 21: 0.605
+Num non-zero elements: 5
+Test accuracy for 22: 0.845
+Num non-zero elements: 5
+Test accuracy for 25: 0.805
+Num non-zero elements: 5
+Test accuracy for 26: 0.647
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for 1: 0.9440000653266907
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 34 epochs
+Test accuracy for 2: 0.9280000329017639
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 47 epochs
+Test accuracy for 3: 0.9290000200271606
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 5: 0.8740000128746033
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 43 epochs
+Test accuracy for 6: 0.8670000433921814
+Num non-zero elements: 1
+Test accuracy for 1: 0.806
+Num non-zero elements: 1
+Test accuracy for 2: 0.791
+Num non-zero elements: 1
+Test accuracy for 3: 0.609
+Num non-zero elements: 1
+Test accuracy for 5: 0.763
+Num non-zero elements: 1
+Test accuracy for 6: 0.575
+Num non-zero elements: 2
+Test accuracy for 1: 0.859
+Num non-zero elements: 2
+Test accuracy for 2: 0.867
+Num non-zero elements: 2
+Test accuracy for 3: 0.676
+Num non-zero elements: 2
+Test accuracy for 5: 0.763
+Num non-zero elements: 2
+Test accuracy for 6: 0.644
+Num non-zero elements: 5
+Test accuracy for 1: 0.878
+Num non-zero elements: 5
+Test accuracy for 2: 0.882
+Num non-zero elements: 5
+Test accuracy for 3: 0.725
+Num non-zero elements: 5
+Test accuracy for 5: 0.869
+Num non-zero elements: 5
+Test accuracy for 6: 0.734
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_sentiment_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 52 epochs
+Test accuracy for 1.0: 0.9650000333786011
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 52 epochs
+Test accuracy for 5.0: 0.9690000414848328
+Num non-zero elements: 1
+Test accuracy for 1.0: 0.914
+Num non-zero elements: 1
+Test accuracy for 5.0: 0.914
+Num non-zero elements: 2
+Test accuracy for 1.0: 0.939
+Num non-zero elements: 2
+Test accuracy for 5.0: 0.939
+Num non-zero elements: 5
+Test accuracy for 1.0: 0.962
+Num non-zero elements: 5
+Test accuracy for 5.0: 0.962
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/codeparrot_github-code_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 39 epochs
+Test accuracy for C: 0.940000057220459
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 43 epochs
+Test accuracy for Python: 0.9550000429153442
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for HTML: 0.9700000286102295
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for Java: 0.9100000262260437
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 29 epochs
+Test accuracy for PHP: 0.9330000281333923
+Num non-zero elements: 1
+Test accuracy for C: 0.455
+Num non-zero elements: 1
+Test accuracy for Python: 0.501
+Num non-zero elements: 1
+Test accuracy for HTML: 0.538
+Num non-zero elements: 1
+Test accuracy for Java: 0.5
+Num non-zero elements: 1
+Test accuracy for PHP: 0.581
+Num non-zero elements: 2
+Test accuracy for C: 0.55
+Num non-zero elements: 2
+Test accuracy for Python: 0.537
+Num non-zero elements: 2
+Test accuracy for HTML: 0.806
+Num non-zero elements: 2
+Test accuracy for Java: 0.611
+Num non-zero elements: 2
+Test accuracy for PHP: 0.571
+Num non-zero elements: 5
+Test accuracy for C: 0.6
+Num non-zero elements: 5
+Test accuracy for Python: 0.581
+Num non-zero elements: 5
+Test accuracy for HTML: 0.777
+Num non-zero elements: 5
+Test accuracy for Java: 0.617
+Num non-zero elements: 5
+Test accuracy for PHP: 0.642
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/fancyzhx_ag_news_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 43 epochs
+Test accuracy for 0: 0.9360000491142273
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 1: 0.9690000414848328
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 49 epochs
+Test accuracy for 2: 0.9230000376701355
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for 3: 0.9440000653266907
+Num non-zero elements: 1
+Test accuracy for 0: 0.646
+Num non-zero elements: 1
+Test accuracy for 1: 0.967
+Num non-zero elements: 1
+Test accuracy for 2: 0.662
+Num non-zero elements: 1
+Test accuracy for 3: 0.571
+Num non-zero elements: 2
+Test accuracy for 0: 0.727
+Num non-zero elements: 2
+Test accuracy for 1: 0.959
+Num non-zero elements: 2
+Test accuracy for 2: 0.655
+Num non-zero elements: 2
+Test accuracy for 3: 0.626
+Num non-zero elements: 5
+Test accuracy for 0: 0.803
+Num non-zero elements: 5
+Test accuracy for 1: 0.963
+Num non-zero elements: 5
+Test accuracy for 2: 0.671
+Num non-zero elements: 5
+Test accuracy for 3: 0.709
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/Helsinki-NLP_europarl_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 37 epochs
+Test accuracy for en: 0.9930000305175781
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 28 epochs
+Test accuracy for fr: 0.9780000448226929
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 49 epochs
+Test accuracy for de: 0.9820000529289246
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 44 epochs
+Test accuracy for es: 0.9890000224113464
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for nl: 0.9650000333786011
+Num non-zero elements: 1
+Test accuracy for en: 0.595
+Num non-zero elements: 1
+Test accuracy for fr: 0.549
+Num non-zero elements: 1
+Test accuracy for de: 0.993
+Num non-zero elements: 1
+Test accuracy for es: 0.995
+Num non-zero elements: 1
+Test accuracy for nl: 0.559
+Num non-zero elements: 2
+Test accuracy for en: 0.705
+Num non-zero elements: 2
+Test accuracy for fr: 0.565
+Num non-zero elements: 2
+Test accuracy for de: 0.994
+Num non-zero elements: 2
+Test accuracy for es: 0.994
+Num non-zero elements: 2
+Test accuracy for nl: 0.526
+Num non-zero elements: 5
+Test accuracy for en: 0.807
+Num non-zero elements: 5
+Test accuracy for fr: 0.559
+Num non-zero elements: 5
+Test accuracy for de: 0.994
+Num non-zero elements: 5
+Test accuracy for es: 0.995
+Num non-zero elements: 5
+Test accuracy for nl: 0.668
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:48<00:00, 228.76s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:48<00:00, 228.76s/it]
+    Top-1: 0.6765 (244s)
+
+  Seed 5/5: 1337
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 200.24it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 31 epochs
+Test accuracy for 0: 0.9330000281333923
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for 1: 0.9640000462532043
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 49 epochs
+Test accuracy for 2: 0.9440000653266907
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 35 epochs
+Test accuracy for 6: 0.9820000529289246
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 49 epochs
+Test accuracy for 9: 0.971000075340271
+Num non-zero elements: 1
+Test accuracy for 0: 0.519
+Num non-zero elements: 1
+Test accuracy for 1: 0.778
+Num non-zero elements: 1
+Test accuracy for 2: 0.916
+Num non-zero elements: 1
+Test accuracy for 6: 0.587
+Num non-zero elements: 1
+Test accuracy for 9: 0.526
+Num non-zero elements: 2
+Test accuracy for 0: 0.582
+Num non-zero elements: 2
+Test accuracy for 1: 0.788
+Num non-zero elements: 2
+Test accuracy for 2: 0.911
+Num non-zero elements: 2
+Test accuracy for 6: 0.735
+Num non-zero elements: 2
+Test accuracy for 9: 0.56
+Num non-zero elements: 5
+Test accuracy for 0: 0.834
+Num non-zero elements: 5
+Test accuracy for 1: 0.789
+Num non-zero elements: 5
+Test accuracy for 2: 0.91
+Num non-zero elements: 5
+Test accuracy for 6: 0.935
+Num non-zero elements: 5
+Test accuracy for 9: 0.66
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 36 epochs
+Test accuracy for 11: 0.9630000591278076
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 42 epochs
+Test accuracy for 13: 0.9430000185966492
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for 14: 0.9390000700950623
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 42 epochs
+Test accuracy for 18: 0.9050000309944153
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 46 epochs
+Test accuracy for 19: 0.9540000557899475
+Num non-zero elements: 1
+Test accuracy for 11: 0.528
+Num non-zero elements: 1
+Test accuracy for 13: 0.634
+Num non-zero elements: 1
+Test accuracy for 14: 0.516
+Num non-zero elements: 1
+Test accuracy for 18: 0.532
+Num non-zero elements: 1
+Test accuracy for 19: 0.568
+Num non-zero elements: 2
+Test accuracy for 11: 0.562
+Num non-zero elements: 2
+Test accuracy for 13: 0.629
+Num non-zero elements: 2
+Test accuracy for 14: 0.813
+Num non-zero elements: 2
+Test accuracy for 18: 0.547
+Num non-zero elements: 2
+Test accuracy for 19: 0.835
+Num non-zero elements: 5
+Test accuracy for 11: 0.639
+Num non-zero elements: 5
+Test accuracy for 13: 0.627
+Num non-zero elements: 5
+Test accuracy for 14: 0.839
+Num non-zero elements: 5
+Test accuracy for 18: 0.672
+Num non-zero elements: 5
+Test accuracy for 19: 0.855
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set3_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 20: 0.9260000586509705
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 49 epochs
+Test accuracy for 21: 0.9250000715255737
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 45 epochs
+Test accuracy for 22: 0.9110000729560852
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for 25: 0.956000030040741
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for 26: 0.878000020980835
+Num non-zero elements: 1
+Test accuracy for 20: 0.802
+Num non-zero elements: 1
+Test accuracy for 21: 0.514
+Num non-zero elements: 1
+Test accuracy for 22: 0.503
+Num non-zero elements: 1
+Test accuracy for 25: 0.538
+Num non-zero elements: 1
+Test accuracy for 26: 0.571
+Num non-zero elements: 2
+Test accuracy for 20: 0.881
+Num non-zero elements: 2
+Test accuracy for 21: 0.583
+Num non-zero elements: 2
+Test accuracy for 22: 0.487
+Num non-zero elements: 2
+Test accuracy for 25: 0.801
+Num non-zero elements: 2
+Test accuracy for 26: 0.607
+Num non-zero elements: 5
+Test accuracy for 20: 0.917
+Num non-zero elements: 5
+Test accuracy for 21: 0.759
+Num non-zero elements: 5
+Test accuracy for 22: 0.862
+Num non-zero elements: 5
+Test accuracy for 25: 0.794
+Num non-zero elements: 5
+Test accuracy for 26: 0.638
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 36 epochs
+Test accuracy for 1: 0.9430000185966492
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 28 epochs
+Test accuracy for 2: 0.9390000700950623
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 36 epochs
+Test accuracy for 3: 0.9150000214576721
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 33 epochs
+Test accuracy for 5: 0.9120000600814819
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 34 epochs
+Test accuracy for 6: 0.8740000128746033
+Num non-zero elements: 1
+Test accuracy for 1: 0.809
+Num non-zero elements: 1
+Test accuracy for 2: 0.794
+Num non-zero elements: 1
+Test accuracy for 3: 0.62
+Num non-zero elements: 1
+Test accuracy for 5: 0.762
+Num non-zero elements: 1
+Test accuracy for 6: 0.604
+Num non-zero elements: 2
+Test accuracy for 1: 0.858
+Num non-zero elements: 2
+Test accuracy for 2: 0.873
+Num non-zero elements: 2
+Test accuracy for 3: 0.691
+Num non-zero elements: 2
+Test accuracy for 5: 0.76
+Num non-zero elements: 2
+Test accuracy for 6: 0.62
+Num non-zero elements: 5
+Test accuracy for 1: 0.878
+Num non-zero elements: 5
+Test accuracy for 2: 0.885
+Num non-zero elements: 5
+Test accuracy for 3: 0.703
+Num non-zero elements: 5
+Test accuracy for 5: 0.864
+Num non-zero elements: 5
+Test accuracy for 6: 0.748
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_sentiment_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 33 epochs
+Test accuracy for 1.0: 0.9650000333786011
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 47 epochs
+Test accuracy for 5.0: 0.968000054359436
+Num non-zero elements: 1
+Test accuracy for 1.0: 0.914
+Num non-zero elements: 1
+Test accuracy for 5.0: 0.914
+Num non-zero elements: 2
+Test accuracy for 1.0: 0.939
+Num non-zero elements: 2
+Test accuracy for 5.0: 0.939
+Num non-zero elements: 5
+Test accuracy for 1.0: 0.962
+Num non-zero elements: 5
+Test accuracy for 5.0: 0.962
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/codeparrot_github-code_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for C: 0.8940000534057617
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for Python: 0.9270000457763672
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 47 epochs
+Test accuracy for HTML: 0.9750000238418579
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 19 epochs
+Test accuracy for Java: 0.9200000166893005
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 31 epochs
+Test accuracy for PHP: 0.9420000314712524
+Num non-zero elements: 1
+Test accuracy for C: 0.475
+Num non-zero elements: 1
+Test accuracy for Python: 0.503
+Num non-zero elements: 1
+Test accuracy for HTML: 0.568
+Num non-zero elements: 1
+Test accuracy for Java: 0.499
+Num non-zero elements: 1
+Test accuracy for PHP: 0.56
+Num non-zero elements: 2
+Test accuracy for C: 0.543
+Num non-zero elements: 2
+Test accuracy for Python: 0.535
+Num non-zero elements: 2
+Test accuracy for HTML: 0.797
+Num non-zero elements: 2
+Test accuracy for Java: 0.593
+Num non-zero elements: 2
+Test accuracy for PHP: 0.6
+Num non-zero elements: 5
+Test accuracy for C: 0.627
+Num non-zero elements: 5
+Test accuracy for Python: 0.587
+Num non-zero elements: 5
+Test accuracy for HTML: 0.791
+Num non-zero elements: 5
+Test accuracy for Java: 0.602
+Num non-zero elements: 5
+Test accuracy for PHP: 0.602
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/fancyzhx_ag_news_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 30 epochs
+Test accuracy for 0: 0.9380000233650208
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 38 epochs
+Test accuracy for 1: 0.9790000319480896
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for 2: 0.9180000424385071
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for 3: 0.9390000700950623
+Num non-zero elements: 1
+Test accuracy for 0: 0.647
+Num non-zero elements: 1
+Test accuracy for 1: 0.96
+Num non-zero elements: 1
+Test accuracy for 2: 0.654
+Num non-zero elements: 1
+Test accuracy for 3: 0.548
+Num non-zero elements: 2
+Test accuracy for 0: 0.718
+Num non-zero elements: 2
+Test accuracy for 1: 0.964
+Num non-zero elements: 2
+Test accuracy for 2: 0.663
+Num non-zero elements: 2
+Test accuracy for 3: 0.611
+Num non-zero elements: 5
+Test accuracy for 0: 0.761
+Num non-zero elements: 5
+Test accuracy for 1: 0.959
+Num non-zero elements: 5
+Test accuracy for 2: 0.683
+Num non-zero elements: 5
+Test accuracy for 3: 0.684
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/Helsinki-NLP_europarl_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for en: 0.9930000305175781
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 28 epochs
+Test accuracy for fr: 0.9800000190734863
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 33 epochs
+Test accuracy for de: 0.9740000367164612
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 37 epochs
+Test accuracy for es: 0.984000027179718
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 36 epochs
+Test accuracy for nl: 0.984000027179718
+Num non-zero elements: 1
+Test accuracy for en: 0.602
+Num non-zero elements: 1
+Test accuracy for fr: 0.572
+Num non-zero elements: 1
+Test accuracy for de: 0.988
+Num non-zero elements: 1
+Test accuracy for es: 0.996
+Num non-zero elements: 1
+Test accuracy for nl: 0.567
+Num non-zero elements: 2
+Test accuracy for en: 0.698
+Num non-zero elements: 2
+Test accuracy for fr: 0.532
+Num non-zero elements: 2
+Test accuracy for de: 0.991
+Num non-zero elements: 2
+Test accuracy for es: 0.996
+Num non-zero elements: 2
+Test accuracy for nl: 0.565
+Num non-zero elements: 5
+Test accuracy for en: 0.801
+Num non-zero elements: 5
+Test accuracy for fr: 0.56
+Num non-zero elements: 5
+Test accuracy for de: 0.995
+Num non-zero elements: 5
+Test accuracy for es: 0.996
+Num non-zero elements: 5
+Test accuracy for nl: 0.688
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:48<00:00, 228.72s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:48<00:00, 228.72s/it]
+    Top-1: 0.6758 (245s)
+
+  standard aggregate: 0.6741 ± 0.0061 (range: 0.6630 - 0.6817)
+
+============================================================
+SAE: perfeature_l2
+============================================================
+
+  Seed 1/5: 42
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 199.21it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for 0: 0.9450000524520874
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 16 epochs
+Test accuracy for 1: 0.9620000720024109
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for 2: 0.9480000734329224
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 6: 0.9850000739097595
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 19 epochs
+Test accuracy for 9: 0.9770000576972961
+Num non-zero elements: 1
+Test accuracy for 0: 0.819
+Num non-zero elements: 1
+Test accuracy for 1: 0.794
+Num non-zero elements: 1
+Test accuracy for 2: 0.811
+Num non-zero elements: 1
+Test accuracy for 6: 0.975
+Num non-zero elements: 1
+Test accuracy for 9: 0.911
+Num non-zero elements: 2
+Test accuracy for 0: 0.815
+Num non-zero elements: 2
+Test accuracy for 1: 0.799
+Num non-zero elements: 2
+Test accuracy for 2: 0.812
+Num non-zero elements: 2
+Test accuracy for 6: 0.975
+Num non-zero elements: 2
+Test accuracy for 9: 0.921
+Num non-zero elements: 5
+Test accuracy for 0: 0.842
+Num non-zero elements: 5
+Test accuracy for 1: 0.834
+Num non-zero elements: 5
+Test accuracy for 2: 0.841
+Num non-zero elements: 5
+Test accuracy for 6: 0.985
+Num non-zero elements: 5
+Test accuracy for 9: 0.93
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 11: 0.9610000252723694
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 13: 0.9420000314712524
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 29 epochs
+Test accuracy for 14: 0.9530000686645508
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 18: 0.9190000295639038
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for 19: 0.9670000672340393
+Num non-zero elements: 1
+Test accuracy for 11: 0.843
+Num non-zero elements: 1
+Test accuracy for 13: 0.657
+Num non-zero elements: 1
+Test accuracy for 14: 0.853
+Num non-zero elements: 1
+Test accuracy for 18: 0.656
+Num non-zero elements: 1
+Test accuracy for 19: 0.736
+Num non-zero elements: 2
+Test accuracy for 11: 0.854
+Num non-zero elements: 2
+Test accuracy for 13: 0.629
+Num non-zero elements: 2
+Test accuracy for 14: 0.849
+Num non-zero elements: 2
+Test accuracy for 18: 0.71
+Num non-zero elements: 2
+Test accuracy for 19: 0.842
+Num non-zero elements: 5
+Test accuracy for 11: 0.911
+Num non-zero elements: 5
+Test accuracy for 13: 0.685
+Num non-zero elements: 5
+Test accuracy for 14: 0.902
+Num non-zero elements: 5
+Test accuracy for 18: 0.892
+Num non-zero elements: 5
+Test accuracy for 19: 0.858
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set3_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 20: 0.9630000591278076
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for 21: 0.9340000152587891
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 22: 0.9310000538825989
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 25: 0.9610000252723694
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for 26: 0.9030000567436218
+Num non-zero elements: 1
+Test accuracy for 20: 0.912
+Num non-zero elements: 1
+Test accuracy for 21: 0.75
+Num non-zero elements: 1
+Test accuracy for 22: 0.625
+Num non-zero elements: 1
+Test accuracy for 25: 0.864
+Num non-zero elements: 1
+Test accuracy for 26: 0.681
+Num non-zero elements: 2
+Test accuracy for 20: 0.912
+Num non-zero elements: 2
+Test accuracy for 21: 0.753
+Num non-zero elements: 2
+Test accuracy for 22: 0.802
+Num non-zero elements: 2
+Test accuracy for 25: 0.872
+Num non-zero elements: 2
+Test accuracy for 26: 0.696
+Num non-zero elements: 5
+Test accuracy for 20: 0.931
+Num non-zero elements: 5
+Test accuracy for 21: 0.821
+Num non-zero elements: 5
+Test accuracy for 22: 0.86
+Num non-zero elements: 5
+Test accuracy for 25: 0.89
+Num non-zero elements: 5
+Test accuracy for 26: 0.787
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 1: 0.9490000605583191
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for 2: 0.9500000476837158
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 19 epochs
+Test accuracy for 3: 0.9320000410079956
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 19 epochs
+Test accuracy for 5: 0.9220000505447388
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 16 epochs
+Test accuracy for 6: 0.8820000290870667
+Num non-zero elements: 1
+Test accuracy for 1: 0.818
+Num non-zero elements: 1
+Test accuracy for 2: 0.792
+Num non-zero elements: 1
+Test accuracy for 3: 0.593
+Num non-zero elements: 1
+Test accuracy for 5: 0.787
+Num non-zero elements: 1
+Test accuracy for 6: 0.58
+Num non-zero elements: 2
+Test accuracy for 1: 0.886
+Num non-zero elements: 2
+Test accuracy for 2: 0.874
+Num non-zero elements: 2
+Test accuracy for 3: 0.695
+Num non-zero elements: 2
+Test accuracy for 5: 0.787
+Num non-zero elements: 2
+Test accuracy for 6: 0.64
+Num non-zero elements: 5
+Test accuracy for 1: 0.892
+Num non-zero elements: 5
+Test accuracy for 2: 0.881
+Num non-zero elements: 5
+Test accuracy for 3: 0.692
+Num non-zero elements: 5
+Test accuracy for 5: 0.855
+Num non-zero elements: 5
+Test accuracy for 6: 0.691
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_sentiment_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 1.0: 0.9730000495910645
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 27 epochs
+Test accuracy for 5.0: 0.971000075340271
+Num non-zero elements: 1
+Test accuracy for 1.0: 0.88
+Num non-zero elements: 1
+Test accuracy for 5.0: 0.88
+Num non-zero elements: 2
+Test accuracy for 1.0: 0.941
+Num non-zero elements: 2
+Test accuracy for 5.0: 0.941
+Num non-zero elements: 5
+Test accuracy for 1.0: 0.961
+Num non-zero elements: 5
+Test accuracy for 5.0: 0.961
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/codeparrot_github-code_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 36 epochs
+Test accuracy for C: 0.968000054359436
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for Python: 0.984000027179718
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for HTML: 0.9850000739097595
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 29 epochs
+Test accuracy for Java: 0.9760000705718994
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for PHP: 0.9650000333786011
+Num non-zero elements: 1
+Test accuracy for C: 0.625
+Num non-zero elements: 1
+Test accuracy for Python: 0.862
+Num non-zero elements: 1
+Test accuracy for HTML: 0.698
+Num non-zero elements: 1
+Test accuracy for Java: 0.895
+Num non-zero elements: 1
+Test accuracy for PHP: 0.937
+Num non-zero elements: 2
+Test accuracy for C: 0.886
+Num non-zero elements: 2
+Test accuracy for Python: 0.874
+Num non-zero elements: 2
+Test accuracy for HTML: 0.957
+Num non-zero elements: 2
+Test accuracy for Java: 0.926
+Num non-zero elements: 2
+Test accuracy for PHP: 0.939
+Num non-zero elements: 5
+Test accuracy for C: 0.899
+Num non-zero elements: 5
+Test accuracy for Python: 0.95
+Num non-zero elements: 5
+Test accuracy for HTML: 0.954
+Num non-zero elements: 5
+Test accuracy for Java: 0.922
+Num non-zero elements: 5
+Test accuracy for PHP: 0.944
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/fancyzhx_ag_news_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 0: 0.9450000524520874
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 1: 0.9820000529289246
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 2: 0.9290000200271606
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 3: 0.956000030040741
+Num non-zero elements: 1
+Test accuracy for 0: 0.65
+Num non-zero elements: 1
+Test accuracy for 1: 0.957
+Num non-zero elements: 1
+Test accuracy for 2: 0.653
+Num non-zero elements: 1
+Test accuracy for 3: 0.682
+Num non-zero elements: 2
+Test accuracy for 0: 0.717
+Num non-zero elements: 2
+Test accuracy for 1: 0.958
+Num non-zero elements: 2
+Test accuracy for 2: 0.686
+Num non-zero elements: 2
+Test accuracy for 3: 0.698
+Num non-zero elements: 5
+Test accuracy for 0: 0.77
+Num non-zero elements: 5
+Test accuracy for 1: 0.964
+Num non-zero elements: 5
+Test accuracy for 2: 0.75
+Num non-zero elements: 5
+Test accuracy for 3: 0.757
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/Helsinki-NLP_europarl_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for en: 1.0
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for fr: 0.9970000386238098
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for de: 0.9970000386238098
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for es: 0.9980000257492065
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for nl: 0.999000072479248
+Num non-zero elements: 1
+Test accuracy for en: 0.997
+Num non-zero elements: 1
+Test accuracy for fr: 0.995
+Num non-zero elements: 1
+Test accuracy for de: 0.977
+Num non-zero elements: 1
+Test accuracy for es: 0.994
+Num non-zero elements: 1
+Test accuracy for nl: 0.999
+Num non-zero elements: 2
+Test accuracy for en: 0.995
+Num non-zero elements: 2
+Test accuracy for fr: 0.996
+Num non-zero elements: 2
+Test accuracy for de: 0.974
+Num non-zero elements: 2
+Test accuracy for es: 0.994
+Num non-zero elements: 2
+Test accuracy for nl: 0.999
+Num non-zero elements: 5
+Test accuracy for en: 0.998
+Num non-zero elements: 5
+Test accuracy for fr: 0.997
+Num non-zero elements: 5
+Test accuracy for de: 0.991
+Num non-zero elements: 5
+Test accuracy for es: 0.997
+Num non-zero elements: 5
+Test accuracy for nl: 1.0
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:47<00:00, 227.56s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:47<00:00, 227.56s/it]
+    Top-1: 0.8128 (243s)
+
+  Seed 2/5: 123
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 195.15it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 0: 0.9440000653266907
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 22 epochs
+Test accuracy for 1: 0.9600000381469727
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 2: 0.9540000557899475
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 6: 0.9850000739097595
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 16 epochs
+Test accuracy for 9: 0.9720000624656677
+Num non-zero elements: 1
+Test accuracy for 0: 0.821
+Num non-zero elements: 1
+Test accuracy for 1: 0.793
+Num non-zero elements: 1
+Test accuracy for 2: 0.822
+Num non-zero elements: 1
+Test accuracy for 6: 0.974
+Num non-zero elements: 1
+Test accuracy for 9: 0.913
+Num non-zero elements: 2
+Test accuracy for 0: 0.818
+Num non-zero elements: 2
+Test accuracy for 1: 0.795
+Num non-zero elements: 2
+Test accuracy for 2: 0.811
+Num non-zero elements: 2
+Test accuracy for 6: 0.977
+Num non-zero elements: 2
+Test accuracy for 9: 0.919
+Num non-zero elements: 5
+Test accuracy for 0: 0.837
+Num non-zero elements: 5
+Test accuracy for 1: 0.835
+Num non-zero elements: 5
+Test accuracy for 2: 0.831
+Num non-zero elements: 5
+Test accuracy for 6: 0.985
+Num non-zero elements: 5
+Test accuracy for 9: 0.928
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 12 epochs
+Test accuracy for 11: 0.9610000252723694
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 13: 0.9600000381469727
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for 14: 0.9520000219345093
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 18: 0.9190000295639038
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for 19: 0.9640000462532043
+Num non-zero elements: 1
+Test accuracy for 11: 0.842
+Num non-zero elements: 1
+Test accuracy for 13: 0.649
+Num non-zero elements: 1
+Test accuracy for 14: 0.849
+Num non-zero elements: 1
+Test accuracy for 18: 0.663
+Num non-zero elements: 1
+Test accuracy for 19: 0.741
+Num non-zero elements: 2
+Test accuracy for 11: 0.857
+Num non-zero elements: 2
+Test accuracy for 13: 0.663
+Num non-zero elements: 2
+Test accuracy for 14: 0.856
+Num non-zero elements: 2
+Test accuracy for 18: 0.716
+Num non-zero elements: 2
+Test accuracy for 19: 0.835
+Num non-zero elements: 5
+Test accuracy for 11: 0.912
+Num non-zero elements: 5
+Test accuracy for 13: 0.701
+Num non-zero elements: 5
+Test accuracy for 14: 0.906
+Num non-zero elements: 5
+Test accuracy for 18: 0.889
+Num non-zero elements: 5
+Test accuracy for 19: 0.864
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set3_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for 20: 0.9630000591278076
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 21: 0.9350000619888306
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 22: 0.9100000262260437
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 25: 0.9610000252723694
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 12 epochs
+Test accuracy for 26: 0.9030000567436218
+Num non-zero elements: 1
+Test accuracy for 20: 0.911
+Num non-zero elements: 1
+Test accuracy for 21: 0.756
+Num non-zero elements: 1
+Test accuracy for 22: 0.619
+Num non-zero elements: 1
+Test accuracy for 25: 0.869
+Num non-zero elements: 1
+Test accuracy for 26: 0.683
+Num non-zero elements: 2
+Test accuracy for 20: 0.914
+Num non-zero elements: 2
+Test accuracy for 21: 0.767
+Num non-zero elements: 2
+Test accuracy for 22: 0.8
+Num non-zero elements: 2
+Test accuracy for 25: 0.872
+Num non-zero elements: 2
+Test accuracy for 26: 0.772
+Num non-zero elements: 5
+Test accuracy for 20: 0.93
+Num non-zero elements: 5
+Test accuracy for 21: 0.813
+Num non-zero elements: 5
+Test accuracy for 22: 0.841
+Num non-zero elements: 5
+Test accuracy for 25: 0.903
+Num non-zero elements: 5
+Test accuracy for 26: 0.787
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 1: 0.9510000348091125
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for 2: 0.9440000653266907
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 3: 0.9260000586509705
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 16 epochs
+Test accuracy for 5: 0.9240000247955322
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 19 epochs
+Test accuracy for 6: 0.8800000548362732
+Num non-zero elements: 1
+Test accuracy for 1: 0.819
+Num non-zero elements: 1
+Test accuracy for 2: 0.792
+Num non-zero elements: 1
+Test accuracy for 3: 0.588
+Num non-zero elements: 1
+Test accuracy for 5: 0.783
+Num non-zero elements: 1
+Test accuracy for 6: 0.581
+Num non-zero elements: 2
+Test accuracy for 1: 0.881
+Num non-zero elements: 2
+Test accuracy for 2: 0.879
+Num non-zero elements: 2
+Test accuracy for 3: 0.687
+Num non-zero elements: 2
+Test accuracy for 5: 0.791
+Num non-zero elements: 2
+Test accuracy for 6: 0.649
+Num non-zero elements: 5
+Test accuracy for 1: 0.888
+Num non-zero elements: 5
+Test accuracy for 2: 0.873
+Num non-zero elements: 5
+Test accuracy for 3: 0.707
+Num non-zero elements: 5
+Test accuracy for 5: 0.864
+Num non-zero elements: 5
+Test accuracy for 6: 0.703
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_sentiment_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 19 epochs
+Test accuracy for 1.0: 0.9730000495910645
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 22 epochs
+Test accuracy for 5.0: 0.9730000495910645
+Num non-zero elements: 1
+Test accuracy for 1.0: 0.88
+Num non-zero elements: 1
+Test accuracy for 5.0: 0.88
+Num non-zero elements: 2
+Test accuracy for 1.0: 0.941
+Num non-zero elements: 2
+Test accuracy for 5.0: 0.941
+Num non-zero elements: 5
+Test accuracy for 1.0: 0.961
+Num non-zero elements: 5
+Test accuracy for 5.0: 0.961
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/codeparrot_github-code_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for C: 0.9720000624656677
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for Python: 0.9890000224113464
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 19 epochs
+Test accuracy for HTML: 0.987000048160553
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 29 epochs
+Test accuracy for Java: 0.9690000414848328
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for PHP: 0.9660000205039978
+Num non-zero elements: 1
+Test accuracy for C: 0.624
+Num non-zero elements: 1
+Test accuracy for Python: 0.872
+Num non-zero elements: 1
+Test accuracy for HTML: 0.708
+Num non-zero elements: 1
+Test accuracy for Java: 0.893
+Num non-zero elements: 1
+Test accuracy for PHP: 0.938
+Num non-zero elements: 2
+Test accuracy for C: 0.897
+Num non-zero elements: 2
+Test accuracy for Python: 0.889
+Num non-zero elements: 2
+Test accuracy for HTML: 0.958
+Num non-zero elements: 2
+Test accuracy for Java: 0.923
+Num non-zero elements: 2
+Test accuracy for PHP: 0.94
+Num non-zero elements: 5
+Test accuracy for C: 0.899
+Num non-zero elements: 5
+Test accuracy for Python: 0.96
+Num non-zero elements: 5
+Test accuracy for HTML: 0.957
+Num non-zero elements: 5
+Test accuracy for Java: 0.928
+Num non-zero elements: 5
+Test accuracy for PHP: 0.942
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/fancyzhx_ag_news_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 0: 0.9380000233650208
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 12 epochs
+Test accuracy for 1: 0.9850000739097595
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 2: 0.9310000538825989
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 3: 0.9470000267028809
+Num non-zero elements: 1
+Test accuracy for 0: 0.646
+Num non-zero elements: 1
+Test accuracy for 1: 0.954
+Num non-zero elements: 1
+Test accuracy for 2: 0.655
+Num non-zero elements: 1
+Test accuracy for 3: 0.692
+Num non-zero elements: 2
+Test accuracy for 0: 0.72
+Num non-zero elements: 2
+Test accuracy for 1: 0.955
+Num non-zero elements: 2
+Test accuracy for 2: 0.676
+Num non-zero elements: 2
+Test accuracy for 3: 0.701
+Num non-zero elements: 5
+Test accuracy for 0: 0.758
+Num non-zero elements: 5
+Test accuracy for 1: 0.963
+Num non-zero elements: 5
+Test accuracy for 2: 0.774
+Num non-zero elements: 5
+Test accuracy for 3: 0.777
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/Helsinki-NLP_europarl_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for en: 0.999000072479248
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for fr: 0.999000072479248
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for de: 0.999000072479248
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for es: 0.999000072479248
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for nl: 0.999000072479248
+Num non-zero elements: 1
+Test accuracy for en: 0.996
+Num non-zero elements: 1
+Test accuracy for fr: 0.994
+Num non-zero elements: 1
+Test accuracy for de: 0.976
+Num non-zero elements: 1
+Test accuracy for es: 0.994
+Num non-zero elements: 1
+Test accuracy for nl: 0.997
+Num non-zero elements: 2
+Test accuracy for en: 0.997
+Num non-zero elements: 2
+Test accuracy for fr: 0.994
+Num non-zero elements: 2
+Test accuracy for de: 0.972
+Num non-zero elements: 2
+Test accuracy for es: 0.997
+Num non-zero elements: 2
+Test accuracy for nl: 1.0
+Num non-zero elements: 5
+Test accuracy for en: 0.997
+Num non-zero elements: 5
+Test accuracy for fr: 0.997
+Num non-zero elements: 5
+Test accuracy for de: 0.991
+Num non-zero elements: 5
+Test accuracy for es: 0.996
+Num non-zero elements: 5
+Test accuracy for nl: 1.0
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:44<00:00, 224.99s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:44<00:00, 224.99s/it]
+    Top-1: 0.8136 (241s)
+
+  Seed 3/5: 456
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 197.20it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 16 epochs
+Test accuracy for 0: 0.9460000395774841
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 1: 0.9640000462532043
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for 2: 0.9450000524520874
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 6: 0.9860000610351562
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for 9: 0.9690000414848328
+Num non-zero elements: 1
+Test accuracy for 0: 0.82
+Num non-zero elements: 1
+Test accuracy for 1: 0.794
+Num non-zero elements: 1
+Test accuracy for 2: 0.817
+Num non-zero elements: 1
+Test accuracy for 6: 0.975
+Num non-zero elements: 1
+Test accuracy for 9: 0.908
+Num non-zero elements: 2
+Test accuracy for 0: 0.818
+Num non-zero elements: 2
+Test accuracy for 1: 0.796
+Num non-zero elements: 2
+Test accuracy for 2: 0.809
+Num non-zero elements: 2
+Test accuracy for 6: 0.976
+Num non-zero elements: 2
+Test accuracy for 9: 0.917
+Num non-zero elements: 5
+Test accuracy for 0: 0.836
+Num non-zero elements: 5
+Test accuracy for 1: 0.831
+Num non-zero elements: 5
+Test accuracy for 2: 0.834
+Num non-zero elements: 5
+Test accuracy for 6: 0.984
+Num non-zero elements: 5
+Test accuracy for 9: 0.927
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 11: 0.9590000510215759
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 13: 0.9610000252723694
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 14: 0.9530000686645508
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 19 epochs
+Test accuracy for 18: 0.9260000586509705
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 26 epochs
+Test accuracy for 19: 0.9580000638961792
+Num non-zero elements: 1
+Test accuracy for 11: 0.838
+Num non-zero elements: 1
+Test accuracy for 13: 0.66
+Num non-zero elements: 1
+Test accuracy for 14: 0.853
+Num non-zero elements: 1
+Test accuracy for 18: 0.643
+Num non-zero elements: 1
+Test accuracy for 19: 0.733
+Num non-zero elements: 2
+Test accuracy for 11: 0.865
+Num non-zero elements: 2
+Test accuracy for 13: 0.653
+Num non-zero elements: 2
+Test accuracy for 14: 0.852
+Num non-zero elements: 2
+Test accuracy for 18: 0.708
+Num non-zero elements: 2
+Test accuracy for 19: 0.835
+Num non-zero elements: 5
+Test accuracy for 11: 0.919
+Num non-zero elements: 5
+Test accuracy for 13: 0.702
+Num non-zero elements: 5
+Test accuracy for 14: 0.908
+Num non-zero elements: 5
+Test accuracy for 18: 0.883
+Num non-zero elements: 5
+Test accuracy for 19: 0.876
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set3_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 20: 0.9620000720024109
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 21: 0.9390000700950623
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 16 epochs
+Test accuracy for 22: 0.9190000295639038
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 25: 0.9670000672340393
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 26: 0.8940000534057617
+Num non-zero elements: 1
+Test accuracy for 20: 0.909
+Num non-zero elements: 1
+Test accuracy for 21: 0.744
+Num non-zero elements: 1
+Test accuracy for 22: 0.621
+Num non-zero elements: 1
+Test accuracy for 25: 0.871
+Num non-zero elements: 1
+Test accuracy for 26: 0.68
+Num non-zero elements: 2
+Test accuracy for 20: 0.908
+Num non-zero elements: 2
+Test accuracy for 21: 0.772
+Num non-zero elements: 2
+Test accuracy for 22: 0.794
+Num non-zero elements: 2
+Test accuracy for 25: 0.867
+Num non-zero elements: 2
+Test accuracy for 26: 0.771
+Num non-zero elements: 5
+Test accuracy for 20: 0.931
+Num non-zero elements: 5
+Test accuracy for 21: 0.814
+Num non-zero elements: 5
+Test accuracy for 22: 0.84
+Num non-zero elements: 5
+Test accuracy for 25: 0.89
+Num non-zero elements: 5
+Test accuracy for 26: 0.766
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 1: 0.9510000348091125
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 2: 0.9520000219345093
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 16 epochs
+Test accuracy for 3: 0.9160000681877136
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 5: 0.9140000343322754
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 6: 0.8680000305175781
+Num non-zero elements: 1
+Test accuracy for 1: 0.82
+Num non-zero elements: 1
+Test accuracy for 2: 0.797
+Num non-zero elements: 1
+Test accuracy for 3: 0.592
+Num non-zero elements: 1
+Test accuracy for 5: 0.792
+Num non-zero elements: 1
+Test accuracy for 6: 0.576
+Num non-zero elements: 2
+Test accuracy for 1: 0.88
+Num non-zero elements: 2
+Test accuracy for 2: 0.874
+Num non-zero elements: 2
+Test accuracy for 3: 0.573
+Num non-zero elements: 2
+Test accuracy for 5: 0.783
+Num non-zero elements: 2
+Test accuracy for 6: 0.655
+Num non-zero elements: 5
+Test accuracy for 1: 0.889
+Num non-zero elements: 5
+Test accuracy for 2: 0.877
+Num non-zero elements: 5
+Test accuracy for 3: 0.699
+Num non-zero elements: 5
+Test accuracy for 5: 0.865
+Num non-zero elements: 5
+Test accuracy for 6: 0.693
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_sentiment_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 1.0: 0.971000075340271
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 5.0: 0.9730000495910645
+Num non-zero elements: 1
+Test accuracy for 1.0: 0.88
+Num non-zero elements: 1
+Test accuracy for 5.0: 0.88
+Num non-zero elements: 2
+Test accuracy for 1.0: 0.941
+Num non-zero elements: 2
+Test accuracy for 5.0: 0.941
+Num non-zero elements: 5
+Test accuracy for 1.0: 0.961
+Num non-zero elements: 5
+Test accuracy for 5.0: 0.961
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/codeparrot_github-code_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for C: 0.9590000510215759
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 16 epochs
+Test accuracy for Python: 0.9820000529289246
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 22 epochs
+Test accuracy for HTML: 0.984000027179718
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for Java: 0.9750000238418579
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 44 epochs
+Test accuracy for PHP: 0.9730000495910645
+Num non-zero elements: 1
+Test accuracy for C: 0.64
+Num non-zero elements: 1
+Test accuracy for Python: 0.867
+Num non-zero elements: 1
+Test accuracy for HTML: 0.701
+Num non-zero elements: 1
+Test accuracy for Java: 0.888
+Num non-zero elements: 1
+Test accuracy for PHP: 0.942
+Num non-zero elements: 2
+Test accuracy for C: 0.888
+Num non-zero elements: 2
+Test accuracy for Python: 0.885
+Num non-zero elements: 2
+Test accuracy for HTML: 0.957
+Num non-zero elements: 2
+Test accuracy for Java: 0.913
+Num non-zero elements: 2
+Test accuracy for PHP: 0.941
+Num non-zero elements: 5
+Test accuracy for C: 0.898
+Num non-zero elements: 5
+Test accuracy for Python: 0.956
+Num non-zero elements: 5
+Test accuracy for HTML: 0.954
+Num non-zero elements: 5
+Test accuracy for Java: 0.912
+Num non-zero elements: 5
+Test accuracy for PHP: 0.946
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/fancyzhx_ag_news_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 0: 0.9500000476837158
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 1: 0.984000027179718
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 2: 0.9320000410079956
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 3: 0.9490000605583191
+Num non-zero elements: 1
+Test accuracy for 0: 0.648
+Num non-zero elements: 1
+Test accuracy for 1: 0.962
+Num non-zero elements: 1
+Test accuracy for 2: 0.651
+Num non-zero elements: 1
+Test accuracy for 3: 0.681
+Num non-zero elements: 2
+Test accuracy for 0: 0.72
+Num non-zero elements: 2
+Test accuracy for 1: 0.963
+Num non-zero elements: 2
+Test accuracy for 2: 0.674
+Num non-zero elements: 2
+Test accuracy for 3: 0.703
+Num non-zero elements: 5
+Test accuracy for 0: 0.755
+Num non-zero elements: 5
+Test accuracy for 1: 0.966
+Num non-zero elements: 5
+Test accuracy for 2: 0.767
+Num non-zero elements: 5
+Test accuracy for 3: 0.773
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/Helsinki-NLP_europarl_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for en: 0.999000072479248
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for fr: 0.999000072479248
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for de: 0.999000072479248
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for es: 0.9970000386238098
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for nl: 1.0
+Num non-zero elements: 1
+Test accuracy for en: 0.998
+Num non-zero elements: 1
+Test accuracy for fr: 0.996
+Num non-zero elements: 1
+Test accuracy for de: 0.972
+Num non-zero elements: 1
+Test accuracy for es: 0.995
+Num non-zero elements: 1
+Test accuracy for nl: 0.995
+Num non-zero elements: 2
+Test accuracy for en: 0.999
+Num non-zero elements: 2
+Test accuracy for fr: 0.994
+Num non-zero elements: 2
+Test accuracy for de: 0.977
+Num non-zero elements: 2
+Test accuracy for es: 0.994
+Num non-zero elements: 2
+Test accuracy for nl: 0.999
+Num non-zero elements: 5
+Test accuracy for en: 0.998
+Num non-zero elements: 5
+Test accuracy for fr: 0.999
+Num non-zero elements: 5
+Test accuracy for de: 0.989
+Num non-zero elements: 5
+Test accuracy for es: 0.997
+Num non-zero elements: 5
+Test accuracy for nl: 0.998
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:47<00:00, 227.75s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:47<00:00, 227.75s/it]
+    Top-1: 0.8129 (240s)
+
+  Seed 4/5: 789
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 198.28it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 0: 0.9430000185966492
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 1: 0.9610000252723694
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 2: 0.9510000348091125
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 6: 0.9880000352859497
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 12 epochs
+Test accuracy for 9: 0.9750000238418579
+Num non-zero elements: 1
+Test accuracy for 0: 0.818
+Num non-zero elements: 1
+Test accuracy for 1: 0.789
+Num non-zero elements: 1
+Test accuracy for 2: 0.812
+Num non-zero elements: 1
+Test accuracy for 6: 0.975
+Num non-zero elements: 1
+Test accuracy for 9: 0.913
+Num non-zero elements: 2
+Test accuracy for 0: 0.82
+Num non-zero elements: 2
+Test accuracy for 1: 0.792
+Num non-zero elements: 2
+Test accuracy for 2: 0.814
+Num non-zero elements: 2
+Test accuracy for 6: 0.977
+Num non-zero elements: 2
+Test accuracy for 9: 0.916
+Num non-zero elements: 5
+Test accuracy for 0: 0.837
+Num non-zero elements: 5
+Test accuracy for 1: 0.835
+Num non-zero elements: 5
+Test accuracy for 2: 0.817
+Num non-zero elements: 5
+Test accuracy for 6: 0.985
+Num non-zero elements: 5
+Test accuracy for 9: 0.926
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 11: 0.9610000252723694
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for 13: 0.9510000348091125
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 14: 0.9550000429153442
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 18: 0.9300000667572021
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 22 epochs
+Test accuracy for 19: 0.9630000591278076
+Num non-zero elements: 1
+Test accuracy for 11: 0.847
+Num non-zero elements: 1
+Test accuracy for 13: 0.678
+Num non-zero elements: 1
+Test accuracy for 14: 0.863
+Num non-zero elements: 1
+Test accuracy for 18: 0.66
+Num non-zero elements: 1
+Test accuracy for 19: 0.735
+Num non-zero elements: 2
+Test accuracy for 11: 0.859
+Num non-zero elements: 2
+Test accuracy for 13: 0.67
+Num non-zero elements: 2
+Test accuracy for 14: 0.847
+Num non-zero elements: 2
+Test accuracy for 18: 0.705
+Num non-zero elements: 2
+Test accuracy for 19: 0.831
+Num non-zero elements: 5
+Test accuracy for 11: 0.915
+Num non-zero elements: 5
+Test accuracy for 13: 0.704
+Num non-zero elements: 5
+Test accuracy for 14: 0.903
+Num non-zero elements: 5
+Test accuracy for 18: 0.889
+Num non-zero elements: 5
+Test accuracy for 19: 0.879
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set3_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 16 epochs
+Test accuracy for 20: 0.9530000686645508
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for 21: 0.9230000376701355
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 22: 0.9260000586509705
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 25: 0.9630000591278076
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 26 epochs
+Test accuracy for 26: 0.8980000615119934
+Num non-zero elements: 1
+Test accuracy for 20: 0.911
+Num non-zero elements: 1
+Test accuracy for 21: 0.735
+Num non-zero elements: 1
+Test accuracy for 22: 0.617
+Num non-zero elements: 1
+Test accuracy for 25: 0.864
+Num non-zero elements: 1
+Test accuracy for 26: 0.679
+Num non-zero elements: 2
+Test accuracy for 20: 0.916
+Num non-zero elements: 2
+Test accuracy for 21: 0.766
+Num non-zero elements: 2
+Test accuracy for 22: 0.798
+Num non-zero elements: 2
+Test accuracy for 25: 0.864
+Num non-zero elements: 2
+Test accuracy for 26: 0.763
+Num non-zero elements: 5
+Test accuracy for 20: 0.927
+Num non-zero elements: 5
+Test accuracy for 21: 0.806
+Num non-zero elements: 5
+Test accuracy for 22: 0.833
+Num non-zero elements: 5
+Test accuracy for 25: 0.89
+Num non-zero elements: 5
+Test accuracy for 26: 0.787
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 1: 0.9570000171661377
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for 2: 0.9350000619888306
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 3: 0.921000063419342
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 5: 0.9180000424385071
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 6: 0.8840000629425049
+Num non-zero elements: 1
+Test accuracy for 1: 0.815
+Num non-zero elements: 1
+Test accuracy for 2: 0.797
+Num non-zero elements: 1
+Test accuracy for 3: 0.59
+Num non-zero elements: 1
+Test accuracy for 5: 0.787
+Num non-zero elements: 1
+Test accuracy for 6: 0.581
+Num non-zero elements: 2
+Test accuracy for 1: 0.881
+Num non-zero elements: 2
+Test accuracy for 2: 0.871
+Num non-zero elements: 2
+Test accuracy for 3: 0.564
+Num non-zero elements: 2
+Test accuracy for 5: 0.794
+Num non-zero elements: 2
+Test accuracy for 6: 0.658
+Num non-zero elements: 5
+Test accuracy for 1: 0.897
+Num non-zero elements: 5
+Test accuracy for 2: 0.875
+Num non-zero elements: 5
+Test accuracy for 3: 0.702
+Num non-zero elements: 5
+Test accuracy for 5: 0.87
+Num non-zero elements: 5
+Test accuracy for 6: 0.682
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_sentiment_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 1.0: 0.9700000286102295
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for 5.0: 0.9730000495910645
+Num non-zero elements: 1
+Test accuracy for 1.0: 0.88
+Num non-zero elements: 1
+Test accuracy for 5.0: 0.88
+Num non-zero elements: 2
+Test accuracy for 1.0: 0.941
+Num non-zero elements: 2
+Test accuracy for 5.0: 0.941
+Num non-zero elements: 5
+Test accuracy for 1.0: 0.961
+Num non-zero elements: 5
+Test accuracy for 5.0: 0.961
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/codeparrot_github-code_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for C: 0.9640000462532043
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for Python: 0.9860000610351562
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for HTML: 0.9830000400543213
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 32 epochs
+Test accuracy for Java: 0.9750000238418579
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 22 epochs
+Test accuracy for PHP: 0.9610000252723694
+Num non-zero elements: 1
+Test accuracy for C: 0.652
+Num non-zero elements: 1
+Test accuracy for Python: 0.861
+Num non-zero elements: 1
+Test accuracy for HTML: 0.701
+Num non-zero elements: 1
+Test accuracy for Java: 0.898
+Num non-zero elements: 1
+Test accuracy for PHP: 0.939
+Num non-zero elements: 2
+Test accuracy for C: 0.874
+Num non-zero elements: 2
+Test accuracy for Python: 0.878
+Num non-zero elements: 2
+Test accuracy for HTML: 0.954
+Num non-zero elements: 2
+Test accuracy for Java: 0.928
+Num non-zero elements: 2
+Test accuracy for PHP: 0.939
+Num non-zero elements: 5
+Test accuracy for C: 0.893
+Num non-zero elements: 5
+Test accuracy for Python: 0.932
+Num non-zero elements: 5
+Test accuracy for HTML: 0.956
+Num non-zero elements: 5
+Test accuracy for Java: 0.917
+Num non-zero elements: 5
+Test accuracy for PHP: 0.945
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/fancyzhx_ag_news_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 0: 0.9420000314712524
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 1: 0.9860000610351562
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 2: 0.9320000410079956
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 19 epochs
+Test accuracy for 3: 0.9490000605583191
+Num non-zero elements: 1
+Test accuracy for 0: 0.646
+Num non-zero elements: 1
+Test accuracy for 1: 0.961
+Num non-zero elements: 1
+Test accuracy for 2: 0.653
+Num non-zero elements: 1
+Test accuracy for 3: 0.679
+Num non-zero elements: 2
+Test accuracy for 0: 0.727
+Num non-zero elements: 2
+Test accuracy for 1: 0.961
+Num non-zero elements: 2
+Test accuracy for 2: 0.666
+Num non-zero elements: 2
+Test accuracy for 3: 0.691
+Num non-zero elements: 5
+Test accuracy for 0: 0.774
+Num non-zero elements: 5
+Test accuracy for 1: 0.965
+Num non-zero elements: 5
+Test accuracy for 2: 0.755
+Num non-zero elements: 5
+Test accuracy for 3: 0.758
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/Helsinki-NLP_europarl_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for en: 0.999000072479248
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for fr: 1.0
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for de: 1.0
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for es: 0.9980000257492065
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for nl: 1.0
+Num non-zero elements: 1
+Test accuracy for en: 0.998
+Num non-zero elements: 1
+Test accuracy for fr: 0.995
+Num non-zero elements: 1
+Test accuracy for de: 0.972
+Num non-zero elements: 1
+Test accuracy for es: 0.995
+Num non-zero elements: 1
+Test accuracy for nl: 0.998
+Num non-zero elements: 2
+Test accuracy for en: 0.996
+Num non-zero elements: 2
+Test accuracy for fr: 0.995
+Num non-zero elements: 2
+Test accuracy for de: 0.978
+Num non-zero elements: 2
+Test accuracy for es: 0.993
+Num non-zero elements: 2
+Test accuracy for nl: 0.997
+Num non-zero elements: 5
+Test accuracy for en: 0.998
+Num non-zero elements: 5
+Test accuracy for fr: 0.999
+Num non-zero elements: 5
+Test accuracy for de: 0.972
+Num non-zero elements: 5
+Test accuracy for es: 0.994
+Num non-zero elements: 5
+Test accuracy for nl: 1.0
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:47<00:00, 227.79s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:47<00:00, 227.79s/it]
+    Top-1: 0.8137 (241s)
+
+  Seed 5/5: 1337
+WARNING:root:Loading model Qwen/Qwen3-8B requires setting trust_remote_code=True
+WARNING:root:Loading model Qwen/Qwen3-8B state dict requires setting trust_remote_code=True
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 200.31it/s]
+Loaded pretrained model Qwen/Qwen3-8B into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set1_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 0: 0.9500000476837158
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 1: 0.9500000476837158
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 2: 0.956000030040741
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 6: 0.9830000400543213
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 28 epochs
+Test accuracy for 9: 0.9770000576972961
+Num non-zero elements: 1
+Test accuracy for 0: 0.82
+Num non-zero elements: 1
+Test accuracy for 1: 0.789
+Num non-zero elements: 1
+Test accuracy for 2: 0.817
+Num non-zero elements: 1
+Test accuracy for 6: 0.974
+Num non-zero elements: 1
+Test accuracy for 9: 0.917
+Num non-zero elements: 2
+Test accuracy for 0: 0.821
+Num non-zero elements: 2
+Test accuracy for 1: 0.793
+Num non-zero elements: 2
+Test accuracy for 2: 0.803
+Num non-zero elements: 2
+Test accuracy for 6: 0.972
+Num non-zero elements: 2
+Test accuracy for 9: 0.918
+Num non-zero elements: 5
+Test accuracy for 0: 0.834
+Num non-zero elements: 5
+Test accuracy for 1: 0.83
+Num non-zero elements: 5
+Test accuracy for 2: 0.826
+Num non-zero elements: 5
+Test accuracy for 6: 0.985
+Num non-zero elements: 5
+Test accuracy for 9: 0.927
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 11: 0.9570000171661377
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 19 epochs
+Test accuracy for 13: 0.9540000557899475
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 14: 0.9540000557899475
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 18: 0.9300000667572021
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for 19: 0.9630000591278076
+Num non-zero elements: 1
+Test accuracy for 11: 0.726
+Num non-zero elements: 1
+Test accuracy for 13: 0.655
+Num non-zero elements: 1
+Test accuracy for 14: 0.846
+Num non-zero elements: 1
+Test accuracy for 18: 0.654
+Num non-zero elements: 1
+Test accuracy for 19: 0.733
+Num non-zero elements: 2
+Test accuracy for 11: 0.862
+Num non-zero elements: 2
+Test accuracy for 13: 0.654
+Num non-zero elements: 2
+Test accuracy for 14: 0.855
+Num non-zero elements: 2
+Test accuracy for 18: 0.706
+Num non-zero elements: 2
+Test accuracy for 19: 0.842
+Num non-zero elements: 5
+Test accuracy for 11: 0.917
+Num non-zero elements: 5
+Test accuracy for 13: 0.691
+Num non-zero elements: 5
+Test accuracy for 14: 0.905
+Num non-zero elements: 5
+Test accuracy for 18: 0.714
+Num non-zero elements: 5
+Test accuracy for 19: 0.855
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/LabHC_bias_in_bios_class_set3_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 20: 0.9520000219345093
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 16 epochs
+Test accuracy for 21: 0.9290000200271606
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 22: 0.921000063419342
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for 25: 0.9630000591278076
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 26: 0.8990000486373901
+Num non-zero elements: 1
+Test accuracy for 20: 0.916
+Num non-zero elements: 1
+Test accuracy for 21: 0.751
+Num non-zero elements: 1
+Test accuracy for 22: 0.611
+Num non-zero elements: 1
+Test accuracy for 25: 0.868
+Num non-zero elements: 1
+Test accuracy for 26: 0.681
+Num non-zero elements: 2
+Test accuracy for 20: 0.911
+Num non-zero elements: 2
+Test accuracy for 21: 0.768
+Num non-zero elements: 2
+Test accuracy for 22: 0.798
+Num non-zero elements: 2
+Test accuracy for 25: 0.869
+Num non-zero elements: 2
+Test accuracy for 26: 0.746
+Num non-zero elements: 5
+Test accuracy for 20: 0.923
+Num non-zero elements: 5
+Test accuracy for 21: 0.812
+Num non-zero elements: 5
+Test accuracy for 22: 0.831
+Num non-zero elements: 5
+Test accuracy for 25: 0.897
+Num non-zero elements: 5
+Test accuracy for 26: 0.791
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 1: 0.9490000605583191
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 2: 0.9380000233650208
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 25 epochs
+Test accuracy for 3: 0.9270000457763672
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for 5: 0.9280000329017639
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 6: 0.8870000243186951
+Num non-zero elements: 1
+Test accuracy for 1: 0.824
+Num non-zero elements: 1
+Test accuracy for 2: 0.795
+Num non-zero elements: 1
+Test accuracy for 3: 0.599
+Num non-zero elements: 1
+Test accuracy for 5: 0.785
+Num non-zero elements: 1
+Test accuracy for 6: 0.577
+Num non-zero elements: 2
+Test accuracy for 1: 0.883
+Num non-zero elements: 2
+Test accuracy for 2: 0.879
+Num non-zero elements: 2
+Test accuracy for 3: 0.566
+Num non-zero elements: 2
+Test accuracy for 5: 0.788
+Num non-zero elements: 2
+Test accuracy for 6: 0.649
+Num non-zero elements: 5
+Test accuracy for 1: 0.892
+Num non-zero elements: 5
+Test accuracy for 2: 0.885
+Num non-zero elements: 5
+Test accuracy for 3: 0.701
+Num non-zero elements: 5
+Test accuracy for 5: 0.869
+Num non-zero elements: 5
+Test accuracy for 6: 0.692
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/canrager_amazon_reviews_mcauley_1and5_sentiment_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 1.0: 0.9720000624656677
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for 5.0: 0.9720000624656677
+Num non-zero elements: 1
+Test accuracy for 1.0: 0.88
+Num non-zero elements: 1
+Test accuracy for 5.0: 0.88
+Num non-zero elements: 2
+Test accuracy for 1.0: 0.941
+Num non-zero elements: 2
+Test accuracy for 5.0: 0.941
+Num non-zero elements: 5
+Test accuracy for 1.0: 0.961
+Num non-zero elements: 5
+Test accuracy for 5.0: 0.961
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/codeparrot_github-code_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 21 epochs
+Test accuracy for C: 0.9590000510215759
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 17 epochs
+Test accuracy for Python: 0.987000048160553
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 23 epochs
+Test accuracy for HTML: 0.9900000691413879
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 31 epochs
+Test accuracy for Java: 0.971000075340271
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 31 epochs
+Test accuracy for PHP: 0.9670000672340393
+Num non-zero elements: 1
+Test accuracy for C: 0.635
+Num non-zero elements: 1
+Test accuracy for Python: 0.86
+Num non-zero elements: 1
+Test accuracy for HTML: 0.715
+Num non-zero elements: 1
+Test accuracy for Java: 0.898
+Num non-zero elements: 1
+Test accuracy for PHP: 0.944
+Num non-zero elements: 2
+Test accuracy for C: 0.889
+Num non-zero elements: 2
+Test accuracy for Python: 0.88
+Num non-zero elements: 2
+Test accuracy for HTML: 0.956
+Num non-zero elements: 2
+Test accuracy for Java: 0.92
+Num non-zero elements: 2
+Test accuracy for PHP: 0.94
+Num non-zero elements: 5
+Test accuracy for C: 0.901
+Num non-zero elements: 5
+Test accuracy for Python: 0.924
+Num non-zero elements: 5
+Test accuracy for HTML: 0.956
+Num non-zero elements: 5
+Test accuracy for Java: 0.919
+Num non-zero elements: 5
+Test accuracy for PHP: 0.942
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/fancyzhx_ag_news_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for 0: 0.9430000185966492
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 20 epochs
+Test accuracy for 1: 0.9860000610351562
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 2: 0.9390000700950623
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 3: 0.9580000638961792
+Num non-zero elements: 1
+Test accuracy for 0: 0.647
+Num non-zero elements: 1
+Test accuracy for 1: 0.96
+Num non-zero elements: 1
+Test accuracy for 2: 0.655
+Num non-zero elements: 1
+Test accuracy for 3: 0.684
+Num non-zero elements: 2
+Test accuracy for 0: 0.719
+Num non-zero elements: 2
+Test accuracy for 1: 0.96
+Num non-zero elements: 2
+Test accuracy for 2: 0.673
+Num non-zero elements: 2
+Test accuracy for 3: 0.694
+Num non-zero elements: 5
+Test accuracy for 0: 0.752
+Num non-zero elements: 5
+Test accuracy for 1: 0.963
+Num non-zero elements: 5
+Test accuracy for 2: 0.741
+Num non-zero elements: 5
+Test accuracy for 3: 0.764
+Loading activations from artifacts/sparse_probing/Qwen/Qwen3-8B/blocks.18.hook_resid_post/Helsinki-NLP_europarl_activations.pt
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for en: 0.999000072479248
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 14 epochs
+Test accuracy for fr: 0.9980000257492065
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for de: 0.9980000257492065
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 24 epochs
+Test accuracy for es: 0.9980000257492065
+Num non-zero elements: 65536
+Training probe with dim: 65536, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 26 epochs
+Test accuracy for nl: 0.999000072479248
+Num non-zero elements: 1
+Test accuracy for en: 0.995
+Num non-zero elements: 1
+Test accuracy for fr: 0.997
+Num non-zero elements: 1
+Test accuracy for de: 0.978
+Num non-zero elements: 1
+Test accuracy for es: 0.994
+Num non-zero elements: 1
+Test accuracy for nl: 0.996
+Num non-zero elements: 2
+Test accuracy for en: 0.997
+Num non-zero elements: 2
+Test accuracy for fr: 0.991
+Num non-zero elements: 2
+Test accuracy for de: 0.972
+Num non-zero elements: 2
+Test accuracy for es: 0.994
+Num non-zero elements: 2
+Test accuracy for nl: 0.999
+Num non-zero elements: 5
+Test accuracy for en: 0.999
+Num non-zero elements: 5
+Test accuracy for fr: 0.999
+Num non-zero elements: 5
+Test accuracy for de: 0.972
+Num non-zero elements: 5
+Test accuracy for es: 0.995
+Num non-zero elements: 5
+Test accuracy for nl: 0.998
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:47<00:00, 227.49s/it]
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [03:47<00:00, 227.49s/it]
+    Top-1: 0.8108 (241s)
+
+  perfeature_l2 aggregate: 0.8128 ± 0.0010 (range: 0.8108 - 0.8137)
+
+============================================================
+GAP (perfeature_l2 - standard)
+============================================================
+  Mean gap: 13.86pp ± 0.63pp
+  Min gap:  13.11pp
+  Max gap:  14.98pp
+  All gaps: ['13.11pp', '13.99pp', '14.98pp', '13.73pp', '13.50pp']
+
+Final results saved to experiments/exp55b_results.json

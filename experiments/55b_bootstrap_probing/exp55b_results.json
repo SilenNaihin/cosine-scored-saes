@@ -1,0 +1,455 @@
+{
+  "config": {
+    "model": "Qwen/Qwen3-8B",
+    "layer": 18,
+    "n_bootstrap": 5,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1337
+    ],
+    "sae_names": [
+      "standard",
+      "perfeature_l2"
+    ]
+  },
+  "standard": {
+    "seeds": [
+      {
+        "seed": 42,
+        "top_1": 0.6816937500000001,
+        "per_dataset": {
+          "LabHC/bias_in_bios_class_set1_results": {
+            "top_1": 0.6622000000000001,
+            "top_5": 0.7898000000000001
+          },
+          "LabHC/bias_in_bios_class_set2_results": {
+            "top_1": 0.6186,
+            "top_5": 0.723
+          },
+          "LabHC/bias_in_bios_class_set3_results": {
+            "top_1": 0.5888,
+            "top_5": 0.765
+          },
+          "canrager/amazon_reviews_mcauley_1and5_results": {
+            "top_1": 0.7083999999999999,
+            "top_5": 0.8164000000000001
+          },
+          "canrager/amazon_reviews_mcauley_1and5_sentiment_results": {
+            "top_1": 0.914,
+            "top_5": 0.962
+          },
+          "codeparrot/github-code_results": {
+            "top_1": 0.5158,
+            "top_5": 0.6384
+          },
+          "fancyzhx/ag_news_results": {
+            "top_1": 0.70875,
+            "top_5": 0.77525
+          },
+          "Helsinki-NLP/europarl_results": {
+            "top_1": 0.737,
+            "top_5": 0.8089999999999999
+          }
+        },
+        "elapsed_s": 292.2379324436188
+      },
+      {
+        "seed": 123,
+        "top_1": 0.6737187500000001,
+        "per_dataset": {
+          "LabHC/bias_in_bios_class_set1_results": {
+            "top_1": 0.6597999999999999,
+            "top_5": 0.8206000000000001
+          },
+          "LabHC/bias_in_bios_class_set2_results": {
+            "top_1": 0.5534000000000001,
+            "top_5": 0.7206
+          },
+          "LabHC/bias_in_bios_class_set3_results": {
+            "top_1": 0.5906,
+            "top_5": 0.7896
+          },
+          "canrager/amazon_reviews_mcauley_1and5_results": {
+            "top_1": 0.708,
+            "top_5": 0.8234
+          },
+          "canrager/amazon_reviews_mcauley_1and5_sentiment_results": {
+            "top_1": 0.914,
+            "top_5": 0.962
+          },
+          "codeparrot/github-code_results": {
+            "top_1": 0.5176000000000001,
+            "top_5": 0.6397999999999999
+          },
+          "fancyzhx/ag_news_results": {
+            "top_1": 0.7037500000000001,
+            "top_5": 0.7685000000000001
+          },
+          "Helsinki-NLP/europarl_results": {
+            "top_1": 0.7426,
+            "top_5": 0.806
+          }
+        },
+        "elapsed_s": 248.1112358570099
+      },
+      {
+        "seed": 456,
+        "top_1": 0.6630250000000001,
+        "per_dataset": {
+          "LabHC/bias_in_bios_class_set1_results": {
+            "top_1": 0.657,
+            "top_5": 0.8240000000000001
+          },
+          "LabHC/bias_in_bios_class_set2_results": {
+            "top_1": 0.5574000000000001,
+            "top_5": 0.7326
+          },
+          "LabHC/bias_in_bios_class_set3_results": {
+            "top_1": 0.5914,
+            "top_5": 0.7554000000000001
+          },
+          "canrager/amazon_reviews_mcauley_1and5_results": {
+            "top_1": 0.7132000000000002,
+            "top_5": 0.8182
+          },
+          "canrager/amazon_reviews_mcauley_1and5_sentiment_results": {
+            "top_1": 0.914,
+            "top_5": 0.962
+          },
+          "codeparrot/github-code_results": {
+            "top_1": 0.5204,
+            "top_5": 0.6394
+          },
+          "fancyzhx/ag_news_results": {
+            "top_1": 0.708,
+            "top_5": 0.774
+          },
+          "Helsinki-NLP/europarl_results": {
+            "top_1": 0.6428,
+            "top_5": 0.8078
+          }
+        },
+        "elapsed_s": 241.8516869544983
+      },
+      {
+        "seed": 789,
+        "top_1": 0.6764625,
+        "per_dataset": {
+          "LabHC/bias_in_bios_class_set1_results": {
+            "top_1": 0.6634,
+            "top_5": 0.7774
+          },
+          "LabHC/bias_in_bios_class_set2_results": {
+            "top_1": 0.5562,
+            "top_5": 0.7266
+          },
+          "LabHC/bias_in_bios_class_set3_results": {
+            "top_1": 0.6045999999999999,
+            "top_5": 0.7630000000000001
+          },
+          "canrager/amazon_reviews_mcauley_1and5_results": {
+            "top_1": 0.7087999999999999,
+            "top_5": 0.8176
+          },
+          "canrager/amazon_reviews_mcauley_1and5_sentiment_results": {
+            "top_1": 0.914,
+            "top_5": 0.962
+          },
+          "codeparrot/github-code_results": {
+            "top_1": 0.515,
+            "top_5": 0.6434
+          },
+          "fancyzhx/ag_news_results": {
+            "top_1": 0.7115,
+            "top_5": 0.7865000000000001
+          },
+          "Helsinki-NLP/europarl_results": {
+            "top_1": 0.7382000000000001,
+            "top_5": 0.8046000000000001
+          }
+        },
+        "elapsed_s": 244.0395758152008
+      },
+      {
+        "seed": 1337,
+        "top_1": 0.67580625,
+        "per_dataset": {
+          "LabHC/bias_in_bios_class_set1_results": {
+            "top_1": 0.6651999999999999,
+            "top_5": 0.8256
+          },
+          "LabHC/bias_in_bios_class_set2_results": {
+            "top_1": 0.5556,
+            "top_5": 0.7264
+          },
+          "LabHC/bias_in_bios_class_set3_results": {
+            "top_1": 0.5856,
+            "top_5": 0.794
+          },
+          "canrager/amazon_reviews_mcauley_1and5_results": {
+            "top_1": 0.7178000000000001,
+            "top_5": 0.8155999999999999
+          },
+          "canrager/amazon_reviews_mcauley_1and5_sentiment_results": {
+            "top_1": 0.914,
+            "top_5": 0.962
+          },
+          "codeparrot/github-code_results": {
+            "top_1": 0.521,
+            "top_5": 0.6417999999999999
+          },
+          "fancyzhx/ag_news_results": {
+            "top_1": 0.70225,
+            "top_5": 0.77175
+          },
+          "Helsinki-NLP/europarl_results": {
+            "top_1": 0.7449999999999999,
+            "top_5": 0.808
+          }
+        },
+        "elapsed_s": 244.84426736831665
+      }
+    ],
+    "aggregate": {
+      "mean_top1": 0.6741412500000001,
+      "std_top1": 0.006147360459986049,
+      "min_top1": 0.6630250000000001,
+      "max_top1": 0.6816937500000001,
+      "all_top1": [
+        0.6816937500000001,
+        0.6737187500000001,
+        0.6630250000000001,
+        0.6764625,
+        0.67580625
+      ]
+    }
+  },
+  "perfeature_l2": {
+    "seeds": [
+      {
+        "seed": 42,
+        "top_1": 0.8128375,
+        "per_dataset": {
+          "LabHC/bias_in_bios_class_set1_results": {
+            "top_1": 0.8620000000000001,
+            "top_5": 0.8863999999999999
+          },
+          "LabHC/bias_in_bios_class_set2_results": {
+            "top_1": 0.749,
+            "top_5": 0.8496
+          },
+          "LabHC/bias_in_bios_class_set3_results": {
+            "top_1": 0.7664,
+            "top_5": 0.8578000000000001
+          },
+          "canrager/amazon_reviews_mcauley_1and5_results": {
+            "top_1": 0.714,
+            "top_5": 0.8022
+          },
+          "canrager/amazon_reviews_mcauley_1and5_sentiment_results": {
+            "top_1": 0.88,
+            "top_5": 0.961
+          },
+          "codeparrot/github-code_results": {
+            "top_1": 0.8034000000000001,
+            "top_5": 0.9338000000000001
+          },
+          "fancyzhx/ag_news_results": {
+            "top_1": 0.7354999999999999,
+            "top_5": 0.81025
+          },
+          "Helsinki-NLP/europarl_results": {
+            "top_1": 0.9924,
+            "top_5": 0.9966000000000002
+          }
+        },
+        "elapsed_s": 243.31103467941284
+      },
+      {
+        "seed": 123,
+        "top_1": 0.8135937499999999,
+        "per_dataset": {
+          "LabHC/bias_in_bios_class_set1_results": {
+            "top_1": 0.8646,
+            "top_5": 0.8832000000000001
+          },
+          "LabHC/bias_in_bios_class_set2_results": {
+            "top_1": 0.7488,
+            "top_5": 0.8544
+          },
+          "LabHC/bias_in_bios_class_set3_results": {
+            "top_1": 0.7676000000000001,
+            "top_5": 0.8548
+          },
+          "canrager/amazon_reviews_mcauley_1and5_results": {
+            "top_1": 0.7125999999999999,
+            "top_5": 0.807
+          },
+          "canrager/amazon_reviews_mcauley_1and5_sentiment_results": {
+            "top_1": 0.88,
+            "top_5": 0.961
+          },
+          "codeparrot/github-code_results": {
+            "top_1": 0.8069999999999998,
+            "top_5": 0.9372
+          },
+          "fancyzhx/ag_news_results": {
+            "top_1": 0.73675,
+            "top_5": 0.8180000000000001
+          },
+          "Helsinki-NLP/europarl_results": {
+            "top_1": 0.9914,
+            "top_5": 0.9962
+          }
+        },
+        "elapsed_s": 240.74588108062744
+      },
+      {
+        "seed": 456,
+        "top_1": 0.8128625,
+        "per_dataset": {
+          "LabHC/bias_in_bios_class_set1_results": {
+            "top_1": 0.8628,
+            "top_5": 0.8824
+          },
+          "LabHC/bias_in_bios_class_set2_results": {
+            "top_1": 0.7454,
+            "top_5": 0.8576
+          },
+          "LabHC/bias_in_bios_class_set3_results": {
+            "top_1": 0.765,
+            "top_5": 0.8482
+          },
+          "canrager/amazon_reviews_mcauley_1and5_results": {
+            "top_1": 0.7154,
+            "top_5": 0.8046
+          },
+          "canrager/amazon_reviews_mcauley_1and5_sentiment_results": {
+            "top_1": 0.88,
+            "top_5": 0.961
+          },
+          "codeparrot/github-code_results": {
+            "top_1": 0.8076000000000001,
+            "top_5": 0.9331999999999999
+          },
+          "fancyzhx/ag_news_results": {
+            "top_1": 0.7355,
+            "top_5": 0.81525
+          },
+          "Helsinki-NLP/europarl_results": {
+            "top_1": 0.9912000000000001,
+            "top_5": 0.9962
+          }
+        },
+        "elapsed_s": 239.74789094924927
+      },
+      {
+        "seed": 789,
+        "top_1": 0.81371875,
+        "per_dataset": {
+          "LabHC/bias_in_bios_class_set1_results": {
+            "top_1": 0.8614,
+            "top_5": 0.8799999999999999
+          },
+          "LabHC/bias_in_bios_class_set2_results": {
+            "top_1": 0.7565999999999999,
+            "top_5": 0.8580000000000002
+          },
+          "LabHC/bias_in_bios_class_set3_results": {
+            "top_1": 0.7612,
+            "top_5": 0.8486
+          },
+          "canrager/amazon_reviews_mcauley_1and5_results": {
+            "top_1": 0.714,
+            "top_5": 0.8052000000000001
+          },
+          "canrager/amazon_reviews_mcauley_1and5_sentiment_results": {
+            "top_1": 0.88,
+            "top_5": 0.961
+          },
+          "codeparrot/github-code_results": {
+            "top_1": 0.8102,
+            "top_5": 0.9286000000000001
+          },
+          "fancyzhx/ag_news_results": {
+            "top_1": 0.73475,
+            "top_5": 0.813
+          },
+          "Helsinki-NLP/europarl_results": {
+            "top_1": 0.9916,
+            "top_5": 0.9926
+          }
+        },
+        "elapsed_s": 240.7471387386322
+      },
+      {
+        "seed": 1337,
+        "top_1": 0.8108124999999999,
+        "per_dataset": {
+          "LabHC/bias_in_bios_class_set1_results": {
+            "top_1": 0.8634000000000001,
+            "top_5": 0.8803999999999998
+          },
+          "LabHC/bias_in_bios_class_set2_results": {
+            "top_1": 0.7228,
+            "top_5": 0.8164
+          },
+          "LabHC/bias_in_bios_class_set3_results": {
+            "top_1": 0.7654,
+            "top_5": 0.8508000000000001
+          },
+          "canrager/amazon_reviews_mcauley_1and5_results": {
+            "top_1": 0.716,
+            "top_5": 0.8078000000000001
+          },
+          "canrager/amazon_reviews_mcauley_1and5_sentiment_results": {
+            "top_1": 0.88,
+            "top_5": 0.961
+          },
+          "codeparrot/github-code_results": {
+            "top_1": 0.8103999999999999,
+            "top_5": 0.9284000000000001
+          },
+          "fancyzhx/ag_news_results": {
+            "top_1": 0.7365,
+            "top_5": 0.8049999999999999
+          },
+          "Helsinki-NLP/europarl_results": {
+            "top_1": 0.9919999999999998,
+            "top_5": 0.9926
+          }
+        },
+        "elapsed_s": 241.2997968196869
+      }
+    ],
+    "aggregate": {
+      "mean_top1": 0.812765,
+      "std_top1": 0.0010414878179796601,
+      "min_top1": 0.8108124999999999,
+      "max_top1": 0.81371875,
+      "all_top1": [
+        0.8128375,
+        0.8135937499999999,
+        0.8128625,
+        0.81371875,
+        0.8108124999999999
+      ]
+    }
+  },
+  "gap": {
+    "mean_pp": 13.862374999999991,
+    "std_pp": 0.6296357329837637,
+    "min_pp": 13.114374999999988,
+    "max_pp": 14.983749999999995,
+    "all_pp": [
+      13.114374999999988,
+      13.987499999999976,
+      14.983749999999995,
+      13.725625000000008,
+      13.500624999999989
+    ]
+  }
+}

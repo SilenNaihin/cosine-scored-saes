@@ -1,0 +1,122 @@
+======================================================================
+Exp 55c: Norm-Stratified FVE Across Depth + Reference SAE
+======================================================================
+
+Loading Qwen/Qwen3-8B...
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  2.04it/s]
+Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:01,  2.00it/s]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:00,  2.00it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  2.18it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.88it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.45it/s]
+Model loaded in 4.1s
+
+======================================================================
+  Layer 9
+======================================================================
+  Collecting 100,000 activations at L9...
+  Collected 100,000 tokens in 15.7s
+
+=== Norm-Stratified FVE at L9 ===
+  Norm quartiles: Q1<53.9, Q2<58.1, Q3<62.1, Q4>62.1
+
+  standard:
+    Q1 (low): FVE=0.7324 cos=0.9280 L2r=0.9259 (n=25,000)
+    Q2: FVE=0.7743 cos=0.9221 L2r=0.9200 (n=25,000)
+    Q3: FVE=0.7888 cos=0.9199 L2r=0.9186 (n=25,000)
+    Q4 (high): FVE=-185.1122 cos=0.9035 L2r=10.8238 (n=25,000)
+
+  adaptive_l2:
+    Q1 (low): FVE=0.7239 cos=0.9255 L2r=0.9305 (n=25,000)
+    Q2: FVE=0.7746 cos=0.9222 L2r=0.9243 (n=25,000)
+    Q3: FVE=0.7925 cos=0.9214 L2r=0.9204 (n=25,000)
+    Q4 (high): FVE=0.0452 cos=0.9072 L2r=0.2640 (n=25,000)
+
+  adamkarvonen_ref:
+    Q1 (low): FVE=0.7730 cos=0.9391 L2r=0.9378 (n=25,000)
+    Q2: FVE=0.8116 cos=0.9355 L2r=0.9345 (n=25,000)
+    Q3: FVE=0.8257 cos=0.9344 L2r=0.9347 (n=25,000)
+    Q4 (high): FVE=0.9994 cos=0.9305 L2r=0.9799 (n=25,000)
+
+  Q4 FVE (the catastrophe indicator):
+    standard                 : Q4=-185.1122  Q1=0.7324  gap=-185.8446
+    adaptive_l2              : Q4=0.0452  Q1=0.7239  gap=-0.6787
+    adamkarvonen_ref         : Q4=0.9994  Q1=0.7730  gap=+0.2264
+
+======================================================================
+  Layer 18
+======================================================================
+  Collecting 100,000 activations at L18...
+  Collected 100,000 tokens in 9.0s
+
+=== Norm-Stratified FVE at L18 ===
+  Norm quartiles: Q1<93.2, Q2<99.3, Q3<106.4, Q4>106.4
+
+  standard:
+    Q1 (low): FVE=0.7416 cos=0.9286 L2r=0.9275 (n=24,999)
+    Q2: FVE=0.7625 cos=0.9305 L2r=0.9301 (n=25,001)
+    Q3: FVE=0.7767 cos=0.9316 L2r=0.9320 (n=24,999)
+    Q4 (high): FVE=-183.5019 cos=0.9190 L2r=9.5445 (n=25,001)
+
+  adaptive_l2:
+    Q1 (low): FVE=0.7368 cos=0.9272 L2r=0.9288 (n=24,999)
+    Q2: FVE=0.7603 cos=0.9298 L2r=0.9303 (n=25,001)
+    Q3: FVE=0.7765 cos=0.9315 L2r=0.9313 (n=24,999)
+    Q4 (high): FVE=0.3280 cos=0.9292 L2r=0.4898 (n=25,001)
+
+  adamkarvonen_ref:
+    Q1 (low): FVE=0.7322 cos=0.9258 L2r=0.9262 (n=24,999)
+    Q2: FVE=0.7537 cos=0.9277 L2r=0.9290 (n=25,001)
+    Q3: FVE=0.7673 cos=0.9285 L2r=0.9307 (n=24,999)
+    Q4 (high): FVE=-136.3220 cos=0.9160 L2r=8.3490 (n=25,001)
+
+  Q4 FVE (the catastrophe indicator):
+    standard                 : Q4=-183.5019  Q1=0.7416  gap=-184.2435
+    adaptive_l2              : Q4=0.3280  Q1=0.7368  gap=-0.4088
+    adamkarvonen_ref         : Q4=-136.3220  Q1=0.7322  gap=-137.0542
+
+======================================================================
+  Layer 27
+======================================================================
+  Collecting 100,000 activations at L27...
+  Collected 100,000 tokens in 10.0s
+
+=== Norm-Stratified FVE at L27 ===
+  Norm quartiles: Q1<387.6, Q2<411.2, Q3<431.6, Q4>431.6
+
+  standard:
+    Q1 (low): FVE=0.7469 cos=0.9221 L2r=0.9222 (n=25,000)
+    Q2: FVE=0.7671 cos=0.9328 L2r=0.9328 (n=24,999)
+    Q3: FVE=0.7762 cos=0.9373 L2r=0.9375 (n=25,001)
+    Q4 (high): FVE=0.2469 cos=0.9404 L2r=1.1424 (n=25,000)
+
+  adaptive_l2:
+    Q1 (low): FVE=0.7483 cos=0.9226 L2r=0.9237 (n=25,000)
+    Q2: FVE=0.7704 cos=0.9338 L2r=0.9343 (n=24,999)
+    Q3: FVE=0.7812 cos=0.9388 L2r=0.9386 (n=25,001)
+    Q4 (high): FVE=0.7600 cos=0.9448 L2r=0.8133 (n=25,000)
+
+  adamkarvonen_ref:
+    Q1 (low): FVE=0.7794 cos=0.9323 L2r=0.9333 (n=25,000)
+    Q2: FVE=0.8002 cos=0.9426 L2r=0.9445 (n=24,999)
+    Q3: FVE=0.8095 cos=0.9468 L2r=0.9493 (n=25,001)
+    Q4 (high): FVE=-7.0144 cos=0.9404 L2r=1.6709 (n=25,000)
+
+  Q4 FVE (the catastrophe indicator):
+    standard                 : Q4=0.2469  Q1=0.7469  gap=-0.5000
+    adaptive_l2              : Q4=0.7600  Q1=0.7483  gap=+0.0117
+    adamkarvonen_ref         : Q4=-7.0144  Q1=0.7794  gap=-7.7938
+
+======================================================================
+  Summary: Q4 FVE Across Depth
+======================================================================
+  SAE                            L9 Q4     L18 Q4     L27 Q4
+  ------------------------- ---------- ---------- ----------
+  standard                   -185.1122  -183.5019     0.2469
+  adaptive_l2                   0.0452     0.3280     0.7600
+  adamkarvonen_ref              0.9994  -136.3220    -7.0144
+
+Results saved to experiments/exp55c_results.json

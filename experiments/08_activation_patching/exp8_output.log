@@ -1,0 +1,205 @@
+Experiment 8: Activation Patching — Norm vs Direction
+======================================================================
+Model: Qwen/Qwen3-8B
+Layers: [9, 18, 27]
+Random pairs per layer: 500
+Controlled pairs per layer: up to 200
+Scale test tokens per layer: 100
+SAE dependency: NONE
+Loading Qwen/Qwen3-8B...
+
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]
+Loading weights:   1%|          | 2/399 [00:00<00:45,  8.75it/s]
+Loading weights:   7%|▋         | 28/399 [00:00<00:03, 103.96it/s]
+Loading weights:  15%|█▍        | 58/399 [00:00<00:01, 171.97it/s]
+Loading weights:  21%|██        | 83/399 [00:00<00:01, 194.00it/s]
+Loading weights:  29%|██▊       | 114/399 [00:00<00:01, 220.34it/s]
+Loading weights:  37%|███▋      | 146/399 [00:00<00:01, 243.45it/s]
+Loading weights:  43%|████▎     | 172/399 [00:00<00:00, 245.40it/s]
+Loading weights:  51%|█████     | 202/399 [00:00<00:00, 258.07it/s]
+Loading weights:  57%|█████▋    | 229/399 [00:01<00:00, 259.06it/s]
+Loading weights:  65%|██████▍   | 258/399 [00:01<00:00, 262.16it/s]
+Loading weights:  73%|███████▎  | 290/399 [00:01<00:00, 271.55it/s]
+Loading weights:  80%|███████▉  | 318/399 [00:01<00:00, 267.49it/s]
+Loading weights:  87%|████████▋ | 346/399 [00:01<00:00, 265.24it/s]
+Loading weights:  94%|█████████▍| 375/399 [00:01<00:00, 270.72it/s]
+Loading weights: 100%|██████████| 399/399 [00:01<00:00, 235.21it/s]
+  Loaded in 5.5s
+
+======================================================================
+  LAYER 9
+======================================================================
+  Collecting activations...
+  10800 tokens (205 sinks filtered) in 2.6s
+
+  Part A: Random pairs
+    Running 500 random pairs...
+      100/500 | dir_kl=6.2940 | norm_kl=0.4408 | dir>norm: 100%
+      200/500 | dir_kl=6.3784 | norm_kl=0.3921 | dir>norm: 100%
+      300/500 | dir_kl=6.3532 | norm_kl=0.3427 | dir>norm: 100%
+      400/500 | dir_kl=6.3836 | norm_kl=0.3459 | dir>norm: 100%
+      500/500 | dir_kl=6.5499 | norm_kl=0.3644 | dir>norm: 99%
+    Done in 57.0s
+
+  Part A.2: High-cosine controlled pairs
+    Searching for high-cosine pairs...
+    Warning: only found 0/200 high-cosine pairs
+    Done in 25.3s
+
+  Part A.3: Same-norm controlled pairs
+    Searching for same-norm pairs...
+    Found 200 same-norm pairs
+    Done in 23.0s
+
+  Part B: Scaling vs rotation
+    Running scaling test on 100 tokens...
+      25/100 | scale_kl=3.0936 | rotation_kl=7.3555
+      50/100 | scale_kl=3.0598 | rotation_kl=6.8533
+      75/100 | scale_kl=3.0699 | rotation_kl=6.6252
+      100/100 | scale_kl=2.9695 | rotation_kl=6.6482
+    Done in 22.7s
+
+  === Layer 9 Summary ===
+  Random pairs (500):
+    direction_kl: 6.5499 ± 3.0501
+    norm_kl:      0.3644 ± 0.9634
+    dir>norm:     497/500 (99%)
+    median ratio: 86.7x
+    diff 95% CI:  [5.9091, 6.4618]
+    corr(cos_distance, dir_kl):   0.298
+    corr(|log_norm_ratio|, norm_kl): 0.402
+  Same-norm pairs (200):
+    dir_kl (big dir change):   6.6988
+    norm_kl (tiny norm change): 0.0516
+  Scaling test (100 tokens):
+    mean scale_kl:    2.9695
+    mean rotation_kl: 6.6482
+    rotation/scale:   2.2x
+  Intermediate results saved.
+
+======================================================================
+  LAYER 18
+======================================================================
+  Collecting activations...
+  10800 tokens (205 sinks filtered) in 2.8s
+
+  Part A: Random pairs
+    Running 500 random pairs...
+      100/500 | dir_kl=8.9957 | norm_kl=0.2129 | dir>norm: 100%
+      200/500 | dir_kl=9.0607 | norm_kl=0.2468 | dir>norm: 100%
+      300/500 | dir_kl=9.1463 | norm_kl=0.2131 | dir>norm: 100%
+      400/500 | dir_kl=9.0973 | norm_kl=0.2044 | dir>norm: 100%
+      500/500 | dir_kl=9.0966 | norm_kl=0.2035 | dir>norm: 100%
+    Done in 63.4s
+
+  Part A.2: High-cosine controlled pairs
+    Searching for high-cosine pairs...
+    Warning: only found 0/200 high-cosine pairs
+    Done in 25.5s
+
+  Part A.3: Same-norm controlled pairs
+    Searching for same-norm pairs...
+    Found 200 same-norm pairs
+    Done in 22.9s
+
+  Part B: Scaling vs rotation
+    Running scaling test on 100 tokens...
+      25/100 | scale_kl=2.4529 | rotation_kl=11.2924
+      50/100 | scale_kl=3.1309 | rotation_kl=9.9746
+      75/100 | scale_kl=3.1428 | rotation_kl=10.2113
+      100/100 | scale_kl=3.0360 | rotation_kl=10.5580
+    Done in 19.1s
+
+  === Layer 18 Summary ===
+  Random pairs (500):
+    direction_kl: 9.0966 ± 4.5506
+    norm_kl:      0.2035 ± 0.5649
+    dir>norm:     499/500 (100%)
+    median ratio: 219.3x
+    diff 95% CI:  [8.4918, 9.2944]
+    corr(cos_distance, dir_kl):   0.321
+    corr(|log_norm_ratio|, norm_kl): 0.425
+  Same-norm pairs (200):
+    dir_kl (big dir change):   9.3709
+    norm_kl (tiny norm change): 0.0264
+  Scaling test (100 tokens):
+    mean scale_kl:    3.0360
+    mean rotation_kl: 10.5580
+    rotation/scale:   3.5x
+  Intermediate results saved.
+
+======================================================================
+  LAYER 27
+======================================================================
+  Collecting activations...
+  10800 tokens (205 sinks filtered) in 2.3s
+
+  Part A: Random pairs
+    Running 500 random pairs...
+      100/500 | dir_kl=15.1316 | norm_kl=0.0431 | dir>norm: 100%
+      200/500 | dir_kl=14.9952 | norm_kl=0.0416 | dir>norm: 100%
+      300/500 | dir_kl=15.3435 | norm_kl=0.0365 | dir>norm: 100%
+      400/500 | dir_kl=15.2516 | norm_kl=0.0383 | dir>norm: 100%
+      500/500 | dir_kl=15.4802 | norm_kl=0.0454 | dir>norm: 100%
+    Done in 58.8s
+
+  Part A.2: High-cosine controlled pairs
+    Searching for high-cosine pairs...
+    Warning: only found 6/200 high-cosine pairs
+    Done in 50.7s
+
+  Part A.3: Same-norm controlled pairs
+    Searching for same-norm pairs...
+    Found 200 same-norm pairs
+    Done in 23.8s
+
+  Part B: Scaling vs rotation
+    Running scaling test on 100 tokens...
+      25/100 | scale_kl=1.3017 | rotation_kl=12.9644
+      50/100 | scale_kl=1.1390 | rotation_kl=13.2164
+      75/100 | scale_kl=1.1040 | rotation_kl=13.5134
+      100/100 | scale_kl=1.1752 | rotation_kl=13.6706
+    Done in 20.5s
+
+  === Layer 27 Summary ===
+  Random pairs (500):
+    direction_kl: 15.4802 ± 6.9342
+    norm_kl:      0.0454 ± 0.1364
+    dir>norm:     500/500 (100%)
+    median ratio: 2559.5x
+    diff 95% CI:  [14.8264, 16.0433]
+    corr(cos_distance, dir_kl):   0.212
+    corr(|log_norm_ratio|, norm_kl): 0.514
+  High-cosine pairs (6):
+    norm_kl (big norm change): 0.4021
+    dir_kl (tiny dir change):  12.6375
+  Same-norm pairs (200):
+    dir_kl (big dir change):   16.2999
+    norm_kl (tiny norm change): 0.0065
+  Scaling test (100 tokens):
+    mean scale_kl:    1.1752
+    mean rotation_kl: 13.6706
+    rotation/scale:   11.6x
+  Intermediate results saved.
+
+======================================================================
+  CROSS-LAYER SUMMARY
+======================================================================
+
+  Random pairs:
+   Layer |     n |     dir_kl |    norm_kl |     dir>norm |    ratio
+  ------ | ----- | ---------- | ---------- | ------------ | --------
+       9 |   500 |     6.5499 |     0.3644 | 497/500 (99%) |    86.7x
+      18 |   500 |     9.0966 |     0.2035 | 499/500 (100%) |   219.3x
+      27 |   500 |    15.4802 |     0.0454 | 500/500 (100%) |  2559.5x
+
+  Scaling test:
+   Layer |   scale_kl |  rotation_kl |  rot/scale
+  ------ | ---------- | ------------ | ----------
+       9 |     2.9695 |       6.6482 |       2.2x
+      18 |     3.0360 |      10.5580 |       3.5x
+      27 |     1.1752 |      13.6706 |      11.6x
+
+Results saved to experiments/exp8_results.json
+
+Analysis written to experiments/exp8_analysis.md

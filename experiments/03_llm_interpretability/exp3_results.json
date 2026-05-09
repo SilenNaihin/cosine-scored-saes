@@ -1,0 +1,1650 @@
+{
+  "features": [
+    {
+      "feature_idx": 20938,
+      "cos_interpretation": "This feature detects **educational or explanatory statements that introduce key concepts or mechanisms**, particularly common phrases used in textbooks and educational content to clarify how something works (e.g., \"illustrates,\" \"produce,\" \"powerhouse of the cell,\" \"double-blind\"). It activates on tokens that are part of canonical explanations or definitions across STEM and social studies domains.",
+      "sae_interpretation": "This feature detects **key technical and scientific terms that represent important concepts or mechanisms** in their respective domains\u2014words like \"powerhouse,\" \"measured,\" \"learned,\" \"energy,\" \"activation,\" \"complex,\" and \"descent\" that carry significant explanatory weight in educational or technical contexts.",
+      "sae_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.0\n}\n```\n\n**Reasoning:** All tokens are from programming code (Python implementation of sorting/transformer architecture) or generic common words. None match the feature explanation which targets educational/explanatory statements that introduce key concepts or mechanisms using canonical phrases like \"illustrates,\" \"powerhouse of the cell,\" \"double-blind,\" etc.\n\nThe tokens are:\n- **Programming syntax/variables**: '2', '1', 'x', 'Layer', 'Encoder', 'init', '[', 'if', 'middle', 'left'\n- **Generic function words**: 'the', 'of'\n\nThese are implementation details in code, not educational explanations of concepts or mechanisms. The low cosine similarity (all < 0.11) confirms these are poor matches for the feature direction despite SAE activation.",
+      "sae_detected_tokens": [
+        {
+          "token": "2",
+          "context": "[len(arr) // **2**]\n    left = [",
+          "cos": 0.07275390625,
+          "sae_act": 14.375
+        },
+        {
+          "token": "Encoder",
+          "context": "(\n            nn.Transformer**Encoder**Layer(d_model, n",
+          "cos": 0.08544921875,
+          "sae_act": 15.375
+        },
+        {
+          "token": "1",
+          "context": " len(arr) <= **1**:\n        return arr\n",
+          "cos": 0.0859375,
+          "sae_act": 15.6875
+        },
+        {
+          "token": "x",
+          "context": "]\n    middle = [**x** for x in arr if",
+          "cos": 0.087890625,
+          "sae_act": 12.8125
+        },
+        {
+          "token": "Layer",
+          "context": "            nn.TransformerEncoder**Layer**(d_model, nhead",
+          "cos": 0.09033203125,
+          "sae_act": 16.25
+        },
+        {
+          "token": " middle",
+          "context": " x < pivot]\n   ** middle** = [x for x",
+          "cos": 0.0927734375,
+          "sae_act": 16.25
+        },
+        {
+          "token": "init",
+          "context": "_layers):\n        super().__**init**__()\n        self.encoder =",
+          "cos": 0.09521484375,
+          "sae_act": 14.3125
+        },
+        {
+          "token": " x",
+          "context": " for x in arr if** x** == pivot]\n    right",
+          "cos": 0.095703125,
+          "sae_act": 13.25
+        },
+        {
+          "token": "           ",
+          "context": " nn.TransformerEncoder(\n**           ** nn.TransformerEncoderLayer",
+          "cos": 0.09619140625,
+          "sae_act": 13.0625
+        },
+        {
+          "token": " [",
+          "context": " pivot]\n    middle =** [**x for x in arr",
+          "cos": 0.09765625,
+          "sae_act": 14.375
+        },
+        {
+          "token": " if",
+          "context": "x for x in arr** if** x < pivot]\n   ",
+          "cos": 0.099609375,
+          "sae_act": 13.5
+        },
+        {
+          "token": " the",
+          "context": ". It remains one of** the** most performed plays in the",
+          "cos": 0.10009765625,
+          "sae_act": 13.9375
+        },
+        {
+          "token": " x",
+          "context": " for x in arr if** x** > pivot]\n    return",
+          "cos": 0.10009765625,
+          "sae_act": 13.125
+        },
+        {
+          "token": " of",
+          "context": " estimated 10%** of** all known species on Earth",
+          "cos": 0.10009765625,
+          "sae_act": 17.25
+        },
+        {
+          "token": " left",
+          "context": " // 2]\n   ** left** = [x for x",
+          "cos": 0.1005859375,
+          "sae_act": 15.25
+        }
+      ]
+    },
+    {
+      "feature_idx": 64644,
+      "cos_interpretation": "This feature detects **proper nouns and significant named entities** (United States, Industrial Revolution, French Revolution, Amazon rainforest, quantum computing) as well as **key domain-specific or technical terms** that introduce important concepts (neural network, recursion, general relativity, clinical trial). It activates on tokens that mark the beginning of semantically substantial or formally named concepts in text.",
+      "sae_interpretation": "This feature detects **major noun phrases and key conceptual terms** that introduce important topics or subjects in educational/informational text. The activations consistently occur on significant nouns (Quantum, neural, Recursion, learning, Amazon, Industrial, network, theory, French, Climate, human, market, Shakespeare, mathematics, States) that anchor the main ideas being discussed.",
+      "sae_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.27\n}\n```\n\n**Reasoning:**\n\n- **PARTIAL matches (4/15):**\n  1. `integer` - Technical/domain term (mathematics), though common\n  7. `Layer` - Part of technical term \"TransformerEncoderLayer\" (key ML concept)\n  8. `economic` - Descriptor of significant concept (economic growth during Industrial Revolution context)\n  11. `complex` - Technical descriptor in ML context\n  13. `system` - Part of \"financial system\" (significant named concept in historical context)\n\n- **NO matches (11/15):**\n  - `holiday`, `national`, `still`, `other` - Common adjectives/adverbs, not named entities or key technical terms\n  - `nn`, `+`, `(right`, `pivot`, `in` - Code syntax, operators, or prepositions; not semantic concepts\n  - `of` - Preposition with no semantic substance\n\nThe low cosine similarity (-0.0133 to -0.0009) suggests these tokens are actually **anti-correlated** with the feature direction, indicating the SAE learned to suppress or distinguish these from true proper nouns and significant named entities. Most tokens are either common words, syntactic elements, or minor descriptors rather than the \"semantically substantial or formally named concepts\" the feature targets.",
+      "sae_detected_tokens": [
+        {
+          "token": " integer",
+          "context": " of arithmetic states that every** integer** can be uniquely factored",
+          "cos": -0.0133056640625,
+          "sae_act": 1.953125
+        },
+        {
+          "token": " holiday",
+          "context": " still celebrated as a national** holiday**.",
+          "cos": -0.01080322265625,
+          "sae_act": 2.390625
+        },
+        {
+          "token": " nn",
+          "context": ".TransformerEncoder(\n           ** nn**.TransformerEncoderLayer(d",
+          "cos": -0.01080322265625,
+          "sae_act": 2.203125
+        },
+        {
+          "token": " national",
+          "context": " is still celebrated as a** national** holiday.",
+          "cos": -0.0106201171875,
+          "sae_act": 2.125
+        },
+        {
+          "token": " of",
+          "context": "4th became a symbol** of** the revolution and is still",
+          "cos": -0.008544921875,
+          "sae_act": 2.234375
+        },
+        {
+          "token": " +",
+          "context": "sort(left) + middle** +** quicksort(right)",
+          "cos": -0.006256103515625,
+          "sae_act": 2.328125
+        },
+        {
+          "token": "Layer",
+          "context": "            nn.TransformerEncoder**Layer**(d_model, nhead",
+          "cos": -0.004638671875,
+          "sae_act": 2.265625
+        },
+        {
+          "token": " economic",
+          "context": " smelting drove unprecedented** economic** growth.",
+          "cos": -0.003753662109375,
+          "sae_act": 3.171875
+        },
+        {
+          "token": " still",
+          "context": " of the revolution and is** still** celebrated as a national holiday",
+          "cos": -0.003509521484375,
+          "sae_act": 3.234375
+        },
+        {
+          "token": " pivot",
+          "context": " in arr if x >** pivot**]\n    return quicksort",
+          "cos": -0.0034332275390625,
+          "sae_act": 2.265625
+        },
+        {
+          "token": " complex",
+          "context": " enabling the network to learn** complex** patterns.",
+          "cos": -0.00250244140625,
+          "sae_act": 2.734375
+        },
+        {
+          "token": "(right",
+          "context": " + middle + quicksort**(right**)",
+          "cos": -0.0016937255859375,
+          "sae_act": 2.234375
+        },
+        {
+          "token": " system",
+          "context": " fell, the entire financial** system** nearly collapsed.",
+          "cos": -0.00103759765625,
+          "sae_act": 3.453125
+        },
+        {
+          "token": " in",
+          "context": " ten amendments, was added** in** 1791",
+          "cos": -0.0009918212890625,
+          "sae_act": 2.828125
+        },
+        {
+          "token": " other",
+          "context": " rest includes regulatory sequences and** other** elements.",
+          "cos": -0.000926971435546875,
+          "sae_act": 2.796875
+        }
+      ]
+    },
+    {
+      "feature_idx": 59854,
+      "cos_interpretation": "This feature detects **nouns and noun phrases**, particularly those that are concrete, semantically significant entities (places, natural phenomena, concepts, or objects). The activations span diverse semantic categories\u2014geographic locations (Verona, valley, mountains), natural systems (rainforest, universe, plants), and abstract concepts (understanding, computing)\u2014suggesting the feature identifies tokens that function as important nominal referents in discourse.",
+      "sae_interpretation": "This feature detects **nouns that are central to establishing setting, context, or foundational concepts** in narratives and explanatory text. It activates on concrete nouns (valley, mountains, soil, rainforest) that ground scenes spatially, as well as abstract nouns (understanding, universe, families) that establish key thematic or structural elements of the discourse.",
+      "cosine_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"YES\",\n    \"YES\",\n    \"NO\",\n    \"PARTIAL\",\n    \"YES\",\n    \"NO\",\n    \"YES\"\n  ],\n  \"match_rate\": 0.714\n}\n```\n\n**Reasoning:**\n\n1. **' human'** - YES: \"human\" is a concrete noun functioning as a nominal referent (human genome), fits the feature's detection of important entities.\n\n2. **' Industrial'** - YES: \"Industrial\" (in \"Industrial Revolution\") is a noun phrase component referring to a significant historical concept/phenomenon, matches the feature's scope.\n\n3. **'2'** - NO: A digit, not a noun or noun phrase. Doesn't match the feature explanation despite cosine similarity.\n\n4. **'um'** - PARTIAL: This is a subword token from \"Quantum.\" While \"quantum computing\" is a semantically significant concept the feature would detect, this token alone is a fragment, not a complete nominal referent.\n\n5. **' learning'** - YES: \"learning\" (in \"Machine learning\") is a noun functioning as part of a semantically significant concept/entity, matches the feature's detection of important nominal referents.\n\n6. **','** - NO: Punctuation, not a noun or noun phrase. Clear mismatch.\n\n7. **' Python'** - YES: \"Python\" is a proper noun referring to a concrete programming language/tool, functions as a nominal referent in discourse.\n\n**Match rate: 5 YES + 1 PARTIAL = 6/7 = 0.714**",
+      "cosine_detected_tokens": [
+        {
+          "token": " human",
+          "context": "The** human** genome contains approximately 3",
+          "cos": 0.06103515625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " Industrial",
+          "context": "The** Industrial** Revolution began in Britain in",
+          "cos": 0.05810546875,
+          "sae_act": 0.0
+        },
+        {
+          "token": "2",
+          "context": " stock market crashed in **2**008 because of",
+          "cos": 0.05224609375,
+          "sae_act": 0.0
+        },
+        {
+          "token": "um",
+          "context": "Quant**um** computing uses qubits instead",
+          "cos": 0.049560546875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " learning",
+          "context": "Machine** learning** models are trained by optimizing",
+          "cos": 0.047607421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": "In mathematics**,** a prime number is a",
+          "cos": 0.04638671875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " Python",
+          "context": "In** Python**, you can use list",
+          "cos": 0.043701171875,
+          "sae_act": 0.0
+        }
+      ],
+      "sae_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.067\n}\n```\n\n**Rationale:**\n\nThe feature is designed to detect **nouns and noun phrases** that are concrete, semantically significant entities (places, natural phenomena, concepts, objects). \n\nAll tokens in this list are **function words, punctuation, or non-nominal elements**:\n- Tokens 1, 4, 7, 11, 14: Prepositions, verbs, or adverbs (through, adjusting, learned, by, simultaneously)\n- Tokens 2, 8: Copula verb \"is\"\n- Token 3: Punctuation (comma)\n- Token 5: Relative pronoun \"which\"\n- Tokens 6, 13: Whitespace\n- Token 10: Numeral \"5\"\n- Token 12: Single letter \"n\" (likely part of parameter name)\n- Token 15: Adjective \"double\"\n\n**Token 9 (' sub')** receives PARTIAL because it appears in \"subproblems\" and could be part of a nominal compound, though it's more of a prefix/modifier than a standalone noun phrase.\n\nThe negative cosine similarities (-0.016 to -0.003) confirm these tokens are **poorly aligned** with the feature direction, which is expected since they don't match the feature's nominal/entity-focused design.",
+      "sae_detected_tokens": [
+        {
+          "token": " through",
+          "context": " outputs by adjusting its parameters** through** gradient descent. Regularization",
+          "cos": -0.0159912109375,
+          "sae_act": 1.953125
+        },
+        {
+          "token": " is",
+          "context": " connection has a weight that** is** learned during training. Activation",
+          "cos": -0.0125732421875,
+          "sae_act": 2.6875
+        },
+        {
+          "token": ",",
+          "context": " and when housing prices fell**,** the entire financial system nearly",
+          "cos": -0.0087890625,
+          "sae_act": 2.125
+        },
+        {
+          "token": " adjusting",
+          "context": " map inputs to outputs by** adjusting** its parameters through gradient descent",
+          "cos": -0.00872802734375,
+          "sae_act": 2.734375
+        },
+        {
+          "token": " which",
+          "context": " and NADPH,** which** drive the Calvin cycle.",
+          "cos": -0.00750732421875,
+          "sae_act": 2.515625
+        },
+        {
+          "token": "           ",
+          "context": " nn.TransformerEncoder(\n**           ** nn.TransformerEncoderLayer",
+          "cos": -0.00701904296875,
+          "sae_act": 2.359375
+        },
+        {
+          "token": " learned",
+          "context": " has a weight that is** learned** during training. Activation functions",
+          "cos": -0.0067138671875,
+          "sae_act": 2.03125
+        },
+        {
+          "token": " is",
+          "context": " list of squares. This** is** more concise than a traditional",
+          "cos": -0.006591796875,
+          "sae_act": 2.625
+        },
+        {
+          "token": " sub",
+          "context": " breaking it down into smaller** sub**problems. Each recursive call",
+          "cos": -0.0059814453125,
+          "sae_act": 2.453125
+        },
+        {
+          "token": "5",
+          "context": " and randomized, with **5**00 participants across ",
+          "cos": -0.005523681640625,
+          "sae_act": 2.21875
+        },
+        {
+          "token": " by",
+          "context": " itself to solve a problem** by** breaking it down into smaller",
+          "cos": -0.005462646484375,
+          "sae_act": 2.375
+        },
+        {
+          "token": " n",
+          "context": "EncoderLayer(d_model,** n**head), num_layers)\n",
+          "cos": -0.00421142578125,
+          "sae_act": 2.015625
+        },
+        {
+          "token": "       ",
+          "context": "        super().__init__()\n**       ** self.encoder = nn.Trans",
+          "cos": -0.004150390625,
+          "sae_act": 2.0
+        },
+        {
+          "token": " simultaneously",
+          "context": " computers to explore many solutions** simultaneously**.",
+          "cos": -0.003814697265625,
+          "sae_act": 3.40625
+        },
+        {
+          "token": " double",
+          "context": " placebo. The study was** double**-blind and randomized, with",
+          "cos": -0.0032196044921875,
+          "sae_act": 2.390625
+        }
+      ]
+    },
+    {
+      "feature_idx": 63114,
+      "cos_interpretation": "This feature detects **nouns and noun phrases that represent abstract concepts, scientific entities, or key domain-specific terms** across diverse fields (atmosphere, understanding, lovers, spacetime, ATP, parameters). The pattern appears to activate on semantically significant nouns that carry important meaning within their respective contexts, particularly those that are central to explaining or describing complex ideas.",
+      "sae_interpretation": "This feature detects **key technical and scientific terms** that represent important concepts or entities in specialized domains (physics, computer science, biology, law, etc.). These are typically domain-specific nouns or terms that carry significant semantic weight in explaining complex ideas.",
+      "cosine_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.0,\n  \"reasoning\": \"The feature explanation describes detection of abstract concepts, scientific entities, and domain-specific terms (e.g., atmosphere, spacetime, ATP, parameters) that carry semantic significance. All 10 tokens are syntactic/structural elements: programming keywords ('init', 'if', 'for'), operators ('=', '>'), punctuation (','), conjunctions ('and'), variables ('x'), or numerals ('7'). None represent meaningful domain concepts or abstract ideas. These are low-<author>el syntactic tokens that would not be expected to activate a feature designed for semantically significant nouns and noun phrases. The cosine similarities are all very low (0.04-0.06), suggesting weak feature alignment, and the SAE correctly assigned zero activation to all of them.\"\n}\n```",
+      "cosine_detected_tokens": [
+        {
+          "token": "init",
+          "context": "_layers):\n        super().__**init**__()\n        self.encoder =",
+          "cos": 0.0595703125,
+          "sae_act": 0.0
+        },
+        {
+          "token": "7",
+          "context": " was added in 1**7**91 to protect individual",
+          "cos": 0.056396484375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " and",
+          "context": " mechanized textile production,** and** iron smelting drove",
+          "cos": 0.05615234375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " if",
+          "context": "x for x in arr** if** x > pivot]\n   ",
+          "cos": 0.05615234375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " x",
+          "context": " for x in arr if** x** > pivot]\n    return",
+          "cos": 0.052734375,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": ", mechanized textile production**,** and iron smelting",
+          "cos": 0.046875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " =",
+          "context": " == pivot]\n    right** =** [x for x in",
+          "cos": 0.0458984375,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": " def __init__(self**,** d_model, nhead",
+          "cos": 0.044677734375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " >",
+          "context": " x in arr if x** >** pivot]\n    return quick",
+          "cos": 0.044189453125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " for",
+          "context": "    middle = [x** for** x in arr if x",
+          "cos": 0.043701171875,
+          "sae_act": 0.0
+        }
+      ],
+      "sae_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\"\n  ],\n  \"match_rate\": 0.27,\n  \"reasoning\": {\n    \"1_human\": \"Common noun, not domain-specific or abstract concept - NO\",\n    \"2_instead\": \"Conjunction/adverb, not a noun - NO\",\n    \"3_United\": \"Part of proper noun phrase, could represent a key entity but weak match - PARTIAL\",\n    \"4_comma\": \"Punctuation, not a noun - NO\",\n    \"5_a\": \"Article, not a noun - NO\",\n    \"6_colon\": \"Punctuation, not a noun - NO\",\n    \"7_general\": \"Adjective modifying 'relativity', but part of key scientific concept 'general relativity' - PARTIAL\",\n    \"8_approximately\": \"Adverb/quantifier, not a noun - NO\",\n    \"9_2\": \"Digit, not a noun - NO\",\n    \"10_fueled\": \"Verb, not a noun - NO\",\n    \"11_-F\": \"Partial word/morpheme, not a complete noun - NO\",\n    \"12_Regular\": \"Adjective starting 'Regularization', part of domain-specific ML term but not the noun itself - PARTIAL\",\n    \"13_5\": \"Digit, not a noun - NO\",\n    \"14_found\": \"Verb, not a noun - NO\",\n    \"15_housing\": \"Noun in 'housing bubble', represents a key economic concept - PARTIAL\"\n  }\n}\n```\n\nThe low cosine similarity scores suggest these tokens are poor matches for the feature despite SAE activation. Most are non-nouns (punctuation, articles, verbs, adverbs, digits). Only 4 tokens show partial re<author>ance as they relate to domain-specific concepts or are part of key terms, but even these are marginal matches.",
+      "sae_detected_tokens": [
+        {
+          "token": " human",
+          "context": "The** human** genome contains approximately 3",
+          "cos": -0.004150390625,
+          "sae_act": 2.171875
+        },
+        {
+          "token": " instead",
+          "context": "um computing uses qubits** instead** of classical bits. Unlike",
+          "cos": -0.0031585693359375,
+          "sae_act": 2.40625
+        },
+        {
+          "token": " United",
+          "context": "The** United** States Constitution was ratified in",
+          "cos": 0.0005645751953125,
+          "sae_act": 4.65625
+        },
+        {
+          "token": ",",
+          "context": "Once upon a time**,** there was a small village",
+          "cos": 0.00140380859375,
+          "sae_act": 2.203125
+        },
+        {
+          "token": " a",
+          "context": "Once upon** a** time, there was a",
+          "cos": 0.0016326904296875,
+          "sae_act": 2.859375
+        },
+        {
+          "token": ":",
+          "context": "Water exists in three states**:** solid (ice), liquid",
+          "cos": 0.0029296875,
+          "sae_act": 2.734375
+        },
+        {
+          "token": " general",
+          "context": "The theory of** general** relativity describes how gravity",
+          "cos": 0.00390625,
+          "sae_act": 3.109375
+        },
+        {
+          "token": " approximately",
+          "context": "The Amazon rainforest covers** approximately** 5.5 million",
+          "cos": 0.0040283203125,
+          "sae_act": 1.9453125
+        },
+        {
+          "token": "2",
+          "context": " stock market crashed in **2**008 because of",
+          "cos": 0.004852294921875,
+          "sae_act": 3.34375
+        },
+        {
+          "token": " fueled",
+          "context": " because of a housing bubble** fueled** by subprime mortgages and",
+          "cos": 0.005706787109375,
+          "sae_act": 2.734375
+        },
+        {
+          "token": "-F",
+          "context": " between Federalists and Anti**-F**ederalists. The Bill",
+          "cos": 0.005828857421875,
+          "sae_act": 2.421875
+        },
+        {
+          "token": " Regular",
+          "context": " parameters through gradient descent.** Regular**ization techniques help prevent over",
+          "cos": 0.005859375,
+          "sae_act": 2.28125
+        },
+        {
+          "token": "5",
+          "context": " rainforest covers approximately **5**.5 million square kilometers",
+          "cos": 0.0062255859375,
+          "sae_act": 2.5625
+        },
+        {
+          "token": " found",
+          "context": " a clinical trial, researchers** found** that the new drug reduced",
+          "cos": 0.0064697265625,
+          "sae_act": 2.3125
+        },
+        {
+          "token": " housing",
+          "context": "08 because of a** housing** bubble fueled by subprime",
+          "cos": 0.00897216796875,
+          "sae_act": 1.9453125
+        }
+      ]
+    },
+    {
+      "feature_idx": 27634,
+      "cos_interpretation": "This feature detects **sentence boundaries and the beginning of new clauses**, particularly activating on tokens that immediately follow periods or other terminal punctuation marks. The pattern shows strong activation on \"the\", \"there\", and other common sentence-initial words that typically appear after periods, as well as on periods themselves when they conclude statements.",
+      "sae_interpretation": "This feature detects **major scientific, historical, and technical concepts or domain-specific terminology** \u2014 it activates strongly on foundational terms like \"Regularization,\" \"Climate change,\" \"Renaissance,\" \"Python,\" \"Revolution,\" \"quantum mechanics,\" \"relativity,\" \"Machine learning,\" and \"Photosynthesis.\" The feature appears to identify tokens that represent established fields of knowledge, historical periods, or key technical domains.",
+      "cosine_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"YES\",\n    \"PARTIAL\",\n    \"YES\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"YES\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.2667\n}\n```\n\n**Reasoning:**\n\n- **YES (tokens 1, 3, 7)**: ' The' and ' This' clearly match the feature - they are sentence-initial words that follow periods, exactly as described.\n\n- **PARTIAL (tokens 2, 13)**: ' the' appears mid-sentence (not after terminal punctuation), so it's a weak match. ':' is terminal punctuation but introduces a list rather than a new sentence/clause in the traditional sense.\n\n- **NO (tokens 4, 5, 6, 8, 9, 10, 11, 12, 14, 15)**: \n  - Commas (4, 5, 10, 12) are not terminal punctuation and don't mark sentence boundaries\n  - ')' and ')]' (6, 8) are closing brackets, not sentence boundaries\n  - ' and', ' a', ' in' (9, 11, 14, 15) are not sentence-initial words following periods\n  - '),' (12) is a closing bracket with comma\n\nThe feature specifically targets sentence boundaries after terminal punctuation (periods), but most of these tokens appear in other contexts (mid-sentence, within code, after commas/brackets).",
+      "cosine_detected_tokens": [
+        {
+          "token": " The",
+          "context": " chemical energy in plants.** The** process occurs in chloroplast",
+          "cos": 0.63671875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " the",
+          "context": " and pressures, governed by** the** phase diagram of water.",
+          "cos": 0.6328125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " The",
+          "context": " Anti-Federalists.** The** Bill of Rights, comprising",
+          "cos": 0.609375,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": "uding families in Verona**,** Italy. It remains one",
+          "cos": 0.60546875,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": " ATP and NADPH**,** which drive the Calvin cycle",
+          "cos": 0.6015625,
+          "sae_act": 0.0
+        },
+        {
+          "token": ")",
+          "context": " pivot = arr[len(arr**)** // 2]\n   ",
+          "cos": 0.6015625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " This",
+          "context": " a list of squares.** This** is more concise than a",
+          "cos": 0.58984375,
+          "sae_act": 0.0
+        },
+        {
+          "token": ")]",
+          "context": " in range(10**)]** creates a list of squares",
+          "cos": 0.5859375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " and",
+          "context": " states occur at specific temperatures** and** pressures, governed by the",
+          "cos": 0.5859375,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": "In Python**,** you can use list compreh",
+          "cos": 0.5859375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " a",
+          "context": "In mathematics,** a** prime number is a natural",
+          "cos": 0.58203125,
+          "sae_act": 0.0
+        },
+        {
+          "token": "),",
+          "context": " states: solid (ice**),** liquid (water), and",
+          "cos": 0.578125,
+          "sae_act": 0.0
+        },
+        {
+          "token": ":",
+          "context": "Water exists in three states**:** solid (ice), liquid",
+          "cos": 0.578125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " in",
+          "context": " = [x for x** in** arr if x > pivot",
+          "cos": 0.57421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " in",
+          "context": " = [x for x** in** arr if x == pivot",
+          "cos": 0.57421875,
+          "sae_act": 0.0
+        }
+      ],
+      "sae_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.0\n}\n```\n\n**Reasoning:** The feature explanation describes detection of **sentence boundaries and clause beginnings**, with strong activation on:\n- Periods and terminal punctuation\n- Common sentence-initial words like \"the\", \"there\"\n- Tokens immediately following periods\n\nNone of the provided tokens match this pattern:\n1. All tokens have **low cosine similarity** (0.43-0.48 range), indicating they don't align well with the feature direction\n2. The tokens are content words from **mid-sentence positions**: 'line', 'cat', 'rain', 'Leonardo', 'crashed', 'dioxide', 'mitochondrial', etc.\n3. None appear immediately after periods or at sentence boundaries\n4. None are the common sentence-initial words (the, there, etc.) or punctuation marks that should activate this feature\n5. Many appear in technical/code contexts or mid-clause positions\n\nThe low cosine similarities confirm these are **false positives** from the SAE that don't genuinely represent the feature's intended pattern.",
+      "sae_detected_tokens": [
+        {
+          "token": "line",
+          "context": ". Activation functions introduce non**line**arity, enabling the network",
+          "cos": 0.435546875,
+          "sae_act": 2.078125
+        },
+        {
+          "token": " cat",
+          "context": " this principle, where a** cat** in a box is both",
+          "cos": 0.435546875,
+          "sae_act": 2.515625
+        },
+        {
+          "token": " rain",
+          "context": "The Amazon** rain**forest covers approximately 5",
+          "cos": 0.4453125,
+          "sae_act": 5.375
+        },
+        {
+          "token": " Leonardo",
+          "context": " philosophy, with figures like** Leonardo** da Vinci and Galileo",
+          "cos": 0.447265625,
+          "sae_act": 2.359375
+        },
+        {
+          "token": " d",
+          "context": " __init__(self,** d**_model, nhead,",
+          "cos": 0.44921875,
+          "sae_act": 4.21875
+        },
+        {
+          "token": " cat",
+          "context": " famous Schrodinger's** cat** thought experiment illustrates this principle",
+          "cos": 0.451171875,
+          "sae_act": 6.15625
+        },
+        {
+          "token": " than",
+          "context": " no positive divisors other** than** 1 and itself.",
+          "cos": 0.45703125,
+          "sae_act": 2.9375
+        },
+        {
+          "token": " than",
+          "context": " is a natural number greater** than** 1 that has no",
+          "cos": 0.4609375,
+          "sae_act": 1.984375
+        },
+        {
+          "token": " crashed",
+          "context": "The stock market** crashed** in 200",
+          "cos": 0.470703125,
+          "sae_act": 3.828125
+        },
+        {
+          "token": " dioxide",
+          "context": " fuels, which releases carbon** dioxide** and other greenhouse gases into",
+          "cos": 0.47265625,
+          "sae_act": 3.28125
+        },
+        {
+          "token": " da",
+          "context": ", with figures like Leonardo** da** Vinci and Galileo.",
+          "cos": 0.478515625,
+          "sae_act": 2.0
+        },
+        {
+          "token": "sort",
+          "context": "def quick**sort**(arr):\n    if len",
+          "cos": 0.482421875,
+          "sae_act": 8.875
+        },
+        {
+          "token": "init",
+          "context": ".Module):\n    def __**init**__(self, d_model",
+          "cos": 0.482421875,
+          "sae_act": 5.21875
+        },
+        {
+          "token": " mitochondrial",
+          "context": " transport chain in the inner** mitochondrial** membrane.",
+          "cos": 0.484375,
+          "sae_act": 2.953125
+        },
+        {
+          "token": " quick",
+          "context": "def** quick**sort(arr):\n    if",
+          "cos": 0.484375,
+          "sae_act": 8.0625
+        }
+      ]
+    },
+    {
+      "feature_idx": 34587,
+      "cos_interpretation": "This feature detects **historical events and time periods, particularly those associated with late 18th-century revolutions** (American and French). The activations cluster around ordinal numbers (14th, 17th, 18th), specific years (1789, 1788, 1915), and contextual words describing revolutionary upheaval (monarchy, debate, rose up).",
+      "sae_interpretation": "This feature detects **historical dates and time periods**, particularly those associated with major historical events like the French Revolution (1789) and Industrial Revolution (late 18th century). The activations on ordinal numbers (\"th\"), specific years, and contextual words like \"monarchy\" and \"debate\" suggest it identifies tokens that appear in historical narrative contexts marking significant temporal moments.",
+      "cosine_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"YES\",\n    \"NO\",\n    \"PARTIAL\",\n    \"YES\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.2667\n}\n```\n\n**Reasoning:**\n\n- **YES (2):** Token 4 (' began') directly describes revolutionary action in the French Revolution context. Token 7 (' century') appears with \"17th century,\" matching the ordinal number pattern for late 18th-century periods.\n\n- **PARTIAL (3):** Token 2 (' period') is generic temporal language that could apply to historical events but lacks specificity to revolutions. Token 6 (' was') is a common auxiliary verb appearing in historical contexts (Constitution ratified in 1788) but is too generic. Token 8 (space before '1788') is contextually near the target year but is just whitespace.\n\n- **NO (10):** Tokens 1, 3, 5, 9, 10, 11, 12, 13, 14, 15 are either unrelated to revolutions (genome, programming, mountains, Verona/Italy, quantum computing) or are generic punctuation/function words without revolutionary context.\n\nThe feature is highly specific to late 18th-century revolutions, and most of these missed tokens are either too generic or from completely unrelated domains.",
+      "cosine_detected_tokens": [
+        {
+          "token": "3",
+          "context": " human genome contains approximately **3** billion base pairs of DNA",
+          "cos": 0.05224609375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " period",
+          "context": "The Renaissance was a** period** of cultural rebirth in",
+          "cos": 0.051025390625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " tells",
+          "context": "th century. The play** tells** the tragic story of two",
+          "cos": 0.050537109375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " began",
+          "context": "The French Revolution** began** in 178",
+          "cos": 0.049560546875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " ",
+          "context": " and Juliet in the late** **16th century.",
+          "cos": 0.048095703125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " was",
+          "context": "The United States Constitution** was** ratified in 17",
+          "cos": 0.0478515625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " century",
+          "context": " the 17th** century**. It saw tremendous advances",
+          "cos": 0.047607421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " ",
+          "context": " States Constitution was ratified in** **1788 after",
+          "cos": 0.047607421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " contains",
+          "context": "The human genome** contains** approximately 3 billion base",
+          "cos": 0.04736328125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " technique",
+          "context": "Recursion is a programming** technique** where a function calls itself",
+          "cos": 0.04736328125,
+          "sae_act": 0.0
+        },
+        {
+          "token": ".",
+          "context": " valley between two great mountains**.** The villagers lived simple lives",
+          "cos": 0.047119140625,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": "uding families in Verona**,** Italy. It remains one",
+          "cos": 0.046630859375,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": " The villagers lived simple lives**,** farming the rich soil and",
+          "cos": 0.04541015625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " instead",
+          "context": "um computing uses qubits** instead** of classical bits. Unlike",
+          "cos": 0.044677734375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " Italy",
+          "context": " families in Verona,** Italy**. It remains one of",
+          "cos": 0.04443359375,
+          "sae_act": 0.0
+        }
+      ],
+      "sae_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.0\n}\n```\n\n**Explanation**: All tokens have very low cosine similarity (0.0183-0.0248) to the feature direction, indicating they do not actually match the feature despite SAE activation. The tokens are common function words (to, if, the, a, all), programming terms (left, .Trans), and general scientific vocabulary (global, temperatures, increase, pressures) that are completely unrelated to late 18th-century revolutions, ordinal numbers, specific revolutionary years (1789, 1788, 1915), or revolutionary context words (monarchy, debate, rose up). These appear to be false positives from the SAE detector.",
+      "sae_detected_tokens": [
+        {
+          "token": " to",
+          "context": " gases trap heat, leading** to** a gradual increase in global",
+          "cos": 0.018310546875,
+          "sae_act": 2.53125
+        },
+        {
+          "token": " if",
+          "context": "x for x in arr** if** x == pivot]\n   ",
+          "cos": 0.0189208984375,
+          "sae_act": 1.9296875
+        },
+        {
+          "token": " global",
+          "context": " to a gradual increase in** global** temperatures.",
+          "cos": 0.0205078125,
+          "sae_act": 2.1875
+        },
+        {
+          "token": " new",
+          "context": " list comprehensions to create** new** lists based on existing ones",
+          "cos": 0.0211181640625,
+          "sae_act": 1.9453125
+        },
+        {
+          "token": " dead",
+          "context": " box is both alive and** dead** simultaneously.",
+          "cos": 0.0216064453125,
+          "sae_act": 2.84375
+        },
+        {
+          "token": " all",
+          "context": " 10% of** all** known species on Earth.",
+          "cos": 0.021728515625,
+          "sae_act": 1.9453125
+        },
+        {
+          "token": " the",
+          "context": " fundamentally changing our understanding of** the** universe.",
+          "cos": 0.0220947265625,
+          "sae_act": 2.40625
+        },
+        {
+          "token": ".Trans",
+          "context": "formerEncoder(\n            nn**.Trans**formerEncoderLayer(d_model",
+          "cos": 0.0223388671875,
+          "sae_act": 1.9296875
+        },
+        {
+          "token": " This",
+          "context": " a list of squares.** This** is more concise than a",
+          "cos": 0.022705078125,
+          "sae_act": 1.9921875
+        },
+        {
+          "token": " pressures",
+          "context": " occur at specific temperatures and** pressures**, governed by the phase",
+          "cos": 0.023193359375,
+          "sae_act": 2.03125
+        },
+        {
+          "token": " temperatures",
+          "context": " a gradual increase in global** temperatures**.",
+          "cos": 0.0233154296875,
+          "sae_act": 1.9921875
+        },
+        {
+          "token": " increase",
+          "context": ", leading to a gradual** increase** in global temperatures.",
+          "cos": 0.0238037109375,
+          "sae_act": 2.1875
+        },
+        {
+          "token": " left",
+          "context": " // 2]\n   ** left** = [x for x",
+          "cos": 0.024169921875,
+          "sae_act": 2.125
+        },
+        {
+          "token": " a",
+          "context": "(10)] creates** a** list of squares. This",
+          "cos": 0.0245361328125,
+          "sae_act": 2.15625
+        },
+        {
+          "token": " problem",
+          "context": " calls itself to solve a** problem** by breaking it down into",
+          "cos": 0.0247802734375,
+          "sae_act": 2.1875
+        }
+      ]
+    },
+    {
+      "feature_idx": 10935,
+      "cos_interpretation": "This feature detects **punctuation marks and sentence-terminal tokens**, particularly periods, commas, and other punctuation that mark clause or sentence boundaries. The high activations occur consistently at positions immediately following punctuation or at natural syntactic breaks in text.",
+      "sae_interpretation": "This feature detects **explanatory or definitional connectors** \u2014 words that introduce, clarify, or elaborate on concepts (like \"comprising,\" \"principle,\" \"process,\" \"where,\" \"governed,\" \"which,\" \"states,\" \"through\"). These are tokens that bridge between a concept and its explanation or mechanism.",
+      "cosine_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"YES\",\n    \"NO\",\n    \"YES\",\n    \"NO\",\n    \"YES\",\n    \"YES\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"YES\",\n    \"NO\",\n    \"NO\",\n    \"YES\"\n  ],\n  \"match_rate\": 0.33\n}\n```\n\n**Rationale:**\n\nThe feature detects **punctuation marks and sentence-terminal tokens**. Evaluating each:\n\n- **YES (5 tokens)**: Tokens 3, 5, 7, 8, 12, 15 are actual punctuation marks (commas, colons, periods) that mark clause/sentence boundaries - these directly match the feature description.\n- **NO (10 tokens)**: Tokens 1, 2, 4, 6, 9, 10, 11, 13, 14 are regular words (verbs, pronouns, adjectives, prepositions) that appear after punctuation but are not themselves punctuation or sentence-terminal markers. While they may follow syntactic breaks, they don't match the core feature of detecting \"punctuation marks and sentence-terminal tokens.\"\n\nThe feature appears designed to activate on actual punctuation characters and tokens that terminate sentences, not on arbitrary words that happen to follow punctuation. The SAE correctly avoided activating on these non-punctuation tokens, suggesting the SAE has a more precise understanding of the feature than the cosine similarity baseline.",
+      "cosine_detected_tokens": [
+        {
+          "token": " covers",
+          "context": "The Amazon rainforest** covers** approximately 5.5",
+          "cos": 0.09765625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " describes",
+          "context": " theory of general relativity** describes** how gravity works as a",
+          "cos": 0.0966796875,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": "In mathematics**,** a prime number is a",
+          "cos": 0.08935546875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " researchers",
+          "context": "In a clinical trial,** researchers** found that the new drug",
+          "cos": 0.08837890625,
+          "sae_act": 0.0
+        },
+        {
+          "token": ":",
+          "context": "Water exists in three states**:** solid (ice), liquid",
+          "cos": 0.08837890625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " you",
+          "context": "In Python,** you** can use list comprehensions",
+          "cos": 0.0869140625,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": "Once upon a time**,** there was a small village",
+          "cos": 0.083984375,
+          "sae_act": 0.0
+        },
+        {
+          "token": ".",
+          "context": " 16th century**.** The play tells the tragic",
+          "cos": 0.08349609375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " tremendous",
+          "context": "th century. It saw** tremendous** advances in art, science",
+          "cos": 0.08203125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " there",
+          "context": "Once upon a time,** there** was a small village nestled",
+          "cos": 0.08056640625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " a",
+          "context": "In mathematics,** a** prime number is a natural",
+          "cos": 0.08056640625,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": " the powerhouse of the cell**,** producing adenosine tri",
+          "cos": 0.0771484375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " toward",
+          "context": " Each recursive call should move** toward** a base case that stops",
+          "cos": 0.07421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " was",
+          "context": "The Renaissance** was** a period of cultural reb",
+          "cos": 0.07421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": ".",
+          "context": " into chemical energy in plants**.** The process occurs in chlor",
+          "cos": 0.07373046875,
+          "sae_act": 0.0
+        }
+      ],
+      "sae_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.0,\n  \"reasoning\": \"None of these tokens match the feature explanation. The feature is supposed to detect punctuation marks and sentence-terminal tokens (periods, commas, etc.) that mark clause or sentence boundaries. However, all 15 tokens are content words (financial, when, ATP, textile, pressures, transport, light, derivatives, electron, risk, of, added, etc.) or partial tokens (N, PH, the). While some tokens appear near punctuation in their contexts (e.g., 'derivatives' before a period, 'added' in a clause), they themselves are not punctuation marks or sentence-terminal markers. The very low cosine similarities (all < 0.03) confirm these tokens have minimal alignment with the punctuation detection feature direction, despite the SAE assigning them moderate activation values.\"\n}\n```",
+      "sae_detected_tokens": [
+        {
+          "token": " financial",
+          "context": " subprime mortgages and complex** financial** derivatives. Banks had taken",
+          "cos": 0.0023040771484375,
+          "sae_act": 2.6875
+        },
+        {
+          "token": " when",
+          "context": " on excessive risk, and** when** housing prices fell, the",
+          "cos": 0.0166015625,
+          "sae_act": 2.25
+        },
+        {
+          "token": " ATP",
+          "context": "ylakoid membranes produce** ATP** and NADPH,",
+          "cos": 0.0184326171875,
+          "sae_act": 2.1875
+        },
+        {
+          "token": " textile",
+          "context": " Steam power, mechanized** textile** production, and iron sm",
+          "cos": 0.0201416015625,
+          "sae_act": 2.875
+        },
+        {
+          "token": " pressures",
+          "context": " occur at specific temperatures and** pressures**, governed by the phase",
+          "cos": 0.0205078125,
+          "sae_act": 2.40625
+        },
+        {
+          "token": " transport",
+          "context": " This process involves the electron** transport** chain in the inner mitochondrial",
+          "cos": 0.0213623046875,
+          "sae_act": 2.65625
+        },
+        {
+          "token": " light",
+          "context": " chloroplasts, where** light**-dependent reactions in the th",
+          "cos": 0.022216796875,
+          "sae_act": 1.9765625
+        },
+        {
+          "token": " N",
+          "context": "oid membranes produce ATP and** N**ADPH, which drive",
+          "cos": 0.02294921875,
+          "sae_act": 1.9765625
+        },
+        {
+          "token": " derivatives",
+          "context": "prime mortgages and complex financial** derivatives**. Banks had taken on",
+          "cos": 0.0233154296875,
+          "sae_act": 3.25
+        },
+        {
+          "token": "PH",
+          "context": " produce ATP and NAD**PH**, which drive the Calvin",
+          "cos": 0.024169921875,
+          "sae_act": 2.15625
+        },
+        {
+          "token": " the",
+          "context": "ADPH, which drive** the** Calvin cycle.",
+          "cos": 0.0252685546875,
+          "sae_act": 3.15625
+        },
+        {
+          "token": " electron",
+          "context": ". This process involves the** electron** transport chain in the inner",
+          "cos": 0.0252685546875,
+          "sae_act": 3.25
+        },
+        {
+          "token": " risk",
+          "context": " Banks had taken on excessive** risk**, and when housing prices",
+          "cos": 0.02587890625,
+          "sae_act": 2.8125
+        },
+        {
+          "token": " of",
+          "context": " estimated 10%** of** all known species on Earth",
+          "cos": 0.0264892578125,
+          "sae_act": 2.59375
+        },
+        {
+          "token": " added",
+          "context": " first ten amendments, was** added** in 179",
+          "cos": 0.026611328125,
+          "sae_act": 2.25
+        }
+      ]
+    },
+    {
+      "feature_idx": 3459,
+      "cos_interpretation": "This feature detects **tokens that appear in explanatory or instructional contexts**, particularly those that introduce clauses, conditions, or logical connectors (like \"is\", \"that\", \"if\", \"should\", \"where\", \"of\"). It activates on small function words that structure reasoning or code logic, especially when explaining recursive algorithms or conceptual principles.",
+      "sae_interpretation": "This feature detects **function words and connective tokens that link clauses or concepts together** \u2014 including prepositions (to, in, of, with), conjunctions (where), copulas (is), and auxiliary verbs (both). These are high-frequency structural tokens that establish relationships between entities or ideas in a sentence.",
+      "cosine_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"YES\",\n    \"YES\",\n    \"YES\",\n    \"PARTIAL\",\n    \"PARTIAL\",\n    \"PARTIAL\",\n    \"PARTIAL\",\n    \"PARTIAL\",\n    \"PARTIAL\",\n    \"NO\",\n    \"PARTIAL\",\n    \"YES\",\n    \"YES\",\n    \"YES\",\n    \"PARTIAL\"\n  ],\n  \"match_rate\": 0.6\n}\n```\n\n**Reasoning:**\n\n**YES (5):**\n1. ' has' - Structural verb in explanatory context\n2. ' The' - Introduces explanatory clause about fundamental theorem\n3. ' that' - Relative clause connector, explicitly mentioned in feature\n4. ' be' - Modal verb structuring logical explanation\n5. ' every' - Quantifier in logical/mathematical explanation\n6. ' no' - Logical negation in condition\n\n**PARTIAL (7):**\n- ' x' - Loop variable; appears in code logic but is a data variable rather than a structural connector\n- ' ' - Whitespace; structural but not a meaningful token\n- '(right' - Function argument; part of code structure but not a logical connector\n- ')' - Punctuation; structural but minimal semantic content\n- ' number' - Content word in explanatory context, not a function word\n- ' itself' - Reflexive pronoun; somewhat structural but more semantic\n- ' pivot' - Algorithm variable; part of code logic but domain-specific\n\n**NO (1):**\n- '.' (second instance) - Sentence terminator in non-instructional context (climate change statement)\n\nThe feature targets small function words that structure reasoning. Most matches are legitimate structural/logical connectors, though some tokens (variables, punctuation) are borderline.",
+      "cosine_detected_tokens": [
+        {
+          "token": " has",
+          "context": " greater than 1 that** has** no positive divisors other",
+          "cos": 0.04296875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " The",
+          "context": " 1 and itself.** The** fundamental theorem of arithmetic states",
+          "cos": 0.03955078125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " that",
+          "context": " number greater than 1** that** has no positive divisors",
+          "cos": 0.03857421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " x",
+          "context": " right = [x for** x** in arr if x >",
+          "cos": 0.038330078125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " ",
+          "context": " arr[len(arr) //** **2]\n    left =",
+          "cos": 0.03515625,
+          "sae_act": 0.0
+        },
+        {
+          "token": "(right",
+          "context": " + middle + quicksort**(right**)",
+          "cos": 0.0322265625,
+          "sae_act": 0.0
+        },
+        {
+          "token": ")",
+          "context": " middle + quicksort(right**)**",
+          "cos": 0.031982421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " number",
+          "context": " prime number is a natural** number** greater than 1 that",
+          "cos": 0.0286865234375,
+          "sae_act": 0.0
+        },
+        {
+          "token": ".",
+          "context": " down into smaller subproblems**.** Each recursive call should move",
+          "cos": 0.0283203125,
+          "sae_act": 0.0
+        },
+        {
+          "token": ".",
+          "context": " gradual increase in global temperatures**.**",
+          "cos": 0.0281982421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " itself",
+          "context": " other than 1 and** itself**. The fundamental theorem of",
+          "cos": 0.0279541015625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " be",
+          "context": " states that every integer can** be** uniquely factored into primes",
+          "cos": 0.0272216796875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " every",
+          "context": " theorem of arithmetic states that** every** integer can be uniquely fact",
+          "cos": 0.0244140625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " no",
+          "context": " than 1 that has** no** positive divisors other than",
+          "cos": 0.0225830078125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " pivot",
+          "context": " in arr if x >** pivot**]\n    return quicksort",
+          "cos": 0.0224609375,
+          "sae_act": 0.0
+        }
+      ],
+      "sae_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.133\n}\n```\n\n**Reasoning:**\n\nThe feature explanation targets **function words that structure reasoning/logic** (like \"is\", \"that\", \"if\", \"should\", \"where\", \"of\") in **explanatory or instructional contexts**, particularly for algorithms or conceptual principles.\n\n- **Token 4 ('head')**: PARTIAL - In the code context `n_head`, this is a parameter name in a function definition, which has some instructional/structural quality, though it's more of a variable name than a logical connector.\n\n- **Token 13 (' when')**: PARTIAL - \"when\" is a conditional connector that does structure logical reasoning (\"when housing prices fell...\"), matching the feature's interest in conditional clauses.\n\n- **All others (NO)**: These are content words (place names, nouns, adjectives, numbers) appearing in descriptive/historical contexts, not explanatory/instructional ones with logical structure. They lack the function-word quality the feature targets.\n\nThe low cosine similarities across all tokens suggest these are indeed poor matches to the feature direction, which aligns with this evaluation.",
+      "sae_detected_tokens": [
+        {
+          "token": "ona",
+          "context": " feuding families in Ver**ona**, Italy. It remains",
+          "cos": -0.0341796875,
+          "sae_act": 2.234375
+        },
+        {
+          "token": " power",
+          "context": ", and society. Steam** power**, mechanized textile production",
+          "cos": -0.0269775390625,
+          "sae_act": 2.859375
+        },
+        {
+          "token": " transport",
+          "context": " This process involves the electron** transport** chain in the inner mitochondrial",
+          "cos": -0.025634765625,
+          "sae_act": 2.328125
+        },
+        {
+          "token": "head",
+          "context": ", d_model, n**head**, num_layers):\n       ",
+          "cos": -0.0250244140625,
+          "sae_act": 1.96875
+        },
+        {
+          "token": " prices",
+          "context": " risk, and when housing** prices** fell, the entire financial",
+          "cos": -0.0242919921875,
+          "sae_act": 3.234375
+        },
+        {
+          "token": " production",
+          "context": " power, mechanized textile** production**, and iron smel",
+          "cos": -0.0230712890625,
+          "sae_act": 2.640625
+        },
+        {
+          "token": " Calvin",
+          "context": "PH, which drive the** Calvin** cycle.",
+          "cos": -0.022216796875,
+          "sae_act": 2.03125
+        },
+        {
+          "token": " July",
+          "context": " of the Bastille on** July** 14th became",
+          "cos": -0.022216796875,
+          "sae_act": 2.5625
+        },
+        {
+          "token": " transportation",
+          "context": " century and transformed manufacturing,** transportation**, and society. Steam",
+          "cos": -0.0220947265625,
+          "sae_act": 2.625
+        },
+        {
+          "token": " known",
+          "context": "10% of all** known** species on Earth.",
+          "cos": -0.021484375,
+          "sae_act": 3.109375
+        },
+        {
+          "token": " textile",
+          "context": " Steam power, mechanized** textile** production, and iron sm",
+          "cos": -0.02099609375,
+          "sae_act": 4.65625
+        },
+        {
+          "token": " Steam",
+          "context": " transportation, and society.** Steam** power, mechanized textile",
+          "cos": -0.0201416015625,
+          "sae_act": 2.390625
+        },
+        {
+          "token": " when",
+          "context": " on excessive risk, and** when** housing prices fell, the",
+          "cos": -0.0201416015625,
+          "sae_act": 2.09375
+        },
+        {
+          "token": "%",
+          "context": " an estimated 10**%** of all known species on",
+          "cos": -0.02001953125,
+          "sae_act": 2.234375
+        },
+        {
+          "token": "el",
+          "context": " production, and iron sm**el**ting drove unprecedented economic growth",
+          "cos": -0.019775390625,
+          "sae_act": 4.625
+        }
+      ]
+    },
+    {
+      "feature_idx": 33257,
+      "cos_interpretation": "This feature detects **parameter names and technical identifiers in code and scientific contexts**, particularly tokens that are part of compound words or variable names like \"d_model\", \"base\" (pairs), \"tri\"/\"ph\" (phosphate), \"dioxide\", \"smelting\", and \"weight\". It appears to activate on tokens that are components of domain-specific terminology in programming, chemistry, and biology.",
+      "sae_interpretation": "This feature detects **technical/scientific compound words and multi-word terms**, particularly the second or middle component of hyphenated, subscripted, or space-separated technical terminology (like \"phosphate\" in \"adenosine triphosphate\", \"dioxide\" in \"carbon dioxide\", \"model\" in \"d_model\", \"base\" in \"base pairs\"). It activates on the substantive parts of domain-specific nomenclature in biology, chemistry, and computer science contexts.",
+      "cosine_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.267\n}\n```\n\n**Reasoning:**\n\nThe feature detects **parameter names and technical identifiers** in code/scientific contexts - specifically components of compound words or variable names like \"d_model\", \"base\", \"tri\"/\"ph\", \"dioxide\", \"smelting\", \"weight\".\n\n- **YES matches (0):** None of these tokens clearly match. The feature should activate on meaningful technical components, not generic words.\n\n- **PARTIAL matches (4):**\n  - Token 3 ('ursion'): Part of \"Recursion\" - a programming technique term, though not a parameter name\n  - Token 8 (' models'): Part of \"Machine learning models\" - technical domain terminology\n  - Token 10 ('ynthesis'): Part of \"Photosynthesis\" - scientific compound word component\n  - Token 14 (' layers'): Part of neural network architecture terminology, similar to \"d_model\" in technical contexts\n\n- **NO matches (11):** Generic words/punctuation that don't represent technical identifiers or parameter components:\n  - 'Amazon', newline, 'a', 'oxygen', 'is', commas, periods, 'are', 'number', 'converts'\n\nThe tokens that were missed appear to be mostly false positives from cosine similarity - they're generic English words rather than domain-specific technical identifiers or parameter name components.",
+      "cosine_detected_tokens": [
+        {
+          "token": " Amazon",
+          "context": "The** Amazon** rainforest covers approximately ",
+          "cos": 0.0218505859375,
+          "sae_act": 0.0
+        },
+        {
+          "token": "\n\n",
+          "context": "import torch.nn as nn**\n\n**class Transformer(nn.Module):\n",
+          "cos": 0.0206298828125,
+          "sae_act": 0.0
+        },
+        {
+          "token": "ursion",
+          "context": "Rec**ursion** is a programming technique where",
+          "cos": 0.0196533203125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " a",
+          "context": "Recursion is** a** programming technique where a function",
+          "cos": 0.0194091796875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " oxygen",
+          "context": "% of the world's** oxygen**. It is home to",
+          "cos": 0.019287109375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " is",
+          "context": "The mitochondria** is** the powerhouse of the cell",
+          "cos": 0.018798828125,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": " d_model, nhead**,** num_layers):\n        super",
+          "cos": 0.0179443359375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " models",
+          "context": "Machine learning** models** are trained by optimizing a",
+          "cos": 0.0166015625,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": "In mathematics**,** a prime number is a",
+          "cos": 0.016357421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": "ynthesis",
+          "context": "Photos**ynthesis** converts sunlight into chemical energy",
+          "cos": 0.01611328125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " are",
+          "context": "Machine learning models** are** trained by optimizing a loss",
+          "cos": 0.0159912109375,
+          "sae_act": 0.0
+        },
+        {
+          "token": ".",
+          "context": " lists based on existing ones**.** For example, squares =",
+          "cos": 0.015869140625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " number",
+          "context": " prime number is a natural** number** greater than 1 that",
+          "cos": 0.0157470703125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " layers",
+          "context": " network architecture consists of multiple** layers** of interconnected nodes. Each",
+          "cos": 0.015380859375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " converts",
+          "context": "Photosynthesis** converts** sunlight into chemical energy in",
+          "cos": 0.01531982421875,
+          "sae_act": 0.0
+        }
+      ],
+      "sae_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.13\n}\n```\n\n**Reasoning:**\n\nThe feature is supposed to detect **parameter names and technical identifiers** in code and scientific contexts\u2014tokens that are components of domain-specific terminology (like \"d_model\", \"base\", \"tri\", \"ph\", \"dioxide\", \"smelting\", \"weight\").\n\n- **Tokens 1-7, 9-11, 13-15**: These are common English words, punctuation, or proper nouns (France, Italy, the, in, crashed, had, plays, etc.) that appear in historical/financial narratives. They have no connection to parameter names, variable names, or technical identifiers.\n\n- **Token 8 ('th')**: This is a partial match because it could be part of \"16th\" (an ordinal number), but it's not a technical identifier or parameter component\u2014it's just a linguistic suffix.\n\n- **Token 12 (' pivot')**: This is a partial match because \"pivot\" appears in a quicksort algorithm context (a legitimate programming term), making it somewhat re<author>ant to code contexts, though it's not a parameter name or compound identifier like the examples given.\n\nThe vast majority of these tokens are false positives\u2014the SAE is activating on common words despite having negative or near-zero cosine similarity to the feature direction, suggesting these detections are spurious.",
+      "sae_detected_tokens": [
+        {
+          "token": " France",
+          "context": "9 when the people of** France** rose up against the monarchy",
+          "cos": -0.0123291015625,
+          "sae_act": 2.3125
+        },
+        {
+          "token": ",",
+          "context": " and when housing prices fell**,** the entire financial system nearly",
+          "cos": -0.01226806640625,
+          "sae_act": 2.1875
+        },
+        {
+          "token": " in",
+          "context": " Industrial Revolution began in Britain** in** the late 18",
+          "cos": -0.01031494140625,
+          "sae_act": 1.9296875
+        },
+        {
+          "token": " the",
+          "context": "1789 when** the** people of France rose up",
+          "cos": -0.00726318359375,
+          "sae_act": 2.71875
+        },
+        {
+          "token": "0",
+          "context": " crashed in 20**0**8 because of a housing",
+          "cos": -0.004486083984375,
+          "sae_act": 2.28125
+        },
+        {
+          "token": " in",
+          "context": "The Industrial Revolution began** in** Britain in the late ",
+          "cos": -0.00433349609375,
+          "sae_act": 2.015625
+        },
+        {
+          "token": " Italy",
+          "context": " families in Verona,** Italy**. It remains one of",
+          "cos": -0.00396728515625,
+          "sae_act": 2.015625
+        },
+        {
+          "token": "th",
+          "context": " the late 16**th** century. The play tells",
+          "cos": -0.0033721923828125,
+          "sae_act": 2.171875
+        },
+        {
+          "token": " the",
+          "context": " when housing prices fell,** the** entire financial system nearly collapsed",
+          "cos": -0.0031585693359375,
+          "sae_act": 2.171875
+        },
+        {
+          "token": " crashed",
+          "context": "The stock market** crashed** in 200",
+          "cos": -0.002716064453125,
+          "sae_act": 1.9609375
+        },
+        {
+          "token": ".",
+          "context": " mortgages and complex financial derivatives**.** Banks had taken on excessive",
+          "cos": -0.002655029296875,
+          "sae_act": 2.328125
+        },
+        {
+          "token": " pivot",
+          "context": " in arr if x >** pivot**]\n    return quicksort",
+          "cos": -0.002044677734375,
+          "sae_act": 1.9609375
+        },
+        {
+          "token": " had",
+          "context": " complex financial derivatives. Banks** had** taken on excessive risk,",
+          "cos": 0.00142669677734375,
+          "sae_act": 2.765625
+        },
+        {
+          "token": " unprecedented",
+          "context": " iron smelting drove** unprecedented** economic growth.",
+          "cos": 0.00157928466796875,
+          "sae_act": 2.28125
+        },
+        {
+          "token": " plays",
+          "context": " one of the most performed** plays** in the world.",
+          "cos": 0.00182342529296875,
+          "sae_act": 2.625
+        }
+      ]
+    },
+    {
+      "feature_idx": 14202,
+      "cos_interpretation": "This feature detects **nouns that are key economic or industrial concepts**, particularly those appearing in discussions of financial crises, industrial production, or systemic economic phenomena (housing, prices, textile, production, derivatives, mortgages). The activations cluster around concrete economic entities and processes that drive or characterize major economic events.",
+      "sae_interpretation": "This feature detects **nouns referring to concrete economic/industrial commodities and processes** \u2014 particularly those involved in major economic events (housing crisis, industrial revolution) or technical/scientific mechanisms. The activations cluster around tangible goods (housing, textiles, iron, derivatives) and key processes (production, smelting, electron transport) that drive economic or physical systems.",
+      "cosine_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"PARTIAL\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.067\n}\n```\n\n**Reasoning:**\n\nThe feature targets **nouns that are key economic or industrial concepts** (housing, prices, textile, production, derivatives, mortgages, etc.). \n\n- **Tokens 1-8, 10-15**: These are mostly function words (commas, prepositions, conjunctions, operators, spaces) or generic verbs that have no semantic connection to economic/industrial concepts. They are structural elements, not nouns describing economic phenomena.\n\n- **Token 9 (' nearly')**: This is a marginal case. While it appears in a sentence about financial system collapse (\"the entire financial system **nearly** collapsed\"), the token itself is an adverb, not a noun representing an economic concept. However, it appears in an economic context, so it gets PARTIAL rather than NO.\n\n- **Token 15 (' Bast')**: This is a fragment of \"Bastille,\" which is a historical/political reference, not an economic concept.\n\nThe SAE correctly identified that these tokens don't activate the feature\u2014they are false positives from cosine similarity that lack the semantic substance the feature is designed to detect.",
+      "cosine_detected_tokens": [
+        {
+          "token": ",",
+          "context": " and transformed manufacturing, transportation**,** and society. Steam power",
+          "cos": 0.08203125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " and",
+          "context": " the rest includes regulatory sequences** and** other elements.",
+          "cos": 0.08154296875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " on",
+          "context": "ing of the Bastille** on** July 14th",
+          "cos": 0.0791015625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " of",
+          "context": " monarchy. The storming** of** the Bastille on July",
+          "cos": 0.0771484375,
+          "sae_act": 0.0
+        },
+        {
+          "token": " in",
+          "context": ", where light-dependent reactions** in** the thylakoid",
+          "cos": 0.076171875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " the",
+          "context": "th became a symbol of** the** revolution and is still celebrated",
+          "cos": 0.07470703125,
+          "sae_act": 0.0
+        },
+        {
+          "token": "),",
+          "context": "ice), liquid (water**),** and gas (steam).",
+          "cos": 0.07421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " all",
+          "context": " 10% of** all** known species on Earth.",
+          "cos": 0.07373046875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " nearly",
+          "context": ", the entire financial system** nearly** collapsed.",
+          "cos": 0.0732421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " includes",
+          "context": " proteins, while the rest** includes** regulatory sequences and other elements",
+          "cos": 0.072265625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " =",
+          "context": " < pivot]\n    middle** =** [x for x in",
+          "cos": 0.0712890625,
+          "sae_act": 0.0
+        },
+        {
+          "token": ",",
+          "context": "formerEncoderLayer(d_model**,** nhead), num_layers",
+          "cos": 0.0703125,
+          "sae_act": 0.0
+        },
+        {
+          "token": " occurs",
+          "context": " in plants. The process** occurs** in chloroplasts,",
+          "cos": 0.06982421875,
+          "sae_act": 0.0
+        },
+        {
+          "token": " ",
+          "context": " the Bastille on July** **14th became a",
+          "cos": 0.06884765625,
+          "sae_act": 0.0
+        },
+        {
+          "token": " Bast",
+          "context": " The storming of the** Bast**ille on July 1",
+          "cos": 0.068359375,
+          "sae_act": 0.0
+        }
+      ],
+      "sae_detected_judgment": "```json\n{\n  \"judgments\": [\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\",\n    \"NO\"\n  ],\n  \"match_rate\": 0.0\n}\n```\n\n**Explanation**: All tokens have very low cosine similarity (0.034-0.064) to the feature direction, indicating they are poor matches for the feature despite SAE activation. None of these tokens represent key economic or industrial concepts related to financial crises, industrial production, or systemic economic phenomena. The tokens span unrelated domains: geography (Amazon, rain), physics (Schr\u00f6dinger, DNA, mitochondria, photosynthesis, pressures), programming (__init__, parameters, bits, middle), history (1915, Rights), and humanities (literature). This is a clear case where SAE activation does not correlate with semantic re<author>ance to the feature explanation.",
+      "sae_detected_tokens": [
+        {
+          "token": " Amazon",
+          "context": "The** Amazon** rainforest covers approximately ",
+          "cos": 0.0341796875,
+          "sae_act": 2.375
+        },
+        {
+          "token": "1",
+          "context": " published this theory in **1**915, fundamentally",
+          "cos": 0.04736328125,
+          "sae_act": 2.15625
+        },
+        {
+          "token": "rod",
+          "context": " measured. The famous Sch**rod**inger's cat thought experiment",
+          "cos": 0.052001953125,
+          "sae_act": 2.578125
+        },
+        {
+          "token": " __",
+          "context": "(nn.Module):\n    def** __**init__(self, d",
+          "cos": 0.05224609375,
+          "sae_act": 1.953125
+        },
+        {
+          "token": " bits",
+          "context": " classical bits. Unlike classical** bits** which are either 0",
+          "cos": 0.05615234375,
+          "sae_act": 2.3125
+        },
+        {
+          "token": " DNA",
+          "context": "3 billion base pairs of** DNA** organized into 23",
+          "cos": 0.058349609375,
+          "sae_act": 2.125
+        },
+        {
+          "token": " Rights",
+          "context": "ists. The Bill of** Rights**, comprising the first ten",
+          "cos": 0.0595703125,
+          "sae_act": 2.140625
+        },
+        {
+          "token": " mitochond",
+          "context": "The** mitochond**ria is the powerhouse of",
+          "cos": 0.060546875,
+          "sae_act": 3.40625
+        },
+        {
+          "token": " parameters",
+          "context": " to outputs by adjusting its** parameters** through gradient descent. Regular",
+          "cos": 0.060791015625,
+          "sae_act": 1.953125
+        },
+        {
+          "token": "ynthesis",
+          "context": "Photos**ynthesis** converts sunlight into chemical energy",
+          "cos": 0.061279296875,
+          "sae_act": 4.8125
+        },
+        {
+          "token": " pressures",
+          "context": " occur at specific temperatures and** pressures**, governed by the phase",
+          "cos": 0.0615234375,
+          "sae_act": 2.375
+        },
+        {
+          "token": " mitochondrial",
+          "context": " transport chain in the inner** mitochondrial** membrane.",
+          "cos": 0.0615234375,
+          "sae_act": 2.46875
+        },
+        {
+          "token": " middle",
+          "context": " x < pivot]\n   ** middle** = [x for x",
+          "cos": 0.06298828125,
+          "sae_act": 2.640625
+        },
+        {
+          "token": " literature",
+          "context": " in art, science,** literature**, and philosophy, with",
+          "cos": 0.06396484375,
+          "sae_act": 2.40625
+        },
+        {
+          "token": " rain",
+          "context": "The Amazon** rain**forest covers approximately 5",
+          "cos": 0.06396484375,
+          "sae_act": 3.046875
+        }
+      ]
+    }
+  ]
+}

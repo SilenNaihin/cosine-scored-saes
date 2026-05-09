@@ -1,0 +1,432 @@
+Experiment 22: Production-Scale Post-Norm Loss
+======================================================================
+Model: Qwen/Qwen3-8B
+Layer: 27
+d_sae: 16384, k: 80, lr: 0.0003
+Per variant: 50,000,000 train tokens (12207 steps), 1,000,000 eval tokens
+Batch: 4096, Warmup: 610 steps
+Streaming buffer: 500,000 tokens
+Checkpoints at steps: [2441, 4882, 7324, 9765, 12207]
+Ablation: 100 features × 200 samples
+Variants: ['standard', 'adaptive_l2', 'cosine_postnorm', 'adaptive_postnorm']
+
+Loading model...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]
+Loading weights:   1%|▏         | 5/399 [00:00<00:08, 48.36it/s]
+Loading weights:  15%|█▌        | 61/399 [00:00<00:00, 344.97it/s]
+Loading weights:  31%|███▏      | 125/399 [00:00<00:00, 468.52it/s]
+Loading weights:  46%|████▌     | 182/399 [00:00<00:00, 499.20it/s]
+Loading weights:  62%|██████▏   | 246/399 [00:00<00:00, 541.86it/s]
+Loading weights:  76%|███████▌  | 303/399 [00:00<00:00, 542.90it/s]
+Loading weights:  92%|█████████▏| 368/399 [00:00<00:00, 573.47it/s]
+Loading weights: 100%|██████████| 399/399 [00:00<00:00, 519.60it/s]
+Model loaded in 3.8s
+  L27 RMSNorm gain: mean=1.1006, CV=30.7%, max=7.7812
+  Collecting eval activations for layer 27 (1,000,000 tokens)...
+  Layer 27: 1,000,000 eval tokens in 112.9s (norm: mean=407.4, std=35.0)
+
+======================================================================
+  VARIANT: standard (encoder=BatchTopKSAE, loss=l2)
+======================================================================
+
+  Training standard/L27 | d_sae=16384, k=80, lr=0.0003, loss=l2, 50,000,000 tokens, 12207 steps (streaming)
+    [            standard/L27] step    200/12207 | loss=91903.0625 | L0=80 | FVE=0.0874 | cos=0.6402 | dead=0.944 | 0.8M tok | 13k tok/s | ETA 63m
+    [            standard/L27] step    400/12207 | loss=63590.2344 | L0=80 | FVE=0.3155 | cos=0.7797 | dead=0.934 | 1.6M tok | 13k tok/s | ETA 62m
+    [            standard/L27] step    600/12207 | loss=53549.1055 | L0=80 | FVE=0.4273 | cos=0.8189 | dead=0.929 | 2.5M tok | 15k tok/s | ETA 53m
+    [            standard/L27] step    800/12207 | loss=48726.0312 | L0=80 | FVE=0.4768 | cos=0.8367 | dead=0.928 | 3.3M tok | 14k tok/s | ETA 54m
+    [            standard/L27] step   1000/12207 | loss=46602.1094 | L0=80 | FVE=0.4996 | cos=0.8428 | dead=0.920 | 4.1M tok | 14k tok/s | ETA 54m
+    [            standard/L27] step   1200/12207 | loss=43831.0117 | L0=80 | FVE=0.5247 | cos=0.8546 | dead=0.921 | 4.9M tok | 15k tok/s | ETA 51m
+    [            standard/L27] step   1400/12207 | loss=42926.4844 | L0=80 | FVE=0.5348 | cos=0.8571 | dead=0.915 | 5.7M tok | 15k tok/s | ETA 51m
+    [            standard/L27] step   1600/12207 | loss=42088.1016 | L0=80 | FVE=0.5460 | cos=0.8608 | dead=0.913 | 6.6M tok | 14k tok/s | ETA 51m
+    [            standard/L27] step   1800/12207 | loss=41046.2656 | L0=80 | FVE=0.5586 | cos=0.8633 | dead=0.904 | 7.4M tok | 15k tok/s | ETA 48m
+    [            standard/L27] step   2000/12207 | loss=41270.5781 | L0=80 | FVE=0.5647 | cos=0.8638 | dead=0.897 | 8.2M tok | 15k tok/s | ETA 48m
+    [            standard/L27] step   2200/12207 | loss=39390.6523 | L0=80 | FVE=0.5732 | cos=0.8702 | dead=0.893 | 9.0M tok | 14k tok/s | ETA 47m
+    [            standard/L27] step   2400/12207 | loss=38550.0469 | L0=80 | FVE=0.5850 | cos=0.8731 | dead=0.887 | 9.8M tok | 15k tok/s | ETA 45m
+    [standard/L27] Checkpoint saved at 20% (2441 steps)
+    [            standard/L27] step   2600/12207 | loss=37711.6484 | L0=80 | FVE=0.5941 | cos=0.8761 | dead=0.881 | 10.6M tok | 15k tok/s | ETA 45m
+    [            standard/L27] step   2800/12207 | loss=37051.8516 | L0=80 | FVE=0.5978 | cos=0.8781 | dead=0.874 | 11.5M tok | 15k tok/s | ETA 43m
+    [            standard/L27] step   3000/12207 | loss=35971.4336 | L0=80 | FVE=0.6097 | cos=0.8820 | dead=0.867 | 12.3M tok | 15k tok/s | ETA 42m
+    [            standard/L27] step   3200/12207 | loss=36748.0312 | L0=80 | FVE=0.6063 | cos=0.8801 | dead=0.864 | 13.1M tok | 15k tok/s | ETA 42m
+    [            standard/L27] step   3400/12207 | loss=35710.7422 | L0=80 | FVE=0.6159 | cos=0.8822 | dead=0.857 | 13.9M tok | 15k tok/s | ETA 40m
+    [            standard/L27] step   3600/12207 | loss=35393.6875 | L0=80 | FVE=0.6188 | cos=0.8843 | dead=0.853 | 14.7M tok | 15k tok/s | ETA 40m
+    [            standard/L27] step   3800/12207 | loss=35518.3750 | L0=80 | FVE=0.6159 | cos=0.8843 | dead=0.849 | 15.6M tok | 15k tok/s | ETA 39m
+    [            standard/L27] step   4000/12207 | loss=34602.2266 | L0=80 | FVE=0.6262 | cos=0.8867 | dead=0.844 | 16.4M tok | 15k tok/s | ETA 38m
+    [            standard/L27] step   4200/12207 | loss=34995.5625 | L0=80 | FVE=0.6246 | cos=0.8851 | dead=0.840 | 17.2M tok | 15k tok/s | ETA 37m
+    [            standard/L27] step   4400/12207 | loss=34343.9297 | L0=80 | FVE=0.6317 | cos=0.8881 | dead=0.837 | 18.0M tok | 15k tok/s | ETA 36m
+    [            standard/L27] step   4600/12207 | loss=34116.0977 | L0=80 | FVE=0.6356 | cos=0.8899 | dead=0.835 | 18.8M tok | 15k tok/s | ETA 35m
+    [            standard/L27] step   4800/12207 | loss=33829.5664 | L0=80 | FVE=0.6346 | cos=0.8894 | dead=0.832 | 19.7M tok | 15k tok/s | ETA 34m
+    [standard/L27] Checkpoint saved at 40% (4882 steps)
+    [            standard/L27] step   5000/12207 | loss=33434.8984 | L0=80 | FVE=0.6423 | cos=0.8917 | dead=0.828 | 20.5M tok | 15k tok/s | ETA 33m
+    [            standard/L27] step   5200/12207 | loss=33147.3477 | L0=80 | FVE=0.6413 | cos=0.8924 | dead=0.826 | 21.3M tok | 15k tok/s | ETA 32m
+    [            standard/L27] step   5400/12207 | loss=33076.8633 | L0=80 | FVE=0.6422 | cos=0.8922 | dead=0.823 | 22.1M tok | 15k tok/s | ETA 31m
+    [            standard/L27] step   5600/12207 | loss=32859.6484 | L0=80 | FVE=0.6466 | cos=0.8934 | dead=0.820 | 22.9M tok | 15k tok/s | ETA 30m
+    [            standard/L27] step   5800/12207 | loss=32925.8203 | L0=80 | FVE=0.6515 | cos=0.8938 | dead=0.816 | 23.8M tok | 15k tok/s | ETA 29m
+    [            standard/L27] step   6000/12207 | loss=32870.1055 | L0=80 | FVE=0.6446 | cos=0.8930 | dead=0.815 | 24.6M tok | 15k tok/s | ETA 29m
+    [            standard/L27] step   6200/12207 | loss=32344.9941 | L0=80 | FVE=0.6504 | cos=0.8949 | dead=0.814 | 25.4M tok | 15k tok/s | ETA 28m
+    [            standard/L27] step   6400/12207 | loss=32568.5000 | L0=80 | FVE=0.6507 | cos=0.8941 | dead=0.812 | 26.2M tok | 15k tok/s | ETA 27m
+    [            standard/L27] step   6600/12207 | loss=32795.3945 | L0=80 | FVE=0.6485 | cos=0.8931 | dead=0.810 | 27.0M tok | 15k tok/s | ETA 26m
+    [            standard/L27] step   6800/12207 | loss=32488.5469 | L0=80 | FVE=0.6515 | cos=0.8943 | dead=0.808 | 27.9M tok | 15k tok/s | ETA 25m
+    [            standard/L27] step   7000/12207 | loss=31766.0762 | L0=80 | FVE=0.6677 | cos=0.8972 | dead=0.797 | 28.7M tok | 15k tok/s | ETA 24m
+    [            standard/L27] step   7200/12207 | loss=32003.4453 | L0=80 | FVE=0.6528 | cos=0.8954 | dead=0.804 | 29.5M tok | 15k tok/s | ETA 23m
+    [standard/L27] Checkpoint saved at 60% (7324 steps)
+    [            standard/L27] step   7400/12207 | loss=31707.2148 | L0=80 | FVE=0.6553 | cos=0.8972 | dead=0.803 | 30.3M tok | 15k tok/s | ETA 22m
+    [            standard/L27] step   7600/12207 | loss=31693.0586 | L0=80 | FVE=0.6552 | cos=0.8968 | dead=0.803 | 31.1M tok | 15k tok/s | ETA 21m
+    [            standard/L27] step   7800/12207 | loss=31274.5410 | L0=80 | FVE=0.6599 | cos=0.8981 | dead=0.801 | 31.9M tok | 15k tok/s | ETA 20m
+    [            standard/L27] step   8000/12207 | loss=31751.7852 | L0=80 | FVE=0.6575 | cos=0.8964 | dead=0.800 | 32.8M tok | 15k tok/s | ETA 19m
+    [            standard/L27] step   8200/12207 | loss=31876.3223 | L0=80 | FVE=0.6550 | cos=0.8961 | dead=0.799 | 33.6M tok | 15k tok/s | ETA 18m
+    [            standard/L27] step   8400/12207 | loss=31472.7734 | L0=80 | FVE=0.6605 | cos=0.8987 | dead=0.797 | 34.4M tok | 15k tok/s | ETA 17m
+    [            standard/L27] step   8600/12207 | loss=31232.5156 | L0=80 | FVE=0.6616 | cos=0.8985 | dead=0.796 | 35.2M tok | 15k tok/s | ETA 17m
+    [            standard/L27] step   8800/12207 | loss=31323.1562 | L0=80 | FVE=0.6593 | cos=0.8983 | dead=0.795 | 36.0M tok | 15k tok/s | ETA 16m
+    [            standard/L27] step   9000/12207 | loss=31519.5195 | L0=80 | FVE=0.6597 | cos=0.8975 | dead=0.795 | 36.9M tok | 15k tok/s | ETA 15m
+    [            standard/L27] step   9200/12207 | loss=31205.4375 | L0=80 | FVE=0.6609 | cos=0.8978 | dead=0.794 | 37.7M tok | 15k tok/s | ETA 14m
+    [            standard/L27] step   9400/12207 | loss=32121.3867 | L0=80 | FVE=0.6571 | cos=0.8953 | dead=0.793 | 38.5M tok | 15k tok/s | ETA 13m
+    [            standard/L27] step   9600/12207 | loss=31379.7969 | L0=80 | FVE=0.6610 | cos=0.8986 | dead=0.793 | 39.3M tok | 15k tok/s | ETA 12m
+    [standard/L27] Checkpoint saved at 80% (9765 steps)
+    [            standard/L27] step   9800/12207 | loss=31697.2188 | L0=80 | FVE=0.6592 | cos=0.8975 | dead=0.793 | 40.1M tok | 15k tok/s | ETA 11m
+    [            standard/L27] step  10000/12207 | loss=31234.2852 | L0=80 | FVE=0.6628 | cos=0.8994 | dead=0.792 | 41.0M tok | 15k tok/s | ETA 10m
+    [            standard/L27] step  10200/12207 | loss=31508.4199 | L0=80 | FVE=0.6603 | cos=0.8981 | dead=0.791 | 41.8M tok | 15k tok/s | ETA 9m
+    [            standard/L27] step  10400/12207 | loss=31409.4531 | L0=80 | FVE=0.6609 | cos=0.8985 | dead=0.791 | 42.6M tok | 15k tok/s | ETA 8m
+    [            standard/L27] step  10600/12207 | loss=31563.0156 | L0=80 | FVE=0.6595 | cos=0.8967 | dead=0.791 | 43.4M tok | 15k tok/s | ETA 7m
+    [            standard/L27] step  10800/12207 | loss=31652.0312 | L0=80 | FVE=0.6596 | cos=0.8970 | dead=0.791 | 44.2M tok | 15k tok/s | ETA 6m
+    [            standard/L27] step  11000/12207 | loss=32000.7383 | L0=80 | FVE=0.6606 | cos=0.8949 | dead=0.787 | 45.1M tok | 15k tok/s | ETA 6m
+    [            standard/L27] step  11200/12207 | loss=31301.5352 | L0=80 | FVE=0.6616 | cos=0.8986 | dead=0.791 | 45.9M tok | 15k tok/s | ETA 5m
+    [            standard/L27] step  11400/12207 | loss=31868.9043 | L0=80 | FVE=0.6591 | cos=0.8965 | dead=0.791 | 46.7M tok | 15k tok/s | ETA 4m
+    [            standard/L27] step  11600/12207 | loss=31150.0703 | L0=80 | FVE=0.6628 | cos=0.8985 | dead=0.791 | 47.5M tok | 15k tok/s | ETA 3m
+    [            standard/L27] step  11800/12207 | loss=31385.1484 | L0=80 | FVE=0.6622 | cos=0.8987 | dead=0.791 | 48.3M tok | 15k tok/s | ETA 2m
+    [            standard/L27] step  12000/12207 | loss=31182.7109 | L0=80 | FVE=0.6620 | cos=0.8989 | dead=0.791 | 49.2M tok | 15k tok/s | ETA 1m
+    [            standard/L27] step  12200/12207 | loss=31303.0996 | L0=80 | FVE=0.6622 | cos=0.8988 | dead=0.791 | 50.0M tok | 15k tok/s | ETA 0m
+    [            standard/L27] step  12207/12207 | loss=31356.4688 | L0=80 | FVE=0.6627 | cos=0.8988 | dead=0.791 | 50.0M tok | 15k tok/s | ETA 0m
+    [standard/L27] Checkpoint saved at 100% (12207 steps)
+    [standard/L27] Done in 3367.4s (56.1m)
+
+  Evaluation — standard
+    [standard/L27] L2=31466.7931 | cos=0.8979 | L0=80 | FVE=0.6591 | dead=0.774 | pnFVE=0.7395
+    [standard/L27] scale=0.5: ratio=0.500 | agree=0.997 | cos=0.9716
+    [standard/L27] scale=2.0: ratio=2.000 | agree=0.994 | cos=0.9856
+    [standard/L27] scale=5.0: ratio=4.999 | agree=0.931 | cos=0.9632
+
+    Ablation [standard/L27] (100 feats, 200 samples)...
+    [standard/L27] 3535 alive features (of 16384)
+      feat 13673 | n=200 | cos→KL=0.222 | inner→KL=0.024 | SAE→KL=0.108 | norm→KL=-0.346
+      feat 13744 | n=200 | cos→KL=0.164 | inner→KL=0.086 | SAE→KL=0.171 | norm→KL=-0.172
+      feat  3957 | n=200 | cos→KL=0.381 | inner→KL=0.289 | SAE→KL=0.326 | norm→KL=-0.170
+      feat  6584 | n=200 | cos→KL=0.317 | inner→KL=0.323 | SAE→KL=0.282 | norm→KL=0.091
+      feat    16 | n=200 | cos→KL=0.519 | inner→KL=0.493 | SAE→KL=0.469 | norm→KL=-0.042
+      feat 12885 | n=200 | cos→KL=0.308 | inner→KL=0.261 | SAE→KL=0.203 | norm→KL=-0.162
+      feat 14715 | n=200 | cos→KL=0.386 | inner→KL=0.365 | SAE→KL=0.425 | norm→KL=0.045
+      feat  3632 | n=200 | cos→KL=0.305 | inner→KL=0.278 | SAE→KL=0.170 | norm→KL=-0.142
+      feat   303 | n=200 | cos→KL=0.387 | inner→KL=0.293 | SAE→KL=0.272 | norm→KL=-0.241
+      feat  7891 | n=200 | cos→KL=0.164 | inner→KL=0.162 | SAE→KL=0.114 | norm→KL=0.018
+      feat  6159 | n=200 | cos→KL=0.375 | inner→KL=0.374 | SAE→KL=0.377 | norm→KL=-0.075
+    [standard/L27] Summary (100 features): cos→KL=0.4154 | inner→KL=0.3914 | SAE→KL=0.3673 | cos>inner: 79/100
+  Saved standard to experiments/exp22_results.json
+
+======================================================================
+  VARIANT: adaptive_l2 (encoder=AdaptiveCosineBatchTopKSAE, loss=l2)
+======================================================================
+
+  Training adaptive_l2/L27 | d_sae=16384, k=80, lr=0.0003, loss=l2, 50,000,000 tokens, 12207 steps (streaming)
+    [         adaptive_l2/L27] step    200/12207 | loss=91663.0391 | L0=80 | FVE=0.0430 | cos=0.6567 | dead=0.975 | a=0.0136 b=64.8 | 0.8M tok | 13k tok/s | ETA 65m
+    [         adaptive_l2/L27] step    400/12207 | loss=76678.1016 | L0=80 | FVE=0.1784 | cos=0.7261 | dead=0.964 | a=0.0277 b=65.7 | 1.6M tok | 13k tok/s | ETA 64m
+    [         adaptive_l2/L27] step    600/12207 | loss=66111.2969 | L0=80 | FVE=0.2931 | cos=0.7722 | dead=0.953 | a=0.0441 b=66.6 | 2.5M tok | 14k tok/s | ETA 55m
+    [         adaptive_l2/L27] step    800/12207 | loss=57248.6094 | L0=80 | FVE=0.3852 | cos=0.8061 | dead=0.910 | a=0.0671 b=68.0 | 3.3M tok | 14k tok/s | ETA 56m
+    [         adaptive_l2/L27] step   1000/12207 | loss=48453.7852 | L0=80 | FVE=0.4796 | cos=0.8372 | dead=0.841 | a=0.0916 b=69.5 | 4.1M tok | 14k tok/s | ETA 57m
+    [         adaptive_l2/L27] step   1200/12207 | loss=39552.1406 | L0=80 | FVE=0.5710 | cos=0.8709 | dead=0.731 | a=0.1140 b=70.9 | 4.9M tok | 14k tok/s | ETA 53m
+    [         adaptive_l2/L27] step   1400/12207 | loss=35653.1797 | L0=80 | FVE=0.6136 | cos=0.8839 | dead=0.624 | a=0.1324 b=72.0 | 5.7M tok | 14k tok/s | ETA 53m
+    [         adaptive_l2/L27] step   1600/12207 | loss=33939.3828 | L0=80 | FVE=0.6339 | cos=0.8902 | dead=0.570 | a=0.1470 b=72.8 | 6.6M tok | 14k tok/s | ETA 53m
+    [         adaptive_l2/L27] step   1800/12207 | loss=31410.3086 | L0=80 | FVE=0.6622 | cos=0.8979 | dead=0.523 | a=0.1586 b=73.5 | 7.4M tok | 14k tok/s | ETA 50m
+    [         adaptive_l2/L27] step   2000/12207 | loss=31191.4883 | L0=80 | FVE=0.6710 | cos=0.8997 | dead=0.489 | a=0.1680 b=74.0 | 8.2M tok | 14k tok/s | ETA 50m
+    [         adaptive_l2/L27] step   2200/12207 | loss=30020.6328 | L0=80 | FVE=0.6748 | cos=0.9033 | dead=0.476 | a=0.1755 b=74.3 | 9.0M tok | 14k tok/s | ETA 49m
+    [         adaptive_l2/L27] step   2400/12207 | loss=28819.2695 | L0=80 | FVE=0.6898 | cos=0.9074 | dead=0.461 | a=0.1814 b=74.6 | 9.8M tok | 14k tok/s | ETA 47m
+    [adaptive_l2/L27] Checkpoint saved at 20% (2441 steps)
+    [         adaptive_l2/L27] step   2600/12207 | loss=28219.4121 | L0=80 | FVE=0.6963 | cos=0.9093 | dead=0.450 | a=0.1862 b=74.7 | 10.6M tok | 14k tok/s | ETA 46m
+    [         adaptive_l2/L27] step   2800/12207 | loss=27508.6738 | L0=80 | FVE=0.7014 | cos=0.9116 | dead=0.435 | a=0.1902 b=74.8 | 11.5M tok | 14k tok/s | ETA 44m
+    [         adaptive_l2/L27] step   3000/12207 | loss=26898.6738 | L0=80 | FVE=0.7082 | cos=0.9136 | dead=0.428 | a=0.1932 b=74.9 | 12.3M tok | 14k tok/s | ETA 44m
+    [         adaptive_l2/L27] step   3200/12207 | loss=27696.8398 | L0=80 | FVE=0.7033 | cos=0.9117 | dead=0.425 | a=0.1953 b=74.8 | 13.1M tok | 14k tok/s | ETA 43m
+    [         adaptive_l2/L27] step   3400/12207 | loss=26530.1875 | L0=80 | FVE=0.7147 | cos=0.9144 | dead=0.411 | a=0.1970 b=74.7 | 13.9M tok | 14k tok/s | ETA 42m
+    [         adaptive_l2/L27] step   3600/12207 | loss=26586.0664 | L0=80 | FVE=0.7137 | cos=0.9150 | dead=0.404 | a=0.1983 b=74.6 | 14.7M tok | 14k tok/s | ETA 41m
+    [         adaptive_l2/L27] step   3800/12207 | loss=26895.0820 | L0=80 | FVE=0.7091 | cos=0.9141 | dead=0.400 | a=0.1994 b=74.5 | 15.6M tok | 14k tok/s | ETA 40m
+    [         adaptive_l2/L27] step   4000/12207 | loss=25884.8750 | L0=80 | FVE=0.7204 | cos=0.9169 | dead=0.388 | a=0.2002 b=74.4 | 16.4M tok | 14k tok/s | ETA 39m
+    [         adaptive_l2/L27] step   4200/12207 | loss=26234.4531 | L0=80 | FVE=0.7186 | cos=0.9156 | dead=0.382 | a=0.2009 b=74.2 | 17.2M tok | 14k tok/s | ETA 38m
+    [         adaptive_l2/L27] step   4400/12207 | loss=25923.3164 | L0=80 | FVE=0.7220 | cos=0.9171 | dead=0.381 | a=0.2014 b=74.1 | 18.0M tok | 14k tok/s | ETA 37m
+    [         adaptive_l2/L27] step   4600/12207 | loss=25591.7617 | L0=80 | FVE=0.7266 | cos=0.9188 | dead=0.374 | a=0.2018 b=73.9 | 18.8M tok | 14k tok/s | ETA 36m
+    [         adaptive_l2/L27] step   4800/12207 | loss=25533.6562 | L0=80 | FVE=0.7242 | cos=0.9180 | dead=0.373 | a=0.2018 b=73.7 | 19.7M tok | 14k tok/s | ETA 35m
+    [adaptive_l2/L27] Checkpoint saved at 40% (4882 steps)
+    [         adaptive_l2/L27] step   5000/12207 | loss=25048.4492 | L0=80 | FVE=0.7321 | cos=0.9203 | dead=0.366 | a=0.2022 b=73.6 | 20.5M tok | 15k tok/s | ETA 34m
+    [         adaptive_l2/L27] step   5200/12207 | loss=24936.7500 | L0=80 | FVE=0.7302 | cos=0.9204 | dead=0.362 | a=0.2020 b=73.3 | 21.3M tok | 14k tok/s | ETA 33m
+    [         adaptive_l2/L27] step   5400/12207 | loss=25025.5449 | L0=80 | FVE=0.7293 | cos=0.9198 | dead=0.360 | a=0.2020 b=73.2 | 22.1M tok | 14k tok/s | ETA 32m
+    [         adaptive_l2/L27] step   5600/12207 | loss=24736.2949 | L0=80 | FVE=0.7340 | cos=0.9211 | dead=0.352 | a=0.2025 b=73.0 | 22.9M tok | 15k tok/s | ETA 31m
+    [         adaptive_l2/L27] step   5800/12207 | loss=25671.1641 | L0=80 | FVE=0.7283 | cos=0.9210 | dead=0.349 | a=0.2024 b=72.8 | 23.8M tok | 14k tok/s | ETA 30m
+    [         adaptive_l2/L27] step   6000/12207 | loss=25056.1445 | L0=80 | FVE=0.7291 | cos=0.9197 | dead=0.349 | a=0.2025 b=72.6 | 24.6M tok | 14k tok/s | ETA 29m
+    [         adaptive_l2/L27] step   6200/12207 | loss=24516.1309 | L0=80 | FVE=0.7350 | cos=0.9216 | dead=0.348 | a=0.2026 b=72.4 | 25.4M tok | 15k tok/s | ETA 28m
+    [         adaptive_l2/L27] step   6400/12207 | loss=24784.7461 | L0=80 | FVE=0.7342 | cos=0.9207 | dead=0.345 | a=0.2025 b=72.2 | 26.2M tok | 14k tok/s | ETA 27m
+    [         adaptive_l2/L27] step   6600/12207 | loss=24944.1055 | L0=80 | FVE=0.7327 | cos=0.9200 | dead=0.338 | a=0.2028 b=72.1 | 27.0M tok | 14k tok/s | ETA 27m
+    [         adaptive_l2/L27] step   6800/12207 | loss=24636.5703 | L0=80 | FVE=0.7357 | cos=0.9211 | dead=0.341 | a=0.2029 b=71.9 | 27.9M tok | 15k tok/s | ETA 25m
+    [         adaptive_l2/L27] step   7000/12207 | loss=26118.9062 | L0=80 | FVE=0.7267 | cos=0.9227 | dead=0.340 | a=0.2031 b=71.8 | 28.7M tok | 14k tok/s | ETA 25m
+    [         adaptive_l2/L27] step   7200/12207 | loss=24543.6602 | L0=80 | FVE=0.7337 | cos=0.9210 | dead=0.337 | a=0.2038 b=71.6 | 29.5M tok | 14k tok/s | ETA 24m
+    [adaptive_l2/L27] Checkpoint saved at 60% (7324 steps)
+    [         adaptive_l2/L27] step   7400/12207 | loss=24131.7344 | L0=80 | FVE=0.7376 | cos=0.9230 | dead=0.336 | a=0.2035 b=71.5 | 30.3M tok | 15k tok/s | ETA 23m
+    [         adaptive_l2/L27] step   7600/12207 | loss=24235.5273 | L0=80 | FVE=0.7364 | cos=0.9222 | dead=0.335 | a=0.2037 b=71.3 | 31.1M tok | 14k tok/s | ETA 22m
+    [         adaptive_l2/L27] step   7800/12207 | loss=23850.1172 | L0=80 | FVE=0.7406 | cos=0.9234 | dead=0.327 | a=0.2043 b=71.2 | 31.9M tok | 15k tok/s | ETA 21m
+    [         adaptive_l2/L27] step   8000/12207 | loss=24263.7188 | L0=80 | FVE=0.7382 | cos=0.9220 | dead=0.332 | a=0.2042 b=71.1 | 32.8M tok | 15k tok/s | ETA 20m
+    [         adaptive_l2/L27] step   8200/12207 | loss=24273.4727 | L0=80 | FVE=0.7373 | cos=0.9221 | dead=0.325 | a=0.2044 b=70.9 | 33.6M tok | 14k tok/s | ETA 19m
+    [         adaptive_l2/L27] step   8400/12207 | loss=23928.2773 | L0=80 | FVE=0.7419 | cos=0.9241 | dead=0.330 | a=0.2048 b=70.8 | 34.4M tok | 15k tok/s | ETA 18m
+    [         adaptive_l2/L27] step   8600/12207 | loss=23901.0254 | L0=80 | FVE=0.7410 | cos=0.9235 | dead=0.330 | a=0.2049 b=70.7 | 35.2M tok | 15k tok/s | ETA 17m
+    [         adaptive_l2/L27] step   8800/12207 | loss=24108.4414 | L0=80 | FVE=0.7378 | cos=0.9228 | dead=0.328 | a=0.2051 b=70.6 | 36.0M tok | 14k tok/s | ETA 16m
+    [         adaptive_l2/L27] step   9000/12207 | loss=24094.6680 | L0=80 | FVE=0.7399 | cos=0.9227 | dead=0.326 | a=0.2054 b=70.5 | 36.9M tok | 15k tok/s | ETA 15m
+    [         adaptive_l2/L27] step   9200/12207 | loss=23965.9863 | L0=80 | FVE=0.7396 | cos=0.9226 | dead=0.325 | a=0.2056 b=70.4 | 37.7M tok | 15k tok/s | ETA 14m
+    [         adaptive_l2/L27] step   9400/12207 | loss=24594.7109 | L0=80 | FVE=0.7374 | cos=0.9210 | dead=0.323 | a=0.2058 b=70.4 | 38.5M tok | 14k tok/s | ETA 13m
+    [         adaptive_l2/L27] step   9600/12207 | loss=24063.6758 | L0=80 | FVE=0.7401 | cos=0.9234 | dead=0.326 | a=0.2059 b=70.3 | 39.3M tok | 15k tok/s | ETA 12m
+    [adaptive_l2/L27] Checkpoint saved at 80% (9765 steps)
+    [         adaptive_l2/L27] step   9800/12207 | loss=24283.2656 | L0=80 | FVE=0.7389 | cos=0.9226 | dead=0.325 | a=0.2061 b=70.2 | 40.1M tok | 15k tok/s | ETA 11m
+    [         adaptive_l2/L27] step  10000/12207 | loss=24010.6562 | L0=80 | FVE=0.7408 | cos=0.9237 | dead=0.325 | a=0.2063 b=70.2 | 41.0M tok | 15k tok/s | ETA 10m
+    [         adaptive_l2/L27] step  10200/12207 | loss=24114.6309 | L0=80 | FVE=0.7400 | cos=0.9231 | dead=0.321 | a=0.2063 b=70.1 | 41.8M tok | 15k tok/s | ETA 9m
+    [         adaptive_l2/L27] step  10400/12207 | loss=24130.5020 | L0=80 | FVE=0.7395 | cos=0.9231 | dead=0.323 | a=0.2063 b=70.1 | 42.6M tok | 15k tok/s | ETA 9m
+    [         adaptive_l2/L27] step  10600/12207 | loss=24213.2695 | L0=80 | FVE=0.7388 | cos=0.9218 | dead=0.322 | a=0.2065 b=70.1 | 43.4M tok | 15k tok/s | ETA 8m
+    [         adaptive_l2/L27] step  10800/12207 | loss=24273.6953 | L0=80 | FVE=0.7389 | cos=0.9221 | dead=0.320 | a=0.2065 b=70.1 | 44.2M tok | 15k tok/s | ETA 7m
+    [         adaptive_l2/L27] step  11000/12207 | loss=24603.6836 | L0=80 | FVE=0.7390 | cos=0.9206 | dead=0.314 | a=0.2065 b=70.0 | 45.1M tok | 15k tok/s | ETA 6m
+    [         adaptive_l2/L27] step  11200/12207 | loss=23994.7578 | L0=80 | FVE=0.7406 | cos=0.9234 | dead=0.323 | a=0.2065 b=70.0 | 45.9M tok | 15k tok/s | ETA 5m
+    [         adaptive_l2/L27] step  11400/12207 | loss=24440.3730 | L0=80 | FVE=0.7386 | cos=0.9218 | dead=0.321 | a=0.2065 b=70.0 | 46.7M tok | 15k tok/s | ETA 4m
+    [         adaptive_l2/L27] step  11600/12207 | loss=23873.1035 | L0=80 | FVE=0.7415 | cos=0.9233 | dead=0.323 | a=0.2066 b=70.0 | 47.5M tok | 15k tok/s | ETA 3m
+    [         adaptive_l2/L27] step  11800/12207 | loss=24065.3574 | L0=80 | FVE=0.7410 | cos=0.9236 | dead=0.322 | a=0.2066 b=70.0 | 48.3M tok | 15k tok/s | ETA 2m
+    [         adaptive_l2/L27] step  12000/12207 | loss=23982.9727 | L0=80 | FVE=0.7400 | cos=0.9234 | dead=0.318 | a=0.2066 b=70.0 | 49.2M tok | 15k tok/s | ETA 1m
+    [         adaptive_l2/L27] step  12200/12207 | loss=24006.7109 | L0=80 | FVE=0.7409 | cos=0.9235 | dead=0.319 | a=0.2066 b=70.0 | 50.0M tok | 15k tok/s | ETA 0m
+    [         adaptive_l2/L27] step  12207/12207 | loss=24040.6797 | L0=80 | FVE=0.7414 | cos=0.9236 | dead=0.324 | a=0.2066 b=70.0 | 50.0M tok | 15k tok/s | ETA 0m
+    [adaptive_l2/L27] Checkpoint saved at 100% (12207 steps)
+    [adaptive_l2/L27] Done in 3446.4s (57.4m)
+
+  Evaluation — adaptive_l2
+    [adaptive_l2/L27] L2=24149.4078 | cos=0.9228 | L0=80 | FVE=0.7382 | dead=0.282 | pnFVE=0.7915
+    [adaptive_l2/L27] scale=0.5: ratio=0.857 | agree=0.999 | cos=0.9944
+    [adaptive_l2/L27] scale=2.0: ratio=1.161 | agree=0.999 | cos=0.9954
+    [adaptive_l2/L27] scale=5.0: ratio=1.408 | agree=0.997 | cos=0.9903
+
+    Ablation [adaptive_l2/L27] (100 feats, 200 samples)...
+    [adaptive_l2/L27] 11608 alive features (of 16384)
+      feat 13320 | n=200 | cos→KL=0.309 | inner→KL=0.291 | SAE→KL=0.297 | norm→KL=0.042
+      feat 14200 | n=200 | cos→KL=0.419 | inner→KL=0.383 | SAE→KL=0.386 | norm→KL=0.019
+      feat 14379 | n=200 | cos→KL=0.486 | inner→KL=0.482 | SAE→KL=0.411 | norm→KL=-0.116
+      feat  7080 | n=200 | cos→KL=0.410 | inner→KL=0.384 | SAE→KL=0.358 | norm→KL=-0.045
+      feat 14612 | n=200 | cos→KL=0.388 | inner→KL=0.416 | SAE→KL=0.401 | norm→KL=0.118
+      feat  4220 | n=200 | cos→KL=0.427 | inner→KL=0.436 | SAE→KL=0.434 | norm→KL=0.172
+      feat 13309 | n=200 | cos→KL=0.382 | inner→KL=0.370 | SAE→KL=0.273 | norm→KL=-0.011
+      feat 12522 | n=200 | cos→KL=0.226 | inner→KL=0.183 | SAE→KL=0.257 | norm→KL=-0.125
+      feat 15376 | n=200 | cos→KL=0.131 | inner→KL=0.115 | SAE→KL=0.063 | norm→KL=-0.037
+      feat  4079 | n=200 | cos→KL=0.491 | inner→KL=0.446 | SAE→KL=0.346 | norm→KL=-0.271
+      feat  4772 | n=200 | cos→KL=0.520 | inner→KL=0.543 | SAE→KL=0.449 | norm→KL=0.115
+    [adaptive_l2/L27] Summary (100 features): cos→KL=0.3970 | inner→KL=0.3792 | SAE→KL=0.3519 | cos>inner: 84/100
+  Saved adaptive_l2 to experiments/exp22_results.json
+
+======================================================================
+  VARIANT: cosine_postnorm (encoder=AdaptiveCosineBatchTopKSAE, loss=postnorm)
+======================================================================
+
+  Training cosine_postnorm/L27 | d_sae=16384, k=80, lr=0.0003, loss=postnorm, 50,000,000 tokens, 12207 steps (streaming)
+    RMSNorm gain: mean=1.1006, std=0.3383, min=0.5117, max=7.7812
+    [     cosine_postnorm/L27] step    200/12207 | loss=2704.0605 | L0=80 | FVE=0.0386 | cos=0.7382 | dead=0.319 | a=-0.0051 b=63.6 | pnFVE=0.4390 | 0.8M tok | 13k tok/s | ETA 65m
+    [     cosine_postnorm/L27] step    400/12207 | loss=1783.6234 | L0=80 | FVE=0.0575 | cos=0.8088 | dead=0.788 | a=-0.0064 b=63.5 | pnFVE=0.6299 | 1.6M tok | 13k tok/s | ETA 63m
+    [     cosine_postnorm/L27] step    600/12207 | loss=1512.7911 | L0=80 | FVE=0.0667 | cos=0.8378 | dead=0.853 | a=-0.0073 b=63.3 | pnFVE=0.6838 | 2.5M tok | 14k tok/s | ETA 55m
+    [     cosine_postnorm/L27] step    800/12207 | loss=1400.1642 | L0=80 | FVE=0.0716 | cos=0.8498 | dead=0.864 | a=-0.0087 b=63.1 | pnFVE=0.7062 | 3.3M tok | 14k tok/s | ETA 56m
+    [     cosine_postnorm/L27] step   1000/12207 | loss=1364.1636 | L0=80 | FVE=0.0731 | cos=0.8532 | dead=0.859 | a=-0.0106 b=62.8 | pnFVE=0.7151 | 4.1M tok | 14k tok/s | ETA 56m
+    [     cosine_postnorm/L27] step   1200/12207 | loss=1280.8783 | L0=80 | FVE=0.0745 | cos=0.8631 | dead=0.866 | a=-0.0132 b=62.5 | pnFVE=0.7293 | 4.9M tok | 14k tok/s | ETA 53m
+    [     cosine_postnorm/L27] step   1400/12207 | loss=1278.8737 | L0=80 | FVE=0.0726 | cos=0.8624 | dead=0.865 | a=-0.0169 b=62.1 | pnFVE=0.7295 | 5.7M tok | 14k tok/s | ETA 53m
+    [     cosine_postnorm/L27] step   1600/12207 | loss=1258.1991 | L0=80 | FVE=0.0705 | cos=0.8645 | dead=0.868 | a=-0.0216 b=61.7 | pnFVE=0.7341 | 6.6M tok | 14k tok/s | ETA 53m
+    [     cosine_postnorm/L27] step   1800/12207 | loss=1244.4197 | L0=80 | FVE=0.0683 | cos=0.8657 | dead=0.865 | a=-0.0272 b=61.2 | pnFVE=0.7398 | 7.4M tok | 14k tok/s | ETA 50m
+    [     cosine_postnorm/L27] step   2000/12207 | loss=1250.9950 | L0=80 | FVE=0.0639 | cos=0.8638 | dead=0.864 | a=-0.0341 b=60.6 | pnFVE=0.7402 | 8.2M tok | 14k tok/s | ETA 50m
+    [     cosine_postnorm/L27] step   2200/12207 | loss=1218.2648 | L0=80 | FVE=0.0603 | cos=0.8682 | dead=0.865 | a=-0.0419 b=60.0 | pnFVE=0.7423 | 9.0M tok | 14k tok/s | ETA 49m
+    [     cosine_postnorm/L27] step   2400/12207 | loss=1206.7773 | L0=80 | FVE=0.0565 | cos=0.8694 | dead=0.865 | a=-0.0509 b=59.3 | pnFVE=0.7459 | 9.8M tok | 14k tok/s | ETA 47m
+    [cosine_postnorm/L27] Checkpoint saved at 20% (2441 steps)
+    [     cosine_postnorm/L27] step   2600/12207 | loss=1190.7168 | L0=80 | FVE=0.0529 | cos=0.8713 | dead=0.866 | a=-0.0605 b=58.6 | pnFVE=0.7489 | 10.6M tok | 14k tok/s | ETA 47m
+    [     cosine_postnorm/L27] step   2800/12207 | loss=1188.6774 | L0=80 | FVE=0.0486 | cos=0.8714 | dead=0.865 | a=-0.0709 b=57.9 | pnFVE=0.7485 | 11.5M tok | 14k tok/s | ETA 45m
+    [     cosine_postnorm/L27] step   3000/12207 | loss=1166.6501 | L0=80 | FVE=0.0451 | cos=0.8743 | dead=0.865 | a=-0.0820 b=57.1 | pnFVE=0.7528 | 12.3M tok | 14k tok/s | ETA 44m
+    [     cosine_postnorm/L27] step   3200/12207 | loss=1193.5508 | L0=80 | FVE=0.0407 | cos=0.8710 | dead=0.864 | a=-0.0935 b=56.3 | pnFVE=0.7495 | 13.1M tok | 14k tok/s | ETA 44m
+    [     cosine_postnorm/L27] step   3400/12207 | loss=1181.5189 | L0=80 | FVE=0.0377 | cos=0.8719 | dead=0.864 | a=-0.1054 b=55.6 | pnFVE=0.7518 | 13.9M tok | 14k tok/s | ETA 42m
+    [     cosine_postnorm/L27] step   3600/12207 | loss=1170.9269 | L0=80 | FVE=0.0341 | cos=0.8729 | dead=0.862 | a=-0.1183 b=54.7 | pnFVE=0.7528 | 14.7M tok | 14k tok/s | ETA 41m
+    [     cosine_postnorm/L27] step   3800/12207 | loss=1180.1796 | L0=80 | FVE=0.0304 | cos=0.8722 | dead=0.864 | a=-0.1320 b=53.8 | pnFVE=0.7503 | 15.6M tok | 14k tok/s | ETA 41m
+    [     cosine_postnorm/L27] step   4000/12207 | loss=1166.2317 | L0=80 | FVE=0.0283 | cos=0.8736 | dead=0.864 | a=-0.1447 b=53.0 | pnFVE=0.7553 | 16.4M tok | 14k tok/s | ETA 39m
+    [     cosine_postnorm/L27] step   4200/12207 | loss=1179.8557 | L0=80 | FVE=0.0255 | cos=0.8716 | dead=0.862 | a=-0.1584 b=52.2 | pnFVE=0.7525 | 17.2M tok | 14k tok/s | ETA 39m
+    [     cosine_postnorm/L27] step   4400/12207 | loss=1161.5308 | L0=80 | FVE=0.0234 | cos=0.8742 | dead=0.864 | a=-0.1717 b=51.4 | pnFVE=0.7558 | 18.0M tok | 14k tok/s | ETA 38m
+    [     cosine_postnorm/L27] step   4600/12207 | loss=1149.3623 | L0=80 | FVE=0.0213 | cos=0.8755 | dead=0.863 | a=-0.1844 b=50.6 | pnFVE=0.7571 | 18.8M tok | 14k tok/s | ETA 36m
+    [     cosine_postnorm/L27] step   4800/12207 | loss=1158.0559 | L0=80 | FVE=0.0194 | cos=0.8748 | dead=0.862 | a=-0.1983 b=49.8 | pnFVE=0.7558 | 19.7M tok | 14k tok/s | ETA 36m
+    [cosine_postnorm/L27] Checkpoint saved at 40% (4882 steps)
+    [     cosine_postnorm/L27] step   5000/12207 | loss=1146.6416 | L0=80 | FVE=0.0178 | cos=0.8763 | dead=0.863 | a=-0.2114 b=49.1 | pnFVE=0.7587 | 20.5M tok | 14k tok/s | ETA 34m
+    [     cosine_postnorm/L27] step   5200/12207 | loss=1136.4281 | L0=80 | FVE=0.0163 | cos=0.8772 | dead=0.862 | a=-0.2244 b=48.3 | pnFVE=0.7592 | 21.3M tok | 14k tok/s | ETA 34m
+    [     cosine_postnorm/L27] step   5400/12207 | loss=1143.6605 | L0=80 | FVE=0.0150 | cos=0.8761 | dead=0.862 | a=-0.2367 b=47.6 | pnFVE=0.7575 | 22.1M tok | 14k tok/s | ETA 33m
+    [     cosine_postnorm/L27] step   5600/12207 | loss=1135.1969 | L0=80 | FVE=0.0140 | cos=0.8772 | dead=0.861 | a=-0.2477 b=47.0 | pnFVE=0.7597 | 22.9M tok | 14k tok/s | ETA 32m
+    [     cosine_postnorm/L27] step   5800/12207 | loss=1141.7803 | L0=80 | FVE=0.0127 | cos=0.8768 | dead=0.861 | a=-0.2590 b=46.4 | pnFVE=0.7581 | 23.8M tok | 14k tok/s | ETA 31m
+    [     cosine_postnorm/L27] step   6000/12207 | loss=1149.5798 | L0=80 | FVE=0.0119 | cos=0.8759 | dead=0.861 | a=-0.2705 b=45.8 | pnFVE=0.7561 | 24.6M tok | 14k tok/s | ETA 30m
+    [     cosine_postnorm/L27] step   6200/12207 | loss=1135.6349 | L0=80 | FVE=0.0113 | cos=0.8781 | dead=0.860 | a=-0.2806 b=45.2 | pnFVE=0.7598 | 25.4M tok | 14k tok/s | ETA 29m
+    [     cosine_postnorm/L27] step   6400/12207 | loss=1144.3938 | L0=80 | FVE=0.0105 | cos=0.8769 | dead=0.860 | a=-0.2913 b=44.6 | pnFVE=0.7588 | 26.2M tok | 14k tok/s | ETA 28m
+    [     cosine_postnorm/L27] step   6600/12207 | loss=1156.9595 | L0=80 | FVE=0.0098 | cos=0.8752 | dead=0.859 | a=-0.3005 b=44.1 | pnFVE=0.7582 | 27.0M tok | 14k tok/s | ETA 27m
+    [     cosine_postnorm/L27] step   6800/12207 | loss=1147.5714 | L0=80 | FVE=0.0094 | cos=0.8764 | dead=0.860 | a=-0.3080 b=43.7 | pnFVE=0.7567 | 27.9M tok | 14k tok/s | ETA 26m
+    [     cosine_postnorm/L27] step   7000/12207 | loss=1128.2400 | L0=80 | FVE=0.0086 | cos=0.8795 | dead=0.859 | a=-0.3155 b=43.3 | pnFVE=0.7597 | 28.7M tok | 14k tok/s | ETA 25m
+    [     cosine_postnorm/L27] step   7200/12207 | loss=1146.4683 | L0=80 | FVE=0.0085 | cos=0.8779 | dead=0.859 | a=-0.3231 b=42.9 | pnFVE=0.7578 | 29.5M tok | 14k tok/s | ETA 24m
+    [cosine_postnorm/L27] Checkpoint saved at 60% (7324 steps)
+    [     cosine_postnorm/L27] step   7400/12207 | loss=1127.6362 | L0=80 | FVE=0.0081 | cos=0.8796 | dead=0.859 | a=-0.3307 b=42.5 | pnFVE=0.7603 | 30.3M tok | 14k tok/s | ETA 23m
+    [     cosine_postnorm/L27] step   7600/12207 | loss=1134.1860 | L0=80 | FVE=0.0078 | cos=0.8793 | dead=0.859 | a=-0.3375 b=42.1 | pnFVE=0.7604 | 31.1M tok | 14k tok/s | ETA 22m
+    [     cosine_postnorm/L27] step   7800/12207 | loss=1122.4083 | L0=80 | FVE=0.0075 | cos=0.8805 | dead=0.858 | a=-0.3437 b=41.8 | pnFVE=0.7616 | 31.9M tok | 14k tok/s | ETA 21m
+    [     cosine_postnorm/L27] step   8000/12207 | loss=1144.5315 | L0=80 | FVE=0.0072 | cos=0.8781 | dead=0.858 | a=-0.3509 b=41.4 | pnFVE=0.7594 | 32.8M tok | 14k tok/s | ETA 20m
+    [     cosine_postnorm/L27] step   8200/12207 | loss=1146.3749 | L0=80 | FVE=0.0068 | cos=0.8778 | dead=0.857 | a=-0.3572 b=41.1 | pnFVE=0.7575 | 33.6M tok | 14k tok/s | ETA 19m
+    [     cosine_postnorm/L27] step   8400/12207 | loss=1127.4205 | L0=80 | FVE=0.0066 | cos=0.8804 | dead=0.858 | a=-0.3624 b=40.8 | pnFVE=0.7594 | 34.4M tok | 14k tok/s | ETA 18m
+    [     cosine_postnorm/L27] step   8600/12207 | loss=1129.4866 | L0=80 | FVE=0.0064 | cos=0.8804 | dead=0.857 | a=-0.3678 b=40.6 | pnFVE=0.7595 | 35.2M tok | 14k tok/s | ETA 17m
+    [     cosine_postnorm/L27] step   8800/12207 | loss=1140.8267 | L0=80 | FVE=0.0062 | cos=0.8798 | dead=0.857 | a=-0.3733 b=40.3 | pnFVE=0.7581 | 36.0M tok | 14k tok/s | ETA 16m
+    [     cosine_postnorm/L27] step   9000/12207 | loss=1147.2280 | L0=80 | FVE=0.0058 | cos=0.8787 | dead=0.857 | a=-0.3796 b=40.0 | pnFVE=0.7575 | 36.9M tok | 14k tok/s | ETA 15m
+    [     cosine_postnorm/L27] step   9200/12207 | loss=1143.9308 | L0=80 | FVE=0.0057 | cos=0.8788 | dead=0.856 | a=-0.3843 b=39.8 | pnFVE=0.7573 | 37.7M tok | 14k tok/s | ETA 14m
+    [     cosine_postnorm/L27] step   9400/12207 | loss=1171.2107 | L0=80 | FVE=0.0055 | cos=0.8755 | dead=0.856 | a=-0.3874 b=39.6 | pnFVE=0.7547 | 38.5M tok | 14k tok/s | ETA 13m
+    [     cosine_postnorm/L27] step   9600/12207 | loss=1134.3707 | L0=80 | FVE=0.0054 | cos=0.8801 | dead=0.856 | a=-0.3897 b=39.5 | pnFVE=0.7577 | 39.3M tok | 14k tok/s | ETA 12m
+    [cosine_postnorm/L27] Checkpoint saved at 80% (9765 steps)
+    [     cosine_postnorm/L27] step   9800/12207 | loss=1148.0442 | L0=80 | FVE=0.0053 | cos=0.8787 | dead=0.855 | a=-0.3917 b=39.4 | pnFVE=0.7568 | 40.1M tok | 14k tok/s | ETA 11m
+    [     cosine_postnorm/L27] step  10000/12207 | loss=1132.6667 | L0=80 | FVE=0.0053 | cos=0.8805 | dead=0.856 | a=-0.3935 b=39.3 | pnFVE=0.7584 | 41.0M tok | 14k tok/s | ETA 10m
+    [     cosine_postnorm/L27] step  10200/12207 | loss=1144.7194 | L0=80 | FVE=0.0052 | cos=0.8787 | dead=0.856 | a=-0.3951 b=39.2 | pnFVE=0.7558 | 41.8M tok | 14k tok/s | ETA 9m
+    [     cosine_postnorm/L27] step  10400/12207 | loss=1139.7656 | L0=80 | FVE=0.0052 | cos=0.8797 | dead=0.855 | a=-0.3966 b=39.1 | pnFVE=0.7571 | 42.6M tok | 14k tok/s | ETA 9m
+    [     cosine_postnorm/L27] step  10600/12207 | loss=1159.0974 | L0=80 | FVE=0.0052 | cos=0.8775 | dead=0.856 | a=-0.3978 b=39.1 | pnFVE=0.7559 | 43.4M tok | 14k tok/s | ETA 8m
+    [     cosine_postnorm/L27] step  10800/12207 | loss=1154.3369 | L0=80 | FVE=0.0051 | cos=0.8782 | dead=0.855 | a=-0.3987 b=39.0 | pnFVE=0.7593 | 44.2M tok | 14k tok/s | ETA 7m
+    [     cosine_postnorm/L27] step  11000/12207 | loss=1174.2440 | L0=80 | FVE=0.0050 | cos=0.8755 | dead=0.854 | a=-0.3995 b=39.0 | pnFVE=0.7553 | 45.1M tok | 14k tok/s | ETA 6m
+    [     cosine_postnorm/L27] step  11200/12207 | loss=1139.6489 | L0=80 | FVE=0.0050 | cos=0.8795 | dead=0.855 | a=-0.4000 b=39.0 | pnFVE=0.7583 | 45.9M tok | 14k tok/s | ETA 5m
+    [     cosine_postnorm/L27] step  11400/12207 | loss=1159.8081 | L0=80 | FVE=0.0050 | cos=0.8771 | dead=0.855 | a=-0.4004 b=39.0 | pnFVE=0.7545 | 46.7M tok | 14k tok/s | ETA 4m
+    [     cosine_postnorm/L27] step  11600/12207 | loss=1140.8672 | L0=80 | FVE=0.0051 | cos=0.8798 | dead=0.855 | a=-0.4006 b=38.9 | pnFVE=0.7605 | 47.5M tok | 14k tok/s | ETA 3m
+    [     cosine_postnorm/L27] step  11800/12207 | loss=1141.0867 | L0=80 | FVE=0.0050 | cos=0.8793 | dead=0.855 | a=-0.4008 b=38.9 | pnFVE=0.7573 | 48.3M tok | 14k tok/s | ETA 2m
+    [     cosine_postnorm/L27] step  12000/12207 | loss=1139.0951 | L0=80 | FVE=0.0050 | cos=0.8797 | dead=0.855 | a=-0.4008 b=38.9 | pnFVE=0.7574 | 49.2M tok | 14k tok/s | ETA 1m
+    [     cosine_postnorm/L27] step  12200/12207 | loss=1143.5347 | L0=80 | FVE=0.0050 | cos=0.8796 | dead=0.855 | a=-0.4008 b=38.9 | pnFVE=0.7586 | 50.0M tok | 14k tok/s | ETA 0m
+    [     cosine_postnorm/L27] step  12207/12207 | loss=1142.2031 | L0=80 | FVE=0.0050 | cos=0.8797 | dead=0.856 | a=-0.4008 b=38.9 | pnFVE=0.7581 | 50.0M tok | 14k tok/s | ETA 0m
+    [cosine_postnorm/L27] Checkpoint saved at 100% (12207 steps)
+    [cosine_postnorm/L27] Done in 3477.0s (57.9m)
+
+  Evaluation — cosine_postnorm
+    [cosine_postnorm/L27] L2=166061.2394 | cos=0.8789 | L0=80 | FVE=0.0050 | dead=0.832 | pnFVE=0.7563
+    [cosine_postnorm/L27] scale=0.5: ratio=1.297 | agree=0.999 | cos=0.9886
+    [cosine_postnorm/L27] scale=2.0: ratio=0.780 | agree=0.999 | cos=0.9828
+    [cosine_postnorm/L27] scale=5.0: ratio=0.572 | agree=0.998 | cos=0.9337
+
+    Ablation [cosine_postnorm/L27] (100 feats, 200 samples)...
+    [cosine_postnorm/L27] 2525 alive features (of 16384)
+      feat 13646 | n=200 | cos→KL=0.180 | inner→KL=0.083 | SAE→KL=0.143 | norm→KL=-0.167
+      feat  5593 | n=200 | cos→KL=0.475 | inner→KL=0.449 | SAE→KL=0.387 | norm→KL=0.063
+      feat  7337 | n=200 | cos→KL=0.222 | inner→KL=0.182 | SAE→KL=0.294 | norm→KL=-0.052
+      feat  2442 | n=200 | cos→KL=0.214 | inner→KL=0.191 | SAE→KL=0.176 | norm→KL=0.039
+      feat  5748 | n=200 | cos→KL=-0.094 | inner→KL=-0.059 | SAE→KL=-0.027 | norm→KL=-0.091
+      feat  1475 | n=200 | cos→KL=0.271 | inner→KL=0.264 | SAE→KL=0.259 | norm→KL=0.009
+      feat  5612 | n=200 | cos→KL=0.331 | inner→KL=0.342 | SAE→KL=0.354 | norm→KL=0.101
+      feat 14168 | n=200 | cos→KL=0.503 | inner→KL=0.512 | SAE→KL=0.516 | norm→KL=0.080
+      feat  3547 | n=200 | cos→KL=0.387 | inner→KL=0.377 | SAE→KL=0.281 | norm→KL=0.028
+      feat  7954 | n=200 | cos→KL=0.499 | inner→KL=0.482 | SAE→KL=0.624 | norm→KL=-0.013
+      feat 12044 | n=200 | cos→KL=0.630 | inner→KL=0.644 | SAE→KL=0.659 | norm→KL=0.137
+    [cosine_postnorm/L27] Summary (100 features): cos→KL=0.3791 | inner→KL=0.3662 | SAE→KL=0.3797 | cos>inner: 72/100
+  Saved cosine_postnorm to experiments/exp22_results.json
+
+======================================================================
+  VARIANT: adaptive_postnorm (encoder=AdaptiveCosineBatchTopKSAE, loss=postnorm)
+======================================================================
+
+  Training adaptive_postnorm/L27 | d_sae=16384, k=80, lr=0.0003, loss=postnorm, 50,000,000 tokens, 12207 steps (streaming)
+    RMSNorm gain: mean=1.1006, std=0.3383, min=0.5117, max=7.7812
+    [   adaptive_postnorm/L27] step    200/12207 | loss=2704.0605 | L0=80 | FVE=0.0386 | cos=0.7382 | dead=0.319 | a=-0.0051 b=63.6 | pnFVE=0.4390 | 0.8M tok | 12k tok/s | ETA 66m
+    [   adaptive_postnorm/L27] step    400/12207 | loss=1783.6234 | L0=80 | FVE=0.0575 | cos=0.8088 | dead=0.788 | a=-0.0064 b=63.5 | pnFVE=0.6299 | 1.6M tok | 12k tok/s | ETA 65m
+    [   adaptive_postnorm/L27] step    600/12207 | loss=1512.7911 | L0=80 | FVE=0.0667 | cos=0.8378 | dead=0.853 | a=-0.0073 b=63.3 | pnFVE=0.6838 | 2.5M tok | 14k tok/s | ETA 56m
+    [   adaptive_postnorm/L27] step    800/12207 | loss=1400.1642 | L0=80 | FVE=0.0716 | cos=0.8498 | dead=0.864 | a=-0.0087 b=63.1 | pnFVE=0.7062 | 3.3M tok | 14k tok/s | ETA 57m
+    [   adaptive_postnorm/L27] step   1000/12207 | loss=1364.1636 | L0=80 | FVE=0.0731 | cos=0.8532 | dead=0.859 | a=-0.0106 b=62.8 | pnFVE=0.7151 | 4.1M tok | 13k tok/s | ETA 57m
+    [   adaptive_postnorm/L27] step   1200/12207 | loss=1280.8783 | L0=80 | FVE=0.0745 | cos=0.8631 | dead=0.866 | a=-0.0132 b=62.5 | pnFVE=0.7293 | 4.9M tok | 14k tok/s | ETA 53m
+    [   adaptive_postnorm/L27] step   1400/12207 | loss=1278.8737 | L0=80 | FVE=0.0726 | cos=0.8624 | dead=0.865 | a=-0.0169 b=62.1 | pnFVE=0.7295 | 5.7M tok | 14k tok/s | ETA 53m
+    [   adaptive_postnorm/L27] step   1600/12207 | loss=1258.1991 | L0=80 | FVE=0.0705 | cos=0.8645 | dead=0.868 | a=-0.0216 b=61.7 | pnFVE=0.7341 | 6.6M tok | 14k tok/s | ETA 53m
+    [   adaptive_postnorm/L27] step   1800/12207 | loss=1244.4197 | L0=80 | FVE=0.0683 | cos=0.8657 | dead=0.865 | a=-0.0272 b=61.2 | pnFVE=0.7398 | 7.4M tok | 14k tok/s | ETA 50m
+    [   adaptive_postnorm/L27] step   2000/12207 | loss=1250.9950 | L0=80 | FVE=0.0639 | cos=0.8638 | dead=0.864 | a=-0.0341 b=60.6 | pnFVE=0.7402 | 8.2M tok | 14k tok/s | ETA 50m
+    [   adaptive_postnorm/L27] step   2200/12207 | loss=1218.2648 | L0=80 | FVE=0.0603 | cos=0.8682 | dead=0.865 | a=-0.0419 b=60.0 | pnFVE=0.7423 | 9.0M tok | 14k tok/s | ETA 49m
+    [   adaptive_postnorm/L27] step   2400/12207 | loss=1206.7773 | L0=80 | FVE=0.0565 | cos=0.8694 | dead=0.865 | a=-0.0509 b=59.3 | pnFVE=0.7459 | 9.8M tok | 14k tok/s | ETA 47m
+    [adaptive_postnorm/L27] Checkpoint saved at 20% (2441 steps)
+    [   adaptive_postnorm/L27] step   2600/12207 | loss=1190.7168 | L0=80 | FVE=0.0529 | cos=0.8713 | dead=0.866 | a=-0.0605 b=58.6 | pnFVE=0.7489 | 10.6M tok | 14k tok/s | ETA 47m
+    [   adaptive_postnorm/L27] step   2800/12207 | loss=1188.6774 | L0=80 | FVE=0.0486 | cos=0.8714 | dead=0.865 | a=-0.0709 b=57.9 | pnFVE=0.7485 | 11.5M tok | 14k tok/s | ETA 45m
+    [   adaptive_postnorm/L27] step   3000/12207 | loss=1166.6501 | L0=80 | FVE=0.0451 | cos=0.8743 | dead=0.865 | a=-0.0820 b=57.1 | pnFVE=0.7528 | 12.3M tok | 14k tok/s | ETA 44m
+    [   adaptive_postnorm/L27] step   3200/12207 | loss=1193.5508 | L0=80 | FVE=0.0407 | cos=0.8710 | dead=0.864 | a=-0.0935 b=56.3 | pnFVE=0.7495 | 13.1M tok | 14k tok/s | ETA 44m
+    [   adaptive_postnorm/L27] step   3400/12207 | loss=1181.5189 | L0=80 | FVE=0.0377 | cos=0.8719 | dead=0.864 | a=-0.1054 b=55.6 | pnFVE=0.7518 | 13.9M tok | 14k tok/s | ETA 42m
+    [   adaptive_postnorm/L27] step   3600/12207 | loss=1170.9269 | L0=80 | FVE=0.0341 | cos=0.8729 | dead=0.862 | a=-0.1183 b=54.7 | pnFVE=0.7528 | 14.7M tok | 14k tok/s | ETA 41m
+    [   adaptive_postnorm/L27] step   3800/12207 | loss=1180.1796 | L0=80 | FVE=0.0304 | cos=0.8722 | dead=0.864 | a=-0.1320 b=53.8 | pnFVE=0.7503 | 15.6M tok | 14k tok/s | ETA 41m
+    [   adaptive_postnorm/L27] step   4000/12207 | loss=1166.2317 | L0=80 | FVE=0.0283 | cos=0.8736 | dead=0.864 | a=-0.1447 b=53.0 | pnFVE=0.7553 | 16.4M tok | 14k tok/s | ETA 39m
+    [   adaptive_postnorm/L27] step   4200/12207 | loss=1179.8557 | L0=80 | FVE=0.0255 | cos=0.8716 | dead=0.862 | a=-0.1584 b=52.2 | pnFVE=0.7525 | 17.2M tok | 14k tok/s | ETA 39m
+    [   adaptive_postnorm/L27] step   4400/12207 | loss=1161.5308 | L0=80 | FVE=0.0234 | cos=0.8742 | dead=0.864 | a=-0.1717 b=51.4 | pnFVE=0.7558 | 18.0M tok | 14k tok/s | ETA 38m
+    [   adaptive_postnorm/L27] step   4600/12207 | loss=1149.3623 | L0=80 | FVE=0.0213 | cos=0.8755 | dead=0.863 | a=-0.1844 b=50.6 | pnFVE=0.7571 | 18.8M tok | 14k tok/s | ETA 36m
+    [   adaptive_postnorm/L27] step   4800/12207 | loss=1158.0559 | L0=80 | FVE=0.0194 | cos=0.8748 | dead=0.862 | a=-0.1983 b=49.8 | pnFVE=0.7558 | 19.7M tok | 14k tok/s | ETA 36m
+    [adaptive_postnorm/L27] Checkpoint saved at 40% (4882 steps)
+    [   adaptive_postnorm/L27] step   5000/12207 | loss=1146.6416 | L0=80 | FVE=0.0178 | cos=0.8763 | dead=0.863 | a=-0.2114 b=49.1 | pnFVE=0.7587 | 20.5M tok | 14k tok/s | ETA 34m
+    [   adaptive_postnorm/L27] step   5200/12207 | loss=1136.4281 | L0=80 | FVE=0.0163 | cos=0.8772 | dead=0.862 | a=-0.2244 b=48.3 | pnFVE=0.7592 | 21.3M tok | 14k tok/s | ETA 34m
+    [   adaptive_postnorm/L27] step   5400/12207 | loss=1143.6605 | L0=80 | FVE=0.0150 | cos=0.8761 | dead=0.862 | a=-0.2367 b=47.6 | pnFVE=0.7575 | 22.1M tok | 14k tok/s | ETA 33m
+    [   adaptive_postnorm/L27] step   5600/12207 | loss=1135.1969 | L0=80 | FVE=0.0140 | cos=0.8772 | dead=0.861 | a=-0.2477 b=47.0 | pnFVE=0.7597 | 22.9M tok | 14k tok/s | ETA 32m
+    [   adaptive_postnorm/L27] step   5800/12207 | loss=1141.7803 | L0=80 | FVE=0.0127 | cos=0.8768 | dead=0.861 | a=-0.2590 b=46.4 | pnFVE=0.7581 | 23.8M tok | 14k tok/s | ETA 31m
+    [   adaptive_postnorm/L27] step   6000/12207 | loss=1149.5798 | L0=80 | FVE=0.0119 | cos=0.8759 | dead=0.861 | a=-0.2705 b=45.8 | pnFVE=0.7561 | 24.6M tok | 14k tok/s | ETA 30m
+    [   adaptive_postnorm/L27] step   6200/12207 | loss=1135.6349 | L0=80 | FVE=0.0113 | cos=0.8781 | dead=0.860 | a=-0.2806 b=45.2 | pnFVE=0.7598 | 25.4M tok | 14k tok/s | ETA 29m
+    [   adaptive_postnorm/L27] step   6400/12207 | loss=1144.3938 | L0=80 | FVE=0.0105 | cos=0.8769 | dead=0.860 | a=-0.2913 b=44.6 | pnFVE=0.7588 | 26.2M tok | 14k tok/s | ETA 28m
+    [   adaptive_postnorm/L27] step   6600/12207 | loss=1156.9595 | L0=80 | FVE=0.0098 | cos=0.8752 | dead=0.859 | a=-0.3005 b=44.1 | pnFVE=0.7582 | 27.0M tok | 14k tok/s | ETA 27m
+    [   adaptive_postnorm/L27] step   6800/12207 | loss=1147.5714 | L0=80 | FVE=0.0094 | cos=0.8764 | dead=0.860 | a=-0.3080 b=43.7 | pnFVE=0.7567 | 27.9M tok | 14k tok/s | ETA 26m
+    [   adaptive_postnorm/L27] step   7000/12207 | loss=1128.2400 | L0=80 | FVE=0.0086 | cos=0.8795 | dead=0.859 | a=-0.3155 b=43.3 | pnFVE=0.7597 | 28.7M tok | 14k tok/s | ETA 25m
+    [   adaptive_postnorm/L27] step   7200/12207 | loss=1146.4683 | L0=80 | FVE=0.0085 | cos=0.8779 | dead=0.859 | a=-0.3231 b=42.9 | pnFVE=0.7578 | 29.5M tok | 14k tok/s | ETA 24m
+    [adaptive_postnorm/L27] Checkpoint saved at 60% (7324 steps)
+    [   adaptive_postnorm/L27] step   7400/12207 | loss=1127.6362 | L0=80 | FVE=0.0081 | cos=0.8796 | dead=0.859 | a=-0.3307 b=42.5 | pnFVE=0.7603 | 30.3M tok | 14k tok/s | ETA 23m
+    [   adaptive_postnorm/L27] step   7600/12207 | loss=1134.1860 | L0=80 | FVE=0.0078 | cos=0.8793 | dead=0.859 | a=-0.3375 b=42.1 | pnFVE=0.7604 | 31.1M tok | 14k tok/s | ETA 22m
+    [   adaptive_postnorm/L27] step   7800/12207 | loss=1122.4083 | L0=80 | FVE=0.0075 | cos=0.8805 | dead=0.858 | a=-0.3437 b=41.8 | pnFVE=0.7616 | 31.9M tok | 14k tok/s | ETA 21m
+    [   adaptive_postnorm/L27] step   8000/12207 | loss=1144.5315 | L0=80 | FVE=0.0072 | cos=0.8781 | dead=0.858 | a=-0.3509 b=41.4 | pnFVE=0.7594 | 32.8M tok | 14k tok/s | ETA 20m
+    [   adaptive_postnorm/L27] step   8200/12207 | loss=1146.3749 | L0=80 | FVE=0.0068 | cos=0.8778 | dead=0.857 | a=-0.3572 b=41.1 | pnFVE=0.7575 | 33.6M tok | 14k tok/s | ETA 19m
+    [   adaptive_postnorm/L27] step   8400/12207 | loss=1127.4205 | L0=80 | FVE=0.0066 | cos=0.8804 | dead=0.858 | a=-0.3624 b=40.8 | pnFVE=0.7594 | 34.4M tok | 14k tok/s | ETA 18m
+    [   adaptive_postnorm/L27] step   8600/12207 | loss=1129.4866 | L0=80 | FVE=0.0064 | cos=0.8804 | dead=0.857 | a=-0.3678 b=40.6 | pnFVE=0.7595 | 35.2M tok | 14k tok/s | ETA 17m
+    [   adaptive_postnorm/L27] step   8800/12207 | loss=1140.8267 | L0=80 | FVE=0.0062 | cos=0.8798 | dead=0.857 | a=-0.3733 b=40.3 | pnFVE=0.7581 | 36.0M tok | 14k tok/s | ETA 16m
+    [   adaptive_postnorm/L27] step   9000/12207 | loss=1147.2280 | L0=80 | FVE=0.0058 | cos=0.8787 | dead=0.857 | a=-0.3796 b=40.0 | pnFVE=0.7575 | 36.9M tok | 14k tok/s | ETA 15m
+    [   adaptive_postnorm/L27] step   9200/12207 | loss=1143.9308 | L0=80 | FVE=0.0057 | cos=0.8788 | dead=0.856 | a=-0.3843 b=39.8 | pnFVE=0.7573 | 37.7M tok | 14k tok/s | ETA 14m
+    [   adaptive_postnorm/L27] step   9400/12207 | loss=1171.2107 | L0=80 | FVE=0.0055 | cos=0.8755 | dead=0.856 | a=-0.3874 b=39.6 | pnFVE=0.7547 | 38.5M tok | 14k tok/s | ETA 13m
+    [   adaptive_postnorm/L27] step   9600/12207 | loss=1134.3707 | L0=80 | FVE=0.0054 | cos=0.8801 | dead=0.856 | a=-0.3897 b=39.5 | pnFVE=0.7577 | 39.3M tok | 14k tok/s | ETA 12m
+    [adaptive_postnorm/L27] Checkpoint saved at 80% (9765 steps)
+    [   adaptive_postnorm/L27] step   9800/12207 | loss=1148.0442 | L0=80 | FVE=0.0053 | cos=0.8787 | dead=0.855 | a=-0.3917 b=39.4 | pnFVE=0.7568 | 40.1M tok | 14k tok/s | ETA 12m
+    [   adaptive_postnorm/L27] step  10000/12207 | loss=1132.6667 | L0=80 | FVE=0.0053 | cos=0.8805 | dead=0.856 | a=-0.3935 b=39.3 | pnFVE=0.7584 | 41.0M tok | 14k tok/s | ETA 11m
+    [   adaptive_postnorm/L27] step  10200/12207 | loss=1144.7194 | L0=80 | FVE=0.0052 | cos=0.8787 | dead=0.856 | a=-0.3951 b=39.2 | pnFVE=0.7558 | 41.8M tok | 14k tok/s | ETA 10m
+    [   adaptive_postnorm/L27] step  10400/12207 | loss=1139.7656 | L0=80 | FVE=0.0052 | cos=0.8797 | dead=0.855 | a=-0.3966 b=39.1 | pnFVE=0.7571 | 42.6M tok | 14k tok/s | ETA 9m
+    [   adaptive_postnorm/L27] step  10600/12207 | loss=1159.0974 | L0=80 | FVE=0.0052 | cos=0.8775 | dead=0.856 | a=-0.3978 b=39.1 | pnFVE=0.7559 | 43.4M tok | 14k tok/s | ETA 8m
+    [   adaptive_postnorm/L27] step  10800/12207 | loss=1154.3369 | L0=80 | FVE=0.0051 | cos=0.8782 | dead=0.855 | a=-0.3987 b=39.0 | pnFVE=0.7593 | 44.2M tok | 14k tok/s | ETA 7m
+    [   adaptive_postnorm/L27] step  11000/12207 | loss=1174.2440 | L0=80 | FVE=0.0050 | cos=0.8755 | dead=0.854 | a=-0.3995 b=39.0 | pnFVE=0.7553 | 45.1M tok | 14k tok/s | ETA 6m
+    [   adaptive_postnorm/L27] step  11200/12207 | loss=1139.6489 | L0=80 | FVE=0.0050 | cos=0.8795 | dead=0.855 | a=-0.4000 b=39.0 | pnFVE=0.7583 | 45.9M tok | 14k tok/s | ETA 5m
+    [   adaptive_postnorm/L27] step  11400/12207 | loss=1159.8081 | L0=80 | FVE=0.0050 | cos=0.8771 | dead=0.855 | a=-0.4004 b=39.0 | pnFVE=0.7545 | 46.7M tok | 14k tok/s | ETA 4m
+    [   adaptive_postnorm/L27] step  11600/12207 | loss=1140.8672 | L0=80 | FVE=0.0051 | cos=0.8798 | dead=0.855 | a=-0.4006 b=38.9 | pnFVE=0.7605 | 47.5M tok | 14k tok/s | ETA 3m
+    [   adaptive_postnorm/L27] step  11800/12207 | loss=1141.0867 | L0=80 | FVE=0.0050 | cos=0.8793 | dead=0.855 | a=-0.4008 b=38.9 | pnFVE=0.7573 | 48.3M tok | 14k tok/s | ETA 2m
+    [   adaptive_postnorm/L27] step  12000/12207 | loss=1139.0951 | L0=80 | FVE=0.0050 | cos=0.8797 | dead=0.855 | a=-0.4008 b=38.9 | pnFVE=0.7574 | 49.2M tok | 14k tok/s | ETA 1m
+    [   adaptive_postnorm/L27] step  12200/12207 | loss=1143.5347 | L0=80 | FVE=0.0050 | cos=0.8796 | dead=0.855 | a=-0.4008 b=38.9 | pnFVE=0.7586 | 50.0M tok | 14k tok/s | ETA 0m
+    [   adaptive_postnorm/L27] step  12207/12207 | loss=1142.2031 | L0=80 | FVE=0.0050 | cos=0.8797 | dead=0.856 | a=-0.4008 b=38.9 | pnFVE=0.7581 | 50.0M tok | 14k tok/s | ETA 0m
+    [adaptive_postnorm/L27] Checkpoint saved at 100% (12207 steps)
+    [adaptive_postnorm/L27] Done in 3511.6s (58.5m)
+
+  Evaluation — adaptive_postnorm
+    [adaptive_postnorm/L27] L2=166061.2394 | cos=0.8789 | L0=80 | FVE=0.0050 | dead=0.832 | pnFVE=0.7563
+    [adaptive_postnorm/L27] scale=0.5: ratio=1.297 | agree=0.999 | cos=0.9886
+    [adaptive_postnorm/L27] scale=2.0: ratio=0.780 | agree=0.999 | cos=0.9828
+    [adaptive_postnorm/L27] scale=5.0: ratio=0.572 | agree=0.998 | cos=0.9337
+
+    Ablation [adaptive_postnorm/L27] (100 feats, 200 samples)...
+    [adaptive_postnorm/L27] 2525 alive features (of 16384)
+      feat 13646 | n=200 | cos→KL=0.180 | inner→KL=0.083 | SAE→KL=0.143 | norm→KL=-0.167
+      feat  5593 | n=200 | cos→KL=0.475 | inner→KL=0.449 | SAE→KL=0.387 | norm→KL=0.063
+      feat  7337 | n=200 | cos→KL=0.222 | inner→KL=0.182 | SAE→KL=0.294 | norm→KL=-0.052
+      feat  2442 | n=200 | cos→KL=0.214 | inner→KL=0.191 | SAE→KL=0.176 | norm→KL=0.039
+      feat  5748 | n=200 | cos→KL=-0.094 | inner→KL=-0.059 | SAE→KL=-0.027 | norm→KL=-0.091
+      feat  1475 | n=200 | cos→KL=0.271 | inner→KL=0.264 | SAE→KL=0.259 | norm→KL=0.009
+      feat  5612 | n=200 | cos→KL=0.331 | inner→KL=0.342 | SAE→KL=0.354 | norm→KL=0.101
+      feat 14168 | n=200 | cos→KL=0.503 | inner→KL=0.512 | SAE→KL=0.516 | norm→KL=0.080
+      feat  3547 | n=200 | cos→KL=0.387 | inner→KL=0.377 | SAE→KL=0.281 | norm→KL=0.028
+      feat  7954 | n=200 | cos→KL=0.499 | inner→KL=0.482 | SAE→KL=0.624 | norm→KL=-0.013
+      feat 12044 | n=200 | cos→KL=0.630 | inner→KL=0.644 | SAE→KL=0.659 | norm→KL=0.137
+    [adaptive_postnorm/L27] Summary (100 features): cos→KL=0.3791 | inner→KL=0.3662 | SAE→KL=0.3797 | cos>inner: 72/100
+  Saved adaptive_postnorm to experiments/exp22_results.json
+
+======================================================================
+  SUMMARY — Production-Scale Post-Norm Loss at L27
+======================================================================
+
+                   Variant |     loss |  scale_a |     FVE |   pnFVE |   dead |  cos→KL |  SAE→KL |  cos>inn
+  ----------------------------------------------------------------------------------------------------------
+                  standard |       l2 |        - |  0.6591 |  0.7395 |  0.774 |  0.4154 |  0.3673 |   79/100
+               adaptive_l2 |       l2 |   0.2066 |  0.7382 |  0.7915 |  0.282 |  0.3970 |  0.3519 |   84/100
+           cosine_postnorm | postnorm |  -0.4008 |  0.0050 |  0.7563 |  0.832 |  0.3791 |  0.3797 |   72/100
+         adaptive_postnorm | postnorm |  -0.4008 |  0.0050 |  0.7563 |  0.832 |  0.3791 |  0.3797 |   72/100
+
+  Key question: Does postnorm SAE→KL advantage scale from 5M→50M?
+  (5M reference: postnorm SAE→KL=0.252 > standard 0.198)
+
+Results: experiments/exp22_results.json
+Checkpoints: checkpoints/exp22/

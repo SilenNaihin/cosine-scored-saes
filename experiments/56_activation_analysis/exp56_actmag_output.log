@@ -1,0 +1,76 @@
+======================================================================
+Exp 56: Activation Magnitude Analysis
+======================================================================
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.86it/s]
+Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:01,  1.79it/s]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:01,  1.85it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.58it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  1.95it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  1.85it/s]
+
+Collecting 50,000 tokens...
+Collected 50,000 tokens
+
+Input norms: mean=99.51 std=9.69 median=98.74
+
+==================================================
+standard
+==================================================
+  Active features per token: mean=79.2
+  Non-zero activations: mean=4.0812 std=3.4233 median=2.8904
+  Percentiles: p10=2.0340 p25=2.2710 p50=2.8904 p75=4.3466 p90=7.2816 p95=10.3717 p99=19.9627
+  Total activation per token: mean=323.25 std=84.80
+  Max activation per token: mean=22.4361 std=5.4647
+  Reconstruction norms: mean=92.60 std=9.52
+  Error norms: mean=36.12
+  Rec/Input norm ratio: mean=0.9304
+
+==================================================
+adaptive_l2
+==================================================
+  Active features per token: mean=80.4
+  Non-zero activations: mean=4.0032 std=3.1368 median=2.8914
+  Percentiles: p10=2.0091 p25=2.2544 p50=2.8914 p75=4.3526 p90=7.1724 p95=10.0530 p99=18.1119
+  Total activation per token: mean=321.69 std=91.42
+  Max activation per token: mean=20.0141 std=4.4346
+  Reconstruction norms: mean=92.54 std=9.38
+  Error norms: mean=36.18
+  Rec/Input norm ratio: mean=0.9299
+
+==================================================
+perfeature_l2
+==================================================
+  Active features per token: mean=80.3
+  Non-zero activations: mean=3.9526 std=3.2797 median=2.8320
+  Percentiles: p10=2.0374 p25=2.2551 p50=2.8320 p75=4.1856 p90=6.8864 p95=9.7486 p99=19.4132
+  Total activation per token: mean=317.43 std=90.17
+  Max activation per token: mean=22.4014 std=5.3807
+  Reconstruction norms: mean=92.60 std=9.37
+  Error norms: mean=36.06
+  Rec/Input norm ratio: mean=0.9305
+
+==================================================
+no_C
+==================================================
+  Active features per token: mean=79.1
+  Non-zero activations: mean=0.0277 std=0.0520 median=0.0163
+  Percentiles: p10=0.0113 p25=0.0127 p50=0.0163 p75=0.0247 p90=0.0419 p95=0.0620 p99=0.4330
+  Total activation per token: mean=2.19 std=0.40
+  Max activation per token: mean=0.4610 std=0.0353
+  Reconstruction norms: mean=94.08 std=9.68
+  Error norms: mean=36.57
+  Rec/Input norm ratio: mean=0.9450
+
+================================================================================
+SUMMARY
+================================================================================
+SAE                    act_mean    act_med    act_p95  total/tok    max/tok   rec/in
+standard                 4.0812     2.8904    10.3717     323.25    22.4361   0.9304
+adaptive_l2              4.0032     2.8914    10.0530     321.69    20.0141   0.9299
+perfeature_l2            3.9526     2.8320     9.7486     317.43    22.4014   0.9305
+no_C                     0.0277     0.0163     0.0620       2.19     0.4610   0.9450
+
+Results saved to experiments/exp56_activation_magnitudes.json

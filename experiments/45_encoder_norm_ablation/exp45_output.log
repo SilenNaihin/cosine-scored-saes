@@ -1,0 +1,1121 @@
+Experiment 45: Encoder Normalization Ablation
+======================================================================
+Model: Qwen/Qwen3-8B
+Layers: [9, 18, 27]
+d_sae=65536, k=80, lr=5e-05, 50,000,000 tokens (24414 steps)
+Variants: ['adaptive_l2', 'adaptive_l2_unnormed']
+Total runs: 6 (in 3 parallel groups of 2)
+Cache dir: /data/cache
+
+Loading model...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]
+Loading weights:   1%|          | 2/399 [00:00<00:43,  9.08it/s]
+Loading weights:   7%|▋         | 28/399 [00:00<00:03, 105.02it/s]
+Loading weights:  15%|█▌        | 60/399 [00:00<00:01, 178.03it/s]
+Loading weights:  23%|██▎       | 92/399 [00:00<00:01, 220.42it/s]
+Loading weights:  30%|██▉       | 118/399 [00:00<00:01, 232.81it/s]
+Loading weights:  37%|███▋      | 148/399 [00:00<00:01, 248.86it/s]
+Loading weights:  45%|████▌     | 180/399 [00:00<00:00, 265.03it/s]
+Loading weights:  52%|█████▏    | 208/399 [00:00<00:00, 265.71it/s]
+Loading weights:  59%|█████▉    | 236/399 [00:01<00:00, 266.98it/s]
+Loading weights:  67%|██████▋   | 268/399 [00:01<00:00, 276.70it/s]
+Loading weights:  74%|███████▍  | 297/399 [00:01<00:00, 275.77it/s]
+Loading weights:  81%|████████▏ | 325/399 [00:01<00:00, 270.56it/s]
+Loading weights:  89%|████████▉ | 357/399 [00:01<00:00, 279.05it/s]
+Loading weights:  97%|█████████▋| 389/399 [00:01<00:00, 286.29it/s]
+Loading weights: 100%|██████████| 399/399 [00:01<00:00, 245.90it/s]
+
+[cache] Building L9 cache (50,000,000 tokens, ~410 GB bf16)...
+[cache] Building cache at /data/cache/qwen3_8b_L9_50000000.bin (50,000,000 tokens × 4096 dim = 409.6 GB bf16)
+[cache] 502,251/50,000,000 tokens (1.0%) | 16.7k tok/s | ETA 49.3 min
+[cache] 1,505,528/50,000,000 tokens (3.0%) | 23.0k tok/s | ETA 35.1 min
+[cache] 2,005,545/50,000,000 tokens (4.0%) | 21.0k tok/s | ETA 38.0 min
+[cache] 3,008,819/50,000,000 tokens (6.0%) | 23.0k tok/s | ETA 34.1 min
+[cache] 3,510,244/50,000,000 tokens (7.0%) | 21.8k tok/s | ETA 35.6 min
+[cache] 4,010,548/50,000,000 tokens (8.0%) | 21.0k tok/s | ETA 36.5 min
+[cache] 5,011,108/50,000,000 tokens (10.0%) | 22.7k tok/s | ETA 33.1 min
+[cache] 5,512,613/50,000,000 tokens (11.0%) | 21.9k tok/s | ETA 33.8 min
+[cache] 6,515,471/50,000,000 tokens (13.0%) | 22.8k tok/s | ETA 31.7 min
+[cache] 7,018,340/50,000,000 tokens (14.0%) | 22.3k tok/s | ETA 32.2 min
+[cache] 8,021,607/50,000,000 tokens (16.0%) | 22.8k tok/s | ETA 30.6 min
+[cache] 8,522,069/50,000,000 tokens (17.0%) | 22.4k tok/s | ETA 30.9 min
+[cache] 9,524,205/50,000,000 tokens (19.0%) | 22.8k tok/s | ETA 29.5 min
+[cache] 10,024,427/50,000,000 tokens (20.0%) | 22.4k tok/s | ETA 29.7 min
+[cache] 10,524,985/50,000,000 tokens (21.0%) | 22.1k tok/s | ETA 29.8 min
+[cache] 11,527,728/50,000,000 tokens (23.1%) | 22.7k tok/s | ETA 28.2 min
+[cache] 12,029,225/50,000,000 tokens (24.1%) | 22.4k tok/s | ETA 28.3 min
+[cache] 13,032,484/50,000,000 tokens (26.1%) | 22.7k tok/s | ETA 27.1 min
+[cache] 13,534,443/50,000,000 tokens (27.1%) | 22.4k tok/s | ETA 27.1 min
+[cache] 14,535,420/50,000,000 tokens (29.1%) | 22.7k tok/s | ETA 26.0 min
+[cache] 15,036,343/50,000,000 tokens (30.1%) | 22.5k tok/s | ETA 25.9 min
+[cache] 15,536,890/50,000,000 tokens (31.1%) | 22.2k tok/s | ETA 25.8 min
+[cache] 16,541,122/50,000,000 tokens (33.1%) | 22.7k tok/s | ETA 24.6 min
+[cache] 17,041,567/50,000,000 tokens (34.1%) | 22.4k tok/s | ETA 24.5 min
+[cache] 17,542,092/50,000,000 tokens (35.1%) | 22.2k tok/s | ETA 24.3 min
+[cache] 18,547,306/50,000,000 tokens (37.1%) | 22.6k tok/s | ETA 23.2 min
+[cache] 19,049,290/50,000,000 tokens (38.1%) | 22.4k tok/s | ETA 23.0 min
+[cache] 19,552,329/50,000,000 tokens (39.1%) | 22.2k tok/s | ETA 22.8 min
+[cache] 20,554,458/50,000,000 tokens (41.1%) | 22.6k tok/s | ETA 21.7 min
+[cache] 21,056,709/50,000,000 tokens (42.1%) | 22.4k tok/s | ETA 21.5 min
+[cache] 21,559,295/50,000,000 tokens (43.1%) | 22.2k tok/s | ETA 21.3 min
+[cache] 22,563,152/50,000,000 tokens (45.1%) | 22.6k tok/s | ETA 20.3 min
+[cache] 23,066,246/50,000,000 tokens (46.1%) | 22.4k tok/s | ETA 20.0 min
+[cache] 23,566,437/50,000,000 tokens (47.1%) | 22.2k tok/s | ETA 19.8 min
+[cache] 24,570,441/50,000,000 tokens (49.1%) | 22.5k tok/s | ETA 18.8 min
+[cache] 25,072,470/50,000,000 tokens (50.1%) | 22.4k tok/s | ETA 18.6 min
+[cache] 26,076,829/50,000,000 tokens (52.2%) | 22.6k tok/s | ETA 17.7 min
+[cache] 26,578,567/50,000,000 tokens (53.2%) | 22.4k tok/s | ETA 17.4 min
+[cache] 27,082,111/50,000,000 tokens (54.2%) | 22.3k tok/s | ETA 17.1 min
+[cache] 28,084,825/50,000,000 tokens (56.2%) | 22.5k tok/s | ETA 16.2 min
+[cache] 28,585,603/50,000,000 tokens (57.2%) | 22.4k tok/s | ETA 15.9 min
+[cache] 29,086,589/50,000,000 tokens (58.2%) | 22.3k tok/s | ETA 15.6 min
+[cache] 30,088,751/50,000,000 tokens (60.2%) | 22.5k tok/s | ETA 14.7 min
+[cache] 30,588,881/50,000,000 tokens (61.2%) | 22.4k tok/s | ETA 14.5 min
+[cache] 31,088,900/50,000,000 tokens (62.2%) | 22.3k tok/s | ETA 14.2 min
+[cache] 32,090,258/50,000,000 tokens (64.2%) | 22.5k tok/s | ETA 13.3 min
+[cache] 32,591,476/50,000,000 tokens (65.2%) | 22.4k tok/s | ETA 13.0 min
+[cache] 33,092,521/50,000,000 tokens (66.2%) | 22.3k tok/s | ETA 12.7 min
+[cache] 34,094,992/50,000,000 tokens (68.2%) | 22.5k tok/s | ETA 11.8 min
+[cache] 34,595,518/50,000,000 tokens (69.2%) | 22.4k tok/s | ETA 11.5 min
+[cache] 35,095,907/50,000,000 tokens (70.2%) | 22.3k tok/s | ETA 11.2 min
+[cache] 36,097,707/50,000,000 tokens (72.2%) | 22.5k tok/s | ETA 10.3 min
+[cache] 36,598,778/50,000,000 tokens (73.2%) | 22.4k tok/s | ETA 10.0 min
+[cache] 37,603,139/50,000,000 tokens (75.2%) | 22.5k tok/s | ETA 9.2 min
+[cache] 38,103,588/50,000,000 tokens (76.2%) | 22.4k tok/s | ETA 8.9 min
+[cache] 38,606,120/50,000,000 tokens (77.2%) | 22.3k tok/s | ETA 8.5 min
+[cache] 39,607,896/50,000,000 tokens (79.2%) | 22.5k tok/s | ETA 7.7 min
+[cache] 40,108,843/50,000,000 tokens (80.2%) | 22.4k tok/s | ETA 7.4 min
+[cache] 40,609,155/50,000,000 tokens (81.2%) | 22.3k tok/s | ETA 7.0 min
+[cache] 41,611,824/50,000,000 tokens (83.2%) | 22.4k tok/s | ETA 6.2 min
+[cache] 42,112,533/50,000,000 tokens (84.2%) | 22.4k tok/s | ETA 5.9 min
+[cache] 43,114,935/50,000,000 tokens (86.2%) | 22.5k tok/s | ETA 5.1 min
+[cache] 43,615,960/50,000,000 tokens (87.2%) | 22.4k tok/s | ETA 4.8 min
+[cache] 44,116,648/50,000,000 tokens (88.2%) | 22.3k tok/s | ETA 4.4 min
+[cache] 45,117,775/50,000,000 tokens (90.2%) | 22.5k tok/s | ETA 3.6 min
+[cache] 45,618,181/50,000,000 tokens (91.2%) | 22.4k tok/s | ETA 3.3 min
+[cache] 46,619,275/50,000,000 tokens (93.2%) | 22.5k tok/s | ETA 2.5 min
+[cache] 47,120,308/50,000,000 tokens (94.2%) | 22.4k tok/s | ETA 2.1 min
+[cache] 47,622,691/50,000,000 tokens (95.2%) | 22.3k tok/s | ETA 1.8 min
+[cache] 48,625,793/50,000,000 tokens (97.3%) | 22.5k tok/s | ETA 1.0 min
+[cache] 49,126,524/50,000,000 tokens (98.3%) | 22.4k tok/s | ETA 0.7 min
+[cache] 50,000,000/50,000,000 tokens (100.0%) | 22.5k tok/s | ETA 0.0 min
+/home/<user>/MechInter--RNH/src/activation_cache.py:280: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return torch.from_numpy(arr).view(torch.bfloat16)
+[cache] Built in 37.3 min | first-10k mean norm = 57.5
+
+[cache] Building L18 cache (50,000,000 tokens, ~410 GB bf16)...
+[cache] Building cache at /data/cache/qwen3_8b_L18_50000000.bin (50,000,000 tokens × 4096 dim = 409.6 GB bf16)
+[cache] 501,979/50,000,000 tokens (1.0%) | 14.4k tok/s | ETA 57.4 min
+[cache] 1,002,059/50,000,000 tokens (2.0%) | 14.2k tok/s | ETA 57.4 min
+[cache] 1,504,769/50,000,000 tokens (3.0%) | 14.3k tok/s | ETA 56.5 min
+[cache] 2,008,211/50,000,000 tokens (4.0%) | 14.4k tok/s | ETA 55.5 min
+[cache] 2,509,500/50,000,000 tokens (5.0%) | 14.2k tok/s | ETA 55.7 min
+[cache] 3,012,005/50,000,000 tokens (6.0%) | 14.2k tok/s | ETA 55.2 min
+[cache] 3,012,005/50,000,000 tokens (6.0%) | 12.4k tok/s | ETA 63.0 min
+[cache] 3,512,862/50,000,000 tokens (7.0%) | 12.9k tok/s | ETA 60.1 min
+[cache] 4,013,722/50,000,000 tokens (8.0%) | 13.3k tok/s | ETA 57.8 min
+[cache] 4,514,863/50,000,000 tokens (9.0%) | 13.6k tok/s | ETA 55.8 min
+[cache] 5,016,055/50,000,000 tokens (10.0%) | 13.8k tok/s | ETA 54.2 min
+[cache] 5,516,496/50,000,000 tokens (11.0%) | 14.1k tok/s | ETA 52.8 min
+[cache] 6,017,454/50,000,000 tokens (12.0%) | 14.1k tok/s | ETA 51.9 min
+[cache] 6,517,506/50,000,000 tokens (13.0%) | 14.1k tok/s | ETA 51.4 min
+[cache] 7,018,270/50,000,000 tokens (14.0%) | 14.1k tok/s | ETA 51.0 min
+[cache] 7,519,935/50,000,000 tokens (15.0%) | 14.1k tok/s | ETA 50.2 min
+[cache] 8,020,380/50,000,000 tokens (16.0%) | 14.1k tok/s | ETA 49.5 min
+[cache] 8,522,390/50,000,000 tokens (17.0%) | 14.1k tok/s | ETA 48.9 min
+[cache] 9,023,157/50,000,000 tokens (18.0%) | 14.1k tok/s | ETA 48.3 min
+[cache] 9,524,296/50,000,000 tokens (19.0%) | 14.1k tok/s | ETA 47.8 min
+[cache] 10,024,603/50,000,000 tokens (20.0%) | 14.1k tok/s | ETA 47.3 min
+[cache] 10,525,771/50,000,000 tokens (21.1%) | 14.1k tok/s | ETA 46.6 min
+[cache] 11,026,413/50,000,000 tokens (22.1%) | 14.1k tok/s | ETA 46.0 min
+[cache] 11,527,849/50,000,000 tokens (23.1%) | 14.1k tok/s | ETA 45.4 min
+[cache] 12,027,882/50,000,000 tokens (24.1%) | 14.1k tok/s | ETA 44.9 min
+[cache] 12,527,951/50,000,000 tokens (25.1%) | 14.1k tok/s | ETA 44.3 min
+[cache] 13,028,589/50,000,000 tokens (26.1%) | 14.1k tok/s | ETA 43.6 min
+[cache] 13,529,033/50,000,000 tokens (27.1%) | 14.1k tok/s | ETA 43.0 min
+[cache] 14,029,521/50,000,000 tokens (28.1%) | 14.1k tok/s | ETA 42.4 min
+[cache] 14,531,464/50,000,000 tokens (29.1%) | 14.1k tok/s | ETA 41.9 min
+[cache] 15,033,837/50,000,000 tokens (30.1%) | 14.1k tok/s | ETA 41.3 min
+[cache] 15,534,086/50,000,000 tokens (31.1%) | 14.1k tok/s | ETA 40.7 min
+[cache] 16,035,000/50,000,000 tokens (32.1%) | 14.1k tok/s | ETA 40.1 min
+[cache] 16,535,761/50,000,000 tokens (33.1%) | 14.1k tok/s | ETA 39.5 min
+[cache] 17,037,978/50,000,000 tokens (34.1%) | 14.1k tok/s | ETA 38.9 min
+[cache] 17,538,229/50,000,000 tokens (35.1%) | 14.1k tok/s | ETA 38.3 min
+[cache] 18,039,709/50,000,000 tokens (36.1%) | 14.1k tok/s | ETA 37.7 min
+[cache] 18,540,919/50,000,000 tokens (37.1%) | 14.1k tok/s | ETA 37.1 min
+[cache] 19,042,448/50,000,000 tokens (38.1%) | 14.1k tok/s | ETA 36.6 min
+[cache] 19,544,023/50,000,000 tokens (39.1%) | 14.1k tok/s | ETA 36.0 min
+[cache] 20,045,566/50,000,000 tokens (40.1%) | 14.1k tok/s | ETA 35.4 min
+[cache] 20,547,108/50,000,000 tokens (41.1%) | 14.1k tok/s | ETA 34.8 min
+[cache] 21,049,789/50,000,000 tokens (42.1%) | 14.1k tok/s | ETA 34.2 min
+[cache] 21,552,795/50,000,000 tokens (43.1%) | 14.1k tok/s | ETA 33.6 min
+[cache] 22,054,713/50,000,000 tokens (44.1%) | 14.1k tok/s | ETA 33.0 min
+[cache] 22,554,787/50,000,000 tokens (45.1%) | 14.1k tok/s | ETA 32.5 min
+[cache] 23,056,667/50,000,000 tokens (46.1%) | 14.1k tok/s | ETA 31.9 min
+[cache] 23,557,533/50,000,000 tokens (47.1%) | 14.1k tok/s | ETA 31.3 min
+[cache] 24,060,052/50,000,000 tokens (48.1%) | 14.1k tok/s | ETA 30.7 min
+[cache] 24,561,806/50,000,000 tokens (49.1%) | 14.1k tok/s | ETA 30.1 min
+[cache] 25,063,811/50,000,000 tokens (50.1%) | 14.1k tok/s | ETA 29.5 min
+[cache] 25,565,516/50,000,000 tokens (51.1%) | 14.1k tok/s | ETA 28.9 min
+[cache] 26,067,434/50,000,000 tokens (52.1%) | 14.1k tok/s | ETA 28.3 min
+[cache] 26,567,628/50,000,000 tokens (53.1%) | 14.1k tok/s | ETA 27.7 min
+[cache] 27,068,335/50,000,000 tokens (54.1%) | 14.1k tok/s | ETA 27.1 min
+[cache] 27,570,406/50,000,000 tokens (55.1%) | 14.1k tok/s | ETA 26.5 min
+[cache] 28,070,554/50,000,000 tokens (56.1%) | 14.1k tok/s | ETA 26.0 min
+[cache] 28,571,075/50,000,000 tokens (57.1%) | 14.1k tok/s | ETA 25.4 min
+[cache] 29,071,803/50,000,000 tokens (58.1%) | 14.1k tok/s | ETA 24.8 min
+[cache] 29,071,803/50,000,000 tokens (58.1%) | 13.9k tok/s | ETA 25.1 min
+[cache] 29,572,644/50,000,000 tokens (59.1%) | 13.9k tok/s | ETA 24.5 min
+[cache] 30,073,469/50,000,000 tokens (60.1%) | 14.0k tok/s | ETA 23.8 min
+[cache] 30,574,959/50,000,000 tokens (61.1%) | 14.0k tok/s | ETA 23.1 min
+[cache] 31,076,232/50,000,000 tokens (62.2%) | 14.0k tok/s | ETA 22.5 min
+[cache] 31,578,792/50,000,000 tokens (63.2%) | 14.0k tok/s | ETA 21.9 min
+[cache] 32,079,449/50,000,000 tokens (64.2%) | 14.1k tok/s | ETA 21.3 min
+[cache] 32,579,899/50,000,000 tokens (65.2%) | 14.1k tok/s | ETA 20.7 min
+[cache] 33,080,371/50,000,000 tokens (66.2%) | 14.1k tok/s | ETA 20.1 min
+[cache] 33,581,032/50,000,000 tokens (67.2%) | 14.1k tok/s | ETA 19.5 min
+[cache] 34,082,244/50,000,000 tokens (68.2%) | 14.0k tok/s | ETA 18.9 min
+[cache] 34,584,922/50,000,000 tokens (69.2%) | 14.0k tok/s | ETA 18.3 min
+[cache] 35,085,298/50,000,000 tokens (70.2%) | 14.0k tok/s | ETA 17.7 min
+[cache] 35,586,024/50,000,000 tokens (71.2%) | 14.1k tok/s | ETA 17.1 min
+[cache] 36,090,388/50,000,000 tokens (72.2%) | 14.1k tok/s | ETA 16.5 min
+[cache] 36,090,388/50,000,000 tokens (72.2%) | 13.9k tok/s | ETA 16.7 min
+[cache] 36,593,869/50,000,000 tokens (73.2%) | 13.9k tok/s | ETA 16.0 min
+[cache] 37,094,717/50,000,000 tokens (74.2%) | 14.0k tok/s | ETA 15.4 min
+[cache] 37,595,617/50,000,000 tokens (75.2%) | 14.0k tok/s | ETA 14.8 min
+[cache] 38,095,880/50,000,000 tokens (76.2%) | 14.0k tok/s | ETA 14.2 min
+[cache] 38,595,978/50,000,000 tokens (77.2%) | 14.0k tok/s | ETA 13.5 min
+[cache] 39,099,346/50,000,000 tokens (78.2%) | 14.0k tok/s | ETA 12.9 min
+[cache] 39,599,842/50,000,000 tokens (79.2%) | 14.0k tok/s | ETA 12.4 min
+[cache] 40,101,388/50,000,000 tokens (80.2%) | 14.0k tok/s | ETA 11.8 min
+[cache] 40,602,735/50,000,000 tokens (81.2%) | 14.0k tok/s | ETA 11.2 min
+[cache] 41,103,612/50,000,000 tokens (82.2%) | 14.0k tok/s | ETA 10.6 min
+[cache] 41,605,857/50,000,000 tokens (83.2%) | 14.0k tok/s | ETA 10.0 min
+[cache] 42,105,882/50,000,000 tokens (84.2%) | 14.0k tok/s | ETA 9.4 min
+[cache] 42,606,066/50,000,000 tokens (85.2%) | 14.0k tok/s | ETA 8.8 min
+[cache] 43,106,630/50,000,000 tokens (86.2%) | 14.0k tok/s | ETA 8.2 min
+[cache] 43,606,930/50,000,000 tokens (87.2%) | 14.0k tok/s | ETA 7.6 min
+[cache] 44,106,951/50,000,000 tokens (88.2%) | 14.0k tok/s | ETA 7.0 min
+[cache] 44,609,447/50,000,000 tokens (89.2%) | 14.0k tok/s | ETA 6.4 min
+[cache] 45,110,153/50,000,000 tokens (90.2%) | 14.0k tok/s | ETA 5.8 min
+[cache] 45,610,817/50,000,000 tokens (91.2%) | 14.0k tok/s | ETA 5.2 min
+[cache] 46,111,697/50,000,000 tokens (92.2%) | 14.0k tok/s | ETA 4.6 min
+[cache] 46,614,347/50,000,000 tokens (93.2%) | 14.0k tok/s | ETA 4.0 min
+[cache] 47,115,969/50,000,000 tokens (94.2%) | 14.0k tok/s | ETA 3.4 min
+[cache] 47,617,867/50,000,000 tokens (95.2%) | 14.0k tok/s | ETA 2.8 min
+[cache] 48,122,474/50,000,000 tokens (96.2%) | 14.0k tok/s | ETA 2.2 min
+[cache] 48,623,334/50,000,000 tokens (97.2%) | 14.0k tok/s | ETA 1.6 min
+[cache] 49,124,454/50,000,000 tokens (98.2%) | 14.0k tok/s | ETA 1.0 min
+[cache] 49,628,116/50,000,000 tokens (99.3%) | 14.0k tok/s | ETA 0.4 min
+[cache] 50,000,000/50,000,000 tokens (100.0%) | 14.0k tok/s | ETA 0.0 min
+[cache] Built in 59.6 min | first-10k mean norm = 97.7
+
+[cache] Building L27 cache (50,000,000 tokens, ~410 GB bf16)...
+[cache] Building cache at /data/cache/qwen3_8b_L27_50000000.bin (50,000,000 tokens × 4096 dim = 409.6 GB bf16)
+[cache] 0/50,000,000 tokens (0.0%) | 0.0k tok/s | ETA 0.0 min
+[cache] 501,983/50,000,000 tokens (1.0%) | 8.3k tok/s | ETA 98.9 min
+[cache] 501,983/50,000,000 tokens (1.0%) | 5.6k tok/s | ETA 148.4 min
+[cache] 1,002,066/50,000,000 tokens (2.0%) | 8.3k tok/s | ETA 98.2 min
+[cache] 1,504,781/50,000,000 tokens (3.0%) | 10.0k tok/s | ETA 80.9 min
+[cache] 1,504,781/50,000,000 tokens (3.0%) | 8.3k tok/s | ETA 97.2 min
+[cache] 2,008,234/50,000,000 tokens (4.0%) | 9.5k tok/s | ETA 84.1 min
+[cache] 2,509,529/50,000,000 tokens (5.0%) | 10.2k tok/s | ETA 77.5 min
+[cache] 2,509,529/50,000,000 tokens (5.0%) | 9.1k tok/s | ETA 87.0 min
+[cache] 3,012,040/50,000,000 tokens (6.0%) | 9.8k tok/s | ETA 79.5 min
+[cache] 3,012,040/50,000,000 tokens (6.0%) | 9.0k tok/s | ETA 87.4 min
+[cache] 3,512,901/50,000,000 tokens (7.0%) | 9.6k tok/s | ETA 80.8 min
+[cache] 4,013,766/50,000,000 tokens (8.0%) | 10.1k tok/s | ETA 75.7 min
+[cache] 4,013,766/50,000,000 tokens (8.0%) | 9.4k tok/s | ETA 81.4 min
+[cache] 4,514,913/50,000,000 tokens (9.0%) | 9.9k tok/s | ETA 76.7 min
+[cache] 5,016,112/50,000,000 tokens (10.0%) | 10.2k tok/s | ETA 73.4 min
+[cache] 5,016,112/50,000,000 tokens (10.0%) | 9.6k tok/s | ETA 77.9 min
+[cache] 5,516,562/50,000,000 tokens (11.0%) | 10.0k tok/s | ETA 74.1 min
+[cache] 5,516,562/50,000,000 tokens (11.0%) | 9.5k tok/s | ETA 78.2 min
+[cache] 6,017,527/50,000,000 tokens (12.0%) | 9.8k tok/s | ETA 74.5 min
+[cache] 6,517,590/50,000,000 tokens (13.0%) | 10.2k tok/s | ETA 71.4 min
+[cache] 6,517,590/50,000,000 tokens (13.0%) | 9.7k tok/s | ETA 74.7 min
+[cache] 7,018,357/50,000,000 tokens (14.0%) | 10.0k tok/s | ETA 71.6 min
+[cache] 7,520,028/50,000,000 tokens (15.0%) | 10.2k tok/s | ETA 69.2 min
+[cache] 7,520,028/50,000,000 tokens (15.0%) | 9.8k tok/s | ETA 72.1 min
+[cache] 8,020,481/50,000,000 tokens (16.0%) | 10.1k tok/s | ETA 69.4 min
+[cache] 8,020,481/50,000,000 tokens (16.0%) | 9.7k tok/s | ETA 72.0 min
+[cache] 8,522,498/50,000,000 tokens (17.0%) | 10.0k tok/s | ETA 69.4 min
+[cache] 9,023,273/50,000,000 tokens (18.0%) | 10.2k tok/s | ETA 67.1 min
+[cache] 9,023,273/50,000,000 tokens (18.0%) | 9.9k tok/s | ETA 69.3 min
+[cache] 9,524,418/50,000,000 tokens (19.0%) | 10.1k tok/s | ETA 67.0 min
+[cache] 10,024,735/50,000,000 tokens (20.0%) | 10.2k tok/s | ETA 65.1 min
+[cache] 10,024,735/50,000,000 tokens (20.0%) | 9.9k tok/s | ETA 67.1 min
+[cache] 10,525,908/50,000,000 tokens (21.1%) | 10.1k tok/s | ETA 65.0 min
+[cache] 11,026,555/50,000,000 tokens (22.1%) | 10.2k tok/s | ETA 63.4 min
+[cache] 11,026,555/50,000,000 tokens (22.1%) | 10.0k tok/s | ETA 65.2 min
+[cache] 11,527,999/50,000,000 tokens (23.1%) | 10.1k tok/s | ETA 63.2 min
+[cache] 11,527,999/50,000,000 tokens (23.1%) | 9.9k tok/s | ETA 64.9 min
+[cache] 12,028,037/50,000,000 tokens (24.1%) | 10.1k tok/s | ETA 63.0 min
+[cache] 12,528,109/50,000,000 tokens (25.1%) | 10.2k tok/s | ETA 61.2 min
+[cache] 12,528,109/50,000,000 tokens (25.1%) | 10.0k tok/s | ETA 62.7 min
+[cache] 13,028,753/50,000,000 tokens (26.1%) | 10.1k tok/s | ETA 60.9 min
+[cache] 13,529,206/50,000,000 tokens (27.1%) | 10.3k tok/s | ETA 59.2 min
+[cache] 13,529,206/50,000,000 tokens (27.1%) | 10.0k tok/s | ETA 60.6 min
+[cache] 14,029,698/50,000,000 tokens (28.1%) | 10.2k tok/s | ETA 58.9 min
+[cache] 14,029,698/50,000,000 tokens (28.1%) | 10.0k tok/s | ETA 60.2 min
+[cache] 14,531,646/50,000,000 tokens (29.1%) | 10.1k tok/s | ETA 58.5 min
+[cache] 15,034,027/50,000,000 tokens (30.1%) | 10.2k tok/s | ETA 56.9 min
+[cache] 15,034,027/50,000,000 tokens (30.1%) | 10.0k tok/s | ETA 58.1 min
+[cache] 15,534,279/50,000,000 tokens (31.1%) | 10.2k tok/s | ETA 56.5 min
+[cache] 16,035,198/50,000,000 tokens (32.1%) | 10.3k tok/s | ETA 55.1 min
+[cache] 16,035,198/50,000,000 tokens (32.1%) | 10.1k tok/s | ETA 56.2 min
+[cache] 16,535,966/50,000,000 tokens (33.1%) | 10.2k tok/s | ETA 54.7 min
+[cache] 16,535,966/50,000,000 tokens (33.1%) | 10.0k tok/s | ETA 55.7 min
+[cache] 17,038,184/50,000,000 tokens (34.1%) | 10.1k tok/s | ETA 54.2 min
+[cache] 17,538,440/50,000,000 tokens (35.1%) | 10.2k tok/s | ETA 52.8 min
+[cache] 17,538,440/50,000,000 tokens (35.1%) | 10.1k tok/s | ETA 53.7 min
+[cache] 18,039,922/50,000,000 tokens (36.1%) | 10.2k tok/s | ETA 52.3 min
+[cache] 18,541,137/50,000,000 tokens (37.1%) | 10.3k tok/s | ETA 51.0 min
+[cache] 18,541,137/50,000,000 tokens (37.1%) | 10.1k tok/s | ETA 51.9 min
+[cache] 19,042,672/50,000,000 tokens (38.1%) | 10.2k tok/s | ETA 50.5 min
+[cache] 19,042,672/50,000,000 tokens (38.1%) | 10.0k tok/s | ETA 51.4 min
+[cache] 19,544,251/50,000,000 tokens (39.1%) | 10.2k tok/s | ETA 50.0 min
+[cache] 20,045,800/50,000,000 tokens (40.1%) | 10.3k tok/s | ETA 48.7 min
+[cache] 20,045,800/50,000,000 tokens (40.1%) | 10.1k tok/s | ETA 49.4 min
+[cache] 20,547,349/50,000,000 tokens (41.1%) | 10.2k tok/s | ETA 48.2 min
+[cache] 21,050,033/50,000,000 tokens (42.1%) | 10.3k tok/s | ETA 46.9 min
+[cache] 21,050,033/50,000,000 tokens (42.1%) | 10.1k tok/s | ETA 47.6 min
+[cache] 21,553,052/50,000,000 tokens (43.1%) | 10.2k tok/s | ETA 46.3 min
+[cache] 22,054,978/50,000,000 tokens (44.1%) | 10.3k tok/s | ETA 45.2 min
+[cache] 22,054,978/50,000,000 tokens (44.1%) | 10.2k tok/s | ETA 45.9 min
+[cache] 22,555,054/50,000,000 tokens (45.1%) | 10.2k tok/s | ETA 44.7 min
+[cache] 23,056,940/50,000,000 tokens (46.1%) | 10.3k tok/s | ETA 43.6 min
+[cache] 23,056,940/50,000,000 tokens (46.1%) | 10.2k tok/s | ETA 44.2 min
+[cache] 23,557,816/50,000,000 tokens (47.1%) | 10.3k tok/s | ETA 43.0 min
+[cache] 23,557,816/50,000,000 tokens (47.1%) | 10.1k tok/s | ETA 43.6 min
+[cache] 24,060,343/50,000,000 tokens (48.1%) | 10.2k tok/s | ETA 42.4 min
+[cache] 24,562,105/50,000,000 tokens (49.1%) | 10.3k tok/s | ETA 41.2 min
+[cache] 24,562,105/50,000,000 tokens (49.1%) | 10.2k tok/s | ETA 41.7 min
+[cache] 25,064,114/50,000,000 tokens (50.1%) | 10.2k tok/s | ETA 40.6 min
+[cache] 25,565,826/50,000,000 tokens (51.1%) | 10.3k tok/s | ETA 39.5 min
+[cache] 25,565,826/50,000,000 tokens (51.1%) | 10.2k tok/s | ETA 40.0 min
+[cache] 26,067,749/50,000,000 tokens (52.1%) | 10.3k tok/s | ETA 38.9 min
+[cache] 26,567,951/50,000,000 tokens (53.1%) | 10.3k tok/s | ETA 37.9 min
+[cache] 26,567,951/50,000,000 tokens (53.1%) | 10.2k tok/s | ETA 38.3 min
+[cache] 27,068,664/50,000,000 tokens (54.1%) | 10.3k tok/s | ETA 37.3 min
+[cache] 27,068,664/50,000,000 tokens (54.1%) | 10.1k tok/s | ETA 37.7 min
+[cache] 27,570,742/50,000,000 tokens (55.1%) | 10.2k tok/s | ETA 36.6 min
+[cache] 28,070,896/50,000,000 tokens (56.1%) | 10.3k tok/s | ETA 35.5 min
+[cache] 28,070,896/50,000,000 tokens (56.1%) | 10.2k tok/s | ETA 35.9 min
+[cache] 28,571,422/50,000,000 tokens (57.1%) | 10.2k tok/s | ETA 34.9 min
+[cache] 29,072,153/50,000,000 tokens (58.1%) | 10.3k tok/s | ETA 33.8 min
+[cache] 29,072,153/50,000,000 tokens (58.1%) | 10.2k tok/s | ETA 34.2 min
+[cache] 29,572,997/50,000,000 tokens (59.1%) | 10.3k tok/s | ETA 33.2 min
+[cache] 29,572,997/50,000,000 tokens (59.1%) | 10.2k tok/s | ETA 33.5 min
+[cache] 30,073,825/50,000,000 tokens (60.1%) | 10.2k tok/s | ETA 32.5 min
+[cache] 30,575,317/50,000,000 tokens (61.2%) | 10.3k tok/s | ETA 31.5 min
+[cache] 30,575,317/50,000,000 tokens (61.2%) | 10.2k tok/s | ETA 31.8 min
+[cache] 31,076,596/50,000,000 tokens (62.2%) | 10.3k tok/s | ETA 30.8 min
+[cache] 31,579,163/50,000,000 tokens (63.2%) | 10.3k tok/s | ETA 29.8 min
+[cache] 31,579,163/50,000,000 tokens (63.2%) | 10.2k tok/s | ETA 30.1 min
+[cache] 32,079,826/50,000,000 tokens (64.2%) | 10.3k tok/s | ETA 29.1 min
+[cache] 32,580,288/50,000,000 tokens (65.2%) | 10.3k tok/s | ETA 28.2 min
+[cache] 32,580,288/50,000,000 tokens (65.2%) | 10.2k tok/s | ETA 28.4 min
+[cache] 33,080,767/50,000,000 tokens (66.2%) | 10.3k tok/s | ETA 27.4 min
+[cache] 33,080,767/50,000,000 tokens (66.2%) | 10.2k tok/s | ETA 27.7 min
+[cache] 33,581,438/50,000,000 tokens (67.2%) | 10.2k tok/s | ETA 26.7 min
+[cache] 34,082,652/50,000,000 tokens (68.2%) | 10.3k tok/s | ETA 25.8 min
+[cache] 34,082,652/50,000,000 tokens (68.2%) | 10.2k tok/s | ETA 26.0 min
+[cache] 34,585,333/50,000,000 tokens (69.2%) | 10.3k tok/s | ETA 25.0 min
+[cache] 35,085,711/50,000,000 tokens (70.2%) | 10.3k tok/s | ETA 24.1 min
+[cache] 35,085,711/50,000,000 tokens (70.2%) | 10.2k tok/s | ETA 24.3 min
+[cache] 35,586,441/50,000,000 tokens (71.2%) | 10.3k tok/s | ETA 23.4 min
+[cache] 35,586,441/50,000,000 tokens (71.2%) | 10.2k tok/s | ETA 23.6 min
+[cache] 36,090,817/50,000,000 tokens (72.2%) | 10.2k tok/s | ETA 22.6 min
+[cache] 36,594,302/50,000,000 tokens (73.2%) | 10.3k tok/s | ETA 21.7 min
+[cache] 36,594,302/50,000,000 tokens (73.2%) | 10.2k tok/s | ETA 21.9 min
+[cache] 37,095,152/50,000,000 tokens (74.2%) | 10.3k tok/s | ETA 21.0 min
+[cache] 37,596,061/50,000,000 tokens (75.2%) | 10.3k tok/s | ETA 20.1 min
+[cache] 37,596,061/50,000,000 tokens (75.2%) | 10.2k tok/s | ETA 20.2 min
+[cache] 38,096,329/50,000,000 tokens (76.2%) | 10.3k tok/s | ETA 19.3 min
+[cache] 38,096,329/50,000,000 tokens (76.2%) | 10.2k tok/s | ETA 19.5 min
+[cache] 38,596,434/50,000,000 tokens (77.2%) | 10.2k tok/s | ETA 18.6 min
+[cache] 39,099,811/50,000,000 tokens (78.2%) | 10.3k tok/s | ETA 17.7 min
+[cache] 39,099,811/50,000,000 tokens (78.2%) | 10.2k tok/s | ETA 17.8 min
+[cache] 39,600,316/50,000,000 tokens (79.2%) | 10.3k tok/s | ETA 16.9 min
+[cache] 40,101,871/50,000,000 tokens (80.2%) | 10.3k tok/s | ETA 16.0 min
+[cache] 40,101,871/50,000,000 tokens (80.2%) | 10.2k tok/s | ETA 16.1 min
+[cache] 40,603,224/50,000,000 tokens (81.2%) | 10.3k tok/s | ETA 15.2 min
+[cache] 40,603,224/50,000,000 tokens (81.2%) | 10.2k tok/s | ETA 15.4 min
+[cache] 41,104,106/50,000,000 tokens (82.2%) | 10.2k tok/s | ETA 14.5 min
+[cache] 41,606,359/50,000,000 tokens (83.2%) | 10.3k tok/s | ETA 13.6 min
+[cache] 41,606,359/50,000,000 tokens (83.2%) | 10.2k tok/s | ETA 13.7 min
+[cache] 42,106,394/50,000,000 tokens (84.2%) | 10.3k tok/s | ETA 12.8 min
+[cache] 42,606,584/50,000,000 tokens (85.2%) | 10.3k tok/s | ETA 12.0 min
+[cache] 42,606,584/50,000,000 tokens (85.2%) | 10.2k tok/s | ETA 12.0 min
+[cache] 43,107,162/50,000,000 tokens (86.2%) | 10.3k tok/s | ETA 11.2 min
+[cache] 43,107,162/50,000,000 tokens (86.2%) | 10.2k tok/s | ETA 11.3 min
+[cache] 43,607,466/50,000,000 tokens (87.2%) | 10.2k tok/s | ETA 10.4 min
+[cache] 44,107,493/50,000,000 tokens (88.2%) | 10.3k tok/s | ETA 9.5 min
+[cache] 44,107,493/50,000,000 tokens (88.2%) | 10.2k tok/s | ETA 9.6 min
+[cache] 44,609,993/50,000,000 tokens (89.2%) | 10.3k tok/s | ETA 8.8 min
+[cache] 45,110,707/50,000,000 tokens (90.2%) | 10.3k tok/s | ETA 7.9 min
+[cache] 45,110,707/50,000,000 tokens (90.2%) | 10.2k tok/s | ETA 8.0 min
+[cache] 45,611,383/50,000,000 tokens (91.2%) | 10.3k tok/s | ETA 7.1 min
+[cache] 45,611,383/50,000,000 tokens (91.2%) | 10.2k tok/s | ETA 7.2 min
+[cache] 46,112,275/50,000,000 tokens (92.2%) | 10.3k tok/s | ETA 6.3 min
+[cache] 46,614,930/50,000,000 tokens (93.2%) | 10.3k tok/s | ETA 5.5 min
+[cache] 46,614,930/50,000,000 tokens (93.2%) | 10.2k tok/s | ETA 5.5 min
+[cache] 47,116,557/50,000,000 tokens (94.2%) | 10.3k tok/s | ETA 4.7 min
+[cache] 47,618,462/50,000,000 tokens (95.2%) | 10.3k tok/s | ETA 3.9 min
+[cache] 47,618,462/50,000,000 tokens (95.2%) | 10.2k tok/s | ETA 3.9 min
+[cache] 48,123,073/50,000,000 tokens (96.2%) | 10.3k tok/s | ETA 3.0 min
+[cache] 48,123,073/50,000,000 tokens (96.2%) | 10.2k tok/s | ETA 3.1 min
+[cache] 48,623,937/50,000,000 tokens (97.2%) | 10.3k tok/s | ETA 2.2 min
+[cache] 49,125,062/50,000,000 tokens (98.3%) | 10.3k tok/s | ETA 1.4 min
+[cache] 49,125,062/50,000,000 tokens (98.3%) | 10.2k tok/s | ETA 1.4 min
+[cache] 49,628,733/50,000,000 tokens (99.3%) | 10.3k tok/s | ETA 0.6 min
+[cache] 50,000,000/50,000,000 tokens (100.0%) | 10.3k tok/s | ETA 0.0 min
+[cache] Built in 81.1 min | first-10k mean norm = 404.0
+  Collecting eval activations for L9 (2,000,000 tokens)...
+    L9: 2,000,000 tokens in 131.4s (norm: mean=57.5, std=6.5)
+  Collecting eval activations for L18 (2,000,000 tokens)...
+    L18: 2,000,000 tokens in 181.9s (norm: mean=97.7, std=9.9)
+  Collecting eval activations for L27 (2,000,000 tokens)...
+    L27: 2,000,000 tokens in 232.8s (norm: mean=404.7, std=35.7)
+
+######################################################################
+  LAYER 9 (mean_norm=57.5)
+######################################################################
+  adaptive_l2: 536,940,546 params (scale_b init=4.1589, exp=64.0)
+  adaptive_l2_unnormed: 536,940,545 params (no scale_b — encoder norms absorb scale)
+
+======================================================================
+  Parallel group of 2 SAEs at L9, 24414 steps
+  Variants: ['adaptive_l2', 'adaptive_l2_unnormed']
+======================================================================
+    [adaptive_l2/L9] b_dec init (norm=33.5)
+    [adaptive_l2_unnormed/L9] b_dec init (norm=33.5)
+
+  --- step 500/24414 (1.0M tok, 5.2k tok/s, ETA 2.63h) ---
+    [adaptive_l2/L9] loss=1796.7 recon=1796.7 auxk=0.000 | FVE=0.1884 L0=80 dead=0.000(0) a=-0.0062 b=4.153(exp=63.6)
+    [adaptive_l2_unnormed/L9] loss=2145.3 recon=2145.3 auxk=0.000 | FVE=0.0328 L0=80 dead=0.000(0) a=0.0062 ||w||=1.015±0.017
+
+  --- step 1000/24414 (2.0M tok, 5.2k tok/s, ETA 2.56h) ---
+    [adaptive_l2/L9] loss=1222.6 recon=1222.6 auxk=0.000 | FVE=0.4622 L0=80 dead=0.000(0) a=-0.0249 b=4.134(exp=62.4)
+    [adaptive_l2_unnormed/L9] loss=2020.4 recon=2020.4 auxk=0.000 | FVE=0.1153 L0=80 dead=0.000(0) a=0.0250 ||w||=1.041±0.100
+
+  --- step 1500/24414 (3.1M tok, 5.2k tok/s, ETA 2.52h) ---
+    [adaptive_l2/L9] loss=933.9 recon=933.9 auxk=0.000 | FVE=0.5862 L0=80 dead=0.000(0) a=-0.0371 b=4.120(exp=61.6)
+    [adaptive_l2_unnormed/L9] loss=1808.7 recon=1808.7 auxk=0.000 | FVE=0.2008 L0=80 dead=0.000(0) a=0.0500 ||w||=1.068±0.205
+
+  --- step 2000/24414 (4.1M tok, 5.2k tok/s, ETA 2.47h) ---
+    [adaptive_l2/L9] loss=841.9 recon=841.9 auxk=0.000 | FVE=0.6312 L0=80 dead=0.000(0) a=-0.0358 b=4.119(exp=61.5)
+    [adaptive_l2_unnormed/L9] loss=1717.0 recon=1717.0 auxk=0.000 | FVE=0.2489 L0=80 dead=0.000(0) a=0.0750 ||w||=1.090±0.296
+
+  --- step 2500/24414 (5.1M tok, 5.2k tok/s, ETA 2.41h) ---
+    [adaptive_l2/L9] loss=800.4 recon=800.4 auxk=0.000 | FVE=0.6499 L0=80 dead=0.000(0) a=-0.0333 b=4.118(exp=61.5)
+    [adaptive_l2_unnormed/L9] loss=1621.9 recon=1621.9 auxk=0.000 | FVE=0.2909 L0=80 dead=0.000(0) a=0.1000 ||w||=1.110±0.381
+
+  --- step 3000/24414 (6.1M tok, 5.2k tok/s, ETA 2.36h) ---
+    [adaptive_l2/L9] loss=734.4 recon=734.4 auxk=0.000 | FVE=0.6773 L0=80 dead=0.000(0) a=-0.0301 b=4.119(exp=61.5)
+    [adaptive_l2_unnormed/L9] loss=1520.9 recon=1520.9 auxk=0.000 | FVE=0.3318 L0=80 dead=0.000(0) a=0.1250 ||w||=1.130±0.462
+
+  --- step 3500/24414 (7.2M tok, 5.2k tok/s, ETA 2.31h) ---
+    [adaptive_l2/L9] loss=719.3 recon=719.3 auxk=0.000 | FVE=0.6827 L0=80 dead=0.000(0) a=-0.0275 b=4.118(exp=61.4)
+    [adaptive_l2_unnormed/L9] loss=1454.9 recon=1454.9 auxk=0.000 | FVE=0.3582 L0=80 dead=0.000(0) a=0.1500 ||w||=1.150±0.540
+
+  --- step 4000/24414 (8.2M tok, 5.2k tok/s, ETA 2.25h) ---
+    [adaptive_l2/L9] loss=668.4 recon=668.4 auxk=0.000 | FVE=0.7031 L0=80 dead=0.000(0) a=-0.0252 b=4.117(exp=61.4)
+    [adaptive_l2_unnormed/L9] loss=1353.3 recon=1353.3 auxk=0.000 | FVE=0.3989 L0=80 dead=0.000(0) a=0.1750 ||w||=1.168±0.612
+
+  --- step 4500/24414 (9.2M tok, 5.2k tok/s, ETA 2.20h) ---
+    [adaptive_l2/L9] loss=666.2 recon=666.2 auxk=0.000 | FVE=0.7037 L0=80 dead=0.000(0) a=-0.0227 b=4.116(exp=61.3)
+    [adaptive_l2_unnormed/L9] loss=1307.8 recon=1307.8 auxk=0.000 | FVE=0.4184 L0=80 dead=0.000(0) a=0.1999 ||w||=1.185±0.675
+    [adaptive_l2/L9] Checkpoint at step 4882
+    [adaptive_l2_unnormed/L9] Checkpoint at step 4882
+
+  --- step 5000/24414 (10.2M tok, 5.1k tok/s, ETA 2.15h) ---
+    [adaptive_l2/L9] loss=654.0 recon=654.0 auxk=0.000 | FVE=0.7133 L0=80 dead=0.000(0) a=-0.0207 b=4.114(exp=61.2)
+    [adaptive_l2_unnormed/L9] loss=1263.5 recon=1263.5 auxk=0.000 | FVE=0.4461 L0=80 dead=0.000(0) a=0.2248 ||w||=1.198±0.727
+
+  --- step 5500/24414 (11.3M tok, 5.1k tok/s, ETA 2.12h) ---
+    [adaptive_l2/L9] loss=629.2 recon=629.2 auxk=0.000 | FVE=0.7204 L0=80 dead=0.000(0) a=-0.0190 b=4.111(exp=61.0)
+    [adaptive_l2_unnormed/L9] loss=1189.5 recon=1189.5 auxk=0.798 | FVE=0.4714 L0=80 dead=0.871(57064) a=0.2496 ||w||=1.210±0.771
+
+  --- step 6000/24414 (12.3M tok, 5.0k tok/s, ETA 2.10h) ---
+    [adaptive_l2/L9] loss=636.3 recon=636.3 auxk=0.000 | FVE=0.7217 L0=80 dead=0.000(0) a=-0.0172 b=4.109(exp=60.9)
+    [adaptive_l2_unnormed/L9] loss=1178.5 recon=1178.5 auxk=0.800 | FVE=0.4846 L0=80 dead=0.887(58122) a=0.2743 ||w||=1.221±0.808
+
+  --- step 6500/24414 (13.3M tok, 4.9k tok/s, ETA 2.07h) ---
+    [adaptive_l2/L9] loss=621.9 recon=621.9 auxk=0.000 | FVE=0.7277 L0=80 dead=0.000(0) a=-0.0153 b=4.106(exp=60.7)
+    [adaptive_l2_unnormed/L9] loss=1134.1 recon=1134.1 auxk=0.859 | FVE=0.5035 L0=80 dead=0.898(58843) a=0.2990 ||w||=1.230±0.842
+
+  --- step 7000/24414 (14.3M tok, 4.9k tok/s, ETA 2.04h) ---
+    [adaptive_l2/L9] loss=592.7 recon=592.7 auxk=0.000 | FVE=0.7375 L0=80 dead=0.000(0) a=-0.0139 b=4.103(exp=60.5)
+    [adaptive_l2_unnormed/L9] loss=1083.2 recon=1083.1 auxk=0.998 | FVE=0.5204 L0=80 dead=0.909(59583) a=0.3236 ||w||=1.239±0.871
+
+  --- step 7500/24414 (15.4M tok, 4.8k tok/s, ETA 2.00h) ---
+    [adaptive_l2/L9] loss=591.9 recon=591.9 auxk=0.000 | FVE=0.7420 L0=80 dead=0.000(0) a=-0.0127 b=4.099(exp=60.3)
+    [adaptive_l2_unnormed/L9] loss=1060.3 recon=1060.2 auxk=1.018 | FVE=0.5379 L0=80 dead=0.917(60065) a=0.3479 ||w||=1.246±0.897
+
+  --- step 8000/24414 (16.4M tok, 4.8k tok/s, ETA 1.96h) ---
+    [adaptive_l2/L9] loss=582.8 recon=582.8 auxk=0.000 | FVE=0.7446 L0=80 dead=0.000(0) a=-0.0111 b=4.096(exp=60.1)
+    [adaptive_l2_unnormed/L9] loss=1035.0 recon=1035.0 auxk=0.883 | FVE=0.5464 L0=80 dead=0.915(59967) a=0.3720 ||w||=1.253±0.920
+
+  --- step 8500/24414 (17.4M tok, 4.7k tok/s, ETA 1.91h) ---
+    [adaptive_l2/L9] loss=564.6 recon=564.6 auxk=0.000 | FVE=0.7462 L0=80 dead=0.000(0) a=-0.0097 b=4.092(exp=59.9)
+    [adaptive_l2_unnormed/L9] loss=972.0 recon=972.0 auxk=0.809 | FVE=0.5630 L0=80 dead=0.913(59840) a=0.3955 ||w||=1.260±0.939
+
+  --- step 9000/24414 (18.4M tok, 4.7k tok/s, ETA 1.87h) ---
+    [adaptive_l2/L9] loss=564.9 recon=564.9 auxk=0.000 | FVE=0.7488 L0=80 dead=0.000(0) a=-0.0085 b=4.089(exp=59.7)
+    [adaptive_l2_unnormed/L9] loss=966.5 recon=966.4 auxk=0.747 | FVE=0.5702 L0=80 dead=0.911(59704) a=0.4180 ||w||=1.266±0.956
+
+  --- step 9500/24414 (19.5M tok, 4.7k tok/s, ETA 1.82h) ---
+    [adaptive_l2/L9] loss=550.6 recon=550.6 auxk=0.000 | FVE=0.7566 L0=80 dead=0.000(0) a=-0.0071 b=4.085(exp=59.4)
+    [adaptive_l2_unnormed/L9] loss=932.5 recon=932.5 auxk=0.710 | FVE=0.5878 L0=80 dead=0.909(59598) a=0.4391 ||w||=1.272±0.970
+    [adaptive_l2/L9] Checkpoint at step 9765
+    [adaptive_l2_unnormed/L9] Checkpoint at step 9765
+
+  --- step 10000/24414 (20.5M tok, 4.6k tok/s, ETA 1.77h) ---
+    [adaptive_l2/L9] loss=541.9 recon=541.9 auxk=0.000 | FVE=0.7572 L0=80 dead=0.000(0) a=-0.0059 b=4.081(exp=59.2)
+    [adaptive_l2_unnormed/L9] loss=907.3 recon=907.3 auxk=0.681 | FVE=0.5935 L0=80 dead=0.908(59502) a=0.4582 ||w||=1.278±0.982
+
+  --- step 10500/24414 (21.5M tok, 4.6k tok/s, ETA 1.72h) ---
+    [adaptive_l2/L9] loss=532.6 recon=532.6 auxk=0.000 | FVE=0.7622 L0=80 dead=0.000(0) a=-0.0044 b=4.077(exp=59.0)
+    [adaptive_l2_unnormed/L9] loss=885.9 recon=885.9 auxk=0.662 | FVE=0.6045 L0=80 dead=0.907(59434) a=0.4754 ||w||=1.283±0.991
+
+  --- step 11000/24414 (22.5M tok, 4.6k tok/s, ETA 1.66h) ---
+    [adaptive_l2/L9] loss=533.8 recon=533.8 auxk=0.000 | FVE=0.7634 L0=80 dead=0.000(0) a=-0.0031 b=4.074(exp=58.8)
+    [adaptive_l2_unnormed/L9] loss=878.7 recon=878.7 auxk=0.644 | FVE=0.6105 L0=80 dead=0.906(59378) a=0.4897 ||w||=1.287±0.998
+
+  --- step 11500/24414 (23.6M tok, 4.6k tok/s, ETA 1.61h) ---
+    [adaptive_l2/L9] loss=536.9 recon=536.9 auxk=0.000 | FVE=0.7637 L0=80 dead=0.000(0) a=-0.0016 b=4.070(exp=58.5)
+    [adaptive_l2_unnormed/L9] loss=884.9 recon=884.9 auxk=0.625 | FVE=0.6105 L0=80 dead=0.906(59352) a=0.5016 ||w||=1.291±1.004
+
+  --- step 12000/24414 (24.6M tok, 4.6k tok/s, ETA 1.55h) ---
+    [adaptive_l2/L9] loss=532.8 recon=532.8 auxk=0.000 | FVE=0.7662 L0=80 dead=0.000(0) a=-0.0001 b=4.066(exp=58.3)
+    [adaptive_l2_unnormed/L9] loss=870.6 recon=870.6 auxk=0.618 | FVE=0.6180 L0=80 dead=0.905(59335) a=0.5118 ||w||=1.295±1.009
+
+  --- step 12500/24414 (25.6M tok, 4.5k tok/s, ETA 1.49h) ---
+    [adaptive_l2/L9] loss=546.7 recon=546.7 auxk=0.000 | FVE=0.7602 L0=80 dead=0.000(0) a=0.0010 b=4.062(exp=58.1)
+    [adaptive_l2_unnormed/L9] loss=875.9 recon=875.9 auxk=0.605 | FVE=0.6158 L0=80 dead=0.905(59323) a=0.5201 ||w||=1.298±1.013
+
+  --- step 13000/24414 (26.6M tok, 4.5k tok/s, ETA 1.43h) ---
+    [adaptive_l2/L9] loss=526.6 recon=526.6 auxk=0.000 | FVE=0.7667 L0=80 dead=0.000(0) a=0.0023 b=4.058(exp=57.8)
+    [adaptive_l2_unnormed/L9] loss=838.4 recon=838.4 auxk=0.603 | FVE=0.6286 L0=80 dead=0.905(59319) a=0.5272 ||w||=1.301±1.016
+
+  --- step 13500/24414 (27.6M tok, 4.5k tok/s, ETA 1.37h) ---
+    [adaptive_l2/L9] loss=530.5 recon=530.5 auxk=0.000 | FVE=0.7665 L0=80 dead=0.000(0) a=0.0035 b=4.053(exp=57.6)
+    [adaptive_l2_unnormed/L9] loss=844.5 recon=844.5 auxk=0.593 | FVE=0.6283 L0=80 dead=0.905(59314) a=0.5333 ||w||=1.304±1.020
+
+  --- step 14000/24414 (28.7M tok, 4.5k tok/s, ETA 1.32h) ---
+    [adaptive_l2/L9] loss=520.1 recon=520.1 auxk=0.000 | FVE=0.7700 L0=80 dead=0.000(0) a=0.0041 b=4.049(exp=57.3)
+    [adaptive_l2_unnormed/L9] loss=824.5 recon=824.5 auxk=0.589 | FVE=0.6353 L0=80 dead=0.905(59313) a=0.5389 ||w||=1.307±1.022
+
+  --- step 14500/24414 (29.7M tok, 4.5k tok/s, ETA 1.26h) ---
+    [adaptive_l2/L9] loss=533.8 recon=533.8 auxk=0.000 | FVE=0.7662 L0=80 dead=0.000(0) a=0.0058 b=4.045(exp=57.1)
+    [adaptive_l2_unnormed/L9] loss=840.9 recon=840.9 auxk=0.578 | FVE=0.6317 L0=80 dead=0.905(59311) a=0.5443 ||w||=1.309±1.025
+    [adaptive_l2/L9] Checkpoint at step 14648
+    [adaptive_l2_unnormed/L9] Checkpoint at step 14648
+
+  --- step 15000/24414 (30.7M tok, 4.5k tok/s, ETA 1.20h) ---
+    [adaptive_l2/L9] loss=496.2 recon=496.2 auxk=0.000 | FVE=0.7778 L0=80 dead=0.000(0) a=0.0069 b=4.040(exp=56.8)
+    [adaptive_l2_unnormed/L9] loss=795.2 recon=795.2 auxk=0.579 | FVE=0.6440 L0=80 dead=0.905(59305) a=0.5489 ||w||=1.312±1.028
+
+  --- step 15500/24414 (31.7M tok, 4.5k tok/s, ETA 1.13h) ---
+    [adaptive_l2/L9] loss=512.9 recon=512.9 auxk=0.000 | FVE=0.7751 L0=80 dead=0.000(0) a=0.0082 b=4.036(exp=56.6)
+    [adaptive_l2_unnormed/L9] loss=821.7 recon=821.7 auxk=0.571 | FVE=0.6397 L0=80 dead=0.905(59297) a=0.5533 ||w||=1.314±1.030
+
+  --- step 16000/24414 (32.8M tok, 4.5k tok/s, ETA 1.07h) ---
+    [adaptive_l2/L9] loss=493.8 recon=493.8 auxk=0.000 | FVE=0.7805 L0=80 dead=0.000(0) a=0.0096 b=4.032(exp=56.4)
+    [adaptive_l2_unnormed/L9] loss=786.6 recon=786.6 auxk=0.573 | FVE=0.6503 L0=80 dead=0.905(59291) a=0.5574 ||w||=1.316±1.032
+
+  --- step 16500/24414 (33.8M tok, 4.5k tok/s, ETA 1.01h) ---
+    [adaptive_l2/L9] loss=513.1 recon=513.1 auxk=0.000 | FVE=0.7747 L0=80 dead=0.000(0) a=0.0108 b=4.028(exp=56.1)
+    [adaptive_l2_unnormed/L9] loss=810.5 recon=810.5 auxk=0.564 | FVE=0.6441 L0=80 dead=0.905(59283) a=0.5611 ||w||=1.318±1.034
+
+  --- step 17000/24414 (34.8M tok, 4.4k tok/s, ETA 0.95h) ---
+    [adaptive_l2/L9] loss=486.6 recon=486.6 auxk=0.000 | FVE=0.7826 L0=80 dead=0.000(0) a=0.0120 b=4.023(exp=55.9)
+    [adaptive_l2_unnormed/L9] loss=774.3 recon=774.3 auxk=0.567 | FVE=0.6541 L0=80 dead=0.905(59279) a=0.5646 ||w||=1.320±1.036
+
+  --- step 17500/24414 (35.8M tok, 4.4k tok/s, ETA 0.89h) ---
+    [adaptive_l2/L9] loss=492.1 recon=492.1 auxk=0.000 | FVE=0.7817 L0=80 dead=0.000(0) a=0.0136 b=4.019(exp=55.7)
+    [adaptive_l2_unnormed/L9] loss=778.0 recon=777.9 auxk=0.564 | FVE=0.6549 L0=80 dead=0.904(59267) a=0.5679 ||w||=1.322±1.038
+
+  --- step 18000/24414 (36.9M tok, 4.4k tok/s, ETA 0.82h) ---
+    [adaptive_l2/L9] loss=495.0 recon=495.0 auxk=0.000 | FVE=0.7783 L0=80 dead=0.000(0) a=0.0148 b=4.015(exp=55.4)
+    [adaptive_l2_unnormed/L9] loss=777.7 recon=777.7 auxk=0.558 | FVE=0.6517 L0=80 dead=0.904(59260) a=0.5709 ||w||=1.323±1.039
+
+  --- step 18500/24414 (37.9M tok, 4.4k tok/s, ETA 0.76h) ---
+    [adaptive_l2/L9] loss=487.3 recon=487.3 auxk=0.000 | FVE=0.7818 L0=80 dead=0.000(0) a=0.0161 b=4.010(exp=55.2)
+    [adaptive_l2_unnormed/L9] loss=766.8 recon=766.8 auxk=0.559 | FVE=0.6567 L0=80 dead=0.904(59255) a=0.5737 ||w||=1.325±1.041
+
+  --- step 19000/24414 (38.9M tok, 4.4k tok/s, ETA 0.70h) ---
+    [adaptive_l2/L9] loss=488.6 recon=488.6 auxk=0.000 | FVE=0.7850 L0=80 dead=0.000(0) a=0.0174 b=4.006(exp=54.9)
+    [adaptive_l2_unnormed/L9] loss=769.8 recon=769.8 auxk=0.556 | FVE=0.6612 L0=80 dead=0.903(59192) a=0.5763 ||w||=1.326±1.042
+
+  --- step 19500/24414 (39.9M tok, 4.4k tok/s, ETA 0.63h) ---
+    [adaptive_l2/L9] loss=487.4 recon=487.4 auxk=0.000 | FVE=0.7859 L0=80 dead=0.000(0) a=0.0186 b=4.001(exp=54.7)
+    [adaptive_l2_unnormed/L9] loss=773.6 recon=773.6 auxk=0.553 | FVE=0.6603 L0=80 dead=0.903(59185) a=0.5786 ||w||=1.328±1.043
+    [adaptive_l2/L9] Checkpoint at step 19531
+    [adaptive_l2_unnormed/L9] Checkpoint at step 19531
+
+  --- step 20000/24414 (41.0M tok, 4.4k tok/s, ETA 0.57h) ---
+    [adaptive_l2/L9] loss=496.4 recon=496.4 auxk=0.000 | FVE=0.7820 L0=80 dead=0.000(0) a=0.0199 b=3.997(exp=54.4)
+    [adaptive_l2_unnormed/L9] loss=783.6 recon=783.5 auxk=0.548 | FVE=0.6559 L0=80 dead=0.903(59176) a=0.5809 ||w||=1.329±1.044
+
+  --- step 20500/24414 (42.0M tok, 4.4k tok/s, ETA 0.51h) ---
+    [adaptive_l2/L9] loss=480.0 recon=480.0 auxk=0.000 | FVE=0.7887 L0=80 dead=0.000(0) a=0.0211 b=3.993(exp=54.2)
+    [adaptive_l2_unnormed/L9] loss=760.6 recon=760.6 auxk=0.551 | FVE=0.6652 L0=80 dead=0.903(59174) a=0.5827 ||w||=1.330±1.045
+
+  --- step 21000/24414 (43.0M tok, 4.4k tok/s, ETA 0.44h) ---
+    [adaptive_l2/L9] loss=477.4 recon=477.4 auxk=0.000 | FVE=0.7881 L0=80 dead=0.000(0) a=0.0221 b=3.990(exp=54.1)
+    [adaptive_l2_unnormed/L9] loss=755.5 recon=755.5 auxk=0.550 | FVE=0.6646 L0=80 dead=0.903(59179) a=0.5843 ||w||=1.331±1.046
+
+  --- step 21500/24414 (44.0M tok, 4.4k tok/s, ETA 0.38h) ---
+    [adaptive_l2/L9] loss=473.2 recon=473.2 auxk=0.000 | FVE=0.7876 L0=80 dead=0.000(0) a=0.0229 b=3.987(exp=53.9)
+    [adaptive_l2_unnormed/L9] loss=734.6 recon=734.6 auxk=0.552 | FVE=0.6704 L0=80 dead=0.903(59167) a=0.5857 ||w||=1.332±1.047
+
+  --- step 22000/24414 (45.1M tok, 4.4k tok/s, ETA 0.31h) ---
+    [adaptive_l2/L9] loss=476.4 recon=476.4 auxk=0.000 | FVE=0.7916 L0=80 dead=0.000(0) a=0.0238 b=3.984(exp=53.8)
+    [adaptive_l2_unnormed/L9] loss=756.6 recon=756.6 auxk=0.548 | FVE=0.6691 L0=80 dead=0.903(59163) a=0.5868 ||w||=1.332±1.047
+
+  --- step 22500/24414 (46.1M tok, 4.4k tok/s, ETA 0.25h) ---
+    [adaptive_l2/L9] loss=484.5 recon=484.5 auxk=0.000 | FVE=0.7865 L0=80 dead=0.000(0) a=0.0246 b=3.983(exp=53.7)
+    [adaptive_l2_unnormed/L9] loss=759.2 recon=759.2 auxk=0.547 | FVE=0.6654 L0=80 dead=0.903(59164) a=0.5877 ||w||=1.333±1.048
+
+  --- step 23000/24414 (47.1M tok, 4.4k tok/s, ETA 0.18h) ---
+    [adaptive_l2/L9] loss=486.0 recon=486.0 auxk=0.000 | FVE=0.7861 L0=80 dead=0.000(0) a=0.0249 b=3.981(exp=53.6)
+    [adaptive_l2_unnormed/L9] loss=754.1 recon=754.1 auxk=0.546 | FVE=0.6682 L0=80 dead=0.903(59152) a=0.5882 ||w||=1.333±1.048
+
+  --- step 23500/24414 (48.1M tok, 4.4k tok/s, ETA 0.12h) ---
+    [adaptive_l2/L9] loss=475.3 recon=475.3 auxk=0.000 | FVE=0.7903 L0=80 dead=0.000(0) a=0.0248 b=3.979(exp=53.5)
+    [adaptive_l2_unnormed/L9] loss=751.7 recon=751.7 auxk=0.548 | FVE=0.6683 L0=80 dead=0.903(59149) a=0.5884 ||w||=1.333±1.048
+
+  --- step 24000/24414 (49.2M tok, 4.4k tok/s, ETA 0.05h) ---
+    [adaptive_l2/L9] loss=465.4 recon=465.4 auxk=0.000 | FVE=0.7931 L0=80 dead=0.000(0) a=0.0251 b=3.979(exp=53.5)
+    [adaptive_l2_unnormed/L9] loss=735.0 recon=734.9 auxk=0.550 | FVE=0.6733 L0=80 dead=0.901(59061) a=0.5887 ||w||=1.333±1.048
+    [adaptive_l2/L9] Checkpoint at step 24414
+    [adaptive_l2_unnormed/L9] Checkpoint at step 24414
+
+  --- step 24414/24414 (50.0M tok, 4.4k tok/s, ETA 0.00h) ---
+    [adaptive_l2/L9] loss=466.9 recon=466.9 auxk=0.000 | FVE=0.7913 L0=80 dead=0.000(0) a=0.0249 b=3.978(exp=53.4)
+    [adaptive_l2_unnormed/L9] loss=734.9 recon=734.9 auxk=0.549 | FVE=0.6714 L0=80 dead=0.901(59035) a=0.5886 ||w||=1.333±1.048
+    [adaptive_l2/L9] Done in 3.2h (11439s)
+    [adaptive_l2/L9] Saved /data/checkpoints/exp45/adaptive_l2_L9_final.pt
+    [adaptive_l2_unnormed/L9] Done in 3.2h (11440s)
+    [adaptive_l2_unnormed/L9] Saved /data/checkpoints/exp45/adaptive_l2_unnormed_L9_final.pt
+
+  Group done in 3.18h
+    [adaptive_l2/L9] FVE=0.7857 dead=0.000 alive=65,536 L0=80.1
+    [adaptive_l2_unnormed/L9] FVE=0.6655 dead=0.908 alive=6,058 L0=80.0
+    [ablation] Collecting 200 texts + clean forwards (L9)...
+    [ablation] Collected 200 texts
+    [adaptive_l2/L9] Ablation (100 features, 200 samples)...
+    [adaptive_l2/L9] cos>inner: 34/100 (cos_corr=0.197, inner_corr=0.208)
+    [adaptive_l2_unnormed/L9] Ablation (100 features, 200 samples)...
+    [adaptive_l2_unnormed/L9] cos>inner: 27/100 (cos_corr=0.228, inner_corr=0.248)
+
+  === L9 SUMMARY ===
+  Variant                   |    FVE |  Dead% |  Alive |  cos>inn |  scale_a |   scale/norm
+  adaptive_l2               | 0.7857 |   0.0% |  65536 |   34/100 |   0.0249 |   b_exp=53.4
+  adaptive_l2_unnormed      | 0.6655 |  90.8% |   6058 |   27/100 |   0.5886 |  ||w||=1.333
+
+######################################################################
+  LAYER 18 (mean_norm=97.7)
+######################################################################
+  adaptive_l2: 536,940,546 params (scale_b init=4.1589, exp=64.0)
+  adaptive_l2_unnormed: 536,940,545 params (no scale_b — encoder norms absorb scale)
+
+======================================================================
+  Parallel group of 2 SAEs at L18, 24414 steps
+  Variants: ['adaptive_l2', 'adaptive_l2_unnormed']
+======================================================================
+    [adaptive_l2/L18] b_dec init (norm=62.7)
+    [adaptive_l2_unnormed/L18] b_dec init (norm=62.7)
+
+  --- step 500/24414 (1.0M tok, 5.2k tok/s, ETA 2.62h) ---
+    [adaptive_l2/L18] loss=4166.0 recon=4166.0 auxk=0.000 | FVE=0.2665 L0=80 dead=0.000(0) a=0.0049 b=4.163(exp=64.3)
+    [adaptive_l2_unnormed/L18] loss=5566.3 recon=5566.3 auxk=0.000 | FVE=0.0210 L0=80 dead=0.000(0) a=0.0062 ||w||=1.015±0.018
+
+  --- step 1000/24414 (2.0M tok, 5.2k tok/s, ETA 2.55h) ---
+    [adaptive_l2/L18] loss=3126.8 recon=3126.8 auxk=0.000 | FVE=0.4516 L0=80 dead=0.000(0) a=-0.0035 b=4.152(exp=63.6)
+    [adaptive_l2_unnormed/L18] loss=5241.4 recon=5241.4 auxk=0.000 | FVE=0.0827 L0=80 dead=0.000(0) a=0.0250 ||w||=1.035±0.101
+
+  --- step 1500/24414 (3.1M tok, 5.2k tok/s, ETA 2.50h) ---
+    [adaptive_l2/L18] loss=2672.9 recon=2672.9 auxk=0.000 | FVE=0.5334 L0=80 dead=0.000(0) a=-0.0078 b=4.145(exp=63.1)
+    [adaptive_l2_unnormed/L18] loss=4925.9 recon=4925.9 auxk=0.000 | FVE=0.1420 L0=80 dead=0.000(0) a=0.0500 ||w||=1.054±0.198
+
+  --- step 2000/24414 (4.1M tok, 5.2k tok/s, ETA 2.45h) ---
+    [adaptive_l2/L18] loss=2418.3 recon=2418.3 auxk=0.000 | FVE=0.5732 L0=80 dead=0.000(0) a=-0.0074 b=4.143(exp=63.0)
+    [adaptive_l2_unnormed/L18] loss=4590.8 recon=4590.8 auxk=0.000 | FVE=0.1910 L0=80 dead=0.000(0) a=0.0750 ||w||=1.069±0.283
+
+  --- step 2500/24414 (5.1M tok, 5.2k tok/s, ETA 2.40h) ---
+    [adaptive_l2/L18] loss=2317.6 recon=2317.6 auxk=0.000 | FVE=0.5980 L0=80 dead=0.000(0) a=-0.0057 b=4.141(exp=62.9)
+    [adaptive_l2_unnormed/L18] loss=4440.6 recon=4440.6 auxk=0.000 | FVE=0.2303 L0=80 dead=0.000(0) a=0.1000 ||w||=1.084±0.363
+
+  --- step 3000/24414 (6.1M tok, 5.2k tok/s, ETA 2.34h) ---
+    [adaptive_l2/L18] loss=2186.9 recon=2186.9 auxk=0.000 | FVE=0.6163 L0=80 dead=0.000(0) a=-0.0030 b=4.141(exp=62.9)
+    [adaptive_l2_unnormed/L18] loss=4189.2 recon=4189.2 auxk=0.000 | FVE=0.2652 L0=80 dead=0.000(0) a=0.1250 ||w||=1.098±0.441
+
+  --- step 3500/24414 (7.2M tok, 5.2k tok/s, ETA 2.29h) ---
+    [adaptive_l2/L18] loss=2119.8 recon=2119.8 auxk=0.000 | FVE=0.6246 L0=80 dead=0.000(0) a=-0.0006 b=4.141(exp=62.9)
+    [adaptive_l2_unnormed/L18] loss=3975.8 recon=3975.8 auxk=0.000 | FVE=0.2961 L0=80 dead=0.000(0) a=0.1500 ||w||=1.111±0.517
+
+  --- step 4000/24414 (8.2M tok, 5.2k tok/s, ETA 2.23h) ---
+    [adaptive_l2/L18] loss=2101.1 recon=2101.1 auxk=0.000 | FVE=0.6367 L0=80 dead=0.000(0) a=0.0035 b=4.143(exp=63.0)
+    [adaptive_l2_unnormed/L18] loss=3894.0 recon=3894.0 auxk=0.000 | FVE=0.3269 L0=80 dead=0.000(0) a=0.1750 ||w||=1.124±0.590
+
+  --- step 4500/24414 (9.2M tok, 5.2k tok/s, ETA 2.18h) ---
+    [adaptive_l2/L18] loss=2002.3 recon=2002.3 auxk=0.000 | FVE=0.6465 L0=80 dead=0.000(0) a=0.0076 b=4.145(exp=63.1)
+    [adaptive_l2_unnormed/L18] loss=3619.3 recon=3619.3 auxk=0.000 | FVE=0.3610 L0=80 dead=0.000(0) a=0.2000 ||w||=1.137±0.658
+    [adaptive_l2/L18] Checkpoint at step 4882
+    [adaptive_l2_unnormed/L18] Checkpoint at step 4882
+
+  --- step 5000/24414 (10.2M tok, 5.2k tok/s, ETA 2.13h) ---
+    [adaptive_l2/L18] loss=1950.4 recon=1950.4 auxk=0.000 | FVE=0.6556 L0=80 dead=0.000(0) a=0.0120 b=4.147(exp=63.3)
+    [adaptive_l2_unnormed/L18] loss=3413.2 recon=3413.2 auxk=0.000 | FVE=0.3974 L0=80 dead=0.000(0) a=0.2249 ||w||=1.147±0.716
+
+  --- step 5500/24414 (11.3M tok, 5.1k tok/s, ETA 2.10h) ---
+    [adaptive_l2/L18] loss=1957.6 recon=1957.6 auxk=0.000 | FVE=0.6582 L0=80 dead=0.000(0) a=0.0173 b=4.151(exp=63.5)
+    [adaptive_l2_unnormed/L18] loss=3336.9 recon=3336.8 auxk=0.837 | FVE=0.4173 L0=80 dead=0.918(60181) a=0.2498 ||w||=1.155±0.759
+
+  --- step 6000/24414 (12.3M tok, 5.0k tok/s, ETA 2.08h) ---
+    [adaptive_l2/L18] loss=1921.5 recon=1921.5 auxk=0.000 | FVE=0.6619 L0=80 dead=0.000(0) a=0.0221 b=4.155(exp=63.7)
+    [adaptive_l2_unnormed/L18] loss=3169.1 recon=3169.0 auxk=0.839 | FVE=0.4425 L0=80 dead=0.932(61084) a=0.2745 ||w||=1.161±0.788
+
+  --- step 6500/24414 (13.3M tok, 5.0k tok/s, ETA 2.05h) ---
+    [adaptive_l2/L18] loss=1881.1 recon=1881.1 auxk=0.000 | FVE=0.6720 L0=80 dead=0.000(0) a=0.0279 b=4.159(exp=64.0)
+    [adaptive_l2_unnormed/L18] loss=3068.8 recon=3068.8 auxk=0.916 | FVE=0.4649 L0=80 dead=0.942(61752) a=0.2991 ||w||=1.165±0.808
+
+  --- step 7000/24414 (14.3M tok, 4.9k tok/s, ETA 2.02h) ---
+    [adaptive_l2/L18] loss=1863.8 recon=1863.8 auxk=0.000 | FVE=0.6780 L0=80 dead=0.000(0) a=0.0330 b=4.163(exp=64.3)
+    [adaptive_l2_unnormed/L18] loss=3001.7 recon=3001.7 auxk=1.011 | FVE=0.4815 L0=80 dead=0.948(62151) a=0.3237 ||w||=1.168±0.823
+
+  --- step 7500/24414 (15.4M tok, 4.9k tok/s, ETA 1.98h) ---
+    [adaptive_l2/L18] loss=1812.5 recon=1812.5 auxk=0.000 | FVE=0.6801 L0=80 dead=0.000(0) a=0.0377 b=4.167(exp=64.5)
+    [adaptive_l2_unnormed/L18] loss=2853.3 recon=2853.3 auxk=1.093 | FVE=0.4964 L0=80 dead=0.952(62419) a=0.3479 ||w||=1.171±0.835
+
+  --- step 8000/24414 (16.4M tok, 4.8k tok/s, ETA 1.94h) ---
+    [adaptive_l2/L18] loss=1801.9 recon=1801.9 auxk=0.000 | FVE=0.6844 L0=80 dead=0.000(0) a=0.0421 b=4.170(exp=64.7)
+    [adaptive_l2_unnormed/L18] loss=2794.4 recon=2794.3 auxk=1.128 | FVE=0.5106 L0=80 dead=0.955(62619) a=0.3719 ||w||=1.173±0.846
+
+  --- step 8500/24414 (17.4M tok, 4.8k tok/s, ETA 1.90h) ---
+    [adaptive_l2/L18] loss=1772.0 recon=1772.0 auxk=0.000 | FVE=0.6869 L0=80 dead=0.000(0) a=0.0458 b=4.172(exp=64.9)
+    [adaptive_l2_unnormed/L18] loss=2689.1 recon=2689.1 auxk=1.003 | FVE=0.5249 L0=80 dead=0.954(62545) a=0.3952 ||w||=1.175±0.855
+
+  --- step 9000/24414 (18.4M tok, 4.7k tok/s, ETA 1.85h) ---
+    [adaptive_l2/L18] loss=1772.1 recon=1772.1 auxk=0.000 | FVE=0.6916 L0=80 dead=0.000(0) a=0.0489 b=4.174(exp=65.0)
+    [adaptive_l2_unnormed/L18] loss=2659.6 recon=2659.5 auxk=0.893 | FVE=0.5372 L0=80 dead=0.953(62455) a=0.4173 ||w||=1.177±0.863
+
+  --- step 9500/24414 (19.5M tok, 4.7k tok/s, ETA 1.80h) ---
+    [adaptive_l2/L18] loss=1730.3 recon=1730.3 auxk=0.000 | FVE=0.6978 L0=80 dead=0.000(0) a=0.0518 b=4.176(exp=65.1)
+    [adaptive_l2_unnormed/L18] loss=2579.6 recon=2579.6 auxk=0.827 | FVE=0.5496 L0=80 dead=0.952(62387) a=0.4381 ||w||=1.179±0.871
+    [adaptive_l2/L18] Checkpoint at step 9765
+    [adaptive_l2_unnormed/L18] Checkpoint at step 9765
+
+  --- step 10000/24414 (20.5M tok, 4.7k tok/s, ETA 1.75h) ---
+    [adaptive_l2/L18] loss=1701.8 recon=1701.8 auxk=0.000 | FVE=0.6976 L0=80 dead=0.000(0) a=0.0543 b=4.176(exp=65.1)
+    [adaptive_l2_unnormed/L18] loss=2496.7 recon=2496.7 auxk=0.767 | FVE=0.5563 L0=80 dead=0.951(62300) a=0.4566 ||w||=1.181±0.877
+
+  --- step 10500/24414 (21.5M tok, 4.7k tok/s, ETA 1.70h) ---
+    [adaptive_l2/L18] loss=1716.9 recon=1716.9 auxk=0.000 | FVE=0.7002 L0=80 dead=0.000(0) a=0.0567 b=4.177(exp=65.2)
+    [adaptive_l2_unnormed/L18] loss=2509.2 recon=2509.2 auxk=0.727 | FVE=0.5619 L0=80 dead=0.950(62228) a=0.4736 ||w||=1.183±0.882
+
+  --- step 11000/24414 (22.5M tok, 4.6k tok/s, ETA 1.65h) ---
+    [adaptive_l2/L18] loss=1708.7 recon=1708.7 auxk=0.000 | FVE=0.7021 L0=80 dead=0.000(0) a=0.0588 b=4.178(exp=65.2)
+    [adaptive_l2_unnormed/L18] loss=2479.5 recon=2479.5 auxk=0.701 | FVE=0.5677 L0=80 dead=0.949(62166) a=0.4883 ||w||=1.186±0.886
+
+  --- step 11500/24414 (23.6M tok, 4.6k tok/s, ETA 1.59h) ---
+    [adaptive_l2/L18] loss=1665.9 recon=1665.9 auxk=0.000 | FVE=0.7071 L0=80 dead=0.000(0) a=0.0606 b=4.178(exp=65.2)
+    [adaptive_l2_unnormed/L18] loss=2399.1 recon=2399.1 auxk=0.686 | FVE=0.5782 L0=80 dead=0.948(62108) a=0.5010 ||w||=1.188±0.890
+
+  --- step 12000/24414 (24.6M tok, 4.6k tok/s, ETA 1.54h) ---
+    [adaptive_l2/L18] loss=1676.3 recon=1676.3 auxk=0.000 | FVE=0.7067 L0=80 dead=0.000(0) a=0.0624 b=4.178(exp=65.2)
+    [adaptive_l2_unnormed/L18] loss=2408.8 recon=2408.8 auxk=0.664 | FVE=0.5785 L0=80 dead=0.947(62071) a=0.5121 ||w||=1.190±0.893
+
+  --- step 12500/24414 (25.6M tok, 4.6k tok/s, ETA 1.48h) ---
+    [adaptive_l2/L18] loss=1682.9 recon=1682.9 auxk=0.000 | FVE=0.7060 L0=80 dead=0.000(0) a=0.0639 b=4.177(exp=65.2)
+    [adaptive_l2_unnormed/L18] loss=2384.8 recon=2384.8 auxk=0.655 | FVE=0.5834 L0=80 dead=0.947(62044) a=0.5210 ||w||=1.193±0.895
+
+  --- step 13000/24414 (26.6M tok, 4.6k tok/s, ETA 1.42h) ---
+    [adaptive_l2/L18] loss=1675.2 recon=1675.2 auxk=0.000 | FVE=0.7075 L0=80 dead=0.000(0) a=0.0651 b=4.176(exp=65.1)
+    [adaptive_l2_unnormed/L18] loss=2361.9 recon=2361.9 auxk=0.643 | FVE=0.5877 L0=80 dead=0.946(61973) a=0.5284 ||w||=1.195±0.898
+
+  --- step 13500/24414 (27.6M tok, 4.6k tok/s, ETA 1.36h) ---
+    [adaptive_l2/L18] loss=1635.5 recon=1635.5 auxk=0.000 | FVE=0.7085 L0=80 dead=0.000(0) a=0.0663 b=4.176(exp=65.1)
+    [adaptive_l2_unnormed/L18] loss=2289.5 recon=2289.5 auxk=0.634 | FVE=0.5919 L0=80 dead=0.945(61944) a=0.5348 ||w||=1.197±0.899
+
+  --- step 14000/24414 (28.7M tok, 4.5k tok/s, ETA 1.30h) ---
+    [adaptive_l2/L18] loss=1682.1 recon=1682.1 auxk=0.000 | FVE=0.7085 L0=80 dead=0.000(0) a=0.0672 b=4.175(exp=65.0)
+    [adaptive_l2_unnormed/L18] loss=2356.7 recon=2356.7 auxk=0.623 | FVE=0.5917 L0=80 dead=0.945(61930) a=0.5413 ||w||=1.198±0.901
+
+  --- step 14500/24414 (29.7M tok, 4.5k tok/s, ETA 1.24h) ---
+    [adaptive_l2/L18] loss=1630.0 recon=1630.0 auxk=0.000 | FVE=0.7136 L0=80 dead=0.000(0) a=0.0684 b=4.174(exp=65.0)
+    [adaptive_l2_unnormed/L18] loss=2274.2 recon=2274.2 auxk=0.621 | FVE=0.6004 L0=80 dead=0.945(61916) a=0.5467 ||w||=1.200±0.903
+    [adaptive_l2/L18] Checkpoint at step 14648
+    [adaptive_l2_unnormed/L18] Checkpoint at step 14648
+
+  --- step 15000/24414 (30.7M tok, 4.5k tok/s, ETA 1.19h) ---
+    [adaptive_l2/L18] loss=1622.1 recon=1622.1 auxk=0.000 | FVE=0.7145 L0=80 dead=0.000(0) a=0.0695 b=4.173(exp=64.9)
+    [adaptive_l2_unnormed/L18] loss=2254.2 recon=2254.2 auxk=0.615 | FVE=0.6033 L0=80 dead=0.945(61911) a=0.5518 ||w||=1.202±0.904
+
+  --- step 15500/24414 (31.7M tok, 4.5k tok/s, ETA 1.12h) ---
+    [adaptive_l2/L18] loss=1621.1 recon=1621.1 auxk=0.000 | FVE=0.7171 L0=80 dead=0.000(0) a=0.0705 b=4.172(exp=64.8)
+    [adaptive_l2_unnormed/L18] loss=2252.5 recon=2252.5 auxk=0.610 | FVE=0.6069 L0=80 dead=0.945(61909) a=0.5563 ||w||=1.203±0.905
+
+  --- step 16000/24414 (32.8M tok, 4.5k tok/s, ETA 1.06h) ---
+    [adaptive_l2/L18] loss=1608.1 recon=1608.1 auxk=0.000 | FVE=0.7188 L0=80 dead=0.000(0) a=0.0716 b=4.171(exp=64.8)
+    [adaptive_l2_unnormed/L18] loss=2243.8 recon=2243.8 auxk=0.603 | FVE=0.6077 L0=80 dead=0.945(61901) a=0.5605 ||w||=1.205±0.906
+
+  --- step 16500/24414 (33.8M tok, 4.5k tok/s, ETA 1.00h) ---
+    [adaptive_l2/L18] loss=1597.2 recon=1597.2 auxk=0.000 | FVE=0.7190 L0=80 dead=0.000(0) a=0.0724 b=4.169(exp=64.7)
+    [adaptive_l2_unnormed/L18] loss=2212.8 recon=2212.8 auxk=0.601 | FVE=0.6107 L0=80 dead=0.945(61899) a=0.5645 ||w||=1.206±0.907
+
+  --- step 17000/24414 (34.8M tok, 4.5k tok/s, ETA 0.94h) ---
+    [adaptive_l2/L18] loss=1575.5 recon=1575.5 auxk=0.000 | FVE=0.7193 L0=80 dead=0.000(0) a=0.0733 b=4.168(exp=64.6)
+    [adaptive_l2_unnormed/L18] loss=2172.5 recon=2172.5 auxk=0.597 | FVE=0.6129 L0=80 dead=0.944(61896) a=0.5682 ||w||=1.207±0.908
+
+  --- step 17500/24414 (35.8M tok, 4.5k tok/s, ETA 0.88h) ---
+    [adaptive_l2/L18] loss=1567.4 recon=1567.4 auxk=0.000 | FVE=0.7249 L0=80 dead=0.000(0) a=0.0746 b=4.167(exp=64.5)
+    [adaptive_l2_unnormed/L18] loss=2167.6 recon=2167.6 auxk=0.597 | FVE=0.6195 L0=80 dead=0.944(61893) a=0.5719 ||w||=1.208±0.909
+
+  --- step 18000/24414 (36.9M tok, 4.5k tok/s, ETA 0.82h) ---
+    [adaptive_l2/L18] loss=1562.2 recon=1562.2 auxk=0.000 | FVE=0.7264 L0=80 dead=0.000(0) a=0.0750 b=4.165(exp=64.4)
+    [adaptive_l2_unnormed/L18] loss=2164.5 recon=2164.4 auxk=0.592 | FVE=0.6209 L0=80 dead=0.945(61911) a=0.5749 ||w||=1.209±0.910
+
+  --- step 18500/24414 (37.9M tok, 4.5k tok/s, ETA 0.75h) ---
+    [adaptive_l2/L18] loss=1583.3 recon=1583.3 auxk=0.000 | FVE=0.7244 L0=80 dead=0.000(0) a=0.0761 b=4.164(exp=64.4)
+    [adaptive_l2_unnormed/L18] loss=2192.7 recon=2192.7 auxk=0.586 | FVE=0.6183 L0=80 dead=0.945(61917) a=0.5781 ||w||=1.210±0.911
+
+  --- step 19000/24414 (38.9M tok, 4.5k tok/s, ETA 0.69h) ---
+    [adaptive_l2/L18] loss=1576.7 recon=1576.7 auxk=0.000 | FVE=0.7253 L0=80 dead=0.000(0) a=0.0769 b=4.163(exp=64.3)
+    [adaptive_l2_unnormed/L18] loss=2181.3 recon=2181.3 auxk=0.583 | FVE=0.6199 L0=80 dead=0.945(61940) a=0.5811 ||w||=1.211±0.911
+
+  --- step 19500/24414 (39.9M tok, 4.4k tok/s, ETA 0.63h) ---
+    [adaptive_l2/L18] loss=1543.7 recon=1543.7 auxk=0.000 | FVE=0.7297 L0=80 dead=0.000(0) a=0.0775 b=4.161(exp=64.2)
+    [adaptive_l2_unnormed/L18] loss=2140.3 recon=2140.3 auxk=0.583 | FVE=0.6252 L0=80 dead=0.944(61867) a=0.5838 ||w||=1.212±0.912
+    [adaptive_l2/L18] Checkpoint at step 19531
+    [adaptive_l2_unnormed/L18] Checkpoint at step 19531
+
+  --- step 20000/24414 (41.0M tok, 4.4k tok/s, ETA 0.57h) ---
+    [adaptive_l2/L18] loss=1533.2 recon=1533.2 auxk=0.000 | FVE=0.7300 L0=80 dead=0.000(0) a=0.0784 b=4.160(exp=64.1)
+    [adaptive_l2_unnormed/L18] loss=2114.3 recon=2114.3 auxk=0.581 | FVE=0.6277 L0=80 dead=0.944(61868) a=0.5863 ||w||=1.212±0.913
+
+  --- step 20500/24414 (42.0M tok, 4.4k tok/s, ETA 0.50h) ---
+    [adaptive_l2/L18] loss=1545.7 recon=1545.7 auxk=0.000 | FVE=0.7322 L0=80 dead=0.000(0) a=0.0791 b=4.159(exp=64.0)
+    [adaptive_l2_unnormed/L18] loss=2131.8 recon=2131.8 auxk=0.579 | FVE=0.6307 L0=80 dead=0.944(61863) a=0.5886 ||w||=1.213±0.913
+
+  --- step 21000/24414 (43.0M tok, 4.4k tok/s, ETA 0.44h) ---
+    [adaptive_l2/L18] loss=1552.0 recon=1552.0 auxk=0.000 | FVE=0.7295 L0=80 dead=0.000(0) a=0.0797 b=4.158(exp=63.9)
+    [adaptive_l2_unnormed/L18] loss=2138.3 recon=2138.3 auxk=0.576 | FVE=0.6273 L0=80 dead=0.944(61868) a=0.5903 ||w||=1.213±0.913
+
+  --- step 21500/24414 (44.0M tok, 4.4k tok/s, ETA 0.37h) ---
+    [adaptive_l2/L18] loss=1538.6 recon=1538.6 auxk=0.000 | FVE=0.7291 L0=80 dead=0.000(0) a=0.0801 b=4.156(exp=63.8)
+    [adaptive_l2_unnormed/L18] loss=2109.0 recon=2108.9 auxk=0.575 | FVE=0.6287 L0=80 dead=0.943(61815) a=0.5919 ||w||=1.214±0.913
+
+  --- step 22000/24414 (45.1M tok, 4.4k tok/s, ETA 0.31h) ---
+    [adaptive_l2/L18] loss=1530.6 recon=1530.6 auxk=0.000 | FVE=0.7338 L0=80 dead=0.000(0) a=0.0805 b=4.155(exp=63.8)
+    [adaptive_l2_unnormed/L18] loss=2119.8 recon=2119.8 auxk=0.573 | FVE=0.6314 L0=80 dead=0.943(61799) a=0.5929 ||w||=1.214±0.914
+
+  --- step 22500/24414 (46.1M tok, 4.4k tok/s, ETA 0.25h) ---
+    [adaptive_l2/L18] loss=1543.5 recon=1543.5 auxk=0.000 | FVE=0.7318 L0=80 dead=0.000(0) a=0.0808 b=4.155(exp=63.7)
+    [adaptive_l2_unnormed/L18] loss=2127.4 recon=2127.3 auxk=0.572 | FVE=0.6303 L0=80 dead=0.943(61805) a=0.5939 ||w||=1.215±0.914
+
+  --- step 23000/24414 (47.1M tok, 4.4k tok/s, ETA 0.18h) ---
+    [adaptive_l2/L18] loss=1516.8 recon=1516.8 auxk=0.000 | FVE=0.7334 L0=80 dead=0.000(0) a=0.0809 b=4.154(exp=63.7)
+    [adaptive_l2_unnormed/L18] loss=2082.5 recon=2082.5 auxk=0.572 | FVE=0.6340 L0=80 dead=0.942(61766) a=0.5945 ||w||=1.215±0.914
+
+  --- step 23500/24414 (48.1M tok, 4.4k tok/s, ETA 0.12h) ---
+    [adaptive_l2/L18] loss=1519.0 recon=1519.0 auxk=0.000 | FVE=0.7310 L0=80 dead=0.000(0) a=0.0807 b=4.153(exp=63.6)
+    [adaptive_l2_unnormed/L18] loss=2084.8 recon=2084.7 auxk=0.570 | FVE=0.6308 L0=80 dead=0.943(61774) a=0.5947 ||w||=1.215±0.914
+
+  --- step 24000/24414 (49.2M tok, 4.4k tok/s, ETA 0.05h) ---
+    [adaptive_l2/L18] loss=1530.0 recon=1530.0 auxk=0.000 | FVE=0.7307 L0=80 dead=0.000(0) a=0.0808 b=4.153(exp=63.6)
+    [adaptive_l2_unnormed/L18] loss=2082.2 recon=2082.2 auxk=0.571 | FVE=0.6335 L0=80 dead=0.942(61766) a=0.5950 ||w||=1.215±0.914
+    [adaptive_l2/L18] Checkpoint at step 24414
+    [adaptive_l2_unnormed/L18] Checkpoint at step 24414
+
+  --- step 24414/24414 (50.0M tok, 4.4k tok/s, ETA 0.00h) ---
+    [adaptive_l2/L18] loss=1560.4 recon=1560.4 auxk=0.000 | FVE=0.7278 L0=80 dead=0.000(0) a=0.0808 b=4.153(exp=63.6)
+    [adaptive_l2_unnormed/L18] loss=2128.1 recon=2128.1 auxk=0.569 | FVE=0.6288 L0=80 dead=0.943(61801) a=0.5951 ||w||=1.215±0.914
+    [adaptive_l2/L18] Done in 3.2h (11356s)
+    [adaptive_l2/L18] Saved /data/checkpoints/exp45/adaptive_l2_L18_final.pt
+    [adaptive_l2_unnormed/L18] Done in 3.2h (11358s)
+    [adaptive_l2_unnormed/L18] Saved /data/checkpoints/exp45/adaptive_l2_unnormed_L18_final.pt
+
+  Group done in 3.16h
+    [adaptive_l2/L18] FVE=0.7234 dead=0.000 alive=65,534 L0=80.1
+    [adaptive_l2_unnormed/L18] FVE=0.6234 dead=0.946 alive=3,553 L0=80.0
+    [ablation] Collecting 200 texts + clean forwards (L18)...
+    [ablation] Collected 200 texts
+    [adaptive_l2/L18] Ablation (100 features, 200 samples)...
+    [adaptive_l2/L18] cos>inner: 51/100 (cos_corr=0.284, inner_corr=0.285)
+    [adaptive_l2_unnormed/L18] Ablation (100 features, 200 samples)...
+    [adaptive_l2_unnormed/L18] cos>inner: 36/100 (cos_corr=0.289, inner_corr=0.299)
+
+  === L18 SUMMARY ===
+  Variant                   |    FVE |  Dead% |  Alive |  cos>inn |  scale_a |   scale/norm
+  adaptive_l2               | 0.7234 |   0.0% |  65534 |   51/100 |   0.0808 |   b_exp=63.6
+  adaptive_l2_unnormed      | 0.6234 |  94.6% |   3553 |   36/100 |   0.5951 |  ||w||=1.215
+
+######################################################################
+  LAYER 27 (mean_norm=404.7)
+######################################################################
+  adaptive_l2: 536,940,546 params (scale_b init=4.1589, exp=64.0)
+  adaptive_l2_unnormed: 536,940,545 params (no scale_b — encoder norms absorb scale)
+
+======================================================================
+  Parallel group of 2 SAEs at L27, 24414 steps
+  Variants: ['adaptive_l2', 'adaptive_l2_unnormed']
+======================================================================
+    [adaptive_l2/L27] b_dec init (norm=275.1)
+    [adaptive_l2_unnormed/L27] b_dec init (norm=275.1)
+
+  --- step 500/24414 (1.0M tok, 5.2k tok/s, ETA 2.62h) ---
+    [adaptive_l2/L27] loss=75510.5 recon=75510.5 auxk=0.000 | FVE=0.1623 L0=80 dead=0.000(0) a=0.0062 b=4.165(exp=64.4)
+    [adaptive_l2_unnormed/L27] loss=89415.3 recon=89415.3 auxk=0.000 | FVE=0.0069 L0=80 dead=0.000(0) a=0.0062 ||w||=1.016±0.018
+
+  --- step 1000/24414 (2.0M tok, 5.2k tok/s, ETA 2.54h) ---
+    [adaptive_l2/L27] loss=55023.1 recon=55023.1 auxk=0.000 | FVE=0.3956 L0=80 dead=0.000(0) a=0.0250 b=4.184(exp=65.6)
+    [adaptive_l2_unnormed/L27] loss=88163.1 recon=88163.1 auxk=0.000 | FVE=0.0329 L0=80 dead=0.000(0) a=0.0250 ||w||=1.042±0.114
+
+  --- step 1500/24414 (3.1M tok, 5.2k tok/s, ETA 2.49h) ---
+    [adaptive_l2/L27] loss=43108.5 recon=43108.5 auxk=0.000 | FVE=0.5230 L0=80 dead=0.000(0) a=0.0499 b=4.208(exp=67.2)
+    [adaptive_l2_unnormed/L27] loss=84920.0 recon=84920.0 auxk=0.000 | FVE=0.0622 L0=80 dead=0.000(0) a=0.0500 ||w||=1.074±0.244
+
+  --- step 2000/24414 (4.1M tok, 5.2k tok/s, ETA 2.44h) ---
+    [adaptive_l2/L27] loss=37506.5 recon=37506.5 auxk=0.000 | FVE=0.5885 L0=80 dead=0.000(0) a=0.0748 b=4.233(exp=68.9)
+    [adaptive_l2_unnormed/L27] loss=83137.6 recon=83137.6 auxk=0.000 | FVE=0.0899 L0=80 dead=0.000(0) a=0.0750 ||w||=1.099±0.357
+
+  --- step 2500/24414 (5.1M tok, 5.2k tok/s, ETA 2.39h) ---
+    [adaptive_l2/L27] loss=34125.0 recon=34125.0 auxk=0.000 | FVE=0.6252 L0=80 dead=0.000(0) a=0.0997 b=4.258(exp=70.6)
+    [adaptive_l2_unnormed/L27] loss=80740.9 recon=80740.9 auxk=0.000 | FVE=0.1149 L0=80 dead=0.000(0) a=0.1000 ||w||=1.121±0.458
+
+  --- step 3000/24414 (6.1M tok, 5.2k tok/s, ETA 2.34h) ---
+    [adaptive_l2/L27] loss=30600.2 recon=30600.2 auxk=0.000 | FVE=0.6617 L0=80 dead=0.000(0) a=0.1243 b=4.282(exp=72.4)
+    [adaptive_l2_unnormed/L27] loss=77744.2 recon=77744.2 auxk=0.000 | FVE=0.1416 L0=80 dead=0.000(0) a=0.1250 ||w||=1.140±0.551
+
+  --- step 3500/24414 (7.2M tok, 5.2k tok/s, ETA 2.28h) ---
+    [adaptive_l2/L27] loss=28270.9 recon=28270.9 auxk=0.000 | FVE=0.6807 L0=80 dead=0.000(0) a=0.1467 b=4.304(exp=74.0)
+    [adaptive_l2_unnormed/L27] loss=74280.9 recon=74280.9 auxk=0.000 | FVE=0.1620 L0=80 dead=0.000(0) a=0.1500 ||w||=1.160±0.640
+
+  --- step 4000/24414 (8.2M tok, 5.2k tok/s, ETA 2.23h) ---
+    [adaptive_l2/L27] loss=27333.4 recon=27333.4 auxk=0.000 | FVE=0.6987 L0=80 dead=0.000(0) a=0.1634 b=4.319(exp=75.1)
+    [adaptive_l2_unnormed/L27] loss=74077.4 recon=74077.4 auxk=0.000 | FVE=0.1842 L0=80 dead=0.000(0) a=0.1750 ||w||=1.179±0.729
+
+  --- step 4500/24414 (9.2M tok, 5.2k tok/s, ETA 2.18h) ---
+    [adaptive_l2/L27] loss=26949.9 recon=26949.9 auxk=0.000 | FVE=0.7073 L0=80 dead=0.000(0) a=0.1728 b=4.326(exp=75.6)
+    [adaptive_l2_unnormed/L27] loss=73385.2 recon=73385.2 auxk=0.000 | FVE=0.2037 L0=80 dead=0.000(0) a=0.2000 ||w||=1.198±0.817
+    [adaptive_l2/L27] Checkpoint at step 4882
+    [adaptive_l2_unnormed/L27] Checkpoint at step 4882
+
+  --- step 5000/24414 (10.2M tok, 5.2k tok/s, ETA 2.13h) ---
+    [adaptive_l2/L27] loss=25554.1 recon=25554.1 auxk=0.000 | FVE=0.7144 L0=80 dead=0.000(0) a=0.1794 b=4.330(exp=75.9)
+    [adaptive_l2_unnormed/L27] loss=68479.9 recon=68479.9 auxk=0.000 | FVE=0.2349 L0=80 dead=0.000(0) a=0.2250 ||w||=1.217±0.904
+
+  --- step 5500/24414 (11.3M tok, 5.1k tok/s, ETA 2.10h) ---
+    [adaptive_l2/L27] loss=25267.6 recon=25267.6 auxk=0.000 | FVE=0.7216 L0=80 dead=0.000(0) a=0.1847 b=4.332(exp=76.1)
+    [adaptive_l2_unnormed/L27] loss=67976.1 recon=67976.0 auxk=0.930 | FVE=0.2513 L0=80 dead=0.901(59049) a=0.2500 ||w||=1.236±0.987
+
+  --- step 6000/24414 (12.3M tok, 5.0k tok/s, ETA 2.08h) ---
+    [adaptive_l2/L27] loss=24657.5 recon=24657.5 auxk=0.000 | FVE=0.7256 L0=80 dead=0.000(0) a=0.1889 b=4.333(exp=76.2)
+    [adaptive_l2_unnormed/L27] loss=64753.7 recon=64753.7 auxk=0.920 | FVE=0.2796 L0=80 dead=0.917(60073) a=0.2750 ||w||=1.254±1.066
+
+  --- step 6500/24414 (13.3M tok, 5.0k tok/s, ETA 2.05h) ---
+    [adaptive_l2/L27] loss=24420.2 recon=24420.2 auxk=0.000 | FVE=0.7307 L0=80 dead=0.000(0) a=0.1935 b=4.334(exp=76.2)
+    [adaptive_l2_unnormed/L27] loss=62825.3 recon=62825.3 auxk=0.918 | FVE=0.3075 L0=80 dead=0.922(60403) a=0.3000 ||w||=1.271±1.140
+
+  --- step 7000/24414 (14.3M tok, 4.9k tok/s, ETA 2.02h) ---
+    [adaptive_l2/L27] loss=24485.7 recon=24485.7 auxk=0.000 | FVE=0.7328 L0=80 dead=0.000(0) a=0.1973 b=4.334(exp=76.3)
+    [adaptive_l2_unnormed/L27] loss=61272.5 recon=61272.5 auxk=0.939 | FVE=0.3315 L0=80 dead=0.928(60794) a=0.3249 ||w||=1.286±1.205
+
+  --- step 7500/24414 (15.4M tok, 4.8k tok/s, ETA 1.98h) ---
+    [adaptive_l2/L27] loss=23355.1 recon=23355.1 auxk=0.000 | FVE=0.7451 L0=80 dead=0.000(0) a=0.2005 b=4.334(exp=76.2)
+    [adaptive_l2_unnormed/L27] loss=58647.2 recon=58647.2 auxk=1.000 | FVE=0.3599 L0=80 dead=0.932(61050) a=0.3499 ||w||=1.299±1.263
+
+  --- step 8000/24414 (16.4M tok, 4.8k tok/s, ETA 1.94h) ---
+    [adaptive_l2/L27] loss=23228.2 recon=23228.2 auxk=0.000 | FVE=0.7443 L0=80 dead=0.000(0) a=0.2042 b=4.334(exp=76.3)
+    [adaptive_l2_unnormed/L27] loss=55750.6 recon=55750.5 auxk=1.051 | FVE=0.3863 L0=80 dead=0.934(61229) a=0.3749 ||w||=1.310±1.311
+
+  --- step 8500/24414 (17.4M tok, 4.8k tok/s, ETA 1.90h) ---
+    [adaptive_l2/L27] loss=23212.1 recon=23212.1 auxk=0.000 | FVE=0.7464 L0=80 dead=0.000(0) a=0.2077 b=4.335(exp=76.3)
+    [adaptive_l2_unnormed/L27] loss=54323.0 recon=54323.0 auxk=1.206 | FVE=0.4065 L0=80 dead=0.936(61362) a=0.3997 ||w||=1.318±1.348
+
+  --- step 9000/24414 (18.4M tok, 4.7k tok/s, ETA 1.85h) ---
+    [adaptive_l2/L27] loss=22766.6 recon=22766.6 auxk=0.000 | FVE=0.7485 L0=80 dead=0.000(0) a=0.2109 b=4.335(exp=76.3)
+    [adaptive_l2_unnormed/L27] loss=51183.8 recon=51183.7 auxk=1.389 | FVE=0.4345 L0=80 dead=0.938(61471) a=0.4243 ||w||=1.324±1.375
+
+  --- step 9500/24414 (19.5M tok, 4.7k tok/s, ETA 1.80h) ---
+    [adaptive_l2/L27] loss=22568.3 recon=22568.3 auxk=0.000 | FVE=0.7525 L0=80 dead=0.000(0) a=0.2141 b=4.335(exp=76.3)
+    [adaptive_l2_unnormed/L27] loss=49745.5 recon=49745.4 auxk=1.530 | FVE=0.4544 L0=80 dead=0.939(61557) a=0.4477 ||w||=1.329±1.393
+    [adaptive_l2/L27] Checkpoint at step 9765
+    [adaptive_l2_unnormed/L27] Checkpoint at step 9765
+
+  --- step 10000/24414 (20.5M tok, 4.7k tok/s, ETA 1.75h) ---
+    [adaptive_l2/L27] loss=22368.5 recon=22368.5 auxk=0.000 | FVE=0.7562 L0=80 dead=0.000(0) a=0.2173 b=4.335(exp=76.3)
+    [adaptive_l2_unnormed/L27] loss=48007.5 recon=48007.5 auxk=1.573 | FVE=0.4767 L0=80 dead=0.940(61585) a=0.4673 ||w||=1.332±1.405
+
+  --- step 10500/24414 (21.5M tok, 4.7k tok/s, ETA 1.70h) ---
+    [adaptive_l2/L27] loss=22222.3 recon=22222.3 auxk=0.000 | FVE=0.7572 L0=80 dead=0.000(0) a=0.2207 b=4.335(exp=76.4)
+    [adaptive_l2_unnormed/L27] loss=46901.7 recon=46901.7 auxk=1.431 | FVE=0.4876 L0=80 dead=0.938(61485) a=0.4831 ||w||=1.335±1.414
+
+  --- step 11000/24414 (22.5M tok, 4.6k tok/s, ETA 1.65h) ---
+    [adaptive_l2/L27] loss=21994.8 recon=21994.8 auxk=0.000 | FVE=0.7583 L0=80 dead=0.000(0) a=0.2239 b=4.336(exp=76.4)
+    [adaptive_l2_unnormed/L27] loss=44864.7 recon=44864.7 auxk=1.421 | FVE=0.5070 L0=80 dead=0.938(61442) a=0.4955 ||w||=1.338±1.422
+
+  --- step 11500/24414 (23.6M tok, 4.6k tok/s, ETA 1.59h) ---
+    [adaptive_l2/L27] loss=21286.3 recon=21286.3 auxk=0.000 | FVE=0.7635 L0=80 dead=0.000(0) a=0.2264 b=4.335(exp=76.3)
+    [adaptive_l2_unnormed/L27] loss=42977.9 recon=42977.8 auxk=1.307 | FVE=0.5225 L0=80 dead=0.937(61391) a=0.5060 ||w||=1.340±1.429
+
+  --- step 12000/24414 (24.6M tok, 4.6k tok/s, ETA 1.54h) ---
+    [adaptive_l2/L27] loss=21373.8 recon=21373.8 auxk=0.000 | FVE=0.7666 L0=80 dead=0.000(0) a=0.2292 b=4.335(exp=76.3)
+    [adaptive_l2_unnormed/L27] loss=43119.7 recon=43119.7 auxk=1.151 | FVE=0.5291 L0=80 dead=0.936(61342) a=0.5156 ||w||=1.342±1.436
+
+  --- step 12500/24414 (25.6M tok, 4.6k tok/s, ETA 1.48h) ---
+    [adaptive_l2/L27] loss=22158.4 recon=22158.4 auxk=0.000 | FVE=0.7557 L0=80 dead=0.000(0) a=0.2318 b=4.334(exp=76.3)
+    [adaptive_l2_unnormed/L27] loss=42284.1 recon=42284.1 auxk=1.092 | FVE=0.5338 L0=80 dead=0.935(61289) a=0.5247 ||w||=1.345±1.443
+
+  --- step 13000/24414 (26.6M tok, 4.6k tok/s, ETA 1.42h) ---
+    [adaptive_l2/L27] loss=21834.2 recon=21834.2 auxk=0.000 | FVE=0.7601 L0=80 dead=0.000(0) a=0.2336 b=4.333(exp=76.2)
+    [adaptive_l2_unnormed/L27] loss=41520.7 recon=41520.7 auxk=0.997 | FVE=0.5439 L0=80 dead=0.934(61243) a=0.5321 ||w||=1.347±1.449
+
+  --- step 13500/24414 (27.6M tok, 4.6k tok/s, ETA 1.36h) ---
+    [adaptive_l2/L27] loss=21513.5 recon=21513.5 auxk=0.000 | FVE=0.7631 L0=80 dead=0.000(0) a=0.2358 b=4.333(exp=76.1)
+    [adaptive_l2_unnormed/L27] loss=40848.9 recon=40848.9 auxk=0.962 | FVE=0.5501 L0=80 dead=0.934(61191) a=0.5398 ||w||=1.350±1.455
+
+  --- step 14000/24414 (28.7M tok, 4.5k tok/s, ETA 1.31h) ---
+    [adaptive_l2/L27] loss=21684.1 recon=21684.1 auxk=0.000 | FVE=0.7646 L0=80 dead=0.000(0) a=0.2377 b=4.332(exp=76.1)
+    [adaptive_l2_unnormed/L27] loss=40659.3 recon=40659.3 auxk=0.904 | FVE=0.5585 L0=80 dead=0.933(61150) a=0.5472 ||w||=1.352±1.461
+
+  --- step 14500/24414 (29.7M tok, 4.5k tok/s, ETA 1.25h) ---
+    [adaptive_l2/L27] loss=21089.5 recon=21089.5 auxk=0.000 | FVE=0.7657 L0=80 dead=0.000(0) a=0.2395 b=4.330(exp=76.0)
+    [adaptive_l2_unnormed/L27] loss=38963.2 recon=38963.2 auxk=0.896 | FVE=0.5672 L0=80 dead=0.933(61121) a=0.5544 ||w||=1.354±1.466
+    [adaptive_l2/L27] Checkpoint at step 14648
+    [adaptive_l2_unnormed/L27] Checkpoint at step 14648
+
+  --- step 15000/24414 (30.7M tok, 4.5k tok/s, ETA 1.19h) ---
+    [adaptive_l2/L27] loss=21120.7 recon=21120.7 auxk=0.000 | FVE=0.7675 L0=80 dead=0.000(0) a=0.2413 b=4.329(exp=75.9)
+    [adaptive_l2_unnormed/L27] loss=38642.6 recon=38642.5 auxk=0.860 | FVE=0.5746 L0=80 dead=0.932(61084) a=0.5615 ||w||=1.357±1.471
+
+  --- step 15500/24414 (31.7M tok, 4.5k tok/s, ETA 1.13h) ---
+    [adaptive_l2/L27] loss=20802.1 recon=20802.1 auxk=0.000 | FVE=0.7678 L0=80 dead=0.000(0) a=0.2428 b=4.328(exp=75.8)
+    [adaptive_l2_unnormed/L27] loss=37701.6 recon=37701.6 auxk=0.846 | FVE=0.5792 L0=80 dead=0.931(61038) a=0.5675 ||w||=1.359±1.475
+
+  --- step 16000/24414 (32.8M tok, 4.5k tok/s, ETA 1.06h) ---
+    [adaptive_l2/L27] loss=20856.8 recon=20856.8 auxk=0.000 | FVE=0.7696 L0=80 dead=0.000(0) a=0.2447 b=4.326(exp=75.7)
+    [adaptive_l2_unnormed/L27] loss=37611.0 recon=37610.9 auxk=0.826 | FVE=0.5846 L0=80 dead=0.931(60997) a=0.5737 ||w||=1.361±1.479
+
+  --- step 16500/24414 (33.8M tok, 4.5k tok/s, ETA 1.00h) ---
+    [adaptive_l2/L27] loss=20565.3 recon=20565.3 auxk=0.000 | FVE=0.7708 L0=80 dead=0.000(0) a=0.2456 b=4.324(exp=75.5)
+    [adaptive_l2_unnormed/L27] loss=36710.3 recon=36710.3 auxk=0.810 | FVE=0.5910 L0=80 dead=0.930(60956) a=0.5790 ||w||=1.363±1.483
+
+  --- step 17000/24414 (34.8M tok, 4.5k tok/s, ETA 0.94h) ---
+    [adaptive_l2/L27] loss=20362.0 recon=20362.0 auxk=0.000 | FVE=0.7746 L0=80 dead=0.000(0) a=0.2469 b=4.323(exp=75.4)
+    [adaptive_l2_unnormed/L27] loss=36344.8 recon=36344.8 auxk=0.803 | FVE=0.5977 L0=80 dead=0.930(60920) a=0.5843 ||w||=1.365±1.486
+
+  --- step 17500/24414 (35.8M tok, 4.5k tok/s, ETA 0.88h) ---
+    [adaptive_l2/L27] loss=20712.2 recon=20712.2 auxk=0.000 | FVE=0.7716 L0=80 dead=0.000(0) a=0.2485 b=4.321(exp=75.3)
+    [adaptive_l2_unnormed/L27] loss=36582.8 recon=36582.7 auxk=0.793 | FVE=0.5966 L0=80 dead=0.929(60889) a=0.5894 ||w||=1.366±1.489
+
+  --- step 18000/24414 (36.9M tok, 4.5k tok/s, ETA 0.82h) ---
+    [adaptive_l2/L27] loss=20066.2 recon=20066.2 auxk=0.000 | FVE=0.7762 L0=80 dead=0.000(0) a=0.2496 b=4.319(exp=75.1)
+    [adaptive_l2_unnormed/L27] loss=35405.3 recon=35405.3 auxk=0.794 | FVE=0.6052 L0=80 dead=0.928(60838) a=0.5941 ||w||=1.368±1.491
+
+  --- step 18500/24414 (37.9M tok, 4.5k tok/s, ETA 0.75h) ---
+    [adaptive_l2/L27] loss=20582.0 recon=20582.0 auxk=0.000 | FVE=0.7739 L0=80 dead=0.000(0) a=0.2508 b=4.317(exp=75.0)
+    [adaptive_l2_unnormed/L27] loss=35818.4 recon=35818.4 auxk=0.781 | FVE=0.6065 L0=80 dead=0.928(60800) a=0.5982 ||w||=1.370±1.493
+
+  --- step 19000/24414 (38.9M tok, 4.5k tok/s, ETA 0.69h) ---
+    [adaptive_l2/L27] loss=19850.8 recon=19850.8 auxk=0.000 | FVE=0.7787 L0=80 dead=0.000(0) a=0.2516 b=4.315(exp=74.8)
+    [adaptive_l2_unnormed/L27] loss=34665.8 recon=34665.7 auxk=0.782 | FVE=0.6135 L0=80 dead=0.927(60776) a=0.6021 ||w||=1.371±1.495
+
+  --- step 19500/24414 (39.9M tok, 4.4k tok/s, ETA 0.63h) ---
+    [adaptive_l2/L27] loss=19950.7 recon=19950.7 auxk=0.000 | FVE=0.7789 L0=80 dead=0.000(0) a=0.2527 b=4.313(exp=74.7)
+    [adaptive_l2_unnormed/L27] loss=34814.6 recon=34814.6 auxk=0.776 | FVE=0.6143 L0=80 dead=0.927(60742) a=0.6059 ||w||=1.373±1.496
+    [adaptive_l2/L27] Checkpoint at step 19531
+    [adaptive_l2_unnormed/L27] Checkpoint at step 19531
+
+  --- step 20000/24414 (41.0M tok, 4.4k tok/s, ETA 0.57h) ---
+    [adaptive_l2/L27] loss=19969.3 recon=19969.3 auxk=0.000 | FVE=0.7781 L0=80 dead=0.000(0) a=0.2538 b=4.311(exp=74.5)
+    [adaptive_l2_unnormed/L27] loss=34422.6 recon=34422.6 auxk=0.777 | FVE=0.6174 L0=80 dead=0.926(60715) a=0.6093 ||w||=1.374±1.498
+
+  --- step 20500/24414 (42.0M tok, 4.4k tok/s, ETA 0.50h) ---
+    [adaptive_l2/L27] loss=19834.9 recon=19834.9 auxk=0.000 | FVE=0.7796 L0=80 dead=0.000(0) a=0.2544 b=4.309(exp=74.4)
+    [adaptive_l2_unnormed/L27] loss=34331.4 recon=34331.3 auxk=0.770 | FVE=0.6185 L0=80 dead=0.926(60689) a=0.6121 ||w||=1.375±1.498
+
+  --- step 21000/24414 (43.0M tok, 4.4k tok/s, ETA 0.44h) ---
+    [adaptive_l2/L27] loss=20367.8 recon=20367.8 auxk=0.000 | FVE=0.7773 L0=80 dead=0.000(0) a=0.2554 b=4.308(exp=74.3)
+    [adaptive_l2_unnormed/L27] loss=35117.0 recon=35117.0 auxk=0.765 | FVE=0.6160 L0=80 dead=0.926(60669) a=0.6145 ||w||=1.376±1.499
+
+  --- step 21500/24414 (44.0M tok, 4.4k tok/s, ETA 0.37h) ---
+    [adaptive_l2/L27] loss=20364.9 recon=20364.9 auxk=0.000 | FVE=0.7787 L0=80 dead=0.000(0) a=0.2558 b=4.306(exp=74.1)
+    [adaptive_l2_unnormed/L27] loss=35177.1 recon=35177.0 auxk=0.761 | FVE=0.6177 L0=80 dead=0.925(60647) a=0.6163 ||w||=1.377±1.499
+
+  --- step 22000/24414 (45.1M tok, 4.4k tok/s, ETA 0.31h) ---
+    [adaptive_l2/L27] loss=19618.5 recon=19618.5 auxk=0.000 | FVE=0.7823 L0=80 dead=0.000(0) a=0.2563 b=4.305(exp=74.0)
+    [adaptive_l2_unnormed/L27] loss=33664.6 recon=33664.6 auxk=0.771 | FVE=0.6265 L0=80 dead=0.925(60631) a=0.6176 ||w||=1.378±1.500
+
+  --- step 22500/24414 (46.1M tok, 4.4k tok/s, ETA 0.25h) ---
+    [adaptive_l2/L27] loss=19906.8 recon=19906.8 auxk=0.000 | FVE=0.7812 L0=80 dead=0.000(0) a=0.2567 b=4.304(exp=74.0)
+    [adaptive_l2_unnormed/L27] loss=34357.7 recon=34357.7 auxk=0.764 | FVE=0.6224 L0=80 dead=0.925(60617) a=0.6189 ||w||=1.378±1.500
+
+  --- step 23000/24414 (47.1M tok, 4.4k tok/s, ETA 0.18h) ---
+    [adaptive_l2/L27] loss=19376.1 recon=19376.1 auxk=0.000 | FVE=0.7842 L0=80 dead=0.000(0) a=0.2567 b=4.302(exp=73.9)
+    [adaptive_l2_unnormed/L27] loss=33216.7 recon=33216.7 auxk=0.771 | FVE=0.6301 L0=80 dead=0.925(60606) a=0.6195 ||w||=1.379±1.500
+
+  --- step 23500/24414 (48.1M tok, 4.4k tok/s, ETA 0.12h) ---
+    [adaptive_l2/L27] loss=19751.5 recon=19751.5 auxk=0.000 | FVE=0.7809 L0=80 dead=0.000(0) a=0.2571 b=4.302(exp=73.9)
+    [adaptive_l2_unnormed/L27] loss=33699.0 recon=33698.9 auxk=0.766 | FVE=0.6263 L0=80 dead=0.925(60601) a=0.6202 ||w||=1.379±1.500
+
+  --- step 24000/24414 (49.2M tok, 4.4k tok/s, ETA 0.05h) ---
+    [adaptive_l2/L27] loss=19631.2 recon=19631.2 auxk=0.000 | FVE=0.7785 L0=80 dead=0.000(0) a=0.2571 b=4.302(exp=73.8)
+    [adaptive_l2_unnormed/L27] loss=33073.5 recon=33073.5 auxk=0.769 | FVE=0.6268 L0=80 dead=0.925(60598) a=0.6205 ||w||=1.379±1.500
+    [adaptive_l2/L27] Checkpoint at step 24414
+    [adaptive_l2_unnormed/L27] Checkpoint at step 24414
+
+  --- step 24414/24414 (50.0M tok, 4.4k tok/s, ETA 0.00h) ---
+    [adaptive_l2/L27] loss=20096.0 recon=20096.0 auxk=0.000 | FVE=0.7782 L0=80 dead=0.000(0) a=0.2570 b=4.301(exp=73.8)
+    [adaptive_l2_unnormed/L27] loss=34067.7 recon=34067.7 auxk=0.764 | FVE=0.6240 L0=80 dead=0.925(60595) a=0.6204 ||w||=1.379±1.500
+    [adaptive_l2/L27] Done in 3.2h (11362s)
+    [adaptive_l2/L27] Saved /data/checkpoints/exp45/adaptive_l2_L27_final.pt
+    [adaptive_l2_unnormed/L27] Done in 3.2h (11364s)
+    [adaptive_l2_unnormed/L27] Saved /data/checkpoints/exp45/adaptive_l2_unnormed_L27_final.pt
+
+  Group done in 3.16h
+    [adaptive_l2/L27] FVE=0.7698 dead=0.000 alive=65,504 L0=80.1
+    [adaptive_l2_unnormed/L27] FVE=0.6137 dead=0.932 alive=4,462 L0=79.7
+    [ablation] Collecting 200 texts + clean forwards (L27)...
+    [ablation] Collected 200 texts
+    [adaptive_l2/L27] Ablation (100 features, 200 samples)...
+    [adaptive_l2/L27] cos>inner: 54/100 (cos_corr=0.382, inner_corr=0.376)
+    [adaptive_l2_unnormed/L27] Ablation (100 features, 200 samples)...
+    [adaptive_l2_unnormed/L27] cos>inner: 55/100 (cos_corr=0.361, inner_corr=0.352)
+
+  === L27 SUMMARY ===
+  Variant                   |    FVE |  Dead% |  Alive |  cos>inn |  scale_a |   scale/norm
+  adaptive_l2               | 0.7698 |   0.0% |  65504 |   54/100 |   0.2570 |   b_exp=73.8
+  adaptive_l2_unnormed      | 0.6137 |  93.2% |   4462 |   55/100 |   0.6204 |  ||w||=1.379
+
+======================================================================
+  EXP45 FINAL SUMMARY
+======================================================================
+
+  --- Layer 9 (norm=57.5) ---
+  adaptive_l2               | FVE=0.7857 dead=0.0% alive=65,536 | cos>inn=34/100 | a=0.0249 b_exp=53.4
+  adaptive_l2_unnormed      | FVE=0.6655 dead=90.8% alive=6,058 | cos>inn=27/100 | a=0.5886 ||w||=1.333±1.048 [0.998,6.804]
+
+  --- Layer 18 (norm=97.7) ---
+  adaptive_l2               | FVE=0.7234 dead=0.0% alive=65,534 | cos>inn=51/100 | a=0.0808 b_exp=63.6
+  adaptive_l2_unnormed      | FVE=0.6234 dead=94.6% alive=3,553 | cos>inn=36/100 | a=0.5951 ||w||=1.215±0.914 [1.004,8.532]
+
+  --- Layer 27 (norm=404.7) ---
+  adaptive_l2               | FVE=0.7698 dead=0.0% alive=65,504 | cos>inn=54/100 | a=0.2570 b_exp=73.8
+  adaptive_l2_unnormed      | FVE=0.6137 dead=93.2% alive=4,462 | cos>inn=55/100 | a=0.6204 ||w||=1.379±1.500 [1.004,11.856]
+
+  NORMED vs UNNORMED:
+    L9: FVE diff=-0.1202, dead diff=+90.8pp, alive ratio=0.09x -> normed
+    L18: FVE diff=-0.1001, dead diff=+94.6pp, alive ratio=0.05x -> normed
+    L27: FVE diff=-0.1561, dead diff=+93.1pp, alive ratio=0.07x -> normed
+
+Results: experiments/exp45_results.json
+Checkpoints: /data/checkpoints/exp45/
+Done!

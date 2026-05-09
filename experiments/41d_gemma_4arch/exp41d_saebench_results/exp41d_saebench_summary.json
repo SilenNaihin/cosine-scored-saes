@@ -1,0 +1,244 @@
+{
+  "runs": {
+    "exp41d_standard_L7": {
+      "elapsed_s": 371.23664450645447,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_adaptive_l2_L7": {
+      "elapsed_s": 86.31485652923584,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_l2_L7": {
+      "elapsed_s": 87.03109407424927,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_no_C_L7": {
+      "elapsed_s": 100.76082015037537,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_standard_L7_auxk": {
+      "elapsed_s": 84.4975004196167,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_adaptive_l2_L7_auxk": {
+      "elapsed_s": 85.46163177490234,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_l2_L7_auxk": {
+      "elapsed_s": 87.21370315551758,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_no_C_L7_auxk": {
+      "elapsed_s": 101.66317582130432,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_standard_L13": {
+      "elapsed_s": 455.4990005493164,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_adaptive_l2_L13": {
+      "elapsed_s": 98.59639930725098,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_l2_L13": {
+      "elapsed_s": 97.72785067558289,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_no_C_L13": {
+      "elapsed_s": 103.94750809669495,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_standard_L13_auxk": {
+      "elapsed_s": 88.74653816223145,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_adaptive_l2_L13_auxk": {
+      "elapsed_s": 90.92502689361572,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_l2_L13_auxk": {
+      "elapsed_s": 91.8276743888855,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_no_C_L13_auxk": {
+      "elapsed_s": 105.62335872650146,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_standard_L19": {
+      "elapsed_s": 558.0358383655548,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_adaptive_l2_L19": {
+      "elapsed_s": 100.14900255203247,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_l2_L19": {
+      "elapsed_s": 99.9087495803833,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_no_C_L19": {
+      "elapsed_s": 107.54812169075012,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_standard_L19_auxk": {
+      "elapsed_s": 96.99322748184204,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_adaptive_l2_L19_auxk": {
+      "elapsed_s": 98.16240882873535,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_l2_L19_auxk": {
+      "elapsed_s": 98.96602773666382,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_no_C_L19_auxk": {
+      "elapsed_s": 106.39127969741821,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_bd_L7": {
+      "elapsed_s": 98.50148940086365,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_bd_L7_auxk": {
+      "elapsed_s": 87.36390995979309,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_bd_L13": {
+      "elapsed_s": 96.99985480308533,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_bd_L13_auxk": {
+      "elapsed_s": 96.46271109580994,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_bd_L19": {
+      "elapsed_s": 107.28469467163086,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    },
+    "exp41d_perfeature_bd_L19_auxk": {
+      "elapsed_s": 102.98030591011047,
+      "evals": [
+        "core",
+        "sparse_probing"
+      ],
+      "status": "complete"
+    }
+  }
+}

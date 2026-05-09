@@ -1,0 +1,65 @@
+exp42c — 16k no_C+standard on Gemma L13, 50,000,000 tokens
+
+Loading model...
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/288 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/288 [00:00<00:32,  8.95it/s]
+Loading weights:  25%|██▍       | 71/288 [00:00<00:00, 394.11it/s]
+Loading weights:  44%|████▍     | 126/288 [00:00<00:00, 461.46it/s]
+Loading weights:  62%|██████▎   | 180/288 [00:00<00:00, 491.55it/s]
+Loading weights:  82%|████████▏ | 236/288 [00:00<00:00, 514.88it/s]
+Loading weights: 100%|██████████| 288/288 [00:00<00:00, 483.70it/s]
+  Collecting 400,000 tokens at L13 (skip=0)...
+    400,000 tokens, 1808 docs in 27.6s
+  Collecting 200,000 tokens at L13 (skip=51808)...
+    200,000 tokens, 912 docs in 23.0s
+
+--- standard ---
+
+  [standard] chunk 1/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L13 (skip=0)...
+    25,000,000 tokens, 112112 docs in 657.0s
+    step  1250/12207 chunk 1 | loss=7498.1260 L0=80 FVE=0.5983 dead=0.896 nr=0.862 tok=5.1M
+    step  2500/12207 chunk 1 | loss=6635.9863 L0=80 FVE=0.6402 dead=0.877 nr=0.877 tok=10.2M
+    step  3750/12207 chunk 1 | loss=6152.4395 L0=80 FVE=0.6690 dead=0.850 nr=0.888 tok=15.4M
+    step  5000/12207 chunk 1 | loss=5825.9902 L0=80 FVE=0.6818 dead=0.828 nr=0.895 tok=20.5M
+    [standard] chunk 1 trained in 701.0s
+
+  [standard] chunk 2/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L13 (skip=112112)...
+    25,000,000 tokens, 112048 docs in 686.5s
+    step  6250/12207 chunk 2 | loss=5718.8784 L0=80 FVE=0.6899 dead=0.816 nr=0.898 tok=25.6M
+    step  7500/12207 chunk 2 | loss=5563.2710 L0=80 FVE=0.6989 dead=0.806 nr=0.901 tok=30.7M
+    step  8750/12207 chunk 2 | loss=5520.8379 L0=80 FVE=0.7064 dead=0.801 nr=0.901 tok=35.8M
+    step 10000/12207 chunk 2 | loss=5474.6914 L0=80 FVE=0.7059 dead=0.798 nr=0.901 tok=41.0M
+    step 11250/12207 chunk 2 | loss=5467.1226 L0=80 FVE=0.7092 dead=0.798 nr=0.902 tok=46.1M
+    [standard] chunk 2 trained in 697.0s
+  [standard] L13 50M training done in 2746.0s
+    [standard] FVE=0.7041 cos=0.9018 L0=80 dead=79.4% alive=3374
+
+--- no_C ---
+
+  [no_C] chunk 1/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L13 (skip=0)...
+    25,000,000 tokens, 112112 docs in 667.3s
+    step  1250/12207 chunk 1 | loss=6186.2280 L0=80 FVE=0.6771 dead=0.197 nr=1.000 tok=5.1M
+    step  2500/12207 chunk 1 | loss=5347.2725 L0=80 FVE=0.7164 dead=0.262 nr=1.000 tok=10.2M
+    step  3750/12207 chunk 1 | loss=4972.8428 L0=80 FVE=0.7377 dead=0.253 nr=1.000 tok=15.4M
+    step  5000/12207 chunk 1 | loss=4743.9775 L0=80 FVE=0.7458 dead=0.246 nr=1.000 tok=20.5M
+    [no_C] chunk 1 trained in 753.6s
+
+  [no_C] chunk 2/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L13 (skip=112112)...
+    25,000,000 tokens, 112048 docs in 683.5s
+    step  6250/12207 chunk 2 | loss=4658.3442 L0=80 FVE=0.7520 dead=0.239 nr=1.000 tok=25.6M
+    step  7500/12207 chunk 2 | loss=4543.3174 L0=80 FVE=0.7585 dead=0.213 nr=1.000 tok=30.7M
+    step  8750/12207 chunk 2 | loss=4500.2109 L0=80 FVE=0.7649 dead=0.180 nr=1.000 tok=35.8M
+    step 10000/12207 chunk 2 | loss=4463.0645 L0=80 FVE=0.7644 dead=0.174 nr=1.000 tok=41.0M
+    step 11250/12207 chunk 2 | loss=4440.8340 L0=80 FVE=0.7679 dead=0.172 nr=1.000 tok=46.1M
+    [no_C] chunk 2 trained in 739.0s
+  [no_C] L13 50M training done in 2847.3s
+    [no_C] FVE=0.7637 cos=0.9261 L0=80 dead=0.0% alive=16379
+
+Results: experiments/exp42c_results.json
+Checkpoints: checkpoints/exp42c/

@@ -1,0 +1,217 @@
+Experiment 41a — 50M Gemma streaming training (L7, L13, L19)
+  variants: standard + no_C  |  d_sae=9216  |  k=80
+
+Loading model...
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/288 [00:00<?, ?it/s]
+Loading weights:   7%|▋         | 20/288 [00:00<00:01, 189.38it/s]
+Loading weights:  26%|██▋       | 76/288 [00:00<00:00, 396.87it/s]
+Loading weights:  47%|████▋     | 135/288 [00:00<00:00, 481.98it/s]
+Loading weights:  66%|██████▌   | 190/288 [00:00<00:00, 499.88it/s]
+Loading weights:  86%|████████▌ | 247/288 [00:00<00:00, 520.70it/s]
+Loading weights: 100%|██████████| 288/288 [00:00<00:00, 500.45it/s]
+
+======================================================================
+  LAYER 7
+======================================================================
+
+  collecting eval set...
+  Collecting 400,000 tokens at L7 (skip=0)...
+    400,000 tokens, 1808 docs in 24.4s
+  collecting diag set...
+  Collecting 200,000 tokens at L7 (skip=51808)...
+    200,000 tokens, 912 docs in 21.4s
+
+  --- standard L7 ---
+
+  [standard] chunk 1/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L7 (skip=0)...
+    25,000,000 tokens, 112112 docs in 439.3s
+    step  1250/12207 chunk 1 | loss=2447.2129 L0=80 FVE=0.6510 dead=0.767 nr=0.879 tok=5.1M
+    step  2500/12207 chunk 1 | loss=2055.7808 L0=80 FVE=0.7079 dead=0.664 nr=0.898 tok=10.2M
+    step  3750/12207 chunk 1 | loss=1874.5808 L0=80 FVE=0.7355 dead=0.608 nr=0.908 tok=15.4M
+    step  5000/12207 chunk 1 | loss=1789.0925 L0=80 FVE=0.7457 dead=0.581 nr=0.911 tok=20.5M
+    [standard] chunk 1 trained in 403.3s
+
+  [standard] chunk 2/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L7 (skip=112112)...
+    25,000,000 tokens, 112048 docs in 468.4s
+    step  6250/12207 chunk 2 | loss=1723.1597 L0=80 FVE=0.7530 dead=0.567 nr=0.915 tok=25.6M
+    step  7500/12207 chunk 2 | loss=1713.1394 L0=80 FVE=0.7551 dead=0.558 nr=0.917 tok=30.7M
+    step  8750/12207 chunk 2 | loss=1697.4369 L0=80 FVE=0.7583 dead=0.552 nr=0.917 tok=35.8M
+    step 10000/12207 chunk 2 | loss=1704.7026 L0=80 FVE=0.7579 dead=0.548 nr=0.917 tok=41.0M
+    step 11250/12207 chunk 2 | loss=1684.4517 L0=80 FVE=0.7599 dead=0.547 nr=0.918 tok=46.1M
+    [standard] chunk 2 trained in 404.1s
+  [standard] L7 50M training done in 1719.6s, 12206 steps
+    [standard] FVE=0.7585 cos=0.9175 L0=80 dead=54.2% alive=4223
+
+  freq diag:
+    [standard] alive_>1e-4=4176 >1e-3=4091 >1e-1=167 gini=0.890
+
+  --- no_C L7 ---
+
+  [no_C] chunk 1/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L7 (skip=0)...
+    25,000,000 tokens, 112112 docs in 451.7s
+    step  1250/12207 chunk 1 | loss=2087.5874 L0=80 FVE=0.7084 dead=0.112 nr=1.000 tok=5.1M
+    step  2500/12207 chunk 1 | loss=1776.7441 L0=80 FVE=0.7517 dead=0.131 nr=1.000 tok=10.2M
+    step  3750/12207 chunk 1 | loss=1631.8018 L0=80 FVE=0.7732 dead=0.124 nr=1.000 tok=15.4M
+    step  5000/12207 chunk 1 | loss=1552.5288 L0=80 FVE=0.7825 dead=0.092 nr=1.000 tok=20.5M
+    [no_C] chunk 1 trained in 429.1s
+
+  [no_C] chunk 2/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L7 (skip=112112)...
+    25,000,000 tokens, 112048 docs in 468.2s
+    step  6250/12207 chunk 2 | loss=1485.9946 L0=80 FVE=0.7898 dead=0.081 nr=1.000 tok=25.6M
+    step  7500/12207 chunk 2 | loss=1462.9741 L0=80 FVE=0.7936 dead=0.059 nr=0.999 tok=30.7M
+    step  8750/12207 chunk 2 | loss=1442.1218 L0=80 FVE=0.7974 dead=0.042 nr=0.999 tok=35.8M
+    step 10000/12207 chunk 2 | loss=1451.1407 L0=80 FVE=0.7966 dead=0.031 nr=0.999 tok=41.0M
+    step 11250/12207 chunk 2 | loss=1432.5142 L0=80 FVE=0.7985 dead=0.038 nr=0.999 tok=46.1M
+    [no_C] chunk 2 trained in 428.9s
+  [no_C] L7 50M training done in 1782.0s, 12206 steps
+    [no_C] FVE=0.7979 cos=0.9346 L0=80 dead=0.1% alive=9208
+
+  freq diag:
+    [no_C] alive_>1e-4=9098 >1e-3=7733 >1e-1=37 gini=0.662
+
+======================================================================
+  LAYER 13
+======================================================================
+
+  collecting eval set...
+  Collecting 400,000 tokens at L13 (skip=0)...
+    400,000 tokens, 1808 docs in 14.6s
+  collecting diag set...
+  Collecting 200,000 tokens at L13 (skip=51808)...
+    200,000 tokens, 912 docs in 16.9s
+
+  --- standard L13 ---
+
+  [standard] chunk 1/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L13 (skip=0)...
+    25,000,000 tokens, 112112 docs in 665.1s
+    step  1250/12207 chunk 1 | loss=7625.0391 L0=80 FVE=0.5858 dead=0.814 nr=0.861 tok=5.1M
+    step  2500/12207 chunk 1 | loss=6810.3428 L0=80 FVE=0.6308 dead=0.802 nr=0.876 tok=10.2M
+    step  3750/12207 chunk 1 | loss=6336.2446 L0=80 FVE=0.6624 dead=0.773 nr=0.885 tok=15.4M
+    step  5000/12207 chunk 1 | loss=6044.7319 L0=80 FVE=0.6806 dead=0.743 nr=0.891 tok=20.5M
+    [standard] chunk 1 trained in 405.4s
+
+  [standard] chunk 2/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L13 (skip=112112)...
+    25,000,000 tokens, 112048 docs in 679.3s
+    step  6250/12207 chunk 2 | loss=5819.8311 L0=80 FVE=0.6856 dead=0.722 nr=0.895 tok=25.6M
+    step  7500/12207 chunk 2 | loss=5734.1494 L0=80 FVE=0.6912 dead=0.708 nr=0.897 tok=30.7M
+    step  8750/12207 chunk 2 | loss=5655.7651 L0=80 FVE=0.6995 dead=0.701 nr=0.899 tok=35.8M
+    step 10000/12207 chunk 2 | loss=5612.1289 L0=80 FVE=0.6950 dead=0.698 nr=0.899 tok=41.0M
+    step 11250/12207 chunk 2 | loss=5639.9375 L0=80 FVE=0.6940 dead=0.697 nr=0.899 tok=46.1M
+    [standard] chunk 2 trained in 402.2s
+  [standard] L13 50M training done in 2156.0s, 12206 steps
+    [standard] FVE=0.6958 cos=0.8990 L0=80 dead=68.8% alive=2873
+
+  freq diag:
+    [standard] alive_>1e-4=2802 >1e-3=2769 >1e-1=115 gini=0.906
+
+  --- no_C L13 ---
+
+  [no_C] chunk 1/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L13 (skip=0)...
+    25,000,000 tokens, 112112 docs in 662.0s
+    step  1250/12207 chunk 1 | loss=6542.2451 L0=80 FVE=0.6545 dead=0.105 nr=1.000 tok=5.1M
+    step  2500/12207 chunk 1 | loss=5718.2607 L0=80 FVE=0.6973 dead=0.167 nr=1.000 tok=10.2M
+    step  3750/12207 chunk 1 | loss=5338.8706 L0=80 FVE=0.7216 dead=0.175 nr=1.000 tok=15.4M
+    step  5000/12207 chunk 1 | loss=5123.8232 L0=80 FVE=0.7347 dead=0.142 nr=1.000 tok=20.5M
+    [no_C] chunk 1 trained in 427.7s
+
+  [no_C] chunk 2/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L13 (skip=112112)...
+    25,000,000 tokens, 112048 docs in 678.8s
+    step  6250/12207 chunk 2 | loss=4953.0762 L0=80 FVE=0.7376 dead=0.123 nr=1.000 tok=25.6M
+    step  7500/12207 chunk 2 | loss=4867.2622 L0=80 FVE=0.7429 dead=0.095 nr=1.000 tok=30.7M
+    step  8750/12207 chunk 2 | loss=4809.2261 L0=80 FVE=0.7493 dead=0.075 nr=1.000 tok=35.8M
+    step 10000/12207 chunk 2 | loss=4771.9297 L0=80 FVE=0.7456 dead=0.063 nr=1.000 tok=41.0M
+    step 11250/12207 chunk 2 | loss=4793.6982 L0=80 FVE=0.7449 dead=0.067 nr=1.000 tok=46.1M
+    [no_C] chunk 2 trained in 427.9s
+  [no_C] L13 50M training done in 2200.5s, 12206 steps
+    [no_C] FVE=0.7466 cos=0.9205 L0=80 dead=0.0% alive=9212
+
+  freq diag:
+    [no_C] alive_>1e-4=9024 >1e-3=7075 >1e-1=32 gini=0.648
+
+======================================================================
+  LAYER 19
+======================================================================
+
+  collecting eval set...
+  Collecting 400,000 tokens at L19 (skip=0)...
+    400,000 tokens, 1808 docs in 17.9s
+  collecting diag set...
+  Collecting 200,000 tokens at L19 (skip=51808)...
+    200,000 tokens, 896 docs in 18.6s
+
+  --- standard L19 ---
+
+  [standard] chunk 1/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L19 (skip=0)...
+    25,000,000 tokens, 111616 docs in 876.9s
+    step  1250/12207 chunk 1 | loss=28569.5332 L0=80 FVE=0.7456 dead=0.563 nr=0.814 tok=5.1M
+    step  2500/12207 chunk 1 | loss=24500.7070 L0=80 FVE=0.7665 dead=0.559 nr=0.848 tok=10.2M
+    step  3750/12207 chunk 1 | loss=22128.4375 L0=80 FVE=0.7395 dead=0.546 nr=0.871 tok=15.4M
+    step  5000/12207 chunk 1 | loss=20876.8984 L0=80 FVE=0.7524 dead=0.563 nr=0.878 tok=20.5M
+    [standard] chunk 1 trained in 403.5s
+
+  [standard] chunk 2/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L19 (skip=111616)...
+    25,000,000 tokens, 111536 docs in 890.0s
+    step  6250/12207 chunk 2 | loss=20373.8750 L0=80 FVE=0.7832 dead=0.582 nr=0.875 tok=25.6M
+    step  7500/12207 chunk 2 | loss=20130.4648 L0=80 FVE=0.7860 dead=0.596 nr=0.881 tok=30.7M
+    step  8750/12207 chunk 2 | loss=19910.7617 L0=80 FVE=0.7745 dead=0.601 nr=0.879 tok=35.8M
+    step 10000/12207 chunk 2 | loss=20078.7012 L0=80 FVE=0.7953 dead=0.606 nr=0.880 tok=41.0M
+    step 11250/12207 chunk 2 | loss=19899.3184 L0=80 FVE=0.7847 dead=0.606 nr=0.880 tok=46.1M
+    [standard] chunk 2 trained in 406.7s
+  [standard] L19 50M training done in 2581.1s, 12206 steps
+    [standard] FVE=0.7875 cos=0.8813 L0=80 dead=60.2% alive=3672
+
+  freq diag:
+    [standard] alive_>1e-4=3616 >1e-3=3601 >1e-1=110 gini=0.875
+
+  --- no_C L19 ---
+
+  [no_C] chunk 1/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L19 (skip=0)...
+    25,000,000 tokens, 111616 docs in 870.4s
+    step  1250/12207 chunk 1 | loss=19607.8438 L0=80 FVE=0.8293 dead=0.107 nr=1.000 tok=5.1M
+    step  2500/12207 chunk 1 | loss=16638.9238 L0=80 FVE=0.8445 dead=0.139 nr=1.000 tok=10.2M
+    step  3750/12207 chunk 1 | loss=15459.4697 L0=80 FVE=0.8212 dead=0.110 nr=1.000 tok=15.4M
+    step  5000/12207 chunk 1 | loss=14603.5088 L0=80 FVE=0.8296 dead=0.081 nr=1.000 tok=20.5M
+    [no_C] chunk 1 trained in 428.5s
+
+  [no_C] chunk 2/2: 25,000,000 tokens
+  Collecting 25,000,000 tokens at L19 (skip=111616)...
+    25,000,000 tokens, 111536 docs in 888.8s
+    step  6250/12207 chunk 2 | loss=14202.6670 L0=80 FVE=0.8513 dead=0.063 nr=1.000 tok=25.6M
+    step  7500/12207 chunk 2 | loss=14078.2656 L0=80 FVE=0.8526 dead=0.043 nr=1.000 tok=30.7M
+    step  8750/12207 chunk 2 | loss=13823.0859 L0=80 FVE=0.8459 dead=0.032 nr=1.000 tok=35.8M
+    step 10000/12207 chunk 2 | loss=13920.4160 L0=80 FVE=0.8603 dead=0.031 nr=1.000 tok=41.0M
+    step 11250/12207 chunk 2 | loss=13782.6445 L0=80 FVE=0.8531 dead=0.030 nr=1.000 tok=46.1M
+    [no_C] chunk 2 trained in 428.9s
+  [no_C] L19 50M training done in 2620.4s, 12206 steps
+    [no_C] FVE=0.8545 cos=0.9253 L0=80 dead=0.0% alive=9213
+
+  freq diag:
+    [no_C] alive_>1e-4=9161 >1e-3=7762 >1e-1=30 gini=0.651
+
+======================================================================
+  SUMMARY: 50M scale on Gemma
+======================================================================
+    L Variant        FVE    cos  dead%   alive>1e-4
+    7 standard    0.7585 0.9175  54.2%         4176
+    7 no_C        0.7979 0.9346   0.1%         9098
+   13 standard    0.6958 0.8990  68.8%         2802
+   13 no_C        0.7466 0.9205   0.0%         9024
+   19 standard    0.7875 0.8813  60.2%         3616
+   19 no_C        0.8545 0.9253   0.0%         9161
+
+Results: experiments/exp41a_results.json
+Checkpoints: checkpoints/exp41/
+Done!

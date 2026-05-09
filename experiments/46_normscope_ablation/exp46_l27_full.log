@@ -1,0 +1,395 @@
+Experiment 46: NoC normalization-scope ablation
+  Layer: L27
+  Tokens: 5,000,000 (2441 steps)
+  Aux-k mode: both
+  Group size: 6
+  Dead-feature threshold: 1,000,000 tokens
+  Cache dir: /scratch/exp45_cache
+  Save dir: /scratch/exp45_checkpoints/exp46_L27_5M
+
+Loading model...
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/399 [00:00<00:45,  8.73it/s]
+Loading weights:   1%|          | 2/399 [00:00<00:49,  8.05it/s]
+Loading weights:   7%|▋         | 28/399 [00:00<00:03, 107.51it/s]
+Loading weights:  15%|█▍        | 59/399 [00:00<00:01, 177.96it/s]
+Loading weights:  21%|██        | 83/399 [00:00<00:01, 195.14it/s]
+Loading weights:  29%|██▉       | 115/399 [00:00<00:01, 229.14it/s]
+Loading weights:  36%|███▌      | 144/399 [00:00<00:01, 245.96it/s]
+Loading weights:  43%|████▎     | 170/399 [00:00<00:00, 248.66it/s]
+Loading weights:  51%|█████     | 202/399 [00:00<00:00, 263.56it/s]
+Loading weights:  57%|█████▋    | 229/399 [00:01<00:00, 264.40it/s]
+Loading weights:  65%|██████▍   | 258/399 [00:01<00:00, 265.15it/s]
+Loading weights:  72%|███████▏  | 288/399 [00:01<00:00, 275.18it/s]
+Loading weights:  79%|███████▉  | 316/399 [00:01<00:00, 266.62it/s]
+Loading weights:  86%|████████▋ | 345/399 [00:01<00:00, 269.71it/s]
+Loading weights:  93%|█████████▎| 373/399 [00:01<00:00, 265.35it/s]
+Loading weights: 100%|██████████| 399/399 [00:01<00:00, 234.63it/s]
+
+[cache] Building activation cache (one-time per layer/budget combo)...
+[cache] Building cache at /scratch/exp45_cache/qwen3_8b_L27_5000000.bin (5,000,000 tokens × 4096 dim = 41.0 GB bf16)
+[cache] 0/5,000,000 tokens (0.0%) | 0.0k tok/s | ETA 0.0 min
+[cache] 0/5,000,000 tokens (0.0%) | 0.0k tok/s | ETA 0.0 min
+[cache] 501,984/5,000,000 tokens (10.0%) | 5.5k tok/s | ETA 13.6 min
+[cache] 501,984/5,000,000 tokens (10.0%) | 4.1k tok/s | ETA 18.1 min
+[cache] 501,984/5,000,000 tokens (10.0%) | 3.3k tok/s | ETA 22.6 min
+[cache] 1,002,066/5,000,000 tokens (20.0%) | 5.5k tok/s | ETA 12.1 min
+[cache] 1,002,066/5,000,000 tokens (20.0%) | 4.7k tok/s | ETA 14.1 min
+[cache] 1,002,066/5,000,000 tokens (20.0%) | 4.2k tok/s | ETA 16.1 min
+[cache] 1,504,784/5,000,000 tokens (30.1%) | 5.5k tok/s | ETA 10.5 min
+[cache] 1,504,784/5,000,000 tokens (30.1%) | 5.0k tok/s | ETA 11.7 min
+[cache] 2,008,241/5,000,000 tokens (40.2%) | 6.0k tok/s | ETA 8.2 min
+[cache] 2,008,241/5,000,000 tokens (40.2%) | 5.5k tok/s | ETA 9.0 min
+[cache] 2,008,241/5,000,000 tokens (40.2%) | 5.1k tok/s | ETA 9.7 min
+[cache] 2,509,533/5,000,000 tokens (50.2%) | 5.9k tok/s | ETA 7.0 min
+[cache] 2,509,533/5,000,000 tokens (50.2%) | 5.5k tok/s | ETA 7.5 min
+[cache] 2,509,533/5,000,000 tokens (50.2%) | 5.2k tok/s | ETA 8.0 min
+[cache] 3,012,044/5,000,000 tokens (60.2%) | 5.9k tok/s | ETA 5.6 min
+[cache] 3,012,044/5,000,000 tokens (60.2%) | 5.5k tok/s | ETA 6.0 min
+[cache] 3,012,044/5,000,000 tokens (60.2%) | 5.3k tok/s | ETA 6.3 min
+[cache] 3,512,904/5,000,000 tokens (70.3%) | 5.8k tok/s | ETA 4.3 min
+[cache] 3,512,904/5,000,000 tokens (70.3%) | 5.5k tok/s | ETA 4.5 min
+[cache] 4,013,766/5,000,000 tokens (80.3%) | 6.0k tok/s | ETA 2.7 min
+[cache] 4,013,766/5,000,000 tokens (80.3%) | 5.8k tok/s | ETA 2.9 min
+[cache] 4,013,766/5,000,000 tokens (80.3%) | 5.5k tok/s | ETA 3.0 min
+[cache] 4,514,915/5,000,000 tokens (90.3%) | 6.0k tok/s | ETA 1.4 min
+[cache] 4,514,915/5,000,000 tokens (90.3%) | 5.7k tok/s | ETA 1.4 min
+[cache] 4,514,915/5,000,000 tokens (90.3%) | 5.5k tok/s | ETA 1.5 min
+[cache] 5,000,000/5,000,000 tokens (100.0%) | 6.0k tok/s | ETA 0.0 min
+/home/<user>/MechInter--RNH/src/activation_cache.py:280: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return torch.from_numpy(arr).view(torch.bfloat16)
+[cache] Built in 13.9 min | first-10k mean norm = 403.8
+
+Collecting eval data (separate from training cache)...
+  Collecting eval activations at L27 (500,000 tokens)...
+    500,000 tokens in 154.4s (norm mean=404.1, std=36.4)
+
+Variants (12):
+  noc_baseline_aux                 | enc=True  dec=True  restore=True  aux=True
+  noc_dec_free_restore_aux         | enc=True  dec=False restore=True  aux=True
+  noc_dec_free_no_restore_aux      | enc=True  dec=False restore=False aux=True
+  noc_enc_free_aux                 | enc=False dec=True  restore=True  aux=True
+  noc_input_only_restore_aux       | enc=False dec=False restore=True  aux=True
+  noc_input_only_no_restore_aux    | enc=False dec=False restore=False aux=True
+  noc_baseline_noaux               | enc=True  dec=True  restore=True  aux=False
+  noc_dec_free_restore_noaux       | enc=True  dec=False restore=True  aux=False
+  noc_dec_free_no_restore_noaux    | enc=True  dec=False restore=False aux=False
+  noc_enc_free_noaux               | enc=False dec=True  restore=True  aux=False
+  noc_input_only_restore_noaux     | enc=False dec=False restore=True  aux=False
+  noc_input_only_no_restore_noaux  | enc=False dec=False restore=False aux=False
+
+2 parallel group(s) of up to 6.
+
+
+######################################################################
+  Group 1/2: ['noc_baseline_aux', 'noc_dec_free_restore_aux', 'noc_dec_free_no_restore_aux', 'noc_enc_free_aux', 'noc_input_only_restore_aux', 'noc_input_only_no_restore_aux']
+######################################################################
+
+======================================================================
+  Parallel group of 6 SAEs at L27, 2441 steps
+  Variants: ['noc_baseline_aux', 'noc_dec_free_restore_aux', 'noc_dec_free_no_restore_aux', 'noc_enc_free_aux', 'noc_input_only_restore_aux', 'noc_input_only_no_restore_aux']
+======================================================================
+
+
+  --- step 200/2441 (0.4M tok, 0.8k tok/s, ETA 94.8m) ---
+    [noc_baseline_aux] FVE=-0.159 L0=80 dead=0.000(0) recon=104078.3 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=-0.159 L0=80 dead=0.000(0) recon=104078.3 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_no_restore_aux] FVE=0.001 L0=80 dead=0.000(0) recon=89577.0 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_enc_free_aux] FVE=-0.159 L0=80 dead=0.000(0) recon=104078.3 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=-0.159 L0=80 dead=0.000(0) recon=104078.3 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_no_restore_aux] FVE=0.001 L0=80 dead=0.000(0) recon=89577.0 auxk=0.000 |enc|=1.00 |dec|=1.00
+
+  --- step 400/2441 (0.8M tok, 0.8k tok/s, ETA 86.5m) ---
+    [noc_baseline_aux] FVE=-0.037 L0=80 dead=0.000(0) recon=93382.0 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=-0.037 L0=80 dead=0.000(0) recon=93337.0 auxk=0.000 |enc|=1.00 |dec|=0.99
+    [noc_dec_free_no_restore_aux] FVE=0.005 L0=80 dead=0.000(0) recon=89556.8 auxk=0.000 |enc|=1.00 |dec|=1.02
+    [noc_enc_free_aux] FVE=-0.037 L0=80 dead=0.000(0) recon=93385.9 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=-0.037 L0=80 dead=0.000(0) recon=93346.6 auxk=0.000 |enc|=1.00 |dec|=0.99
+    [noc_input_only_no_restore_aux] FVE=0.005 L0=80 dead=0.000(0) recon=89553.1 auxk=0.000 |enc|=1.02 |dec|=1.02
+
+  --- step 600/2441 (1.2M tok, 0.8k tok/s, ETA 78.0m) ---
+    [noc_baseline_aux] FVE=0.201 L0=80 dead=0.000(0) recon=73323.5 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=0.204 L0=80 dead=0.000(0) recon=73056.9 auxk=0.000 |enc|=1.00 |dec|=0.99
+    [noc_dec_free_no_restore_aux] FVE=0.025 L0=80 dead=0.000(0) recon=89518.5 auxk=0.000 |enc|=1.00 |dec|=1.04
+    [noc_enc_free_aux] FVE=0.201 L0=80 dead=0.000(0) recon=73353.3 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=0.204 L0=80 dead=0.000(0) recon=73086.3 auxk=0.000 |enc|=1.00 |dec|=0.99
+    [noc_input_only_no_restore_aux] FVE=0.026 L0=80 dead=0.000(0) recon=89370.2 auxk=0.000 |enc|=1.05 |dec|=1.04
+
+  --- step 800/2441 (1.6M tok, 0.8k tok/s, ETA 71.9m) ---
+    [noc_baseline_aux] FVE=0.327 L0=80 dead=0.000(0) recon=60718.5 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=0.327 L0=80 dead=0.000(0) recon=60742.5 auxk=0.000 |enc|=1.00 |dec|=0.98
+    [noc_dec_free_no_restore_aux] FVE=0.037 L0=80 dead=0.000(0) recon=86975.4 auxk=0.000 |enc|=1.00 |dec|=1.06
+    [noc_enc_free_aux] FVE=0.327 L0=80 dead=0.000(0) recon=60769.0 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=0.327 L0=80 dead=0.000(0) recon=60743.3 auxk=0.000 |enc|=1.00 |dec|=0.98
+    [noc_input_only_no_restore_aux] FVE=0.043 L0=80 dead=0.000(0) recon=86482.1 auxk=0.000 |enc|=1.08 |dec|=1.06
+
+  --- step 1000/2441 (2.0M tok, 0.8k tok/s, ETA 64.6m) ---
+    [noc_baseline_aux] FVE=0.402 L0=80 dead=0.000(0) recon=54088.1 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=0.400 L0=80 dead=0.000(0) recon=54335.1 auxk=0.000 |enc|=1.00 |dec|=0.98
+    [noc_dec_free_no_restore_aux] FVE=0.045 L0=80 dead=0.875(57369) recon=86507.2 auxk=0.982 |enc|=1.00 |dec|=1.08
+    [noc_enc_free_aux] FVE=0.402 L0=80 dead=0.000(0) recon=54142.2 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=0.400 L0=80 dead=0.000(0) recon=54317.7 auxk=0.000 |enc|=0.99 |dec|=0.98
+    [noc_input_only_no_restore_aux] FVE=0.056 L0=80 dead=0.878(57554) recon=85547.9 auxk=0.982 |enc|=1.10 |dec|=1.07
+
+  --- step 1200/2441 (2.5M tok, 0.8k tok/s, ETA 56.5m) ---
+    [noc_baseline_aux] FVE=0.443 L0=80 dead=0.000(0) recon=50135.7 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=0.440 L0=80 dead=0.000(0) recon=50385.1 auxk=0.000 |enc|=1.00 |dec|=0.97
+    [noc_dec_free_no_restore_aux] FVE=0.051 L0=80 dead=0.884(57959) recon=85459.5 auxk=0.981 |enc|=1.00 |dec|=1.09
+    [noc_enc_free_aux] FVE=0.442 L0=80 dead=0.000(0) recon=50219.5 auxk=0.000 |enc|=0.99 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=0.439 L0=80 dead=0.000(0) recon=50429.6 auxk=0.000 |enc|=0.99 |dec|=0.97
+    [noc_input_only_no_restore_aux] FVE=0.068 L0=80 dead=0.889(58229) recon=83935.7 auxk=0.982 |enc|=1.12 |dec|=1.08
+
+  --- step 1400/2441 (2.9M tok, 0.7k tok/s, ETA 47.9m) ---
+    [noc_baseline_aux] FVE=0.499 L0=80 dead=0.000(0) recon=45004.1 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=0.494 L0=80 dead=0.000(0) recon=45408.0 auxk=0.000 |enc|=1.00 |dec|=0.97
+    [noc_dec_free_no_restore_aux] FVE=0.057 L0=80 dead=0.885(58018) recon=84747.1 auxk=0.981 |enc|=1.00 |dec|=1.10
+    [noc_enc_free_aux] FVE=0.497 L0=80 dead=0.000(0) recon=45100.9 auxk=0.000 |enc|=0.99 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=0.493 L0=80 dead=0.000(0) recon=45472.5 auxk=0.000 |enc|=0.98 |dec|=0.97
+    [noc_input_only_no_restore_aux] FVE=0.081 L0=80 dead=0.890(58302) recon=82615.0 auxk=0.982 |enc|=1.14 |dec|=1.09
+
+  --- step 1600/2441 (3.3M tok, 0.7k tok/s, ETA 39.0m) ---
+    [noc_baseline_aux] FVE=0.526 L0=80 dead=0.000(0) recon=42963.1 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=0.521 L0=80 dead=0.000(0) recon=43346.4 auxk=0.000 |enc|=1.00 |dec|=0.97
+    [noc_dec_free_no_restore_aux] FVE=0.059 L0=80 dead=0.886(58035) recon=85350.7 auxk=0.982 |enc|=1.00 |dec|=1.12
+    [noc_enc_free_aux] FVE=0.525 L0=80 dead=0.000(0) recon=43049.6 auxk=0.000 |enc|=0.99 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=0.520 L0=80 dead=0.000(0) recon=43441.3 auxk=0.000 |enc|=0.98 |dec|=0.97
+    [noc_input_only_no_restore_aux] FVE=0.089 L0=80 dead=0.891(58361) recon=82676.6 auxk=0.982 |enc|=1.16 |dec|=1.09
+
+  --- step 1800/2441 (3.7M tok, 0.7k tok/s, ETA 29.9m) ---
+    [noc_baseline_aux] FVE=0.550 L0=80 dead=0.000(0) recon=40930.9 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=0.546 L0=80 dead=0.000(0) recon=41326.4 auxk=0.000 |enc|=1.00 |dec|=0.97
+    [noc_dec_free_no_restore_aux] FVE=0.064 L0=80 dead=0.886(58040) recon=85252.0 auxk=0.982 |enc|=1.00 |dec|=1.13
+    [noc_enc_free_aux] FVE=0.549 L0=80 dead=0.000(0) recon=41022.6 auxk=0.000 |enc|=0.98 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=0.544 L0=80 dead=0.000(0) recon=41427.3 auxk=0.000 |enc|=0.97 |dec|=0.97
+    [noc_input_only_no_restore_aux] FVE=0.099 L0=80 dead=0.892(58440) recon=82022.4 auxk=0.982 |enc|=1.17 |dec|=1.10
+
+  --- step 2000/2441 (4.1M tok, 0.7k tok/s, ETA 20.7m) ---
+    [noc_baseline_aux] FVE=0.565 L0=80 dead=0.000(0) recon=39553.1 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=0.561 L0=80 dead=0.000(0) recon=39939.3 auxk=0.000 |enc|=1.00 |dec|=0.96
+    [noc_dec_free_no_restore_aux] FVE=0.067 L0=80 dead=0.886(58044) recon=84986.8 auxk=0.982 |enc|=1.00 |dec|=1.14
+    [noc_enc_free_aux] FVE=0.564 L0=80 dead=0.000(0) recon=39641.8 auxk=0.000 |enc|=0.98 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=0.560 L0=80 dead=0.000(0) recon=40051.2 auxk=0.000 |enc|=0.97 |dec|=0.97
+    [noc_input_only_no_restore_aux] FVE=0.109 L0=80 dead=0.893(58518) recon=81176.0 auxk=0.983 |enc|=1.19 |dec|=1.10
+
+  --- step 2200/2441 (4.5M tok, 0.7k tok/s, ETA 11.3m) ---
+    [noc_baseline_aux] FVE=0.575 L0=80 dead=0.000(0) recon=38281.1 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=0.570 L0=80 dead=0.000(0) recon=38725.9 auxk=0.000 |enc|=1.00 |dec|=0.96
+    [noc_dec_free_no_restore_aux] FVE=0.073 L0=80 dead=0.886(58045) recon=83634.1 auxk=0.982 |enc|=1.00 |dec|=1.15
+    [noc_enc_free_aux] FVE=0.574 L0=80 dead=0.000(0) recon=38330.5 auxk=0.000 |enc|=0.98 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=0.569 L0=80 dead=0.000(0) recon=38803.0 auxk=0.000 |enc|=0.97 |dec|=0.97
+    [noc_input_only_no_restore_aux] FVE=0.123 L0=80 dead=0.895(58622) recon=79137.0 auxk=0.983 |enc|=1.20 |dec|=1.11
+
+  --- step 2400/2441 (4.9M tok, 0.7k tok/s, ETA 1.9m) ---
+    [noc_baseline_aux] FVE=0.596 L0=80 dead=0.000(0) recon=36403.9 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=0.591 L0=80 dead=0.000(0) recon=36877.5 auxk=0.000 |enc|=1.00 |dec|=0.96
+    [noc_dec_free_no_restore_aux] FVE=0.073 L0=80 dead=0.886(58049) recon=83663.0 auxk=0.982 |enc|=1.00 |dec|=1.16
+    [noc_enc_free_aux] FVE=0.596 L0=80 dead=0.000(0) recon=36433.9 auxk=0.000 |enc|=0.98 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=0.590 L0=80 dead=0.000(0) recon=36954.5 auxk=0.000 |enc|=0.96 |dec|=0.97
+    [noc_input_only_no_restore_aux] FVE=0.126 L0=80 dead=0.896(58710) recon=78936.0 auxk=0.983 |enc|=1.21 |dec|=1.11
+
+  --- step 2441/2441 (5.0M tok, 0.7k tok/s, ETA 0.0m) ---
+    [noc_baseline_aux] FVE=0.590 L0=80 dead=0.000(0) recon=37191.6 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_aux] FVE=0.584 L0=80 dead=0.000(0) recon=37667.1 auxk=0.000 |enc|=1.00 |dec|=0.96
+    [noc_dec_free_no_restore_aux] FVE=0.076 L0=80 dead=0.886(58048) recon=83891.4 auxk=0.982 |enc|=1.00 |dec|=1.16
+    [noc_enc_free_aux] FVE=0.589 L0=80 dead=0.000(0) recon=37240.1 auxk=0.000 |enc|=0.98 |dec|=1.00
+    [noc_input_only_restore_aux] FVE=0.584 L0=80 dead=0.000(0) recon=37748.8 auxk=0.000 |enc|=0.96 |dec|=0.97
+    [noc_input_only_no_restore_aux] FVE=0.130 L0=80 dead=0.897(58787) recon=79055.1 auxk=0.983 |enc|=1.22 |dec|=1.11
+  [noc_baseline_aux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_baseline_aux_L27_final.pt
+  [noc_dec_free_restore_aux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_dec_free_restore_aux_L27_final.pt
+  [noc_dec_free_no_restore_aux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_dec_free_no_restore_aux_L27_final.pt
+  [noc_enc_free_aux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_enc_free_aux_L27_final.pt
+  [noc_input_only_restore_aux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_input_only_restore_aux_L27_final.pt
+  [noc_input_only_no_restore_aux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_input_only_no_restore_aux_L27_final.pt
+
+  Group done in 115.4 min
+    [noc_baseline_aux] FVE=0.5537 dead=0.000 alive=65,536 L0=66.5
+    [noc_dec_free_restore_aux] FVE=0.5499 dead=0.000 alive=65,536 L0=67.4
+    [noc_dec_free_no_restore_aux] FVE=0.0818 dead=0.885 alive=7,505 L0=118.6
+    [noc_enc_free_aux] FVE=0.5582 dead=0.000 alive=65,536 L0=70.7
+    [noc_input_only_restore_aux] FVE=0.5540 dead=0.000 alive=65,536 L0=71.7
+    [noc_input_only_no_restore_aux] FVE=0.1378 dead=0.893 alive=7,001 L0=136.7
+
+  Ablation eval (group of 6, 30f × 20s)...
+    [ablation] Collecting 20 texts + clean forwards...
+    [ablation] Collected 20 texts
+    [noc_baseline_aux] ablation eval...
+    [noc_baseline_aux] cos>inner=13/30 (cos_corr=0.322, inner_corr=0.334)
+    [noc_dec_free_restore_aux] ablation eval...
+    [noc_dec_free_restore_aux] cos>inner=16/30 (cos_corr=0.254, inner_corr=0.258)
+    [noc_dec_free_no_restore_aux] ablation eval...
+    [noc_dec_free_no_restore_aux] cos>inner=28/30 (cos_corr=0.195, inner_corr=0.149)
+    [noc_enc_free_aux] ablation eval...
+    [noc_enc_free_aux] cos>inner=8/30 (cos_corr=0.272, inner_corr=0.282)
+    [noc_input_only_restore_aux] ablation eval...
+    [noc_input_only_restore_aux] cos>inner=13/30 (cos_corr=0.302, inner_corr=0.301)
+    [noc_input_only_no_restore_aux] ablation eval...
+    [noc_input_only_no_restore_aux] cos>inner=19/30 (cos_corr=0.515, inner_corr=0.489)
+  Ablation eval done in 5.9 min
+
+######################################################################
+  Group 2/2: ['noc_baseline_noaux', 'noc_dec_free_restore_noaux', 'noc_dec_free_no_restore_noaux', 'noc_enc_free_noaux', 'noc_input_only_restore_noaux', 'noc_input_only_no_restore_noaux']
+######################################################################
+
+======================================================================
+  Parallel group of 6 SAEs at L27, 2441 steps
+  Variants: ['noc_baseline_noaux', 'noc_dec_free_restore_noaux', 'noc_dec_free_no_restore_noaux', 'noc_enc_free_noaux', 'noc_input_only_restore_noaux', 'noc_input_only_no_restore_noaux']
+======================================================================
+
+
+  --- step 200/2441 (0.4M tok, 0.8k tok/s, ETA 94.8m) ---
+    [noc_baseline_noaux] FVE=-0.159 L0=80 dead=0.000(0) recon=104078.3 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=-0.159 L0=80 dead=0.000(0) recon=104078.3 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_no_restore_noaux] FVE=0.001 L0=80 dead=0.000(0) recon=89577.0 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_enc_free_noaux] FVE=-0.159 L0=80 dead=0.000(0) recon=104078.3 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=-0.159 L0=80 dead=0.000(0) recon=104078.3 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_no_restore_noaux] FVE=0.001 L0=80 dead=0.000(0) recon=89577.0 auxk=0.000 |enc|=1.00 |dec|=1.00
+
+  --- step 400/2441 (0.8M tok, 0.8k tok/s, ETA 86.4m) ---
+    [noc_baseline_noaux] FVE=-0.037 L0=80 dead=0.000(0) recon=93382.0 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=-0.037 L0=80 dead=0.000(0) recon=93337.0 auxk=0.000 |enc|=1.00 |dec|=0.99
+    [noc_dec_free_no_restore_noaux] FVE=0.005 L0=80 dead=0.000(0) recon=89556.8 auxk=0.000 |enc|=1.00 |dec|=1.02
+    [noc_enc_free_noaux] FVE=-0.037 L0=80 dead=0.000(0) recon=93385.9 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=-0.037 L0=80 dead=0.000(0) recon=93346.6 auxk=0.000 |enc|=1.00 |dec|=0.99
+    [noc_input_only_no_restore_noaux] FVE=0.005 L0=80 dead=0.000(0) recon=89553.1 auxk=0.000 |enc|=1.02 |dec|=1.02
+
+  --- step 600/2441 (1.2M tok, 0.8k tok/s, ETA 77.9m) ---
+    [noc_baseline_noaux] FVE=0.201 L0=80 dead=0.000(0) recon=73323.5 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=0.204 L0=80 dead=0.000(0) recon=73056.9 auxk=0.000 |enc|=1.00 |dec|=0.99
+    [noc_dec_free_no_restore_noaux] FVE=0.025 L0=80 dead=0.000(0) recon=89518.5 auxk=0.000 |enc|=1.00 |dec|=1.04
+    [noc_enc_free_noaux] FVE=0.201 L0=80 dead=0.000(0) recon=73353.3 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=0.204 L0=80 dead=0.000(0) recon=73086.3 auxk=0.000 |enc|=1.00 |dec|=0.99
+    [noc_input_only_no_restore_noaux] FVE=0.026 L0=80 dead=0.000(0) recon=89370.2 auxk=0.000 |enc|=1.05 |dec|=1.04
+
+  --- step 800/2441 (1.6M tok, 0.8k tok/s, ETA 69.4m) ---
+    [noc_baseline_noaux] FVE=0.327 L0=80 dead=0.000(0) recon=60718.5 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=0.327 L0=80 dead=0.000(0) recon=60742.5 auxk=0.000 |enc|=1.00 |dec|=0.98
+    [noc_dec_free_no_restore_noaux] FVE=0.037 L0=80 dead=0.000(0) recon=86975.4 auxk=0.000 |enc|=1.00 |dec|=1.06
+    [noc_enc_free_noaux] FVE=0.327 L0=80 dead=0.000(0) recon=60769.0 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=0.327 L0=80 dead=0.000(0) recon=60743.3 auxk=0.000 |enc|=1.00 |dec|=0.98
+    [noc_input_only_no_restore_noaux] FVE=0.043 L0=80 dead=0.000(0) recon=86482.1 auxk=0.000 |enc|=1.08 |dec|=1.06
+
+  --- step 1000/2441 (2.0M tok, 0.8k tok/s, ETA 61.0m) ---
+    [noc_baseline_noaux] FVE=0.402 L0=80 dead=0.000(0) recon=54088.1 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=0.400 L0=80 dead=0.000(0) recon=54335.1 auxk=0.000 |enc|=1.00 |dec|=0.98
+    [noc_dec_free_no_restore_noaux] FVE=0.045 L0=80 dead=0.875(57369) recon=86507.2 auxk=0.000 |enc|=1.00 |dec|=1.08
+    [noc_enc_free_noaux] FVE=0.402 L0=80 dead=0.000(0) recon=54142.2 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=0.400 L0=80 dead=0.000(0) recon=54317.7 auxk=0.000 |enc|=0.99 |dec|=0.98
+    [noc_input_only_no_restore_noaux] FVE=0.056 L0=80 dead=0.878(57554) recon=85547.9 auxk=0.000 |enc|=1.10 |dec|=1.07
+
+  --- step 1200/2441 (2.5M tok, 0.8k tok/s, ETA 52.5m) ---
+    [noc_baseline_noaux] FVE=0.443 L0=80 dead=0.000(0) recon=50135.7 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=0.440 L0=80 dead=0.000(0) recon=50385.1 auxk=0.000 |enc|=1.00 |dec|=0.97
+    [noc_dec_free_no_restore_noaux] FVE=0.051 L0=80 dead=0.884(57959) recon=85459.5 auxk=0.000 |enc|=1.00 |dec|=1.09
+    [noc_enc_free_noaux] FVE=0.442 L0=80 dead=0.000(0) recon=50219.5 auxk=0.000 |enc|=0.99 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=0.439 L0=80 dead=0.000(0) recon=50429.6 auxk=0.000 |enc|=0.99 |dec|=0.97
+    [noc_input_only_no_restore_noaux] FVE=0.068 L0=80 dead=0.889(58229) recon=83935.7 auxk=0.000 |enc|=1.12 |dec|=1.08
+
+  --- step 1400/2441 (2.9M tok, 0.8k tok/s, ETA 44.0m) ---
+    [noc_baseline_noaux] FVE=0.499 L0=80 dead=0.000(0) recon=45004.1 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=0.494 L0=80 dead=0.000(0) recon=45408.0 auxk=0.000 |enc|=1.00 |dec|=0.97
+    [noc_dec_free_no_restore_noaux] FVE=0.057 L0=80 dead=0.885(58018) recon=84747.1 auxk=0.000 |enc|=1.00 |dec|=1.10
+    [noc_enc_free_noaux] FVE=0.497 L0=80 dead=0.000(0) recon=45100.9 auxk=0.000 |enc|=0.99 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=0.493 L0=80 dead=0.000(0) recon=45472.5 auxk=0.000 |enc|=0.98 |dec|=0.97
+    [noc_input_only_no_restore_noaux] FVE=0.081 L0=80 dead=0.890(58302) recon=82615.0 auxk=0.000 |enc|=1.14 |dec|=1.09
+
+  --- step 1600/2441 (3.3M tok, 0.8k tok/s, ETA 35.6m) ---
+    [noc_baseline_noaux] FVE=0.526 L0=80 dead=0.000(0) recon=42963.1 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=0.521 L0=80 dead=0.000(0) recon=43346.4 auxk=0.000 |enc|=1.00 |dec|=0.97
+    [noc_dec_free_no_restore_noaux] FVE=0.059 L0=80 dead=0.886(58035) recon=85350.8 auxk=0.000 |enc|=1.00 |dec|=1.12
+    [noc_enc_free_noaux] FVE=0.525 L0=80 dead=0.000(0) recon=43049.6 auxk=0.000 |enc|=0.99 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=0.520 L0=80 dead=0.000(0) recon=43441.3 auxk=0.000 |enc|=0.98 |dec|=0.97
+    [noc_input_only_no_restore_noaux] FVE=0.089 L0=80 dead=0.891(58361) recon=82676.6 auxk=0.000 |enc|=1.16 |dec|=1.09
+
+  --- step 1800/2441 (3.7M tok, 0.8k tok/s, ETA 27.1m) ---
+    [noc_baseline_noaux] FVE=0.550 L0=80 dead=0.000(0) recon=40930.9 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=0.546 L0=80 dead=0.000(0) recon=41326.4 auxk=0.000 |enc|=1.00 |dec|=0.97
+    [noc_dec_free_no_restore_noaux] FVE=0.064 L0=80 dead=0.886(58040) recon=85251.9 auxk=0.000 |enc|=1.00 |dec|=1.13
+    [noc_enc_free_noaux] FVE=0.549 L0=80 dead=0.000(0) recon=41022.6 auxk=0.000 |enc|=0.98 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=0.544 L0=80 dead=0.000(0) recon=41427.3 auxk=0.000 |enc|=0.97 |dec|=0.97
+    [noc_input_only_no_restore_noaux] FVE=0.099 L0=80 dead=0.892(58440) recon=82022.4 auxk=0.000 |enc|=1.17 |dec|=1.10
+
+  --- step 2000/2441 (4.1M tok, 0.8k tok/s, ETA 18.7m) ---
+    [noc_baseline_noaux] FVE=0.565 L0=80 dead=0.000(0) recon=39553.1 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=0.561 L0=80 dead=0.000(0) recon=39939.3 auxk=0.000 |enc|=1.00 |dec|=0.96
+    [noc_dec_free_no_restore_noaux] FVE=0.067 L0=80 dead=0.886(58044) recon=84986.8 auxk=0.000 |enc|=1.00 |dec|=1.14
+    [noc_enc_free_noaux] FVE=0.564 L0=80 dead=0.000(0) recon=39641.8 auxk=0.000 |enc|=0.98 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=0.560 L0=80 dead=0.000(0) recon=40051.2 auxk=0.000 |enc|=0.97 |dec|=0.97
+    [noc_input_only_no_restore_noaux] FVE=0.109 L0=80 dead=0.893(58518) recon=81176.0 auxk=0.000 |enc|=1.19 |dec|=1.10
+
+  --- step 2200/2441 (4.5M tok, 0.8k tok/s, ETA 10.2m) ---
+    [noc_baseline_noaux] FVE=0.575 L0=80 dead=0.000(0) recon=38281.1 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=0.570 L0=80 dead=0.000(0) recon=38725.9 auxk=0.000 |enc|=1.00 |dec|=0.96
+    [noc_dec_free_no_restore_noaux] FVE=0.073 L0=80 dead=0.886(58045) recon=83634.1 auxk=0.000 |enc|=1.00 |dec|=1.15
+    [noc_enc_free_noaux] FVE=0.574 L0=80 dead=0.000(0) recon=38330.5 auxk=0.000 |enc|=0.98 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=0.569 L0=80 dead=0.000(0) recon=38803.0 auxk=0.000 |enc|=0.97 |dec|=0.97
+    [noc_input_only_no_restore_noaux] FVE=0.123 L0=80 dead=0.895(58622) recon=79137.0 auxk=0.000 |enc|=1.20 |dec|=1.11
+
+  --- step 2400/2441 (4.9M tok, 0.8k tok/s, ETA 1.7m) ---
+    [noc_baseline_noaux] FVE=0.596 L0=80 dead=0.000(0) recon=36403.9 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=0.591 L0=80 dead=0.000(0) recon=36877.5 auxk=0.000 |enc|=1.00 |dec|=0.96
+    [noc_dec_free_no_restore_noaux] FVE=0.073 L0=80 dead=0.886(58049) recon=83663.0 auxk=0.000 |enc|=1.00 |dec|=1.16
+    [noc_enc_free_noaux] FVE=0.596 L0=80 dead=0.000(0) recon=36433.9 auxk=0.000 |enc|=0.98 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=0.590 L0=80 dead=0.000(0) recon=36954.5 auxk=0.000 |enc|=0.96 |dec|=0.97
+    [noc_input_only_no_restore_noaux] FVE=0.126 L0=80 dead=0.896(58710) recon=78936.0 auxk=0.000 |enc|=1.21 |dec|=1.11
+
+  --- step 2441/2441 (5.0M tok, 0.8k tok/s, ETA 0.0m) ---
+    [noc_baseline_noaux] FVE=0.590 L0=80 dead=0.000(0) recon=37191.6 auxk=0.000 |enc|=1.00 |dec|=1.00
+    [noc_dec_free_restore_noaux] FVE=0.584 L0=80 dead=0.000(0) recon=37667.1 auxk=0.000 |enc|=1.00 |dec|=0.96
+    [noc_dec_free_no_restore_noaux] FVE=0.076 L0=80 dead=0.886(58048) recon=83891.3 auxk=0.000 |enc|=1.00 |dec|=1.16
+    [noc_enc_free_noaux] FVE=0.589 L0=80 dead=0.000(0) recon=37240.1 auxk=0.000 |enc|=0.98 |dec|=1.00
+    [noc_input_only_restore_noaux] FVE=0.584 L0=80 dead=0.000(0) recon=37748.8 auxk=0.000 |enc|=0.96 |dec|=0.97
+    [noc_input_only_no_restore_noaux] FVE=0.130 L0=80 dead=0.897(58787) recon=79055.1 auxk=0.000 |enc|=1.22 |dec|=1.11
+  [noc_baseline_noaux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_baseline_noaux_L27_final.pt
+  [noc_dec_free_restore_noaux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_dec_free_restore_noaux_L27_final.pt
+  [noc_dec_free_no_restore_noaux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_dec_free_no_restore_noaux_L27_final.pt
+  [noc_enc_free_noaux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_enc_free_noaux_L27_final.pt
+  [noc_input_only_restore_noaux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_input_only_restore_noaux_L27_final.pt
+  [noc_input_only_no_restore_noaux] Saved /scratch/exp45_checkpoints/exp46_L27_5M/noc_input_only_no_restore_noaux_L27_final.pt
+
+  Group done in 103.5 min
+    [noc_baseline_noaux] FVE=0.5537 dead=0.000 alive=65,536 L0=66.5
+    [noc_dec_free_restore_noaux] FVE=0.5499 dead=0.000 alive=65,536 L0=67.4
+    [noc_dec_free_no_restore_noaux] FVE=0.0818 dead=0.885 alive=7,505 L0=118.6
+    [noc_enc_free_noaux] FVE=0.5582 dead=0.000 alive=65,536 L0=70.7
+    [noc_input_only_restore_noaux] FVE=0.5540 dead=0.000 alive=65,536 L0=71.7
+    [noc_input_only_no_restore_noaux] FVE=0.1378 dead=0.893 alive=7,001 L0=136.7
+
+  Ablation eval (group of 6, 30f × 20s)...
+    [ablation] Collecting 20 texts + clean forwards...
+    [ablation] Collected 20 texts
+    [noc_baseline_noaux] ablation eval...
+    [noc_baseline_noaux] cos>inner=13/30 (cos_corr=0.322, inner_corr=0.334)
+    [noc_dec_free_restore_noaux] ablation eval...
+    [noc_dec_free_restore_noaux] cos>inner=16/30 (cos_corr=0.254, inner_corr=0.258)
+    [noc_dec_free_no_restore_noaux] ablation eval...
+    [noc_dec_free_no_restore_noaux] cos>inner=27/30 (cos_corr=0.200, inner_corr=0.147)
+    [noc_enc_free_noaux] ablation eval...
+    [noc_enc_free_noaux] cos>inner=8/30 (cos_corr=0.272, inner_corr=0.282)
+    [noc_input_only_restore_noaux] ablation eval...
+    [noc_input_only_restore_noaux] cos>inner=13/30 (cos_corr=0.302, inner_corr=0.301)
+    [noc_input_only_no_restore_noaux] ablation eval...
+    [noc_input_only_no_restore_noaux] cos>inner=18/30 (cos_corr=0.525, inner_corr=0.499)
+  Ablation eval done in 5.7 min
+
+======================================================================
+  Summary L27, 5M tokens
+======================================================================
+  variant                          |    FVE |   dead |   alive | cos>inner
+  -------------------------------- | ------ | ------ | ------- | ---------
+  noc_baseline_aux                 | 0.5537 | 0.000 |  65,536 | 13/30
+  noc_dec_free_restore_aux         | 0.5499 | 0.000 |  65,536 | 16/30
+  noc_dec_free_no_restore_aux      | 0.0818 | 0.885 |   7,505 | 28/30
+  noc_enc_free_aux                 | 0.5582 | 0.000 |  65,536 | 8/30
+  noc_input_only_restore_aux       | 0.5540 | 0.000 |  65,536 | 13/30
+  noc_input_only_no_restore_aux    | 0.1378 | 0.893 |   7,001 | 19/30
+  noc_baseline_noaux               | 0.5537 | 0.000 |  65,536 | 13/30
+  noc_dec_free_restore_noaux       | 0.5499 | 0.000 |  65,536 | 16/30
+  noc_dec_free_no_restore_noaux    | 0.0818 | 0.885 |   7,505 | 27/30
+  noc_enc_free_noaux               | 0.5582 | 0.000 |  65,536 | 8/30
+  noc_input_only_restore_noaux     | 0.5540 | 0.000 |  65,536 | 13/30
+  noc_input_only_no_restore_noaux  | 0.1378 | 0.893 |   7,001 | 18/30
+
+Results: experiments/exp46_results.json
+Checkpoints: /scratch/exp45_checkpoints/exp46_L27_5M/

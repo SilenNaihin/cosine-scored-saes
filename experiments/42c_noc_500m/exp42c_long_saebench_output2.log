@@ -1,0 +1,1543 @@
+Found 3 checkpoints to eval:
+  no_C_L13_step12207_tok49M.pt
+  no_C_L13_step24414_tok99M.pt
+  no_C_L13_150M.pt
+
+=== exp42c_long_no_C_16k_49M ===
+
+============================================================
+Running core evaluation
+============================================================
+
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Skipping exp42c_long_no_C_16k_49M_custom_sae as results already exist
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [00:00<00:00, 17.25it/s]
+
+============================================================
+Running sparse_probing evaluation
+============================================================
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/288 [00:00<?, ?it/s]
+Loading weights:  34%|███▍      | 99/288 [00:00<00:00, 961.43it/s]
+Loading weights:  68%|██████▊   | 196/288 [00:00<00:00, 923.06it/s]
+Loading weights: 100%|██████████| 288/288 [00:00<00:00, 922.27it/s]
+Loaded pretrained model google/gemma-2-2b into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Skipping exp42c_long_no_C_16k_49M_custom_sae as results already exist
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [00:00<00:00, 412.83it/s]
+
+Combined results saved to experiments/exp42c_long_saebench_results/exp42c_long_no_C_16k_49M_combined.json
+
+=== exp42c_long_no_C_16k_99M ===
+
+============================================================
+Running core evaluation
+============================================================
+
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]Skipping exp42c_long_no_C_16k_99M_custom_sae as results already exist
+
+Running SAE evaluation on all selected SAEs: 100%|██████████| 1/1 [00:00<00:00, 598.76it/s]
+
+============================================================
+Running sparse_probing evaluation
+============================================================
+
+
+Loading weights:   0%|          | 0/288 [00:00<?, ?it/s]
+Loading weights:  12%|█▏        | 34/288 [00:00<00:00, 330.94it/s]
+Loading weights:  44%|████▍     | 126/288 [00:00<00:00, 647.68it/s]
+Loading weights:  76%|███████▋  | 220/288 [00:00<00:00, 767.16it/s]
+Loading weights: 100%|██████████| 288/288 [00:00<00:00, 758.92it/s]
+Loaded pretrained model google/gemma-2-2b into HookedTransformer
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [00:00<?, ?it/s]
+
+  0%|          | 0/28 [00:00<?, ?it/s][A
+100%|██████████| 28/28 [00:00<00:00, 449.82it/s]
+
+
+  0%|          | 0/28 [00:00<?, ?it/s][A
+100%|██████████| 28/28 [00:00<00:00, 633.70it/s]
+Removing 24 from test set
+Removing 12 from test set
+
+
+Tokenizing data:   0%|          | 0/5 [00:00<?, ?it/s][A
+
+Tokenizing data:  20%|██        | 1/5 [00:00<00:00,  6.71it/s][A
+
+Tokenizing data:  40%|████      | 2/5 [00:00<00:00,  6.90it/s][A
+
+Tokenizing data:  60%|██████    | 3/5 [00:00<00:00,  6.97it/s][A
+
+Tokenizing data:  80%|████████  | 4/5 [00:00<00:00,  7.00it/s][A
+
+Tokenizing data: 100%|██████████| 5/5 [00:00<00:00,  7.01it/s][A
+Tokenizing data: 100%|██████████| 5/5 [00:00<00:00,  6.97it/s]
+
+
+Tokenizing data:   0%|          | 0/5 [00:00<?, ?it/s][A
+
+Tokenizing data:  60%|██████    | 3/5 [00:00<00:00, 26.67it/s][A
+Tokenizing data: 100%|██████████| 5/5 [00:00<00:00, 26.41it/s]
+
+
+Collecting activations:   0%|          | 0/250 [00:00<?, ?it/s][A
+
+Collecting activations:   0%|          | 1/250 [00:00<00:38,  6.51it/s][A
+
+Collecting activations:   2%|▏         | 4/250 [00:00<00:17, 14.21it/s][A
+
+Collecting activations:   2%|▏         | 6/250 [00:00<00:15, 15.66it/s][A
+
+Collecting activations:   3%|▎         | 8/250 [00:00<00:14, 16.52it/s][A
+
+Collecting activations:   4%|▍         | 10/250 [00:00<00:14, 16.94it/s][A
+
+Collecting activations:   5%|▍         | 12/250 [00:00<00:13, 17.33it/s][A
+
+Collecting activations:   6%|▌         | 14/250 [00:00<00:13, 17.60it/s][A
+
+Collecting activations:   6%|▋         | 16/250 [00:00<00:13, 17.65it/s][A
+
+Collecting activations:   7%|▋         | 18/250 [00:01<00:13, 17.81it/s][A
+
+Collecting activations:   8%|▊         | 20/250 [00:01<00:12, 17.90it/s][A
+
+Collecting activations:   9%|▉         | 22/250 [00:01<00:12, 17.85it/s][A
+
+Collecting activations:  10%|▉         | 24/250 [00:01<00:12, 17.94it/s][A
+
+Collecting activations:  10%|█         | 26/250 [00:01<00:12, 17.96it/s][A
+
+Collecting activations:  11%|█         | 28/250 [00:01<00:12, 17.90it/s][A
+
+Collecting activations:  12%|█▏        | 30/250 [00:01<00:12, 17.98it/s][A
+
+Collecting activations:  13%|█▎        | 32/250 [00:01<00:12, 18.03it/s][A
+
+Collecting activations:  14%|█▎        | 34/250 [00:01<00:12, 17.93it/s][A
+
+Collecting activations:  14%|█▍        | 36/250 [00:02<00:11, 17.99it/s][A
+
+Collecting activations:  15%|█▌        | 38/250 [00:02<00:11, 18.03it/s][A
+
+Collecting activations:  16%|█▌        | 40/250 [00:02<00:11, 17.94it/s][A
+
+Collecting activations:  17%|█▋        | 42/250 [00:02<00:11, 18.00it/s][A
+
+Collecting activations:  18%|█▊        | 44/250 [00:02<00:11, 18.05it/s][A
+
+Collecting activations:  18%|█▊        | 46/250 [00:02<00:11, 17.95it/s][A
+
+Collecting activations:  19%|█▉        | 48/250 [00:02<00:11, 17.99it/s][A
+
+Collecting activations:  20%|██        | 50/250 [00:02<00:11, 18.07it/s][A
+
+Collecting activations:  21%|██        | 52/250 [00:02<00:11, 17.95it/s][A
+
+Collecting activations:  22%|██▏       | 54/250 [00:03<00:10, 18.00it/s][A
+
+Collecting activations:  22%|██▏       | 56/250 [00:03<00:10, 18.05it/s][A
+
+Collecting activations:  23%|██▎       | 58/250 [00:03<00:10, 17.96it/s][A
+
+Collecting activations:  24%|██▍       | 60/250 [00:03<00:10, 18.04it/s][A
+
+Collecting activations:  25%|██▍       | 62/250 [00:03<00:10, 18.07it/s][A
+
+Collecting activations:  26%|██▌       | 64/250 [00:03<00:10, 18.08it/s][A
+
+Collecting activations:  26%|██▋       | 66/250 [00:03<00:10, 18.02it/s][A
+
+Collecting activations:  27%|██▋       | 68/250 [00:03<00:10, 18.06it/s][A
+
+Collecting activations:  28%|██▊       | 70/250 [00:03<00:09, 18.09it/s][A
+
+Collecting activations:  29%|██▉       | 72/250 [00:04<00:09, 17.98it/s][A
+
+Collecting activations:  30%|██▉       | 74/250 [00:04<00:09, 18.03it/s][A
+
+Collecting activations:  30%|███       | 76/250 [00:04<00:09, 18.06it/s][A
+
+Collecting activations:  31%|███       | 78/250 [00:04<00:09, 17.96it/s][A
+
+Collecting activations:  32%|███▏      | 80/250 [00:04<00:09, 18.03it/s][A
+
+Collecting activations:  33%|███▎      | 82/250 [00:04<00:09, 18.03it/s][A
+
+Collecting activations:  34%|███▎      | 84/250 [00:04<00:09, 18.05it/s][A
+
+Collecting activations:  34%|███▍      | 86/250 [00:04<00:09, 17.98it/s][A
+
+Collecting activations:  35%|███▌      | 88/250 [00:04<00:08, 18.04it/s][A
+
+Collecting activations:  36%|███▌      | 90/250 [00:05<00:08, 18.03it/s][A
+
+Collecting activations:  37%|███▋      | 92/250 [00:05<00:08, 17.98it/s][A
+
+Collecting activations:  38%|███▊      | 94/250 [00:05<00:08, 18.01it/s][A
+
+Collecting activations:  38%|███▊      | 96/250 [00:05<00:08, 18.08it/s][A
+
+Collecting activations:  39%|███▉      | 98/250 [00:05<00:08, 18.08it/s][A
+
+Collecting activations:  40%|████      | 100/250 [00:05<00:08, 17.98it/s][A
+
+Collecting activations:  41%|████      | 102/250 [00:05<00:08, 18.05it/s][A
+
+Collecting activations:  42%|████▏     | 104/250 [00:05<00:08, 18.08it/s][A
+
+Collecting activations:  42%|████▏     | 106/250 [00:05<00:08, 17.96it/s][A
+
+Collecting activations:  43%|████▎     | 108/250 [00:06<00:07, 18.02it/s][A
+
+Collecting activations:  44%|████▍     | 110/250 [00:06<00:07, 18.04it/s][A
+
+Collecting activations:  45%|████▍     | 112/250 [00:06<00:07, 17.96it/s][A
+
+Collecting activations:  46%|████▌     | 114/250 [00:06<00:07, 18.02it/s][A
+
+Collecting activations:  46%|████▋     | 116/250 [00:06<00:07, 18.04it/s][A
+
+Collecting activations:  47%|████▋     | 118/250 [00:06<00:07, 17.94it/s][A
+
+Collecting activations:  48%|████▊     | 120/250 [00:06<00:07, 18.01it/s][A
+
+Collecting activations:  49%|████▉     | 122/250 [00:06<00:07, 18.03it/s][A
+
+Collecting activations:  50%|████▉     | 124/250 [00:06<00:07, 17.96it/s][A
+
+Collecting activations:  50%|█████     | 126/250 [00:07<00:06, 18.01it/s][A
+
+Collecting activations:  51%|█████     | 128/250 [00:07<00:06, 18.03it/s][A
+
+Collecting activations:  52%|█████▏    | 130/250 [00:07<00:06, 17.94it/s][A
+
+Collecting activations:  53%|█████▎    | 132/250 [00:07<00:06, 17.98it/s][A
+
+Collecting activations:  54%|█████▎    | 134/250 [00:07<00:06, 17.89it/s][A
+
+Collecting activations:  54%|█████▍    | 136/250 [00:07<00:06, 17.92it/s][A
+
+Collecting activations:  55%|█████▌    | 138/250 [00:07<00:06, 17.88it/s][A
+
+Collecting activations:  56%|█████▌    | 140/250 [00:07<00:06, 17.95it/s][A
+
+Collecting activations:  57%|█████▋    | 142/250 [00:07<00:06, 17.96it/s][A
+
+Collecting activations:  58%|█████▊    | 144/250 [00:08<00:05, 17.87it/s][A
+
+Collecting activations:  58%|█████▊    | 146/250 [00:08<00:05, 17.93it/s][A
+
+Collecting activations:  59%|█████▉    | 148/250 [00:08<00:05, 17.87it/s][A
+
+Collecting activations:  60%|██████    | 150/250 [00:08<00:05, 17.94it/s][A
+
+Collecting activations:  61%|██████    | 152/250 [00:08<00:05, 17.83it/s][A
+
+Collecting activations:  62%|██████▏   | 154/250 [00:08<00:05, 17.90it/s][A
+
+Collecting activations:  62%|██████▏   | 156/250 [00:08<00:05, 17.82it/s][A
+
+Collecting activations:  63%|██████▎   | 158/250 [00:08<00:05, 17.77it/s][A
+
+Collecting activations:  64%|██████▍   | 160/250 [00:08<00:05, 17.86it/s][A
+
+Collecting activations:  65%|██████▍   | 162/250 [00:09<00:04, 17.88it/s][A
+
+Collecting activations:  66%|██████▌   | 164/250 [00:09<00:04, 17.84it/s][A
+
+Collecting activations:  66%|██████▋   | 166/250 [00:09<00:04, 17.85it/s][A
+
+Collecting activations:  67%|██████▋   | 168/250 [00:09<00:04, 17.86it/s][A
+
+Collecting activations:  68%|██████▊   | 170/250 [00:09<00:04, 17.94it/s][A
+
+Collecting activations:  69%|██████▉   | 172/250 [00:09<00:04, 17.96it/s][A
+
+Collecting activations:  70%|██████▉   | 174/250 [00:09<00:04, 17.91it/s][A
+
+Collecting activations:  70%|███████   | 176/250 [00:09<00:04, 17.94it/s][A
+
+Collecting activations:  71%|███████   | 178/250 [00:09<00:04, 17.89it/s][A
+
+Collecting activations:  72%|███████▏  | 180/250 [00:10<00:03, 17.98it/s][A
+
+Collecting activations:  73%|███████▎  | 182/250 [00:10<00:03, 17.98it/s][A
+
+Collecting activations:  74%|███████▎  | 184/250 [00:10<00:03, 17.87it/s][A
+
+Collecting activations:  74%|███████▍  | 186/250 [00:10<00:03, 17.93it/s][A
+
+Collecting activations:  75%|███████▌  | 188/250 [00:10<00:03, 17.87it/s][A
+
+Collecting activations:  76%|███████▌  | 190/250 [00:10<00:03, 17.93it/s][A
+
+Collecting activations:  77%|███████▋  | 192/250 [00:10<00:03, 17.84it/s][A
+
+Collecting activations:  78%|███████▊  | 194/250 [00:10<00:03, 17.88it/s][A
+
+Collecting activations:  78%|███████▊  | 196/250 [00:10<00:03, 17.86it/s][A
+
+Collecting activations:  79%|███████▉  | 198/250 [00:11<00:02, 17.91it/s][A
+
+Collecting activations:  80%|████████  | 200/250 [00:11<00:02, 17.87it/s][A
+
+Collecting activations:  81%|████████  | 202/250 [00:11<00:02, 17.92it/s][A
+
+Collecting activations:  82%|████████▏ | 204/250 [00:11<00:02, 17.85it/s][A
+
+Collecting activations:  82%|████████▏ | 206/250 [00:11<00:02, 17.88it/s][A
+
+Collecting activations:  83%|████████▎ | 208/250 [00:11<00:02, 17.82it/s][A
+
+Collecting activations:  84%|████████▍ | 210/250 [00:11<00:02, 17.89it/s][A
+
+Collecting activations:  85%|████████▍ | 212/250 [00:11<00:02, 17.82it/s][A
+
+Collecting activations:  86%|████████▌ | 214/250 [00:11<00:02, 17.93it/s][A
+
+Collecting activations:  86%|████████▋ | 216/250 [00:12<00:01, 17.99it/s][A
+
+Collecting activations:  87%|████████▋ | 218/250 [00:12<00:01, 17.91it/s][A
+
+Collecting activations:  88%|████████▊ | 220/250 [00:12<00:01, 17.95it/s][A
+
+Collecting activations:  89%|████████▉ | 222/250 [00:12<00:01, 17.88it/s][A
+
+Collecting activations:  90%|████████▉ | 224/250 [00:12<00:01, 17.91it/s][A
+
+Collecting activations:  90%|█████████ | 226/250 [00:12<00:01, 17.99it/s][A
+
+Collecting activations:  91%|█████████ | 228/250 [00:12<00:01, 17.91it/s][A
+
+Collecting activations:  92%|█████████▏| 230/250 [00:12<00:01, 17.98it/s][A
+
+Collecting activations:  93%|█████████▎| 232/250 [00:13<00:01, 17.89it/s][A
+
+Collecting activations:  94%|█████████▎| 234/250 [00:13<00:00, 17.95it/s][A
+
+Collecting activations:  94%|█████████▍| 236/250 [00:13<00:00, 17.87it/s][A
+
+Collecting activations:  95%|█████████▌| 238/250 [00:13<00:00, 17.92it/s][A
+
+Collecting activations:  96%|█████████▌| 240/250 [00:13<00:00, 17.96it/s][A
+
+Collecting activations:  97%|█████████▋| 242/250 [00:13<00:00, 17.89it/s][A
+
+Collecting activations:  98%|█████████▊| 244/250 [00:13<00:00, 17.96it/s][A
+
+Collecting activations:  98%|█████████▊| 246/250 [00:13<00:00, 17.88it/s][A
+
+Collecting activations:  99%|█████████▉| 248/250 [00:13<00:00, 17.94it/s][A
+
+Collecting activations: 100%|██████████| 250/250 [00:14<00:00, 17.84it/s][A
+Collecting activations: 100%|██████████| 250/250 [00:14<00:00, 17.85it/s]
+
+
+Collecting activations:   0%|          | 0/250 [00:00<?, ?it/s][A
+
+Collecting activations:   1%|          | 2/250 [00:00<00:13, 17.75it/s][A
+
+Collecting activations:   2%|▏         | 4/250 [00:00<00:13, 17.95it/s][A
+
+Collecting activations:   2%|▏         | 6/250 [00:00<00:13, 17.83it/s][A
+
+Collecting activations:   3%|▎         | 8/250 [00:00<00:13, 17.92it/s][A
+
+Collecting activations:   4%|▍         | 10/250 [00:00<00:13, 17.84it/s][A
+
+Collecting activations:   5%|▍         | 12/250 [00:00<00:13, 17.95it/s][A
+
+Collecting activations:   6%|▌         | 14/250 [00:00<00:13, 17.96it/s][A
+
+Collecting activations:   6%|▋         | 16/250 [00:00<00:13, 17.85it/s][A
+
+Collecting activations:   7%|▋         | 18/250 [00:01<00:12, 17.91it/s][A
+
+Collecting activations:   8%|▊         | 20/250 [00:01<00:12, 17.82it/s][A
+
+Collecting activations:   9%|▉         | 22/250 [00:01<00:12, 17.76it/s][A
+
+Collecting activations:  10%|▉         | 24/250 [00:01<00:12, 17.88it/s][A
+
+Collecting activations:  10%|█         | 26/250 [00:01<00:12, 17.93it/s][A
+
+Collecting activations:  11%|█         | 28/250 [00:01<00:12, 17.84it/s][A
+
+Collecting activations:  12%|█▏        | 30/250 [00:01<00:12, 17.88it/s][A
+
+Collecting activations:  13%|█▎        | 32/250 [00:01<00:12, 17.86it/s][A
+
+Collecting activations:  14%|█▎        | 34/250 [00:01<00:12, 17.89it/s][A
+
+Collecting activations:  14%|█▍        | 36/250 [00:02<00:11, 17.85it/s][A
+
+Collecting activations:  15%|█▌        | 38/250 [00:02<00:11, 17.90it/s][A
+
+Collecting activations:  16%|█▌        | 40/250 [00:02<00:11, 17.88it/s][A
+
+Collecting activations:  17%|█▋        | 42/250 [00:02<00:11, 17.94it/s][A
+
+Collecting activations:  18%|█▊        | 44/250 [00:02<00:11, 17.86it/s][A
+
+Collecting activations:  18%|█▊        | 46/250 [00:02<00:11, 17.92it/s][A
+
+Collecting activations:  19%|█▉        | 48/250 [00:02<00:11, 17.95it/s][A
+
+Collecting activations:  20%|██        | 50/250 [00:02<00:11, 17.88it/s][A
+
+Collecting activations:  21%|██        | 52/250 [00:02<00:11, 17.81it/s][A
+
+Collecting activations:  22%|██▏       | 54/250 [00:03<00:10, 17.88it/s][A
+
+Collecting activations:  22%|██▏       | 56/250 [00:03<00:10, 17.82it/s][A
+
+Collecting activations:  23%|██▎       | 58/250 [00:03<00:10, 17.88it/s][A
+
+Collecting activations:  24%|██▍       | 60/250 [00:03<00:10, 17.81it/s][A
+
+Collecting activations:  25%|██▍       | 62/250 [00:03<00:10, 17.88it/s][A
+
+Collecting activations:  26%|██▌       | 64/250 [00:03<00:10, 17.81it/s][A
+
+Collecting activations:  26%|██▋       | 66/250 [00:03<00:10, 17.84it/s][A
+
+Collecting activations:  27%|██▋       | 68/250 [00:03<00:10, 17.84it/s][A
+
+Collecting activations:  28%|██▊       | 70/250 [00:03<00:10, 17.90it/s][A
+
+Collecting activations:  29%|██▉       | 72/250 [00:04<00:09, 17.83it/s][A
+
+Collecting activations:  30%|██▉       | 74/250 [00:04<00:09, 17.90it/s][A
+
+Collecting activations:  30%|███       | 76/250 [00:04<00:09, 17.84it/s][A
+
+Collecting activations:  31%|███       | 78/250 [00:04<00:09, 17.89it/s][A
+
+Collecting activations:  32%|███▏      | 80/250 [00:04<00:09, 17.85it/s][A
+
+Collecting activations:  33%|███▎      | 82/250 [00:04<00:09, 17.88it/s][A
+
+Collecting activations:  34%|███▎      | 84/250 [00:04<00:09, 17.81it/s][A
+
+Collecting activations:  34%|███▍      | 86/250 [00:04<00:09, 17.86it/s][A
+
+Collecting activations:  35%|███▌      | 88/250 [00:04<00:09, 17.86it/s][A
+
+Collecting activations:  36%|███▌      | 90/250 [00:05<00:08, 17.87it/s][A
+
+Collecting activations:  37%|███▋      | 92/250 [00:05<00:08, 17.85it/s][A
+
+Collecting activations:  38%|███▊      | 94/250 [00:05<00:08, 17.89it/s][A
+
+Collecting activations:  38%|███▊      | 96/250 [00:05<00:08, 17.84it/s][A
+
+Collecting activations:  39%|███▉      | 98/250 [00:05<00:08, 17.90it/s][A
+
+Collecting activations:  40%|████      | 100/250 [00:05<00:08, 17.82it/s][A
+
+Collecting activations:  41%|████      | 102/250 [00:05<00:08, 17.88it/s][A
+
+Collecting activations:  42%|████▏     | 104/250 [00:05<00:08, 17.84it/s][A
+
+Collecting activations:  42%|████▏     | 106/250 [00:05<00:08, 17.91it/s][A
+
+Collecting activations:  43%|████▎     | 108/250 [00:06<00:07, 17.86it/s][A
+
+Collecting activations:  44%|████▍     | 110/250 [00:06<00:07, 17.90it/s][A
+
+Collecting activations:  45%|████▍     | 112/250 [00:06<00:07, 17.81it/s][A
+
+Collecting activations:  46%|████▌     | 114/250 [00:06<00:07, 17.87it/s][A
+
+Collecting activations:  46%|████▋     | 116/250 [00:06<00:07, 17.86it/s][A
+
+Collecting activations:  47%|████▋     | 118/250 [00:06<00:07, 17.91it/s][A
+
+Collecting activations:  48%|████▊     | 120/250 [00:06<00:07, 17.85it/s][A
+
+Collecting activations:  49%|████▉     | 122/250 [00:06<00:07, 17.90it/s][A
+
+Collecting activations:  50%|████▉     | 124/250 [00:06<00:07, 17.80it/s][A
+
+Collecting activations:  50%|█████     | 126/250 [00:07<00:06, 17.90it/s][A
+
+Collecting activations:  51%|█████     | 128/250 [00:07<00:06, 17.96it/s][A
+
+Collecting activations:  52%|█████▏    | 130/250 [00:07<00:06, 17.86it/s][A
+
+Collecting activations:  53%|█████▎    | 132/250 [00:07<00:06, 17.78it/s][A
+
+Collecting activations:  54%|█████▎    | 134/250 [00:07<00:06, 17.86it/s][A
+
+Collecting activations:  54%|█████▍    | 136/250 [00:07<00:06, 17.80it/s][A
+
+Collecting activations:  55%|█████▌    | 138/250 [00:07<00:06, 17.91it/s][A
+
+Collecting activations:  56%|█████▌    | 140/250 [00:07<00:06, 17.83it/s][A
+
+Collecting activations:  57%|█████▋    | 142/250 [00:07<00:06, 17.90it/s][A
+
+Collecting activations:  58%|█████▊    | 144/250 [00:08<00:05, 17.83it/s][A
+
+Collecting activations:  58%|█████▊    | 146/250 [00:08<00:05, 17.89it/s][A
+
+Collecting activations:  59%|█████▉    | 148/250 [00:08<00:05, 17.84it/s][A
+
+Collecting activations:  60%|██████    | 150/250 [00:08<00:05, 17.94it/s][A
+
+Collecting activations:  61%|██████    | 152/250 [00:08<00:05, 17.96it/s][A
+
+Collecting activations:  62%|██████▏   | 154/250 [00:08<00:05, 17.88it/s][A
+
+Collecting activations:  62%|██████▏   | 156/250 [00:08<00:05, 17.91it/s][A
+
+Collecting activations:  63%|██████▎   | 158/250 [00:08<00:05, 17.83it/s][A
+
+Collecting activations:  64%|██████▍   | 160/250 [00:08<00:05, 17.77it/s][A
+
+Collecting activations:  65%|██████▍   | 162/250 [00:09<00:04, 17.87it/s][A
+
+Collecting activations:  66%|██████▌   | 164/250 [00:09<00:04, 17.93it/s][A
+
+Collecting activations:  66%|██████▋   | 166/250 [00:09<00:04, 17.90it/s][A
+
+Collecting activations:  67%|██████▋   | 168/250 [00:09<00:04, 17.95it/s][A
+
+Collecting activations:  68%|██████▊   | 170/250 [00:09<00:04, 17.86it/s][A
+
+Collecting activations:  69%|██████▉   | 172/250 [00:09<00:04, 17.91it/s][A
+
+Collecting activations:  70%|██████▉   | 174/250 [00:09<00:04, 17.95it/s][A
+
+Collecting activations:  70%|███████   | 176/250 [00:09<00:04, 17.90it/s][A
+
+Collecting activations:  71%|███████   | 178/250 [00:09<00:04, 17.81it/s][A
+
+Collecting activations:  72%|███████▏  | 180/250 [00:10<00:03, 17.88it/s][A
+
+Collecting activations:  73%|███████▎  | 182/250 [00:10<00:03, 17.80it/s][A
+
+Collecting activations:  74%|███████▎  | 184/250 [00:10<00:03, 17.84it/s][A
+
+Collecting activations:  74%|███████▍  | 186/250 [00:10<00:03, 17.82it/s][A
+
+Collecting activations:  75%|███████▌  | 188/250 [00:10<00:03, 17.90it/s][A
+
+Collecting activations:  76%|███████▌  | 190/250 [00:10<00:03, 17.82it/s][A
+
+Collecting activations:  77%|███████▋  | 192/250 [00:10<00:03, 17.87it/s][A
+
+Collecting activations:  78%|███████▊  | 194/250 [00:10<00:03, 17.83it/s][A
+
+Collecting activations:  78%|███████▊  | 196/250 [00:10<00:03, 17.92it/s][A
+
+Collecting activations:  79%|███████▉  | 198/250 [00:11<00:02, 17.84it/s][A
+
+Collecting activations:  80%|████████  | 200/250 [00:11<00:02, 17.88it/s][A
+
+Collecting activations:  81%|████████  | 202/250 [00:11<00:02, 17.81it/s][A
+
+Collecting activations:  82%|████████▏ | 204/250 [00:11<00:02, 17.92it/s][A
+
+Collecting activations:  82%|████████▏ | 206/250 [00:11<00:02, 17.84it/s][A
+
+Collecting activations:  83%|████████▎ | 208/250 [00:11<00:02, 17.87it/s][A
+
+Collecting activations:  84%|████████▍ | 210/250 [00:11<00:02, 17.86it/s][A
+
+Collecting activations:  85%|████████▍ | 212/250 [00:11<00:02, 17.90it/s][A
+
+Collecting activations:  86%|████████▌ | 214/250 [00:11<00:02, 17.86it/s][A
+
+Collecting activations:  86%|████████▋ | 216/250 [00:12<00:01, 17.90it/s][A
+
+Collecting activations:  87%|████████▋ | 218/250 [00:12<00:01, 17.85it/s][A
+
+Collecting activations:  88%|████████▊ | 220/250 [00:12<00:01, 17.90it/s][A
+
+Collecting activations:  89%|████████▉ | 222/250 [00:12<00:01, 17.86it/s][A
+
+Collecting activations:  90%|████████▉ | 224/250 [00:12<00:01, 17.90it/s][A
+
+Collecting activations:  90%|█████████ | 226/250 [00:12<00:01, 17.98it/s][A
+
+Collecting activations:  91%|█████████ | 228/250 [00:12<00:01, 17.93it/s][A
+
+Collecting activations:  92%|█████████▏| 230/250 [00:12<00:01, 17.93it/s][A
+
+Collecting activations:  93%|█████████▎| 232/250 [00:12<00:01, 17.88it/s][A
+
+Collecting activations:  94%|█████████▎| 234/250 [00:13<00:00, 17.96it/s][A
+
+Collecting activations:  94%|█████████▍| 236/250 [00:13<00:00, 17.86it/s][A
+
+Collecting activations:  95%|█████████▌| 238/250 [00:13<00:00, 17.92it/s][A
+
+Collecting activations:  96%|█████████▌| 240/250 [00:13<00:00, 17.84it/s][A
+
+Collecting activations:  97%|█████████▋| 242/250 [00:13<00:00, 17.86it/s][A
+
+Collecting activations:  98%|█████████▊| 244/250 [00:13<00:00, 17.83it/s][A
+
+Collecting activations:  98%|█████████▊| 246/250 [00:13<00:00, 17.89it/s][A
+
+Collecting activations:  99%|█████████▉| 248/250 [00:13<00:00, 17.83it/s][A
+
+Collecting activations: 100%|██████████| 250/250 [00:13<00:00, 17.89it/s][A
+Collecting activations: 100%|██████████| 250/250 [00:13<00:00, 17.87it/s]
+
+
+Collecting activations:   0%|          | 0/250 [00:00<?, ?it/s][A
+
+Collecting activations:   1%|          | 2/250 [00:00<00:14, 17.24it/s][A
+
+Collecting activations:   2%|▏         | 4/250 [00:00<00:13, 17.74it/s][A
+
+Collecting activations:   2%|▏         | 6/250 [00:00<00:13, 17.88it/s][A
+
+Collecting activations:   3%|▎         | 8/250 [00:00<00:13, 17.82it/s][A
+
+Collecting activations:   4%|▍         | 10/250 [00:00<00:13, 17.72it/s][A
+
+Collecting activations:   5%|▍         | 12/250 [00:00<00:13, 17.85it/s][A
+
+Collecting activations:   6%|▌         | 14/250 [00:00<00:13, 17.78it/s][A
+
+Collecting activations:   6%|▋         | 16/250 [00:00<00:13, 17.91it/s][A
+
+Collecting activations:   7%|▋         | 18/250 [00:01<00:12, 17.93it/s][A
+
+Collecting activations:   8%|▊         | 20/250 [00:01<00:12, 17.85it/s][A
+
+Collecting activations:   9%|▉         | 22/250 [00:01<00:12, 17.79it/s][A
+
+Collecting activations:  10%|▉         | 24/250 [00:01<00:12, 17.84it/s][A
+
+Collecting activations:  10%|█         | 26/250 [00:01<00:12, 17.81it/s][A
+
+Collecting activations:  11%|█         | 28/250 [00:01<00:12, 17.84it/s][A
+
+Collecting activations:  12%|█▏        | 30/250 [00:01<00:12, 17.79it/s][A
+
+Collecting activations:  13%|█▎        | 32/250 [00:01<00:12, 17.84it/s][A
+
+Collecting activations:  14%|█▎        | 34/250 [00:01<00:12, 17.81it/s][A
+
+Collecting activations:  14%|█▍        | 36/250 [00:02<00:11, 17.87it/s][A
+
+Collecting activations:  15%|█▌        | 38/250 [00:02<00:11, 17.83it/s][A
+
+Collecting activations:  16%|█▌        | 40/250 [00:02<00:11, 17.91it/s][A
+
+Collecting activations:  17%|█▋        | 42/250 [00:02<00:11, 17.86it/s][A
+
+Collecting activations:  18%|█▊        | 44/250 [00:02<00:11, 17.90it/s][A
+
+Collecting activations:  18%|█▊        | 46/250 [00:02<00:11, 17.83it/s][A
+
+Collecting activations:  19%|█▉        | 48/250 [00:02<00:11, 17.87it/s][A
+
+Collecting activations:  20%|██        | 50/250 [00:02<00:11, 17.85it/s][A
+
+Collecting activations:  21%|██        | 52/250 [00:02<00:11, 17.88it/s][A
+
+Collecting activations:  22%|██▏       | 54/250 [00:03<00:11, 17.80it/s][A
+
+Collecting activations:  22%|██▏       | 56/250 [00:03<00:10, 17.73it/s][A
+
+Collecting activations:  23%|██▎       | 58/250 [00:03<00:10, 17.86it/s][A
+
+Collecting activations:  24%|██▍       | 60/250 [00:03<00:10, 17.77it/s][A
+
+Collecting activations:  25%|██▍       | 62/250 [00:03<00:10, 17.87it/s][A
+
+Collecting activations:  26%|██▌       | 64/250 [00:03<00:10, 17.82it/s][A
+
+Collecting activations:  26%|██▋       | 66/250 [00:03<00:10, 17.87it/s][A
+
+Collecting activations:  27%|██▋       | 68/250 [00:03<00:10, 17.84it/s][A
+
+Collecting activations:  28%|██▊       | 70/250 [00:03<00:10, 17.90it/s][A
+
+Collecting activations:  29%|██▉       | 72/250 [00:04<00:09, 17.83it/s][A
+
+Collecting activations:  30%|██▉       | 74/250 [00:04<00:09, 17.88it/s][A
+
+Collecting activations:  30%|███       | 76/250 [00:04<00:09, 17.80it/s][A
+
+Collecting activations:  31%|███       | 78/250 [00:04<00:09, 17.87it/s][A
+
+Collecting activations:  32%|███▏      | 80/250 [00:04<00:09, 17.82it/s][A
+
+Collecting activations:  33%|███▎      | 82/250 [00:04<00:09, 17.88it/s][A
+
+Collecting activations:  34%|███▎      | 84/250 [00:04<00:09, 17.80it/s][A
+
+Collecting activations:  34%|███▍      | 86/250 [00:04<00:09, 17.84it/s][A
+
+Collecting activations:  35%|███▌      | 88/250 [00:04<00:09, 17.80it/s][A
+
+Collecting activations:  36%|███▌      | 90/250 [00:05<00:08, 17.78it/s][A
+
+Collecting activations:  37%|███▋      | 92/250 [00:05<00:08, 17.88it/s][A
+
+Collecting activations:  38%|███▊      | 94/250 [00:05<00:08, 17.94it/s][A
+
+Collecting activations:  38%|███▊      | 96/250 [00:05<00:08, 17.86it/s][A
+
+Collecting activations:  39%|███▉      | 98/250 [00:05<00:08, 17.90it/s][A
+
+Collecting activations:  40%|████      | 100/250 [00:05<00:08, 17.83it/s][A
+
+Collecting activations:  41%|████      | 102/250 [00:05<00:08, 17.91it/s][A
+
+Collecting activations:  42%|████▏     | 104/250 [00:05<00:08, 17.83it/s][A
+
+Collecting activations:  42%|████▏     | 106/250 [00:05<00:08, 17.88it/s][A
+
+Collecting activations:  43%|████▎     | 108/250 [00:06<00:07, 17.85it/s][A
+
+Collecting activations:  44%|████▍     | 110/250 [00:06<00:07, 17.89it/s][A
+
+Collecting activations:  45%|████▍     | 112/250 [00:06<00:07, 17.84it/s][A
+
+Collecting activations:  46%|████▌     | 114/250 [00:06<00:07, 17.86it/s][A
+
+Collecting activations:  46%|████▋     | 116/250 [00:06<00:07, 17.85it/s][A
+
+Collecting activations:  47%|████▋     | 118/250 [00:06<00:07, 17.93it/s][A
+
+Collecting activations:  48%|████▊     | 120/250 [00:06<00:07, 17.85it/s][A
+
+Collecting activations:  49%|████▉     | 122/250 [00:06<00:07, 17.92it/s][A
+
+Collecting activations:  50%|████▉     | 124/250 [00:06<00:07, 17.86it/s][A
+
+Collecting activations:  50%|█████     | 126/250 [00:07<00:06, 17.91it/s][A
+
+Collecting activations:  51%|█████     | 128/250 [00:07<00:06, 17.84it/s][A
+
+Collecting activations:  52%|█████▏    | 130/250 [00:07<00:06, 17.86it/s][A
+
+Collecting activations:  53%|█████▎    | 132/250 [00:07<00:06, 17.85it/s][A
+
+Collecting activations:  54%|█████▎    | 134/250 [00:07<00:06, 17.89it/s][A
+
+Collecting activations:  54%|█████▍    | 136/250 [00:07<00:06, 17.83it/s][A
+
+Collecting activations:  55%|█████▌    | 138/250 [00:07<00:06, 17.89it/s][A
+
+Collecting activations:  56%|█████▌    | 140/250 [00:07<00:06, 17.87it/s][A
+
+Collecting activations:  57%|█████▋    | 142/250 [00:07<00:06, 17.92it/s][A
+
+Collecting activations:  58%|█████▊    | 144/250 [00:08<00:05, 17.84it/s][A
+
+Collecting activations:  58%|█████▊    | 146/250 [00:08<00:05, 17.88it/s][A
+
+Collecting activations:  59%|█████▉    | 148/250 [00:08<00:05, 17.82it/s][A
+
+Collecting activations:  60%|██████    | 150/250 [00:08<00:05, 17.86it/s][A
+
+Collecting activations:  61%|██████    | 152/250 [00:08<00:05, 17.84it/s][A
+
+Collecting activations:  62%|██████▏   | 154/250 [00:08<00:05, 17.76it/s][A
+
+Collecting activations:  62%|██████▏   | 156/250 [00:08<00:05, 17.86it/s][A
+
+Collecting activations:  63%|██████▎   | 158/250 [00:08<00:05, 17.79it/s][A
+
+Collecting activations:  64%|██████▍   | 160/250 [00:08<00:05, 17.88it/s][A
+
+Collecting activations:  65%|██████▍   | 162/250 [00:09<00:04, 17.82it/s][A
+
+Collecting activations:  66%|██████▌   | 164/250 [00:09<00:04, 17.86it/s][A
+
+Collecting activations:  66%|██████▋   | 166/250 [00:09<00:04, 17.79it/s][A
+
+Collecting activations:  67%|██████▋   | 168/250 [00:09<00:04, 17.87it/s][A
+
+Collecting activations:  68%|██████▊   | 170/250 [00:09<00:04, 17.84it/s][A
+
+Collecting activations:  69%|██████▉   | 172/250 [00:09<00:04, 17.86it/s][A
+
+Collecting activations:  70%|██████▉   | 174/250 [00:09<00:04, 17.84it/s][A
+
+Collecting activations:  70%|███████   | 176/250 [00:09<00:04, 17.90it/s][A
+
+Collecting activations:  71%|███████   | 178/250 [00:09<00:04, 17.85it/s][A
+
+Collecting activations:  72%|███████▏  | 180/250 [00:10<00:03, 17.85it/s][A
+
+Collecting activations:  73%|███████▎  | 182/250 [00:10<00:03, 17.86it/s][A
+
+Collecting activations:  74%|███████▎  | 184/250 [00:10<00:03, 17.91it/s][A
+
+Collecting activations:  74%|███████▍  | 186/250 [00:10<00:03, 17.85it/s][A
+
+Collecting activations:  75%|███████▌  | 188/250 [00:10<00:03, 17.75it/s][A
+
+Collecting activations:  76%|███████▌  | 190/250 [00:10<00:03, 17.83it/s][A
+
+Collecting activations:  77%|███████▋  | 192/250 [00:10<00:03, 17.78it/s][A
+
+Collecting activations:  78%|███████▊  | 194/250 [00:10<00:03, 17.89it/s][A
+
+Collecting activations:  78%|███████▊  | 196/250 [00:10<00:03, 17.82it/s][A
+
+Collecting activations:  79%|███████▉  | 198/250 [00:11<00:02, 17.87it/s][A
+
+Collecting activations:  80%|████████  | 200/250 [00:11<00:02, 17.79it/s][A
+
+Collecting activations:  81%|████████  | 202/250 [00:11<00:02, 17.89it/s][A
+
+Collecting activations:  82%|████████▏ | 204/250 [00:11<00:02, 18.33it/s][A
+
+Collecting activations:  83%|████████▎ | 207/250 [00:11<00:02, 21.38it/s][A
+
+Collecting activations:  84%|████████▍ | 210/250 [00:11<00:01, 23.46it/s][A
+
+Collecting activations:  85%|████████▌ | 213/250 [00:11<00:01, 25.28it/s][A
+
+Collecting activations:  87%|████████▋ | 217/250 [00:11<00:01, 27.61it/s][A
+
+Collecting activations:  88%|████████▊ | 221/250 [00:11<00:01, 28.99it/s][A
+
+Collecting activations:  90%|█████████ | 225/250 [00:12<00:00, 29.60it/s][A
+
+Collecting activations:  92%|█████████▏| 229/250 [00:12<00:00, 30.49it/s][A
+
+Collecting activations:  93%|█████████▎| 233/250 [00:12<00:00, 29.80it/s][A
+
+Collecting activations:  95%|█████████▍| 237/250 [00:12<00:00, 30.29it/s][A
+
+Collecting activations:  96%|█████████▋| 241/250 [00:12<00:00, 30.18it/s][A
+
+Collecting activations:  98%|█████████▊| 245/250 [00:12<00:00, 30.67it/s][A
+
+Collecting activations: 100%|█████████▉| 249/250 [00:12<00:00, 29.50it/s][A
+Collecting activations: 100%|██████████| 250/250 [00:12<00:00, 19.31it/s]
+
+
+Collecting activations:   0%|          | 0/250 [00:00<?, ?it/s][A
+
+Collecting activations:   1%|          | 3/250 [00:00<00:08, 29.91it/s][A
+
+Collecting activations:   3%|▎         | 7/250 [00:00<00:07, 31.14it/s][A
+
+Collecting activations:   4%|▍         | 11/250 [00:00<00:07, 29.97it/s][A
+
+Collecting activations:   6%|▌         | 15/250 [00:00<00:07, 29.39it/s][A
+
+Collecting activations:   8%|▊         | 19/250 [00:00<00:07, 29.62it/s][A
+
+Collecting activations:   9%|▉         | 22/250 [00:00<00:07, 29.11it/s][A
+
+Collecting activations:  10%|█         | 25/250 [00:00<00:07, 29.18it/s][A
+
+Collecting activations:  12%|█▏        | 29/250 [00:00<00:07, 30.27it/s][A
+
+Collecting activations:  13%|█▎        | 33/250 [00:01<00:07, 30.69it/s][A
+
+Collecting activations:  15%|█▍        | 37/250 [00:01<00:06, 31.29it/s][A
+
+Collecting activations:  16%|█▋        | 41/250 [00:01<00:06, 31.66it/s][A
+
+Collecting activations:  18%|█▊        | 45/250 [00:01<00:06, 31.93it/s][A
+
+Collecting activations:  20%|█▉        | 49/250 [00:01<00:06, 32.04it/s][A
+
+Collecting activations:  21%|██        | 53/250 [00:01<00:06, 31.94it/s][A
+
+Collecting activations:  23%|██▎       | 57/250 [00:01<00:06, 31.65it/s][A
+
+Collecting activations:  24%|██▍       | 61/250 [00:01<00:05, 31.55it/s][A
+
+Collecting activations:  26%|██▌       | 65/250 [00:02<00:05, 31.70it/s][A
+
+Collecting activations:  28%|██▊       | 69/250 [00:02<00:05, 31.90it/s][A
+
+Collecting activations:  29%|██▉       | 73/250 [00:02<00:05, 32.01it/s][A
+
+Collecting activations:  31%|███       | 77/250 [00:02<00:05, 32.19it/s][A
+
+Collecting activations:  32%|███▏      | 81/250 [00:02<00:05, 31.93it/s][A
+
+Collecting activations:  34%|███▍      | 85/250 [00:02<00:05, 30.88it/s][A
+
+Collecting activations:  36%|███▌      | 89/250 [00:02<00:05, 30.76it/s][A
+
+Collecting activations:  37%|███▋      | 93/250 [00:03<00:05, 30.38it/s][A
+
+Collecting activations:  39%|███▉      | 97/250 [00:03<00:05, 30.31it/s][A
+
+Collecting activations:  40%|████      | 101/250 [00:03<00:04, 30.92it/s][A
+
+Collecting activations:  42%|████▏     | 105/250 [00:03<00:04, 30.93it/s][A
+
+Collecting activations:  44%|████▎     | 109/250 [00:03<00:04, 31.42it/s][A
+
+Collecting activations:  45%|████▌     | 113/250 [00:03<00:04, 31.32it/s][A
+
+Collecting activations:  47%|████▋     | 117/250 [00:03<00:04, 31.71it/s][A
+
+Collecting activations:  48%|████▊     | 121/250 [00:03<00:04, 32.04it/s][A
+
+Collecting activations:  50%|█████     | 125/250 [00:04<00:03, 31.89it/s][A
+
+Collecting activations:  52%|█████▏    | 129/250 [00:04<00:03, 31.30it/s][A
+
+Collecting activations:  53%|█████▎    | 133/250 [00:04<00:03, 31.57it/s][A
+
+Collecting activations:  55%|█████▍    | 137/250 [00:04<00:03, 31.12it/s][A
+
+Collecting activations:  56%|█████▋    | 141/250 [00:04<00:03, 31.16it/s][A
+
+Collecting activations:  58%|█████▊    | 145/250 [00:04<00:03, 31.02it/s][A
+
+Collecting activations:  60%|█████▉    | 149/250 [00:04<00:03, 30.09it/s][A
+
+Collecting activations:  61%|██████    | 153/250 [00:04<00:03, 30.03it/s][A
+
+Collecting activations:  63%|██████▎   | 157/250 [00:05<00:03, 30.26it/s][A
+
+Collecting activations:  64%|██████▍   | 161/250 [00:05<00:02, 30.60it/s][A
+
+Collecting activations:  66%|██████▌   | 165/250 [00:05<00:02, 30.94it/s][A
+
+Collecting activations:  68%|██████▊   | 169/250 [00:05<00:02, 31.21it/s][A
+
+Collecting activations:  69%|██████▉   | 173/250 [00:05<00:02, 31.52it/s][A
+
+Collecting activations:  71%|███████   | 177/250 [00:05<00:02, 31.79it/s][A
+
+Collecting activations:  72%|███████▏  | 181/250 [00:05<00:02, 31.63it/s][A
+
+Collecting activations:  74%|███████▍  | 185/250 [00:05<00:02, 31.65it/s][A
+
+Collecting activations:  76%|███████▌  | 189/250 [00:06<00:01, 30.86it/s][A
+
+Collecting activations:  77%|███████▋  | 193/250 [00:06<00:01, 30.87it/s][A
+
+Collecting activations:  79%|███████▉  | 197/250 [00:06<00:01, 31.08it/s][A
+
+Collecting activations:  80%|████████  | 201/250 [00:06<00:01, 31.56it/s][A
+
+Collecting activations:  82%|████████▏ | 205/250 [00:06<00:01, 31.80it/s][A
+
+Collecting activations:  84%|████████▎ | 209/250 [00:06<00:01, 30.87it/s][A
+
+Collecting activations:  85%|████████▌ | 213/250 [00:06<00:01, 30.83it/s][A
+
+Collecting activations:  87%|████████▋ | 217/250 [00:06<00:01, 31.19it/s][A
+
+Collecting activations:  88%|████████▊ | 221/250 [00:07<00:00, 31.01it/s][A
+
+Collecting activations:  90%|█████████ | 225/250 [00:07<00:00, 31.00it/s][A
+
+Collecting activations:  92%|█████████▏| 229/250 [00:07<00:00, 30.95it/s][A
+
+Collecting activations:  93%|█████████▎| 233/250 [00:07<00:00, 31.37it/s][A
+
+Collecting activations:  95%|█████████▍| 237/250 [00:07<00:00, 31.41it/s][A
+
+Collecting activations:  96%|█████████▋| 241/250 [00:07<00:00, 30.85it/s][A
+
+Collecting activations:  98%|█████████▊| 245/250 [00:07<00:00, 30.38it/s][A
+
+Collecting activations: 100%|█████████▉| 249/250 [00:08<00:00, 30.57it/s][A
+Collecting activations: 100%|██████████| 250/250 [00:08<00:00, 31.05it/s]
+
+
+Collecting activations:   0%|          | 0/250 [00:00<?, ?it/s][A
+
+Collecting activations:   2%|▏         | 4/250 [00:00<00:07, 30.82it/s][A
+
+Collecting activations:   3%|▎         | 8/250 [00:00<00:07, 31.19it/s][A
+
+Collecting activations:   5%|▍         | 12/250 [00:00<00:07, 31.71it/s][A
+
+Collecting activations:   6%|▋         | 16/250 [00:00<00:07, 31.56it/s][A
+
+Collecting activations:   8%|▊         | 20/250 [00:00<00:07, 30.58it/s][A
+
+Collecting activations:  10%|▉         | 24/250 [00:00<00:07, 30.74it/s][A
+
+Collecting activations:  11%|█         | 28/250 [00:00<00:07, 30.86it/s][A
+
+Collecting activations:  13%|█▎        | 32/250 [00:01<00:06, 31.38it/s][A
+
+Collecting activations:  14%|█▍        | 36/250 [00:01<00:06, 31.31it/s][A
+
+Collecting activations:  16%|█▌        | 40/250 [00:01<00:06, 30.70it/s][A
+
+Collecting activations:  18%|█▊        | 44/250 [00:01<00:06, 29.84it/s][A
+
+Collecting activations:  19%|█▉        | 47/250 [00:01<00:06, 29.35it/s][A
+
+Collecting activations:  20%|██        | 50/250 [00:01<00:06, 29.03it/s][A
+
+Collecting activations:  21%|██        | 53/250 [00:01<00:06, 28.81it/s][A
+
+Collecting activations:  22%|██▏       | 56/250 [00:01<00:08, 22.98it/s][A
+
+Collecting activations:  24%|██▎       | 59/250 [00:02<00:09, 19.30it/s][A
+
+Collecting activations:  25%|██▍       | 62/250 [00:02<00:09, 20.09it/s][A
+
+Collecting activations:  26%|██▌       | 65/250 [00:02<00:08, 21.80it/s][A
+
+Collecting activations:  27%|██▋       | 68/250 [00:02<00:08, 20.81it/s][A
+
+Collecting activations:  28%|██▊       | 71/250 [00:02<00:09, 18.23it/s][A
+
+Collecting activations:  30%|██▉       | 74/250 [00:02<00:08, 20.08it/s][A
+
+Collecting activations:  31%|███       | 77/250 [00:03<00:07, 21.90it/s][A
+
+Collecting activations:  32%|███▏      | 80/250 [00:03<00:07, 23.40it/s][A
+
+Collecting activations:  33%|███▎      | 83/250 [00:03<00:06, 24.61it/s][A
+
+Collecting activations:  34%|███▍      | 86/250 [00:03<00:06, 25.58it/s][A
+
+Collecting activations:  36%|███▌      | 89/250 [00:03<00:06, 26.35it/s][A
+
+Collecting activations:  37%|███▋      | 92/250 [00:03<00:05, 26.95it/s][A
+
+Collecting activations:  38%|███▊      | 95/250 [00:03<00:05, 27.32it/s][A
+
+Collecting activations:  39%|███▉      | 98/250 [00:03<00:05, 27.62it/s][A
+
+Collecting activations:  40%|████      | 101/250 [00:03<00:05, 27.84it/s][A
+
+Collecting activations:  42%|████▏     | 104/250 [00:03<00:05, 28.13it/s][A
+
+Collecting activations:  43%|████▎     | 108/250 [00:04<00:04, 29.45it/s][A
+
+Collecting activations:  45%|████▍     | 112/250 [00:04<00:04, 30.50it/s][A
+
+Collecting activations:  46%|████▋     | 116/250 [00:04<00:04, 31.16it/s][A
+
+Collecting activations:  48%|████▊     | 120/250 [00:04<00:04, 31.66it/s][A
+
+Collecting activations:  50%|████▉     | 124/250 [00:04<00:04, 31.45it/s][A
+
+Collecting activations:  51%|█████     | 128/250 [00:04<00:03, 30.77it/s][A
+
+Collecting activations:  53%|█████▎    | 132/250 [00:04<00:03, 30.86it/s][A
+
+Collecting activations:  54%|█████▍    | 136/250 [00:04<00:03, 30.76it/s][A
+
+Collecting activations:  56%|█████▌    | 140/250 [00:05<00:03, 30.90it/s][A
+
+Collecting activations:  58%|█████▊    | 144/250 [00:05<00:03, 31.15it/s][A
+
+Collecting activations:  59%|█████▉    | 148/250 [00:05<00:03, 31.58it/s][A
+
+Collecting activations:  61%|██████    | 152/250 [00:05<00:03, 31.82it/s][A
+
+Collecting activations:  62%|██████▏   | 156/250 [00:05<00:02, 31.67it/s][A
+
+Collecting activations:  64%|██████▍   | 160/250 [00:05<00:02, 31.77it/s][A
+
+Collecting activations:  66%|██████▌   | 164/250 [00:05<00:02, 31.88it/s][A
+
+Collecting activations:  67%|██████▋   | 168/250 [00:05<00:02, 31.56it/s][A
+
+Collecting activations:  69%|██████▉   | 172/250 [00:06<00:02, 31.65it/s][A
+
+Collecting activations:  70%|███████   | 176/250 [00:06<00:02, 31.91it/s][A
+
+Collecting activations:  72%|███████▏  | 180/250 [00:06<00:02, 31.61it/s][A
+
+Collecting activations:  74%|███████▎  | 184/250 [00:06<00:02, 31.24it/s][A
+
+Collecting activations:  75%|███████▌  | 188/250 [00:06<00:02, 30.89it/s][A
+
+Collecting activations:  77%|███████▋  | 192/250 [00:06<00:01, 30.66it/s][A
+
+Collecting activations:  78%|███████▊  | 196/250 [00:06<00:01, 30.72it/s][A
+
+Collecting activations:  80%|████████  | 200/250 [00:07<00:01, 30.63it/s][A
+
+Collecting activations:  82%|████████▏ | 204/250 [00:07<00:01, 30.72it/s][A
+
+Collecting activations:  83%|████████▎ | 208/250 [00:07<00:01, 31.29it/s][A
+
+Collecting activations:  85%|████████▍ | 212/250 [00:07<00:01, 31.43it/s][A
+
+Collecting activations:  86%|████████▋ | 216/250 [00:07<00:01, 31.88it/s][A
+
+Collecting activations:  88%|████████▊ | 220/250 [00:07<00:00, 32.01it/s][A
+
+Collecting activations:  90%|████████▉ | 224/250 [00:07<00:00, 32.13it/s][A
+
+Collecting activations:  91%|█████████ | 228/250 [00:07<00:00, 32.06it/s][A
+
+Collecting activations:  93%|█████████▎| 232/250 [00:08<00:00, 31.86it/s][A
+
+Collecting activations:  94%|█████████▍| 236/250 [00:08<00:00, 32.07it/s][A
+
+Collecting activations:  96%|█████████▌| 240/250 [00:08<00:00, 32.04it/s][A
+
+Collecting activations:  98%|█████████▊| 244/250 [00:08<00:00, 32.26it/s][A
+
+Collecting activations:  99%|█████████▉| 248/250 [00:08<00:00, 32.44it/s][A
+Collecting activations: 100%|██████████| 250/250 [00:08<00:00, 29.15it/s]
+
+
+Collecting activations:   0%|          | 0/63 [00:00<?, ?it/s][A
+
+Collecting activations:   5%|▍         | 3/63 [00:00<00:02, 28.33it/s][A
+
+Collecting activations:  10%|▉         | 6/63 [00:00<00:01, 29.15it/s][A
+
+Collecting activations:  16%|█▌        | 10/63 [00:00<00:01, 30.41it/s][A
+
+Collecting activations:  22%|██▏       | 14/63 [00:00<00:01, 30.22it/s][A
+
+Collecting activations:  29%|██▊       | 18/63 [00:00<00:01, 29.47it/s][A
+
+Collecting activations:  33%|███▎      | 21/63 [00:00<00:01, 29.15it/s][A
+
+Collecting activations:  40%|███▉      | 25/63 [00:00<00:01, 30.01it/s][A
+
+Collecting activations:  46%|████▌     | 29/63 [00:00<00:01, 30.38it/s][A
+
+Collecting activations:  52%|█████▏    | 33/63 [00:01<00:00, 30.40it/s][A
+
+Collecting activations:  59%|█████▊    | 37/63 [00:01<00:00, 30.72it/s][A
+
+Collecting activations:  65%|██████▌   | 41/63 [00:01<00:00, 30.67it/s][A
+
+Collecting activations:  71%|███████▏  | 45/63 [00:01<00:00, 30.91it/s][A
+
+Collecting activations:  78%|███████▊  | 49/63 [00:01<00:00, 31.26it/s][A
+
+Collecting activations:  84%|████████▍ | 53/63 [00:01<00:00, 31.66it/s][A
+
+Collecting activations:  90%|█████████ | 57/63 [00:01<00:00, 32.04it/s][A
+
+Collecting activations:  97%|█████████▋| 61/63 [00:01<00:00, 32.21it/s][A
+Collecting activations: 100%|██████████| 63/63 [00:02<00:00, 30.77it/s]
+
+
+Collecting activations:   0%|          | 0/63 [00:00<?, ?it/s][A
+
+Collecting activations:   5%|▍         | 3/63 [00:00<00:02, 22.95it/s][A
+
+Collecting activations:  10%|▉         | 6/63 [00:00<00:02, 19.57it/s][A
+
+Collecting activations:  13%|█▎        | 8/63 [00:00<00:02, 18.81it/s][A
+
+Collecting activations:  16%|█▌        | 10/63 [00:00<00:02, 18.50it/s][A
+
+Collecting activations:  19%|█▉        | 12/63 [00:00<00:02, 18.22it/s][A
+
+Collecting activations:  22%|██▏       | 14/63 [00:00<00:02, 17.98it/s][A
+
+Collecting activations:  25%|██▌       | 16/63 [00:00<00:02, 17.95it/s][A
+
+Collecting activations:  29%|██▊       | 18/63 [00:00<00:02, 17.85it/s][A
+
+Collecting activations:  32%|███▏      | 20/63 [00:01<00:02, 17.89it/s][A
+
+Collecting activations:  35%|███▍      | 22/63 [00:01<00:02, 17.80it/s][A
+
+Collecting activations:  38%|███▊      | 24/63 [00:01<00:02, 17.73it/s][A
+
+Collecting activations:  41%|████▏     | 26/63 [00:01<00:02, 17.81it/s][A
+
+Collecting activations:  44%|████▍     | 28/63 [00:01<00:01, 17.77it/s][A
+
+Collecting activations:  48%|████▊     | 30/63 [00:01<00:01, 17.83it/s][A
+
+Collecting activations:  51%|█████     | 32/63 [00:01<00:01, 17.75it/s][A
+
+Collecting activations:  54%|█████▍    | 34/63 [00:01<00:01, 17.84it/s][A
+
+Collecting activations:  57%|█████▋    | 36/63 [00:01<00:01, 17.76it/s][A
+
+Collecting activations:  60%|██████    | 38/63 [00:02<00:01, 17.85it/s][A
+
+Collecting activations:  63%|██████▎   | 40/63 [00:02<00:01, 17.74it/s][A
+
+Collecting activations:  67%|██████▋   | 42/63 [00:02<00:01, 17.68it/s][A
+
+Collecting activations:  70%|██████▉   | 44/63 [00:02<00:01, 17.82it/s][A
+
+Collecting activations:  73%|███████▎  | 46/63 [00:02<00:00, 17.74it/s][A
+
+Collecting activations:  76%|███████▌  | 48/63 [00:02<00:00, 17.76it/s][A
+
+Collecting activations:  79%|███████▉  | 50/63 [00:02<00:00, 17.72it/s][A
+
+Collecting activations:  83%|████████▎ | 52/63 [00:02<00:00, 17.81it/s][A
+
+Collecting activations:  86%|████████▌ | 54/63 [00:03<00:00, 17.75it/s][A
+
+Collecting activations:  89%|████████▉ | 56/63 [00:03<00:00, 17.68it/s][A
+
+Collecting activations:  92%|█████████▏| 58/63 [00:03<00:00, 17.73it/s][A
+
+Collecting activations:  95%|█████████▌| 60/63 [00:03<00:00, 17.70it/s][A
+
+Collecting activations:  98%|█████████▊| 62/63 [00:03<00:00, 17.79it/s][A
+Collecting activations: 100%|██████████| 63/63 [00:03<00:00, 17.96it/s]
+
+
+Collecting activations:   0%|          | 0/63 [00:00<?, ?it/s][A
+
+Collecting activations:   5%|▍         | 3/63 [00:00<00:03, 19.27it/s][A
+
+Collecting activations:   8%|▊         | 5/63 [00:03<00:43,  1.33it/s][A
+
+Collecting activations:  11%|█         | 7/63 [00:03<00:26,  2.14it/s][A
+
+Collecting activations:  14%|█▍        | 9/63 [00:03<00:16,  3.18it/s][A
+
+Collecting activations:  17%|█▋        | 11/63 [00:03<00:11,  4.43it/s][A
+
+Collecting activations:  21%|██        | 13/63 [00:03<00:08,  5.90it/s][A
+
+Collecting activations:  24%|██▍       | 15/63 [00:03<00:06,  7.51it/s][A
+
+Collecting activations:  27%|██▋       | 17/63 [00:03<00:05,  9.14it/s][A
+
+Collecting activations:  30%|███       | 19/63 [00:03<00:04, 10.77it/s][A
+
+Collecting activations:  33%|███▎      | 21/63 [00:04<00:03, 12.23it/s][A
+
+Collecting activations:  37%|███▋      | 23/63 [00:04<00:02, 13.48it/s][A
+
+Collecting activations:  40%|███▉      | 25/63 [00:04<00:02, 14.55it/s][A
+
+Collecting activations:  43%|████▎     | 27/63 [00:04<00:02, 15.39it/s][A
+
+Collecting activations:  46%|████▌     | 29/63 [00:04<00:02, 15.96it/s][A
+
+Collecting activations:  49%|████▉     | 31/63 [00:04<00:01, 16.52it/s][A
+
+Collecting activations:  52%|█████▏    | 33/63 [00:04<00:01, 16.83it/s][A
+
+Collecting activations:  56%|█████▌    | 35/63 [00:04<00:01, 17.14it/s][A
+
+Collecting activations:  59%|█████▊    | 37/63 [00:04<00:01, 17.33it/s][A
+
+Collecting activations:  62%|██████▏   | 39/63 [00:05<00:01, 17.49it/s][A
+
+Collecting activations:  65%|██████▌   | 41/63 [00:05<00:01, 17.52it/s][A
+
+Collecting activations:  68%|██████▊   | 43/63 [00:05<00:01, 17.52it/s][A
+
+Collecting activations:  71%|███████▏  | 45/63 [00:05<00:01, 17.65it/s][A
+
+Collecting activations:  75%|███████▍  | 47/63 [00:05<00:00, 17.64it/s][A
+
+Collecting activations:  78%|███████▊  | 49/63 [00:05<00:00, 17.61it/s][A
+
+Collecting activations:  81%|████████  | 51/63 [00:05<00:00, 17.71it/s][A
+
+Collecting activations:  84%|████████▍ | 53/63 [00:05<00:00, 17.66it/s][A
+
+Collecting activations:  87%|████████▋ | 55/63 [00:05<00:00, 17.62it/s][A
+
+Collecting activations:  90%|█████████ | 57/63 [00:06<00:00, 17.72it/s][A
+
+Collecting activations:  94%|█████████▎| 59/63 [00:06<00:00, 17.69it/s][A
+
+Collecting activations:  97%|█████████▋| 61/63 [00:06<00:00, 17.79it/s][A
+
+Collecting activations: 100%|██████████| 63/63 [00:06<00:00, 17.93it/s][A
+Collecting activations: 100%|██████████| 63/63 [00:06<00:00,  9.84it/s]
+
+
+Collecting activations:   0%|          | 0/63 [00:00<?, ?it/s][A
+
+Collecting activations:   5%|▍         | 3/63 [00:00<00:03, 19.29it/s][A
+
+Collecting activations:   8%|▊         | 5/63 [00:00<00:03, 18.45it/s][A
+
+Collecting activations:  11%|█         | 7/63 [00:00<00:03, 18.24it/s][A
+
+Collecting activations:  14%|█▍        | 9/63 [00:00<00:02, 18.02it/s][A
+
+Collecting activations:  17%|█▋        | 11/63 [00:00<00:02, 17.95it/s][A
+
+Collecting activations:  21%|██        | 13/63 [00:00<00:02, 17.89it/s][A
+
+Collecting activations:  24%|██▍       | 15/63 [00:00<00:02, 17.77it/s][A
+
+Collecting activations:  27%|██▋       | 17/63 [00:00<00:02, 17.81it/s][A
+
+Collecting activations:  30%|███       | 19/63 [00:01<00:02, 17.76it/s][A
+
+Collecting activations:  33%|███▎      | 21/63 [00:01<00:02, 17.78it/s][A
+
+Collecting activations:  37%|███▋      | 23/63 [00:01<00:02, 17.79it/s][A
+
+Collecting activations:  40%|███▉      | 25/63 [00:01<00:02, 17.72it/s][A
+
+Collecting activations:  43%|████▎     | 27/63 [00:01<00:02, 17.74it/s][A
+
+Collecting activations:  46%|████▌     | 29/63 [00:01<00:01, 17.70it/s][A
+
+Collecting activations:  49%|████▉     | 31/63 [00:01<00:01, 17.75it/s][A
+
+Collecting activations:  52%|█████▏    | 33/63 [00:05<00:01, 17.74it/s][A
+
+Collecting activations:  56%|█████▌    | 35/63 [00:05<00:18,  1.53it/s][A
+
+Collecting activations:  60%|██████    | 38/63 [00:06<00:10,  2.43it/s][A
+
+Collecting activations:  65%|██████▌   | 41/63 [00:06<00:06,  3.62it/s][A
+
+Collecting activations:  70%|██████▉   | 44/63 [00:06<00:03,  5.14it/s][A
+
+Collecting activations:  75%|███████▍  | 47/63 [00:06<00:02,  7.04it/s][A
+
+Collecting activations:  81%|████████  | 51/63 [00:06<00:01,  9.96it/s][A
+
+Collecting activations:  86%|████████▌ | 54/63 [00:06<00:00, 12.30it/s][A
+
+Collecting activations:  90%|█████████ | 57/63 [00:06<00:00, 14.77it/s][A
+
+Collecting activations:  95%|█████████▌| 60/63 [00:06<00:00, 17.17it/s][A
+
+Collecting activations: 100%|██████████| 63/63 [00:06<00:00, 19.59it/s][A
+Collecting activations: 100%|██████████| 63/63 [00:06<00:00,  9.13it/s]
+
+
+Collecting activations:   0%|          | 0/63 [00:00<?, ?it/s][A
+
+Collecting activations:   5%|▍         | 3/63 [00:00<00:02, 28.29it/s][A
+
+Collecting activations:  10%|▉         | 6/63 [00:00<00:02, 28.07it/s][A
+
+Collecting activations:  14%|█▍        | 9/63 [00:00<00:01, 28.24it/s][A
+
+Collecting activations:  19%|█▉        | 12/63 [00:00<00:01, 28.39it/s][A
+
+Collecting activations:  24%|██▍       | 15/63 [00:00<00:01, 28.50it/s][A
+
+Collecting activations:  29%|██▊       | 18/63 [00:00<00:01, 28.48it/s][A
+
+Collecting activations:  33%|███▎      | 21/63 [00:00<00:01, 28.62it/s][A
+
+Collecting activations:  38%|███▊      | 24/63 [00:00<00:01, 28.81it/s][A
+
+Collecting activations:  44%|████▍     | 28/63 [00:00<00:01, 29.43it/s][A
+
+Collecting activations:  51%|█████     | 32/63 [00:01<00:01, 29.86it/s][A
+
+Collecting activations:  56%|█████▌    | 35/63 [00:01<00:00, 29.43it/s][A
+
+Collecting activations:  60%|██████    | 38/63 [00:01<00:00, 29.25it/s][A
+
+Collecting activations:  67%|██████▋   | 42/63 [00:01<00:00, 29.60it/s][A
+
+Collecting activations:  73%|███████▎  | 46/63 [00:01<00:00, 29.65it/s][A
+
+Collecting activations:  78%|███████▊  | 49/63 [00:01<00:00, 29.51it/s][A
+
+Collecting activations:  83%|████████▎ | 52/63 [00:01<00:00, 29.56it/s][A
+
+Collecting activations:  87%|████████▋ | 55/63 [00:01<00:00, 29.61it/s][A
+
+Collecting activations:  92%|█████████▏| 58/63 [00:01<00:00, 29.71it/s][A
+
+Collecting activations:  98%|█████████▊| 62/63 [00:02<00:00, 30.03it/s][A
+Collecting activations: 100%|██████████| 63/63 [00:02<00:00, 29.33it/s]
+Num non-zero elements: 2304
+Training probe with dim: 2304, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 18 epochs
+Test accuracy for 0: 0.9470000267028809
+Num non-zero elements: 2304
+Training probe with dim: 2304, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 13 epochs
+Test accuracy for 1: 0.9610000252723694
+Num non-zero elements: 2304
+Training probe with dim: 2304, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 15 epochs
+Test accuracy for 2: 0.9470000267028809
+Num non-zero elements: 2304
+Training probe with dim: 2304, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 16 epochs
+Test accuracy for 6: 0.9880000352859497
+Num non-zero elements: 2304
+Training probe with dim: 2304, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 26 epochs
+Test accuracy for 9: 0.9810000658035278
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.584
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.624
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.668
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.797
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 9: 0.672
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.591
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.637
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.719
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.794
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 9: 0.725
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.715
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.703
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.76
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.891
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 9: 0.859
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 60 epochs
+Test accuracy for 0: 0.8950000405311584
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 73 epochs
+Test accuracy for 1: 0.9180000424385071
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 75 epochs
+Test accuracy for 2: 0.9100000262260437
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 68 epochs
+Test accuracy for 6: 0.9640000462532043
+Num non-zero elements: 16384
+Training probe with dim: 16384, device: cuda:0, dtype: torch.bfloat16
+GPU probe training early stopping triggered after 43 epochs
+Test accuracy for 9: 0.9360000491142273
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.785
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.782
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.885
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.965
+Num non-zero elements: 1
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 9: 0.708
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.873
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.726
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.851
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.948
+Num non-zero elements: 2
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 9: 0.77
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 0: 0.696
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 1: 0.756
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 2: 0.843
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 6: 0.912
+Num non-zero elements: 5
+/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1135: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', and C=np.inf instead of penalty=None.
+  warnings.warn(
+Test accuracy for 9: 0.813
+Loading activations from artifacts/sparse_probing/google/gemma-2-2b/blocks.13.hook_resid_post/LabHC_bias_in_bios_class_set2_activations.pt
+
+Running SAE evaluation on all selected SAEs:   0%|          | 0/1 [03:02<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/<user>/MechInter--RNH/experiments/exp42c_long_saebench.py", line 45, in <module>
+    run_saebench(
+  File "/home/<user>/MechInter--RNH/benchmarks/run_saebench.py", line 122, in run_saebench
+    mod.run_eval(
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sae_bench/evals/sparse_probing/main.py", line 337, in run_eval
+    sparse_probing_results, per_class_dict = run_eval_single_sae(
+                                             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sae_bench/evals/sparse_probing/main.py", line 258, in run_eval_single_sae
+    ) = run_eval_single_dataset(
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/sae_bench/evals/sparse_probing/main.py", line 171, in run_eval_single_dataset
+    acts = torch.load(activations_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/torch/serialization.py", line 1537, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/<user>/MechInter--RNH/.venv/lib/python3.12/site-packages/torch/serialization.py", line 807, in __init__
+    super().__init__(torch._C.PyTorchFileReader(name_or_buffer))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory. This is an internal miniz error. If you are seeing this error, there is a high likelihood that your checkpoint file is corrupted. This can happen if the checkpoint was not saved properly, was transferred incorrectly, or the file was modified after saving.

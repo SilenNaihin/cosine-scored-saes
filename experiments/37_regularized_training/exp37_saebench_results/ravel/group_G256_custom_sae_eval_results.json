@@ -1,0 +1,107 @@
+{
+  "eval_type_id": "ravel",
+  "eval_config": {
+    "entity_attribute_selection": {
+      "city": [
+        "Country",
+        "Continent",
+        "Language"
+      ],
+      "nobel_prize_winner": [
+        "Country of Birth",
+        "Field",
+        "Gender"
+      ]
+    },
+    "top_n_entities": 500,
+    "top_n_templates": 90,
+    "full_dataset_downsample": null,
+    "num_pairs_per_attribute": 5000,
+    "train_test_split": 0.7,
+    "force_dataset_recompute": false,
+    "model_name": "google/gemma-2-2b",
+    "llm_dtype": "bfloat16",
+    "llm_batch_size": 16,
+    "learning_rate": 0.001,
+    "num_epochs": 2,
+    "train_mdas": false,
+    "n_generated_tokens": 6,
+    "random_seed": 42,
+    "artifact_dir": "artifacts/ravel"
+  },
+  "eval_id": "2641b8ea-bb3e-4626-a83d-86f1506d5e49",
+  "datetime_epoch_millis": 1776725816299,
+  "eval_result_metrics": {
+    "ravel": {
+      "disentanglement_score": 0.6054557820561741,
+      "cause_score": 0.5643312053070126,
+      "isolation_score": 0.6465803588053358
+    }
+  },
+  "eval_result_details": [],
+  "sae_bench_commit_hash": "Unknown",
+  "sae_lens_id": "custom_sae",
+  "sae_lens_release_id": "group_G256",
+  "sae_lens_version": "6.39.0",
+  "sae_cfg_dict": {
+    "model_name": "google/gemma-2-2b",
+    "d_in": 2304,
+    "d_sae": 9216,
+    "hook_layer": 13,
+    "hook_name": "blocks.13.hook_resid_post",
+    "context_size": null,
+    "hook_head_index": null,
+    "architecture": "",
+    "apply_b_dec_to_input": null,
+    "finetuning_scaling_factor": null,
+    "activation_fn_str": "",
+    "prepend_bos": true,
+    "normalize_activations": "none",
+    "dtype": "bfloat16",
+    "device": "",
+    "dataset_path": "",
+    "dataset_trust_remote_code": true,
+    "seqpos_slice": [
+      null
+    ],
+    "training_tokens": -100000,
+    "sae_lens_training_version": null,
+    "neuronpedia_id": null
+  },
+  "eval_result_unstructured": {
+    "city_results": {
+      "city_Country": {
+        "cause_score": 0.7006028131279304,
+        "isolation_score": 0.20880587058038694,
+        "disentangle_score": 0.45470434185415864
+      },
+      "city_Continent": {
+        "cause_score": 0.4879163945133899,
+        "isolation_score": 0.5400410677618069,
+        "disentangle_score": 0.5139787311375984
+      },
+      "city_Language": {
+        "cause_score": 0.5026917900403769,
+        "isolation_score": 0.44687915006640105,
+        "disentangle_score": 0.474785470053389
+      }
+    },
+    "nobel_prize_winner_results": {
+      "nobel_prize_winner_Country of Birth": {
+        "cause_score": 0.5267983074753173,
+        "isolation_score": 0.8939008894536213,
+        "disentangle_score": 0.7103495984644693
+      },
+      "nobel_prize_winner_Field": {
+        "cause_score": 0.6935593220338983,
+        "isolation_score": 0.9057350032959789,
+        "disentangle_score": 0.7996471626649386
+      },
+      "nobel_prize_winner_Gender": {
+        "cause_score": 0.4744186046511628,
+        "isolation_score": 0.8841201716738197,
+        "disentangle_score": 0.6792693881624913
+      }
+    }
+  }
+}

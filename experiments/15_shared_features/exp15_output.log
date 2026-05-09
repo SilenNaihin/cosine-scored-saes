@@ -1,0 +1,856 @@
+Experiment 15: Shared Feature Evaluation
+======================================================================
+Model: Qwen/Qwen3-8B
+Primary layer: 18
+Matching: decoder cos_sim > 0.9, alive freq > 0.01
+Eval tokens: 500,000
+Ablation samples per feature: 100
+
+Loading model...
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.65it/s]
+Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:01,  1.67it/s]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:01,  1.68it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.86it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.47it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.07it/s]
+Model loaded in 3.9s
+
+Collecting FineWeb texts...
+  Downloading ~5,000 docs from FineWeb...
+  Collected 5,000 texts in 14.9s
+
+Checking checkpoints in checkpoints/exp10...
+  L18: 5 checkpoints found
+  L9: 6 checkpoints found
+  L27: 6 checkpoints found
+
+======================================================================
+  LAYER 18 — Shared Feature Evaluation
+======================================================================
+  Converting texts -> layer 18 activations (target 500,000)...
+  Layer 18: 500,000 tokens in 29.4s (norm: mean=99.9, std=9.8)
+  Eval data: 500,000 tokens
+  Loaded standard at L18
+  Loaded cosine_l2 at L18
+  Loaded cosine_cosloss at L18
+  Loaded adaptive_l2 at L18
+  Loaded adaptive_cosloss at L18
+  5 SAEs loaded for layer 18
+
+  Computing alive features (freq >= 0.01)...
+    standard: 753 alive (4.6%)
+    cosine_l2: 965 alive (5.9%)
+    cosine_cosloss: 797 alive (4.9%)
+    adaptive_l2: 997 alive (6.1%)
+    adaptive_cosloss: 802 alive (4.9%)
+
+  Finding shared features (cos_sim > 0.9)...
+    Matching 753 x 965 alive features...
+    standard ↔ cosine_l2: 3 shared features
+    Matching 753 x 797 alive features...
+    standard ↔ cosine_cosloss: 6 shared features
+    Matching 753 x 997 alive features...
+    standard ↔ adaptive_l2: 3 shared features
+    Matching 753 x 802 alive features...
+    standard ↔ adaptive_cosloss: 5 shared features
+    Matching 965 x 797 alive features...
+    cosine_l2 ↔ cosine_cosloss: 66 shared features
+    Matching 965 x 997 alive features...
+    cosine_l2 ↔ adaptive_l2: 615 shared features
+    Matching 965 x 802 alive features...
+    cosine_l2 ↔ adaptive_cosloss: 65 shared features
+    Matching 797 x 997 alive features...
+    cosine_cosloss ↔ adaptive_l2: 67 shared features
+    Matching 797 x 802 alive features...
+    cosine_cosloss ↔ adaptive_cosloss: 299 shared features
+    Matching 997 x 802 alive features...
+    adaptive_l2 ↔ adaptive_cosloss: 71 shared features
+
+  Total shared feature pairs across all SAE combinations: 1200
+
+  Moving SAEs to CPU for ablation phase...
+
+  Running head-to-head ablation comparisons...
+
+  Evaluating 3 shared features: standard vs cosine_l2 @ L18
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.1s
+      [  0] feat 7305↔8499 (sim=0.932) | n=100 | standard→KL=0.326 | cosine_l2→KL=0.345 | cos→KL=0.424 | winner=cosine_l2
+      [  1] feat 7578↔1268 (sim=0.917) | n=100 | standard→KL=0.502 | cosine_l2→KL=0.411 | cos→KL=0.479 | winner=standard
+      [  2] feat 14228↔14228 (sim=0.903) | n=100 | standard→KL=0.627 | cosine_l2→KL=0.643 | cos→KL=0.617 | winner=cosine_l2
+
+    Summary (3 shared features): standard→KL=0.4849 vs cosine_l2→KL=0.4664 | standard wins 1/3 (33%) | cos→KL=0.5067 | cos>inner: 1/3
+
+  Evaluating 6 shared features: standard vs cosine_cosloss @ L18
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.1s
+      [  0] feat 7578↔7578 (sim=0.934) | n=100 | standard→KL=0.691 | cosine_cosloss→KL=0.629 | cos→KL=0.640 | winner=standard
+      [  1] feat 13115↔12799 (sim=0.923) | n=100 | standard→KL=0.563 | cosine_cosloss→KL=0.567 | cos→KL=0.600 | winner=cosine_cosloss
+      [  2] feat 7305↔4103 (sim=0.910) | n=100 | standard→KL=0.444 | cosine_cosloss→KL=0.266 | cos→KL=0.381 | winner=standard
+      [  3] feat 10618↔9495 (sim=0.909) | n=100 | standard→KL=0.426 | cosine_cosloss→KL=0.456 | cos→KL=0.407 | winner=cosine_cosloss
+      [  4] feat 12732↔851 (sim=0.907) | n=100 | standard→KL=0.447 | cosine_cosloss→KL=0.448 | cos→KL=0.546 | winner=cosine_cosloss
+      [  5] feat 8391↔11315 (sim=0.901) | n=100 | standard→KL=0.189 | cosine_cosloss→KL=0.323 | cos→KL=0.275 | winner=cosine_cosloss
+
+    Summary (6 shared features): standard→KL=0.4600 vs cosine_cosloss→KL=0.4483 | standard wins 2/6 (33%) | cos→KL=0.4747 | cos>inner: 3/6
+
+  Evaluating 3 shared features: standard vs adaptive_l2 @ L18
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.0s
+      [  0] feat 8794↔5891 (sim=0.919) | n=100 | standard→KL=0.461 | adaptive_l2→KL=0.544 | cos→KL=0.529 | winner=adaptive_l2
+      [  1] feat 7305↔8499 (sim=0.909) | n=100 | standard→KL=0.585 | adaptive_l2→KL=0.539 | cos→KL=0.589 | winner=standard
+      [  2] feat 7578↔1268 (sim=0.906) | n=100 | standard→KL=0.606 | adaptive_l2→KL=0.488 | cos→KL=0.644 | winner=standard
+
+    Summary (3 shared features): standard→KL=0.5509 vs adaptive_l2→KL=0.5238 | standard wins 2/3 (67%) | cos→KL=0.5874 | cos>inner: 2/3
+
+  Evaluating 5 shared features: standard vs adaptive_cosloss @ L18
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.2s
+      [  0] feat 7578↔7578 (sim=0.923) | n=100 | standard→KL=0.444 | adaptive_cosloss→KL=0.414 | cos→KL=0.451 | winner=standard
+      [  1] feat 8794↔2386 (sim=0.914) | n=100 | standard→KL=0.610 | adaptive_cosloss→KL=0.636 | cos→KL=0.643 | winner=adaptive_cosloss
+      [  2] feat 8391↔11315 (sim=0.905) | n=100 | standard→KL=0.290 | adaptive_cosloss→KL=0.290 | cos→KL=0.378 | winner=adaptive_cosloss
+      [  3] feat 10618↔9495 (sim=0.904) | n=100 | standard→KL=0.417 | adaptive_cosloss→KL=0.495 | cos→KL=0.520 | winner=adaptive_cosloss
+      [  4] feat 928↔928 (sim=0.902) | n=100 | standard→KL=0.417 | adaptive_cosloss→KL=0.411 | cos→KL=0.411 | winner=standard
+
+    Summary (5 shared features): standard→KL=0.4355 vs adaptive_cosloss→KL=0.4493 | standard wins 2/5 (40%) | cos→KL=0.4806 | cos>inner: 4/5
+
+  Evaluating 66 shared features: cosine_l2 vs cosine_cosloss @ L18
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.4s
+      [  0] feat 6384↔6384 (sim=0.994) | n=100 | cosine_l2→KL=0.212 | cosine_cosloss→KL=0.217 | cos→KL=0.362 | winner=cosine_cosloss
+      [  1] feat 1741↔1741 (sim=0.994) | n=100 | cosine_l2→KL=0.213 | cosine_cosloss→KL=0.233 | cos→KL=0.251 | winner=cosine_cosloss
+      [  2] feat 9866↔9866 (sim=0.993) | n=100 | cosine_l2→KL=0.364 | cosine_cosloss→KL=0.416 | cos→KL=0.423 | winner=cosine_cosloss
+      [  3] feat 3602↔3602 (sim=0.992) | n=100 | cosine_l2→KL=0.211 | cosine_cosloss→KL=0.196 | cos→KL=0.375 | winner=cosine_l2
+      [  4] feat 6389↔6389 (sim=0.992) | n=100 | cosine_l2→KL=0.162 | cosine_cosloss→KL=0.189 | cos→KL=0.210 | winner=cosine_cosloss
+      [  5] feat 978↔978 (sim=0.992) | n=100 | cosine_l2→KL=0.250 | cosine_cosloss→KL=0.203 | cos→KL=0.468 | winner=cosine_l2
+      [  6] feat 2742↔2742 (sim=0.992) | n=100 | cosine_l2→KL=0.220 | cosine_cosloss→KL=0.084 | cos→KL=0.399 | winner=cosine_l2
+      [  7] feat 5566↔5566 (sim=0.991) | n=100 | cosine_l2→KL=0.104 | cosine_cosloss→KL=0.106 | cos→KL=0.178 | winner=cosine_cosloss
+      [  8] feat 3115↔3115 (sim=0.991) | n=100 | cosine_l2→KL=0.072 | cosine_cosloss→KL=0.109 | cos→KL=0.116 | winner=cosine_cosloss
+      [  9] feat 937↔937 (sim=0.991) | n=100 | cosine_l2→KL=0.336 | cosine_cosloss→KL=0.258 | cos→KL=0.470 | winner=cosine_l2
+      [ 20] feat 2962↔2962 (sim=0.988) | n=100 | cosine_l2→KL=0.228 | cosine_cosloss→KL=0.239 | cos→KL=0.228 | winner=cosine_cosloss
+      [ 40] feat 11075↔11075 (sim=0.951) | n=100 | cosine_l2→KL=0.339 | cosine_cosloss→KL=0.306 | cos→KL=0.427 | winner=cosine_l2
+      [ 60] feat 5780↔5780 (sim=0.918) | n=100 | cosine_l2→KL=0.498 | cosine_cosloss→KL=0.514 | cos→KL=0.549 | winner=cosine_cosloss
+
+    Summary (66 shared features): cosine_l2→KL=0.3421 vs cosine_cosloss→KL=0.3415 | cosine_l2 wins 30/66 (45%) | cos→KL=0.4012 | cos>inner: 55/66
+
+  Evaluating 615 shared features: cosine_l2 vs adaptive_l2 @ L18
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.4s
+      [  0] feat 1741↔1741 (sim=1.000) | n=100 | cosine_l2→KL=0.182 | adaptive_l2→KL=0.164 | cos→KL=0.302 | winner=cosine_l2
+      [  1] feat 937↔937 (sim=1.000) | n=100 | cosine_l2→KL=0.169 | adaptive_l2→KL=0.169 | cos→KL=0.193 | winner=adaptive_l2
+      [  2] feat 978↔978 (sim=1.000) | n=100 | cosine_l2→KL=0.192 | adaptive_l2→KL=0.159 | cos→KL=0.253 | winner=cosine_l2
+      [  3] feat 6384↔6384 (sim=1.000) | n=100 | cosine_l2→KL=0.166 | adaptive_l2→KL=0.114 | cos→KL=0.210 | winner=cosine_l2
+      [  4] feat 3602↔3602 (sim=1.000) | n=100 | cosine_l2→KL=0.184 | adaptive_l2→KL=0.180 | cos→KL=0.260 | winner=cosine_l2
+      [  5] feat 14334↔14334 (sim=1.000) | n=100 | cosine_l2→KL=0.210 | adaptive_l2→KL=0.150 | cos→KL=0.218 | winner=cosine_l2
+      [  6] feat 2742↔2742 (sim=1.000) | n=100 | cosine_l2→KL=0.219 | adaptive_l2→KL=0.217 | cos→KL=0.476 | winner=cosine_l2
+      [  7] feat 6039↔6039 (sim=1.000) | n=100 | cosine_l2→KL=0.155 | adaptive_l2→KL=0.133 | cos→KL=0.242 | winner=cosine_l2
+      [  8] feat 6531↔6531 (sim=1.000) | n=100 | cosine_l2→KL=0.141 | adaptive_l2→KL=0.128 | cos→KL=0.316 | winner=cosine_l2
+      [  9] feat 2409↔2409 (sim=1.000) | n=100 | cosine_l2→KL=0.197 | adaptive_l2→KL=0.199 | cos→KL=0.315 | winner=adaptive_l2
+      [ 20] feat 3115↔3115 (sim=0.999) | n=100 | cosine_l2→KL=0.284 | adaptive_l2→KL=0.275 | cos→KL=0.354 | winner=cosine_l2
+      [ 40] feat 11075↔11075 (sim=0.997) | n=100 | cosine_l2→KL=0.258 | adaptive_l2→KL=0.219 | cos→KL=0.267 | winner=cosine_l2
+      [ 60] feat 8499↔8499 (sim=0.986) | n=100 | cosine_l2→KL=0.560 | adaptive_l2→KL=0.506 | cos→KL=0.574 | winner=cosine_l2
+      [ 80] feat 1805↔1805 (sim=0.983) | n=100 | cosine_l2→KL=0.358 | adaptive_l2→KL=0.332 | cos→KL=0.525 | winner=cosine_l2
+      [100] feat 10776↔10776 (sim=0.980) | n=100 | cosine_l2→KL=0.365 | adaptive_l2→KL=0.339 | cos→KL=0.462 | winner=cosine_l2
+      [120] feat 7027↔7027 (sim=0.978) | n=100 | cosine_l2→KL=0.422 | adaptive_l2→KL=0.496 | cos→KL=0.558 | winner=adaptive_l2
+      [140] feat 8858↔8858 (sim=0.975) | n=100 | cosine_l2→KL=0.697 | adaptive_l2→KL=0.676 | cos→KL=0.696 | winner=cosine_l2
+      [160] feat 11607↔11607 (sim=0.974) | n=100 | cosine_l2→KL=0.407 | adaptive_l2→KL=0.421 | cos→KL=0.355 | winner=adaptive_l2
+      [180] feat 3428↔3428 (sim=0.971) | n=100 | cosine_l2→KL=0.176 | adaptive_l2→KL=0.121 | cos→KL=0.173 | winner=cosine_l2
+      [200] feat 10279↔10279 (sim=0.968) | n=100 | cosine_l2→KL=0.662 | adaptive_l2→KL=0.660 | cos→KL=0.707 | winner=cosine_l2
+      [220] feat 8782↔8782 (sim=0.966) | n=100 | cosine_l2→KL=0.451 | adaptive_l2→KL=0.311 | cos→KL=0.426 | winner=cosine_l2
+      [240] feat 1334↔1334 (sim=0.964) | n=100 | cosine_l2→KL=0.521 | adaptive_l2→KL=0.488 | cos→KL=0.499 | winner=cosine_l2
+      [260] feat 9904↔9904 (sim=0.963) | n=100 | cosine_l2→KL=0.406 | adaptive_l2→KL=0.249 | cos→KL=0.430 | winner=cosine_l2
+      [280] feat 12694↔12694 (sim=0.961) | n=100 | cosine_l2→KL=0.300 | adaptive_l2→KL=0.285 | cos→KL=0.495 | winner=cosine_l2
+      [300] feat 12821↔12821 (sim=0.959) | n=100 | cosine_l2→KL=0.144 | adaptive_l2→KL=0.134 | cos→KL=0.116 | winner=cosine_l2
+      [320] feat 4266↔4266 (sim=0.957) | n=100 | cosine_l2→KL=0.443 | adaptive_l2→KL=0.368 | cos→KL=0.454 | winner=cosine_l2
+      [340] feat 8119↔8119 (sim=0.954) | n=100 | cosine_l2→KL=0.492 | adaptive_l2→KL=0.479 | cos→KL=0.620 | winner=cosine_l2
+      [360] feat 9248↔9248 (sim=0.950) | n=100 | cosine_l2→KL=0.212 | adaptive_l2→KL=0.281 | cos→KL=0.284 | winner=adaptive_l2
+      [380] feat 8036↔8036 (sim=0.948) | n=100 | cosine_l2→KL=0.347 | adaptive_l2→KL=0.316 | cos→KL=0.406 | winner=cosine_l2
+      [400] feat 15779↔15779 (sim=0.946) | n=100 | cosine_l2→KL=0.330 | adaptive_l2→KL=0.389 | cos→KL=0.508 | winner=adaptive_l2
+      [420] feat 15255↔15255 (sim=0.943) | n=100 | cosine_l2→KL=0.720 | adaptive_l2→KL=0.754 | cos→KL=0.751 | winner=adaptive_l2
+      [440] feat 16033↔16033 (sim=0.940) | n=100 | cosine_l2→KL=-0.005 | adaptive_l2→KL=0.050 | cos→KL=0.133 | winner=adaptive_l2
+      [460] feat 9832↔9832 (sim=0.937) | n=100 | cosine_l2→KL=0.018 | adaptive_l2→KL=0.092 | cos→KL=0.077 | winner=adaptive_l2
+      [480] feat 6888↔6888 (sim=0.933) | n=100 | cosine_l2→KL=0.337 | adaptive_l2→KL=0.410 | cos→KL=0.433 | winner=adaptive_l2
+      [500] feat 15821↔15821 (sim=0.931) | n=100 | cosine_l2→KL=0.176 | adaptive_l2→KL=0.158 | cos→KL=0.118 | winner=cosine_l2
+      [520] feat 15025↔15025 (sim=0.926) | n=100 | cosine_l2→KL=0.628 | adaptive_l2→KL=0.671 | cos→KL=0.680 | winner=adaptive_l2
+      [540] feat 9549↔9549 (sim=0.923) | n=100 | cosine_l2→KL=0.447 | adaptive_l2→KL=0.464 | cos→KL=0.488 | winner=adaptive_l2
+      [560] feat 4481↔4481 (sim=0.918) | n=100 | cosine_l2→KL=0.188 | adaptive_l2→KL=0.142 | cos→KL=0.226 | winner=cosine_l2
+      [580] feat 2363↔2363 (sim=0.913) | n=100 | cosine_l2→KL=0.194 | adaptive_l2→KL=0.107 | cos→KL=0.184 | winner=cosine_l2
+      [600] feat 52↔52 (sim=0.904) | n=100 | cosine_l2→KL=0.606 | adaptive_l2→KL=0.543 | cos→KL=0.566 | winner=cosine_l2
+
+    Summary (615 shared features): cosine_l2→KL=0.3769 vs adaptive_l2→KL=0.3690 | cosine_l2 wins 336/615 (55%) | cos→KL=0.4238 | cos>inner: 451/615
+
+  Evaluating 65 shared features: cosine_l2 vs adaptive_cosloss @ L18
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.2s
+      [  0] feat 6384↔6384 (sim=0.994) | n=100 | cosine_l2→KL=0.223 | adaptive_cosloss→KL=0.209 | cos→KL=0.391 | winner=cosine_l2
+      [  1] feat 1741↔1741 (sim=0.994) | n=100 | cosine_l2→KL=0.177 | adaptive_cosloss→KL=0.187 | cos→KL=0.238 | winner=adaptive_cosloss
+      [  2] feat 9866↔9866 (sim=0.993) | n=100 | cosine_l2→KL=0.230 | adaptive_cosloss→KL=0.233 | cos→KL=0.167 | winner=adaptive_cosloss
+      [  3] feat 3602↔3602 (sim=0.992) | n=100 | cosine_l2→KL=0.186 | adaptive_cosloss→KL=0.222 | cos→KL=0.200 | winner=adaptive_cosloss
+      [  4] feat 6389↔6389 (sim=0.992) | n=100 | cosine_l2→KL=0.060 | adaptive_cosloss→KL=0.118 | cos→KL=0.179 | winner=adaptive_cosloss
+      [  5] feat 978↔978 (sim=0.992) | n=100 | cosine_l2→KL=0.282 | adaptive_cosloss→KL=0.322 | cos→KL=0.170 | winner=adaptive_cosloss
+      [  6] feat 2742↔2742 (sim=0.992) | n=100 | cosine_l2→KL=0.235 | adaptive_cosloss→KL=0.154 | cos→KL=0.352 | winner=cosine_l2
+      [  7] feat 937↔937 (sim=0.991) | n=100 | cosine_l2→KL=0.108 | adaptive_cosloss→KL=0.119 | cos→KL=0.298 | winner=adaptive_cosloss
+      [  8] feat 5566↔5566 (sim=0.991) | n=100 | cosine_l2→KL=0.269 | adaptive_cosloss→KL=0.263 | cos→KL=0.378 | winner=cosine_l2
+      [  9] feat 3115↔3115 (sim=0.991) | n=100 | cosine_l2→KL=0.304 | adaptive_cosloss→KL=0.240 | cos→KL=0.329 | winner=cosine_l2
+      [ 20] feat 127↔127 (sim=0.988) | n=100 | cosine_l2→KL=0.379 | adaptive_cosloss→KL=0.321 | cos→KL=0.334 | winner=cosine_l2
+      [ 40] feat 3359↔3359 (sim=0.946) | n=100 | cosine_l2→KL=0.302 | adaptive_cosloss→KL=0.358 | cos→KL=0.332 | winner=adaptive_cosloss
+      [ 60] feat 16282↔16282 (sim=0.907) | n=100 | cosine_l2→KL=0.152 | adaptive_cosloss→KL=0.235 | cos→KL=0.198 | winner=adaptive_cosloss
+
+    Summary (65 shared features): cosine_l2→KL=0.3501 vs adaptive_cosloss→KL=0.3528 | cosine_l2 wins 27/65 (42%) | cos→KL=0.4171 | cos>inner: 54/65
+
+  Evaluating 67 shared features: cosine_cosloss vs adaptive_l2 @ L18
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.4s
+      [  0] feat 6384↔6384 (sim=0.994) | n=100 | cosine_cosloss→KL=0.325 | adaptive_l2→KL=0.323 | cos→KL=0.380 | winner=cosine_cosloss
+      [  1] feat 1741↔1741 (sim=0.994) | n=100 | cosine_cosloss→KL=0.194 | adaptive_l2→KL=0.168 | cos→KL=0.225 | winner=cosine_cosloss
+      [  2] feat 9866↔9866 (sim=0.993) | n=100 | cosine_cosloss→KL=0.378 | adaptive_l2→KL=0.297 | cos→KL=0.325 | winner=cosine_cosloss
+      [  3] feat 6389↔6389 (sim=0.992) | n=100 | cosine_cosloss→KL=0.201 | adaptive_l2→KL=0.245 | cos→KL=0.285 | winner=adaptive_l2
+      [  4] feat 2742↔2742 (sim=0.992) | n=100 | cosine_cosloss→KL=0.060 | adaptive_l2→KL=0.182 | cos→KL=0.321 | winner=adaptive_l2
+      [  5] feat 978↔978 (sim=0.992) | n=100 | cosine_cosloss→KL=0.215 | adaptive_l2→KL=0.276 | cos→KL=0.445 | winner=adaptive_l2
+      [  6] feat 3602↔3602 (sim=0.992) | n=100 | cosine_cosloss→KL=0.009 | adaptive_l2→KL=0.092 | cos→KL=0.323 | winner=adaptive_l2
+      [  7] feat 5566↔5566 (sim=0.991) | n=100 | cosine_cosloss→KL=0.349 | adaptive_l2→KL=0.289 | cos→KL=0.429 | winner=cosine_cosloss
+      [  8] feat 6019↔6019 (sim=0.991) | n=100 | cosine_cosloss→KL=0.185 | adaptive_l2→KL=0.163 | cos→KL=0.217 | winner=cosine_cosloss
+      [  9] feat 937↔937 (sim=0.991) | n=100 | cosine_cosloss→KL=0.208 | adaptive_l2→KL=0.174 | cos→KL=0.438 | winner=cosine_cosloss
+      [ 20] feat 2962↔2962 (sim=0.989) | n=100 | cosine_cosloss→KL=0.265 | adaptive_l2→KL=0.226 | cos→KL=0.245 | winner=cosine_cosloss
+      [ 40] feat 13707↔13580 (sim=0.943) | n=100 | cosine_cosloss→KL=0.457 | adaptive_l2→KL=0.332 | cos→KL=0.433 | winner=cosine_cosloss
+      [ 60] feat 101↔524 (sim=0.908) | n=100 | cosine_cosloss→KL=0.584 | adaptive_l2→KL=0.513 | cos→KL=0.584 | winner=cosine_cosloss
+
+    Summary (67 shared features): cosine_cosloss→KL=0.3886 vs adaptive_l2→KL=0.3839 | cosine_cosloss wins 42/67 (63%) | cos→KL=0.4434 | cos>inner: 49/67
+
+  Evaluating 299 shared features: cosine_cosloss vs adaptive_cosloss @ L18
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.5s
+      [  0] feat 14334↔14334 (sim=1.000) | n=100 | cosine_cosloss→KL=0.228 | adaptive_cosloss→KL=0.222 | cos→KL=0.315 | winner=cosine_cosloss
+      [  1] feat 6039↔6039 (sim=1.000) | n=100 | cosine_cosloss→KL=0.016 | adaptive_cosloss→KL=0.017 | cos→KL=0.133 | winner=adaptive_cosloss
+      [  2] feat 3602↔3602 (sim=1.000) | n=100 | cosine_cosloss→KL=0.136 | adaptive_cosloss→KL=0.131 | cos→KL=0.309 | winner=cosine_cosloss
+      [  3] feat 1741↔1741 (sim=1.000) | n=100 | cosine_cosloss→KL=0.259 | adaptive_cosloss→KL=0.261 | cos→KL=0.221 | winner=adaptive_cosloss
+      [  4] feat 937↔937 (sim=1.000) | n=100 | cosine_cosloss→KL=0.377 | adaptive_cosloss→KL=0.365 | cos→KL=0.425 | winner=cosine_cosloss
+      [  5] feat 978↔978 (sim=1.000) | n=100 | cosine_cosloss→KL=0.304 | adaptive_cosloss→KL=0.302 | cos→KL=0.160 | winner=cosine_cosloss
+      [  6] feat 5593↔5593 (sim=1.000) | n=100 | cosine_cosloss→KL=0.304 | adaptive_cosloss→KL=0.300 | cos→KL=0.360 | winner=cosine_cosloss
+      [  7] feat 127↔127 (sim=1.000) | n=100 | cosine_cosloss→KL=0.233 | adaptive_cosloss→KL=0.238 | cos→KL=0.388 | winner=adaptive_cosloss
+      [  8] feat 9866↔9866 (sim=1.000) | n=100 | cosine_cosloss→KL=0.124 | adaptive_cosloss→KL=0.136 | cos→KL=0.140 | winner=adaptive_cosloss
+      [  9] feat 3115↔3115 (sim=1.000) | n=100 | cosine_cosloss→KL=0.253 | adaptive_cosloss→KL=0.265 | cos→KL=0.329 | winner=adaptive_cosloss
+      [ 20] feat 11075↔11075 (sim=0.999) | n=100 | cosine_cosloss→KL=0.290 | adaptive_cosloss→KL=0.292 | cos→KL=0.451 | winner=adaptive_cosloss
+      [ 40] feat 7578↔7578 (sim=0.986) | n=100 | cosine_cosloss→KL=0.600 | adaptive_cosloss→KL=0.559 | cos→KL=0.589 | winner=cosine_cosloss
+      [ 60] feat 5901↔10702 (sim=0.971) | n=100 | cosine_cosloss→KL=0.471 | adaptive_cosloss→KL=0.468 | cos→KL=0.484 | winner=cosine_cosloss
+      [ 80] feat 3654↔3654 (sim=0.960) | n=100 | cosine_cosloss→KL=0.080 | adaptive_cosloss→KL=0.133 | cos→KL=0.320 | winner=adaptive_cosloss
+      [100] feat 14611↔14611 (sim=0.956) | n=100 | cosine_cosloss→KL=0.459 | adaptive_cosloss→KL=0.364 | cos→KL=0.423 | winner=cosine_cosloss
+      [120] feat 1018↔1018 (sim=0.950) | n=100 | cosine_cosloss→KL=0.501 | adaptive_cosloss→KL=0.523 | cos→KL=0.489 | winner=adaptive_cosloss
+      [140] feat 12517↔12517 (sim=0.945) | n=100 | cosine_cosloss→KL=0.416 | adaptive_cosloss→KL=0.463 | cos→KL=0.452 | winner=adaptive_cosloss
+      [160] feat 3771↔3771 (sim=0.939) | n=100 | cosine_cosloss→KL=0.405 | adaptive_cosloss→KL=0.538 | cos→KL=0.540 | winner=adaptive_cosloss
+      [180] feat 14320↔14320 (sim=0.934) | n=100 | cosine_cosloss→KL=0.598 | adaptive_cosloss→KL=0.577 | cos→KL=0.624 | winner=cosine_cosloss
+      [200] feat 2835↔2835 (sim=0.927) | n=100 | cosine_cosloss→KL=0.270 | adaptive_cosloss→KL=0.340 | cos→KL=0.312 | winner=adaptive_cosloss
+      [220] feat 839↔839 (sim=0.921) | n=100 | cosine_cosloss→KL=0.589 | adaptive_cosloss→KL=0.552 | cos→KL=0.648 | winner=cosine_cosloss
+      [240] feat 767↔767 (sim=0.916) | n=100 | cosine_cosloss→KL=0.424 | adaptive_cosloss→KL=0.337 | cos→KL=0.468 | winner=cosine_cosloss
+      [260] feat 2265↔2265 (sim=0.909) | n=100 | cosine_cosloss→KL=0.329 | adaptive_cosloss→KL=0.330 | cos→KL=0.458 | winner=adaptive_cosloss
+      [280] feat 1234↔1234 (sim=0.905) | n=100 | cosine_cosloss→KL=0.383 | adaptive_cosloss→KL=0.383 | cos→KL=0.413 | winner=adaptive_cosloss
+
+    Summary (299 shared features): cosine_cosloss→KL=0.4070 vs adaptive_cosloss→KL=0.4095 | cosine_cosloss wins 151/299 (51%) | cos→KL=0.4560 | cos>inner: 243/299
+
+  Evaluating 71 shared features: adaptive_l2 vs adaptive_cosloss @ L18
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.2s
+      [  0] feat 6384↔6384 (sim=0.994) | n=100 | adaptive_l2→KL=0.182 | adaptive_cosloss→KL=0.223 | cos→KL=0.378 | winner=adaptive_cosloss
+      [  1] feat 1741↔1741 (sim=0.994) | n=100 | adaptive_l2→KL=0.184 | adaptive_cosloss→KL=0.217 | cos→KL=0.253 | winner=adaptive_cosloss
+      [  2] feat 9866↔9866 (sim=0.993) | n=100 | adaptive_l2→KL=0.097 | adaptive_cosloss→KL=0.145 | cos→KL=0.085 | winner=adaptive_cosloss
+      [  3] feat 6389↔6389 (sim=0.992) | n=100 | adaptive_l2→KL=0.324 | adaptive_cosloss→KL=0.358 | cos→KL=0.353 | winner=adaptive_cosloss
+      [  4] feat 2742↔2742 (sim=0.992) | n=100 | adaptive_l2→KL=0.157 | adaptive_cosloss→KL=0.066 | cos→KL=0.282 | winner=adaptive_l2
+      [  5] feat 3602↔3602 (sim=0.992) | n=100 | adaptive_l2→KL=0.099 | adaptive_cosloss→KL=0.132 | cos→KL=0.271 | winner=adaptive_cosloss
+      [  6] feat 978↔978 (sim=0.992) | n=100 | adaptive_l2→KL=0.317 | adaptive_cosloss→KL=0.336 | cos→KL=0.311 | winner=adaptive_cosloss
+      [  7] feat 5566↔5566 (sim=0.991) | n=100 | adaptive_l2→KL=0.133 | adaptive_cosloss→KL=0.083 | cos→KL=0.187 | winner=adaptive_l2
+      [  8] feat 6019↔6019 (sim=0.991) | n=100 | adaptive_l2→KL=0.373 | adaptive_cosloss→KL=0.343 | cos→KL=0.469 | winner=adaptive_l2
+      [  9] feat 937↔937 (sim=0.991) | n=100 | adaptive_l2→KL=0.124 | adaptive_cosloss→KL=0.115 | cos→KL=0.361 | winner=adaptive_l2
+      [ 20] feat 2962↔2962 (sim=0.989) | n=100 | adaptive_l2→KL=0.472 | adaptive_cosloss→KL=0.461 | cos→KL=0.506 | winner=adaptive_l2
+      [ 40] feat 6902↔3951 (sim=0.943) | n=100 | adaptive_l2→KL=0.408 | adaptive_cosloss→KL=0.371 | cos→KL=0.398 | winner=adaptive_l2
+      [ 60] feat 12963↔3192 (sim=0.914) | n=100 | adaptive_l2→KL=0.621 | adaptive_cosloss→KL=0.670 | cos→KL=0.667 | winner=adaptive_cosloss
+
+    Summary (71 shared features): adaptive_l2→KL=0.3518 vs adaptive_cosloss→KL=0.3594 | adaptive_l2 wins 30/71 (42%) | cos→KL=0.4130 | cos>inner: 62/71
+  Results saved to experiments/exp15_results.json
+
+  1200 shared features at L18. Proceeding to secondary layers.
+
+======================================================================
+  LAYER 9 — Shared Feature Evaluation
+======================================================================
+  Converting texts -> layer 9 activations (target 500,000)...
+  Layer 9: 500,000 tokens in 16.1s (norm: mean=58.1, std=6.7)
+  Eval data: 500,000 tokens
+  Loaded standard at L9
+  Loaded cosine_l2 at L9
+  Loaded cosine_cosloss at L9
+  Loaded adaptive_l2 at L9
+  Loaded adaptive_cosloss at L9
+  5 SAEs loaded for layer 9
+
+  Computing alive features (freq >= 0.01)...
+    standard: 1114 alive (6.8%)
+    cosine_l2: 1078 alive (6.6%)
+    cosine_cosloss: 987 alive (6.0%)
+    adaptive_l2: 1067 alive (6.5%)
+    adaptive_cosloss: 998 alive (6.1%)
+
+  Finding shared features (cos_sim > 0.9)...
+    Matching 1114 x 1078 alive features...
+    standard ↔ cosine_l2: 17 shared features
+    Matching 1114 x 987 alive features...
+    standard ↔ cosine_cosloss: 15 shared features
+    Matching 1114 x 1067 alive features...
+    standard ↔ adaptive_l2: 20 shared features
+    Matching 1114 x 998 alive features...
+    standard ↔ adaptive_cosloss: 14 shared features
+    Matching 1078 x 987 alive features...
+    cosine_l2 ↔ cosine_cosloss: 61 shared features
+    Matching 1078 x 1067 alive features...
+    cosine_l2 ↔ adaptive_l2: 878 shared features
+    Matching 1078 x 998 alive features...
+    cosine_l2 ↔ adaptive_cosloss: 69 shared features
+    Matching 987 x 1067 alive features...
+    cosine_cosloss ↔ adaptive_l2: 69 shared features
+    Matching 987 x 998 alive features...
+    cosine_cosloss ↔ adaptive_cosloss: 605 shared features
+    Matching 1067 x 998 alive features...
+    adaptive_l2 ↔ adaptive_cosloss: 73 shared features
+
+  Total shared feature pairs across all SAE combinations: 1821
+
+  Moving SAEs to CPU for ablation phase...
+
+  Running head-to-head ablation comparisons...
+
+  Evaluating 17 shared features: standard vs cosine_l2 @ L9
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.1s
+      [  0] feat 12742↔14297 (sim=0.953) | n=100 | standard→KL=0.445 | cosine_l2→KL=0.549 | cos→KL=0.500 | winner=cosine_l2
+      [  1] feat 3771↔10838 (sim=0.949) | n=100 | standard→KL=0.422 | cosine_l2→KL=0.396 | cos→KL=0.444 | winner=standard
+      [  2] feat 1557↔8333 (sim=0.944) | n=100 | standard→KL=0.383 | cosine_l2→KL=0.312 | cos→KL=0.426 | winner=standard
+      [  3] feat 15911↔527 (sim=0.941) | n=100 | standard→KL=0.318 | cosine_l2→KL=0.311 | cos→KL=0.365 | winner=standard
+      [  4] feat 4380↔2159 (sim=0.939) | n=100 | standard→KL=0.247 | cosine_l2→KL=0.257 | cos→KL=0.271 | winner=cosine_l2
+      [  5] feat 16340↔7481 (sim=0.938) | n=100 | standard→KL=0.114 | cosine_l2→KL=0.141 | cos→KL=0.121 | winner=cosine_l2
+      [  6] feat 10439↔3819 (sim=0.933) | n=100 | standard→KL=0.244 | cosine_l2→KL=0.139 | cos→KL=0.213 | winner=standard
+      [  7] feat 9370↔3952 (sim=0.925) | n=100 | standard→KL=0.723 | cosine_l2→KL=0.734 | cos→KL=0.731 | winner=cosine_l2
+      [  8] feat 13644↔10913 (sim=0.924) | n=100 | standard→KL=0.321 | cosine_l2→KL=0.353 | cos→KL=0.396 | winner=cosine_l2
+      [  9] feat 16241↔1497 (sim=0.922) | n=100 | standard→KL=0.583 | cosine_l2→KL=0.641 | cos→KL=0.654 | winner=cosine_l2
+
+    Summary (17 shared features): standard→KL=0.3267 vs cosine_l2→KL=0.3138 | standard wins 9/17 (53%) | cos→KL=0.3558 | cos>inner: 15/17
+
+  Evaluating 15 shared features: standard vs cosine_cosloss @ L9
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.0s
+      [  0] feat 2744↔8498 (sim=0.966) | n=100 | standard→KL=0.498 | cosine_cosloss→KL=0.502 | cos→KL=0.476 | winner=cosine_cosloss
+      [  1] feat 9370↔3952 (sim=0.960) | n=100 | standard→KL=0.614 | cosine_cosloss→KL=0.633 | cos→KL=0.587 | winner=cosine_cosloss
+      [  2] feat 13336↔8120 (sim=0.951) | n=100 | standard→KL=0.177 | cosine_cosloss→KL=0.130 | cos→KL=0.291 | winner=standard
+      [  3] feat 4380↔4380 (sim=0.942) | n=100 | standard→KL=0.164 | cosine_cosloss→KL=0.109 | cos→KL=0.202 | winner=standard
+      [  4] feat 3771↔10112 (sim=0.940) | n=100 | standard→KL=0.540 | cosine_cosloss→KL=0.602 | cos→KL=0.597 | winner=cosine_cosloss
+      [  5] feat 12742↔14297 (sim=0.939) | n=100 | standard→KL=0.592 | cosine_cosloss→KL=0.573 | cos→KL=0.590 | winner=standard
+      [  6] feat 13786↔987 (sim=0.936) | n=100 | standard→KL=0.136 | cosine_cosloss→KL=0.207 | cos→KL=0.202 | winner=cosine_cosloss
+      [  7] feat 15515↔16297 (sim=0.930) | n=100 | standard→KL=-0.067 | cosine_cosloss→KL=-0.004 | cos→KL=-0.009 | winner=standard
+      [  8] feat 15911↔527 (sim=0.929) | n=100 | standard→KL=0.531 | cosine_cosloss→KL=0.585 | cos→KL=0.578 | winner=cosine_cosloss
+      [  9] feat 4235↔4235 (sim=0.927) | n=100 | standard→KL=0.175 | cosine_cosloss→KL=0.138 | cos→KL=0.161 | winner=standard
+
+    Summary (15 shared features): standard→KL=0.3794 vs cosine_cosloss→KL=0.3852 | standard wins 7/15 (47%) | cos→KL=0.4077 | cos>inner: 9/15
+
+  Evaluating 20 shared features: standard vs adaptive_l2 @ L9
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.0s
+      [  0] feat 5312↔10275 (sim=0.967) | n=100 | standard→KL=0.429 | adaptive_l2→KL=0.367 | cos→KL=0.452 | winner=standard
+      [  1] feat 12742↔14297 (sim=0.952) | n=100 | standard→KL=0.254 | adaptive_l2→KL=0.291 | cos→KL=0.360 | winner=adaptive_l2
+      [  2] feat 3771↔10838 (sim=0.946) | n=100 | standard→KL=0.397 | adaptive_l2→KL=0.414 | cos→KL=0.396 | winner=adaptive_l2
+      [  3] feat 1557↔8333 (sim=0.943) | n=100 | standard→KL=0.231 | adaptive_l2→KL=0.210 | cos→KL=0.288 | winner=standard
+      [  4] feat 15515↔16297 (sim=0.943) | n=100 | standard→KL=0.143 | adaptive_l2→KL=0.073 | cos→KL=0.133 | winner=standard
+      [  5] feat 2744↔2744 (sim=0.934) | n=100 | standard→KL=0.296 | adaptive_l2→KL=0.296 | cos→KL=0.313 | winner=standard
+      [  6] feat 2528↔7887 (sim=0.934) | n=100 | standard→KL=0.138 | adaptive_l2→KL=0.138 | cos→KL=0.110 | winner=standard
+      [  7] feat 4380↔2159 (sim=0.933) | n=100 | standard→KL=0.185 | adaptive_l2→KL=0.061 | cos→KL=0.210 | winner=standard
+      [  8] feat 15911↔527 (sim=0.933) | n=100 | standard→KL=0.456 | adaptive_l2→KL=0.424 | cos→KL=0.486 | winner=standard
+      [  9] feat 16340↔7481 (sim=0.926) | n=100 | standard→KL=0.299 | adaptive_l2→KL=0.344 | cos→KL=0.362 | winner=adaptive_l2
+
+    Summary (20 shared features): standard→KL=0.3362 vs adaptive_l2→KL=0.3391 | standard wins 11/20 (55%) | cos→KL=0.3745 | cos>inner: 15/20
+
+  Evaluating 14 shared features: standard vs adaptive_cosloss @ L9
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.0s
+      [  0] feat 9370↔15916 (sim=0.973) | n=100 | standard→KL=0.710 | adaptive_cosloss→KL=0.709 | cos→KL=0.677 | winner=standard
+      [  1] feat 2744↔5071 (sim=0.966) | n=100 | standard→KL=0.404 | adaptive_cosloss→KL=0.448 | cos→KL=0.451 | winner=adaptive_cosloss
+      [  2] feat 13336↔8120 (sim=0.944) | n=100 | standard→KL=0.115 | adaptive_cosloss→KL=0.108 | cos→KL=0.203 | winner=standard
+      [  3] feat 4235↔4235 (sim=0.943) | n=100 | standard→KL=0.535 | adaptive_cosloss→KL=0.538 | cos→KL=0.521 | winner=adaptive_cosloss
+      [  4] feat 12742↔14297 (sim=0.938) | n=100 | standard→KL=0.499 | adaptive_cosloss→KL=0.580 | cos→KL=0.566 | winner=adaptive_cosloss
+      [  5] feat 15911↔527 (sim=0.925) | n=100 | standard→KL=0.429 | adaptive_cosloss→KL=0.531 | cos→KL=0.523 | winner=adaptive_cosloss
+      [  6] feat 2528↔5722 (sim=0.924) | n=100 | standard→KL=0.063 | adaptive_cosloss→KL=0.019 | cos→KL=0.095 | winner=standard
+      [  7] feat 4380↔4380 (sim=0.923) | n=100 | standard→KL=0.243 | adaptive_cosloss→KL=0.200 | cos→KL=0.243 | winner=standard
+      [  8] feat 9883↔14953 (sim=0.920) | n=100 | standard→KL=0.226 | adaptive_cosloss→KL=0.196 | cos→KL=0.230 | winner=standard
+      [  9] feat 7244↔3422 (sim=0.918) | n=100 | standard→KL=0.394 | adaptive_cosloss→KL=0.306 | cos→KL=0.439 | winner=standard
+
+    Summary (14 shared features): standard→KL=0.4020 vs adaptive_cosloss→KL=0.4027 | standard wins 7/14 (50%) | cos→KL=0.4296 | cos>inner: 11/14
+
+  Evaluating 61 shared features: cosine_l2 vs cosine_cosloss @ L9
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.4s
+      [  0] feat 4610↔4610 (sim=0.985) | n=100 | cosine_l2→KL=0.100 | cosine_cosloss→KL=0.116 | cos→KL=0.026 | winner=cosine_cosloss
+      [  1] feat 14334↔14334 (sim=0.985) | n=100 | cosine_l2→KL=0.148 | cosine_cosloss→KL=0.145 | cos→KL=0.137 | winner=cosine_l2
+      [  2] feat 2742↔2742 (sim=0.985) | n=100 | cosine_l2→KL=0.169 | cosine_cosloss→KL=0.194 | cos→KL=0.074 | winner=cosine_cosloss
+      [  3] feat 7700↔7700 (sim=0.984) | n=100 | cosine_l2→KL=0.129 | cosine_cosloss→KL=0.171 | cos→KL=0.120 | winner=cosine_cosloss
+      [  4] feat 15063↔15063 (sim=0.984) | n=100 | cosine_l2→KL=0.103 | cosine_cosloss→KL=0.171 | cos→KL=0.141 | winner=cosine_cosloss
+      [  5] feat 5566↔5566 (sim=0.983) | n=100 | cosine_l2→KL=0.154 | cosine_cosloss→KL=0.171 | cos→KL=0.125 | winner=cosine_cosloss
+      [  6] feat 6039↔6039 (sim=0.983) | n=100 | cosine_l2→KL=0.318 | cosine_cosloss→KL=0.387 | cos→KL=0.210 | winner=cosine_cosloss
+      [  7] feat 3602↔3602 (sim=0.983) | n=100 | cosine_l2→KL=0.324 | cosine_cosloss→KL=0.291 | cos→KL=0.275 | winner=cosine_l2
+      [  8] feat 4313↔4313 (sim=0.983) | n=100 | cosine_l2→KL=0.159 | cosine_cosloss→KL=0.234 | cos→KL=0.258 | winner=cosine_cosloss
+      [  9] feat 9243↔9243 (sim=0.981) | n=100 | cosine_l2→KL=0.184 | cosine_cosloss→KL=0.189 | cos→KL=0.092 | winner=cosine_cosloss
+      [ 20] feat 13913↔13383 (sim=0.966) | n=100 | cosine_l2→KL=0.241 | cosine_cosloss→KL=0.229 | cos→KL=0.281 | winner=cosine_l2
+      [ 40] feat 2709↔10390 (sim=0.931) | n=100 | cosine_l2→KL=0.163 | cosine_cosloss→KL=0.201 | cos→KL=0.221 | winner=cosine_cosloss
+      [ 60] feat 991↔991 (sim=0.901) | n=100 | cosine_l2→KL=0.291 | cosine_cosloss→KL=0.353 | cos→KL=0.297 | winner=cosine_cosloss
+
+    Summary (61 shared features): cosine_l2→KL=0.2623 vs cosine_cosloss→KL=0.2777 | cosine_l2 wins 21/61 (34%) | cos→KL=0.2851 | cos>inner: 47/61
+
+  Evaluating 878 shared features: cosine_l2 vs adaptive_l2 @ L9
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.5s
+      [  0] feat 2742↔2742 (sim=1.000) | n=100 | cosine_l2→KL=0.180 | adaptive_l2→KL=0.181 | cos→KL=0.060 | winner=adaptive_l2
+      [  1] feat 2604↔2604 (sim=1.000) | n=100 | cosine_l2→KL=0.045 | adaptive_l2→KL=0.046 | cos→KL=0.093 | winner=adaptive_l2
+      [  2] feat 6039↔6039 (sim=0.999) | n=100 | cosine_l2→KL=-0.064 | adaptive_l2→KL=-0.067 | cos→KL=0.212 | winner=adaptive_l2
+      [  3] feat 6565↔6565 (sim=0.999) | n=100 | cosine_l2→KL=-0.005 | adaptive_l2→KL=-0.020 | cos→KL=0.089 | winner=adaptive_l2
+      [  4] feat 15063↔15063 (sim=0.999) | n=100 | cosine_l2→KL=0.112 | adaptive_l2→KL=0.107 | cos→KL=0.082 | winner=cosine_l2
+      [  5] feat 7700↔7700 (sim=0.999) | n=100 | cosine_l2→KL=0.135 | adaptive_l2→KL=0.126 | cos→KL=0.181 | winner=cosine_l2
+      [  6] feat 11570↔11570 (sim=0.999) | n=99 | cosine_l2→KL=0.020 | adaptive_l2→KL=0.017 | cos→KL=0.095 | winner=cosine_l2
+      [  7] feat 3602↔3602 (sim=0.999) | n=100 | cosine_l2→KL=0.192 | adaptive_l2→KL=0.188 | cos→KL=0.149 | winner=cosine_l2
+      [  8] feat 9243↔9243 (sim=0.999) | n=100 | cosine_l2→KL=0.094 | adaptive_l2→KL=0.098 | cos→KL=0.218 | winner=adaptive_l2
+      [  9] feat 4106↔4106 (sim=0.999) | n=100 | cosine_l2→KL=0.160 | adaptive_l2→KL=0.159 | cos→KL=0.210 | winner=cosine_l2
+      [ 20] feat 10665↔10665 (sim=0.998) | n=100 | cosine_l2→KL=0.060 | adaptive_l2→KL=0.064 | cos→KL=0.141 | winner=adaptive_l2
+      [ 40] feat 600↔600 (sim=0.992) | n=100 | cosine_l2→KL=0.731 | adaptive_l2→KL=0.746 | cos→KL=0.694 | winner=adaptive_l2
+      [ 60] feat 302↔302 (sim=0.990) | n=100 | cosine_l2→KL=0.457 | adaptive_l2→KL=0.421 | cos→KL=0.544 | winner=cosine_l2
+      [ 80] feat 14643↔14643 (sim=0.988) | n=100 | cosine_l2→KL=0.129 | adaptive_l2→KL=0.117 | cos→KL=0.202 | winner=cosine_l2
+      [100] feat 11763↔11763 (sim=0.987) | n=100 | cosine_l2→KL=0.336 | adaptive_l2→KL=0.379 | cos→KL=0.394 | winner=adaptive_l2
+      [120] feat 9042↔9042 (sim=0.986) | n=100 | cosine_l2→KL=0.177 | adaptive_l2→KL=0.122 | cos→KL=0.212 | winner=cosine_l2
+      [140] feat 14194↔14194 (sim=0.985) | n=100 | cosine_l2→KL=0.261 | adaptive_l2→KL=0.137 | cos→KL=0.280 | winner=cosine_l2
+      [160] feat 1325↔1325 (sim=0.984) | n=100 | cosine_l2→KL=0.020 | adaptive_l2→KL=-0.034 | cos→KL=0.116 | winner=adaptive_l2
+      [180] feat 10783↔10783 (sim=0.982) | n=100 | cosine_l2→KL=-0.014 | adaptive_l2→KL=-0.126 | cos→KL=-0.032 | winner=adaptive_l2
+      [200] feat 7760↔7760 (sim=0.981) | n=100 | cosine_l2→KL=0.336 | adaptive_l2→KL=0.318 | cos→KL=0.382 | winner=cosine_l2
+      [220] feat 14096↔14096 (sim=0.980) | n=100 | cosine_l2→KL=0.613 | adaptive_l2→KL=0.627 | cos→KL=0.654 | winner=adaptive_l2
+      [240] feat 16188↔16188 (sim=0.979) | n=100 | cosine_l2→KL=0.258 | adaptive_l2→KL=0.226 | cos→KL=0.323 | winner=cosine_l2
+      [260] feat 6699↔6699 (sim=0.978) | n=100 | cosine_l2→KL=0.394 | adaptive_l2→KL=0.360 | cos→KL=0.487 | winner=cosine_l2
+      [280] feat 12756↔12756 (sim=0.976) | n=100 | cosine_l2→KL=0.088 | adaptive_l2→KL=0.022 | cos→KL=0.069 | winner=cosine_l2
+      [300] feat 14404↔14404 (sim=0.976) | n=100 | cosine_l2→KL=-0.009 | adaptive_l2→KL=-0.143 | cos→KL=0.108 | winner=adaptive_l2
+      [320] feat 8794↔8794 (sim=0.975) | n=100 | cosine_l2→KL=0.206 | adaptive_l2→KL=0.283 | cos→KL=0.321 | winner=adaptive_l2
+      [340] feat 16004↔16004 (sim=0.974) | n=100 | cosine_l2→KL=0.268 | adaptive_l2→KL=0.204 | cos→KL=0.296 | winner=cosine_l2
+      [360] feat 3785↔3785 (sim=0.973) | n=100 | cosine_l2→KL=0.221 | adaptive_l2→KL=0.201 | cos→KL=0.322 | winner=cosine_l2
+      [380] feat 15258↔15258 (sim=0.972) | n=100 | cosine_l2→KL=0.505 | adaptive_l2→KL=0.538 | cos→KL=0.528 | winner=adaptive_l2
+      [400] feat 11137↔11137 (sim=0.971) | n=100 | cosine_l2→KL=0.102 | adaptive_l2→KL=0.120 | cos→KL=0.121 | winner=adaptive_l2
+      [420] feat 14054↔14054 (sim=0.969) | n=100 | cosine_l2→KL=0.173 | adaptive_l2→KL=0.186 | cos→KL=0.166 | winner=adaptive_l2
+      [440] feat 3943↔3943 (sim=0.969) | n=100 | cosine_l2→KL=-0.063 | adaptive_l2→KL=-0.095 | cos→KL=0.017 | winner=adaptive_l2
+      [460] feat 2074↔2074 (sim=0.967) | n=100 | cosine_l2→KL=0.428 | adaptive_l2→KL=0.469 | cos→KL=0.390 | winner=adaptive_l2
+      [480] feat 8107↔8107 (sim=0.965) | n=100 | cosine_l2→KL=0.104 | adaptive_l2→KL=0.147 | cos→KL=0.205 | winner=adaptive_l2
+      [500] feat 15880↔15880 (sim=0.963) | n=100 | cosine_l2→KL=0.183 | adaptive_l2→KL=0.210 | cos→KL=0.252 | winner=adaptive_l2
+      [520] feat 12543↔12543 (sim=0.962) | n=100 | cosine_l2→KL=0.193 | adaptive_l2→KL=0.274 | cos→KL=0.271 | winner=adaptive_l2
+      [540] feat 8546↔8546 (sim=0.961) | n=100 | cosine_l2→KL=0.649 | adaptive_l2→KL=0.653 | cos→KL=0.618 | winner=adaptive_l2
+      [560] feat 14509↔14509 (sim=0.959) | n=100 | cosine_l2→KL=-0.139 | adaptive_l2→KL=-0.005 | cos→KL=0.038 | winner=cosine_l2
+      [580] feat 12311↔12311 (sim=0.957) | n=100 | cosine_l2→KL=0.368 | adaptive_l2→KL=0.346 | cos→KL=0.413 | winner=cosine_l2
+      [600] feat 7685↔7685 (sim=0.956) | n=100 | cosine_l2→KL=0.329 | adaptive_l2→KL=0.341 | cos→KL=0.552 | winner=adaptive_l2
+      [620] feat 7233↔7233 (sim=0.954) | n=100 | cosine_l2→KL=0.521 | adaptive_l2→KL=0.470 | cos→KL=0.547 | winner=cosine_l2
+      [640] feat 5599↔5599 (sim=0.952) | n=100 | cosine_l2→KL=0.397 | adaptive_l2→KL=0.508 | cos→KL=0.510 | winner=adaptive_l2
+      [660] feat 7378↔7378 (sim=0.950) | n=100 | cosine_l2→KL=0.143 | adaptive_l2→KL=0.283 | cos→KL=0.274 | winner=adaptive_l2
+      [680] feat 14675↔14675 (sim=0.948) | n=100 | cosine_l2→KL=0.023 | adaptive_l2→KL=-0.055 | cos→KL=0.055 | winner=adaptive_l2
+      [700] feat 13113↔13113 (sim=0.944) | n=100 | cosine_l2→KL=0.499 | adaptive_l2→KL=0.493 | cos→KL=0.502 | winner=cosine_l2
+      [720] feat 8621↔8621 (sim=0.941) | n=100 | cosine_l2→KL=0.210 | adaptive_l2→KL=0.118 | cos→KL=0.291 | winner=cosine_l2
+      [740] feat 5822↔5822 (sim=0.938) | n=100 | cosine_l2→KL=0.030 | adaptive_l2→KL=0.127 | cos→KL=0.155 | winner=adaptive_l2
+      [760] feat 10387↔10387 (sim=0.934) | n=100 | cosine_l2→KL=0.315 | adaptive_l2→KL=0.354 | cos→KL=0.333 | winner=adaptive_l2
+      [780] feat 3220↔3220 (sim=0.930) | n=100 | cosine_l2→KL=0.422 | adaptive_l2→KL=0.309 | cos→KL=0.525 | winner=cosine_l2
+      [800] feat 1395↔1395 (sim=0.926) | n=100 | cosine_l2→KL=-0.036 | adaptive_l2→KL=0.024 | cos→KL=0.106 | winner=cosine_l2
+      [820] feat 6815↔6815 (sim=0.922) | n=100 | cosine_l2→KL=0.328 | adaptive_l2→KL=0.378 | cos→KL=0.355 | winner=adaptive_l2
+      [840] feat 13391↔13391 (sim=0.912) | n=100 | cosine_l2→KL=0.284 | adaptive_l2→KL=0.315 | cos→KL=0.423 | winner=adaptive_l2
+      [860] feat 11565↔11565 (sim=0.907) | n=100 | cosine_l2→KL=0.208 | adaptive_l2→KL=0.288 | cos→KL=0.375 | winner=adaptive_l2
+
+    Summary (878 shared features): cosine_l2→KL=0.2284 vs adaptive_l2→KL=0.2273 | cosine_l2 wins 455/878 (52%) | cos→KL=0.2776 | cos>inner: 720/878
+
+  Evaluating 69 shared features: cosine_l2 vs adaptive_cosloss @ L9
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.2s
+      [  0] feat 4610↔4610 (sim=0.985) | n=100 | cosine_l2→KL=0.125 | adaptive_cosloss→KL=0.091 | cos→KL=0.264 | winner=cosine_l2
+      [  1] feat 14334↔14334 (sim=0.985) | n=100 | cosine_l2→KL=0.138 | adaptive_cosloss→KL=0.141 | cos→KL=0.248 | winner=adaptive_cosloss
+      [  2] feat 2742↔2742 (sim=0.984) | n=100 | cosine_l2→KL=0.217 | adaptive_cosloss→KL=0.261 | cos→KL=0.289 | winner=adaptive_cosloss
+      [  3] feat 7700↔7700 (sim=0.984) | n=100 | cosine_l2→KL=-0.001 | adaptive_cosloss→KL=-0.006 | cos→KL=0.078 | winner=adaptive_cosloss
+      [  4] feat 15063↔15063 (sim=0.983) | n=100 | cosine_l2→KL=0.357 | adaptive_cosloss→KL=0.365 | cos→KL=0.391 | winner=adaptive_cosloss
+      [  5] feat 6039↔6039 (sim=0.983) | n=100 | cosine_l2→KL=0.147 | adaptive_cosloss→KL=0.167 | cos→KL=0.132 | winner=adaptive_cosloss
+      [  6] feat 5566↔5566 (sim=0.983) | n=100 | cosine_l2→KL=0.015 | adaptive_cosloss→KL=0.049 | cos→KL=0.072 | winner=adaptive_cosloss
+      [  7] feat 3602↔3602 (sim=0.983) | n=100 | cosine_l2→KL=0.188 | adaptive_cosloss→KL=0.207 | cos→KL=0.246 | winner=adaptive_cosloss
+      [  8] feat 4313↔4313 (sim=0.982) | n=100 | cosine_l2→KL=0.108 | adaptive_cosloss→KL=0.127 | cos→KL=0.054 | winner=adaptive_cosloss
+      [  9] feat 9243↔9243 (sim=0.981) | n=100 | cosine_l2→KL=0.076 | adaptive_cosloss→KL=0.095 | cos→KL=0.115 | winner=adaptive_cosloss
+      [ 20] feat 12183↔14458 (sim=0.962) | n=100 | cosine_l2→KL=0.669 | adaptive_cosloss→KL=0.676 | cos→KL=0.774 | winner=adaptive_cosloss
+      [ 40] feat 1914↔15137 (sim=0.935) | n=100 | cosine_l2→KL=0.300 | adaptive_cosloss→KL=0.199 | cos→KL=0.381 | winner=cosine_l2
+      [ 60] feat 4520↔4520 (sim=0.910) | n=100 | cosine_l2→KL=0.292 | adaptive_cosloss→KL=0.297 | cos→KL=0.329 | winner=adaptive_cosloss
+
+    Summary (69 shared features): cosine_l2→KL=0.2575 vs adaptive_cosloss→KL=0.2702 | cosine_l2 wins 28/69 (41%) | cos→KL=0.2935 | cos>inner: 59/69
+
+  Evaluating 69 shared features: cosine_cosloss vs adaptive_l2 @ L9
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.3s
+      [  0] feat 16297↔16297 (sim=0.987) | n=100 | cosine_cosloss→KL=0.141 | adaptive_l2→KL=0.125 | cos→KL=0.210 | winner=cosine_cosloss
+      [  1] feat 4610↔4610 (sim=0.986) | n=100 | cosine_cosloss→KL=0.121 | adaptive_l2→KL=0.122 | cos→KL=0.156 | winner=adaptive_l2
+      [  2] feat 14334↔14334 (sim=0.986) | n=100 | cosine_cosloss→KL=0.101 | adaptive_l2→KL=0.066 | cos→KL=0.144 | winner=cosine_cosloss
+      [  3] feat 7700↔7700 (sim=0.985) | n=100 | cosine_cosloss→KL=0.161 | adaptive_l2→KL=0.134 | cos→KL=0.104 | winner=cosine_cosloss
+      [  4] feat 2742↔2742 (sim=0.985) | n=100 | cosine_cosloss→KL=0.087 | adaptive_l2→KL=0.046 | cos→KL=0.119 | winner=cosine_cosloss
+      [  5] feat 5566↔5566 (sim=0.984) | n=100 | cosine_cosloss→KL=0.121 | adaptive_l2→KL=0.027 | cos→KL=0.193 | winner=cosine_cosloss
+      [  6] feat 4313↔4313 (sim=0.984) | n=100 | cosine_cosloss→KL=0.291 | adaptive_l2→KL=0.250 | cos→KL=0.245 | winner=cosine_cosloss
+      [  7] feat 15063↔15063 (sim=0.984) | n=100 | cosine_cosloss→KL=0.128 | adaptive_l2→KL=0.105 | cos→KL=0.025 | winner=cosine_cosloss
+      [  8] feat 6039↔6039 (sim=0.983) | n=100 | cosine_cosloss→KL=0.260 | adaptive_l2→KL=0.196 | cos→KL=0.105 | winner=cosine_cosloss
+      [  9] feat 3602↔3602 (sim=0.983) | n=100 | cosine_cosloss→KL=0.117 | adaptive_l2→KL=0.092 | cos→KL=0.150 | winner=cosine_cosloss
+      [ 20] feat 14297↔14297 (sim=0.968) | n=100 | cosine_cosloss→KL=0.603 | adaptive_l2→KL=0.577 | cos→KL=0.628 | winner=cosine_cosloss
+      [ 40] feat 4235↔4235 (sim=0.934) | n=100 | cosine_cosloss→KL=0.342 | adaptive_l2→KL=0.357 | cos→KL=0.405 | winner=adaptive_l2
+      [ 60] feat 14406↔7175 (sim=0.910) | n=100 | cosine_cosloss→KL=0.187 | adaptive_l2→KL=0.126 | cos→KL=0.137 | winner=cosine_cosloss
+
+    Summary (69 shared features): cosine_cosloss→KL=0.2922 vs adaptive_l2→KL=0.2765 | cosine_cosloss wins 46/69 (67%) | cos→KL=0.3084 | cos>inner: 53/69
+
+  Evaluating 605 shared features: cosine_cosloss vs adaptive_cosloss @ L9
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.5s
+      [  0] feat 3602↔3602 (sim=1.000) | n=100 | cosine_cosloss→KL=0.239 | adaptive_cosloss→KL=0.238 | cos→KL=0.276 | winner=cosine_cosloss
+      [  1] feat 6039↔6039 (sim=1.000) | n=100 | cosine_cosloss→KL=0.081 | adaptive_cosloss→KL=0.070 | cos→KL=0.007 | winner=cosine_cosloss
+      [  2] feat 2742↔2742 (sim=1.000) | n=100 | cosine_cosloss→KL=0.209 | adaptive_cosloss→KL=0.205 | cos→KL=0.119 | winner=cosine_cosloss
+      [  3] feat 5566↔5566 (sim=1.000) | n=100 | cosine_cosloss→KL=0.119 | adaptive_cosloss→KL=0.109 | cos→KL=0.108 | winner=cosine_cosloss
+      [  4] feat 937↔937 (sim=1.000) | n=100 | cosine_cosloss→KL=0.246 | adaptive_cosloss→KL=0.252 | cos→KL=0.337 | winner=adaptive_cosloss
+      [  5] feat 14334↔14334 (sim=1.000) | n=100 | cosine_cosloss→KL=-0.019 | adaptive_cosloss→KL=-0.025 | cos→KL=0.104 | winner=adaptive_cosloss
+      [  6] feat 7700↔7700 (sim=1.000) | n=100 | cosine_cosloss→KL=0.190 | adaptive_cosloss→KL=0.197 | cos→KL=0.158 | winner=adaptive_cosloss
+      [  7] feat 4106↔4106 (sim=1.000) | n=100 | cosine_cosloss→KL=0.141 | adaptive_cosloss→KL=0.136 | cos→KL=0.138 | winner=cosine_cosloss
+      [  8] feat 14186↔14186 (sim=1.000) | n=100 | cosine_cosloss→KL=0.239 | adaptive_cosloss→KL=0.248 | cos→KL=0.296 | winner=adaptive_cosloss
+      [  9] feat 1788↔1788 (sim=1.000) | n=100 | cosine_cosloss→KL=0.174 | adaptive_cosloss→KL=0.181 | cos→KL=0.203 | winner=adaptive_cosloss
+      [ 20] feat 2576↔2576 (sim=1.000) | n=100 | cosine_cosloss→KL=0.180 | adaptive_cosloss→KL=0.180 | cos→KL=0.243 | winner=adaptive_cosloss
+      [ 40] feat 14406↔14406 (sim=0.991) | n=100 | cosine_cosloss→KL=0.449 | adaptive_cosloss→KL=0.447 | cos→KL=0.487 | winner=cosine_cosloss
+      [ 60] feat 13200↔13200 (sim=0.987) | n=100 | cosine_cosloss→KL=0.648 | adaptive_cosloss→KL=0.669 | cos→KL=0.644 | winner=adaptive_cosloss
+      [ 80] feat 12130↔12130 (sim=0.984) | n=100 | cosine_cosloss→KL=0.497 | adaptive_cosloss→KL=0.502 | cos→KL=0.523 | winner=adaptive_cosloss
+      [100] feat 8395↔8395 (sim=0.981) | n=100 | cosine_cosloss→KL=0.357 | adaptive_cosloss→KL=0.394 | cos→KL=0.403 | winner=adaptive_cosloss
+      [120] feat 3674↔3674 (sim=0.977) | n=100 | cosine_cosloss→KL=0.160 | adaptive_cosloss→KL=0.141 | cos→KL=0.168 | winner=cosine_cosloss
+      [140] feat 7493↔7493 (sim=0.974) | n=100 | cosine_cosloss→KL=0.145 | adaptive_cosloss→KL=0.093 | cos→KL=0.056 | winner=cosine_cosloss
+      [160] feat 7633↔7633 (sim=0.972) | n=100 | cosine_cosloss→KL=0.044 | adaptive_cosloss→KL=-0.045 | cos→KL=0.034 | winner=adaptive_cosloss
+      [180] feat 8276↔8276 (sim=0.970) | n=100 | cosine_cosloss→KL=0.117 | adaptive_cosloss→KL=0.180 | cos→KL=0.206 | winner=adaptive_cosloss
+      [200] feat 1405↔1405 (sim=0.968) | n=100 | cosine_cosloss→KL=0.136 | adaptive_cosloss→KL=0.165 | cos→KL=0.137 | winner=adaptive_cosloss
+      [220] feat 6657↔6657 (sim=0.966) | n=100 | cosine_cosloss→KL=0.109 | adaptive_cosloss→KL=0.105 | cos→KL=0.033 | winner=cosine_cosloss
+      [240] feat 7247↔7247 (sim=0.962) | n=100 | cosine_cosloss→KL=0.324 | adaptive_cosloss→KL=0.308 | cos→KL=0.292 | winner=cosine_cosloss
+      [260] feat 4817↔4817 (sim=0.959) | n=100 | cosine_cosloss→KL=0.575 | adaptive_cosloss→KL=0.606 | cos→KL=0.567 | winner=adaptive_cosloss
+      [280] feat 4341↔4341 (sim=0.956) | n=100 | cosine_cosloss→KL=0.266 | adaptive_cosloss→KL=0.178 | cos→KL=0.264 | winner=cosine_cosloss
+      [300] feat 15461↔15461 (sim=0.953) | n=100 | cosine_cosloss→KL=-0.013 | adaptive_cosloss→KL=-0.038 | cos→KL=0.039 | winner=adaptive_cosloss
+      [320] feat 7787↔7787 (sim=0.951) | n=100 | cosine_cosloss→KL=0.268 | adaptive_cosloss→KL=0.233 | cos→KL=0.226 | winner=cosine_cosloss
+      [340] feat 14271↔14271 (sim=0.949) | n=100 | cosine_cosloss→KL=0.409 | adaptive_cosloss→KL=0.377 | cos→KL=0.435 | winner=cosine_cosloss
+      [360] feat 1247↔1247 (sim=0.947) | n=100 | cosine_cosloss→KL=0.047 | adaptive_cosloss→KL=0.043 | cos→KL=0.123 | winner=cosine_cosloss
+      [380] feat 9005↔9005 (sim=0.944) | n=100 | cosine_cosloss→KL=0.050 | adaptive_cosloss→KL=-0.079 | cos→KL=-0.017 | winner=adaptive_cosloss
+      [400] feat 14721↔14721 (sim=0.941) | n=100 | cosine_cosloss→KL=0.065 | adaptive_cosloss→KL=0.103 | cos→KL=0.270 | winner=adaptive_cosloss
+      [420] feat 7216↔7216 (sim=0.939) | n=100 | cosine_cosloss→KL=0.030 | adaptive_cosloss→KL=0.075 | cos→KL=0.144 | winner=adaptive_cosloss
+      [440] feat 14615↔14615 (sim=0.935) | n=100 | cosine_cosloss→KL=0.311 | adaptive_cosloss→KL=0.315 | cos→KL=0.437 | winner=adaptive_cosloss
+      [460] feat 2036↔2036 (sim=0.931) | n=100 | cosine_cosloss→KL=0.146 | adaptive_cosloss→KL=0.113 | cos→KL=0.249 | winner=cosine_cosloss
+      [480] feat 2917↔2917 (sim=0.927) | n=100 | cosine_cosloss→KL=0.224 | adaptive_cosloss→KL=0.215 | cos→KL=0.109 | winner=cosine_cosloss
+      [500] feat 1416↔1416 (sim=0.923) | n=100 | cosine_cosloss→KL=0.295 | adaptive_cosloss→KL=0.323 | cos→KL=0.319 | winner=adaptive_cosloss
+      [520] feat 1541↔1541 (sim=0.918) | n=100 | cosine_cosloss→KL=-0.011 | adaptive_cosloss→KL=0.006 | cos→KL=-0.023 | winner=cosine_cosloss
+      [540] feat 4352↔4352 (sim=0.915) | n=100 | cosine_cosloss→KL=0.211 | adaptive_cosloss→KL=0.269 | cos→KL=0.208 | winner=adaptive_cosloss
+      [560] feat 14135↔14135 (sim=0.910) | n=100 | cosine_cosloss→KL=0.207 | adaptive_cosloss→KL=0.180 | cos→KL=0.317 | winner=cosine_cosloss
+      [580] feat 5068↔5068 (sim=0.906) | n=100 | cosine_cosloss→KL=0.289 | adaptive_cosloss→KL=0.296 | cos→KL=0.221 | winner=adaptive_cosloss
+      [600] feat 3341↔3341 (sim=0.901) | n=100 | cosine_cosloss→KL=0.304 | adaptive_cosloss→KL=0.331 | cos→KL=0.427 | winner=adaptive_cosloss
+
+    Summary (605 shared features): cosine_cosloss→KL=0.2383 vs adaptive_cosloss→KL=0.2400 | cosine_cosloss wins 283/605 (47%) | cos→KL=0.2732 | cos>inner: 494/605
+
+  Evaluating 73 shared features: adaptive_l2 vs adaptive_cosloss @ L9
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.1s
+      [  0] feat 4610↔4610 (sim=0.986) | n=100 | adaptive_l2→KL=-0.018 | adaptive_cosloss→KL=0.016 | cos→KL=0.136 | winner=adaptive_l2
+      [  1] feat 14334↔14334 (sim=0.986) | n=100 | adaptive_l2→KL=0.105 | adaptive_cosloss→KL=0.139 | cos→KL=0.347 | winner=adaptive_cosloss
+      [  2] feat 2742↔2742 (sim=0.985) | n=100 | adaptive_l2→KL=-0.027 | adaptive_cosloss→KL=-0.003 | cos→KL=-0.021 | winner=adaptive_l2
+      [  3] feat 7700↔7700 (sim=0.984) | n=100 | adaptive_l2→KL=0.258 | adaptive_cosloss→KL=0.264 | cos→KL=0.234 | winner=adaptive_cosloss
+      [  4] feat 5566↔5566 (sim=0.984) | n=100 | adaptive_l2→KL=0.179 | adaptive_cosloss→KL=0.169 | cos→KL=0.119 | winner=adaptive_l2
+      [  5] feat 4313↔4313 (sim=0.984) | n=100 | adaptive_l2→KL=0.154 | adaptive_cosloss→KL=0.124 | cos→KL=0.224 | winner=adaptive_l2
+      [  6] feat 15063↔15063 (sim=0.984) | n=100 | adaptive_l2→KL=0.193 | adaptive_cosloss→KL=0.226 | cos→KL=0.244 | winner=adaptive_cosloss
+      [  7] feat 6039↔6039 (sim=0.983) | n=100 | adaptive_l2→KL=0.033 | adaptive_cosloss→KL=0.025 | cos→KL=0.014 | winner=adaptive_l2
+      [  8] feat 3602↔3602 (sim=0.983) | n=100 | adaptive_l2→KL=-0.076 | adaptive_cosloss→KL=-0.076 | cos→KL=-0.011 | winner=adaptive_cosloss
+      [  9] feat 9243↔9243 (sim=0.980) | n=100 | adaptive_l2→KL=0.238 | adaptive_cosloss→KL=0.241 | cos→KL=0.243 | winner=adaptive_cosloss
+      [ 20] feat 6634↔9107 (sim=0.964) | n=100 | adaptive_l2→KL=0.208 | adaptive_cosloss→KL=0.187 | cos→KL=0.201 | winner=adaptive_l2
+      [ 40] feat 13670↔13670 (sim=0.929) | n=100 | adaptive_l2→KL=0.215 | adaptive_cosloss→KL=0.152 | cos→KL=0.255 | winner=adaptive_l2
+      [ 60] feat 5840↔5840 (sim=0.911) | n=100 | adaptive_l2→KL=0.512 | adaptive_cosloss→KL=0.606 | cos→KL=0.564 | winner=adaptive_cosloss
+
+    Summary (73 shared features): adaptive_l2→KL=0.2556 vs adaptive_cosloss→KL=0.2607 | adaptive_l2 wins 31/73 (42%) | cos→KL=0.2901 | cos>inner: 57/73
+  Results saved to experiments/exp15_results.json
+
+======================================================================
+  LAYER 27 — Shared Feature Evaluation
+======================================================================
+  Converting texts -> layer 27 activations (target 500,000)...
+  Layer 27: 500,000 tokens in 41.8s (norm: mean=406.4, std=35.3)
+  Eval data: 500,000 tokens
+  Loaded standard at L27
+  Loaded cosine_l2 at L27
+  Loaded cosine_cosloss at L27
+  Loaded adaptive_l2 at L27
+  Loaded adaptive_cosloss at L27
+  5 SAEs loaded for layer 27
+
+  Computing alive features (freq >= 0.01)...
+    standard: 1059 alive (6.5%)
+    cosine_l2: 682 alive (4.2%)
+    cosine_cosloss: 779 alive (4.8%)
+    adaptive_l2: 832 alive (5.1%)
+    adaptive_cosloss: 795 alive (4.9%)
+
+  Finding shared features (cos_sim > 0.9)...
+    Matching 1059 x 682 alive features...
+    standard ↔ cosine_l2: 18 shared features
+    Matching 1059 x 779 alive features...
+    standard ↔ cosine_cosloss: 25 shared features
+    Matching 1059 x 832 alive features...
+    standard ↔ adaptive_l2: 22 shared features
+    Matching 1059 x 795 alive features...
+    standard ↔ adaptive_cosloss: 24 shared features
+    Matching 682 x 779 alive features...
+    cosine_l2 ↔ cosine_cosloss: 38 shared features
+    Matching 682 x 832 alive features...
+    cosine_l2 ↔ adaptive_l2: 223 shared features
+    Matching 682 x 795 alive features...
+    cosine_l2 ↔ adaptive_cosloss: 35 shared features
+    Matching 779 x 832 alive features...
+    cosine_cosloss ↔ adaptive_l2: 56 shared features
+    Matching 779 x 795 alive features...
+    cosine_cosloss ↔ adaptive_cosloss: 262 shared features
+    Matching 832 x 795 alive features...
+    adaptive_l2 ↔ adaptive_cosloss: 55 shared features
+
+  Total shared feature pairs across all SAE combinations: 758
+
+  Moving SAEs to CPU for ablation phase...
+
+  Running head-to-head ablation comparisons...
+
+  Evaluating 18 shared features: standard vs cosine_l2 @ L27
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.2s
+      [  0] feat 8069↔5989 (sim=0.959) | n=100 | standard→KL=0.419 | cosine_l2→KL=0.272 | cos→KL=0.416 | winner=standard
+      [  1] feat 8936↔8004 (sim=0.959) | n=100 | standard→KL=0.534 | cosine_l2→KL=0.339 | cos→KL=0.627 | winner=standard
+      [  2] feat 8135↔6432 (sim=0.953) | n=100 | standard→KL=0.458 | cosine_l2→KL=0.125 | cos→KL=0.466 | winner=standard
+      [  3] feat 12356↔12356 (sim=0.947) | n=100 | standard→KL=0.473 | cosine_l2→KL=0.178 | cos→KL=0.423 | winner=standard
+      [  4] feat 15325↔5758 (sim=0.939) | n=100 | standard→KL=0.372 | cosine_l2→KL=0.306 | cos→KL=0.527 | winner=standard
+      [  5] feat 16291↔5054 (sim=0.933) | n=100 | standard→KL=0.306 | cosine_l2→KL=0.256 | cos→KL=0.366 | winner=standard
+      [  6] feat 272↔272 (sim=0.931) | n=100 | standard→KL=0.195 | cosine_l2→KL=0.036 | cos→KL=0.230 | winner=standard
+      [  7] feat 14917↔13153 (sim=0.928) | n=100 | standard→KL=0.458 | cosine_l2→KL=0.306 | cos→KL=0.535 | winner=standard
+      [  8] feat 3001↔3001 (sim=0.927) | n=100 | standard→KL=0.621 | cosine_l2→KL=0.437 | cos→KL=0.588 | winner=standard
+      [  9] feat 1627↔1627 (sim=0.923) | n=100 | standard→KL=0.616 | cosine_l2→KL=0.447 | cos→KL=0.621 | winner=standard
+
+    Summary (18 shared features): standard→KL=0.4322 vs cosine_l2→KL=0.2771 | standard wins 18/18 (100%) | cos→KL=0.4637 | cos>inner: 14/18
+
+  Evaluating 25 shared features: standard vs cosine_cosloss @ L27
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.0s
+      [  0] feat 11986↔7221 (sim=0.966) | n=100 | standard→KL=0.539 | cosine_cosloss→KL=0.575 | cos→KL=0.586 | winner=cosine_cosloss
+      [  1] feat 8069↔8069 (sim=0.966) | n=100 | standard→KL=0.384 | cosine_cosloss→KL=0.357 | cos→KL=0.396 | winner=standard
+      [  2] feat 5494↔3106 (sim=0.964) | n=100 | standard→KL=0.677 | cosine_cosloss→KL=0.684 | cos→KL=0.710 | winner=cosine_cosloss
+      [  3] feat 8936↔5604 (sim=0.962) | n=100 | standard→KL=0.630 | cosine_cosloss→KL=0.596 | cos→KL=0.673 | winner=standard
+      [  4] feat 3001↔15203 (sim=0.957) | n=100 | standard→KL=0.399 | cosine_cosloss→KL=0.419 | cos→KL=0.440 | winner=cosine_cosloss
+      [  5] feat 15325↔13111 (sim=0.954) | n=100 | standard→KL=0.603 | cosine_cosloss→KL=0.525 | cos→KL=0.583 | winner=standard
+      [  6] feat 12356↔15730 (sim=0.953) | n=100 | standard→KL=0.262 | cosine_cosloss→KL=0.238 | cos→KL=0.363 | winner=standard
+      [  7] feat 14444↔14444 (sim=0.950) | n=100 | standard→KL=0.398 | cosine_cosloss→KL=0.343 | cos→KL=0.452 | winner=standard
+      [  8] feat 6070↔85 (sim=0.945) | n=100 | standard→KL=0.661 | cosine_cosloss→KL=0.669 | cos→KL=0.669 | winner=cosine_cosloss
+      [  9] feat 2766↔15186 (sim=0.942) | n=100 | standard→KL=0.691 | cosine_cosloss→KL=0.788 | cos→KL=0.742 | winner=cosine_cosloss
+      [ 20] feat 9777↔14681 (sim=0.910) | n=100 | standard→KL=0.360 | cosine_cosloss→KL=0.317 | cos→KL=0.452 | winner=standard
+
+    Summary (25 shared features): standard→KL=0.4799 vs cosine_cosloss→KL=0.4561 | standard wins 16/25 (64%) | cos→KL=0.5014 | cos>inner: 16/25
+
+  Evaluating 22 shared features: standard vs adaptive_l2 @ L27
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 16.9s
+      [  0] feat 11986↔11986 (sim=0.969) | n=100 | standard→KL=0.432 | adaptive_l2→KL=0.332 | cos→KL=0.405 | winner=standard
+      [  1] feat 8069↔5989 (sim=0.969) | n=100 | standard→KL=0.521 | adaptive_l2→KL=0.445 | cos→KL=0.526 | winner=standard
+      [  2] feat 8135↔6432 (sim=0.963) | n=100 | standard→KL=0.379 | adaptive_l2→KL=0.302 | cos→KL=0.379 | winner=standard
+      [  3] feat 8936↔8004 (sim=0.962) | n=100 | standard→KL=0.408 | adaptive_l2→KL=0.249 | cos→KL=0.481 | winner=standard
+      [  4] feat 12356↔10642 (sim=0.954) | n=100 | standard→KL=0.233 | adaptive_l2→KL=0.328 | cos→KL=0.407 | winner=adaptive_l2
+      [  5] feat 15325↔5758 (sim=0.950) | n=100 | standard→KL=0.496 | adaptive_l2→KL=0.519 | cos→KL=0.598 | winner=adaptive_l2
+      [  6] feat 14883↔6909 (sim=0.946) | n=100 | standard→KL=0.493 | adaptive_l2→KL=0.391 | cos→KL=0.501 | winner=standard
+      [  7] feat 16291↔3286 (sim=0.945) | n=100 | standard→KL=0.343 | adaptive_l2→KL=0.338 | cos→KL=0.384 | winner=standard
+      [  8] feat 7253↔13428 (sim=0.938) | n=100 | standard→KL=0.272 | adaptive_l2→KL=0.365 | cos→KL=0.395 | winner=adaptive_l2
+      [  9] feat 5761↔1019 (sim=0.929) | n=100 | standard→KL=0.490 | adaptive_l2→KL=0.449 | cos→KL=0.446 | winner=standard
+      [ 20] feat 14444↔14444 (sim=0.905) | n=100 | standard→KL=0.440 | adaptive_l2→KL=0.429 | cos→KL=0.501 | winner=standard
+
+    Summary (22 shared features): standard→KL=0.4387 vs adaptive_l2→KL=0.4098 | standard wins 17/22 (77%) | cos→KL=0.4902 | cos>inner: 16/22
+
+  Evaluating 24 shared features: standard vs adaptive_cosloss @ L27
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 16.9s
+      [  0] feat 8135↔9826 (sim=0.963) | n=100 | standard→KL=0.432 | adaptive_cosloss→KL=0.461 | cos→KL=0.488 | winner=adaptive_cosloss
+      [  1] feat 8936↔5604 (sim=0.959) | n=100 | standard→KL=0.661 | adaptive_cosloss→KL=0.609 | cos→KL=0.722 | winner=standard
+      [  2] feat 839↔2587 (sim=0.957) | n=100 | standard→KL=0.389 | adaptive_cosloss→KL=0.446 | cos→KL=0.409 | winner=adaptive_cosloss
+      [  3] feat 12356↔10942 (sim=0.955) | n=100 | standard→KL=0.444 | adaptive_cosloss→KL=0.432 | cos→KL=0.456 | winner=standard
+      [  4] feat 8305↔2029 (sim=0.954) | n=100 | standard→KL=0.347 | adaptive_cosloss→KL=0.465 | cos→KL=0.531 | winner=adaptive_cosloss
+      [  5] feat 5494↔5359 (sim=0.950) | n=100 | standard→KL=0.741 | adaptive_cosloss→KL=0.701 | cos→KL=0.754 | winner=standard
+      [  6] feat 15325↔13111 (sim=0.947) | n=100 | standard→KL=0.258 | adaptive_cosloss→KL=0.366 | cos→KL=0.350 | winner=adaptive_cosloss
+      [  7] feat 6219↔10236 (sim=0.946) | n=100 | standard→KL=0.755 | adaptive_cosloss→KL=0.611 | cos→KL=0.802 | winner=standard
+      [  8] feat 6102↔6102 (sim=0.945) | n=100 | standard→KL=0.382 | adaptive_cosloss→KL=0.447 | cos→KL=0.442 | winner=adaptive_cosloss
+      [  9] feat 10698↔3555 (sim=0.940) | n=100 | standard→KL=0.322 | adaptive_cosloss→KL=0.310 | cos→KL=0.396 | winner=standard
+      [ 20] feat 10715↔5216 (sim=0.913) | n=100 | standard→KL=0.576 | adaptive_cosloss→KL=0.414 | cos→KL=0.526 | winner=standard
+
+    Summary (24 shared features): standard→KL=0.4780 vs adaptive_cosloss→KL=0.4710 | standard wins 13/24 (54%) | cos→KL=0.5197 | cos>inner: 17/24
+
+  Evaluating 38 shared features: cosine_l2 vs cosine_cosloss @ L27
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.1s
+      [  0] feat 7245↔7245 (sim=0.975) | n=100 | cosine_l2→KL=0.063 | cosine_cosloss→KL=0.117 | cos→KL=0.168 | winner=cosine_cosloss
+      [  1] feat 14514↔14514 (sim=0.975) | n=100 | cosine_l2→KL=0.105 | cosine_cosloss→KL=0.166 | cos→KL=0.338 | winner=cosine_cosloss
+      [  2] feat 6019↔6019 (sim=0.974) | n=100 | cosine_l2→KL=0.065 | cosine_cosloss→KL=0.137 | cos→KL=0.357 | winner=cosine_cosloss
+      [  3] feat 13875↔13875 (sim=0.974) | n=100 | cosine_l2→KL=0.005 | cosine_cosloss→KL=0.048 | cos→KL=0.200 | winner=cosine_cosloss
+      [  4] feat 6466↔6466 (sim=0.974) | n=100 | cosine_l2→KL=0.308 | cosine_cosloss→KL=0.370 | cos→KL=0.442 | winner=cosine_cosloss
+      [  5] feat 7332↔7332 (sim=0.974) | n=100 | cosine_l2→KL=0.019 | cosine_cosloss→KL=0.034 | cos→KL=0.163 | winner=cosine_cosloss
+      [  6] feat 658↔658 (sim=0.973) | n=100 | cosine_l2→KL=0.008 | cosine_cosloss→KL=0.066 | cos→KL=0.248 | winner=cosine_cosloss
+      [  7] feat 978↔978 (sim=0.972) | n=100 | cosine_l2→KL=0.173 | cosine_cosloss→KL=0.178 | cos→KL=0.348 | winner=cosine_cosloss
+      [  8] feat 7005↔7005 (sim=0.972) | n=100 | cosine_l2→KL=0.097 | cosine_cosloss→KL=0.164 | cos→KL=0.319 | winner=cosine_cosloss
+      [  9] feat 5179↔5179 (sim=0.971) | n=100 | cosine_l2→KL=0.078 | cosine_cosloss→KL=0.074 | cos→KL=0.242 | winner=cosine_l2
+      [ 20] feat 11859↔11859 (sim=0.960) | n=100 | cosine_l2→KL=0.178 | cosine_cosloss→KL=0.266 | cos→KL=0.390 | winner=cosine_cosloss
+
+    Summary (38 shared features): cosine_l2→KL=0.1456 vs cosine_cosloss→KL=0.2356 | cosine_l2 wins 6/38 (16%) | cos→KL=0.3504 | cos>inner: 36/38
+
+  Evaluating 223 shared features: cosine_l2 vs adaptive_l2 @ L27
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.3s
+      [  0] feat 7245↔7245 (sim=0.996) | n=100 | cosine_l2→KL=-0.043 | adaptive_l2→KL=-0.032 | cos→KL=0.198 | winner=cosine_l2
+      [  1] feat 7005↔7005 (sim=0.996) | n=100 | cosine_l2→KL=0.097 | adaptive_l2→KL=0.107 | cos→KL=0.272 | winner=adaptive_l2
+      [  2] feat 15014↔15014 (sim=0.996) | n=100 | cosine_l2→KL=0.187 | adaptive_l2→KL=0.217 | cos→KL=0.411 | winner=adaptive_l2
+      [  3] feat 7332↔7332 (sim=0.996) | n=100 | cosine_l2→KL=0.001 | adaptive_l2→KL=0.027 | cos→KL=0.155 | winner=adaptive_l2
+      [  4] feat 8445↔8445 (sim=0.996) | n=100 | cosine_l2→KL=-0.188 | adaptive_l2→KL=-0.171 | cos→KL=0.022 | winner=cosine_l2
+      [  5] feat 12272↔12272 (sim=0.996) | n=100 | cosine_l2→KL=0.071 | adaptive_l2→KL=0.078 | cos→KL=0.194 | winner=adaptive_l2
+      [  6] feat 6314↔6314 (sim=0.996) | n=100 | cosine_l2→KL=0.212 | adaptive_l2→KL=0.245 | cos→KL=0.326 | winner=adaptive_l2
+      [  7] feat 978↔978 (sim=0.995) | n=100 | cosine_l2→KL=0.126 | adaptive_l2→KL=0.146 | cos→KL=0.211 | winner=adaptive_l2
+      [  8] feat 11888↔11888 (sim=0.995) | n=100 | cosine_l2→KL=0.030 | adaptive_l2→KL=0.030 | cos→KL=0.120 | winner=cosine_l2
+      [  9] feat 5179↔5179 (sim=0.995) | n=100 | cosine_l2→KL=0.157 | adaptive_l2→KL=0.176 | cos→KL=0.301 | winner=adaptive_l2
+      [ 20] feat 15466↔15466 (sim=0.995) | n=100 | cosine_l2→KL=0.090 | adaptive_l2→KL=0.126 | cos→KL=0.280 | winner=adaptive_l2
+      [ 40] feat 10366↔10366 (sim=0.983) | n=100 | cosine_l2→KL=0.308 | adaptive_l2→KL=0.344 | cos→KL=0.359 | winner=adaptive_l2
+      [ 60] feat 8004↔8004 (sim=0.967) | n=100 | cosine_l2→KL=0.259 | adaptive_l2→KL=0.250 | cos→KL=0.497 | winner=cosine_l2
+      [ 80] feat 9292↔9292 (sim=0.955) | n=100 | cosine_l2→KL=0.530 | adaptive_l2→KL=0.590 | cos→KL=0.582 | winner=adaptive_l2
+      [100] feat 5312↔5312 (sim=0.945) | n=100 | cosine_l2→KL=0.631 | adaptive_l2→KL=0.703 | cos→KL=0.771 | winner=adaptive_l2
+      [120] feat 10438↔10438 (sim=0.935) | n=100 | cosine_l2→KL=0.145 | adaptive_l2→KL=0.041 | cos→KL=0.244 | winner=cosine_l2
+      [140] feat 7452↔7452 (sim=0.930) | n=100 | cosine_l2→KL=0.379 | adaptive_l2→KL=0.430 | cos→KL=0.600 | winner=adaptive_l2
+      [160] feat 525↔525 (sim=0.924) | n=100 | cosine_l2→KL=0.278 | adaptive_l2→KL=0.447 | cos→KL=0.551 | winner=adaptive_l2
+      [180] feat 15421↔6909 (sim=0.917) | n=100 | cosine_l2→KL=0.431 | adaptive_l2→KL=0.448 | cos→KL=0.518 | winner=adaptive_l2
+      [200] feat 3277↔3277 (sim=0.908) | n=100 | cosine_l2→KL=0.334 | adaptive_l2→KL=0.438 | cos→KL=0.500 | winner=adaptive_l2
+      [220] feat 12545↔12545 (sim=0.900) | n=100 | cosine_l2→KL=0.271 | adaptive_l2→KL=0.376 | cos→KL=0.509 | winner=adaptive_l2
+
+    Summary (223 shared features): cosine_l2→KL=0.3147 vs adaptive_l2→KL=0.3701 | cosine_l2 wins 42/223 (19%) | cos→KL=0.4626 | cos>inner: 165/223
+
+  Evaluating 35 shared features: cosine_l2 vs adaptive_cosloss @ L27
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.1s
+      [  0] feat 7245↔7245 (sim=0.975) | n=100 | cosine_l2→KL=0.070 | adaptive_cosloss→KL=0.106 | cos→KL=0.239 | winner=adaptive_cosloss
+      [  1] feat 13875↔13875 (sim=0.974) | n=100 | cosine_l2→KL=-0.039 | adaptive_cosloss→KL=0.004 | cos→KL=0.221 | winner=cosine_l2
+      [  2] feat 6019↔6019 (sim=0.974) | n=100 | cosine_l2→KL=0.117 | adaptive_cosloss→KL=0.142 | cos→KL=0.268 | winner=adaptive_cosloss
+      [  3] feat 14514↔14514 (sim=0.974) | n=100 | cosine_l2→KL=0.180 | adaptive_cosloss→KL=0.227 | cos→KL=0.258 | winner=adaptive_cosloss
+      [  4] feat 7332↔7332 (sim=0.974) | n=100 | cosine_l2→KL=0.147 | adaptive_cosloss→KL=0.175 | cos→KL=0.164 | winner=adaptive_cosloss
+      [  5] feat 6466↔6466 (sim=0.973) | n=100 | cosine_l2→KL=0.218 | adaptive_cosloss→KL=0.255 | cos→KL=0.350 | winner=adaptive_cosloss
+      [  6] feat 658↔658 (sim=0.972) | n=100 | cosine_l2→KL=0.157 | adaptive_cosloss→KL=0.193 | cos→KL=0.248 | winner=adaptive_cosloss
+      [  7] feat 978↔978 (sim=0.972) | n=100 | cosine_l2→KL=0.122 | adaptive_cosloss→KL=0.111 | cos→KL=0.315 | winner=cosine_l2
+      [  8] feat 7005↔7005 (sim=0.972) | n=100 | cosine_l2→KL=0.076 | adaptive_cosloss→KL=0.159 | cos→KL=0.331 | winner=adaptive_cosloss
+      [  9] feat 11888↔11888 (sim=0.971) | n=100 | cosine_l2→KL=0.038 | adaptive_cosloss→KL=0.045 | cos→KL=0.158 | winner=adaptive_cosloss
+      [ 20] feat 6039↔6039 (sim=0.960) | n=100 | cosine_l2→KL=0.144 | adaptive_cosloss→KL=0.139 | cos→KL=0.251 | winner=cosine_l2
+
+    Summary (35 shared features): cosine_l2→KL=0.1579 vs adaptive_cosloss→KL=0.2182 | cosine_l2 wins 6/35 (17%) | cos→KL=0.3335 | cos>inner: 29/35
+
+  Evaluating 56 shared features: cosine_cosloss vs adaptive_l2 @ L27
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.1s
+      [  0] feat 7053↔7053 (sim=0.980) | n=100 | cosine_cosloss→KL=0.159 | adaptive_l2→KL=0.074 | cos→KL=0.232 | winner=cosine_cosloss
+      [  1] feat 14514↔14514 (sim=0.980) | n=100 | cosine_cosloss→KL=0.192 | adaptive_l2→KL=0.149 | cos→KL=0.428 | winner=cosine_cosloss
+      [  2] feat 7332↔7332 (sim=0.979) | n=100 | cosine_cosloss→KL=0.152 | adaptive_l2→KL=0.179 | cos→KL=0.383 | winner=adaptive_l2
+      [  3] feat 7245↔7245 (sim=0.978) | n=100 | cosine_cosloss→KL=-0.022 | adaptive_l2→KL=-0.040 | cos→KL=0.253 | winner=adaptive_l2
+      [  4] feat 658↔658 (sim=0.978) | n=100 | cosine_cosloss→KL=0.286 | adaptive_l2→KL=0.238 | cos→KL=0.439 | winner=cosine_cosloss
+      [  5] feat 13875↔13875 (sim=0.978) | n=100 | cosine_cosloss→KL=0.095 | adaptive_l2→KL=0.104 | cos→KL=0.286 | winner=adaptive_l2
+      [  6] feat 7005↔7005 (sim=0.978) | n=100 | cosine_cosloss→KL=0.052 | adaptive_l2→KL=0.038 | cos→KL=0.201 | winner=cosine_cosloss
+      [  7] feat 6019↔6019 (sim=0.978) | n=100 | cosine_cosloss→KL=0.097 | adaptive_l2→KL=0.097 | cos→KL=0.250 | winner=adaptive_l2
+      [  8] feat 15376↔15376 (sim=0.977) | n=100 | cosine_cosloss→KL=-0.012 | adaptive_l2→KL=-0.173 | cos→KL=0.192 | winner=adaptive_l2
+      [  9] feat 4360↔4360 (sim=0.977) | n=100 | cosine_cosloss→KL=0.141 | adaptive_l2→KL=0.134 | cos→KL=0.224 | winner=cosine_cosloss
+      [ 20] feat 15534↔15534 (sim=0.973) | n=100 | cosine_cosloss→KL=0.122 | adaptive_l2→KL=0.073 | cos→KL=0.337 | winner=cosine_cosloss
+      [ 40] feat 10615↔13947 (sim=0.933) | n=100 | cosine_cosloss→KL=0.510 | adaptive_l2→KL=0.493 | cos→KL=0.534 | winner=cosine_cosloss
+
+    Summary (56 shared features): cosine_cosloss→KL=0.2989 vs adaptive_l2→KL=0.2650 | cosine_cosloss wins 37/56 (66%) | cos→KL=0.4194 | cos>inner: 47/56
+
+  Evaluating 262 shared features: cosine_cosloss vs adaptive_cosloss @ L27
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.2s
+      [  0] feat 978↔978 (sim=1.000) | n=100 | cosine_cosloss→KL=-0.165 | adaptive_cosloss→KL=-0.173 | cos→KL=0.177 | winner=adaptive_cosloss
+      [  1] feat 5593↔5593 (sim=1.000) | n=100 | cosine_cosloss→KL=0.141 | adaptive_cosloss→KL=0.136 | cos→KL=0.254 | winner=cosine_cosloss
+      [  2] feat 6531↔6531 (sim=1.000) | n=100 | cosine_cosloss→KL=0.095 | adaptive_cosloss→KL=0.088 | cos→KL=0.189 | winner=cosine_cosloss
+      [  3] feat 7245↔7245 (sim=1.000) | n=100 | cosine_cosloss→KL=-0.016 | adaptive_cosloss→KL=-0.012 | cos→KL=0.334 | winner=cosine_cosloss
+      [  4] feat 6039↔6039 (sim=1.000) | n=100 | cosine_cosloss→KL=0.225 | adaptive_cosloss→KL=0.219 | cos→KL=0.520 | winner=cosine_cosloss
+      [  5] feat 1741↔1741 (sim=1.000) | n=100 | cosine_cosloss→KL=0.110 | adaptive_cosloss→KL=0.112 | cos→KL=0.122 | winner=adaptive_cosloss
+      [  6] feat 6466↔6466 (sim=1.000) | n=100 | cosine_cosloss→KL=-0.039 | adaptive_cosloss→KL=-0.040 | cos→KL=0.193 | winner=adaptive_cosloss
+      [  7] feat 13118↔13118 (sim=1.000) | n=100 | cosine_cosloss→KL=0.192 | adaptive_cosloss→KL=0.178 | cos→KL=0.303 | winner=cosine_cosloss
+      [  8] feat 6019↔6019 (sim=1.000) | n=100 | cosine_cosloss→KL=0.174 | adaptive_cosloss→KL=0.176 | cos→KL=0.297 | winner=adaptive_cosloss
+      [  9] feat 11268↔11268 (sim=1.000) | n=100 | cosine_cosloss→KL=0.218 | adaptive_cosloss→KL=0.223 | cos→KL=0.319 | winner=adaptive_cosloss
+      [ 20] feat 6067↔6067 (sim=1.000) | n=100 | cosine_cosloss→KL=0.319 | adaptive_cosloss→KL=0.315 | cos→KL=0.396 | winner=cosine_cosloss
+      [ 40] feat 13966↔13966 (sim=0.999) | n=100 | cosine_cosloss→KL=0.424 | adaptive_cosloss→KL=0.416 | cos→KL=0.511 | winner=cosine_cosloss
+      [ 60] feat 9620↔9620 (sim=0.980) | n=100 | cosine_cosloss→KL=0.430 | adaptive_cosloss→KL=0.448 | cos→KL=0.405 | winner=adaptive_cosloss
+      [ 80] feat 1686↔1686 (sim=0.968) | n=100 | cosine_cosloss→KL=0.563 | adaptive_cosloss→KL=0.567 | cos→KL=0.604 | winner=adaptive_cosloss
+      [100] feat 7570↔7570 (sim=0.961) | n=100 | cosine_cosloss→KL=0.176 | adaptive_cosloss→KL=0.136 | cos→KL=0.165 | winner=cosine_cosloss
+      [120] feat 2416↔2416 (sim=0.953) | n=100 | cosine_cosloss→KL=0.640 | adaptive_cosloss→KL=0.610 | cos→KL=0.594 | winner=cosine_cosloss
+      [140] feat 7361↔7361 (sim=0.943) | n=100 | cosine_cosloss→KL=0.361 | adaptive_cosloss→KL=0.429 | cos→KL=0.506 | winner=adaptive_cosloss
+      [160] feat 14961↔14961 (sim=0.937) | n=100 | cosine_cosloss→KL=0.602 | adaptive_cosloss→KL=0.596 | cos→KL=0.625 | winner=cosine_cosloss
+      [180] feat 10374↔10374 (sim=0.930) | n=100 | cosine_cosloss→KL=0.469 | adaptive_cosloss→KL=0.486 | cos→KL=0.552 | winner=adaptive_cosloss
+      [200] feat 6585↔6585 (sim=0.926) | n=100 | cosine_cosloss→KL=0.298 | adaptive_cosloss→KL=0.431 | cos→KL=0.400 | winner=adaptive_cosloss
+      [220] feat 11253↔11253 (sim=0.919) | n=100 | cosine_cosloss→KL=0.489 | adaptive_cosloss→KL=0.403 | cos→KL=0.522 | winner=cosine_cosloss
+      [240] feat 3190↔23 (sim=0.911) | n=100 | cosine_cosloss→KL=0.504 | adaptive_cosloss→KL=0.461 | cos→KL=0.458 | winner=cosine_cosloss
+      [260] feat 11442↔11442 (sim=0.902) | n=100 | cosine_cosloss→KL=0.590 | adaptive_cosloss→KL=0.636 | cos→KL=0.724 | winner=adaptive_cosloss
+
+    Summary (262 shared features): cosine_cosloss→KL=0.4232 vs adaptive_cosloss→KL=0.4214 | cosine_cosloss wins 133/262 (51%) | cos→KL=0.4792 | cos>inner: 196/262
+
+  Evaluating 55 shared features: adaptive_l2 vs adaptive_cosloss @ L27
+    Encoding eval data with both SAEs (sequential)...
+    Encoded in 17.1s
+      [  0] feat 7053↔7053 (sim=0.980) | n=100 | adaptive_l2→KL=0.080 | adaptive_cosloss→KL=0.152 | cos→KL=0.283 | winner=adaptive_cosloss
+      [  1] feat 7332↔7332 (sim=0.979) | n=100 | adaptive_l2→KL=0.078 | adaptive_cosloss→KL=0.078 | cos→KL=0.204 | winner=adaptive_cosloss
+      [  2] feat 14514↔14514 (sim=0.979) | n=100 | adaptive_l2→KL=0.066 | adaptive_cosloss→KL=0.105 | cos→KL=0.263 | winner=adaptive_cosloss
+      [  3] feat 7245↔7245 (sim=0.978) | n=100 | adaptive_l2→KL=-0.013 | adaptive_cosloss→KL=-0.002 | cos→KL=0.274 | winner=adaptive_l2
+      [  4] feat 13875↔13875 (sim=0.978) | n=100 | adaptive_l2→KL=0.064 | adaptive_cosloss→KL=0.076 | cos→KL=0.313 | winner=adaptive_cosloss
+      [  5] feat 7005↔7005 (sim=0.978) | n=100 | adaptive_l2→KL=-0.060 | adaptive_cosloss→KL=0.015 | cos→KL=0.216 | winner=adaptive_l2
+      [  6] feat 658↔658 (sim=0.978) | n=100 | adaptive_l2→KL=0.013 | adaptive_cosloss→KL=0.123 | cos→KL=0.294 | winner=adaptive_cosloss
+      [  7] feat 6019↔6019 (sim=0.977) | n=100 | adaptive_l2→KL=0.266 | adaptive_cosloss→KL=0.265 | cos→KL=0.459 | winner=adaptive_l2
+      [  8] feat 4360↔4360 (sim=0.977) | n=100 | adaptive_l2→KL=0.146 | adaptive_cosloss→KL=0.298 | cos→KL=0.389 | winner=adaptive_cosloss
+      [  9] feat 15376↔15376 (sim=0.977) | n=100 | adaptive_l2→KL=0.159 | adaptive_cosloss→KL=0.194 | cos→KL=0.286 | winner=adaptive_cosloss
+      [ 20] feat 15534↔15534 (sim=0.972) | n=100 | adaptive_l2→KL=0.062 | adaptive_cosloss→KL=0.030 | cos→KL=0.165 | winner=adaptive_l2
+      [ 40] feat 3555↔3555 (sim=0.927) | n=100 | adaptive_l2→KL=0.511 | adaptive_cosloss→KL=0.463 | cos→KL=0.643 | winner=adaptive_l2
+
+    Summary (55 shared features): adaptive_l2→KL=0.2481 vs adaptive_cosloss→KL=0.2999 | adaptive_l2 wins 15/55 (27%) | cos→KL=0.4103 | cos>inner: 43/55
+  Results saved to experiments/exp15_results.json
+
+Analysis written to experiments/exp15_analysis.md
+
+======================================================================
+  EXPERIMENT 15 SUMMARY
+======================================================================
+
+  Layer 18:
+    Shared features per pair: {'standard_vs_cosine_l2': 3, 'standard_vs_cosine_cosloss': 6, 'standard_vs_adaptive_l2': 3, 'standard_vs_adaptive_cosloss': 5, 'cosine_l2_vs_cosine_cosloss': 66, 'cosine_l2_vs_adaptive_l2': 615, 'cosine_l2_vs_adaptive_cosloss': 65, 'cosine_cosloss_vs_adaptive_l2': 67, 'cosine_cosloss_vs_adaptive_cosloss': 299, 'adaptive_l2_vs_adaptive_cosloss': 71}
+    adaptive_l2_vs_adaptive_cosloss: adaptive_l2 wins 30/71 (42%)
+    cosine_cosloss_vs_adaptive_cosloss: cosine_cosloss wins 151/299 (51%)
+    cosine_cosloss_vs_adaptive_l2: cosine_cosloss wins 42/67 (63%)
+    cosine_l2_vs_adaptive_cosloss: cosine_l2 wins 27/65 (42%)
+    cosine_l2_vs_adaptive_l2: cosine_l2 wins 336/615 (55%)
+    cosine_l2_vs_cosine_cosloss: cosine_l2 wins 30/66 (45%)
+    standard_vs_adaptive_cosloss: standard wins 2/5 (40%)
+    standard_vs_adaptive_l2: standard wins 2/3 (67%)
+    standard_vs_cosine_cosloss: standard wins 2/6 (33%)
+    standard_vs_cosine_l2: standard wins 1/3 (33%)
+
+  Layer 27:
+    Shared features per pair: {'standard_vs_cosine_l2': 18, 'standard_vs_cosine_cosloss': 25, 'standard_vs_adaptive_l2': 22, 'standard_vs_adaptive_cosloss': 24, 'cosine_l2_vs_cosine_cosloss': 38, 'cosine_l2_vs_adaptive_l2': 223, 'cosine_l2_vs_adaptive_cosloss': 35, 'cosine_cosloss_vs_adaptive_l2': 56, 'cosine_cosloss_vs_adaptive_cosloss': 262, 'adaptive_l2_vs_adaptive_cosloss': 55}
+    adaptive_l2_vs_adaptive_cosloss: adaptive_l2 wins 15/55 (27%)
+    cosine_cosloss_vs_adaptive_cosloss: cosine_cosloss wins 133/262 (51%)
+    cosine_cosloss_vs_adaptive_l2: cosine_cosloss wins 37/56 (66%)
+    cosine_l2_vs_adaptive_cosloss: cosine_l2 wins 6/35 (17%)
+    cosine_l2_vs_adaptive_l2: cosine_l2 wins 42/223 (19%)
+    cosine_l2_vs_cosine_cosloss: cosine_l2 wins 6/38 (16%)
+    standard_vs_adaptive_cosloss: standard wins 13/24 (54%)
+    standard_vs_adaptive_l2: standard wins 17/22 (77%)
+    standard_vs_cosine_cosloss: standard wins 16/25 (64%)
+    standard_vs_cosine_l2: standard wins 18/18 (100%)
+
+  Layer 9:
+    Shared features per pair: {'standard_vs_cosine_l2': 17, 'standard_vs_cosine_cosloss': 15, 'standard_vs_adaptive_l2': 20, 'standard_vs_adaptive_cosloss': 14, 'cosine_l2_vs_cosine_cosloss': 61, 'cosine_l2_vs_adaptive_l2': 878, 'cosine_l2_vs_adaptive_cosloss': 69, 'cosine_cosloss_vs_adaptive_l2': 69, 'cosine_cosloss_vs_adaptive_cosloss': 605, 'adaptive_l2_vs_adaptive_cosloss': 73}
+    adaptive_l2_vs_adaptive_cosloss: adaptive_l2 wins 31/73 (42%)
+    cosine_cosloss_vs_adaptive_cosloss: cosine_cosloss wins 283/605 (47%)
+    cosine_cosloss_vs_adaptive_l2: cosine_cosloss wins 46/69 (67%)
+    cosine_l2_vs_adaptive_cosloss: cosine_l2 wins 28/69 (41%)
+    cosine_l2_vs_adaptive_l2: cosine_l2 wins 455/878 (52%)
+    cosine_l2_vs_cosine_cosloss: cosine_l2 wins 21/61 (34%)
+    standard_vs_adaptive_cosloss: standard wins 7/14 (50%)
+    standard_vs_adaptive_l2: standard wins 11/20 (55%)
+    standard_vs_cosine_cosloss: standard wins 7/15 (47%)
+    standard_vs_cosine_l2: standard wins 9/17 (53%)
+
+Results: experiments/exp15_results.json
+Analysis: experiments/exp15_analysis.md

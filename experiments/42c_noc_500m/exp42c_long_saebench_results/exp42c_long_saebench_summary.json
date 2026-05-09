@@ -1,0 +1,17 @@
+{
+  "exp42c_long_no_C_16k_49M": {
+    "elapsed_s": 13.051839828491211,
+    "tag": "49M",
+    "checkpoint": "checkpoints/exp42c_long/no_C_L13_step12207_tok49M.pt"
+  },
+  "exp42c_long_no_C_16k_99M": {
+    "elapsed_s": 774.2857208251953,
+    "tag": "99M",
+    "checkpoint": "checkpoints/exp42c_long/no_C_L13_step24414_tok99M.pt"
+  },
+  "exp42c_long_no_C_16k_150M": {
+    "elapsed_s": 1442.1981303691864,
+    "tag": "150M",
+    "checkpoint": "checkpoints/exp42c_long/no_C_L13_150M.pt"
+  }
+}

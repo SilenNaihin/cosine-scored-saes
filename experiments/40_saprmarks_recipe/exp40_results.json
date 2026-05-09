@@ -1,0 +1,38 @@
+{
+  "config": {
+    "experiment": "exp40_karvonen_recipe",
+    "model_name": "Qwen/Qwen3-8B",
+    "layer": 18,
+    "d_model": 4096,
+    "d_sae": 65536,
+    "k": 80,
+    "lr": 5e-05,
+    "batch_size": 2048,
+    "n_steps": 244140,
+    "n_train_tokens": 500000000,
+    "mean_norm": 97.65473937988281
+  },
+  "runs": {
+    "standard_L18": {
+      "encoder": "standard",
+      "layer": 18,
+      "reconstruction": {
+        "fve": 0.7703,
+        "dead_frac": 0.0,
+        "alive_count": 65529,
+        "mean_l0": 80.0,
+        "cos_recon": 0.9312
+      },
+      "ablation": {
+        "aggregate": {
+          "n_features": 100,
+          "cos_wins_inner": "62/100",
+          "cos_kl_mean": 0.075,
+          "inner_kl_mean": 0.07
+        }
+      },
+      "saebench": null,
+      "training": "see exp40_output.log"
+    }
+  }
+}

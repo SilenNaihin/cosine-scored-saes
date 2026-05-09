@@ -1,0 +1,166 @@
+======================================================================
+Exp 55d: Feature Steering Behavioral Test
+======================================================================
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.86it/s]
+Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:01,  1.80it/s]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:01,  1.82it/s]
+Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.99it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.66it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.24it/s]
+
+============================================================
+SAE: standard
+============================================================
+  Finding top features...
+  Found 11 features in 4.2s
+  Feature indices: [28756, 9703, 56913, 46411, 56468, 52902, 37779, 3756, 65122, 19959]...
+
+  Feature 28756 (rank 1):
+    x0.0: KL=0.0043 prob_shift=0.0378 (3.2s)
+    x0.5: KL=0.0015 prob_shift=0.0219 (3.0s)
+    x2.0: KL=0.0036 prob_shift=0.0349 (3.0s)
+    x5.0: KL=0.0631 prob_shift=0.1395 (2.9s)
+
+  Feature 9703 (rank 2):
+    x0.0: KL=0.0033 prob_shift=0.0289 (3.1s)
+    x0.5: KL=0.0013 prob_shift=0.0203 (3.1s)
+    x2.0: KL=0.0033 prob_shift=0.0303 (3.2s)
+    x5.0: KL=0.0432 prob_shift=0.0991 (3.1s)
+
+  Feature 56913 (rank 3):
+    x0.0: KL=0.0006 prob_shift=0.0092 (2.9s)
+    x0.5: KL=0.0005 prob_shift=0.0102 (3.0s)
+    x2.0: KL=0.0007 prob_shift=0.0120 (2.8s)
+    x5.0: KL=0.0040 prob_shift=0.0217 (3.1s)
+
+  Feature 46411 (rank 4):
+    x0.0: KL=0.0032 prob_shift=0.0190 (3.1s)
+    x0.5: KL=0.0010 prob_shift=0.0113 (3.1s)
+    x2.0: KL=0.0041 prob_shift=0.0243 (3.1s)
+    x5.0: KL=0.0568 prob_shift=0.0832 (3.0s)
+
+  Feature 56468 (rank 5):
+    x0.0: KL=0.0089 prob_shift=0.0223 (3.0s)
+    x0.5: KL=0.0026 prob_shift=0.0147 (3.3s)
+    x2.0: KL=0.0077 prob_shift=0.0247 (3.1s)
+    x5.0: KL=0.0703 prob_shift=0.0506 (3.1s)
+
+  Feature 52902 (rank 6):
+    x0.0: KL=0.0010 prob_shift=0.0161 (3.1s)
+    x0.5: KL=0.0006 prob_shift=0.0127 (3.0s)
+    x2.0: KL=0.0009 prob_shift=0.0132 (2.9s)
+    x5.0: KL=0.0053 prob_shift=0.0358 (3.0s)
+
+  Feature 37779 (rank 7):
+    x0.0: KL=0.0006 prob_shift=0.0128 (3.0s)
+    x0.5: KL=0.0005 prob_shift=0.0100 (3.1s)
+    x2.0: KL=0.0006 prob_shift=0.0114 (3.1s)
+    x5.0: KL=0.0169 prob_shift=0.0445 (3.1s)
+
+  Feature 3756 (rank 8):
+    x0.0: KL=0.0013 prob_shift=0.0112 (3.0s)
+    x0.5: KL=0.0004 prob_shift=0.0070 (3.0s)
+    x2.0: KL=0.0016 prob_shift=0.0123 (3.0s)
+    x5.0: KL=0.0182 prob_shift=0.0393 (2.9s)
+
+  Feature 65122 (rank 9):
+    x0.0: KL=0.0005 prob_shift=0.0091 (3.1s)
+    x0.5: KL=0.0003 prob_shift=0.0060 (3.1s)
+    x2.0: KL=0.0007 prob_shift=0.0122 (3.1s)
+    x5.0: KL=0.0067 prob_shift=0.0306 (3.0s)
+
+  Feature 19959 (rank 10):
+    x0.0: KL=0.0006 prob_shift=0.0107 (3.0s)
+    x0.5: KL=0.0004 prob_shift=0.0067 (2.9s)
+    x2.0: KL=0.0003 prob_shift=0.0052 (3.1s)
+    x5.0: KL=0.0024 prob_shift=0.0160 (3.1s)
+
+  Aggregate x0.0: KL=0.0024 ± 0.0025 shift=0.0177
+
+  Aggregate x0.5: KL=0.0009 ± 0.0007 shift=0.0121
+
+  Aggregate x2.0: KL=0.0024 ± 0.0022 shift=0.0181
+
+  Aggregate x5.0: KL=0.0287 ± 0.0255 shift=0.0560
+
+============================================================
+SAE: perfeature_l2
+============================================================
+  Finding top features...
+  Found 9 features in 3.8s
+  Feature indices: [43680, 18231, 65122, 10273, 52522, 53106, 37968, 9275, 63243]...
+
+  Feature 43680 (rank 1):
+    x0.0: KL=0.0044 prob_shift=0.0391 (3.2s)
+    x0.5: KL=0.0014 prob_shift=0.0227 (3.0s)
+    x2.0: KL=0.0032 prob_shift=0.0330 (3.0s)
+    x5.0: KL=0.0546 prob_shift=0.1310 (2.9s)
+
+  Feature 18231 (rank 2):
+    x0.0: KL=0.0029 prob_shift=0.0292 (3.2s)
+    x0.5: KL=0.0012 prob_shift=0.0184 (3.2s)
+    x2.0: KL=0.0031 prob_shift=0.0292 (3.2s)
+    x5.0: KL=0.0369 prob_shift=0.0885 (3.1s)
+
+  Feature 65122 (rank 3):
+    x0.0: KL=0.0029 prob_shift=0.0161 (3.2s)
+    x0.5: KL=0.0009 prob_shift=0.0096 (3.0s)
+    x2.0: KL=0.0034 prob_shift=0.0188 (2.9s)
+    x5.0: KL=0.0666 prob_shift=0.0856 (3.1s)
+
+  Feature 10273 (rank 4):
+    x0.0: KL=0.0006 prob_shift=0.0110 (3.2s)
+    x0.5: KL=0.0004 prob_shift=0.0084 (3.2s)
+    x2.0: KL=0.0005 prob_shift=0.0085 (3.2s)
+    x5.0: KL=0.0033 prob_shift=0.0207 (3.0s)
+
+  Feature 52522 (rank 5):
+    x0.0: KL=0.0093 prob_shift=0.0238 (3.0s)
+    x0.5: KL=0.0029 prob_shift=0.0145 (2.9s)
+    x2.0: KL=0.0079 prob_shift=0.0249 (3.1s)
+    x5.0: KL=0.0602 prob_shift=0.0554 (3.2s)
+
+  Feature 53106 (rank 6):
+    x0.0: KL=0.0004 prob_shift=0.0087 (3.2s)
+    x0.5: KL=0.0002 prob_shift=0.0056 (3.2s)
+    x2.0: KL=0.0004 prob_shift=0.0073 (3.0s)
+    x5.0: KL=0.0089 prob_shift=0.0293 (3.0s)
+
+  Feature 37968 (rank 7):
+    x0.0: KL=0.0007 prob_shift=0.0130 (2.9s)
+    x0.5: KL=0.0004 prob_shift=0.0104 (3.2s)
+    x2.0: KL=0.0006 prob_shift=0.0111 (3.2s)
+    x5.0: KL=0.0035 prob_shift=0.0261 (3.2s)
+
+  Feature 9275 (rank 8):
+    x0.0: KL=0.0017 prob_shift=0.0133 (3.2s)
+    x0.5: KL=0.0005 prob_shift=0.0077 (3.0s)
+    x2.0: KL=0.0015 prob_shift=0.0136 (3.0s)
+    x5.0: KL=0.0194 prob_shift=0.0430 (2.9s)
+
+  Feature 63243 (rank 9):
+    x0.0: KL=0.0004 prob_shift=0.0077 (3.3s)
+    x0.5: KL=0.0003 prob_shift=0.0085 (3.2s)
+    x2.0: KL=0.0005 prob_shift=0.0099 (3.2s)
+    x5.0: KL=0.0047 prob_shift=0.0196 (3.2s)
+
+  Aggregate x0.0: KL=0.0026 ± 0.0027 shift=0.0180
+
+  Aggregate x0.5: KL=0.0009 ± 0.0008 shift=0.0117
+
+  Aggregate x2.0: KL=0.0023 ± 0.0023 shift=0.0174
+
+  Aggregate x5.0: KL=0.0287 ± 0.0247 shift=0.0555
+
+======================================================================
+COMPARISON: standard vs perfeature_l2
+======================================================================
+  x0.0: standard KL=0.0024 cosine KL=0.0026 ratio=0.94x
+  x0.5: standard KL=0.0009 cosine KL=0.0009 ratio=0.96x
+  x2.0: standard KL=0.0024 cosine KL=0.0023 ratio=1.00x
+  x5.0: standard KL=0.0287 cosine KL=0.0287 ratio=1.00x
+
+Results saved to experiments/exp55d_results.json

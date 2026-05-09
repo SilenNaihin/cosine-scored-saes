@@ -1,0 +1,670 @@
+{
+  "eval_type_id": "sparse_probing",
+  "eval_config": {
+    "random_seed": 42,
+    "dataset_names": [
+      "LabHC/bias_in_bios_class_set1",
+      "LabHC/bias_in_bios_class_set2",
+      "LabHC/bias_in_bios_class_set3",
+      "canrager/amazon_reviews_mcauley_1and5",
+      "canrager/amazon_reviews_mcauley_1and5_sentiment",
+      "codeparrot/github-code",
+      "fancyzhx/ag_news",
+      "Helsinki-NLP/europarl"
+    ],
+    "probe_train_set_size": 4000,
+    "probe_test_set_size": 1000,
+    "context_length": 128,
+    "sae_batch_size": 125,
+    "llm_batch_size": 16,
+    "llm_dtype": "bfloat16",
+    "model_name": "google/gemma-2-2b",
+    "k_values": [
+      1,
+      2,
+      5
+    ],
+    "lower_vram_usage": false
+  },
+  "eval_id": "eed3cb6b-3a8c-4bbd-be36-32ad853a944a",
+  "datetime_epoch_millis": 1776711252331,
+  "eval_result_metrics": {
+    "llm": {
+      "llm_test_accuracy": 0.9561812907457352,
+      "llm_top_1_test_accuracy": 0.66716875,
+      "llm_top_2_test_accuracy": 0.7114,
+      "llm_top_5_test_accuracy": 0.77684375,
+      "llm_top_10_test_accuracy": null,
+      "llm_top_20_test_accuracy": null,
+      "llm_top_50_test_accuracy": null,
+      "llm_top_100_test_accuracy": null
+    },
+    "sae": {
+      "sae_test_accuracy": 0.9526250481605529,
+      "sae_top_1_test_accuracy": 0.7139562500000001,
+      "sae_top_2_test_accuracy": 0.7471625,
+      "sae_top_5_test_accuracy": 0.82828125,
+      "sae_top_10_test_accuracy": null,
+      "sae_top_20_test_accuracy": null,
+      "sae_top_50_test_accuracy": null,
+      "sae_top_100_test_accuracy": null
+    }
+  },
+  "eval_result_details": [
+    {
+      "dataset_name": "LabHC/bias_in_bios_class_set1_results",
+      "llm_test_accuracy": 0.9652000427246094,
+      "llm_top_1_test_accuracy": 0.669,
+      "llm_top_2_test_accuracy": 0.6923999999999999,
+      "llm_top_5_test_accuracy": 0.7854,
+      "llm_top_10_test_accuracy": null,
+      "llm_top_20_test_accuracy": null,
+      "llm_top_50_test_accuracy": null,
+      "llm_top_100_test_accuracy": null,
+      "sae_test_accuracy": 0.961400055885315,
+      "sae_top_1_test_accuracy": 0.7154,
+      "sae_top_2_test_accuracy": 0.7365999999999999,
+      "sae_top_5_test_accuracy": 0.8240000000000001,
+      "sae_top_10_test_accuracy": null,
+      "sae_top_20_test_accuracy": null,
+      "sae_top_50_test_accuracy": null,
+      "sae_top_100_test_accuracy": null
+    },
+    {
+      "dataset_name": "LabHC/bias_in_bios_class_set2_results",
+      "llm_test_accuracy": 0.9538000464439392,
+      "llm_top_1_test_accuracy": 0.6598,
+      "llm_top_2_test_accuracy": 0.7094,
+      "llm_top_5_test_accuracy": 0.7678,
+      "llm_top_10_test_accuracy": null,
+      "llm_top_20_test_accuracy": null,
+      "llm_top_50_test_accuracy": null,
+      "llm_top_100_test_accuracy": null,
+      "sae_test_accuracy": 0.9462000489234924,
+      "sae_top_1_test_accuracy": 0.6849999999999999,
+      "sae_top_2_test_accuracy": 0.7108000000000001,
+      "sae_top_5_test_accuracy": 0.7455999999999999,
+      "sae_top_10_test_accuracy": null,
+      "sae_top_20_test_accuracy": null,
+      "sae_top_50_test_accuracy": null,
+      "sae_top_100_test_accuracy": null
+    },
+    {
+      "dataset_name": "LabHC/bias_in_bios_class_set3_results",
+      "llm_test_accuracy": 0.9260000467300415,
+      "llm_top_1_test_accuracy": 0.6912,
+      "llm_top_2_test_accuracy": 0.7404,
+      "llm_top_5_test_accuracy": 0.7698,
+      "llm_top_10_test_accuracy": null,
+      "llm_top_20_test_accuracy": null,
+      "llm_top_50_test_accuracy": null,
+      "llm_top_100_test_accuracy": null,
+      "sae_test_accuracy": 0.9222000479698181,
+      "sae_top_1_test_accuracy": 0.7004,
+      "sae_top_2_test_accuracy": 0.7766,
+      "sae_top_5_test_accuracy": 0.8321999999999999,
+      "sae_top_10_test_accuracy": null,
+      "sae_top_20_test_accuracy": null,
+      "sae_top_50_test_accuracy": null,
+      "sae_top_100_test_accuracy": null
+    },
+    {
+      "dataset_name": "canrager/amazon_reviews_mcauley_1and5_results",
+      "llm_test_accuracy": 0.9092000365257263,
+      "llm_top_1_test_accuracy": 0.583,
+      "llm_top_2_test_accuracy": 0.6043999999999999,
+      "llm_top_5_test_accuracy": 0.6528,
+      "llm_top_10_test_accuracy": null,
+      "llm_top_20_test_accuracy": null,
+      "llm_top_50_test_accuracy": null,
+      "llm_top_100_test_accuracy": null,
+      "sae_test_accuracy": 0.9066000580787659,
+      "sae_top_1_test_accuracy": 0.6744,
+      "sae_top_2_test_accuracy": 0.7166,
+      "sae_top_5_test_accuracy": 0.7554000000000001,
+      "sae_top_10_test_accuracy": null,
+      "sae_top_20_test_accuracy": null,
+      "sae_top_50_test_accuracy": null,
+      "sae_top_100_test_accuracy": null
+    },
+    {
+      "dataset_name": "canrager/amazon_reviews_mcauley_1and5_sentiment_results",
+      "llm_test_accuracy": 0.9785000383853912,
+      "llm_top_1_test_accuracy": 0.677,
+      "llm_top_2_test_accuracy": 0.73,
+      "llm_top_5_test_accuracy": 0.765,
+      "llm_top_10_test_accuracy": null,
+      "llm_top_20_test_accuracy": null,
+      "llm_top_50_test_accuracy": null,
+      "llm_top_100_test_accuracy": null,
+      "sae_test_accuracy": 0.9725000560283661,
+      "sae_top_1_test_accuracy": 0.65,
+      "sae_top_2_test_accuracy": 0.661,
+      "sae_top_5_test_accuracy": 0.952,
+      "sae_top_10_test_accuracy": null,
+      "sae_top_20_test_accuracy": null,
+      "sae_top_50_test_accuracy": null,
+      "sae_top_100_test_accuracy": null
+    },
+    {
+      "dataset_name": "codeparrot/github-code_results",
+      "llm_test_accuracy": 0.9682000517845154,
+      "llm_top_1_test_accuracy": 0.6128,
+      "llm_top_2_test_accuracy": 0.6936,
+      "llm_top_5_test_accuracy": 0.7504000000000001,
+      "llm_top_10_test_accuracy": null,
+      "llm_top_20_test_accuracy": null,
+      "llm_top_50_test_accuracy": null,
+      "llm_top_100_test_accuracy": null,
+      "sae_test_accuracy": 0.963200044631958,
+      "sae_top_1_test_accuracy": 0.6824,
+      "sae_top_2_test_accuracy": 0.6926,
+      "sae_top_5_test_accuracy": 0.7184,
+      "sae_top_10_test_accuracy": null,
+      "sae_top_20_test_accuracy": null,
+      "sae_top_50_test_accuracy": null,
+      "sae_top_100_test_accuracy": null
+    },
+    {
+      "dataset_name": "fancyzhx/ag_news_results",
+      "llm_test_accuracy": 0.9487500488758087,
+      "llm_top_1_test_accuracy": 0.69475,
+      "llm_top_2_test_accuracy": 0.737,
+      "llm_top_5_test_accuracy": 0.81775,
+      "llm_top_10_test_accuracy": null,
+      "llm_top_20_test_accuracy": null,
+      "llm_top_50_test_accuracy": null,
+      "llm_top_100_test_accuracy": null,
+      "sae_test_accuracy": 0.9505000412464142,
+      "sae_top_1_test_accuracy": 0.68625,
+      "sae_top_2_test_accuracy": 0.7625,
+      "sae_top_5_test_accuracy": 0.81725,
+      "sae_top_10_test_accuracy": null,
+      "sae_top_20_test_accuracy": null,
+      "sae_top_50_test_accuracy": null,
+      "sae_top_100_test_accuracy": null
+    },
+    {
+      "dataset_name": "Helsinki-NLP/europarl_results",
+      "llm_test_accuracy": 0.9998000144958497,
+      "llm_top_1_test_accuracy": 0.7498,
+      "llm_top_2_test_accuracy": 0.784,
+      "llm_top_5_test_accuracy": 0.9057999999999999,
+      "llm_top_10_test_accuracy": null,
+      "llm_top_20_test_accuracy": null,
+      "llm_top_50_test_accuracy": null,
+      "llm_top_100_test_accuracy": null,
+      "sae_test_accuracy": 0.9984000325202942,
+      "sae_top_1_test_accuracy": 0.9178000000000001,
+      "sae_top_2_test_accuracy": 0.9206,
+      "sae_top_5_test_accuracy": 0.9814,
+      "sae_top_10_test_accuracy": null,
+      "sae_top_20_test_accuracy": null,
+      "sae_top_50_test_accuracy": null,
+      "sae_top_100_test_accuracy": null
+    }
+  ],
+  "sae_bench_commit_hash": "Unknown",
+  "sae_lens_id": "custom_sae",
+  "sae_lens_release_id": "group_G1",
+  "sae_lens_version": "6.39.0",
+  "sae_cfg_dict": {
+    "model_name": "google/gemma-2-2b",
+    "d_in": 2304,
+    "d_sae": 9216,
+    "hook_layer": 13,
+    "hook_name": "blocks.13.hook_resid_post",
+    "context_size": null,
+    "hook_head_index": null,
+    "architecture": "",
+    "apply_b_dec_to_input": null,
+    "finetuning_scaling_factor": null,
+    "activation_fn_str": "",
+    "prepend_bos": true,
+    "normalize_activations": "none",
+    "dtype": "bfloat16",
+    "device": "",
+    "dataset_path": "",
+    "dataset_trust_remote_code": true,
+    "seqpos_slice": [
+      null
+    ],
+    "training_tokens": -100000,
+    "sae_lens_training_version": null,
+    "neuronpedia_id": null
+  },
+  "eval_result_unstructured": {
+    "LabHC/bias_in_bios_class_set1_results": {
+      "sae_test_accuracy": {
+        "0": 0.9360000491142273,
+        "1": 0.9620000720024109,
+        "2": 0.9540000557899475,
+        "6": 0.9880000352859497,
+        "9": 0.9670000672340393
+      },
+      "llm_test_accuracy": {
+        "0": 0.9470000267028809,
+        "1": 0.9610000252723694,
+        "2": 0.9480000734329224,
+        "6": 0.9890000224113464,
+        "9": 0.9810000658035278
+      },
+      "llm_top_1_test_accuracy": {
+        "0": 0.584,
+        "1": 0.623,
+        "2": 0.669,
+        "6": 0.797,
+        "9": 0.672
+      },
+      "llm_top_2_test_accuracy": {
+        "0": 0.587,
+        "1": 0.635,
+        "2": 0.72,
+        "6": 0.794,
+        "9": 0.726
+      },
+      "llm_top_5_test_accuracy": {
+        "0": 0.714,
+        "1": 0.702,
+        "2": 0.759,
+        "6": 0.893,
+        "9": 0.859
+      },
+      "sae_top_1_test_accuracy": {
+        "0": 0.679,
+        "1": 0.636,
+        "2": 0.791,
+        "6": 0.826,
+        "9": 0.645
+      },
+      "sae_top_2_test_accuracy": {
+        "0": 0.657,
+        "1": 0.693,
+        "2": 0.819,
+        "6": 0.833,
+        "9": 0.681
+      },
+      "sae_top_5_test_accuracy": {
+        "0": 0.889,
+        "1": 0.713,
+        "2": 0.819,
+        "6": 0.979,
+        "9": 0.72
+      }
+    },
+    "LabHC/bias_in_bios_class_set2_results": {
+      "sae_test_accuracy": {
+        "11": 0.956000030040741,
+        "13": 0.9480000734329224,
+        "14": 0.9540000557899475,
+        "18": 0.921000063419342,
+        "19": 0.9520000219345093
+      },
+      "llm_test_accuracy": {
+        "11": 0.9650000333786011,
+        "13": 0.9530000686645508,
+        "14": 0.9520000219345093,
+        "18": 0.937000036239624,
+        "19": 0.9620000720024109
+      },
+      "llm_top_1_test_accuracy": {
+        "11": 0.54,
+        "13": 0.666,
+        "14": 0.646,
+        "18": 0.683,
+        "19": 0.764
+      },
+      "llm_top_2_test_accuracy": {
+        "11": 0.682,
+        "13": 0.707,
+        "14": 0.665,
+        "18": 0.716,
+        "19": 0.777
+      },
+      "llm_top_5_test_accuracy": {
+        "11": 0.792,
+        "13": 0.752,
+        "14": 0.721,
+        "18": 0.719,
+        "19": 0.855
+      },
+      "sae_top_1_test_accuracy": {
+        "11": 0.597,
+        "13": 0.668,
+        "14": 0.663,
+        "18": 0.675,
+        "19": 0.822
+      },
+      "sae_top_2_test_accuracy": {
+        "11": 0.733,
+        "13": 0.663,
+        "14": 0.663,
+        "18": 0.686,
+        "19": 0.809
+      },
+      "sae_top_5_test_accuracy": {
+        "11": 0.779,
+        "13": 0.679,
+        "14": 0.718,
+        "18": 0.704,
+        "19": 0.848
+      }
+    },
+    "LabHC/bias_in_bios_class_set3_results": {
+      "sae_test_accuracy": {
+        "20": 0.9500000476837158,
+        "21": 0.9180000424385071,
+        "22": 0.8990000486373901,
+        "25": 0.9600000381469727,
+        "26": 0.8840000629425049
+      },
+      "llm_test_accuracy": {
+        "20": 0.9540000557899475,
+        "21": 0.9170000553131104,
+        "22": 0.9190000295639038,
+        "25": 0.9600000381469727,
+        "26": 0.8800000548362732
+      },
+      "llm_top_1_test_accuracy": {
+        "20": 0.706,
+        "21": 0.782,
+        "22": 0.668,
+        "25": 0.674,
+        "26": 0.626
+      },
+      "llm_top_2_test_accuracy": {
+        "20": 0.81,
+        "21": 0.757,
+        "22": 0.687,
+        "25": 0.76,
+        "26": 0.688
+      },
+      "llm_top_5_test_accuracy": {
+        "20": 0.862,
+        "21": 0.79,
+        "22": 0.677,
+        "25": 0.838,
+        "26": 0.682
+      },
+      "sae_top_1_test_accuracy": {
+        "20": 0.682,
+        "21": 0.631,
+        "22": 0.756,
+        "25": 0.748,
+        "26": 0.685
+      },
+      "sae_top_2_test_accuracy": {
+        "20": 0.667,
+        "21": 0.818,
+        "22": 0.806,
+        "25": 0.88,
+        "26": 0.712
+      },
+      "sae_top_5_test_accuracy": {
+        "20": 0.887,
+        "21": 0.858,
+        "22": 0.813,
+        "25": 0.896,
+        "26": 0.707
+      }
+    },
+    "canrager/amazon_reviews_mcauley_1and5_results": {
+      "sae_test_accuracy": {
+        "1": 0.9440000653266907,
+        "2": 0.9250000715255737,
+        "3": 0.9110000729560852,
+        "5": 0.893000066280365,
+        "6": 0.8600000143051147
+      },
+      "llm_test_accuracy": {
+        "1": 0.9450000524520874,
+        "2": 0.9230000376701355,
+        "3": 0.9150000214576721,
+        "5": 0.9100000262260437,
+        "6": 0.8530000448226929
+      },
+      "llm_top_1_test_accuracy": {
+        "1": 0.579,
+        "2": 0.608,
+        "3": 0.576,
+        "5": 0.577,
+        "6": 0.575
+      },
+      "llm_top_2_test_accuracy": {
+        "1": 0.62,
+        "2": 0.625,
+        "3": 0.575,
+        "5": 0.587,
+        "6": 0.615
+      },
+      "llm_top_5_test_accuracy": {
+        "1": 0.77,
+        "2": 0.63,
+        "3": 0.61,
+        "5": 0.598,
+        "6": 0.656
+      },
+      "sae_top_1_test_accuracy": {
+        "1": 0.864,
+        "2": 0.597,
+        "3": 0.558,
+        "5": 0.749,
+        "6": 0.604
+      },
+      "sae_top_2_test_accuracy": {
+        "1": 0.86,
+        "2": 0.672,
+        "3": 0.632,
+        "5": 0.761,
+        "6": 0.658
+      },
+      "sae_top_5_test_accuracy": {
+        "1": 0.903,
+        "2": 0.718,
+        "3": 0.67,
+        "5": 0.767,
+        "6": 0.719
+      }
+    },
+    "canrager/amazon_reviews_mcauley_1and5_sentiment_results": {
+      "sae_test_accuracy": {
+        "1.0": 0.9720000624656677,
+        "5.0": 0.9730000495910645
+      },
+      "llm_test_accuracy": {
+        "1.0": 0.9780000448226929,
+        "5.0": 0.9790000319480896
+      },
+      "llm_top_1_test_accuracy": {
+        "1.0": 0.677,
+        "5.0": 0.677
+      },
+      "llm_top_2_test_accuracy": {
+        "1.0": 0.73,
+        "5.0": 0.73
+      },
+      "llm_top_5_test_accuracy": {
+        "1.0": 0.765,
+        "5.0": 0.765
+      },
+      "sae_top_1_test_accuracy": {
+        "1.0": 0.65,
+        "5.0": 0.65
+      },
+      "sae_top_2_test_accuracy": {
+        "1.0": 0.661,
+        "5.0": 0.661
+      },
+      "sae_top_5_test_accuracy": {
+        "1.0": 0.952,
+        "5.0": 0.952
+      }
+    },
+    "codeparrot/github-code_results": {
+      "sae_test_accuracy": {
+        "C": 0.9580000638961792,
+        "Python": 0.9780000448226929,
+        "HTML": 0.9770000576972961,
+        "Java": 0.9520000219345093,
+        "PHP": 0.9510000348091125
+      },
+      "llm_test_accuracy": {
+        "C": 0.9470000267028809,
+        "Python": 0.9850000739097595,
+        "HTML": 0.9810000658035278,
+        "Java": 0.9670000672340393,
+        "PHP": 0.9610000252723694
+      },
+      "llm_top_1_test_accuracy": {
+        "C": 0.554,
+        "Python": 0.597,
+        "HTML": 0.709,
+        "Java": 0.606,
+        "PHP": 0.598
+      },
+      "llm_top_2_test_accuracy": {
+        "C": 0.71,
+        "Python": 0.667,
+        "HTML": 0.781,
+        "Java": 0.683,
+        "PHP": 0.627
+      },
+      "llm_top_5_test_accuracy": {
+        "C": 0.706,
+        "Python": 0.669,
+        "HTML": 0.933,
+        "Java": 0.758,
+        "PHP": 0.686
+      },
+      "sae_top_1_test_accuracy": {
+        "C": 0.573,
+        "Python": 0.646,
+        "HTML": 0.939,
+        "Java": 0.632,
+        "PHP": 0.622
+      },
+      "sae_top_2_test_accuracy": {
+        "C": 0.605,
+        "Python": 0.663,
+        "HTML": 0.945,
+        "Java": 0.625,
+        "PHP": 0.625
+      },
+      "sae_top_5_test_accuracy": {
+        "C": 0.618,
+        "Python": 0.666,
+        "HTML": 0.943,
+        "Java": 0.695,
+        "PHP": 0.67
+      }
+    },
+    "fancyzhx/ag_news_results": {
+      "sae_test_accuracy": {
+        "0": 0.9420000314712524,
+        "1": 0.9800000190734863,
+        "2": 0.9320000410079956,
+        "3": 0.9480000734329224
+      },
+      "llm_test_accuracy": {
+        "0": 0.9360000491142273,
+        "1": 0.984000027179718,
+        "2": 0.9250000715255737,
+        "3": 0.9500000476837158
+      },
+      "llm_top_1_test_accuracy": {
+        "0": 0.669,
+        "1": 0.694,
+        "2": 0.661,
+        "3": 0.755
+      },
+      "llm_top_2_test_accuracy": {
+        "0": 0.727,
+        "1": 0.798,
+        "2": 0.679,
+        "3": 0.744
+      },
+      "llm_top_5_test_accuracy": {
+        "0": 0.838,
+        "1": 0.866,
+        "2": 0.737,
+        "3": 0.83
+      },
+      "sae_top_1_test_accuracy": {
+        "0": 0.668,
+        "1": 0.754,
+        "2": 0.614,
+        "3": 0.709
+      },
+      "sae_top_2_test_accuracy": {
+        "0": 0.837,
+        "1": 0.746,
+        "2": 0.747,
+        "3": 0.72
+      },
+      "sae_top_5_test_accuracy": {
+        "0": 0.849,
+        "1": 0.964,
+        "2": 0.758,
+        "3": 0.698
+      }
+    },
+    "Helsinki-NLP/europarl_results": {
+      "sae_test_accuracy": {
+        "en": 0.999000072479248,
+        "fr": 1.0,
+        "de": 0.9960000514984131,
+        "es": 1.0,
+        "nl": 0.9970000386238098
+      },
+      "llm_test_accuracy": {
+        "en": 1.0,
+        "fr": 1.0,
+        "de": 1.0,
+        "es": 0.999000072479248,
+        "nl": 1.0
+      },
+      "llm_top_1_test_accuracy": {
+        "en": 0.815,
+        "fr": 0.611,
+        "de": 0.755,
+        "es": 0.907,
+        "nl": 0.661
+      },
+      "llm_top_2_test_accuracy": {
+        "en": 0.851,
+        "fr": 0.568,
+        "de": 0.775,
+        "es": 0.961,
+        "nl": 0.765
+      },
+      "llm_top_5_test_accuracy": {
+        "en": 0.933,
+        "fr": 0.916,
+        "de": 0.842,
+        "es": 0.979,
+        "nl": 0.859
+      },
+      "sae_top_1_test_accuracy": {
+        "en": 0.998,
+        "fr": 0.996,
+        "de": 0.895,
+        "es": 0.99,
+        "nl": 0.71
+      },
+      "sae_top_2_test_accuracy": {
+        "en": 0.999,
+        "fr": 0.994,
+        "de": 0.91,
+        "es": 0.995,
+        "nl": 0.705
+      },
+      "sae_top_5_test_accuracy": {
+        "en": 1.0,
+        "fr": 0.995,
+        "de": 0.914,
+        "es": 0.998,
+        "nl": 1.0
+      }
+    }
+  }
+}

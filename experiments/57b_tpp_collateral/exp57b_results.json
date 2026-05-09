@@ -1,0 +1,49 @@
+{
+  "config": {
+    "model": "Qwen/Qwen3-8B",
+    "layer": 18,
+    "seed": 42
+  },
+  "standard_tpp": {
+    "status": "completed, but result file not found"
+  },
+  "perfeature_l2_tpp": {
+    "status": "completed, but result file not found"
+  },
+  "decoder_projection": {
+    "standard": {
+      "n_alive": 65536,
+      "mean_top5_frac": 0.00039504977398666964,
+      "std_top5_frac": 1.3984419738779094e-05,
+      "mean_top10_frac": 0.0007630512142200127,
+      "std_top10_frac": 2.1142132035614e-05,
+      "mean_top20_frac": 0.0014664470469847885,
+      "std_top20_frac": 3.109645798239114e-05,
+      "mean_top50_frac": 0.0034540687453982425,
+      "std_top50_frac": 5.2509353552916024e-05,
+      "mean_top100_frac": 0.00656598852115571,
+      "std_top100_frac": 7.7716841327908e-05,
+      "mean_eff_dim": 49342.50408057304,
+      "std_eff_dim": 73.81553594256245,
+      "mean_total_projection": 815.6030493164062,
+      "std_total_projection": 14.329628339403765
+    },
+    "perfeature_l2": {
+      "n_alive": 65536,
+      "mean_top5_frac": 0.00039548628651314764,
+      "std_top5_frac": 1.2589668368408198e-05,
+      "mean_top10_frac": 0.0007640372762115863,
+      "std_top10_frac": 1.8756081187328515e-05,
+      "mean_top20_frac": 0.0014678890508283801,
+      "std_top20_frac": 2.888142032104825e-05,
+      "mean_top50_frac": 0.003455355015881335,
+      "std_top50_frac": 5.1079773888750165e-05,
+      "mean_top100_frac": 0.006564089034500956,
+      "std_top100_frac": 7.960192853048023e-05,
+      "mean_eff_dim": 49359.31678943067,
+      "std_eff_dim": 66.72451050396687,
+      "mean_total_projection": 815.5570446777343,
+      "std_total_projection": 14.421449720919682
+    }
+  }
+}

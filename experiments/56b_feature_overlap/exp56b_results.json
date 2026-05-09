@@ -1,0 +1,79 @@
+{
+  "config": {
+    "model": "Qwen/Qwen3-8B",
+    "layer": 18,
+    "sae_a": "standard",
+    "sae_b": "perfeature_l2",
+    "n_tokens": 100000,
+    "seed": 42,
+    "match_strong": 0.7,
+    "match_weak": 0.3,
+    "alive_threshold": 0.001
+  },
+  "alive_counts": {
+    "standard": 17288,
+    "perfeature_l2": 18570
+  },
+  "a_to_b": {
+    "strong_matches": 7114,
+    "weak_matches": 7216,
+    "unmatched": 2958,
+    "strong_pct": 0.41149930587690886,
+    "unmatched_pct": 0.17110134197130958,
+    "correlation_histogram": [
+      146,
+      994,
+      1818,
+      1986,
+      1798,
+      1767,
+      1665,
+      1777,
+      2582,
+      2755
+    ],
+    "correlation_mean": 0.5971285104751587,
+    "correlation_median": 0.6083012223243713,
+    "unmatched_freq_mean": 0.0025108957197517157,
+    "unmatched_freq_median": 0.0017900000093504786,
+    "matched_freq_mean": 0.005172312259674072,
+    "matched_freq_median": 0.002420000033453107
+  },
+  "b_to_a": {
+    "strong_matches": 7147,
+    "weak_matches": 7515,
+    "unmatched": 3908,
+    "strong_pct": 0.38486806677436725,
+    "unmatched_pct": 0.21044695745826603,
+    "correlation_histogram": [
+      293,
+      1381,
+      2234,
+      2143,
+      1894,
+      1762,
+      1716,
+      1802,
+      2590,
+      2755
+    ],
+    "correlation_mean": 0.5734015703201294,
+    "correlation_median": 0.5752015113830566,
+    "unmatched_freq_mean": 0.0025210438761860132,
+    "unmatched_freq_median": 0.0018500000005587935,
+    "matched_freq_mean": 0.004869322758167982,
+    "matched_freq_median": 0.002360000042244792
+  },
+  "decoder_similarity": {
+    "n_pairs": 7114,
+    "mean": 0.9129908680915833,
+    "median": 0.9426746368408203,
+    "gt_0_9_pct": 0.6962327804329491,
+    "gt_0_7_pct": 0.9648580264267641
+  },
+  "decoder_direction_overlap": {
+    "n_sampled": 5000,
+    "overlap_80_pct": 0.1264,
+    "overlap_90_pct": 0.0848
+  }
+}

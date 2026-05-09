@@ -1,0 +1,3665 @@
+{
+  "config": {
+    "model": "Qwen/Qwen3-8B",
+    "layer": 18,
+    "n_examples": 1000,
+    "support_pos_threshold": 0.3,
+    "support_neg_threshold": 0.1,
+    "datasets": [
+      "LabHC/bias_in_bios_class_set1",
+      "LabHC/bias_in_bios_class_set2",
+      "LabHC/bias_in_bios_class_set3",
+      "canrager/amazon_reviews_mcauley_1and5",
+      "canrager/amazon_reviews_mcauley_1and5_sentiment",
+      "codeparrot/github-code",
+      "fancyzhx/ag_news",
+      "Helsinki-NLP/europarl"
+    ],
+    "seed": 42
+  },
+  "LabHC/bias_in_bios_class_set1": {
+    "n_classes": 27,
+    "n_total": 1000,
+    "sae_results": {
+      "standard": {
+        "mean_support_size": 6.7368421052631575,
+        "median_support_size": 3.0,
+        "std_support_size": 9.158499677539455,
+        "mean_broad_support": 44.0,
+        "mean_normalized_entropy": 0.8603537797852545,
+        "mean_gini": 0.5833495416139302,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 3,
+            "broad_support_20pct": 35,
+            "n_active_on_positives": 5322,
+            "activation_entropy": 6.824323654174805,
+            "normalized_entropy": 0.7954123867507379,
+            "gini_coefficient": 0.7342277765274048
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 3,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 780,
+            "activation_entropy": 6.072916030883789,
+            "normalized_entropy": 0.911945936630515,
+            "gini_coefficient": 0.4801548719406128
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 0,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 903,
+            "activation_entropy": 5.944336891174316,
+            "normalized_entropy": 0.8734321513282688,
+            "gini_coefficient": 0.560713529586792
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 46,
+            "n_active_on_positives": 662,
+            "activation_entropy": 5.719602584838867,
+            "normalized_entropy": 0.8805802527366806,
+            "gini_coefficient": 0.5195423364639282
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 3,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 1799,
+            "activation_entropy": 6.203988075256348,
+            "normalized_entropy": 0.8277517638596498,
+            "gini_coefficient": 0.6597126722335815
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 12,
+            "broad_support_20pct": 63,
+            "n_active_on_positives": 1293,
+            "activation_entropy": 5.444530487060547,
+            "normalized_entropy": 0.7599083005656423,
+            "gini_coefficient": 0.7708842754364014
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 1,
+            "broad_support_20pct": 31,
+            "n_active_on_positives": 1704,
+            "activation_entropy": 6.37955379486084,
+            "normalized_entropy": 0.8573823557917976,
+            "gini_coefficient": 0.5976444482803345
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 1,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 1387,
+            "activation_entropy": 6.200420379638672,
+            "normalized_entropy": 0.8570155404295029,
+            "gini_coefficient": 0.6005442142486572
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 1,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 972,
+            "activation_entropy": 6.178773403167725,
+            "normalized_entropy": 0.8981616271630447,
+            "gini_coefficient": 0.5154743194580078
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 1,
+            "broad_support_20pct": 28,
+            "n_active_on_positives": 1425,
+            "activation_entropy": 6.2177839279174805,
+            "normalized_entropy": 0.8562167932208391,
+            "gini_coefficient": 0.5892950296401978
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 16,
+            "broad_support_20pct": 55,
+            "n_active_on_positives": 598,
+            "activation_entropy": 5.29525899887085,
+            "normalized_entropy": 0.8282136287185543,
+            "gini_coefficient": 0.6569969654083252
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 0,
+            "broad_support_20pct": 29,
+            "n_active_on_positives": 1677,
+            "activation_entropy": 6.573052406311035,
+            "normalized_entropy": 0.8852879886474593,
+            "gini_coefficient": 0.5385521650314331
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 39,
+            "broad_support_20pct": 66,
+            "n_active_on_positives": 771,
+            "activation_entropy": 5.437755584716797,
+            "normalized_entropy": 0.8179919513588785,
+            "gini_coefficient": 0.6837053298950195
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 4,
+            "broad_support_20pct": 47,
+            "n_active_on_positives": 586,
+            "activation_entropy": 5.714613914489746,
+            "normalized_entropy": 0.8966463480830634,
+            "gini_coefficient": 0.48579418659210205
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 5,
+            "broad_support_20pct": 29,
+            "n_active_on_positives": 697,
+            "activation_entropy": 5.884200096130371,
+            "normalized_entropy": 0.8987922662714583,
+            "gini_coefficient": 0.49302971363067627
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 4,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 1224,
+            "activation_entropy": 6.112798690795898,
+            "normalized_entropy": 0.8597612269722613,
+            "gini_coefficient": 0.5962567329406738
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 15,
+            "broad_support_20pct": 63,
+            "n_active_on_positives": 560,
+            "activation_entropy": 5.573600769042969,
+            "normalized_entropy": 0.8807927385390726,
+            "gini_coefficient": 0.5406135320663452
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 5,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 860,
+            "activation_entropy": 5.969598293304443,
+            "normalized_entropy": 0.8834775826385342,
+            "gini_coefficient": 0.5409678220748901
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 14,
+            "broad_support_20pct": 48,
+            "n_active_on_positives": 441,
+            "activation_entropy": 5.345882892608643,
+            "normalized_entropy": 0.8779509762138735,
+            "gini_coefficient": 0.5195313692092896
+          }
+        ]
+      },
+      "adaptive_l2": {
+        "mean_support_size": 5.578947368421052,
+        "median_support_size": 3.0,
+        "std_support_size": 7.322034441714337,
+        "mean_broad_support": 42.63157894736842,
+        "mean_normalized_entropy": 0.8604673970005408,
+        "mean_gini": 0.5887638644168252,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 3,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 5509,
+            "activation_entropy": 6.842645168304443,
+            "normalized_entropy": 0.7943505029257473,
+            "gini_coefficient": 0.7364875078201294
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 0,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 770,
+            "activation_entropy": 6.079324722290039,
+            "normalized_entropy": 0.9146806388684368,
+            "gini_coefficient": 0.47802531719207764
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 1,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 878,
+            "activation_entropy": 5.924343585968018,
+            "normalized_entropy": 0.8741003981428546,
+            "gini_coefficient": 0.565735936164856
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 47,
+            "n_active_on_positives": 611,
+            "activation_entropy": 5.637834072113037,
+            "normalized_entropy": 0.8788384817867306,
+            "gini_coefficient": 0.5304157733917236
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 1,
+            "broad_support_20pct": 37,
+            "n_active_on_positives": 1738,
+            "activation_entropy": 6.165833473205566,
+            "normalized_entropy": 0.8264649132230799,
+            "gini_coefficient": 0.6604723930358887
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 15,
+            "broad_support_20pct": 59,
+            "n_active_on_positives": 1210,
+            "activation_entropy": 5.399493217468262,
+            "normalized_entropy": 0.7606660301426655,
+            "gini_coefficient": 0.7800331115722656
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 0,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 1703,
+            "activation_entropy": 6.375430107116699,
+            "normalized_entropy": 0.8568957549838042,
+            "gini_coefficient": 0.6062031984329224
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 1,
+            "broad_support_20pct": 34,
+            "n_active_on_positives": 1323,
+            "activation_entropy": 6.143366813659668,
+            "normalized_entropy": 0.8547106064450313,
+            "gini_coefficient": 0.6113446950912476
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 1,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 946,
+            "activation_entropy": 6.1528706550598145,
+            "normalized_entropy": 0.8979353245387468,
+            "gini_coefficient": 0.5205384492874146
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 0,
+            "broad_support_20pct": 30,
+            "n_active_on_positives": 1393,
+            "activation_entropy": 6.201674461364746,
+            "normalized_entropy": 0.8566777590977755,
+            "gini_coefficient": 0.598281741142273
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 10,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 548,
+            "activation_entropy": 5.206110000610352,
+            "normalized_entropy": 0.8255443607711422,
+            "gini_coefficient": 0.6675822734832764
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 1,
+            "broad_support_20pct": 30,
+            "n_active_on_positives": 1659,
+            "activation_entropy": 6.567237854003906,
+            "normalized_entropy": 0.8857923078938063,
+            "gini_coefficient": 0.544135332107544
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 29,
+            "broad_support_20pct": 54,
+            "n_active_on_positives": 768,
+            "activation_entropy": 5.3886590003967285,
+            "normalized_entropy": 0.8110821107885525,
+            "gini_coefficient": 0.6889485120773315
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 3,
+            "broad_support_20pct": 47,
+            "n_active_on_positives": 576,
+            "activation_entropy": 5.717367649078369,
+            "normalized_entropy": 0.8995076789577868,
+            "gini_coefficient": 0.4896155595779419
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 3,
+            "broad_support_20pct": 32,
+            "n_active_on_positives": 663,
+            "activation_entropy": 5.856854438781738,
+            "normalized_entropy": 0.9015018139968216,
+            "gini_coefficient": 0.48825931549072266
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 5,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 1279,
+            "activation_entropy": 6.160089492797852,
+            "normalized_entropy": 0.8610892653724115,
+            "gini_coefficient": 0.6008179187774658
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 16,
+            "broad_support_20pct": 61,
+            "n_active_on_positives": 527,
+            "activation_entropy": 5.526374340057373,
+            "normalized_entropy": 0.8817931223444876,
+            "gini_coefficient": 0.5490590333938599
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 7,
+            "broad_support_20pct": 52,
+            "n_active_on_positives": 847,
+            "activation_entropy": 5.9763007164001465,
+            "normalized_entropy": 0.8864678197803898,
+            "gini_coefficient": 0.5416849851608276
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 9,
+            "broad_support_20pct": 44,
+            "n_active_on_positives": 408,
+            "activation_entropy": 5.294613838195801,
+            "normalized_entropy": 0.8807816529500045,
+            "gini_coefficient": 0.5288723707199097
+          }
+        ]
+      },
+      "perfeature_l2": {
+        "mean_support_size": 6.7894736842105265,
+        "median_support_size": 3.0,
+        "std_support_size": 8.618089587840469,
+        "mean_broad_support": 38.68421052631579,
+        "mean_normalized_entropy": 0.8583888343282016,
+        "mean_gini": 0.582147899426912,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 2,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 5626,
+            "activation_entropy": 6.8589396476745605,
+            "normalized_entropy": 0.7943042656068843,
+            "gini_coefficient": 0.7283642292022705
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 4,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 756,
+            "activation_entropy": 6.037948131561279,
+            "normalized_entropy": 0.9109701929835584,
+            "gini_coefficient": 0.4775066375732422
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 0,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 883,
+            "activation_entropy": 5.920716762542725,
+            "normalized_entropy": 0.8728339844322321,
+            "gini_coefficient": 0.5585694313049316
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 2,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 604,
+            "activation_entropy": 5.596174716949463,
+            "normalized_entropy": 0.873914246008777,
+            "gini_coefficient": 0.5270572900772095
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 2,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 1725,
+            "activation_entropy": 6.160498142242432,
+            "normalized_entropy": 0.8265816112144563,
+            "gini_coefficient": 0.6577129364013672
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 19,
+            "broad_support_20pct": 59,
+            "n_active_on_positives": 1181,
+            "activation_entropy": 5.384268760681152,
+            "normalized_entropy": 0.7611223988205817,
+            "gini_coefficient": 0.7736178636550903
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 1,
+            "broad_support_20pct": 27,
+            "n_active_on_positives": 1701,
+            "activation_entropy": 6.370789051055908,
+            "normalized_entropy": 0.856407229403611,
+            "gini_coefficient": 0.5941455364227295
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 2,
+            "broad_support_20pct": 31,
+            "n_active_on_positives": 1353,
+            "activation_entropy": 6.1529927253723145,
+            "normalized_entropy": 0.8533876243657161,
+            "gini_coefficient": 0.6015082597732544
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 1,
+            "broad_support_20pct": 43,
+            "n_active_on_positives": 933,
+            "activation_entropy": 6.12811803817749,
+            "normalized_entropy": 0.8961326300784512,
+            "gini_coefficient": 0.5178471803665161
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 1,
+            "broad_support_20pct": 28,
+            "n_active_on_positives": 1411,
+            "activation_entropy": 6.224833011627197,
+            "normalized_entropy": 0.8583544817722745,
+            "gini_coefficient": 0.5833569765090942
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 18,
+            "broad_support_20pct": 50,
+            "n_active_on_positives": 568,
+            "activation_entropy": 5.198685646057129,
+            "normalized_entropy": 0.8197076818351754,
+            "gini_coefficient": 0.6685353517532349
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 0,
+            "broad_support_20pct": 25,
+            "n_active_on_positives": 1683,
+            "activation_entropy": 6.573044300079346,
+            "normalized_entropy": 0.8848612640611863,
+            "gini_coefficient": 0.5354561805725098
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 34,
+            "broad_support_20pct": 55,
+            "n_active_on_positives": 781,
+            "activation_entropy": 5.382780075073242,
+            "normalized_entropy": 0.8081554451349147,
+            "gini_coefficient": 0.6865488290786743
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 6,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 566,
+            "activation_entropy": 5.6864423751831055,
+            "normalized_entropy": 0.8971141399852908,
+            "gini_coefficient": 0.4806487560272217
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 3,
+            "broad_support_20pct": 22,
+            "n_active_on_positives": 678,
+            "activation_entropy": 5.860931396484375,
+            "normalized_entropy": 0.8990334375979452,
+            "gini_coefficient": 0.47791898250579834
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 5,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 1249,
+            "activation_entropy": 6.124448776245117,
+            "normalized_entropy": 0.8589571052276038,
+            "gini_coefficient": 0.5958747863769531
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 15,
+            "broad_support_20pct": 56,
+            "n_active_on_positives": 521,
+            "activation_entropy": 5.492096424102783,
+            "normalized_entropy": 0.8779277284812125,
+            "gini_coefficient": 0.5422158241271973
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 4,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 850,
+            "activation_entropy": 5.950814247131348,
+            "normalized_entropy": 0.8822247196106413,
+            "gini_coefficient": 0.5370396375656128
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 10,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 409,
+            "activation_entropy": 5.276419639587402,
+            "normalized_entropy": 0.8773976656153163,
+            "gini_coefficient": 0.5168853998184204
+          }
+        ]
+      },
+      "no_C": {
+        "mean_support_size": 6.421052631578948,
+        "median_support_size": 3.0,
+        "std_support_size": 8.241843109361836,
+        "mean_broad_support": 47.421052631578945,
+        "mean_normalized_entropy": 0.7200471963921741,
+        "mean_gini": 0.6895050249601665,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 3,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 5263,
+            "activation_entropy": 5.665038585662842,
+            "normalized_entropy": 0.6611504178548606,
+            "gini_coefficient": 0.8029977083206177
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 784,
+            "activation_entropy": 5.168154239654541,
+            "normalized_entropy": 0.775485751830821,
+            "gini_coefficient": 0.5963445901870728
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 0,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 935,
+            "activation_entropy": 4.967916011810303,
+            "normalized_entropy": 0.7262454820736217,
+            "gini_coefficient": 0.6761685609817505
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 627,
+            "activation_entropy": 4.721700191497803,
+            "normalized_entropy": 0.733075513313269,
+            "gini_coefficient": 0.652489423751831
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 3,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 1779,
+            "activation_entropy": 5.100785732269287,
+            "normalized_entropy": 0.6815763614893958,
+            "gini_coefficient": 0.7488244771957397
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 16,
+            "broad_support_20pct": 65,
+            "n_active_on_positives": 1250,
+            "activation_entropy": 4.5384521484375,
+            "normalized_entropy": 0.6364488203303945,
+            "gini_coefficient": 0.8312873840332031
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 2,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 1713,
+            "activation_entropy": 5.304451942443848,
+            "normalized_entropy": 0.7123893197762218,
+            "gini_coefficient": 0.7054212093353271
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 1,
+            "broad_support_20pct": 49,
+            "n_active_on_positives": 1335,
+            "activation_entropy": 5.130186080932617,
+            "normalized_entropy": 0.7128538988655507,
+            "gini_coefficient": 0.7101670503616333
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 2,
+            "broad_support_20pct": 55,
+            "n_active_on_positives": 985,
+            "activation_entropy": 5.230098724365234,
+            "normalized_entropy": 0.7587945227159466,
+            "gini_coefficient": 0.6338944435119629
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 1,
+            "broad_support_20pct": 34,
+            "n_active_on_positives": 1438,
+            "activation_entropy": 5.2038397789001465,
+            "normalized_entropy": 0.7156971074236196,
+            "gini_coefficient": 0.694788932800293
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 18,
+            "broad_support_20pct": 58,
+            "n_active_on_positives": 587,
+            "activation_entropy": 4.413321495056152,
+            "normalized_entropy": 0.6922830294447635,
+            "gini_coefficient": 0.748772144317627
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 0,
+            "broad_support_20pct": 29,
+            "n_active_on_positives": 1645,
+            "activation_entropy": 5.563132286071777,
+            "normalized_entropy": 0.7512167367428152,
+            "gini_coefficient": 0.6432787179946899
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 32,
+            "broad_support_20pct": 61,
+            "n_active_on_positives": 760,
+            "activation_entropy": 4.469230651855469,
+            "normalized_entropy": 0.6737548780159042,
+            "gini_coefficient": 0.7745225429534912
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 5,
+            "broad_support_20pct": 52,
+            "n_active_on_positives": 606,
+            "activation_entropy": 4.885544300079346,
+            "normalized_entropy": 0.762546560994141,
+            "gini_coefficient": 0.6068820953369141
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 2,
+            "broad_support_20pct": 26,
+            "n_active_on_positives": 666,
+            "activation_entropy": 4.96177864074707,
+            "normalized_entropy": 0.7631991331244045,
+            "gini_coefficient": 0.6075663566589355
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 5,
+            "broad_support_20pct": 43,
+            "n_active_on_positives": 1259,
+            "activation_entropy": 5.096165657043457,
+            "normalized_entropy": 0.7139413722355864,
+            "gini_coefficient": 0.7027169466018677
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 17,
+            "broad_support_20pct": 70,
+            "n_active_on_positives": 572,
+            "activation_entropy": 4.626116752624512,
+            "normalized_entropy": 0.7286211183761094,
+            "gini_coefficient": 0.6685293912887573
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 4,
+            "broad_support_20pct": 60,
+            "n_active_on_positives": 858,
+            "activation_entropy": 5.035837173461914,
+            "normalized_entropy": 0.7455414261575537,
+            "gini_coefficient": 0.6527583599090576
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 9,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 445,
+            "activation_entropy": 4.488641738891602,
+            "normalized_entropy": 0.7360752806863293,
+            "gini_coefficient": 0.6431851387023926
+          }
+        ]
+      }
+    }
+  },
+  "LabHC/bias_in_bios_class_set2": {
+    "n_classes": 27,
+    "n_total": 1000,
+    "sae_results": {
+      "standard": {
+        "mean_support_size": 6.7368421052631575,
+        "median_support_size": 3.0,
+        "std_support_size": 9.158499677539455,
+        "mean_broad_support": 44.0,
+        "mean_normalized_entropy": 0.8603537797852545,
+        "mean_gini": 0.5833495416139302,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 3,
+            "broad_support_20pct": 35,
+            "n_active_on_positives": 5322,
+            "activation_entropy": 6.824323654174805,
+            "normalized_entropy": 0.7954123867507379,
+            "gini_coefficient": 0.7342277765274048
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 3,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 780,
+            "activation_entropy": 6.072916030883789,
+            "normalized_entropy": 0.911945936630515,
+            "gini_coefficient": 0.4801548719406128
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 0,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 903,
+            "activation_entropy": 5.944336891174316,
+            "normalized_entropy": 0.8734321513282688,
+            "gini_coefficient": 0.560713529586792
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 46,
+            "n_active_on_positives": 662,
+            "activation_entropy": 5.719602584838867,
+            "normalized_entropy": 0.8805802527366806,
+            "gini_coefficient": 0.5195423364639282
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 3,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 1799,
+            "activation_entropy": 6.203988075256348,
+            "normalized_entropy": 0.8277517638596498,
+            "gini_coefficient": 0.6597126722335815
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 12,
+            "broad_support_20pct": 63,
+            "n_active_on_positives": 1293,
+            "activation_entropy": 5.444530487060547,
+            "normalized_entropy": 0.7599083005656423,
+            "gini_coefficient": 0.7708842754364014
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 1,
+            "broad_support_20pct": 31,
+            "n_active_on_positives": 1704,
+            "activation_entropy": 6.37955379486084,
+            "normalized_entropy": 0.8573823557917976,
+            "gini_coefficient": 0.5976444482803345
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 1,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 1387,
+            "activation_entropy": 6.200420379638672,
+            "normalized_entropy": 0.8570155404295029,
+            "gini_coefficient": 0.6005442142486572
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 1,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 972,
+            "activation_entropy": 6.178773403167725,
+            "normalized_entropy": 0.8981616271630447,
+            "gini_coefficient": 0.5154743194580078
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 1,
+            "broad_support_20pct": 28,
+            "n_active_on_positives": 1425,
+            "activation_entropy": 6.2177839279174805,
+            "normalized_entropy": 0.8562167932208391,
+            "gini_coefficient": 0.5892950296401978
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 16,
+            "broad_support_20pct": 55,
+            "n_active_on_positives": 598,
+            "activation_entropy": 5.29525899887085,
+            "normalized_entropy": 0.8282136287185543,
+            "gini_coefficient": 0.6569969654083252
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 0,
+            "broad_support_20pct": 29,
+            "n_active_on_positives": 1677,
+            "activation_entropy": 6.573052406311035,
+            "normalized_entropy": 0.8852879886474593,
+            "gini_coefficient": 0.5385521650314331
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 39,
+            "broad_support_20pct": 66,
+            "n_active_on_positives": 771,
+            "activation_entropy": 5.437755584716797,
+            "normalized_entropy": 0.8179919513588785,
+            "gini_coefficient": 0.6837053298950195
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 4,
+            "broad_support_20pct": 47,
+            "n_active_on_positives": 586,
+            "activation_entropy": 5.714613914489746,
+            "normalized_entropy": 0.8966463480830634,
+            "gini_coefficient": 0.48579418659210205
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 5,
+            "broad_support_20pct": 29,
+            "n_active_on_positives": 697,
+            "activation_entropy": 5.884200096130371,
+            "normalized_entropy": 0.8987922662714583,
+            "gini_coefficient": 0.49302971363067627
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 4,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 1224,
+            "activation_entropy": 6.112798690795898,
+            "normalized_entropy": 0.8597612269722613,
+            "gini_coefficient": 0.5962567329406738
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 15,
+            "broad_support_20pct": 63,
+            "n_active_on_positives": 560,
+            "activation_entropy": 5.573600769042969,
+            "normalized_entropy": 0.8807927385390726,
+            "gini_coefficient": 0.5406135320663452
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 5,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 860,
+            "activation_entropy": 5.969598293304443,
+            "normalized_entropy": 0.8834775826385342,
+            "gini_coefficient": 0.5409678220748901
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 14,
+            "broad_support_20pct": 48,
+            "n_active_on_positives": 441,
+            "activation_entropy": 5.345882892608643,
+            "normalized_entropy": 0.8779509762138735,
+            "gini_coefficient": 0.5195313692092896
+          }
+        ]
+      },
+      "adaptive_l2": {
+        "mean_support_size": 5.578947368421052,
+        "median_support_size": 3.0,
+        "std_support_size": 7.322034441714337,
+        "mean_broad_support": 42.63157894736842,
+        "mean_normalized_entropy": 0.8604673970005408,
+        "mean_gini": 0.5887638644168252,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 3,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 5509,
+            "activation_entropy": 6.842645168304443,
+            "normalized_entropy": 0.7943505029257473,
+            "gini_coefficient": 0.7364875078201294
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 0,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 770,
+            "activation_entropy": 6.079324722290039,
+            "normalized_entropy": 0.9146806388684368,
+            "gini_coefficient": 0.47802531719207764
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 1,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 878,
+            "activation_entropy": 5.924343585968018,
+            "normalized_entropy": 0.8741003981428546,
+            "gini_coefficient": 0.565735936164856
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 47,
+            "n_active_on_positives": 611,
+            "activation_entropy": 5.637834072113037,
+            "normalized_entropy": 0.8788384817867306,
+            "gini_coefficient": 0.5304157733917236
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 1,
+            "broad_support_20pct": 37,
+            "n_active_on_positives": 1738,
+            "activation_entropy": 6.165833473205566,
+            "normalized_entropy": 0.8264649132230799,
+            "gini_coefficient": 0.6604723930358887
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 15,
+            "broad_support_20pct": 59,
+            "n_active_on_positives": 1210,
+            "activation_entropy": 5.399493217468262,
+            "normalized_entropy": 0.7606660301426655,
+            "gini_coefficient": 0.7800331115722656
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 0,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 1703,
+            "activation_entropy": 6.375430107116699,
+            "normalized_entropy": 0.8568957549838042,
+            "gini_coefficient": 0.6062031984329224
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 1,
+            "broad_support_20pct": 34,
+            "n_active_on_positives": 1323,
+            "activation_entropy": 6.143366813659668,
+            "normalized_entropy": 0.8547106064450313,
+            "gini_coefficient": 0.6113446950912476
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 1,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 946,
+            "activation_entropy": 6.1528706550598145,
+            "normalized_entropy": 0.8979353245387468,
+            "gini_coefficient": 0.5205384492874146
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 0,
+            "broad_support_20pct": 30,
+            "n_active_on_positives": 1393,
+            "activation_entropy": 6.201674461364746,
+            "normalized_entropy": 0.8566777590977755,
+            "gini_coefficient": 0.598281741142273
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 10,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 548,
+            "activation_entropy": 5.206110000610352,
+            "normalized_entropy": 0.8255443607711422,
+            "gini_coefficient": 0.6675822734832764
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 1,
+            "broad_support_20pct": 30,
+            "n_active_on_positives": 1659,
+            "activation_entropy": 6.567237854003906,
+            "normalized_entropy": 0.8857923078938063,
+            "gini_coefficient": 0.544135332107544
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 29,
+            "broad_support_20pct": 54,
+            "n_active_on_positives": 768,
+            "activation_entropy": 5.3886590003967285,
+            "normalized_entropy": 0.8110821107885525,
+            "gini_coefficient": 0.6889485120773315
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 3,
+            "broad_support_20pct": 47,
+            "n_active_on_positives": 576,
+            "activation_entropy": 5.717367649078369,
+            "normalized_entropy": 0.8995076789577868,
+            "gini_coefficient": 0.4896155595779419
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 3,
+            "broad_support_20pct": 32,
+            "n_active_on_positives": 663,
+            "activation_entropy": 5.856854438781738,
+            "normalized_entropy": 0.9015018139968216,
+            "gini_coefficient": 0.48825931549072266
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 5,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 1279,
+            "activation_entropy": 6.160089492797852,
+            "normalized_entropy": 0.8610892653724115,
+            "gini_coefficient": 0.6008179187774658
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 16,
+            "broad_support_20pct": 61,
+            "n_active_on_positives": 527,
+            "activation_entropy": 5.526374340057373,
+            "normalized_entropy": 0.8817931223444876,
+            "gini_coefficient": 0.5490590333938599
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 7,
+            "broad_support_20pct": 52,
+            "n_active_on_positives": 847,
+            "activation_entropy": 5.9763007164001465,
+            "normalized_entropy": 0.8864678197803898,
+            "gini_coefficient": 0.5416849851608276
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 9,
+            "broad_support_20pct": 44,
+            "n_active_on_positives": 408,
+            "activation_entropy": 5.294613838195801,
+            "normalized_entropy": 0.8807816529500045,
+            "gini_coefficient": 0.5288723707199097
+          }
+        ]
+      },
+      "perfeature_l2": {
+        "mean_support_size": 6.7894736842105265,
+        "median_support_size": 3.0,
+        "std_support_size": 8.618089587840469,
+        "mean_broad_support": 38.68421052631579,
+        "mean_normalized_entropy": 0.8583888343282016,
+        "mean_gini": 0.582147899426912,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 2,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 5626,
+            "activation_entropy": 6.8589396476745605,
+            "normalized_entropy": 0.7943042656068843,
+            "gini_coefficient": 0.7283642292022705
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 4,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 756,
+            "activation_entropy": 6.037948131561279,
+            "normalized_entropy": 0.9109701929835584,
+            "gini_coefficient": 0.4775066375732422
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 0,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 883,
+            "activation_entropy": 5.920716762542725,
+            "normalized_entropy": 0.8728339844322321,
+            "gini_coefficient": 0.5585694313049316
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 2,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 604,
+            "activation_entropy": 5.596174716949463,
+            "normalized_entropy": 0.873914246008777,
+            "gini_coefficient": 0.5270572900772095
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 2,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 1725,
+            "activation_entropy": 6.160498142242432,
+            "normalized_entropy": 0.8265816112144563,
+            "gini_coefficient": 0.6577129364013672
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 19,
+            "broad_support_20pct": 59,
+            "n_active_on_positives": 1181,
+            "activation_entropy": 5.384268760681152,
+            "normalized_entropy": 0.7611223988205817,
+            "gini_coefficient": 0.7736178636550903
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 1,
+            "broad_support_20pct": 27,
+            "n_active_on_positives": 1701,
+            "activation_entropy": 6.370789051055908,
+            "normalized_entropy": 0.856407229403611,
+            "gini_coefficient": 0.5941455364227295
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 2,
+            "broad_support_20pct": 31,
+            "n_active_on_positives": 1353,
+            "activation_entropy": 6.1529927253723145,
+            "normalized_entropy": 0.8533876243657161,
+            "gini_coefficient": 0.6015082597732544
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 1,
+            "broad_support_20pct": 43,
+            "n_active_on_positives": 933,
+            "activation_entropy": 6.12811803817749,
+            "normalized_entropy": 0.8961326300784512,
+            "gini_coefficient": 0.5178471803665161
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 1,
+            "broad_support_20pct": 28,
+            "n_active_on_positives": 1411,
+            "activation_entropy": 6.224833011627197,
+            "normalized_entropy": 0.8583544817722745,
+            "gini_coefficient": 0.5833569765090942
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 18,
+            "broad_support_20pct": 50,
+            "n_active_on_positives": 568,
+            "activation_entropy": 5.198685646057129,
+            "normalized_entropy": 0.8197076818351754,
+            "gini_coefficient": 0.6685353517532349
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 0,
+            "broad_support_20pct": 25,
+            "n_active_on_positives": 1683,
+            "activation_entropy": 6.573044300079346,
+            "normalized_entropy": 0.8848612640611863,
+            "gini_coefficient": 0.5354561805725098
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 34,
+            "broad_support_20pct": 55,
+            "n_active_on_positives": 781,
+            "activation_entropy": 5.382780075073242,
+            "normalized_entropy": 0.8081554451349147,
+            "gini_coefficient": 0.6865488290786743
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 6,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 566,
+            "activation_entropy": 5.6864423751831055,
+            "normalized_entropy": 0.8971141399852908,
+            "gini_coefficient": 0.4806487560272217
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 3,
+            "broad_support_20pct": 22,
+            "n_active_on_positives": 678,
+            "activation_entropy": 5.860931396484375,
+            "normalized_entropy": 0.8990334375979452,
+            "gini_coefficient": 0.47791898250579834
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 5,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 1249,
+            "activation_entropy": 6.124448776245117,
+            "normalized_entropy": 0.8589571052276038,
+            "gini_coefficient": 0.5958747863769531
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 15,
+            "broad_support_20pct": 56,
+            "n_active_on_positives": 521,
+            "activation_entropy": 5.492096424102783,
+            "normalized_entropy": 0.8779277284812125,
+            "gini_coefficient": 0.5422158241271973
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 4,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 850,
+            "activation_entropy": 5.950814247131348,
+            "normalized_entropy": 0.8822247196106413,
+            "gini_coefficient": 0.5370396375656128
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 10,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 409,
+            "activation_entropy": 5.276419639587402,
+            "normalized_entropy": 0.8773976656153163,
+            "gini_coefficient": 0.5168853998184204
+          }
+        ]
+      },
+      "no_C": {
+        "mean_support_size": 6.421052631578948,
+        "median_support_size": 3.0,
+        "std_support_size": 8.241843109361836,
+        "mean_broad_support": 47.421052631578945,
+        "mean_normalized_entropy": 0.7200471963921741,
+        "mean_gini": 0.6895050249601665,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 3,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 5263,
+            "activation_entropy": 5.665038585662842,
+            "normalized_entropy": 0.6611504178548606,
+            "gini_coefficient": 0.8029977083206177
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 784,
+            "activation_entropy": 5.168154239654541,
+            "normalized_entropy": 0.775485751830821,
+            "gini_coefficient": 0.5963445901870728
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 0,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 935,
+            "activation_entropy": 4.967916011810303,
+            "normalized_entropy": 0.7262454820736217,
+            "gini_coefficient": 0.6761685609817505
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 627,
+            "activation_entropy": 4.721700191497803,
+            "normalized_entropy": 0.733075513313269,
+            "gini_coefficient": 0.652489423751831
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 3,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 1779,
+            "activation_entropy": 5.100785732269287,
+            "normalized_entropy": 0.6815763614893958,
+            "gini_coefficient": 0.7488244771957397
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 16,
+            "broad_support_20pct": 65,
+            "n_active_on_positives": 1250,
+            "activation_entropy": 4.5384521484375,
+            "normalized_entropy": 0.6364488203303945,
+            "gini_coefficient": 0.8312873840332031
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 2,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 1713,
+            "activation_entropy": 5.304451942443848,
+            "normalized_entropy": 0.7123893197762218,
+            "gini_coefficient": 0.7054212093353271
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 1,
+            "broad_support_20pct": 49,
+            "n_active_on_positives": 1335,
+            "activation_entropy": 5.130186080932617,
+            "normalized_entropy": 0.7128538988655507,
+            "gini_coefficient": 0.7101670503616333
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 2,
+            "broad_support_20pct": 55,
+            "n_active_on_positives": 985,
+            "activation_entropy": 5.230098724365234,
+            "normalized_entropy": 0.7587945227159466,
+            "gini_coefficient": 0.6338944435119629
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 1,
+            "broad_support_20pct": 34,
+            "n_active_on_positives": 1438,
+            "activation_entropy": 5.2038397789001465,
+            "normalized_entropy": 0.7156971074236196,
+            "gini_coefficient": 0.694788932800293
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 18,
+            "broad_support_20pct": 58,
+            "n_active_on_positives": 587,
+            "activation_entropy": 4.413321495056152,
+            "normalized_entropy": 0.6922830294447635,
+            "gini_coefficient": 0.748772144317627
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 0,
+            "broad_support_20pct": 29,
+            "n_active_on_positives": 1645,
+            "activation_entropy": 5.563132286071777,
+            "normalized_entropy": 0.7512167367428152,
+            "gini_coefficient": 0.6432787179946899
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 32,
+            "broad_support_20pct": 61,
+            "n_active_on_positives": 760,
+            "activation_entropy": 4.469230651855469,
+            "normalized_entropy": 0.6737548780159042,
+            "gini_coefficient": 0.7745225429534912
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 5,
+            "broad_support_20pct": 52,
+            "n_active_on_positives": 606,
+            "activation_entropy": 4.885544300079346,
+            "normalized_entropy": 0.762546560994141,
+            "gini_coefficient": 0.6068820953369141
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 2,
+            "broad_support_20pct": 26,
+            "n_active_on_positives": 666,
+            "activation_entropy": 4.96177864074707,
+            "normalized_entropy": 0.7631991331244045,
+            "gini_coefficient": 0.6075663566589355
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 5,
+            "broad_support_20pct": 43,
+            "n_active_on_positives": 1259,
+            "activation_entropy": 5.096165657043457,
+            "normalized_entropy": 0.7139413722355864,
+            "gini_coefficient": 0.7027169466018677
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 17,
+            "broad_support_20pct": 70,
+            "n_active_on_positives": 572,
+            "activation_entropy": 4.626116752624512,
+            "normalized_entropy": 0.7286211183761094,
+            "gini_coefficient": 0.6685293912887573
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 4,
+            "broad_support_20pct": 60,
+            "n_active_on_positives": 858,
+            "activation_entropy": 5.035837173461914,
+            "normalized_entropy": 0.7455414261575537,
+            "gini_coefficient": 0.6527583599090576
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 9,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 445,
+            "activation_entropy": 4.488641738891602,
+            "normalized_entropy": 0.7360752806863293,
+            "gini_coefficient": 0.6431851387023926
+          }
+        ]
+      }
+    }
+  },
+  "LabHC/bias_in_bios_class_set3": {
+    "n_classes": 27,
+    "n_total": 1000,
+    "sae_results": {
+      "standard": {
+        "mean_support_size": 6.7368421052631575,
+        "median_support_size": 3.0,
+        "std_support_size": 9.158499677539455,
+        "mean_broad_support": 44.0,
+        "mean_normalized_entropy": 0.8603537797852545,
+        "mean_gini": 0.5833495416139302,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 3,
+            "broad_support_20pct": 35,
+            "n_active_on_positives": 5322,
+            "activation_entropy": 6.824323654174805,
+            "normalized_entropy": 0.7954123867507379,
+            "gini_coefficient": 0.7342277765274048
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 3,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 780,
+            "activation_entropy": 6.072916030883789,
+            "normalized_entropy": 0.911945936630515,
+            "gini_coefficient": 0.4801548719406128
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 0,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 903,
+            "activation_entropy": 5.944336891174316,
+            "normalized_entropy": 0.8734321513282688,
+            "gini_coefficient": 0.560713529586792
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 46,
+            "n_active_on_positives": 662,
+            "activation_entropy": 5.719602584838867,
+            "normalized_entropy": 0.8805802527366806,
+            "gini_coefficient": 0.5195423364639282
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 3,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 1799,
+            "activation_entropy": 6.203988075256348,
+            "normalized_entropy": 0.8277517638596498,
+            "gini_coefficient": 0.6597126722335815
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 12,
+            "broad_support_20pct": 63,
+            "n_active_on_positives": 1293,
+            "activation_entropy": 5.444530487060547,
+            "normalized_entropy": 0.7599083005656423,
+            "gini_coefficient": 0.7708842754364014
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 1,
+            "broad_support_20pct": 31,
+            "n_active_on_positives": 1704,
+            "activation_entropy": 6.37955379486084,
+            "normalized_entropy": 0.8573823557917976,
+            "gini_coefficient": 0.5976444482803345
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 1,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 1387,
+            "activation_entropy": 6.200420379638672,
+            "normalized_entropy": 0.8570155404295029,
+            "gini_coefficient": 0.6005442142486572
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 1,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 972,
+            "activation_entropy": 6.178773403167725,
+            "normalized_entropy": 0.8981616271630447,
+            "gini_coefficient": 0.5154743194580078
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 1,
+            "broad_support_20pct": 28,
+            "n_active_on_positives": 1425,
+            "activation_entropy": 6.2177839279174805,
+            "normalized_entropy": 0.8562167932208391,
+            "gini_coefficient": 0.5892950296401978
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 16,
+            "broad_support_20pct": 55,
+            "n_active_on_positives": 598,
+            "activation_entropy": 5.29525899887085,
+            "normalized_entropy": 0.8282136287185543,
+            "gini_coefficient": 0.6569969654083252
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 0,
+            "broad_support_20pct": 29,
+            "n_active_on_positives": 1677,
+            "activation_entropy": 6.573052406311035,
+            "normalized_entropy": 0.8852879886474593,
+            "gini_coefficient": 0.5385521650314331
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 39,
+            "broad_support_20pct": 66,
+            "n_active_on_positives": 771,
+            "activation_entropy": 5.437755584716797,
+            "normalized_entropy": 0.8179919513588785,
+            "gini_coefficient": 0.6837053298950195
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 4,
+            "broad_support_20pct": 47,
+            "n_active_on_positives": 586,
+            "activation_entropy": 5.714613914489746,
+            "normalized_entropy": 0.8966463480830634,
+            "gini_coefficient": 0.48579418659210205
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 5,
+            "broad_support_20pct": 29,
+            "n_active_on_positives": 697,
+            "activation_entropy": 5.884200096130371,
+            "normalized_entropy": 0.8987922662714583,
+            "gini_coefficient": 0.49302971363067627
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 4,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 1224,
+            "activation_entropy": 6.112798690795898,
+            "normalized_entropy": 0.8597612269722613,
+            "gini_coefficient": 0.5962567329406738
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 15,
+            "broad_support_20pct": 63,
+            "n_active_on_positives": 560,
+            "activation_entropy": 5.573600769042969,
+            "normalized_entropy": 0.8807927385390726,
+            "gini_coefficient": 0.5406135320663452
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 5,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 860,
+            "activation_entropy": 5.969598293304443,
+            "normalized_entropy": 0.8834775826385342,
+            "gini_coefficient": 0.5409678220748901
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 14,
+            "broad_support_20pct": 48,
+            "n_active_on_positives": 441,
+            "activation_entropy": 5.345882892608643,
+            "normalized_entropy": 0.8779509762138735,
+            "gini_coefficient": 0.5195313692092896
+          }
+        ]
+      },
+      "adaptive_l2": {
+        "mean_support_size": 5.578947368421052,
+        "median_support_size": 3.0,
+        "std_support_size": 7.322034441714337,
+        "mean_broad_support": 42.63157894736842,
+        "mean_normalized_entropy": 0.8604673970005408,
+        "mean_gini": 0.5887638644168252,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 3,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 5509,
+            "activation_entropy": 6.842645168304443,
+            "normalized_entropy": 0.7943505029257473,
+            "gini_coefficient": 0.7364875078201294
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 0,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 770,
+            "activation_entropy": 6.079324722290039,
+            "normalized_entropy": 0.9146806388684368,
+            "gini_coefficient": 0.47802531719207764
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 1,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 878,
+            "activation_entropy": 5.924343585968018,
+            "normalized_entropy": 0.8741003981428546,
+            "gini_coefficient": 0.565735936164856
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 47,
+            "n_active_on_positives": 611,
+            "activation_entropy": 5.637834072113037,
+            "normalized_entropy": 0.8788384817867306,
+            "gini_coefficient": 0.5304157733917236
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 1,
+            "broad_support_20pct": 37,
+            "n_active_on_positives": 1738,
+            "activation_entropy": 6.165833473205566,
+            "normalized_entropy": 0.8264649132230799,
+            "gini_coefficient": 0.6604723930358887
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 15,
+            "broad_support_20pct": 59,
+            "n_active_on_positives": 1210,
+            "activation_entropy": 5.399493217468262,
+            "normalized_entropy": 0.7606660301426655,
+            "gini_coefficient": 0.7800331115722656
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 0,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 1703,
+            "activation_entropy": 6.375430107116699,
+            "normalized_entropy": 0.8568957549838042,
+            "gini_coefficient": 0.6062031984329224
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 1,
+            "broad_support_20pct": 34,
+            "n_active_on_positives": 1323,
+            "activation_entropy": 6.143366813659668,
+            "normalized_entropy": 0.8547106064450313,
+            "gini_coefficient": 0.6113446950912476
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 1,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 946,
+            "activation_entropy": 6.1528706550598145,
+            "normalized_entropy": 0.8979353245387468,
+            "gini_coefficient": 0.5205384492874146
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 0,
+            "broad_support_20pct": 30,
+            "n_active_on_positives": 1393,
+            "activation_entropy": 6.201674461364746,
+            "normalized_entropy": 0.8566777590977755,
+            "gini_coefficient": 0.598281741142273
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 10,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 548,
+            "activation_entropy": 5.206110000610352,
+            "normalized_entropy": 0.8255443607711422,
+            "gini_coefficient": 0.6675822734832764
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 1,
+            "broad_support_20pct": 30,
+            "n_active_on_positives": 1659,
+            "activation_entropy": 6.567237854003906,
+            "normalized_entropy": 0.8857923078938063,
+            "gini_coefficient": 0.544135332107544
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 29,
+            "broad_support_20pct": 54,
+            "n_active_on_positives": 768,
+            "activation_entropy": 5.3886590003967285,
+            "normalized_entropy": 0.8110821107885525,
+            "gini_coefficient": 0.6889485120773315
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 3,
+            "broad_support_20pct": 47,
+            "n_active_on_positives": 576,
+            "activation_entropy": 5.717367649078369,
+            "normalized_entropy": 0.8995076789577868,
+            "gini_coefficient": 0.4896155595779419
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 3,
+            "broad_support_20pct": 32,
+            "n_active_on_positives": 663,
+            "activation_entropy": 5.856854438781738,
+            "normalized_entropy": 0.9015018139968216,
+            "gini_coefficient": 0.48825931549072266
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 5,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 1279,
+            "activation_entropy": 6.160089492797852,
+            "normalized_entropy": 0.8610892653724115,
+            "gini_coefficient": 0.6008179187774658
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 16,
+            "broad_support_20pct": 61,
+            "n_active_on_positives": 527,
+            "activation_entropy": 5.526374340057373,
+            "normalized_entropy": 0.8817931223444876,
+            "gini_coefficient": 0.5490590333938599
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 7,
+            "broad_support_20pct": 52,
+            "n_active_on_positives": 847,
+            "activation_entropy": 5.9763007164001465,
+            "normalized_entropy": 0.8864678197803898,
+            "gini_coefficient": 0.5416849851608276
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 9,
+            "broad_support_20pct": 44,
+            "n_active_on_positives": 408,
+            "activation_entropy": 5.294613838195801,
+            "normalized_entropy": 0.8807816529500045,
+            "gini_coefficient": 0.5288723707199097
+          }
+        ]
+      },
+      "perfeature_l2": {
+        "mean_support_size": 6.7894736842105265,
+        "median_support_size": 3.0,
+        "std_support_size": 8.618089587840469,
+        "mean_broad_support": 38.68421052631579,
+        "mean_normalized_entropy": 0.8583888343282016,
+        "mean_gini": 0.582147899426912,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 2,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 5626,
+            "activation_entropy": 6.8589396476745605,
+            "normalized_entropy": 0.7943042656068843,
+            "gini_coefficient": 0.7283642292022705
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 4,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 756,
+            "activation_entropy": 6.037948131561279,
+            "normalized_entropy": 0.9109701929835584,
+            "gini_coefficient": 0.4775066375732422
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 0,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 883,
+            "activation_entropy": 5.920716762542725,
+            "normalized_entropy": 0.8728339844322321,
+            "gini_coefficient": 0.5585694313049316
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 2,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 604,
+            "activation_entropy": 5.596174716949463,
+            "normalized_entropy": 0.873914246008777,
+            "gini_coefficient": 0.5270572900772095
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 2,
+            "broad_support_20pct": 33,
+            "n_active_on_positives": 1725,
+            "activation_entropy": 6.160498142242432,
+            "normalized_entropy": 0.8265816112144563,
+            "gini_coefficient": 0.6577129364013672
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 19,
+            "broad_support_20pct": 59,
+            "n_active_on_positives": 1181,
+            "activation_entropy": 5.384268760681152,
+            "normalized_entropy": 0.7611223988205817,
+            "gini_coefficient": 0.7736178636550903
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 1,
+            "broad_support_20pct": 27,
+            "n_active_on_positives": 1701,
+            "activation_entropy": 6.370789051055908,
+            "normalized_entropy": 0.856407229403611,
+            "gini_coefficient": 0.5941455364227295
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 2,
+            "broad_support_20pct": 31,
+            "n_active_on_positives": 1353,
+            "activation_entropy": 6.1529927253723145,
+            "normalized_entropy": 0.8533876243657161,
+            "gini_coefficient": 0.6015082597732544
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 1,
+            "broad_support_20pct": 43,
+            "n_active_on_positives": 933,
+            "activation_entropy": 6.12811803817749,
+            "normalized_entropy": 0.8961326300784512,
+            "gini_coefficient": 0.5178471803665161
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 1,
+            "broad_support_20pct": 28,
+            "n_active_on_positives": 1411,
+            "activation_entropy": 6.224833011627197,
+            "normalized_entropy": 0.8583544817722745,
+            "gini_coefficient": 0.5833569765090942
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 18,
+            "broad_support_20pct": 50,
+            "n_active_on_positives": 568,
+            "activation_entropy": 5.198685646057129,
+            "normalized_entropy": 0.8197076818351754,
+            "gini_coefficient": 0.6685353517532349
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 0,
+            "broad_support_20pct": 25,
+            "n_active_on_positives": 1683,
+            "activation_entropy": 6.573044300079346,
+            "normalized_entropy": 0.8848612640611863,
+            "gini_coefficient": 0.5354561805725098
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 34,
+            "broad_support_20pct": 55,
+            "n_active_on_positives": 781,
+            "activation_entropy": 5.382780075073242,
+            "normalized_entropy": 0.8081554451349147,
+            "gini_coefficient": 0.6865488290786743
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 6,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 566,
+            "activation_entropy": 5.6864423751831055,
+            "normalized_entropy": 0.8971141399852908,
+            "gini_coefficient": 0.4806487560272217
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 3,
+            "broad_support_20pct": 22,
+            "n_active_on_positives": 678,
+            "activation_entropy": 5.860931396484375,
+            "normalized_entropy": 0.8990334375979452,
+            "gini_coefficient": 0.47791898250579834
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 5,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 1249,
+            "activation_entropy": 6.124448776245117,
+            "normalized_entropy": 0.8589571052276038,
+            "gini_coefficient": 0.5958747863769531
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 15,
+            "broad_support_20pct": 56,
+            "n_active_on_positives": 521,
+            "activation_entropy": 5.492096424102783,
+            "normalized_entropy": 0.8779277284812125,
+            "gini_coefficient": 0.5422158241271973
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 4,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 850,
+            "activation_entropy": 5.950814247131348,
+            "normalized_entropy": 0.8822247196106413,
+            "gini_coefficient": 0.5370396375656128
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 10,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 409,
+            "activation_entropy": 5.276419639587402,
+            "normalized_entropy": 0.8773976656153163,
+            "gini_coefficient": 0.5168853998184204
+          }
+        ]
+      },
+      "no_C": {
+        "mean_support_size": 6.421052631578948,
+        "median_support_size": 3.0,
+        "std_support_size": 8.241843109361836,
+        "mean_broad_support": 47.421052631578945,
+        "mean_normalized_entropy": 0.7200471963921741,
+        "mean_gini": 0.6895050249601665,
+        "n_concepts": 19,
+        "per_concept": [
+          {
+            "class": "21",
+            "n_positive": 312,
+            "n_negative": 688,
+            "support_size": 3,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 5263,
+            "activation_entropy": 5.665038585662842,
+            "normalized_entropy": 0.6611504178548606,
+            "gini_coefficient": 0.8029977083206177
+          },
+          {
+            "class": "5",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 784,
+            "activation_entropy": 5.168154239654541,
+            "normalized_entropy": 0.775485751830821,
+            "gini_coefficient": 0.5963445901870728
+          },
+          {
+            "class": "1",
+            "n_positive": 29,
+            "n_negative": 87,
+            "support_size": 0,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 935,
+            "activation_entropy": 4.967916011810303,
+            "normalized_entropy": 0.7262454820736217,
+            "gini_coefficient": 0.6761685609817505
+          },
+          {
+            "class": "0",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 1,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 627,
+            "activation_entropy": 4.721700191497803,
+            "normalized_entropy": 0.733075513313269,
+            "gini_coefficient": 0.652489423751831
+          },
+          {
+            "class": "2",
+            "n_positive": 79,
+            "n_negative": 237,
+            "support_size": 3,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 1779,
+            "activation_entropy": 5.100785732269287,
+            "normalized_entropy": 0.6815763614893958,
+            "gini_coefficient": 0.7488244771957397
+          },
+          {
+            "class": "19",
+            "n_positive": 100,
+            "n_negative": 300,
+            "support_size": 16,
+            "broad_support_20pct": 65,
+            "n_active_on_positives": 1250,
+            "activation_entropy": 4.5384521484375,
+            "normalized_entropy": 0.6364488203303945,
+            "gini_coefficient": 0.8312873840332031
+          },
+          {
+            "class": "18",
+            "n_positive": 59,
+            "n_negative": 177,
+            "support_size": 2,
+            "broad_support_20pct": 38,
+            "n_active_on_positives": 1713,
+            "activation_entropy": 5.304451942443848,
+            "normalized_entropy": 0.7123893197762218,
+            "gini_coefficient": 0.7054212093353271
+          },
+          {
+            "class": "22",
+            "n_positive": 47,
+            "n_negative": 141,
+            "support_size": 1,
+            "broad_support_20pct": 49,
+            "n_active_on_positives": 1335,
+            "activation_entropy": 5.130186080932617,
+            "normalized_entropy": 0.7128538988655507,
+            "gini_coefficient": 0.7101670503616333
+          },
+          {
+            "class": "9",
+            "n_positive": 24,
+            "n_negative": 72,
+            "support_size": 2,
+            "broad_support_20pct": 55,
+            "n_active_on_positives": 985,
+            "activation_entropy": 5.230098724365234,
+            "normalized_entropy": 0.7587945227159466,
+            "gini_coefficient": 0.6338944435119629
+          },
+          {
+            "class": "26",
+            "n_positive": 45,
+            "n_negative": 135,
+            "support_size": 1,
+            "broad_support_20pct": 34,
+            "n_active_on_positives": 1438,
+            "activation_entropy": 5.2038397789001465,
+            "normalized_entropy": 0.7156971074236196,
+            "gini_coefficient": 0.694788932800293
+          },
+          {
+            "class": "6",
+            "n_positive": 30,
+            "n_negative": 90,
+            "support_size": 18,
+            "broad_support_20pct": 58,
+            "n_active_on_positives": 587,
+            "activation_entropy": 4.413321495056152,
+            "normalized_entropy": 0.6922830294447635,
+            "gini_coefficient": 0.748772144317627
+          },
+          {
+            "class": "11",
+            "n_positive": 41,
+            "n_negative": 123,
+            "support_size": 0,
+            "broad_support_20pct": 29,
+            "n_active_on_positives": 1645,
+            "activation_entropy": 5.563132286071777,
+            "normalized_entropy": 0.7512167367428152,
+            "gini_coefficient": 0.6432787179946899
+          },
+          {
+            "class": "13",
+            "n_positive": 39,
+            "n_negative": 117,
+            "support_size": 32,
+            "broad_support_20pct": 61,
+            "n_active_on_positives": 760,
+            "activation_entropy": 4.469230651855469,
+            "normalized_entropy": 0.6737548780159042,
+            "gini_coefficient": 0.7745225429534912
+          },
+          {
+            "class": "24",
+            "n_positive": 13,
+            "n_negative": 39,
+            "support_size": 5,
+            "broad_support_20pct": 52,
+            "n_active_on_positives": 606,
+            "activation_entropy": 4.885544300079346,
+            "normalized_entropy": 0.762546560994141,
+            "gini_coefficient": 0.6068820953369141
+          },
+          {
+            "class": "14",
+            "n_positive": 15,
+            "n_negative": 45,
+            "support_size": 2,
+            "broad_support_20pct": 26,
+            "n_active_on_positives": 666,
+            "activation_entropy": 4.96177864074707,
+            "normalized_entropy": 0.7631991331244045,
+            "gini_coefficient": 0.6075663566589355
+          },
+          {
+            "class": "25",
+            "n_positive": 42,
+            "n_negative": 126,
+            "support_size": 5,
+            "broad_support_20pct": 43,
+            "n_active_on_positives": 1259,
+            "activation_entropy": 5.096165657043457,
+            "normalized_entropy": 0.7139413722355864,
+            "gini_coefficient": 0.7027169466018677
+          },
+          {
+            "class": "12",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 17,
+            "broad_support_20pct": 70,
+            "n_active_on_positives": 572,
+            "activation_entropy": 4.626116752624512,
+            "normalized_entropy": 0.7286211183761094,
+            "gini_coefficient": 0.6685293912887573
+          },
+          {
+            "class": "20",
+            "n_positive": 23,
+            "n_negative": 69,
+            "support_size": 4,
+            "broad_support_20pct": 60,
+            "n_active_on_positives": 858,
+            "activation_entropy": 5.035837173461914,
+            "normalized_entropy": 0.7455414261575537,
+            "gini_coefficient": 0.6527583599090576
+          },
+          {
+            "class": "3",
+            "n_positive": 12,
+            "n_negative": 36,
+            "support_size": 9,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 445,
+            "activation_entropy": 4.488641738891602,
+            "normalized_entropy": 0.7360752806863293,
+            "gini_coefficient": 0.6431851387023926
+          }
+        ]
+      }
+    }
+  },
+  "canrager/amazon_reviews_mcauley_1and5": {
+    "n_classes": 1,
+    "n_total": 1000,
+    "sae_results": {
+      "standard": {
+        "mean_support_size": 0,
+        "median_support_size": 0,
+        "std_support_size": 0,
+        "mean_broad_support": 0,
+        "mean_normalized_entropy": 0,
+        "mean_gini": 0,
+        "n_concepts": 0,
+        "per_concept": []
+      },
+      "adaptive_l2": {
+        "mean_support_size": 0,
+        "median_support_size": 0,
+        "std_support_size": 0,
+        "mean_broad_support": 0,
+        "mean_normalized_entropy": 0,
+        "mean_gini": 0,
+        "n_concepts": 0,
+        "per_concept": []
+      },
+      "perfeature_l2": {
+        "mean_support_size": 0,
+        "median_support_size": 0,
+        "std_support_size": 0,
+        "mean_broad_support": 0,
+        "mean_normalized_entropy": 0,
+        "mean_gini": 0,
+        "n_concepts": 0,
+        "per_concept": []
+      },
+      "no_C": {
+        "mean_support_size": 0,
+        "median_support_size": 0,
+        "std_support_size": 0,
+        "mean_broad_support": 0,
+        "mean_normalized_entropy": 0,
+        "mean_gini": 0,
+        "n_concepts": 0,
+        "per_concept": []
+      }
+    }
+  },
+  "canrager/amazon_reviews_mcauley_1and5_sentiment": {
+    "n_classes": 1,
+    "n_total": 1000,
+    "sae_results": {
+      "standard": {
+        "mean_support_size": 0,
+        "median_support_size": 0,
+        "std_support_size": 0,
+        "mean_broad_support": 0,
+        "mean_normalized_entropy": 0,
+        "mean_gini": 0,
+        "n_concepts": 0,
+        "per_concept": []
+      },
+      "adaptive_l2": {
+        "mean_support_size": 0,
+        "median_support_size": 0,
+        "std_support_size": 0,
+        "mean_broad_support": 0,
+        "mean_normalized_entropy": 0,
+        "mean_gini": 0,
+        "n_concepts": 0,
+        "per_concept": []
+      },
+      "perfeature_l2": {
+        "mean_support_size": 0,
+        "median_support_size": 0,
+        "std_support_size": 0,
+        "mean_broad_support": 0,
+        "mean_normalized_entropy": 0,
+        "mean_gini": 0,
+        "n_concepts": 0,
+        "per_concept": []
+      },
+      "no_C": {
+        "mean_support_size": 0,
+        "median_support_size": 0,
+        "std_support_size": 0,
+        "mean_broad_support": 0,
+        "mean_normalized_entropy": 0,
+        "mean_gini": 0,
+        "n_concepts": 0,
+        "per_concept": []
+      }
+    }
+  },
+  "codeparrot/github-code": {
+    "n_classes": 23,
+    "n_total": 1000,
+    "sae_results": {
+      "standard": {
+        "mean_support_size": 1.7857142857142858,
+        "median_support_size": 1.0,
+        "std_support_size": 1.819677028979571,
+        "mean_broad_support": 47.785714285714285,
+        "mean_normalized_entropy": 0.8997005136085778,
+        "mean_gini": 0.557688730103629,
+        "n_concepts": 14,
+        "per_concept": [
+          {
+            "class": "JavaScript",
+            "n_positive": 178,
+            "n_negative": 534,
+            "support_size": 1,
+            "broad_support_20pct": 49,
+            "n_active_on_positives": 6903,
+            "activation_entropy": 7.615025043487549,
+            "normalized_entropy": 0.8614562984300115,
+            "gini_coefficient": 0.6578603982925415
+          },
+          {
+            "class": "GO",
+            "n_positive": 20,
+            "n_negative": 60,
+            "support_size": 2,
+            "broad_support_20pct": 41,
+            "n_active_on_positives": 1455,
+            "activation_entropy": 6.741711616516113,
+            "normalized_entropy": 0.9257081826869982,
+            "gini_coefficient": 0.47291314601898193
+          },
+          {
+            "class": "PHP",
+            "n_positive": 108,
+            "n_negative": 324,
+            "support_size": 1,
+            "broad_support_20pct": 41,
+            "n_active_on_positives": 5191,
+            "activation_entropy": 7.566013336181641,
+            "normalized_entropy": 0.8844295624626146,
+            "gini_coefficient": 0.6104302406311035
+          },
+          {
+            "class": "C",
+            "n_positive": 83,
+            "n_negative": 249,
+            "support_size": 1,
+            "broad_support_20pct": 46,
+            "n_active_on_positives": 3953,
+            "activation_entropy": 7.337276458740234,
+            "normalized_entropy": 0.8859058976465671,
+            "gini_coefficient": 0.5989913940429688
+          },
+          {
+            "class": "CSS",
+            "n_positive": 26,
+            "n_negative": 78,
+            "support_size": 7,
+            "broad_support_20pct": 54,
+            "n_active_on_positives": 1750,
+            "activation_entropy": 6.809841632843018,
+            "normalized_entropy": 0.9119463291455312,
+            "gini_coefficient": 0.513787031173706
+          },
+          {
+            "class": "Markdown",
+            "n_positive": 96,
+            "n_negative": 288,
+            "support_size": 1,
+            "broad_support_20pct": 28,
+            "n_active_on_positives": 4835,
+            "activation_entropy": 7.686087608337402,
+            "normalized_entropy": 0.9059897476501355,
+            "gini_coefficient": 0.5467668771743774
+          },
+          {
+            "class": "C++",
+            "n_positive": 34,
+            "n_negative": 102,
+            "support_size": 2,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 2567,
+            "activation_entropy": 7.208299160003662,
+            "normalized_entropy": 0.9181969837981292,
+            "gini_coefficient": 0.5113685131072998
+          },
+          {
+            "class": "Java",
+            "n_positive": 87,
+            "n_negative": 261,
+            "support_size": 0,
+            "broad_support_20pct": 37,
+            "n_active_on_positives": 4535,
+            "activation_entropy": 7.459638595581055,
+            "normalized_entropy": 0.8859869820545859,
+            "gini_coefficient": 0.5985972881317139
+          },
+          {
+            "class": "Python",
+            "n_positive": 46,
+            "n_negative": 138,
+            "support_size": 0,
+            "broad_support_20pct": 45,
+            "n_active_on_positives": 3237,
+            "activation_entropy": 7.4080047607421875,
+            "normalized_entropy": 0.9165597712169733,
+            "gini_coefficient": 0.5131372213363647
+          },
+          {
+            "class": "HTML",
+            "n_positive": 104,
+            "n_negative": 312,
+            "support_size": 4,
+            "broad_support_20pct": 48,
+            "n_active_on_positives": 4711,
+            "activation_entropy": 7.47047233581543,
+            "normalized_entropy": 0.8832793384205876,
+            "gini_coefficient": 0.6167826652526855
+          },
+          {
+            "class": "Shell",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 2,
+            "broad_support_20pct": 62,
+            "n_active_on_positives": 1118,
+            "activation_entropy": 6.512496471405029,
+            "normalized_entropy": 0.9277990078903724,
+            "gini_coefficient": 0.47792792320251465
+          },
+          {
+            "class": "C#",
+            "n_positive": 84,
+            "n_negative": 252,
+            "support_size": 3,
+            "broad_support_20pct": 58,
+            "n_active_on_positives": 4012,
+            "activation_entropy": 7.298519611358643,
+            "normalized_entropy": 0.8796528740314636,
+            "gini_coefficient": 0.6152148246765137
+          },
+          {
+            "class": "Ruby",
+            "n_positive": 61,
+            "n_negative": 183,
+            "support_size": 1,
+            "broad_support_20pct": 56,
+            "n_active_on_positives": 2855,
+            "activation_entropy": 7.065644264221191,
+            "normalized_entropy": 0.8879977101180474,
+            "gini_coefficient": 0.5826826095581055
+          },
+          {
+            "class": "TypeScript",
+            "n_positive": 26,
+            "n_negative": 78,
+            "support_size": 0,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 1828,
+            "activation_entropy": 6.916848182678223,
+            "normalized_entropy": 0.920898504968071,
+            "gini_coefficient": 0.4911820888519287
+          }
+        ]
+      },
+      "adaptive_l2": {
+        "mean_support_size": 2.142857142857143,
+        "median_support_size": 1.5,
+        "std_support_size": 2.1333120747240115,
+        "mean_broad_support": 43.07142857142857,
+        "mean_normalized_entropy": 0.9044308794152963,
+        "mean_gini": 0.54539840562003,
+        "n_concepts": 14,
+        "per_concept": [
+          {
+            "class": "JavaScript",
+            "n_positive": 178,
+            "n_negative": 534,
+            "support_size": 0,
+            "broad_support_20pct": 41,
+            "n_active_on_positives": 7082,
+            "activation_entropy": 7.662303447723389,
+            "normalized_entropy": 0.8643016472748748,
+            "gini_coefficient": 0.64983069896698
+          },
+          {
+            "class": "GO",
+            "n_positive": 20,
+            "n_negative": 60,
+            "support_size": 1,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 1434,
+            "activation_entropy": 6.778863906860352,
+            "normalized_entropy": 0.9326714228671065,
+            "gini_coefficient": 0.4565800428390503
+          },
+          {
+            "class": "PHP",
+            "n_positive": 108,
+            "n_negative": 324,
+            "support_size": 1,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 5479,
+            "activation_entropy": 7.666407585144043,
+            "normalized_entropy": 0.8905441335637495,
+            "gini_coefficient": 0.5964683294296265
+          },
+          {
+            "class": "C",
+            "n_positive": 83,
+            "n_negative": 249,
+            "support_size": 1,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 3865,
+            "activation_entropy": 7.36406135559082,
+            "normalized_entropy": 0.8915634022742672,
+            "gini_coefficient": 0.5891046524047852
+          },
+          {
+            "class": "CSS",
+            "n_positive": 26,
+            "n_negative": 78,
+            "support_size": 9,
+            "broad_support_20pct": 41,
+            "n_active_on_positives": 1889,
+            "activation_entropy": 6.908713340759277,
+            "normalized_entropy": 0.9158130802332892,
+            "gini_coefficient": 0.49135470390319824
+          },
+          {
+            "class": "Markdown",
+            "n_positive": 96,
+            "n_negative": 288,
+            "support_size": 1,
+            "broad_support_20pct": 25,
+            "n_active_on_positives": 5105,
+            "activation_entropy": 7.787498474121094,
+            "normalized_entropy": 0.9121012661364122,
+            "gini_coefficient": 0.5379118919372559
+          },
+          {
+            "class": "C++",
+            "n_positive": 34,
+            "n_negative": 102,
+            "support_size": 2,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 2732,
+            "activation_entropy": 7.306667804718018,
+            "normalized_entropy": 0.9233997773645034,
+            "gini_coefficient": 0.49313557147979736
+          },
+          {
+            "class": "Java",
+            "n_positive": 87,
+            "n_negative": 261,
+            "support_size": 1,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 4577,
+            "activation_entropy": 7.4968719482421875,
+            "normalized_entropy": 0.88943536464488,
+            "gini_coefficient": 0.5909601449966431
+          },
+          {
+            "class": "Python",
+            "n_positive": 46,
+            "n_negative": 138,
+            "support_size": 2,
+            "broad_support_20pct": 43,
+            "n_active_on_positives": 3454,
+            "activation_entropy": 7.516175746917725,
+            "normalized_entropy": 0.9225371078389845,
+            "gini_coefficient": 0.5016343593597412
+          },
+          {
+            "class": "HTML",
+            "n_positive": 104,
+            "n_negative": 312,
+            "support_size": 2,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 5212,
+            "activation_entropy": 7.602357864379883,
+            "normalized_entropy": 0.8882588526664495,
+            "gini_coefficient": 0.6052525043487549
+          },
+          {
+            "class": "Shell",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 4,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 1222,
+            "activation_entropy": 6.624751567840576,
+            "normalized_entropy": 0.9319814341788737,
+            "gini_coefficient": 0.46220266819000244
+          },
+          {
+            "class": "C#",
+            "n_positive": 84,
+            "n_negative": 252,
+            "support_size": 3,
+            "broad_support_20pct": 57,
+            "n_active_on_positives": 4080,
+            "activation_entropy": 7.363633155822754,
+            "normalized_entropy": 0.8857065195515169,
+            "gini_coefficient": 0.6038737297058105
+          },
+          {
+            "class": "Ruby",
+            "n_positive": 61,
+            "n_negative": 183,
+            "support_size": 1,
+            "broad_support_20pct": 53,
+            "n_active_on_positives": 2921,
+            "activation_entropy": 7.099983215332031,
+            "normalized_entropy": 0.8897577417292994,
+            "gini_coefficient": 0.5765721797943115
+          },
+          {
+            "class": "TypeScript",
+            "n_positive": 26,
+            "n_negative": 78,
+            "support_size": 2,
+            "broad_support_20pct": 49,
+            "n_active_on_positives": 1822,
+            "activation_entropy": 6.936809539794922,
+            "normalized_entropy": 0.923960561489939,
+            "gini_coefficient": 0.4806962013244629
+          }
+        ]
+      },
+      "perfeature_l2": {
+        "mean_support_size": 2.142857142857143,
+        "median_support_size": 1.0,
+        "std_support_size": 2.325545799442815,
+        "mean_broad_support": 44.0,
+        "mean_normalized_entropy": 0.9046377590539113,
+        "mean_gini": 0.5439641986574445,
+        "n_concepts": 14,
+        "per_concept": [
+          {
+            "class": "JavaScript",
+            "n_positive": 178,
+            "n_negative": 534,
+            "support_size": 1,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 6740,
+            "activation_entropy": 7.632387638092041,
+            "normalized_entropy": 0.8657608470184441,
+            "gini_coefficient": 0.6476854085922241
+          },
+          {
+            "class": "GO",
+            "n_positive": 20,
+            "n_negative": 60,
+            "support_size": 2,
+            "broad_support_20pct": 49,
+            "n_active_on_positives": 1400,
+            "activation_entropy": 6.741455078125,
+            "normalized_entropy": 0.9305968184467663,
+            "gini_coefficient": 0.46271562576293945
+          },
+          {
+            "class": "PHP",
+            "n_positive": 108,
+            "n_negative": 324,
+            "support_size": 1,
+            "broad_support_20pct": 41,
+            "n_active_on_positives": 5338,
+            "activation_entropy": 7.656184196472168,
+            "normalized_entropy": 0.8920581816437412,
+            "gini_coefficient": 0.5925461053848267
+          },
+          {
+            "class": "C",
+            "n_positive": 83,
+            "n_negative": 249,
+            "support_size": 1,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 3767,
+            "activation_entropy": 7.3178911209106445,
+            "normalized_entropy": 0.8887370317303811,
+            "gini_coefficient": 0.5928059816360474
+          },
+          {
+            "class": "CSS",
+            "n_positive": 26,
+            "n_negative": 78,
+            "support_size": 9,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 1836,
+            "activation_entropy": 6.873766899108887,
+            "normalized_entropy": 0.914630970543673,
+            "gini_coefficient": 0.4941145181655884
+          },
+          {
+            "class": "Markdown",
+            "n_positive": 96,
+            "n_negative": 288,
+            "support_size": 1,
+            "broad_support_20pct": 23,
+            "n_active_on_positives": 5185,
+            "activation_entropy": 7.806171417236328,
+            "normalized_entropy": 0.9126262338761547,
+            "gini_coefficient": 0.5337607860565186
+          },
+          {
+            "class": "C++",
+            "n_positive": 34,
+            "n_negative": 102,
+            "support_size": 2,
+            "broad_support_20pct": 50,
+            "n_active_on_positives": 2594,
+            "activation_entropy": 7.254459857940674,
+            "normalized_entropy": 0.9228469821247695,
+            "gini_coefficient": 0.4938225746154785
+          },
+          {
+            "class": "Java",
+            "n_positive": 87,
+            "n_negative": 261,
+            "support_size": 1,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 4240,
+            "activation_entropy": 7.419487953186035,
+            "normalized_entropy": 0.8883147727599425,
+            "gini_coefficient": 0.59241783618927
+          },
+          {
+            "class": "Python",
+            "n_positive": 46,
+            "n_negative": 138,
+            "support_size": 0,
+            "broad_support_20pct": 36,
+            "n_active_on_positives": 3485,
+            "activation_entropy": 7.523433208465576,
+            "normalized_entropy": 0.9224162839031733,
+            "gini_coefficient": 0.4926109313964844
+          },
+          {
+            "class": "HTML",
+            "n_positive": 104,
+            "n_negative": 312,
+            "support_size": 4,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 4972,
+            "activation_entropy": 7.558032035827637,
+            "normalized_entropy": 0.8879707760271557,
+            "gini_coefficient": 0.6054114103317261
+          },
+          {
+            "class": "Shell",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 5,
+            "broad_support_20pct": 58,
+            "n_active_on_positives": 1199,
+            "activation_entropy": 6.609005928039551,
+            "normalized_entropy": 0.9322583220117946,
+            "gini_coefficient": 0.45790886878967285
+          },
+          {
+            "class": "C#",
+            "n_positive": 84,
+            "n_negative": 252,
+            "support_size": 2,
+            "broad_support_20pct": 52,
+            "n_active_on_positives": 3955,
+            "activation_entropy": 7.361433029174805,
+            "normalized_entropy": 0.8887682929466407,
+            "gini_coefficient": 0.5965662002563477
+          },
+          {
+            "class": "Ruby",
+            "n_positive": 61,
+            "n_negative": 183,
+            "support_size": 1,
+            "broad_support_20pct": 50,
+            "n_active_on_positives": 2793,
+            "activation_entropy": 7.085592746734619,
+            "normalized_entropy": 0.8929688007988074,
+            "gini_coefficient": 0.5756874084472656
+          },
+          {
+            "class": "TypeScript",
+            "n_positive": 26,
+            "n_negative": 78,
+            "support_size": 0,
+            "broad_support_20pct": 48,
+            "n_active_on_positives": 1779,
+            "activation_entropy": 6.922328948974609,
+            "normalized_entropy": 0.9249743129233142,
+            "gini_coefficient": 0.477445125579834
+          }
+        ]
+      },
+      "no_C": {
+        "mean_support_size": 1.7142857142857142,
+        "median_support_size": 1.0,
+        "std_support_size": 1.665986255670086,
+        "mean_broad_support": 42.357142857142854,
+        "mean_normalized_entropy": 0.7905205214985763,
+        "mean_gini": 0.6340934378760201,
+        "n_concepts": 14,
+        "per_concept": [
+          {
+            "class": "JavaScript",
+            "n_positive": 178,
+            "n_negative": 534,
+            "support_size": 0,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 6137,
+            "activation_entropy": 6.535306453704834,
+            "normalized_entropy": 0.7492820502709856,
+            "gini_coefficient": 0.7211529016494751
+          },
+          {
+            "class": "GO",
+            "n_positive": 20,
+            "n_negative": 60,
+            "support_size": 1,
+            "broad_support_20pct": 37,
+            "n_active_on_positives": 1248,
+            "activation_entropy": 5.765129089355469,
+            "normalized_entropy": 0.8086531737227372,
+            "gini_coefficient": 0.5701459646224976
+          },
+          {
+            "class": "PHP",
+            "n_positive": 108,
+            "n_negative": 324,
+            "support_size": 1,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 4559,
+            "activation_entropy": 6.546117782592773,
+            "normalized_entropy": 0.7770003164168162,
+            "gini_coefficient": 0.6779607534408569
+          },
+          {
+            "class": "C",
+            "n_positive": 83,
+            "n_negative": 249,
+            "support_size": 1,
+            "broad_support_20pct": 45,
+            "n_active_on_positives": 3559,
+            "activation_entropy": 6.2977824211120605,
+            "normalized_entropy": 0.770160391536696,
+            "gini_coefficient": 0.674718976020813
+          },
+          {
+            "class": "CSS",
+            "n_positive": 26,
+            "n_negative": 78,
+            "support_size": 7,
+            "broad_support_20pct": 46,
+            "n_active_on_positives": 1666,
+            "activation_entropy": 6.0331597328186035,
+            "normalized_entropy": 0.8132937005707721,
+            "gini_coefficient": 0.5864313840866089
+          },
+          {
+            "class": "Markdown",
+            "n_positive": 96,
+            "n_negative": 288,
+            "support_size": 2,
+            "broad_support_20pct": 22,
+            "n_active_on_positives": 4920,
+            "activation_entropy": 6.754546165466309,
+            "normalized_entropy": 0.7945530485171629,
+            "gini_coefficient": 0.6272119283676147
+          },
+          {
+            "class": "C++",
+            "n_positive": 34,
+            "n_negative": 102,
+            "support_size": 1,
+            "broad_support_20pct": 43,
+            "n_active_on_positives": 2220,
+            "activation_entropy": 6.307463645935059,
+            "normalized_entropy": 0.8185916659567763,
+            "gini_coefficient": 0.5880327224731445
+          },
+          {
+            "class": "Java",
+            "n_positive": 87,
+            "n_negative": 261,
+            "support_size": 1,
+            "broad_support_20pct": 31,
+            "n_active_on_positives": 3728,
+            "activation_entropy": 6.3502936363220215,
+            "normalized_entropy": 0.7722010617170308,
+            "gini_coefficient": 0.6766307353973389
+          },
+          {
+            "class": "Python",
+            "n_positive": 46,
+            "n_negative": 138,
+            "support_size": 1,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 2908,
+            "activation_entropy": 6.460529804229736,
+            "normalized_entropy": 0.81007534900069,
+            "gini_coefficient": 0.5965203046798706
+          },
+          {
+            "class": "HTML",
+            "n_positive": 104,
+            "n_negative": 312,
+            "support_size": 2,
+            "broad_support_20pct": 47,
+            "n_active_on_positives": 4416,
+            "activation_entropy": 6.571425914764404,
+            "normalized_entropy": 0.7829660511188669,
+            "gini_coefficient": 0.6767699718475342
+          },
+          {
+            "class": "Shell",
+            "n_positive": 17,
+            "n_negative": 51,
+            "support_size": 3,
+            "broad_support_20pct": 58,
+            "n_active_on_positives": 1112,
+            "activation_entropy": 5.767810821533203,
+            "normalized_entropy": 0.8223382278054917,
+            "gini_coefficient": 0.5637174844741821
+          },
+          {
+            "class": "C#",
+            "n_positive": 84,
+            "n_negative": 252,
+            "support_size": 2,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 3562,
+            "activation_entropy": 6.31626033782959,
+            "normalized_entropy": 0.7723404878163604,
+            "gini_coefficient": 0.6792235374450684
+          },
+          {
+            "class": "Ruby",
+            "n_positive": 61,
+            "n_negative": 183,
+            "support_size": 2,
+            "broad_support_20pct": 56,
+            "n_active_on_positives": 2724,
+            "activation_entropy": 6.052883148193359,
+            "normalized_entropy": 0.7652329748577988,
+            "gini_coefficient": 0.6627041101455688
+          },
+          {
+            "class": "TypeScript",
+            "n_positive": 26,
+            "n_negative": 78,
+            "support_size": 0,
+            "broad_support_20pct": 39,
+            "n_active_on_positives": 1723,
+            "activation_entropy": 6.040438175201416,
+            "normalized_entropy": 0.810598801671881,
+            "gini_coefficient": 0.5760873556137085
+          }
+        ]
+      }
+    }
+  },
+  "fancyzhx/ag_news": {
+    "n_classes": 4,
+    "n_total": 1000,
+    "sae_results": {
+      "standard": {
+        "mean_support_size": 0.75,
+        "median_support_size": 0.5,
+        "std_support_size": 0.82915619758885,
+        "mean_broad_support": 45.25,
+        "mean_normalized_entropy": 0.73470653873305,
+        "mean_gini": 0.8075345754623413,
+        "n_concepts": 4,
+        "per_concept": [
+          {
+            "class": "Business",
+            "n_positive": 205,
+            "n_negative": 615,
+            "support_size": 0,
+            "broad_support_20pct": 48,
+            "n_active_on_positives": 2468,
+            "activation_entropy": 5.815575122833252,
+            "normalized_entropy": 0.7445209933749749,
+            "gini_coefficient": 0.792312741279602
+          },
+          {
+            "class": "Sci/Tech",
+            "n_positive": 253,
+            "n_negative": 747,
+            "support_size": 2,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 3278,
+            "activation_entropy": 6.045643329620361,
+            "normalized_entropy": 0.7468377670904053,
+            "gini_coefficient": 0.7895134687423706
+          },
+          {
+            "class": "Sports",
+            "n_positive": 274,
+            "n_negative": 726,
+            "support_size": 1,
+            "broad_support_20pct": 47,
+            "n_active_on_positives": 3008,
+            "activation_entropy": 5.852792739868164,
+            "normalized_entropy": 0.7307741685618485,
+            "gini_coefficient": 0.813879132270813
+          },
+          {
+            "class": "World",
+            "n_positive": 268,
+            "n_negative": 732,
+            "support_size": 0,
+            "broad_support_20pct": 46,
+            "n_active_on_positives": 2272,
+            "activation_entropy": 5.53890323638916,
+            "normalized_entropy": 0.7166932259049712,
+            "gini_coefficient": 0.8344329595565796
+          }
+        ]
+      },
+      "adaptive_l2": {
+        "mean_support_size": 1.0,
+        "median_support_size": 1.0,
+        "std_support_size": 0.0,
+        "mean_broad_support": 40.0,
+        "mean_normalized_entropy": 0.7360309393121075,
+        "mean_gini": 0.8093067407608032,
+        "n_concepts": 4,
+        "per_concept": [
+          {
+            "class": "Business",
+            "n_positive": 205,
+            "n_negative": 615,
+            "support_size": 1,
+            "broad_support_20pct": 43,
+            "n_active_on_positives": 2271,
+            "activation_entropy": 5.780344486236572,
+            "normalized_entropy": 0.7479765502287892,
+            "gini_coefficient": 0.7944762706756592
+          },
+          {
+            "class": "Sci/Tech",
+            "n_positive": 253,
+            "n_negative": 747,
+            "support_size": 1,
+            "broad_support_20pct": 37,
+            "n_active_on_positives": 3048,
+            "activation_entropy": 6.0108561515808105,
+            "normalized_entropy": 0.7492739514950381,
+            "gini_coefficient": 0.7899771928787231
+          },
+          {
+            "class": "Sports",
+            "n_positive": 274,
+            "n_negative": 726,
+            "support_size": 1,
+            "broad_support_20pct": 37,
+            "n_active_on_positives": 2845,
+            "activation_entropy": 5.814730167388916,
+            "normalized_entropy": 0.7311074339056993,
+            "gini_coefficient": 0.8146203756332397
+          },
+          {
+            "class": "World",
+            "n_positive": 268,
+            "n_negative": 732,
+            "support_size": 1,
+            "broad_support_20pct": 43,
+            "n_active_on_positives": 2186,
+            "activation_entropy": 5.504116535186768,
+            "normalized_entropy": 0.7157658216189033,
+            "gini_coefficient": 0.8381531238555908
+          }
+        ]
+      },
+      "perfeature_l2": {
+        "mean_support_size": 0.75,
+        "median_support_size": 1.0,
+        "std_support_size": 0.4330127018922193,
+        "mean_broad_support": 40.25,
+        "mean_normalized_entropy": 0.7324696939469615,
+        "mean_gini": 0.8075127899646759,
+        "n_concepts": 4,
+        "per_concept": [
+          {
+            "class": "Business",
+            "n_positive": 205,
+            "n_negative": 615,
+            "support_size": 1,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 2280,
+            "activation_entropy": 5.731162071228027,
+            "normalized_entropy": 0.7412329827217781,
+            "gini_coefficient": 0.792998194694519
+          },
+          {
+            "class": "Sci/Tech",
+            "n_positive": 253,
+            "n_negative": 747,
+            "support_size": 0,
+            "broad_support_20pct": 37,
+            "n_active_on_positives": 2981,
+            "activation_entropy": 5.982041358947754,
+            "normalized_entropy": 0.7477538525432099,
+            "gini_coefficient": 0.7877483367919922
+          },
+          {
+            "class": "Sports",
+            "n_positive": 274,
+            "n_negative": 726,
+            "support_size": 1,
+            "broad_support_20pct": 42,
+            "n_active_on_positives": 2819,
+            "activation_entropy": 5.782196044921875,
+            "normalized_entropy": 0.7278569953490269,
+            "gini_coefficient": 0.8145040273666382
+          },
+          {
+            "class": "World",
+            "n_positive": 268,
+            "n_negative": 732,
+            "support_size": 1,
+            "broad_support_20pct": 40,
+            "n_active_on_positives": 2144,
+            "activation_entropy": 5.469283580780029,
+            "normalized_entropy": 0.7130349451738309,
+            "gini_coefficient": 0.8348006010055542
+          }
+        ]
+      },
+      "no_C": {
+        "mean_support_size": 0.75,
+        "median_support_size": 0.5,
+        "std_support_size": 0.82915619758885,
+        "mean_broad_support": 51.5,
+        "mean_normalized_entropy": 0.602481038392654,
+        "mean_gini": 0.8610723614692688,
+        "n_concepts": 4,
+        "per_concept": [
+          {
+            "class": "Business",
+            "n_positive": 205,
+            "n_negative": 615,
+            "support_size": 0,
+            "broad_support_20pct": 51,
+            "n_active_on_positives": 2469,
+            "activation_entropy": 4.7603912353515625,
+            "normalized_entropy": 0.6094027392635217,
+            "gini_coefficient": 0.8508318662643433
+          },
+          {
+            "class": "Sci/Tech",
+            "n_positive": 253,
+            "n_negative": 747,
+            "support_size": 0,
+            "broad_support_20pct": 50,
+            "n_active_on_positives": 3222,
+            "activation_entropy": 4.977053165435791,
+            "normalized_entropy": 0.6161429240930715,
+            "gini_coefficient": 0.8458669185638428
+          },
+          {
+            "class": "Sports",
+            "n_positive": 274,
+            "n_negative": 726,
+            "support_size": 2,
+            "broad_support_20pct": 49,
+            "n_active_on_positives": 3048,
+            "activation_entropy": 4.822990417480469,
+            "normalized_entropy": 0.601202390640792,
+            "gini_coefficient": 0.8649144172668457
+          },
+          {
+            "class": "World",
+            "n_positive": 268,
+            "n_negative": 732,
+            "support_size": 1,
+            "broad_support_20pct": 56,
+            "n_active_on_positives": 2345,
+            "activation_entropy": 4.52547025680542,
+            "normalized_entropy": 0.583176099573231,
+            "gini_coefficient": 0.8826762437820435
+          }
+        ]
+      }
+    }
+  },
+  "Helsinki-NLP/europarl": {
+    "error": "Config name is missing.\nPlease pick one among the available configs: ['bg-cs', 'bg-da', 'bg-de', 'bg-el', 'bg-en', 'bg-es', 'bg-et', 'bg-fi', 'bg-fr', 'bg-hu', 'bg-it', 'bg-lt', 'bg-lv', 'bg-nl', 'bg-pl', 'bg-pt', 'bg-ro', 'bg-sk', 'bg-sl', 'bg-sv', 'cs-da', 'cs-de', 'cs-el', 'cs-en', 'cs-es', 'cs-et', 'cs-fi', 'cs-fr', 'cs-hu', 'cs-it', 'cs-lt', 'cs-lv', 'cs-nl', 'cs-pl', 'cs-pt', 'cs-ro', 'cs-sk', 'cs-sl', 'cs-sv', 'da-de', 'da-el', 'da-en', 'da-es', 'da-et', 'da-fi', 'da-fr', 'da-hu', 'da-it', 'da-lt', 'da-lv', 'da-nl', 'da-pl', 'da-pt', 'da-ro', 'da-sk', 'da-sl', 'da-sv', 'de-el', 'de-en', 'de-es', 'de-et', 'de-fi', 'de-fr', 'de-hu', 'de-it', 'de-lt', 'de-lv', 'de-nl', 'de-pl', 'de-pt', 'de-ro', 'de-sk', 'de-sl', 'de-sv', 'el-en', 'el-es', 'el-et', 'el-fi', 'el-fr', 'el-hu', 'el-it', 'el-lt', 'el-lv', 'el-nl', 'el-pl', 'el-pt', 'el-ro', 'el-sk', 'el-sl', 'el-sv', 'en-es', 'en-et', 'en-fi', 'en-fr', 'en-hu', 'en-it', 'en-lt', 'en-lv', 'en-nl', 'en-pl', 'en-pt', 'en-ro', 'en-sk', 'en-sl', 'en-sv', 'es-et', 'es-fi', 'es-fr', 'es-hu', 'es-it', 'es-lt', 'es-lv', 'es-nl', 'es-pl', 'es-pt', 'es-ro', 'es-sk', 'es-sl', 'es-sv', 'et-fi', 'et-fr', 'et-hu', 'et-it', 'et-lt', 'et-lv', 'et-nl', 'et-pl', 'et-pt', 'et-ro', 'et-sk', 'et-sl', 'et-sv', 'fi-fr', 'fi-hu', 'fi-it', 'fi-lt', 'fi-lv', 'fi-nl', 'fi-pl', 'fi-pt', 'fi-ro', 'fi-sk', 'fi-sl', 'fi-sv', 'fr-hu', 'fr-it', 'fr-lt', 'fr-lv', 'fr-nl', 'fr-pl', 'fr-pt', 'fr-ro', 'fr-sk', 'fr-sl', 'fr-sv', 'hu-it', 'hu-lt', 'hu-lv', 'hu-nl', 'hu-pl', 'hu-pt', 'hu-ro', 'hu-sk', 'hu-sl', 'hu-sv', 'it-lt', 'it-lv', 'it-nl', 'it-pl', 'it-pt', 'it-ro', 'it-sk', 'it-sl', 'it-sv', 'lt-lv', 'lt-nl', 'lt-pl', 'lt-pt', 'lt-ro', 'lt-sk', 'lt-sl', 'lt-sv', 'lv-nl', 'lv-pl', 'lv-pt', 'lv-ro', 'lv-sk', 'lv-sl', 'lv-sv', 'nl-pl', 'nl-pt', 'nl-ro', 'nl-sk', 'nl-sl', 'nl-sv', 'pl-pt', 'pl-ro', 'pl-sk', 'pl-sl', 'pl-sv', 'pt-ro', 'pt-sk', 'pt-sl', 'pt-sv', 'ro-sk', 'ro-sl', 'ro-sv', 'sk-sl', 'sk-sv', 'sl-sv']\nExample of usage:\n\t`load_dataset('Helsinki-NLP/europarl', 'bg-cs')`"
+  }
+}

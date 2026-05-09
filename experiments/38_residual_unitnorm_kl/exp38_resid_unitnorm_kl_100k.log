@@ -1,0 +1,54 @@
+Experiment 38: Residual Unit-Norm KL Sweep
+======================================================================
+Model: Qwen/Qwen3-8B
+Layers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
+Token budget: 100,000
+ctx_len=256, batch_seqs=4, eps=1e-08
+
+Loading model...
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/399 [00:00<01:51,  3.56it/s]
+Loading weights:   7%|▋         | 28/399 [00:00<00:04, 90.97it/s]
+Loading weights:  14%|█▎        | 54/399 [00:00<00:02, 144.92it/s]
+Loading weights:  20%|██        | 81/399 [00:00<00:01, 182.71it/s]
+Loading weights:  26%|██▋       | 105/399 [00:00<00:01, 194.38it/s]
+Loading weights:  34%|███▍      | 136/399 [00:00<00:01, 222.21it/s]
+Loading weights:  40%|████      | 161/399 [00:00<00:01, 222.61it/s]
+Loading weights:  48%|████▊     | 191/399 [00:01<00:00, 240.21it/s]
+Loading weights:  54%|█████▍    | 217/399 [00:01<00:00, 238.67it/s]
+Loading weights:  62%|██████▏   | 246/399 [00:01<00:00, 246.74it/s]
+Loading weights:  68%|██████▊   | 272/399 [00:01<00:00, 244.99it/s]
+Loading weights:  75%|███████▌  | 300/399 [00:01<00:00, 252.41it/s]
+Loading weights:  82%|████████▏ | 326/399 [00:01<00:00, 250.23it/s]
+Loading weights:  89%|████████▉ | 356/399 [00:01<00:00, 262.96it/s]
+Loading weights:  96%|█████████▌| 383/399 [00:01<00:00, 258.99it/s]
+Loading weights: 100%|██████████| 399/399 [00:01<00:00, 218.18it/s]
+Model loaded in 3.2s
+Collecting eval batches (100,000 tokens target)...
+  Collected 100,498 eval tokens across 112 batches
+Actual eval tokens: 100,498
+  Batches 10/112 complete (0.7 min elapsed)
+  Batches 20/112 complete (1.4 min elapsed)
+  Batches 30/112 complete (2.1 min elapsed)
+  Batches 40/112 complete (2.9 min elapsed)
+  Batches 50/112 complete (3.6 min elapsed)
+  Batches 60/112 complete (4.3 min elapsed)
+  Batches 70/112 complete (5.0 min elapsed)
+  Batches 80/112 complete (5.8 min elapsed)
+  Batches 90/112 complete (6.5 min elapsed)
+  Batches 100/112 complete (7.2 min elapsed)
+  Batches 110/112 complete (7.9 min elapsed)
+  Batches 112/112 complete (8.1 min elapsed)
+
+Top layers by weighted mean KL:
+  L34: weighted_mean_KL=16.213659
+  L20: weighted_mean_KL=13.332007
+  L28: weighted_mean_KL=13.140826
+  L31: weighted_mean_KL=12.847047
+  L27: weighted_mean_KL=12.747014
+
+Wrote experiments/exp38_resid_unitnorm_kl_100k_results.json
+Wrote experiments/exp38_resid_unitnorm_kl_100k_summary.csv
+terminate called without an active exception

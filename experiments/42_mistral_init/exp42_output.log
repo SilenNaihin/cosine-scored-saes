@@ -1,0 +1,1804 @@
+Experiment 39: Mistral-7B Initialization Disambiguation
+======================================================================
+Model: mistralai/Mistral-7B-v0.1
+Layers: [8, 16, 24]
+d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens (12207 steps)
+Init comparison: sqrt(d)=64.0 vs norm-adaptive
+Variants: ['standard', 'adaptive_sqrtd', 'adaptive_norm', 'group_G4_sqrtd', 'group_G4_norm']
+Total runs: 15 (layer-first ordering)
+Estimated time: ~22 hours on H100
+
+Loading model...
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  2.04it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.91it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.74it/s]
+Model loaded in 4.3s
+  Collecting eval activations for L8 (2,000,000 tokens)...
+    L8: 2,000,000 tokens in 157.1s (norm: mean=2.3, std=0.2, sqrt(d)=64.0, ratio=0.04x)
+  Collecting eval activations for L16 (2,000,000 tokens)...
+    L16: 2,000,000 tokens in 202.7s (norm: mean=6.3, std=0.6, sqrt(d)=64.0, ratio=0.10x)
+  Collecting eval activations for L24 (2,000,000 tokens)...
+    L24: 2,000,000 tokens in 271.0s (norm: mean=18.0, std=2.5, sqrt(d)=64.0, ratio=0.28x)
+
+  INIT COMPARISON:
+  Layer |  mean_norm |  sqrt(d) |  ratio |  direction
+  ------+------------+----------+--------+-----------
+  L   8 |        2.3 |     64.0 |  28.0x |  OVERSHOOT
+  L  16 |        6.3 |     64.0 |  10.2x |  OVERSHOOT
+  L  24 |       18.0 |     64.0 |   3.6x |  OVERSHOOT
+
+---GPU---
+utilization.gpu [%], memory.used [MiB]
+0 %, 26159 MiB
+100 %, 43811 MiB
+
+######################################################################
+  LAYER 8 (mean_norm=2.3, mismatch=28.0x)
+######################################################################
+
+======================================================================
+  RUN: standard_L8 (encoder=standard, init=none, layer=8)
+======================================================================
+    Standard encoder (no scale parameter)
+    Parameters: 134,238,208
+
+  Training standard/L8 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    [standard/L8] step   200/12207 | loss=3.9 | L0=80 | FVE=0.1904 | dead=0.789 | 0.8M tok | ETA 1.0h
+    [standard/L8] Checkpoint saved at 2% (244 steps)
+    [standard/L8] step   400/12207 | loss=2.9 | L0=80 | FVE=0.3910 | dead=0.815 | 1.6M tok | ETA 1.0h
+    [standard/L8] step   600/12207 | loss=2.5 | L0=80 | FVE=0.4806 | dead=0.810 | 2.5M tok | ETA 0.8h
+    [standard/L8] Checkpoint saved at 5% (610 steps)
+    [standard/L8] step   800/12207 | loss=2.4 | L0=80 | FVE=0.5106 | dead=0.803 | 3.3M tok | ETA 0.9h
+    [standard/L8] step  1000/12207 | loss=2.3 | L0=80 | FVE=0.5173 | dead=0.793 | 4.1M tok | ETA 0.9h
+    [standard/L8] step  1200/12207 | loss=2.2 | L0=80 | FVE=0.5514 | dead=0.778 | 4.9M tok | ETA 0.8h
+    [standard/L8] Checkpoint saved at 10% (1220 steps)
+    [standard/L8] step  1400/12207 | loss=2.1 | L0=80 | FVE=0.5542 | dead=0.769 | 5.7M tok | ETA 0.8h
+    [standard/L8] step  1600/12207 | loss=2.2 | L0=80 | FVE=0.5495 | dead=0.758 | 6.6M tok | ETA 0.8h
+    [standard/L8] step  1800/12207 | loss=2.0 | L0=80 | FVE=0.5722 | dead=0.747 | 7.4M tok | ETA 0.8h
+    [standard/L8] step  2000/12207 | loss=2.0 | L0=80 | FVE=0.5703 | dead=0.739 | 8.2M tok | ETA 0.8h
+    [standard/L8] step  2200/12207 | loss=2.1 | L0=80 | FVE=0.5584 | dead=0.728 | 9.0M tok | ETA 0.8h
+    [standard/L8] step  2400/12207 | loss=2.0 | L0=80 | FVE=0.5870 | dead=0.719 | 9.8M tok | ETA 0.7h
+    [standard/L8] Checkpoint saved at 20% (2441 steps)
+    [standard/L8] step  2600/12207 | loss=2.0 | L0=80 | FVE=0.5813 | dead=0.712 | 10.6M tok | ETA 0.7h
+    [standard/L8] step  2800/12207 | loss=1.9 | L0=80 | FVE=0.5958 | dead=0.706 | 11.5M tok | ETA 0.7h
+    [standard/L8] step  3000/12207 | loss=1.9 | L0=80 | FVE=0.5965 | dead=0.699 | 12.3M tok | ETA 0.7h
+    [standard/L8] step  3200/12207 | loss=2.0 | L0=80 | FVE=0.5833 | dead=0.694 | 13.1M tok | ETA 0.7h
+    [standard/L8] step  3400/12207 | loss=1.9 | L0=80 | FVE=0.5981 | dead=0.688 | 13.9M tok | ETA 0.6h
+    [standard/L8] step  3600/12207 | loss=1.9 | L0=80 | FVE=0.5943 | dead=0.685 | 14.7M tok | ETA 0.6h
+    [standard/L8] step  3800/12207 | loss=2.0 | L0=80 | FVE=0.5894 | dead=0.681 | 15.6M tok | ETA 0.6h
+    [standard/L8] step  4000/12207 | loss=1.9 | L0=80 | FVE=0.6061 | dead=0.677 | 16.4M tok | ETA 0.6h
+    [standard/L8] step  4200/12207 | loss=1.9 | L0=80 | FVE=0.6021 | dead=0.673 | 17.2M tok | ETA 0.6h
+    [standard/L8] step  4400/12207 | loss=2.0 | L0=80 | FVE=0.5889 | dead=0.670 | 18.0M tok | ETA 0.6h
+    [standard/L8] step  4600/12207 | loss=1.9 | L0=80 | FVE=0.6061 | dead=0.667 | 18.8M tok | ETA 0.6h
+    [standard/L8] step  4800/12207 | loss=1.9 | L0=80 | FVE=0.6063 | dead=0.664 | 19.7M tok | ETA 0.5h
+    [standard/L8] Checkpoint saved at 40% (4882 steps)
+    [standard/L8] step  5000/12207 | loss=1.9 | L0=80 | FVE=0.6129 | dead=0.660 | 20.5M tok | ETA 0.5h
+    [standard/L8] step  5200/12207 | loss=1.9 | L0=80 | FVE=0.6073 | dead=0.656 | 21.3M tok | ETA 0.5h
+    [standard/L8] step  5400/12207 | loss=1.9 | L0=80 | FVE=0.6019 | dead=0.654 | 22.1M tok | ETA 0.5h
+    [standard/L8] step  5600/12207 | loss=1.8 | L0=80 | FVE=0.6137 | dead=0.650 | 22.9M tok | ETA 0.5h
+    [standard/L8] step  5800/12207 | loss=1.9 | L0=80 | FVE=0.6070 | dead=0.648 | 23.8M tok | ETA 0.5h
+    [standard/L8] step  6000/12207 | loss=1.9 | L0=80 | FVE=0.6001 | dead=0.647 | 24.6M tok | ETA 0.5h
+    [standard/L8] step  6200/12207 | loss=1.9 | L0=80 | FVE=0.6122 | dead=0.644 | 25.4M tok | ETA 0.4h
+    [standard/L8] step  6400/12207 | loss=1.9 | L0=80 | FVE=0.6147 | dead=0.642 | 26.2M tok | ETA 0.4h
+    [standard/L8] step  6600/12207 | loss=1.9 | L0=80 | FVE=0.6028 | dead=0.640 | 27.0M tok | ETA 0.4h
+    [standard/L8] step  6800/12207 | loss=1.8 | L0=80 | FVE=0.6166 | dead=0.638 | 27.9M tok | ETA 0.4h
+    [standard/L8] step  7000/12207 | loss=1.9 | L0=80 | FVE=0.6108 | dead=0.637 | 28.7M tok | ETA 0.4h
+    [standard/L8] step  7200/12207 | loss=1.9 | L0=80 | FVE=0.6037 | dead=0.635 | 29.5M tok | ETA 0.4h
+    [standard/L8] Checkpoint saved at 60% (7324 steps)
+    [standard/L8] step  7400/12207 | loss=1.9 | L0=80 | FVE=0.6141 | dead=0.634 | 30.3M tok | ETA 0.3h
+    [standard/L8] step  7600/12207 | loss=1.9 | L0=80 | FVE=0.6100 | dead=0.633 | 31.1M tok | ETA 0.3h
+    [standard/L8] step  7800/12207 | loss=1.8 | L0=80 | FVE=0.6179 | dead=0.632 | 31.9M tok | ETA 0.3h
+    [standard/L8] step  8000/12207 | loss=1.9 | L0=80 | FVE=0.6148 | dead=0.631 | 32.8M tok | ETA 0.3h
+    [standard/L8] step  8200/12207 | loss=1.9 | L0=80 | FVE=0.6098 | dead=0.630 | 33.6M tok | ETA 0.3h
+    [standard/L8] step  8400/12207 | loss=1.8 | L0=80 | FVE=0.6185 | dead=0.628 | 34.4M tok | ETA 0.3h
+    [standard/L8] step  8600/12207 | loss=1.8 | L0=80 | FVE=0.6177 | dead=0.627 | 35.2M tok | ETA 0.3h
+    [standard/L8] step  8800/12207 | loss=1.9 | L0=80 | FVE=0.6099 | dead=0.626 | 36.0M tok | ETA 0.2h
+    [standard/L8] step  9000/12207 | loss=1.8 | L0=80 | FVE=0.6187 | dead=0.626 | 36.9M tok | ETA 0.2h
+    [standard/L8] step  9200/12207 | loss=1.8 | L0=80 | FVE=0.6164 | dead=0.626 | 37.7M tok | ETA 0.2h
+    [standard/L8] step  9400/12207 | loss=1.9 | L0=80 | FVE=0.6062 | dead=0.625 | 38.5M tok | ETA 0.2h
+    [standard/L8] step  9600/12207 | loss=1.9 | L0=80 | FVE=0.6147 | dead=0.625 | 39.3M tok | ETA 0.2h
+    [standard/L8] Checkpoint saved at 80% (9765 steps)
+    [standard/L8] step  9800/12207 | loss=1.9 | L0=80 | FVE=0.6137 | dead=0.625 | 40.1M tok | ETA 0.2h
+    [standard/L8] step 10000/12207 | loss=1.8 | L0=80 | FVE=0.6164 | dead=0.624 | 41.0M tok | ETA 0.2h
+    [standard/L8] step 10200/12207 | loss=1.8 | L0=80 | FVE=0.6171 | dead=0.624 | 41.8M tok | ETA 0.1h
+    [standard/L8] step 10400/12207 | loss=1.9 | L0=80 | FVE=0.6104 | dead=0.625 | 42.6M tok | ETA 0.1h
+    [standard/L8] step 10600/12207 | loss=1.8 | L0=80 | FVE=0.6175 | dead=0.623 | 43.4M tok | ETA 0.1h
+    [standard/L8] step 10800/12207 | loss=1.9 | L0=80 | FVE=0.6156 | dead=0.624 | 44.2M tok | ETA 0.1h
+    [standard/L8] step 11000/12207 | loss=1.8 | L0=80 | FVE=0.6142 | dead=0.623 | 45.1M tok | ETA 0.1h
+    [standard/L8] step 11200/12207 | loss=1.8 | L0=80 | FVE=0.6141 | dead=0.624 | 45.9M tok | ETA 0.1h
+    [standard/L8] step 11400/12207 | loss=1.9 | L0=80 | FVE=0.6111 | dead=0.622 | 46.7M tok | ETA 0.1h
+    [standard/L8] step 11600/12207 | loss=1.9 | L0=80 | FVE=0.6130 | dead=0.623 | 47.5M tok | ETA 0.0h
+    [standard/L8] step 11800/12207 | loss=1.9 | L0=80 | FVE=0.6139 | dead=0.623 | 48.3M tok | ETA 0.0h
+    [standard/L8] step 12000/12207 | loss=1.9 | L0=80 | FVE=0.6148 | dead=0.623 | 49.2M tok | ETA 0.0h
+    [standard/L8] step 12200/12207 | loss=1.9 | L0=80 | FVE=0.6120 | dead=0.623 | 50.0M tok | ETA 0.0h
+    [standard/L8] step 12207/12207 | loss=1.8 | L0=80 | FVE=0.6140 | dead=0.623 | 50.0M tok | ETA 0.0h
+    [standard/L8] Checkpoint saved at 100% (12207 steps)
+    [standard/L8] Done in 0.9h (3213s)
+    Checkpoint 2%: FVE=0.2433, dead=0.709, alive=4762
+    Checkpoint 5%: FVE=0.4571, dead=0.699, alive=4930
+    Checkpoint 10%: FVE=0.5248, dead=0.650, alive=5735
+    Checkpoint 20%: FVE=0.5624, dead=0.643, alive=5856
+    Checkpoint 40%: FVE=0.5881, dead=0.603, alive=6503
+    Checkpoint 60%: FVE=0.6013, dead=0.591, alive=6700
+    Checkpoint 80%: FVE=0.6082, dead=0.591, alive=6693
+
+  Full evaluation -- standard_L8
+    [standard/L8] FVE=0.6101 | dead=0.589 | alive=6731/16384 | L0=80
+
+    Ablation [standard/L8] (100 feats, 200 samples)...
+    [standard/L8] 6655 alive features (of 16384)
+      feat 13477 | n=200 | cos->KL=0.549 | inner->KL=0.661 | SAE->KL=0.645
+      feat   746 | n=200 | cos->KL=0.272 | inner->KL=0.259 | SAE->KL=0.243
+      feat 13377 | n=200 | cos->KL=0.532 | inner->KL=0.479 | SAE->KL=0.467
+      feat 13985 | n=200 | cos->KL=0.536 | inner->KL=0.522 | SAE->KL=0.513
+      feat  7102 | n=200 | cos->KL=0.629 | inner->KL=0.578 | SAE->KL=0.531
+      feat  2384 | n=200 | cos->KL=0.559 | inner->KL=0.564 | SAE->KL=0.527
+      feat  4482 | n=200 | cos->KL=0.344 | inner->KL=0.306 | SAE->KL=0.197
+      feat 14528 | n=200 | cos->KL=0.178 | inner->KL=0.116 | SAE->KL=0.124
+    [standard/L8] Summary (100 features): cos->KL=0.5121 | SAE->KL=0.4506 | cos>inner: 81/100
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: adaptive_sqrtd_L8 (encoder=adaptive_sqrtd, init=sqrt_d, layer=8)
+======================================================================
+    SQRT(D) init: scale_b = log(64.0) = 4.1589 (exp=64.0, mismatch=28.0x)
+    Parameters: 134,238,210
+
+  Training adaptive_sqrtd/L8 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 4.1589 (exp=64.0)
+    [adaptive_sqrtd/L8] step   200/12207 | loss=5.4 | L0=3 | FVE=-0.0175 | dead=0.496 | a=-0.0008 | b=4.158(exp=63.9) | 0.8M tok | ETA 1.0h
+    [adaptive_sqrtd/L8] Checkpoint saved at 2% (244 steps)
+    [adaptive_sqrtd/L8] step   400/12207 | loss=5.4 | L0=1 | FVE=-0.0021 | dead=0.782 | a=-0.0008 | b=4.156(exp=63.8) | 1.6M tok | ETA 1.0h
+    [adaptive_sqrtd/L8] step   600/12207 | loss=5.3 | L0=1 | FVE=-0.0001 | dead=0.861 | a=-0.0008 | b=4.154(exp=63.7) | 2.5M tok | ETA 0.8h
+    [adaptive_sqrtd/L8] Checkpoint saved at 5% (610 steps)
+    [adaptive_sqrtd/L8] step   800/12207 | loss=4.8 | L0=1 | FVE=0.0071 | dead=0.927 | a=-0.0008 | b=4.152(exp=63.6) | 3.3M tok | ETA 0.9h
+    [adaptive_sqrtd/L8] step  1000/12207 | loss=4.7 | L0=2 | FVE=0.0211 | dead=0.951 | a=-0.0008 | b=4.149(exp=63.4) | 4.1M tok | ETA 0.9h
+    [adaptive_sqrtd/L8] step  1200/12207 | loss=4.7 | L0=2 | FVE=0.0264 | dead=0.966 | a=-0.0008 | b=4.147(exp=63.2) | 4.9M tok | ETA 0.8h
+    [adaptive_sqrtd/L8] Checkpoint saved at 10% (1220 steps)
+    [adaptive_sqrtd/L8] step  1400/12207 | loss=4.6 | L0=3 | FVE=0.0338 | dead=0.971 | a=-0.0008 | b=4.145(exp=63.1) | 5.7M tok | ETA 0.8h
+    [adaptive_sqrtd/L8] step  1600/12207 | loss=4.6 | L0=3 | FVE=0.0403 | dead=0.979 | a=-0.0008 | b=4.142(exp=62.9) | 6.6M tok | ETA 0.8h
+    [adaptive_sqrtd/L8] step  1800/12207 | loss=4.6 | L0=3 | FVE=0.0365 | dead=0.983 | a=-0.0008 | b=4.140(exp=62.8) | 7.4M tok | ETA 0.8h
+    [adaptive_sqrtd/L8] step  2000/12207 | loss=4.6 | L0=3 | FVE=0.0373 | dead=0.985 | a=-0.0008 | b=4.137(exp=62.6) | 8.2M tok | ETA 0.8h
+    [adaptive_sqrtd/L8] step  2200/12207 | loss=4.6 | L0=3 | FVE=0.0362 | dead=0.987 | a=-0.0008 | b=4.135(exp=62.5) | 9.0M tok | ETA 0.8h
+    [adaptive_sqrtd/L8] step  2400/12207 | loss=4.6 | L0=4 | FVE=0.0507 | dead=0.987 | a=-0.0009 | b=4.133(exp=62.3) | 9.8M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] Checkpoint saved at 20% (2441 steps)
+    [adaptive_sqrtd/L8] step  2600/12207 | loss=4.5 | L0=4 | FVE=0.0520 | dead=0.988 | a=-0.0009 | b=4.130(exp=62.2) | 10.6M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] step  2800/12207 | loss=4.6 | L0=4 | FVE=0.0526 | dead=0.990 | a=-0.0009 | b=4.128(exp=62.1) | 11.5M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] step  3000/12207 | loss=4.5 | L0=5 | FVE=0.0580 | dead=0.992 | a=-0.0009 | b=4.126(exp=61.9) | 12.3M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] step  3200/12207 | loss=4.5 | L0=5 | FVE=0.0546 | dead=0.993 | a=-0.0009 | b=4.124(exp=61.8) | 13.1M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] step  3400/12207 | loss=4.5 | L0=5 | FVE=0.0532 | dead=0.993 | a=-0.0009 | b=4.121(exp=61.6) | 13.9M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  3600/12207 | loss=4.5 | L0=5 | FVE=0.0546 | dead=0.993 | a=-0.0009 | b=4.119(exp=61.5) | 14.7M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  3800/12207 | loss=4.5 | L0=5 | FVE=0.0560 | dead=0.995 | a=-0.0009 | b=4.117(exp=61.4) | 15.6M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  4000/12207 | loss=4.5 | L0=5 | FVE=0.0568 | dead=0.994 | a=-0.0009 | b=4.115(exp=61.3) | 16.4M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  4200/12207 | loss=4.5 | L0=5 | FVE=0.0567 | dead=0.995 | a=-0.0009 | b=4.113(exp=61.1) | 17.2M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  4400/12207 | loss=4.6 | L0=5 | FVE=0.0557 | dead=0.996 | a=-0.0009 | b=4.111(exp=61.0) | 18.0M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  4600/12207 | loss=4.6 | L0=5 | FVE=0.0549 | dead=0.997 | a=-0.0009 | b=4.109(exp=60.9) | 18.8M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  4800/12207 | loss=4.6 | L0=5 | FVE=0.0601 | dead=0.996 | a=-0.0009 | b=4.108(exp=60.8) | 19.7M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] Checkpoint saved at 40% (4882 steps)
+    [adaptive_sqrtd/L8] step  5000/12207 | loss=4.5 | L0=5 | FVE=0.0553 | dead=0.996 | a=-0.0009 | b=4.106(exp=60.7) | 20.5M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  5200/12207 | loss=4.5 | L0=5 | FVE=0.0543 | dead=0.997 | a=-0.0009 | b=4.104(exp=60.6) | 21.3M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  5400/12207 | loss=4.5 | L0=5 | FVE=0.0567 | dead=0.997 | a=-0.0010 | b=4.103(exp=60.5) | 22.1M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  5600/12207 | loss=4.5 | L0=5 | FVE=0.0548 | dead=0.997 | a=-0.0010 | b=4.101(exp=60.4) | 22.9M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  5800/12207 | loss=4.5 | L0=5 | FVE=0.0565 | dead=0.997 | a=-0.0010 | b=4.100(exp=60.3) | 23.8M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  6000/12207 | loss=4.5 | L0=5 | FVE=0.0565 | dead=0.998 | a=-0.0010 | b=4.098(exp=60.2) | 24.6M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  6200/12207 | loss=4.5 | L0=5 | FVE=0.0544 | dead=0.998 | a=-0.0010 | b=4.097(exp=60.2) | 25.4M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  6400/12207 | loss=4.6 | L0=5 | FVE=0.0589 | dead=0.998 | a=-0.0010 | b=4.096(exp=60.1) | 26.2M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  6600/12207 | loss=4.6 | L0=5 | FVE=0.0568 | dead=0.998 | a=-0.0010 | b=4.095(exp=60.0) | 27.0M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  6800/12207 | loss=4.5 | L0=5 | FVE=0.0585 | dead=0.999 | a=-0.0010 | b=4.093(exp=59.9) | 27.9M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  7000/12207 | loss=4.5 | L0=5 | FVE=0.0563 | dead=0.998 | a=-0.0010 | b=4.092(exp=59.9) | 28.7M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  7200/12207 | loss=4.5 | L0=5 | FVE=0.0568 | dead=0.999 | a=-0.0010 | b=4.091(exp=59.8) | 29.5M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] Checkpoint saved at 60% (7324 steps)
+    [adaptive_sqrtd/L8] step  7400/12207 | loss=4.5 | L0=5 | FVE=0.0568 | dead=0.998 | a=-0.0010 | b=4.090(exp=59.8) | 30.3M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  7600/12207 | loss=4.5 | L0=5 | FVE=0.0558 | dead=0.999 | a=-0.0010 | b=4.090(exp=59.7) | 31.1M tok | ETA 0.3h
+    [adaptive_sqrtd/L8] step  7800/12207 | loss=4.5 | L0=5 | FVE=0.0562 | dead=0.998 | a=-0.0010 | b=4.089(exp=59.7) | 31.9M tok | ETA 0.3h
+    [adaptive_sqrtd/L8] step  8000/12207 | loss=4.5 | L0=5 | FVE=0.0583 | dead=0.998 | a=-0.0010 | b=4.088(exp=59.6) | 32.8M tok | ETA 0.3h
+Experiment 39: Mistral-7B Initialization Disambiguation
+======================================================================
+Model: mistralai/Mistral-7B-v0.1
+Layers: [8, 16, 24]
+d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens (12207 steps)
+Init comparison: sqrt(d)=64.0 vs norm-adaptive
+Variants: ['standard', 'adaptive_sqrtd', 'adaptive_norm', 'group_G4_sqrtd', 'group_G4_norm']
+Total runs: 15 (layer-first ordering)
+Estimated time: ~22 hours on H100
+
+Loading model...
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  2.03it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.90it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.72it/s]
+Model loaded in 3.0s
+  Loaded existing results: ['standard_L8']
+  Collecting eval activations for L8 (2,000,000 tokens)...
+    L8: 2,000,000 tokens in 152.7s (norm: mean=2.3, std=0.2, sqrt(d)=64.0, ratio=0.04x)
+  Collecting eval activations for L16 (2,000,000 tokens)...
+    L16: 2,000,000 tokens in 210.7s (norm: mean=6.3, std=0.6, sqrt(d)=64.0, ratio=0.10x)
+  Collecting eval activations for L24 (2,000,000 tokens)...
+    L24: 2,000,000 tokens in 263.7s (norm: mean=18.0, std=2.5, sqrt(d)=64.0, ratio=0.28x)
+
+  INIT COMPARISON:
+  Layer |  mean_norm |  sqrt(d) |  ratio |  direction
+  ------+------------+----------+--------+-----------
+  L   8 |        2.3 |     64.0 |  28.0x |  OVERSHOOT
+  L  16 |        6.3 |     64.0 |  10.2x |  OVERSHOOT
+  L  24 |       18.0 |     64.0 |   3.6x |  OVERSHOOT
+
+---GPU---
+utilization.gpu [%], memory.used [MiB]
+0 %, 26159 MiB
+0 %, 0 MiB
+
+######################################################################
+  LAYER 8 (mean_norm=2.3, mismatch=28.0x)
+######################################################################
+
+  standard_L8 already complete, skipping
+
+======================================================================
+  RUN: adaptive_sqrtd_L8 (encoder=adaptive_sqrtd, init=sqrt_d, layer=8)
+======================================================================
+    SQRT(D) init: scale_b = log(64.0) = 4.1589 (exp=64.0, mismatch=28.0x)
+    Parameters: 134,238,210
+
+  Training adaptive_sqrtd/L8 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 4.1589 (exp=64.0)
+    [adaptive_sqrtd/L8] step   200/12207 | loss=5.4 | L0=3 | FVE=-0.0175 | dead=0.496 | a=-0.0008 | b=4.158(exp=63.9) | 0.8M tok | ETA 1.0h
+    [adaptive_sqrtd/L8] Checkpoint saved at 2% (244 steps)
+    [adaptive_sqrtd/L8] step   400/12207 | loss=5.4 | L0=1 | FVE=-0.0021 | dead=0.782 | a=-0.0008 | b=4.156(exp=63.8) | 1.6M tok | ETA 1.0h
+    [adaptive_sqrtd/L8] step   600/12207 | loss=5.3 | L0=1 | FVE=-0.0001 | dead=0.861 | a=-0.0008 | b=4.154(exp=63.7) | 2.5M tok | ETA 0.8h
+    [adaptive_sqrtd/L8] Checkpoint saved at 5% (610 steps)
+    [adaptive_sqrtd/L8] step   800/12207 | loss=4.8 | L0=1 | FVE=0.0071 | dead=0.927 | a=-0.0008 | b=4.152(exp=63.6) | 3.3M tok | ETA 0.9h
+    [adaptive_sqrtd/L8] step  1000/12207 | loss=4.7 | L0=2 | FVE=0.0211 | dead=0.951 | a=-0.0008 | b=4.149(exp=63.4) | 4.1M tok | ETA 0.9h
+    [adaptive_sqrtd/L8] step  1200/12207 | loss=4.7 | L0=2 | FVE=0.0264 | dead=0.966 | a=-0.0008 | b=4.147(exp=63.2) | 4.9M tok | ETA 0.8h
+    [adaptive_sqrtd/L8] Checkpoint saved at 10% (1220 steps)
+    [adaptive_sqrtd/L8] step  1400/12207 | loss=4.6 | L0=3 | FVE=0.0338 | dead=0.971 | a=-0.0008 | b=4.145(exp=63.1) | 5.7M tok | ETA 0.8h
+    [adaptive_sqrtd/L8] step  1600/12207 | loss=4.6 | L0=3 | FVE=0.0403 | dead=0.979 | a=-0.0008 | b=4.142(exp=62.9) | 6.6M tok | ETA 0.8h
+    [adaptive_sqrtd/L8] step  1800/12207 | loss=4.6 | L0=3 | FVE=0.0365 | dead=0.983 | a=-0.0008 | b=4.140(exp=62.8) | 7.4M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] step  2000/12207 | loss=4.6 | L0=3 | FVE=0.0373 | dead=0.985 | a=-0.0008 | b=4.137(exp=62.6) | 8.2M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] step  2200/12207 | loss=4.6 | L0=3 | FVE=0.0362 | dead=0.987 | a=-0.0008 | b=4.135(exp=62.5) | 9.0M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] step  2400/12207 | loss=4.6 | L0=4 | FVE=0.0507 | dead=0.987 | a=-0.0009 | b=4.133(exp=62.3) | 9.8M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] Checkpoint saved at 20% (2441 steps)
+    [adaptive_sqrtd/L8] step  2600/12207 | loss=4.5 | L0=4 | FVE=0.0520 | dead=0.988 | a=-0.0009 | b=4.130(exp=62.2) | 10.6M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] step  2800/12207 | loss=4.6 | L0=4 | FVE=0.0526 | dead=0.990 | a=-0.0009 | b=4.128(exp=62.1) | 11.5M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] step  3000/12207 | loss=4.5 | L0=5 | FVE=0.0580 | dead=0.992 | a=-0.0009 | b=4.126(exp=61.9) | 12.3M tok | ETA 0.7h
+    [adaptive_sqrtd/L8] step  3200/12207 | loss=4.5 | L0=5 | FVE=0.0546 | dead=0.993 | a=-0.0009 | b=4.124(exp=61.8) | 13.1M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  3400/12207 | loss=4.5 | L0=5 | FVE=0.0532 | dead=0.993 | a=-0.0009 | b=4.121(exp=61.6) | 13.9M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  3600/12207 | loss=4.5 | L0=5 | FVE=0.0546 | dead=0.993 | a=-0.0009 | b=4.119(exp=61.5) | 14.7M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  3800/12207 | loss=4.5 | L0=5 | FVE=0.0560 | dead=0.995 | a=-0.0009 | b=4.117(exp=61.4) | 15.6M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  4000/12207 | loss=4.5 | L0=5 | FVE=0.0568 | dead=0.994 | a=-0.0009 | b=4.115(exp=61.3) | 16.4M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  4200/12207 | loss=4.5 | L0=5 | FVE=0.0567 | dead=0.995 | a=-0.0009 | b=4.113(exp=61.1) | 17.2M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  4400/12207 | loss=4.6 | L0=5 | FVE=0.0557 | dead=0.996 | a=-0.0009 | b=4.111(exp=61.0) | 18.0M tok | ETA 0.6h
+    [adaptive_sqrtd/L8] step  4600/12207 | loss=4.6 | L0=5 | FVE=0.0549 | dead=0.997 | a=-0.0009 | b=4.109(exp=60.9) | 18.8M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  4800/12207 | loss=4.6 | L0=5 | FVE=0.0601 | dead=0.996 | a=-0.0009 | b=4.108(exp=60.8) | 19.7M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] Checkpoint saved at 40% (4882 steps)
+    [adaptive_sqrtd/L8] step  5000/12207 | loss=4.5 | L0=5 | FVE=0.0553 | dead=0.996 | a=-0.0009 | b=4.106(exp=60.7) | 20.5M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  5200/12207 | loss=4.5 | L0=5 | FVE=0.0543 | dead=0.997 | a=-0.0009 | b=4.104(exp=60.6) | 21.3M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  5400/12207 | loss=4.5 | L0=5 | FVE=0.0567 | dead=0.997 | a=-0.0010 | b=4.103(exp=60.5) | 22.1M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  5600/12207 | loss=4.5 | L0=5 | FVE=0.0548 | dead=0.997 | a=-0.0010 | b=4.101(exp=60.4) | 22.9M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  5800/12207 | loss=4.5 | L0=5 | FVE=0.0565 | dead=0.997 | a=-0.0010 | b=4.100(exp=60.3) | 23.8M tok | ETA 0.5h
+    [adaptive_sqrtd/L8] step  6000/12207 | loss=4.5 | L0=5 | FVE=0.0565 | dead=0.998 | a=-0.0010 | b=4.098(exp=60.2) | 24.6M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  6200/12207 | loss=4.5 | L0=5 | FVE=0.0544 | dead=0.998 | a=-0.0010 | b=4.097(exp=60.2) | 25.4M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  6400/12207 | loss=4.6 | L0=5 | FVE=0.0589 | dead=0.998 | a=-0.0010 | b=4.096(exp=60.1) | 26.2M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  6600/12207 | loss=4.6 | L0=5 | FVE=0.0568 | dead=0.998 | a=-0.0010 | b=4.095(exp=60.0) | 27.0M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  6800/12207 | loss=4.5 | L0=5 | FVE=0.0585 | dead=0.999 | a=-0.0010 | b=4.093(exp=59.9) | 27.9M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  7000/12207 | loss=4.5 | L0=5 | FVE=0.0563 | dead=0.998 | a=-0.0010 | b=4.092(exp=59.9) | 28.7M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] step  7200/12207 | loss=4.5 | L0=5 | FVE=0.0568 | dead=0.999 | a=-0.0010 | b=4.091(exp=59.8) | 29.5M tok | ETA 0.4h
+    [adaptive_sqrtd/L8] Checkpoint saved at 60% (7324 steps)
+    [adaptive_sqrtd/L8] step  7400/12207 | loss=4.5 | L0=5 | FVE=0.0568 | dead=0.998 | a=-0.0010 | b=4.090(exp=59.8) | 30.3M tok | ETA 0.3h
+    [adaptive_sqrtd/L8] step  7600/12207 | loss=4.5 | L0=5 | FVE=0.0558 | dead=0.999 | a=-0.0010 | b=4.090(exp=59.7) | 31.1M tok | ETA 0.3h
+    [adaptive_sqrtd/L8] step  7800/12207 | loss=4.5 | L0=5 | FVE=0.0562 | dead=0.998 | a=-0.0010 | b=4.089(exp=59.7) | 31.9M tok | ETA 0.3h
+    [adaptive_sqrtd/L8] step  8000/12207 | loss=4.5 | L0=5 | FVE=0.0583 | dead=0.998 | a=-0.0010 | b=4.088(exp=59.6) | 32.8M tok | ETA 0.3h
+    [adaptive_sqrtd/L8] step  8200/12207 | loss=4.5 | L0=5 | FVE=0.0560 | dead=0.999 | a=-0.0010 | b=4.087(exp=59.6) | 33.6M tok | ETA 0.3h
+    [adaptive_sqrtd/L8] step  8400/12207 | loss=4.5 | L0=5 | FVE=0.0587 | dead=0.999 | a=-0.0010 | b=4.087(exp=59.5) | 34.4M tok | ETA 0.3h
+    [adaptive_sqrtd/L8] step  8600/12207 | loss=4.5 | L0=5 | FVE=0.0587 | dead=0.998 | a=-0.0010 | b=4.086(exp=59.5) | 35.2M tok | ETA 0.3h
+    [adaptive_sqrtd/L8] step  8800/12207 | loss=4.6 | L0=5 | FVE=0.0578 | dead=0.999 | a=-0.0010 | b=4.086(exp=59.5) | 36.0M tok | ETA 0.2h
+    [adaptive_sqrtd/L8] step  9000/12207 | loss=4.5 | L0=5 | FVE=0.0582 | dead=0.998 | a=-0.0010 | b=4.085(exp=59.4) | 36.9M tok | ETA 0.2h
+    [adaptive_sqrtd/L8] step  9200/12207 | loss=4.5 | L0=5 | FVE=0.0593 | dead=0.999 | a=-0.0010 | b=4.085(exp=59.4) | 37.7M tok | ETA 0.2h
+    [adaptive_sqrtd/L8] step  9400/12207 | loss=4.5 | L0=5 | FVE=0.0566 | dead=0.999 | a=-0.0010 | b=4.084(exp=59.4) | 38.5M tok | ETA 0.2h
+    [adaptive_sqrtd/L8] step  9600/12207 | loss=4.5 | L0=5 | FVE=0.0570 | dead=0.999 | a=-0.0010 | b=4.084(exp=59.4) | 39.3M tok | ETA 0.2h
+    [adaptive_sqrtd/L8] Checkpoint saved at 80% (9765 steps)
+    [adaptive_sqrtd/L8] step  9800/12207 | loss=4.5 | L0=5 | FVE=0.0579 | dead=0.998 | a=-0.0010 | b=4.084(exp=59.4) | 40.1M tok | ETA 0.2h
+    [adaptive_sqrtd/L8] step 10000/12207 | loss=4.5 | L0=5 | FVE=0.0597 | dead=0.998 | a=-0.0010 | b=4.083(exp=59.3) | 41.0M tok | ETA 0.2h
+    [adaptive_sqrtd/L8] step 10200/12207 | loss=4.5 | L0=5 | FVE=0.0605 | dead=0.998 | a=-0.0009 | b=4.083(exp=59.3) | 41.8M tok | ETA 0.1h
+    [adaptive_sqrtd/L8] step 10400/12207 | loss=4.5 | L0=5 | FVE=0.0582 | dead=0.998 | a=-0.0009 | b=4.083(exp=59.3) | 42.6M tok | ETA 0.1h
+    [adaptive_sqrtd/L8] step 10600/12207 | loss=4.5 | L0=5 | FVE=0.0604 | dead=0.998 | a=-0.0009 | b=4.083(exp=59.3) | 43.4M tok | ETA 0.1h
+    [adaptive_sqrtd/L8] step 10800/12207 | loss=4.5 | L0=5 | FVE=0.0600 | dead=0.999 | a=-0.0009 | b=4.083(exp=59.3) | 44.2M tok | ETA 0.1h
+    [adaptive_sqrtd/L8] step 11000/12207 | loss=4.5 | L0=5 | FVE=0.0592 | dead=0.998 | a=-0.0009 | b=4.083(exp=59.3) | 45.1M tok | ETA 0.1h
+    [adaptive_sqrtd/L8] step 11200/12207 | loss=4.5 | L0=5 | FVE=0.0586 | dead=0.998 | a=-0.0009 | b=4.083(exp=59.3) | 45.9M tok | ETA 0.1h
+    [adaptive_sqrtd/L8] step 11400/12207 | loss=4.5 | L0=5 | FVE=0.0579 | dead=0.999 | a=-0.0009 | b=4.082(exp=59.3) | 46.7M tok | ETA 0.1h
+    [adaptive_sqrtd/L8] step 11600/12207 | loss=4.5 | L0=5 | FVE=0.0592 | dead=0.999 | a=-0.0009 | b=4.082(exp=59.3) | 47.5M tok | ETA 0.0h
+    [adaptive_sqrtd/L8] step 11800/12207 | loss=4.5 | L0=5 | FVE=0.0599 | dead=0.998 | a=-0.0009 | b=4.082(exp=59.3) | 48.3M tok | ETA 0.0h
+    [adaptive_sqrtd/L8] step 12000/12207 | loss=4.5 | L0=5 | FVE=0.0599 | dead=0.998 | a=-0.0009 | b=4.082(exp=59.3) | 49.2M tok | ETA 0.0h
+    [adaptive_sqrtd/L8] step 12200/12207 | loss=4.5 | L0=5 | FVE=0.0580 | dead=0.999 | a=-0.0009 | b=4.082(exp=59.3) | 50.0M tok | ETA 0.0h
+    [adaptive_sqrtd/L8] step 12207/12207 | loss=4.5 | L0=5 | FVE=0.0591 | dead=0.997 | a=-0.0009 | b=4.082(exp=59.3) | 50.0M tok | ETA 0.0h
+    [adaptive_sqrtd/L8] Checkpoint saved at 100% (12207 steps)
+    [adaptive_sqrtd/L8] Done in 0.9h (3120s)
+    Checkpoint 2%: FVE=-0.0165, dead=0.000, alive=16384
+    Checkpoint 5%: FVE=-0.0102, dead=0.000, alive=16382
+    Checkpoint 10%: FVE=0.0245, dead=0.012, alive=16185
+    Checkpoint 20%: FVE=0.0478, dead=0.131, alive=14230
+    Checkpoint 40%: FVE=0.0553, dead=0.550, alive=7372
+    Checkpoint 60%: FVE=0.0568, dead=0.722, alive=4562
+    Checkpoint 80%: FVE=0.0582, dead=0.735, alive=4334
+
+  Full evaluation -- adaptive_sqrtd_L8
+    [adaptive_sqrtd/L8] FVE=0.0588 | dead=0.647 | alive=5779/16384 | L0=5
+
+    Ablation [adaptive_sqrtd/L8] (100 feats, 200 samples)...
+    [adaptive_sqrtd/L8] 1078 alive features (of 16384)
+      feat 13688 | n=200 | cos->KL=0.438 | inner->KL=0.432 | SAE->KL=0.191
+      feat 14683 | n=200 | cos->KL=0.167 | inner->KL=0.214 | SAE->KL=0.083
+      feat  5949 | n=200 | cos->KL=-0.395 | inner->KL=-0.386 | SAE->KL=-0.189
+      feat 10750 | n=200 | cos->KL=0.409 | inner->KL=0.384 | SAE->KL=0.294
+      feat 10948 | n=200 | cos->KL=-0.008 | inner->KL=0.038 | SAE->KL=0.134
+    [adaptive_sqrtd/L8] Summary (5 features): cos->KL=0.1222 | SAE->KL=0.1027 | cos>inner: 3/5
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: adaptive_norm_L8 (encoder=adaptive_norm, init=norm_adaptive, layer=8)
+======================================================================
+    NORM-ADAPTIVE init: scale_b = log(2.3) = 0.8263 (exp=2.3)
+    Parameters: 134,238,210
+
+  Training adaptive_norm/L8 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 0.8263 (exp=2.3)
+    [adaptive_norm/L8] step   200/12207 | loss=3.6 | L0=80 | FVE=0.2438 | dead=0.097 | a=0.0000 | b=0.826(exp=2.3) | 0.8M tok | ETA 1.0h
+    [adaptive_norm/L8] Checkpoint saved at 2% (244 steps)
+    [adaptive_norm/L8] step   400/12207 | loss=2.7 | L0=80 | FVE=0.4328 | dead=0.565 | a=0.0165 | b=0.838(exp=2.3) | 1.6M tok | ETA 1.0h
+    [adaptive_norm/L8] step   600/12207 | loss=2.3 | L0=80 | FVE=0.5253 | dead=0.657 | a=0.0559 | b=0.870(exp=2.4) | 2.5M tok | ETA 0.8h
+    [adaptive_norm/L8] Checkpoint saved at 5% (610 steps)
+    [adaptive_norm/L8] step   800/12207 | loss=2.2 | L0=80 | FVE=0.5532 | dead=0.673 | a=0.0831 | b=0.887(exp=2.4) | 3.3M tok | ETA 0.9h
+    [adaptive_norm/L8] step  1000/12207 | loss=2.1 | L0=80 | FVE=0.5564 | dead=0.678 | a=0.0949 | b=0.887(exp=2.4) | 4.1M tok | ETA 0.9h
+    [adaptive_norm/L8] step  1200/12207 | loss=2.0 | L0=80 | FVE=0.5899 | dead=0.675 | a=0.1005 | b=0.879(exp=2.4) | 4.9M tok | ETA 0.8h
+    [adaptive_norm/L8] Checkpoint saved at 10% (1220 steps)
+    [adaptive_norm/L8] step  1400/12207 | loss=2.0 | L0=80 | FVE=0.5899 | dead=0.674 | a=0.1013 | b=0.864(exp=2.4) | 5.7M tok | ETA 0.8h
+    [adaptive_norm/L8] step  1600/12207 | loss=2.0 | L0=80 | FVE=0.5812 | dead=0.673 | a=0.1017 | b=0.846(exp=2.3) | 6.6M tok | ETA 0.8h
+    [adaptive_norm/L8] step  1800/12207 | loss=1.9 | L0=80 | FVE=0.6035 | dead=0.672 | a=0.1026 | b=0.827(exp=2.3) | 7.4M tok | ETA 0.7h
+    [adaptive_norm/L8] step  2000/12207 | loss=1.9 | L0=80 | FVE=0.5985 | dead=0.667 | a=0.1022 | b=0.805(exp=2.2) | 8.2M tok | ETA 0.7h
+    [adaptive_norm/L8] step  2200/12207 | loss=2.0 | L0=80 | FVE=0.5840 | dead=0.665 | a=0.1049 | b=0.785(exp=2.2) | 9.0M tok | ETA 0.7h
+    [adaptive_norm/L8] step  2400/12207 | loss=1.9 | L0=80 | FVE=0.6120 | dead=0.664 | a=0.1075 | b=0.763(exp=2.1) | 9.8M tok | ETA 0.7h
+    [adaptive_norm/L8] Checkpoint saved at 20% (2441 steps)
+    [adaptive_norm/L8] step  2600/12207 | loss=1.9 | L0=80 | FVE=0.6048 | dead=0.663 | a=0.1094 | b=0.739(exp=2.1) | 10.6M tok | ETA 0.7h
+    [adaptive_norm/L8] step  2800/12207 | loss=1.8 | L0=80 | FVE=0.6185 | dead=0.660 | a=0.1179 | b=0.719(exp=2.1) | 11.5M tok | ETA 0.7h
+    [adaptive_norm/L8] step  3000/12207 | loss=1.8 | L0=80 | FVE=0.6181 | dead=0.657 | a=0.1225 | b=0.695(exp=2.0) | 12.3M tok | ETA 0.7h
+    [adaptive_norm/L8] step  3200/12207 | loss=1.9 | L0=80 | FVE=0.6042 | dead=0.655 | a=0.1288 | b=0.673(exp=2.0) | 13.1M tok | ETA 0.7h
+    [adaptive_norm/L8] step  3400/12207 | loss=1.8 | L0=80 | FVE=0.6180 | dead=0.651 | a=0.1382 | b=0.652(exp=1.9) | 13.9M tok | ETA 0.6h
+    [adaptive_norm/L8] step  3600/12207 | loss=1.8 | L0=80 | FVE=0.6142 | dead=0.649 | a=0.1453 | b=0.629(exp=1.9) | 14.7M tok | ETA 0.6h
+    [adaptive_norm/L8] step  3800/12207 | loss=1.9 | L0=80 | FVE=0.6072 | dead=0.647 | a=0.1544 | b=0.608(exp=1.8) | 15.6M tok | ETA 0.6h
+    [adaptive_norm/L8] step  4000/12207 | loss=1.8 | L0=80 | FVE=0.6241 | dead=0.643 | a=0.1660 | b=0.589(exp=1.8) | 16.4M tok | ETA 0.6h
+    [adaptive_norm/L8] step  4200/12207 | loss=1.8 | L0=80 | FVE=0.6202 | dead=0.640 | a=0.1732 | b=0.567(exp=1.8) | 17.2M tok | ETA 0.6h
+    [adaptive_norm/L8] step  4400/12207 | loss=1.9 | L0=80 | FVE=0.6048 | dead=0.636 | a=0.1851 | b=0.549(exp=1.7) | 18.0M tok | ETA 0.6h
+    [adaptive_norm/L8] step  4600/12207 | loss=1.8 | L0=80 | FVE=0.6244 | dead=0.632 | a=0.1953 | b=0.530(exp=1.7) | 18.8M tok | ETA 0.5h
+    [adaptive_norm/L8] step  4800/12207 | loss=1.8 | L0=80 | FVE=0.6234 | dead=0.628 | a=0.2044 | b=0.511(exp=1.7) | 19.7M tok | ETA 0.5h
+    [adaptive_norm/L8] Checkpoint saved at 40% (4882 steps)
+    [adaptive_norm/L8] step  5000/12207 | loss=1.8 | L0=80 | FVE=0.6296 | dead=0.622 | a=0.2167 | b=0.496(exp=1.6) | 20.5M tok | ETA 0.5h
+    [adaptive_norm/L8] step  5200/12207 | loss=1.8 | L0=80 | FVE=0.6240 | dead=0.618 | a=0.2251 | b=0.477(exp=1.6) | 21.3M tok | ETA 0.5h
+    [adaptive_norm/L8] step  5400/12207 | loss=1.8 | L0=80 | FVE=0.6191 | dead=0.614 | a=0.2339 | b=0.460(exp=1.6) | 22.1M tok | ETA 0.5h
+    [adaptive_norm/L8] step  5600/12207 | loss=1.8 | L0=80 | FVE=0.6305 | dead=0.606 | a=0.2456 | b=0.447(exp=1.6) | 22.9M tok | ETA 0.5h
+    [adaptive_norm/L8] step  5800/12207 | loss=1.8 | L0=80 | FVE=0.6243 | dead=0.601 | a=0.2530 | b=0.431(exp=1.5) | 23.8M tok | ETA 0.5h
+    [adaptive_norm/L8] step  6000/12207 | loss=1.8 | L0=80 | FVE=0.6165 | dead=0.598 | a=0.2619 | b=0.417(exp=1.5) | 24.6M tok | ETA 0.4h
+    [adaptive_norm/L8] step  6200/12207 | loss=1.8 | L0=80 | FVE=0.6298 | dead=0.592 | a=0.2711 | b=0.405(exp=1.5) | 25.4M tok | ETA 0.4h
+    [adaptive_norm/L8] step  6400/12207 | loss=1.8 | L0=80 | FVE=0.6313 | dead=0.588 | a=0.2786 | b=0.392(exp=1.5) | 26.2M tok | ETA 0.4h
+    [adaptive_norm/L8] step  6600/12207 | loss=1.8 | L0=80 | FVE=0.6179 | dead=0.585 | a=0.2868 | b=0.381(exp=1.5) | 27.0M tok | ETA 0.4h
+    [adaptive_norm/L8] step  6800/12207 | loss=1.7 | L0=80 | FVE=0.6344 | dead=0.576 | a=0.2943 | b=0.371(exp=1.4) | 27.9M tok | ETA 0.4h
+    [adaptive_norm/L8] step  7000/12207 | loss=1.8 | L0=80 | FVE=0.6287 | dead=0.573 | a=0.3002 | b=0.360(exp=1.4) | 28.7M tok | ETA 0.4h
+    [adaptive_norm/L8] step  7200/12207 | loss=1.8 | L0=80 | FVE=0.6200 | dead=0.567 | a=0.3090 | b=0.353(exp=1.4) | 29.5M tok | ETA 0.4h
+    [adaptive_norm/L8] Checkpoint saved at 60% (7324 steps)
+    [adaptive_norm/L8] step  7400/12207 | loss=1.8 | L0=80 | FVE=0.6318 | dead=0.563 | a=0.3139 | b=0.344(exp=1.4) | 30.3M tok | ETA 0.3h
+    [adaptive_norm/L8] step  7600/12207 | loss=1.8 | L0=80 | FVE=0.6278 | dead=0.560 | a=0.3192 | b=0.336(exp=1.4) | 31.1M tok | ETA 0.3h
+    [adaptive_norm/L8] step  7800/12207 | loss=1.7 | L0=80 | FVE=0.6365 | dead=0.556 | a=0.3261 | b=0.330(exp=1.4) | 31.9M tok | ETA 0.3h
+    [adaptive_norm/L8] step  8000/12207 | loss=1.8 | L0=80 | FVE=0.6330 | dead=0.553 | a=0.3308 | b=0.323(exp=1.4) | 32.8M tok | ETA 0.3h
+    [adaptive_norm/L8] step  8200/12207 | loss=1.8 | L0=80 | FVE=0.6269 | dead=0.550 | a=0.3351 | b=0.317(exp=1.4) | 33.6M tok | ETA 0.3h
+    [adaptive_norm/L8] step  8400/12207 | loss=1.7 | L0=80 | FVE=0.6366 | dead=0.544 | a=0.3403 | b=0.312(exp=1.4) | 34.4M tok | ETA 0.3h
+    [adaptive_norm/L8] step  8600/12207 | loss=1.7 | L0=80 | FVE=0.6351 | dead=0.542 | a=0.3439 | b=0.307(exp=1.4) | 35.2M tok | ETA 0.3h
+    [adaptive_norm/L8] step  8800/12207 | loss=1.8 | L0=80 | FVE=0.6272 | dead=0.539 | a=0.3478 | b=0.303(exp=1.4) | 36.0M tok | ETA 0.2h
+    [adaptive_norm/L8] step  9000/12207 | loss=1.7 | L0=80 | FVE=0.6368 | dead=0.535 | a=0.3517 | b=0.300(exp=1.3) | 36.9M tok | ETA 0.2h
+    [adaptive_norm/L8] step  9200/12207 | loss=1.8 | L0=80 | FVE=0.6351 | dead=0.534 | a=0.3545 | b=0.296(exp=1.3) | 37.7M tok | ETA 0.2h
+    [adaptive_norm/L8] step  9400/12207 | loss=1.8 | L0=80 | FVE=0.6240 | dead=0.528 | a=0.3577 | b=0.293(exp=1.3) | 38.5M tok | ETA 0.2h
+    [adaptive_norm/L8] step  9600/12207 | loss=1.8 | L0=80 | FVE=0.6335 | dead=0.527 | a=0.3601 | b=0.291(exp=1.3) | 39.3M tok | ETA 0.2h
+    [adaptive_norm/L8] Checkpoint saved at 80% (9765 steps)
+    [adaptive_norm/L8] step  9800/12207 | loss=1.8 | L0=80 | FVE=0.6319 | dead=0.526 | a=0.3621 | b=0.288(exp=1.3) | 40.1M tok | ETA 0.2h
+    [adaptive_norm/L8] step 10000/12207 | loss=1.7 | L0=80 | FVE=0.6356 | dead=0.522 | a=0.3645 | b=0.287(exp=1.3) | 41.0M tok | ETA 0.2h
+    [adaptive_norm/L8] step 10200/12207 | loss=1.8 | L0=80 | FVE=0.6363 | dead=0.522 | a=0.3658 | b=0.285(exp=1.3) | 41.8M tok | ETA 0.1h
+    [adaptive_norm/L8] step 10400/12207 | loss=1.8 | L0=80 | FVE=0.6286 | dead=0.522 | a=0.3670 | b=0.283(exp=1.3) | 42.6M tok | ETA 0.1h
+    [adaptive_norm/L8] step 10600/12207 | loss=1.8 | L0=80 | FVE=0.6360 | dead=0.519 | a=0.3682 | b=0.282(exp=1.3) | 43.4M tok | ETA 0.1h
+    [adaptive_norm/L8] step 10800/12207 | loss=1.8 | L0=80 | FVE=0.6344 | dead=0.520 | a=0.3690 | b=0.281(exp=1.3) | 44.2M tok | ETA 0.1h
+    [adaptive_norm/L8] step 11000/12207 | loss=1.8 | L0=80 | FVE=0.6328 | dead=0.520 | a=0.3697 | b=0.281(exp=1.3) | 45.1M tok | ETA 0.1h
+    [adaptive_norm/L8] step 11200/12207 | loss=1.8 | L0=80 | FVE=0.6332 | dead=0.519 | a=0.3701 | b=0.280(exp=1.3) | 45.9M tok | ETA 0.1h
+    [adaptive_norm/L8] step 11400/12207 | loss=1.8 | L0=80 | FVE=0.6307 | dead=0.518 | a=0.3705 | b=0.280(exp=1.3) | 46.7M tok | ETA 0.1h
+    [adaptive_norm/L8] step 11600/12207 | loss=1.8 | L0=80 | FVE=0.6317 | dead=0.519 | a=0.3707 | b=0.279(exp=1.3) | 47.5M tok | ETA 0.0h
+    [adaptive_norm/L8] step 11800/12207 | loss=1.8 | L0=80 | FVE=0.6330 | dead=0.519 | a=0.3708 | b=0.279(exp=1.3) | 48.3M tok | ETA 0.0h
+    [adaptive_norm/L8] step 12000/12207 | loss=1.8 | L0=80 | FVE=0.6334 | dead=0.519 | a=0.3708 | b=0.279(exp=1.3) | 49.2M tok | ETA 0.0h
+    [adaptive_norm/L8] step 12200/12207 | loss=1.8 | L0=80 | FVE=0.6314 | dead=0.519 | a=0.3708 | b=0.279(exp=1.3) | 50.0M tok | ETA 0.0h
+    [adaptive_norm/L8] step 12207/12207 | loss=1.8 | L0=80 | FVE=0.6327 | dead=0.518 | a=0.3708 | b=0.279(exp=1.3) | 50.0M tok | ETA 0.0h
+    [adaptive_norm/L8] Checkpoint saved at 100% (12207 steps)
+    [adaptive_norm/L8] Done in 0.9h (3146s)
+    Checkpoint 2%: FVE=0.2866, dead=0.000, alive=16379
+    Checkpoint 5%: FVE=0.4949, dead=0.007, alive=16265
+    Checkpoint 10%: FVE=0.5594, dead=0.085, alive=14999
+    Checkpoint 20%: FVE=0.5860, dead=0.215, alive=12858
+    Checkpoint 40%: FVE=0.6038, dead=0.331, alive=10954
+    Checkpoint 60%: FVE=0.6178, dead=0.375, alive=10237
+    Checkpoint 80%: FVE=0.6265, dead=0.398, alive=9863
+
+  Full evaluation -- adaptive_norm_L8
+    [adaptive_norm/L8] FVE=0.6289 | dead=0.402 | alive=9794/16384 | L0=80
+
+    Ablation [adaptive_norm/L8] (100 feats, 200 samples)...
+    [adaptive_norm/L8] 8367 alive features (of 16384)
+      feat  7125 | n=200 | cos->KL=0.101 | inner->KL=0.063 | SAE->KL=0.086
+      feat  1120 | n=200 | cos->KL=0.600 | inner->KL=0.597 | SAE->KL=0.546
+      feat 15089 | n=200 | cos->KL=0.179 | inner->KL=0.171 | SAE->KL=0.152
+      feat  4584 | n=200 | cos->KL=0.442 | inner->KL=0.461 | SAE->KL=0.437
+      feat 10476 | n=200 | cos->KL=0.634 | inner->KL=0.640 | SAE->KL=0.509
+      feat  5478 | n=200 | cos->KL=0.471 | inner->KL=0.434 | SAE->KL=0.123
+      feat  6184 | n=200 | cos->KL=0.628 | inner->KL=0.599 | SAE->KL=0.352
+      feat 12011 | n=200 | cos->KL=0.481 | inner->KL=0.456 | SAE->KL=0.596
+    [adaptive_norm/L8] Summary (100 features): cos->KL=0.4263 | SAE->KL=0.3740 | cos>inner: 82/100
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: group_G4_sqrtd_L8 (encoder=group_G4_sqrtd, init=sqrt_d, layer=8)
+======================================================================
+    SQRT(D) init: scale_b = log(64.0) = 4.1589 (exp=64.0, mismatch=28.0x)
+    Parameters: 134,238,216
+
+  Training group_G4_sqrtd/L8 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 4.1589 (exp=64.0)
+    [group_G4_sqrtd/L8] step   200/12207 | loss=5.4 | L0=3 | FVE=-0.0175 | dead=0.496 | a=-0.0008±0.0000 | b=4.158(exp=63.9) | 0.8M tok | ETA 1.0h
+    [group_G4_sqrtd/L8] Checkpoint saved at 2% (244 steps)
+    [group_G4_sqrtd/L8] step   400/12207 | loss=5.4 | L0=1 | FVE=-0.0020 | dead=0.782 | a=-0.0008±0.0000 | b=4.156(exp=63.8) | 1.6M tok | ETA 0.9h
+    [group_G4_sqrtd/L8] step   600/12207 | loss=5.3 | L0=1 | FVE=0.0028 | dead=0.861 | a=-0.0008±0.0000 | b=4.154(exp=63.7) | 2.5M tok | ETA 0.8h
+    [group_G4_sqrtd/L8] Checkpoint saved at 5% (610 steps)
+    [group_G4_sqrtd/L8] step   800/12207 | loss=4.8 | L0=1 | FVE=0.0069 | dead=0.927 | a=-0.0008±0.0000 | b=4.152(exp=63.6) | 3.3M tok | ETA 0.8h
+    [group_G4_sqrtd/L8] step  1000/12207 | loss=4.7 | L0=2 | FVE=0.0206 | dead=0.951 | a=-0.0008±0.0000 | b=4.149(exp=63.4) | 4.1M tok | ETA 0.8h
+    [group_G4_sqrtd/L8] step  1200/12207 | loss=4.7 | L0=2 | FVE=0.0262 | dead=0.966 | a=-0.0008±0.0000 | b=4.147(exp=63.2) | 4.9M tok | ETA 0.8h
+    [group_G4_sqrtd/L8] Checkpoint saved at 10% (1220 steps)
+    [group_G4_sqrtd/L8] step  1400/12207 | loss=4.7 | L0=2 | FVE=0.0264 | dead=0.971 | a=-0.0008±0.0000 | b=4.145(exp=63.1) | 5.7M tok | ETA 0.8h
+    [group_G4_sqrtd/L8] step  1600/12207 | loss=4.6 | L0=3 | FVE=0.0402 | dead=0.979 | a=-0.0008±0.0000 | b=4.142(exp=62.9) | 6.6M tok | ETA 0.8h
+    [group_G4_sqrtd/L8] step  1800/12207 | loss=4.6 | L0=3 | FVE=0.0380 | dead=0.984 | a=-0.0008±0.0000 | b=4.140(exp=62.8) | 7.4M tok | ETA 0.7h
+    [group_G4_sqrtd/L8] step  2000/12207 | loss=4.5 | L0=4 | FVE=0.0483 | dead=0.986 | a=-0.0008±0.0000 | b=4.137(exp=62.6) | 8.2M tok | ETA 0.7h
+    [group_G4_sqrtd/L8] step  2200/12207 | loss=4.6 | L0=4 | FVE=0.0463 | dead=0.988 | a=-0.0008±0.0000 | b=4.135(exp=62.5) | 9.0M tok | ETA 0.7h
+    [group_G4_sqrtd/L8] step  2400/12207 | loss=4.6 | L0=4 | FVE=0.0511 | dead=0.988 | a=-0.0009±0.0000 | b=4.133(exp=62.3) | 9.8M tok | ETA 0.7h
+    [group_G4_sqrtd/L8] Checkpoint saved at 20% (2441 steps)
+    [group_G4_sqrtd/L8] step  2600/12207 | loss=4.5 | L0=4 | FVE=0.0522 | dead=0.990 | a=-0.0009±0.0000 | b=4.130(exp=62.2) | 10.6M tok | ETA 0.7h
+    [group_G4_sqrtd/L8] step  2800/12207 | loss=4.6 | L0=4 | FVE=0.0527 | dead=0.990 | a=-0.0009±0.0000 | b=4.128(exp=62.1) | 11.5M tok | ETA 0.7h
+    [group_G4_sqrtd/L8] step  3000/12207 | loss=4.5 | L0=5 | FVE=0.0576 | dead=0.991 | a=-0.0009±0.0000 | b=4.126(exp=61.9) | 12.3M tok | ETA 0.7h
+    [group_G4_sqrtd/L8] step  3200/12207 | loss=4.5 | L0=5 | FVE=0.0545 | dead=0.992 | a=-0.0009±0.0000 | b=4.124(exp=61.8) | 13.1M tok | ETA 0.6h
+    [group_G4_sqrtd/L8] step  3400/12207 | loss=4.5 | L0=5 | FVE=0.0532 | dead=0.992 | a=-0.0009±0.0000 | b=4.121(exp=61.6) | 13.9M tok | ETA 0.6h
+    [group_G4_sqrtd/L8] step  3600/12207 | loss=4.5 | L0=5 | FVE=0.0545 | dead=0.993 | a=-0.0009±0.0000 | b=4.119(exp=61.5) | 14.7M tok | ETA 0.6h
+    [group_G4_sqrtd/L8] step  3800/12207 | loss=4.5 | L0=5 | FVE=0.0565 | dead=0.995 | a=-0.0009±0.0000 | b=4.117(exp=61.4) | 15.6M tok | ETA 0.6h
+    [group_G4_sqrtd/L8] step  4000/12207 | loss=4.5 | L0=5 | FVE=0.0564 | dead=0.994 | a=-0.0009±0.0000 | b=4.115(exp=61.3) | 16.4M tok | ETA 0.6h
+    [group_G4_sqrtd/L8] step  4200/12207 | loss=4.5 | L0=5 | FVE=0.0571 | dead=0.996 | a=-0.0009±0.0000 | b=4.113(exp=61.1) | 17.2M tok | ETA 0.6h
+    [group_G4_sqrtd/L8] step  4400/12207 | loss=4.6 | L0=5 | FVE=0.0557 | dead=0.996 | a=-0.0009±0.0000 | b=4.111(exp=61.0) | 18.0M tok | ETA 0.6h
+    [group_G4_sqrtd/L8] step  4600/12207 | loss=4.6 | L0=5 | FVE=0.0549 | dead=0.997 | a=-0.0009±0.0000 | b=4.109(exp=60.9) | 18.8M tok | ETA 0.5h
+    [group_G4_sqrtd/L8] step  4800/12207 | loss=4.6 | L0=5 | FVE=0.0600 | dead=0.996 | a=-0.0009±0.0001 | b=4.108(exp=60.8) | 19.7M tok | ETA 0.5h
+    [group_G4_sqrtd/L8] Checkpoint saved at 40% (4882 steps)
+    [group_G4_sqrtd/L8] step  5000/12207 | loss=4.5 | L0=5 | FVE=0.0551 | dead=0.996 | a=-0.0009±0.0001 | b=4.106(exp=60.7) | 20.5M tok | ETA 0.5h
+    [group_G4_sqrtd/L8] step  5200/12207 | loss=4.5 | L0=5 | FVE=0.0540 | dead=0.997 | a=-0.0009±0.0001 | b=4.104(exp=60.6) | 21.3M tok | ETA 0.5h
+    [group_G4_sqrtd/L8] step  5400/12207 | loss=4.5 | L0=5 | FVE=0.0568 | dead=0.997 | a=-0.0009±0.0001 | b=4.103(exp=60.5) | 22.1M tok | ETA 0.5h
+    [group_G4_sqrtd/L8] step  5600/12207 | loss=4.5 | L0=5 | FVE=0.0550 | dead=0.997 | a=-0.0010±0.0001 | b=4.101(exp=60.4) | 22.9M tok | ETA 0.5h
+    [group_G4_sqrtd/L8] step  5800/12207 | loss=4.5 | L0=5 | FVE=0.0566 | dead=0.998 | a=-0.0010±0.0001 | b=4.100(exp=60.3) | 23.8M tok | ETA 0.5h
+    [group_G4_sqrtd/L8] step  6000/12207 | loss=4.6 | L0=5 | FVE=0.0558 | dead=0.998 | a=-0.0010±0.0001 | b=4.098(exp=60.2) | 24.6M tok | ETA 0.4h
+    [group_G4_sqrtd/L8] step  6200/12207 | loss=4.5 | L0=5 | FVE=0.0544 | dead=0.998 | a=-0.0010±0.0001 | b=4.097(exp=60.2) | 25.4M tok | ETA 0.4h
+    [group_G4_sqrtd/L8] step  6400/12207 | loss=4.6 | L0=5 | FVE=0.0591 | dead=0.998 | a=-0.0010±0.0001 | b=4.096(exp=60.1) | 26.2M tok | ETA 0.4h
+    [group_G4_sqrtd/L8] step  6600/12207 | loss=4.6 | L0=5 | FVE=0.0569 | dead=0.998 | a=-0.0010±0.0001 | b=4.095(exp=60.0) | 27.0M tok | ETA 0.4h
+    [group_G4_sqrtd/L8] step  6800/12207 | loss=4.5 | L0=5 | FVE=0.0581 | dead=0.998 | a=-0.0010±0.0001 | b=4.093(exp=59.9) | 27.9M tok | ETA 0.4h
+    [group_G4_sqrtd/L8] step  7000/12207 | loss=4.5 | L0=5 | FVE=0.0564 | dead=0.998 | a=-0.0010±0.0001 | b=4.092(exp=59.9) | 28.7M tok | ETA 0.4h
+    [group_G4_sqrtd/L8] step  7200/12207 | loss=4.5 | L0=5 | FVE=0.0567 | dead=0.999 | a=-0.0010±0.0001 | b=4.091(exp=59.8) | 29.5M tok | ETA 0.4h
+    [group_G4_sqrtd/L8] Checkpoint saved at 60% (7324 steps)
+    [group_G4_sqrtd/L8] step  7400/12207 | loss=4.5 | L0=5 | FVE=0.0566 | dead=0.999 | a=-0.0010±0.0001 | b=4.090(exp=59.8) | 30.3M tok | ETA 0.3h
+    [group_G4_sqrtd/L8] step  7600/12207 | loss=4.5 | L0=5 | FVE=0.0559 | dead=0.998 | a=-0.0010±0.0001 | b=4.090(exp=59.7) | 31.1M tok | ETA 0.3h
+    [group_G4_sqrtd/L8] step  7800/12207 | loss=4.5 | L0=5 | FVE=0.0561 | dead=0.998 | a=-0.0010±0.0002 | b=4.089(exp=59.7) | 31.9M tok | ETA 0.3h
+    [group_G4_sqrtd/L8] step  8000/12207 | loss=4.5 | L0=5 | FVE=0.0582 | dead=0.998 | a=-0.0010±0.0002 | b=4.088(exp=59.6) | 32.8M tok | ETA 0.3h
+    [group_G4_sqrtd/L8] step  8200/12207 | loss=4.5 | L0=5 | FVE=0.0558 | dead=0.998 | a=-0.0010±0.0002 | b=4.087(exp=59.6) | 33.6M tok | ETA 0.3h
+    [group_G4_sqrtd/L8] step  8400/12207 | loss=4.5 | L0=5 | FVE=0.0585 | dead=0.998 | a=-0.0010±0.0002 | b=4.087(exp=59.5) | 34.4M tok | ETA 0.3h
+    [group_G4_sqrtd/L8] step  8600/12207 | loss=4.5 | L0=5 | FVE=0.0587 | dead=0.998 | a=-0.0010±0.0002 | b=4.086(exp=59.5) | 35.2M tok | ETA 0.3h
+    [group_G4_sqrtd/L8] step  8800/12207 | loss=4.6 | L0=5 | FVE=0.0578 | dead=0.999 | a=-0.0010±0.0002 | b=4.086(exp=59.5) | 36.0M tok | ETA 0.2h
+    [group_G4_sqrtd/L8] step  9000/12207 | loss=4.5 | L0=5 | FVE=0.0582 | dead=0.999 | a=-0.0010±0.0002 | b=4.085(exp=59.4) | 36.9M tok | ETA 0.2h
+    [group_G4_sqrtd/L8] step  9200/12207 | loss=4.5 | L0=5 | FVE=0.0594 | dead=0.999 | a=-0.0010±0.0003 | b=4.085(exp=59.4) | 37.7M tok | ETA 0.2h
+    [group_G4_sqrtd/L8] step  9400/12207 | loss=4.5 | L0=5 | FVE=0.0563 | dead=0.999 | a=-0.0010±0.0003 | b=4.084(exp=59.4) | 38.5M tok | ETA 0.2h
+    [group_G4_sqrtd/L8] step  9600/12207 | loss=4.5 | L0=5 | FVE=0.0567 | dead=0.998 | a=-0.0010±0.0003 | b=4.084(exp=59.4) | 39.3M tok | ETA 0.2h
+    [group_G4_sqrtd/L8] Checkpoint saved at 80% (9765 steps)
+    [group_G4_sqrtd/L8] step  9800/12207 | loss=4.5 | L0=5 | FVE=0.0579 | dead=0.998 | a=-0.0010±0.0003 | b=4.084(exp=59.4) | 40.1M tok | ETA 0.2h
+    [group_G4_sqrtd/L8] step 10000/12207 | loss=4.5 | L0=5 | FVE=0.0597 | dead=0.998 | a=-0.0010±0.0003 | b=4.083(exp=59.3) | 41.0M tok | ETA 0.2h
+    [group_G4_sqrtd/L8] step 10200/12207 | loss=4.5 | L0=5 | FVE=0.0607 | dead=0.999 | a=-0.0009±0.0003 | b=4.083(exp=59.3) | 41.8M tok | ETA 0.1h
+    [group_G4_sqrtd/L8] step 10400/12207 | loss=4.5 | L0=5 | FVE=0.0582 | dead=0.998 | a=-0.0009±0.0004 | b=4.083(exp=59.3) | 42.6M tok | ETA 0.1h
+    [group_G4_sqrtd/L8] step 10600/12207 | loss=4.5 | L0=5 | FVE=0.0604 | dead=0.999 | a=-0.0009±0.0004 | b=4.083(exp=59.3) | 43.4M tok | ETA 0.1h
+    [group_G4_sqrtd/L8] step 10800/12207 | loss=4.5 | L0=5 | FVE=0.0599 | dead=0.998 | a=-0.0009±0.0004 | b=4.083(exp=59.3) | 44.2M tok | ETA 0.1h
+    [group_G4_sqrtd/L8] step 11000/12207 | loss=4.5 | L0=5 | FVE=0.0592 | dead=0.999 | a=-0.0009±0.0004 | b=4.083(exp=59.3) | 45.1M tok | ETA 0.1h
+    [group_G4_sqrtd/L8] step 11200/12207 | loss=4.5 | L0=5 | FVE=0.0590 | dead=0.998 | a=-0.0009±0.0004 | b=4.083(exp=59.3) | 45.9M tok | ETA 0.1h
+    [group_G4_sqrtd/L8] step 11400/12207 | loss=4.5 | L0=5 | FVE=0.0580 | dead=0.999 | a=-0.0009±0.0004 | b=4.082(exp=59.3) | 46.7M tok | ETA 0.1h
+    [group_G4_sqrtd/L8] step 11600/12207 | loss=4.5 | L0=5 | FVE=0.0592 | dead=0.998 | a=-0.0009±0.0004 | b=4.082(exp=59.3) | 47.5M tok | ETA 0.0h
+    [group_G4_sqrtd/L8] step 11800/12207 | loss=4.5 | L0=5 | FVE=0.0599 | dead=0.998 | a=-0.0009±0.0004 | b=4.082(exp=59.3) | 48.3M tok | ETA 0.0h
+    [group_G4_sqrtd/L8] step 12000/12207 | loss=4.5 | L0=5 | FVE=0.0599 | dead=0.998 | a=-0.0009±0.0004 | b=4.082(exp=59.3) | 49.2M tok | ETA 0.0h
+    [group_G4_sqrtd/L8] step 12200/12207 | loss=4.5 | L0=5 | FVE=0.0580 | dead=0.999 | a=-0.0009±0.0004 | b=4.082(exp=59.3) | 50.0M tok | ETA 0.0h
+    [group_G4_sqrtd/L8] step 12207/12207 | loss=4.5 | L0=5 | FVE=0.0591 | dead=0.998 | a=-0.0009±0.0004 | b=4.082(exp=59.3) | 50.0M tok | ETA 0.0h
+    [group_G4_sqrtd/L8] Checkpoint saved at 100% (12207 steps)
+    [group_G4_sqrtd/L8] Done in 0.9h (3138s)
+    Checkpoint 2%: FVE=-0.0165, dead=0.000, alive=16384
+    Checkpoint 5%: FVE=-0.0121, dead=0.000, alive=16383
+    Checkpoint 10%: FVE=0.0242, dead=0.012, alive=16188
+    Checkpoint 20%: FVE=0.0484, dead=0.132, alive=14220
+    Checkpoint 40%: FVE=0.0553, dead=0.556, alive=7281
+    Checkpoint 60%: FVE=0.0568, dead=0.726, alive=4485
+    Checkpoint 80%: FVE=0.0578, dead=0.739, alive=4281
+
+  Full evaluation -- group_G4_sqrtd_L8
+    [group_G4_sqrtd/L8] FVE=0.0588 | dead=0.658 | alive=5611/16384 | L0=5
+
+    Ablation [group_G4_sqrtd/L8] (100 feats, 200 samples)...
+    [group_G4_sqrtd/L8] 1055 alive features (of 16384)
+      feat 10948 | n=200 | cos->KL=0.369 | inner->KL=0.382 | SAE->KL=0.120
+      feat 13688 | n=200 | cos->KL=0.180 | inner->KL=0.142 | SAE->KL=0.006
+      feat   840 | n=200 | cos->KL=0.033 | inner->KL=0.037 | SAE->KL=0.065
+      feat 10750 | n=200 | cos->KL=0.549 | inner->KL=0.518 | SAE->KL=0.294
+      feat 14683 | n=200 | cos->KL=-0.194 | inner->KL=-0.133 | SAE->KL=-0.149
+    [group_G4_sqrtd/L8] Summary (5 features): cos->KL=0.1875 | SAE->KL=0.0673 | cos>inner: 3/5
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: group_G4_norm_L8 (encoder=group_G4_norm, init=norm_adaptive, layer=8)
+======================================================================
+    NORM-ADAPTIVE init: scale_b = log(2.3) = 0.8263 (exp=2.3)
+    Parameters: 134,238,216
+
+  Training group_G4_norm/L8 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 0.8263 (exp=2.3)
+    [group_G4_norm/L8] step   200/12207 | loss=3.6 | L0=80 | FVE=0.2438 | dead=0.095 | a=0.0000±0.0002 | b=0.826(exp=2.3) | 0.8M tok | ETA 1.0h
+    [group_G4_norm/L8] Checkpoint saved at 2% (244 steps)
+    [group_G4_norm/L8] step   400/12207 | loss=2.7 | L0=80 | FVE=0.4326 | dead=0.570 | a=0.0164±0.0036 | b=0.838(exp=2.3) | 1.6M tok | ETA 1.0h
+    [group_G4_norm/L8] step   600/12207 | loss=2.3 | L0=80 | FVE=0.5253 | dead=0.659 | a=0.0557±0.0053 | b=0.869(exp=2.4) | 2.5M tok | ETA 0.8h
+    [group_G4_norm/L8] Checkpoint saved at 5% (610 steps)
+    [group_G4_norm/L8] step   800/12207 | loss=2.2 | L0=80 | FVE=0.5536 | dead=0.672 | a=0.0827±0.0069 | b=0.887(exp=2.4) | 3.3M tok | ETA 0.9h
+    [group_G4_norm/L8] step  1000/12207 | loss=2.1 | L0=80 | FVE=0.5568 | dead=0.677 | a=0.0944±0.0087 | b=0.887(exp=2.4) | 4.1M tok | ETA 0.9h
+    [group_G4_norm/L8] step  1200/12207 | loss=2.0 | L0=80 | FVE=0.5903 | dead=0.677 | a=0.0998±0.0108 | b=0.879(exp=2.4) | 4.9M tok | ETA 0.8h
+    [group_G4_norm/L8] Checkpoint saved at 10% (1220 steps)
+    [group_G4_norm/L8] step  1400/12207 | loss=2.0 | L0=80 | FVE=0.5898 | dead=0.678 | a=0.1004±0.0130 | b=0.864(exp=2.4) | 5.7M tok | ETA 0.8h
+    [group_G4_norm/L8] step  1600/12207 | loss=2.0 | L0=80 | FVE=0.5808 | dead=0.674 | a=0.1006±0.0154 | b=0.846(exp=2.3) | 6.6M tok | ETA 0.8h
+    [group_G4_norm/L8] step  1800/12207 | loss=1.9 | L0=80 | FVE=0.6034 | dead=0.670 | a=0.1013±0.0178 | b=0.827(exp=2.3) | 7.4M tok | ETA 0.8h
+    [group_G4_norm/L8] step  2000/12207 | loss=1.9 | L0=80 | FVE=0.5984 | dead=0.667 | a=0.1006±0.0200 | b=0.805(exp=2.2) | 8.2M tok | ETA 0.7h
+    [group_G4_norm/L8] step  2200/12207 | loss=2.0 | L0=80 | FVE=0.5842 | dead=0.667 | a=0.1034±0.0218 | b=0.785(exp=2.2) | 9.0M tok | ETA 0.7h
+    [group_G4_norm/L8] step  2400/12207 | loss=1.9 | L0=80 | FVE=0.6121 | dead=0.664 | a=0.1057±0.0238 | b=0.764(exp=2.1) | 9.8M tok | ETA 0.7h
+    [group_G4_norm/L8] Checkpoint saved at 20% (2441 steps)
+    [group_G4_norm/L8] step  2600/12207 | loss=1.9 | L0=80 | FVE=0.6048 | dead=0.663 | a=0.1072±0.0257 | b=0.740(exp=2.1) | 10.6M tok | ETA 0.7h
+    [group_G4_norm/L8] step  2800/12207 | loss=1.8 | L0=80 | FVE=0.6186 | dead=0.659 | a=0.1153±0.0274 | b=0.721(exp=2.1) | 11.5M tok | ETA 0.7h
+    [group_G4_norm/L8] step  3000/12207 | loss=1.8 | L0=80 | FVE=0.6182 | dead=0.657 | a=0.1194±0.0292 | b=0.697(exp=2.0) | 12.3M tok | ETA 0.7h
+    [group_G4_norm/L8] step  3200/12207 | loss=1.9 | L0=80 | FVE=0.6042 | dead=0.654 | a=0.1253±0.0309 | b=0.675(exp=2.0) | 13.1M tok | ETA 0.7h
+    [group_G4_norm/L8] step  3400/12207 | loss=1.8 | L0=80 | FVE=0.6180 | dead=0.651 | a=0.1342±0.0323 | b=0.655(exp=1.9) | 13.9M tok | ETA 0.6h
+    [group_G4_norm/L8] step  3600/12207 | loss=1.8 | L0=80 | FVE=0.6142 | dead=0.648 | a=0.1408±0.0340 | b=0.632(exp=1.9) | 14.7M tok | ETA 0.6h
+    [group_G4_norm/L8] step  3800/12207 | loss=1.9 | L0=80 | FVE=0.6071 | dead=0.646 | a=0.1493±0.0354 | b=0.611(exp=1.8) | 15.6M tok | ETA 0.6h
+    [group_G4_norm/L8] step  4000/12207 | loss=1.8 | L0=80 | FVE=0.6244 | dead=0.641 | a=0.1605±0.0371 | b=0.592(exp=1.8) | 16.4M tok | ETA 0.6h
+    [group_G4_norm/L8] step  4200/12207 | loss=1.8 | L0=80 | FVE=0.6203 | dead=0.638 | a=0.1670±0.0383 | b=0.571(exp=1.8) | 17.2M tok | ETA 0.6h
+    [group_G4_norm/L8] step  4400/12207 | loss=1.9 | L0=80 | FVE=0.6052 | dead=0.634 | a=0.1780±0.0394 | b=0.553(exp=1.7) | 18.0M tok | ETA 0.6h
+    [group_G4_norm/L8] step  4600/12207 | loss=1.8 | L0=80 | FVE=0.6246 | dead=0.628 | a=0.1873±0.0406 | b=0.535(exp=1.7) | 18.8M tok | ETA 0.5h
+    [group_G4_norm/L8] step  4800/12207 | loss=1.8 | L0=80 | FVE=0.6239 | dead=0.627 | a=0.1957±0.0416 | b=0.516(exp=1.7) | 19.7M tok | ETA 0.5h
+    [group_G4_norm/L8] Checkpoint saved at 40% (4882 steps)
+    [group_G4_norm/L8] step  5000/12207 | loss=1.8 | L0=80 | FVE=0.6303 | dead=0.621 | a=0.2073±0.0426 | b=0.501(exp=1.7) | 20.5M tok | ETA 0.5h
+    [group_G4_norm/L8] step  5200/12207 | loss=1.8 | L0=80 | FVE=0.6243 | dead=0.617 | a=0.2151±0.0435 | b=0.483(exp=1.6) | 21.3M tok | ETA 0.5h
+    [group_G4_norm/L8] step  5400/12207 | loss=1.8 | L0=80 | FVE=0.6189 | dead=0.614 | a=0.2232±0.0445 | b=0.466(exp=1.6) | 22.1M tok | ETA 0.5h
+    [group_G4_norm/L8] step  5600/12207 | loss=1.8 | L0=80 | FVE=0.6307 | dead=0.608 | a=0.2344±0.0452 | b=0.453(exp=1.6) | 22.9M tok | ETA 0.5h
+    [group_G4_norm/L8] step  5800/12207 | loss=1.8 | L0=80 | FVE=0.6241 | dead=0.603 | a=0.2413±0.0460 | b=0.438(exp=1.5) | 23.8M tok | ETA 0.5h
+    [group_G4_norm/L8] step  6000/12207 | loss=1.8 | L0=80 | FVE=0.6166 | dead=0.600 | a=0.2496±0.0469 | b=0.425(exp=1.5) | 24.6M tok | ETA 0.4h
+    [group_G4_norm/L8] step  6200/12207 | loss=1.8 | L0=80 | FVE=0.6292 | dead=0.593 | a=0.2586±0.0475 | b=0.413(exp=1.5) | 25.4M tok | ETA 0.4h
+    [group_G4_norm/L8] step  6400/12207 | loss=1.8 | L0=80 | FVE=0.6305 | dead=0.589 | a=0.2658±0.0482 | b=0.400(exp=1.5) | 26.2M tok | ETA 0.4h
+    [group_G4_norm/L8] step  6600/12207 | loss=1.8 | L0=80 | FVE=0.6177 | dead=0.585 | a=0.2735±0.0488 | b=0.390(exp=1.5) | 27.0M tok | ETA 0.4h
+    [group_G4_norm/L8] step  6800/12207 | loss=1.7 | L0=80 | FVE=0.6342 | dead=0.577 | a=0.2808±0.0494 | b=0.379(exp=1.5) | 27.9M tok | ETA 0.4h
+    [group_G4_norm/L8] step  7000/12207 | loss=1.8 | L0=80 | FVE=0.6283 | dead=0.573 | a=0.2865±0.0501 | b=0.369(exp=1.4) | 28.7M tok | ETA 0.4h
+    [group_G4_norm/L8] step  7200/12207 | loss=1.8 | L0=80 | FVE=0.6194 | dead=0.569 | a=0.2950±0.0505 | b=0.363(exp=1.4) | 29.5M tok | ETA 0.4h
+    [group_G4_norm/L8] Checkpoint saved at 60% (7324 steps)
+    [group_G4_norm/L8] step  7400/12207 | loss=1.8 | L0=80 | FVE=0.6319 | dead=0.562 | a=0.2998±0.0511 | b=0.354(exp=1.4) | 30.3M tok | ETA 0.3h
+    [group_G4_norm/L8] step  7600/12207 | loss=1.8 | L0=80 | FVE=0.6272 | dead=0.559 | a=0.3050±0.0516 | b=0.346(exp=1.4) | 31.1M tok | ETA 0.3h
+    [group_G4_norm/L8] step  7800/12207 | loss=1.7 | L0=80 | FVE=0.6355 | dead=0.554 | a=0.3116±0.0521 | b=0.340(exp=1.4) | 31.9M tok | ETA 0.3h
+    [group_G4_norm/L8] step  8000/12207 | loss=1.8 | L0=80 | FVE=0.6326 | dead=0.551 | a=0.3162±0.0525 | b=0.333(exp=1.4) | 32.8M tok | ETA 0.3h
+    [group_G4_norm/L8] step  8200/12207 | loss=1.8 | L0=80 | FVE=0.6268 | dead=0.549 | a=0.3203±0.0528 | b=0.327(exp=1.4) | 33.6M tok | ETA 0.3h
+    [group_G4_norm/L8] step  8400/12207 | loss=1.8 | L0=80 | FVE=0.6364 | dead=0.542 | a=0.3254±0.0531 | b=0.323(exp=1.4) | 34.4M tok | ETA 0.3h
+    [group_G4_norm/L8] step  8600/12207 | loss=1.7 | L0=80 | FVE=0.6349 | dead=0.540 | a=0.3289±0.0535 | b=0.318(exp=1.4) | 35.2M tok | ETA 0.3h
+    [group_G4_norm/L8] step  8800/12207 | loss=1.8 | L0=80 | FVE=0.6271 | dead=0.536 | a=0.3328±0.0538 | b=0.314(exp=1.4) | 36.0M tok | ETA 0.2h
+    [group_G4_norm/L8] step  9000/12207 | loss=1.7 | L0=80 | FVE=0.6363 | dead=0.534 | a=0.3367±0.0539 | b=0.311(exp=1.4) | 36.9M tok | ETA 0.2h
+    [group_G4_norm/L8] step  9200/12207 | loss=1.8 | L0=80 | FVE=0.6342 | dead=0.533 | a=0.3394±0.0541 | b=0.308(exp=1.4) | 37.7M tok | ETA 0.2h
+    [group_G4_norm/L8] step  9400/12207 | loss=1.8 | L0=80 | FVE=0.6242 | dead=0.529 | a=0.3425±0.0542 | b=0.305(exp=1.4) | 38.5M tok | ETA 0.2h
+    [group_G4_norm/L8] step  9600/12207 | loss=1.8 | L0=80 | FVE=0.6330 | dead=0.528 | a=0.3449±0.0543 | b=0.303(exp=1.4) | 39.3M tok | ETA 0.2h
+    [group_G4_norm/L8] Checkpoint saved at 80% (9765 steps)
+    [group_G4_norm/L8] step  9800/12207 | loss=1.8 | L0=80 | FVE=0.6318 | dead=0.527 | a=0.3469±0.0544 | b=0.301(exp=1.4) | 40.1M tok | ETA 0.2h
+    [group_G4_norm/L8] step 10000/12207 | loss=1.7 | L0=80 | FVE=0.6354 | dead=0.523 | a=0.3492±0.0545 | b=0.299(exp=1.3) | 41.0M tok | ETA 0.2h
+    [group_G4_norm/L8] step 10200/12207 | loss=1.8 | L0=80 | FVE=0.6359 | dead=0.523 | a=0.3504±0.0546 | b=0.297(exp=1.3) | 41.8M tok | ETA 0.1h
+    [group_G4_norm/L8] step 10400/12207 | loss=1.8 | L0=80 | FVE=0.6288 | dead=0.521 | a=0.3516±0.0547 | b=0.296(exp=1.3) | 42.6M tok | ETA 0.1h
+    [group_G4_norm/L8] step 10600/12207 | loss=1.8 | L0=80 | FVE=0.6358 | dead=0.520 | a=0.3528±0.0547 | b=0.295(exp=1.3) | 43.4M tok | ETA 0.1h
+    [group_G4_norm/L8] step 10800/12207 | loss=1.8 | L0=80 | FVE=0.6340 | dead=0.520 | a=0.3535±0.0548 | b=0.294(exp=1.3) | 44.2M tok | ETA 0.1h
+    [group_G4_norm/L8] step 11000/12207 | loss=1.8 | L0=80 | FVE=0.6325 | dead=0.519 | a=0.3542±0.0548 | b=0.293(exp=1.3) | 45.1M tok | ETA 0.1h
+    [group_G4_norm/L8] step 11200/12207 | loss=1.8 | L0=80 | FVE=0.6331 | dead=0.520 | a=0.3545±0.0548 | b=0.293(exp=1.3) | 45.9M tok | ETA 0.1h
+    [group_G4_norm/L8] step 11400/12207 | loss=1.8 | L0=80 | FVE=0.6303 | dead=0.519 | a=0.3549±0.0548 | b=0.292(exp=1.3) | 46.7M tok | ETA 0.1h
+    [group_G4_norm/L8] step 11600/12207 | loss=1.8 | L0=80 | FVE=0.6311 | dead=0.518 | a=0.3551±0.0548 | b=0.292(exp=1.3) | 47.5M tok | ETA 0.0h
+    [group_G4_norm/L8] step 11800/12207 | loss=1.8 | L0=80 | FVE=0.6326 | dead=0.519 | a=0.3552±0.0549 | b=0.292(exp=1.3) | 48.3M tok | ETA 0.0h
+    [group_G4_norm/L8] step 12000/12207 | loss=1.8 | L0=80 | FVE=0.6329 | dead=0.519 | a=0.3552±0.0548 | b=0.292(exp=1.3) | 49.2M tok | ETA 0.0h
+    [group_G4_norm/L8] step 12200/12207 | loss=1.8 | L0=80 | FVE=0.6305 | dead=0.519 | a=0.3552±0.0548 | b=0.292(exp=1.3) | 50.0M tok | ETA 0.0h
+    [group_G4_norm/L8] step 12207/12207 | loss=1.8 | L0=80 | FVE=0.6321 | dead=0.519 | a=0.3552±0.0548 | b=0.292(exp=1.3) | 50.0M tok | ETA 0.0h
+    [group_G4_norm/L8] Checkpoint saved at 100% (12207 steps)
+    [group_G4_norm/L8] Done in 0.9h (3162s)
+    Checkpoint 2%: FVE=0.2866, dead=0.000, alive=16377
+    Checkpoint 5%: FVE=0.4950, dead=0.007, alive=16275
+    Checkpoint 10%: FVE=0.5595, dead=0.079, alive=15082
+    Checkpoint 20%: FVE=0.5859, dead=0.208, alive=12978
+    Checkpoint 40%: FVE=0.6040, dead=0.340, alive=10813
+    Checkpoint 60%: FVE=0.6171, dead=0.374, alive=10258
+    Checkpoint 80%: FVE=0.6261, dead=0.397, alive=9887
+
+  Full evaluation -- group_G4_norm_L8
+    [group_G4_norm/L8] FVE=0.6287 | dead=0.399 | alive=9851/16384 | L0=80
+
+    Ablation [group_G4_norm/L8] (100 feats, 200 samples)...
+    [group_G4_norm/L8] 8365 alive features (of 16384)
+      feat  7125 | n=200 | cos->KL=0.612 | inner->KL=0.486 | SAE->KL=0.536
+      feat  7173 | n=200 | cos->KL=0.495 | inner->KL=0.431 | SAE->KL=0.254
+      feat  4584 | n=200 | cos->KL=0.039 | inner->KL=0.036 | SAE->KL=0.087
+      feat  1120 | n=200 | cos->KL=0.475 | inner->KL=0.469 | SAE->KL=0.423
+      feat  7302 | n=200 | cos->KL=0.380 | inner->KL=0.394 | SAE->KL=0.446
+      feat  1894 | n=200 | cos->KL=0.245 | inner->KL=0.235 | SAE->KL=0.213
+      feat 13548 | n=200 | cos->KL=0.533 | inner->KL=0.487 | SAE->KL=0.374
+      feat  3584 | n=200 | cos->KL=0.662 | inner->KL=0.620 | SAE->KL=0.510
+    [group_G4_norm/L8] Summary (100 features): cos->KL=0.4292 | SAE->KL=0.3592 | cos>inner: 87/100
+  Results saved to experiments/exp39_results.json
+
+  === L8 COMPLETE ===
+  Variant              | Init         |    FVE |  Dead% |  Alive |  cos>inn |  scale_a | scale_b(exp)
+  ---------------------+--------------+--------+--------+--------+----------+----------+-------------
+Traceback (most recent call last):
+  File "/home/<user>/MechInter--RNH/experiments/exp39_mistral_init.py", line 1099, in <module>
+    main()
+  File "/home/<user>/MechInter--RNH/experiments/exp39_mistral_init.py", line 1017, in main
+    f"{alive:>6d} | {cos_w:>3s}/{n_f:<4s} | {sa_str:>8s} | {sb_str:>12s}")
+                    ^^^^^^^^^^^
+ValueError: Unknown format code 's' for object of type 'int'
+terminate called without an active exception
+Experiment 39: Mistral-7B Initialization Disambiguation
+======================================================================
+Model: mistralai/Mistral-7B-v0.1
+Layers: [8, 16, 24]
+d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens (12207 steps)
+Init comparison: sqrt(d)=64.0 vs norm-adaptive
+Variants: ['standard', 'adaptive_sqrtd', 'adaptive_norm', 'group_G4_sqrtd', 'group_G4_norm']
+Total runs: 15 (layer-first ordering)
+Estimated time: ~22 hours on H100
+
+Loading model...
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  2.08it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.97it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.79it/s]
+Model loaded in 2.9s
+  Loaded existing results: ['standard_L8', 'adaptive_sqrtd_L8', 'adaptive_norm_L8', 'group_G4_sqrtd_L8', 'group_G4_norm_L8']
+  Collecting eval activations for L8 (2,000,000 tokens)...
+    L8: 2,000,000 tokens in 152.5s (norm: mean=2.3, std=0.2, sqrt(d)=64.0, ratio=0.04x)
+  Collecting eval activations for L16 (2,000,000 tokens)...
+    L16: 2,000,000 tokens in 210.5s (norm: mean=6.3, std=0.6, sqrt(d)=64.0, ratio=0.10x)
+  Collecting eval activations for L24 (2,000,000 tokens)...
+    L24: 2,000,000 tokens in 270.1s (norm: mean=18.0, std=2.5, sqrt(d)=64.0, ratio=0.28x)
+
+  INIT COMPARISON:
+  Layer |  mean_norm |  sqrt(d) |  ratio |  direction
+  ------+------------+----------+--------+-----------
+  L   8 |        2.3 |     64.0 |  28.0x |  OVERSHOOT
+  L  16 |        6.3 |     64.0 |  10.2x |  OVERSHOOT
+  L  24 |       18.0 |     64.0 |   3.6x |  OVERSHOOT
+
+---GPU---
+utilization.gpu [%], memory.used [MiB]
+0 %, 26159 MiB
+100 %, 34299 MiB
+
+######################################################################
+  LAYER 8 (mean_norm=2.3, mismatch=28.0x)
+######################################################################
+
+  standard_L8 already complete, skipping
+
+  adaptive_sqrtd_L8 already complete, skipping
+
+  adaptive_norm_L8 already complete, skipping
+
+  group_G4_sqrtd_L8 already complete, skipping
+
+  group_G4_norm_L8 already complete, skipping
+
+######################################################################
+  LAYER 16 (mean_norm=6.3, mismatch=10.2x)
+######################################################################
+
+======================================================================
+  RUN: standard_L16 (encoder=standard, init=none, layer=16)
+======================================================================
+    Standard encoder (no scale parameter)
+    Parameters: 134,238,208
+
+  Training standard/L16 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    [standard/L16] step   200/12207 | loss=28.9 | L0=80 | FVE=0.1918 | dead=0.808 | 0.8M tok | ETA 1.6h
+    [standard/L16] Checkpoint saved at 2% (244 steps)
+    [standard/L16] step   400/12207 | loss=21.4 | L0=80 | FVE=0.3940 | dead=0.837 | 1.6M tok | ETA 1.5h
+    [standard/L16] step   600/12207 | loss=18.2 | L0=80 | FVE=0.4838 | dead=0.840 | 2.5M tok | ETA 1.3h
+    [standard/L16] Checkpoint saved at 5% (610 steps)
+    [standard/L16] step   800/12207 | loss=17.2 | L0=80 | FVE=0.5162 | dead=0.835 | 3.3M tok | ETA 1.3h
+    [standard/L16] step  1000/12207 | loss=16.9 | L0=80 | FVE=0.5240 | dead=0.829 | 4.1M tok | ETA 1.3h
+    [standard/L16] step  1200/12207 | loss=15.7 | L0=80 | FVE=0.5560 | dead=0.823 | 4.9M tok | ETA 1.2h
+    [standard/L16] Checkpoint saved at 10% (1220 steps)
+    [standard/L16] step  1400/12207 | loss=15.5 | L0=80 | FVE=0.5628 | dead=0.815 | 5.7M tok | ETA 1.2h
+    [standard/L16] step  1600/12207 | loss=15.7 | L0=80 | FVE=0.5556 | dead=0.810 | 6.6M tok | ETA 1.2h
+    [standard/L16] step  1800/12207 | loss=15.0 | L0=80 | FVE=0.5778 | dead=0.801 | 7.4M tok | ETA 1.2h
+    [standard/L16] step  2000/12207 | loss=15.0 | L0=80 | FVE=0.5747 | dead=0.796 | 8.2M tok | ETA 1.1h
+    [standard/L16] step  2200/12207 | loss=15.5 | L0=80 | FVE=0.5645 | dead=0.788 | 9.0M tok | ETA 1.1h
+    [standard/L16] step  2400/12207 | loss=14.6 | L0=80 | FVE=0.5906 | dead=0.781 | 9.8M tok | ETA 1.1h
+    [standard/L16] Checkpoint saved at 20% (2441 steps)
+    [standard/L16] step  2600/12207 | loss=14.6 | L0=80 | FVE=0.5871 | dead=0.775 | 10.6M tok | ETA 1.1h
+    [standard/L16] step  2800/12207 | loss=14.0 | L0=80 | FVE=0.6034 | dead=0.767 | 11.5M tok | ETA 1.0h
+    [standard/L16] step  3000/12207 | loss=14.2 | L0=80 | FVE=0.5996 | dead=0.762 | 12.3M tok | ETA 1.0h
+    [standard/L16] step  3200/12207 | loss=14.6 | L0=80 | FVE=0.5883 | dead=0.758 | 13.1M tok | ETA 1.0h
+    [standard/L16] step  3400/12207 | loss=13.9 | L0=80 | FVE=0.6054 | dead=0.753 | 13.9M tok | ETA 1.0h
+    [standard/L16] step  3600/12207 | loss=14.0 | L0=80 | FVE=0.6034 | dead=0.749 | 14.7M tok | ETA 0.9h
+    [standard/L16] step  3800/12207 | loss=14.4 | L0=80 | FVE=0.5920 | dead=0.745 | 15.6M tok | ETA 0.9h
+    [standard/L16] step  4000/12207 | loss=13.7 | L0=80 | FVE=0.6118 | dead=0.739 | 16.4M tok | ETA 0.9h
+    [standard/L16] step  4200/12207 | loss=13.9 | L0=80 | FVE=0.6079 | dead=0.735 | 17.2M tok | ETA 0.9h
+    [standard/L16] step  4400/12207 | loss=14.4 | L0=80 | FVE=0.5944 | dead=0.732 | 18.0M tok | ETA 0.9h
+    [standard/L16] step  4600/12207 | loss=13.7 | L0=80 | FVE=0.6143 | dead=0.730 | 18.8M tok | ETA 0.8h
+    [standard/L16] step  4800/12207 | loss=14.0 | L0=80 | FVE=0.6104 | dead=0.727 | 19.7M tok | ETA 0.8h
+    [standard/L16] Checkpoint saved at 40% (4882 steps)
+    [standard/L16] step  5000/12207 | loss=13.4 | L0=80 | FVE=0.6209 | dead=0.724 | 20.5M tok | ETA 0.8h
+    [standard/L16] step  5200/12207 | loss=13.6 | L0=80 | FVE=0.6155 | dead=0.722 | 21.3M tok | ETA 0.8h
+    [standard/L16] step  5400/12207 | loss=14.0 | L0=80 | FVE=0.6072 | dead=0.720 | 22.1M tok | ETA 0.8h
+    [standard/L16] step  5600/12207 | loss=13.5 | L0=80 | FVE=0.6196 | dead=0.718 | 22.9M tok | ETA 0.7h
+    [standard/L16] step  5800/12207 | loss=13.6 | L0=80 | FVE=0.6150 | dead=0.715 | 23.8M tok | ETA 0.7h
+    [standard/L16] step  6000/12207 | loss=13.9 | L0=80 | FVE=0.6070 | dead=0.714 | 24.6M tok | ETA 0.7h
+    [standard/L16] step  6200/12207 | loss=13.4 | L0=80 | FVE=0.6195 | dead=0.713 | 25.4M tok | ETA 0.7h
+    [standard/L16] step  6400/12207 | loss=13.5 | L0=80 | FVE=0.6172 | dead=0.711 | 26.2M tok | ETA 0.6h
+    [standard/L16] step  6600/12207 | loss=13.8 | L0=80 | FVE=0.6076 | dead=0.711 | 27.0M tok | ETA 0.6h
+    [standard/L16] step  6800/12207 | loss=13.2 | L0=80 | FVE=0.6215 | dead=0.709 | 27.9M tok | ETA 0.6h
+    [standard/L16] step  7000/12207 | loss=13.6 | L0=80 | FVE=0.6164 | dead=0.708 | 28.7M tok | ETA 0.6h
+    [standard/L16] step  7200/12207 | loss=13.7 | L0=80 | FVE=0.6103 | dead=0.707 | 29.5M tok | ETA 0.6h
+    [standard/L16] Checkpoint saved at 60% (7324 steps)
+    [standard/L16] step  7400/12207 | loss=13.4 | L0=80 | FVE=0.6202 | dead=0.706 | 30.3M tok | ETA 0.5h
+    [standard/L16] step  7600/12207 | loss=13.5 | L0=80 | FVE=0.6155 | dead=0.705 | 31.1M tok | ETA 0.5h
+    [standard/L16] step  7800/12207 | loss=13.3 | L0=80 | FVE=0.6233 | dead=0.704 | 31.9M tok | ETA 0.5h
+    [standard/L16] step  8000/12207 | loss=13.4 | L0=80 | FVE=0.6215 | dead=0.703 | 32.8M tok | ETA 0.5h
+    [standard/L16] step  8200/12207 | loss=13.6 | L0=80 | FVE=0.6150 | dead=0.703 | 33.6M tok | ETA 0.4h
+    [standard/L16] step  8400/12207 | loss=13.2 | L0=80 | FVE=0.6258 | dead=0.702 | 34.4M tok | ETA 0.4h
+    [standard/L16] step  8600/12207 | loss=13.3 | L0=80 | FVE=0.6227 | dead=0.701 | 35.2M tok | ETA 0.4h
+    [standard/L16] step  8800/12207 | loss=13.6 | L0=80 | FVE=0.6154 | dead=0.701 | 36.0M tok | ETA 0.4h
+    [standard/L16] step  9000/12207 | loss=13.2 | L0=80 | FVE=0.6247 | dead=0.700 | 36.9M tok | ETA 0.4h
+    [standard/L16] step  9200/12207 | loss=13.4 | L0=80 | FVE=0.6199 | dead=0.700 | 37.7M tok | ETA 0.3h
+    [standard/L16] step  9400/12207 | loss=13.7 | L0=80 | FVE=0.6138 | dead=0.699 | 38.5M tok | ETA 0.3h
+    [standard/L16] step  9600/12207 | loss=13.4 | L0=80 | FVE=0.6203 | dead=0.699 | 39.3M tok | ETA 0.3h
+    [standard/L16] Checkpoint saved at 80% (9765 steps)
+    [standard/L16] step  9800/12207 | loss=13.5 | L0=80 | FVE=0.6184 | dead=0.700 | 40.1M tok | ETA 0.3h
+    [standard/L16] step 10000/12207 | loss=13.2 | L0=80 | FVE=0.6221 | dead=0.699 | 41.0M tok | ETA 0.2h
+    [standard/L16] step 10200/12207 | loss=13.3 | L0=80 | FVE=0.6228 | dead=0.699 | 41.8M tok | ETA 0.2h
+    [standard/L16] step 10400/12207 | loss=13.4 | L0=80 | FVE=0.6175 | dead=0.699 | 42.6M tok | ETA 0.2h
+    [standard/L16] step 10600/12207 | loss=13.4 | L0=80 | FVE=0.6219 | dead=0.698 | 43.4M tok | ETA 0.2h
+    [standard/L16] step 10800/12207 | loss=13.4 | L0=80 | FVE=0.6203 | dead=0.698 | 44.2M tok | ETA 0.2h
+    [standard/L16] step 11000/12207 | loss=13.4 | L0=80 | FVE=0.6202 | dead=0.698 | 45.1M tok | ETA 0.1h
+    [standard/L16] step 11200/12207 | loss=13.4 | L0=80 | FVE=0.6188 | dead=0.698 | 45.9M tok | ETA 0.1h
+    [standard/L16] step 11400/12207 | loss=13.4 | L0=80 | FVE=0.6203 | dead=0.698 | 46.7M tok | ETA 0.1h
+    [standard/L16] step 11600/12207 | loss=13.4 | L0=80 | FVE=0.6196 | dead=0.698 | 47.5M tok | ETA 0.1h
+    [standard/L16] step 11800/12207 | loss=13.4 | L0=80 | FVE=0.6213 | dead=0.698 | 48.3M tok | ETA 0.0h
+    [standard/L16] step 12000/12207 | loss=13.5 | L0=80 | FVE=0.6183 | dead=0.698 | 49.2M tok | ETA 0.0h
+    [standard/L16] step 12200/12207 | loss=13.5 | L0=80 | FVE=0.6199 | dead=0.698 | 50.0M tok | ETA 0.0h
+    [standard/L16] step 12207/12207 | loss=13.5 | L0=80 | FVE=0.6180 | dead=0.698 | 50.0M tok | ETA 0.0h
+    [standard/L16] Checkpoint saved at 100% (12207 steps)
+    [standard/L16] Done in 1.3h (4826s)
+    Checkpoint 2%: FVE=0.2374, dead=0.750, alive=4097
+    Checkpoint 5%: FVE=0.4608, dead=0.742, alive=4221
+    Checkpoint 10%: FVE=0.5294, dead=0.716, alive=4660
+    Checkpoint 20%: FVE=0.5660, dead=0.713, alive=4701
+    Checkpoint 40%: FVE=0.5921, dead=0.707, alive=4805
+    Checkpoint 60%: FVE=0.6048, dead=0.697, alive=4957
+    Checkpoint 80%: FVE=0.6117, dead=0.691, alive=5057
+
+  Full evaluation -- standard_L16
+    [standard/L16] FVE=0.6139 | dead=0.690 | alive=5077/16384 | L0=80
+
+    Ablation [standard/L16] (100 feats, 200 samples)...
+    [standard/L16] 5012 alive features (of 16384)
+      feat  3360 | n=200 | cos->KL=0.512 | inner->KL=0.464 | SAE->KL=0.450
+      feat 13086 | n=200 | cos->KL=-0.435 | inner->KL=-0.381 | SAE->KL=-0.295
+      feat 11543 | n=200 | cos->KL=-0.428 | inner->KL=-0.385 | SAE->KL=-0.286
+      feat 10872 | n=200 | cos->KL=0.688 | inner->KL=0.650 | SAE->KL=0.598
+      feat   372 | n=200 | cos->KL=0.731 | inner->KL=0.711 | SAE->KL=0.610
+      feat  8794 | n=200 | cos->KL=0.568 | inner->KL=0.548 | SAE->KL=0.458
+      feat 16166 | n=200 | cos->KL=0.713 | inner->KL=0.686 | SAE->KL=0.446
+      feat 13036 | n=200 | cos->KL=0.521 | inner->KL=0.481 | SAE->KL=0.318
+    [standard/L16] Summary (100 features): cos->KL=0.6227 | SAE->KL=0.5560 | cos>inner: 91/100
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: adaptive_sqrtd_L16 (encoder=adaptive_sqrtd, init=sqrt_d, layer=16)
+======================================================================
+    SQRT(D) init: scale_b = log(64.0) = 4.1589 (exp=64.0, mismatch=10.2x)
+    Parameters: 134,238,210
+
+  Training adaptive_sqrtd/L16 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 4.1589 (exp=64.0)
+    [adaptive_sqrtd/L16] step   200/12207 | loss=37.4 | L0=67 | FVE=0.0278 | dead=0.008 | a=-0.0008 | b=4.158(exp=63.9) | 0.8M tok | ETA 1.5h
+    [adaptive_sqrtd/L16] Checkpoint saved at 2% (244 steps)
+    [adaptive_sqrtd/L16] step   400/12207 | loss=32.6 | L0=59 | FVE=0.0770 | dead=0.010 | a=-0.0013 | b=4.156(exp=63.8) | 1.6M tok | ETA 1.5h
+    [adaptive_sqrtd/L16] step   600/12207 | loss=28.1 | L0=63 | FVE=0.2045 | dead=0.081 | a=-0.0020 | b=4.153(exp=63.6) | 2.5M tok | ETA 1.3h
+    [adaptive_sqrtd/L16] Checkpoint saved at 5% (610 steps)
+    [adaptive_sqrtd/L16] step   800/12207 | loss=26.2 | L0=80 | FVE=0.2644 | dead=0.151 | a=-0.0027 | b=4.150(exp=63.4) | 3.3M tok | ETA 1.3h
+    [adaptive_sqrtd/L16] step  1000/12207 | loss=25.0 | L0=80 | FVE=0.2984 | dead=0.818 | a=-0.0031 | b=4.147(exp=63.3) | 4.1M tok | ETA 1.3h
+    [adaptive_sqrtd/L16] step  1200/12207 | loss=24.2 | L0=80 | FVE=0.3172 | dead=0.974 | a=-0.0032 | b=4.145(exp=63.1) | 4.9M tok | ETA 1.2h
+    [adaptive_sqrtd/L16] Checkpoint saved at 10% (1220 steps)
+    [adaptive_sqrtd/L16] step  1400/12207 | loss=24.0 | L0=80 | FVE=0.3244 | dead=0.983 | a=-0.0033 | b=4.142(exp=62.9) | 5.7M tok | ETA 1.2h
+    [adaptive_sqrtd/L16] step  1600/12207 | loss=24.0 | L0=80 | FVE=0.3219 | dead=0.984 | a=-0.0034 | b=4.139(exp=62.8) | 6.6M tok | ETA 1.2h
+    [adaptive_sqrtd/L16] step  1800/12207 | loss=23.9 | L0=80 | FVE=0.3279 | dead=0.985 | a=-0.0035 | b=4.137(exp=62.6) | 7.4M tok | ETA 1.2h
+    [adaptive_sqrtd/L16] step  2000/12207 | loss=23.8 | L0=80 | FVE=0.3292 | dead=0.987 | a=-0.0037 | b=4.134(exp=62.5) | 8.2M tok | ETA 1.2h
+    [adaptive_sqrtd/L16] step  2200/12207 | loss=24.0 | L0=80 | FVE=0.3238 | dead=0.987 | a=-0.0038 | b=4.132(exp=62.3) | 9.0M tok | ETA 1.1h
+    [adaptive_sqrtd/L16] step  2400/12207 | loss=23.8 | L0=80 | FVE=0.3343 | dead=0.988 | a=-0.0039 | b=4.129(exp=62.1) | 9.8M tok | ETA 1.1h
+    [adaptive_sqrtd/L16] Checkpoint saved at 20% (2441 steps)
+    [adaptive_sqrtd/L16] step  2600/12207 | loss=23.5 | L0=80 | FVE=0.3344 | dead=0.987 | a=-0.0041 | b=4.127(exp=62.0) | 10.6M tok | ETA 1.1h
+    [adaptive_sqrtd/L16] step  2800/12207 | loss=23.4 | L0=80 | FVE=0.3391 | dead=0.988 | a=-0.0042 | b=4.124(exp=61.8) | 11.5M tok | ETA 1.0h
+    [adaptive_sqrtd/L16] step  3000/12207 | loss=23.5 | L0=80 | FVE=0.3374 | dead=0.988 | a=-0.0044 | b=4.122(exp=61.7) | 12.3M tok | ETA 1.0h
+    [adaptive_sqrtd/L16] step  3200/12207 | loss=23.6 | L0=80 | FVE=0.3341 | dead=0.989 | a=-0.0045 | b=4.120(exp=61.5) | 13.1M tok | ETA 1.0h
+    [adaptive_sqrtd/L16] step  3400/12207 | loss=23.3 | L0=80 | FVE=0.3373 | dead=0.989 | a=-0.0047 | b=4.117(exp=61.4) | 13.9M tok | ETA 1.0h
+    [adaptive_sqrtd/L16] step  3600/12207 | loss=23.3 | L0=80 | FVE=0.3392 | dead=0.989 | a=-0.0050 | b=4.115(exp=61.2) | 14.7M tok | ETA 1.0h
+    [adaptive_sqrtd/L16] step  3800/12207 | loss=23.4 | L0=80 | FVE=0.3365 | dead=0.988 | a=-0.0052 | b=4.112(exp=61.1) | 15.6M tok | ETA 0.9h
+    [adaptive_sqrtd/L16] step  4000/12207 | loss=23.4 | L0=80 | FVE=0.3402 | dead=0.989 | a=-0.0054 | b=4.110(exp=61.0) | 16.4M tok | ETA 0.9h
+    [adaptive_sqrtd/L16] step  4200/12207 | loss=23.3 | L0=80 | FVE=0.3433 | dead=0.989 | a=-0.0057 | b=4.108(exp=60.8) | 17.2M tok | ETA 0.9h
+    [adaptive_sqrtd/L16] step  4400/12207 | loss=23.6 | L0=80 | FVE=0.3350 | dead=0.989 | a=-0.0060 | b=4.106(exp=60.7) | 18.0M tok | ETA 0.9h
+    [adaptive_sqrtd/L16] step  4600/12207 | loss=23.3 | L0=80 | FVE=0.3420 | dead=0.989 | a=-0.0063 | b=4.103(exp=60.5) | 18.8M tok | ETA 0.8h
+    [adaptive_sqrtd/L16] step  4800/12207 | loss=23.5 | L0=80 | FVE=0.3446 | dead=0.989 | a=-0.0066 | b=4.101(exp=60.4) | 19.7M tok | ETA 0.8h
+    [adaptive_sqrtd/L16] Checkpoint saved at 40% (4882 steps)
+    [adaptive_sqrtd/L16] step  5000/12207 | loss=23.2 | L0=80 | FVE=0.3457 | dead=0.989 | a=-0.0069 | b=4.099(exp=60.3) | 20.5M tok | ETA 0.8h
+    [adaptive_sqrtd/L16] step  5200/12207 | loss=23.3 | L0=80 | FVE=0.3430 | dead=0.989 | a=-0.0072 | b=4.097(exp=60.2) | 21.3M tok | ETA 0.8h
+    [adaptive_sqrtd/L16] step  5400/12207 | loss=23.4 | L0=80 | FVE=0.3418 | dead=0.989 | a=-0.0075 | b=4.095(exp=60.1) | 22.1M tok | ETA 0.8h
+    [adaptive_sqrtd/L16] step  5600/12207 | loss=23.3 | L0=80 | FVE=0.3425 | dead=0.989 | a=-0.0079 | b=4.093(exp=59.9) | 22.9M tok | ETA 0.7h
+    [adaptive_sqrtd/L16] step  5800/12207 | loss=23.1 | L0=80 | FVE=0.3437 | dead=0.989 | a=-0.0083 | b=4.091(exp=59.8) | 23.8M tok | ETA 0.7h
+    [adaptive_sqrtd/L16] step  6000/12207 | loss=23.3 | L0=80 | FVE=0.3428 | dead=0.989 | a=-0.0086 | b=4.089(exp=59.7) | 24.6M tok | ETA 0.7h
+    [adaptive_sqrtd/L16] step  6200/12207 | loss=23.1 | L0=80 | FVE=0.3449 | dead=0.989 | a=-0.0090 | b=4.088(exp=59.6) | 25.4M tok | ETA 0.7h
+    [adaptive_sqrtd/L16] step  6400/12207 | loss=23.2 | L0=80 | FVE=0.3457 | dead=0.989 | a=-0.0094 | b=4.086(exp=59.5) | 26.2M tok | ETA 0.6h
+    [adaptive_sqrtd/L16] step  6600/12207 | loss=23.1 | L0=80 | FVE=0.3416 | dead=0.989 | a=-0.0099 | b=4.084(exp=59.4) | 27.0M tok | ETA 0.6h
+    [adaptive_sqrtd/L16] step  6800/12207 | loss=22.9 | L0=80 | FVE=0.3469 | dead=0.989 | a=-0.0103 | b=4.083(exp=59.3) | 27.9M tok | ETA 0.6h
+    [adaptive_sqrtd/L16] step  7000/12207 | loss=23.2 | L0=80 | FVE=0.3440 | dead=0.989 | a=-0.0107 | b=4.081(exp=59.2) | 28.7M tok | ETA 0.6h
+    [adaptive_sqrtd/L16] step  7200/12207 | loss=23.3 | L0=80 | FVE=0.3381 | dead=0.989 | a=-0.0111 | b=4.079(exp=59.1) | 29.5M tok | ETA 0.6h
+    [adaptive_sqrtd/L16] Checkpoint saved at 60% (7324 steps)
+    [adaptive_sqrtd/L16] step  7400/12207 | loss=23.2 | L0=80 | FVE=0.3429 | dead=0.989 | a=-0.0116 | b=4.078(exp=59.0) | 30.3M tok | ETA 0.5h
+    [adaptive_sqrtd/L16] step  7600/12207 | loss=23.1 | L0=80 | FVE=0.3428 | dead=0.989 | a=-0.0120 | b=4.077(exp=58.9) | 31.1M tok | ETA 0.5h
+    [adaptive_sqrtd/L16] step  7800/12207 | loss=23.0 | L0=80 | FVE=0.3458 | dead=0.989 | a=-0.0125 | b=4.075(exp=58.9) | 31.9M tok | ETA 0.5h
+    [adaptive_sqrtd/L16] step  8000/12207 | loss=23.2 | L0=80 | FVE=0.3477 | dead=0.989 | a=-0.0129 | b=4.074(exp=58.8) | 32.8M tok | ETA 0.5h
+    [adaptive_sqrtd/L16] step  8200/12207 | loss=23.2 | L0=80 | FVE=0.3444 | dead=0.989 | a=-0.0133 | b=4.073(exp=58.7) | 33.6M tok | ETA 0.4h
+    [adaptive_sqrtd/L16] step  8400/12207 | loss=23.0 | L0=80 | FVE=0.3481 | dead=0.989 | a=-0.0137 | b=4.071(exp=58.6) | 34.4M tok | ETA 0.4h
+    [adaptive_sqrtd/L16] step  8600/12207 | loss=23.0 | L0=80 | FVE=0.3491 | dead=0.989 | a=-0.0141 | b=4.070(exp=58.6) | 35.2M tok | ETA 0.4h
+    [adaptive_sqrtd/L16] step  8800/12207 | loss=23.3 | L0=80 | FVE=0.3421 | dead=0.989 | a=-0.0145 | b=4.069(exp=58.5) | 36.0M tok | ETA 0.4h
+    [adaptive_sqrtd/L16] step  9000/12207 | loss=23.0 | L0=80 | FVE=0.3477 | dead=0.989 | a=-0.0149 | b=4.068(exp=58.5) | 36.9M tok | ETA 0.4h
+    [adaptive_sqrtd/L16] step  9200/12207 | loss=23.0 | L0=80 | FVE=0.3460 | dead=0.989 | a=-0.0152 | b=4.067(exp=58.4) | 37.7M tok | ETA 0.3h
+    [adaptive_sqrtd/L16] step  9400/12207 | loss=23.4 | L0=80 | FVE=0.3408 | dead=0.989 | a=-0.0155 | b=4.067(exp=58.4) | 38.5M tok | ETA 0.3h
+    [adaptive_sqrtd/L16] step  9600/12207 | loss=23.1 | L0=80 | FVE=0.3450 | dead=0.989 | a=-0.0158 | b=4.066(exp=58.3) | 39.3M tok | ETA 0.3h
+    [adaptive_sqrtd/L16] Checkpoint saved at 80% (9765 steps)
+    [adaptive_sqrtd/L16] step  9800/12207 | loss=23.2 | L0=80 | FVE=0.3459 | dead=0.989 | a=-0.0161 | b=4.065(exp=58.3) | 40.1M tok | ETA 0.3h
+    [adaptive_sqrtd/L16] step 10000/12207 | loss=22.8 | L0=80 | FVE=0.3477 | dead=0.989 | a=-0.0164 | b=4.065(exp=58.2) | 41.0M tok | ETA 0.2h
+    [adaptive_sqrtd/L16] step 10200/12207 | loss=23.1 | L0=80 | FVE=0.3475 | dead=0.989 | a=-0.0166 | b=4.064(exp=58.2) | 41.8M tok | ETA 0.2h
+    [adaptive_sqrtd/L16] step 10400/12207 | loss=23.0 | L0=80 | FVE=0.3468 | dead=0.989 | a=-0.0168 | b=4.064(exp=58.2) | 42.6M tok | ETA 0.2h
+    [adaptive_sqrtd/L16] step 10600/12207 | loss=23.1 | L0=80 | FVE=0.3477 | dead=0.989 | a=-0.0169 | b=4.063(exp=58.2) | 43.4M tok | ETA 0.2h
+    [adaptive_sqrtd/L16] step 10800/12207 | loss=23.1 | L0=80 | FVE=0.3455 | dead=0.989 | a=-0.0171 | b=4.063(exp=58.1) | 44.2M tok | ETA 0.2h
+    [adaptive_sqrtd/L16] step 11000/12207 | loss=23.2 | L0=80 | FVE=0.3456 | dead=0.989 | a=-0.0172 | b=4.063(exp=58.1) | 45.1M tok | ETA 0.1h
+    [adaptive_sqrtd/L16] step 11200/12207 | loss=23.0 | L0=80 | FVE=0.3456 | dead=0.989 | a=-0.0173 | b=4.062(exp=58.1) | 45.9M tok | ETA 0.1h
+    [adaptive_sqrtd/L16] step 11400/12207 | loss=23.2 | L0=80 | FVE=0.3445 | dead=0.989 | a=-0.0174 | b=4.062(exp=58.1) | 46.7M tok | ETA 0.1h
+    [adaptive_sqrtd/L16] step 11600/12207 | loss=23.1 | L0=80 | FVE=0.3452 | dead=0.989 | a=-0.0174 | b=4.062(exp=58.1) | 47.5M tok | ETA 0.1h
+    [adaptive_sqrtd/L16] step 11800/12207 | loss=23.1 | L0=80 | FVE=0.3479 | dead=0.989 | a=-0.0174 | b=4.062(exp=58.1) | 48.3M tok | ETA 0.0h
+    [adaptive_sqrtd/L16] step 12000/12207 | loss=23.3 | L0=80 | FVE=0.3430 | dead=0.989 | a=-0.0174 | b=4.062(exp=58.1) | 49.2M tok | ETA 0.0h
+    [adaptive_sqrtd/L16] step 12200/12207 | loss=23.2 | L0=80 | FVE=0.3450 | dead=0.989 | a=-0.0174 | b=4.062(exp=58.1) | 50.0M tok | ETA 0.0h
+    [adaptive_sqrtd/L16] step 12207/12207 | loss=23.2 | L0=80 | FVE=0.3421 | dead=0.989 | a=-0.0174 | b=4.062(exp=58.1) | 50.0M tok | ETA 0.0h
+    [adaptive_sqrtd/L16] Checkpoint saved at 100% (12207 steps)
+    [adaptive_sqrtd/L16] Done in 1.4h (4866s)
+    Checkpoint 2%: FVE=0.0118, dead=0.000, alive=16384
+    Checkpoint 5%: FVE=0.2001, dead=0.000, alive=16383
+    Checkpoint 10%: FVE=0.3061, dead=0.066, alive=15304
+    Checkpoint 20%: FVE=0.3216, dead=0.484, alive=8446
+    Checkpoint 40%: FVE=0.3304, dead=0.813, alive=3062
+    Checkpoint 60%: FVE=0.3346, dead=0.872, alive=2100
+    Checkpoint 80%: FVE=0.3372, dead=0.915, alive=1390
+
+  Full evaluation -- adaptive_sqrtd_L16
+    [adaptive_sqrtd/L16] FVE=0.3399 | dead=0.920 | alive=1307/16384 | L0=81
+
+    Ablation [adaptive_sqrtd/L16] (100 feats, 200 samples)...
+    [adaptive_sqrtd/L16] 321 alive features (of 16384)
+      feat 10634 | n=200 | cos->KL=0.503 | inner->KL=0.494 | SAE->KL=0.463
+      feat  6119 | n=200 | cos->KL=0.662 | inner->KL=0.614 | SAE->KL=0.596
+      feat  9505 | n=200 | cos->KL=0.654 | inner->KL=0.620 | SAE->KL=0.515
+      feat  5803 | n=200 | cos->KL=0.604 | inner->KL=0.546 | SAE->KL=0.543
+      feat 15664 | n=200 | cos->KL=0.729 | inner->KL=0.698 | SAE->KL=0.597
+      feat  4735 | n=200 | cos->KL=0.581 | inner->KL=0.576 | SAE->KL=0.561
+      feat 13912 | n=200 | cos->KL=0.413 | inner->KL=0.402 | SAE->KL=0.435
+      feat  8211 | n=200 | cos->KL=0.765 | inner->KL=0.750 | SAE->KL=0.771
+    [adaptive_sqrtd/L16] Summary (100 features): cos->KL=0.6329 | SAE->KL=0.5893 | cos>inner: 78/100
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: adaptive_norm_L16 (encoder=adaptive_norm, init=norm_adaptive, layer=16)
+======================================================================
+    NORM-ADAPTIVE init: scale_b = log(6.3) = 1.8329 (exp=6.3)
+    Parameters: 134,238,210
+
+  Training adaptive_norm/L16 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 1.8329 (exp=6.3)
+    [adaptive_norm/L16] step   200/12207 | loss=26.9 | L0=80 | FVE=0.2451 | dead=0.115 | a=0.0003 | b=1.833(exp=6.3) | 0.8M tok | ETA 1.5h
+    [adaptive_norm/L16] Checkpoint saved at 2% (244 steps)
+    [adaptive_norm/L16] step   400/12207 | loss=19.7 | L0=80 | FVE=0.4419 | dead=0.711 | a=0.0199 | b=1.850(exp=6.4) | 1.6M tok | ETA 1.5h
+    [adaptive_norm/L16] step   600/12207 | loss=16.6 | L0=80 | FVE=0.5303 | dead=0.751 | a=0.0599 | b=1.887(exp=6.6) | 2.5M tok | ETA 1.3h
+    [adaptive_norm/L16] Checkpoint saved at 5% (610 steps)
+    [adaptive_norm/L16] step   800/12207 | loss=15.7 | L0=80 | FVE=0.5563 | dead=0.768 | a=0.0798 | b=1.902(exp=6.7) | 3.3M tok | ETA 1.3h
+    [adaptive_norm/L16] step  1000/12207 | loss=15.7 | L0=80 | FVE=0.5572 | dead=0.773 | a=0.0832 | b=1.900(exp=6.7) | 4.1M tok | ETA 1.3h
+    [adaptive_norm/L16] step  1200/12207 | loss=14.6 | L0=80 | FVE=0.5881 | dead=0.776 | a=0.0811 | b=1.891(exp=6.6) | 4.9M tok | ETA 1.2h
+    [adaptive_norm/L16] Checkpoint saved at 10% (1220 steps)
+    [adaptive_norm/L16] step  1400/12207 | loss=14.5 | L0=80 | FVE=0.5912 | dead=0.775 | a=0.0758 | b=1.879(exp=6.5) | 5.7M tok | ETA 1.2h
+    [adaptive_norm/L16] step  1600/12207 | loss=14.9 | L0=80 | FVE=0.5789 | dead=0.776 | a=0.0701 | b=1.865(exp=6.5) | 6.6M tok | ETA 1.2h
+    [adaptive_norm/L16] step  1800/12207 | loss=14.2 | L0=80 | FVE=0.6008 | dead=0.774 | a=0.0652 | b=1.851(exp=6.4) | 7.4M tok | ETA 1.2h
+    [adaptive_norm/L16] step  2000/12207 | loss=14.3 | L0=80 | FVE=0.5950 | dead=0.774 | a=0.0595 | b=1.836(exp=6.3) | 8.2M tok | ETA 1.2h
+    [adaptive_norm/L16] step  2200/12207 | loss=14.9 | L0=80 | FVE=0.5808 | dead=0.773 | a=0.0551 | b=1.821(exp=6.2) | 9.0M tok | ETA 1.1h
+    [adaptive_norm/L16] step  2400/12207 | loss=14.0 | L0=80 | FVE=0.6069 | dead=0.772 | a=0.0512 | b=1.805(exp=6.1) | 9.8M tok | ETA 1.1h
+    [adaptive_norm/L16] Checkpoint saved at 20% (2441 steps)
+    [adaptive_norm/L16] step  2600/12207 | loss=14.0 | L0=80 | FVE=0.6023 | dead=0.772 | a=0.0469 | b=1.789(exp=6.0) | 10.6M tok | ETA 1.1h
+    [adaptive_norm/L16] step  2800/12207 | loss=13.6 | L0=80 | FVE=0.6149 | dead=0.770 | a=0.0462 | b=1.775(exp=5.9) | 11.5M tok | ETA 1.0h
+    [adaptive_norm/L16] step  3000/12207 | loss=13.8 | L0=80 | FVE=0.6110 | dead=0.769 | a=0.0430 | b=1.758(exp=5.8) | 12.3M tok | ETA 1.0h
+    [adaptive_norm/L16] step  3200/12207 | loss=14.2 | L0=80 | FVE=0.5991 | dead=0.769 | a=0.0412 | b=1.742(exp=5.7) | 13.1M tok | ETA 1.0h
+    [adaptive_norm/L16] step  3400/12207 | loss=13.6 | L0=80 | FVE=0.6138 | dead=0.769 | a=0.0412 | b=1.727(exp=5.6) | 13.9M tok | ETA 1.0h
+    [adaptive_norm/L16] step  3600/12207 | loss=13.7 | L0=80 | FVE=0.6119 | dead=0.767 | a=0.0404 | b=1.710(exp=5.5) | 14.7M tok | ETA 1.0h
+    [adaptive_norm/L16] step  3800/12207 | loss=14.1 | L0=80 | FVE=0.6002 | dead=0.766 | a=0.0405 | b=1.695(exp=5.4) | 15.6M tok | ETA 0.9h
+    [adaptive_norm/L16] step  4000/12207 | loss=13.5 | L0=80 | FVE=0.6181 | dead=0.765 | a=0.0425 | b=1.680(exp=5.4) | 16.4M tok | ETA 0.9h
+    [adaptive_norm/L16] step  4200/12207 | loss=13.6 | L0=80 | FVE=0.6140 | dead=0.764 | a=0.0424 | b=1.664(exp=5.3) | 17.2M tok | ETA 0.9h
+    [adaptive_norm/L16] step  4400/12207 | loss=14.2 | L0=80 | FVE=0.5999 | dead=0.762 | a=0.0449 | b=1.650(exp=5.2) | 18.0M tok | ETA 0.9h
+    [adaptive_norm/L16] step  4600/12207 | loss=13.5 | L0=80 | FVE=0.6191 | dead=0.760 | a=0.0467 | b=1.635(exp=5.1) | 18.8M tok | ETA 0.8h
+    [adaptive_norm/L16] step  4800/12207 | loss=13.8 | L0=80 | FVE=0.6155 | dead=0.758 | a=0.0481 | b=1.620(exp=5.1) | 19.7M tok | ETA 0.8h
+    [adaptive_norm/L16] Checkpoint saved at 40% (4882 steps)
+    [adaptive_norm/L16] step  5000/12207 | loss=13.3 | L0=80 | FVE=0.6250 | dead=0.755 | a=0.0519 | b=1.607(exp=5.0) | 20.5M tok | ETA 0.8h
+    [adaptive_norm/L16] step  5200/12207 | loss=13.5 | L0=80 | FVE=0.6194 | dead=0.753 | a=0.0526 | b=1.592(exp=4.9) | 21.3M tok | ETA 0.8h
+    [adaptive_norm/L16] step  5400/12207 | loss=13.8 | L0=80 | FVE=0.6117 | dead=0.750 | a=0.0541 | b=1.579(exp=4.8) | 22.1M tok | ETA 0.8h
+    [adaptive_norm/L16] step  5600/12207 | loss=13.3 | L0=80 | FVE=0.6235 | dead=0.747 | a=0.0584 | b=1.568(exp=4.8) | 22.9M tok | ETA 0.7h
+    [adaptive_norm/L16] step  5800/12207 | loss=13.4 | L0=80 | FVE=0.6188 | dead=0.745 | a=0.0594 | b=1.554(exp=4.7) | 23.8M tok | ETA 0.7h
+    [adaptive_norm/L16] step  6000/12207 | loss=13.8 | L0=80 | FVE=0.6110 | dead=0.743 | a=0.0623 | b=1.543(exp=4.7) | 24.6M tok | ETA 0.7h
+    [adaptive_norm/L16] step  6200/12207 | loss=13.3 | L0=80 | FVE=0.6237 | dead=0.739 | a=0.0656 | b=1.533(exp=4.6) | 25.4M tok | ETA 0.7h
+    [adaptive_norm/L16] step  6400/12207 | loss=13.4 | L0=80 | FVE=0.6219 | dead=0.735 | a=0.0671 | b=1.521(exp=4.6) | 26.2M tok | ETA 0.6h
+    [adaptive_norm/L16] step  6600/12207 | loss=13.7 | L0=80 | FVE=0.6106 | dead=0.733 | a=0.0700 | b=1.512(exp=4.5) | 27.0M tok | ETA 0.6h
+    [adaptive_norm/L16] step  6800/12207 | loss=13.1 | L0=80 | FVE=0.6264 | dead=0.729 | a=0.0723 | b=1.503(exp=4.5) | 27.9M tok | ETA 0.6h
+    [adaptive_norm/L16] step  7000/12207 | loss=13.4 | L0=80 | FVE=0.6211 | dead=0.726 | a=0.0741 | b=1.494(exp=4.5) | 28.7M tok | ETA 0.6h
+    [adaptive_norm/L16] step  7200/12207 | loss=13.6 | L0=80 | FVE=0.6136 | dead=0.723 | a=0.0781 | b=1.488(exp=4.4) | 29.5M tok | ETA 0.6h
+    [adaptive_norm/L16] Checkpoint saved at 60% (7324 steps)
+    [adaptive_norm/L16] step  7400/12207 | loss=13.2 | L0=80 | FVE=0.6255 | dead=0.720 | a=0.0789 | b=1.479(exp=4.4) | 30.3M tok | ETA 0.5h
+    [adaptive_norm/L16] step  7600/12207 | loss=13.4 | L0=80 | FVE=0.6205 | dead=0.719 | a=0.0808 | b=1.472(exp=4.4) | 31.1M tok | ETA 0.5h
+    [adaptive_norm/L16] step  7800/12207 | loss=13.1 | L0=80 | FVE=0.6290 | dead=0.715 | a=0.0838 | b=1.467(exp=4.3) | 31.9M tok | ETA 0.5h
+    [adaptive_norm/L16] step  8000/12207 | loss=13.2 | L0=80 | FVE=0.6277 | dead=0.712 | a=0.0853 | b=1.461(exp=4.3) | 32.8M tok | ETA 0.5h
+    [adaptive_norm/L16] step  8200/12207 | loss=13.4 | L0=80 | FVE=0.6200 | dead=0.710 | a=0.0866 | b=1.456(exp=4.3) | 33.6M tok | ETA 0.4h
+    [adaptive_norm/L16] step  8400/12207 | loss=13.0 | L0=80 | FVE=0.6322 | dead=0.706 | a=0.0890 | b=1.452(exp=4.3) | 34.4M tok | ETA 0.4h
+    [adaptive_norm/L16] step  8600/12207 | loss=13.1 | L0=80 | FVE=0.6282 | dead=0.705 | a=0.0905 | b=1.448(exp=4.3) | 35.2M tok | ETA 0.4h
+    [adaptive_norm/L16] step  8800/12207 | loss=13.4 | L0=80 | FVE=0.6209 | dead=0.703 | a=0.0920 | b=1.444(exp=4.2) | 36.0M tok | ETA 0.4h
+    [adaptive_norm/L16] step  9000/12207 | loss=13.0 | L0=80 | FVE=0.6307 | dead=0.701 | a=0.0938 | b=1.441(exp=4.2) | 36.9M tok | ETA 0.4h
+    [adaptive_norm/L16] step  9200/12207 | loss=13.2 | L0=80 | FVE=0.6260 | dead=0.700 | a=0.0945 | b=1.437(exp=4.2) | 37.7M tok | ETA 0.3h
+    [adaptive_norm/L16] step  9400/12207 | loss=13.5 | L0=80 | FVE=0.6199 | dead=0.698 | a=0.0962 | b=1.435(exp=4.2) | 38.5M tok | ETA 0.3h
+    [adaptive_norm/L16] step  9600/12207 | loss=13.2 | L0=80 | FVE=0.6259 | dead=0.697 | a=0.0968 | b=1.433(exp=4.2) | 39.3M tok | ETA 0.3h
+    [adaptive_norm/L16] Checkpoint saved at 80% (9765 steps)
+    [adaptive_norm/L16] step  9800/12207 | loss=13.3 | L0=80 | FVE=0.6243 | dead=0.696 | a=0.0976 | b=1.431(exp=4.2) | 40.1M tok | ETA 0.3h
+    [adaptive_norm/L16] step 10000/12207 | loss=13.0 | L0=80 | FVE=0.6286 | dead=0.694 | a=0.0990 | b=1.430(exp=4.2) | 41.0M tok | ETA 0.2h
+    [adaptive_norm/L16] step 10200/12207 | loss=13.1 | L0=80 | FVE=0.6287 | dead=0.694 | a=0.0997 | b=1.428(exp=4.2) | 41.8M tok | ETA 0.2h
+    [adaptive_norm/L16] step 10400/12207 | loss=13.2 | L0=80 | FVE=0.6233 | dead=0.694 | a=0.1003 | b=1.427(exp=4.2) | 42.6M tok | ETA 0.2h
+    [adaptive_norm/L16] step 10600/12207 | loss=13.2 | L0=80 | FVE=0.6275 | dead=0.693 | a=0.1011 | b=1.427(exp=4.2) | 43.4M tok | ETA 0.2h
+    [adaptive_norm/L16] step 10800/12207 | loss=13.2 | L0=80 | FVE=0.6264 | dead=0.693 | a=0.1014 | b=1.426(exp=4.2) | 44.2M tok | ETA 0.2h
+    [adaptive_norm/L16] step 11000/12207 | loss=13.2 | L0=80 | FVE=0.6258 | dead=0.692 | a=0.1018 | b=1.425(exp=4.2) | 45.1M tok | ETA 0.1h
+    [adaptive_norm/L16] step 11200/12207 | loss=13.2 | L0=80 | FVE=0.6251 | dead=0.693 | a=0.1018 | b=1.425(exp=4.2) | 45.9M tok | ETA 0.1h
+    [adaptive_norm/L16] step 11400/12207 | loss=13.2 | L0=80 | FVE=0.6263 | dead=0.692 | a=0.1020 | b=1.424(exp=4.2) | 46.7M tok | ETA 0.1h
+    [adaptive_norm/L16] step 11600/12207 | loss=13.2 | L0=80 | FVE=0.6259 | dead=0.693 | a=0.1021 | b=1.424(exp=4.2) | 47.5M tok | ETA 0.1h
+    [adaptive_norm/L16] step 11800/12207 | loss=13.2 | L0=80 | FVE=0.6271 | dead=0.692 | a=0.1022 | b=1.424(exp=4.2) | 48.3M tok | ETA 0.0h
+    [adaptive_norm/L16] step 12000/12207 | loss=13.3 | L0=80 | FVE=0.6247 | dead=0.692 | a=0.1022 | b=1.424(exp=4.2) | 49.2M tok | ETA 0.0h
+    [adaptive_norm/L16] step 12200/12207 | loss=13.3 | L0=80 | FVE=0.6258 | dead=0.692 | a=0.1022 | b=1.424(exp=4.2) | 50.0M tok | ETA 0.0h
+    [adaptive_norm/L16] step 12207/12207 | loss=13.2 | L0=80 | FVE=0.6243 | dead=0.692 | a=0.1022 | b=1.424(exp=4.2) | 50.0M tok | ETA 0.0h
+    [adaptive_norm/L16] Checkpoint saved at 100% (12207 steps)
+    [adaptive_norm/L16] Done in 1.4h (4869s)
+    Checkpoint 2%: FVE=0.2838, dead=0.004, alive=16321
+    Checkpoint 5%: FVE=0.4979, dead=0.031, alive=15878
+    Checkpoint 10%: FVE=0.5569, dead=0.147, alive=13971
+    Checkpoint 20%: FVE=0.5804, dead=0.310, alive=11307
+    Checkpoint 40%: FVE=0.5960, dead=0.451, alive=8998
+    Checkpoint 60%: FVE=0.6087, dead=0.532, alive=7667
+    Checkpoint 80%: FVE=0.6171, dead=0.587, alive=6772
+
+  Full evaluation -- adaptive_norm_L16
+    [adaptive_norm/L16] FVE=0.6201 | dead=0.592 | alive=6677/16384 | L0=80
+
+    Ablation [adaptive_norm/L16] (100 feats, 200 samples)...
+    [adaptive_norm/L16] 5323 alive features (of 16384)
+      feat  3672 | n=200 | cos->KL=0.641 | inner->KL=0.544 | SAE->KL=0.541
+      feat  1974 | n=200 | cos->KL=0.669 | inner->KL=0.590 | SAE->KL=0.530
+      feat 13886 | n=200 | cos->KL=0.598 | inner->KL=0.543 | SAE->KL=0.541
+      feat  2092 | n=200 | cos->KL=0.512 | inner->KL=0.467 | SAE->KL=0.316
+      feat  3204 | n=200 | cos->KL=0.581 | inner->KL=0.493 | SAE->KL=0.580
+      feat  4701 | n=200 | cos->KL=0.729 | inner->KL=0.702 | SAE->KL=0.650
+      feat  5378 | n=200 | cos->KL=0.762 | inner->KL=0.773 | SAE->KL=0.629
+      feat 13452 | n=200 | cos->KL=0.670 | inner->KL=0.577 | SAE->KL=0.590
+    [adaptive_norm/L16] Summary (100 features): cos->KL=0.6141 | SAE->KL=0.5145 | cos>inner: 94/100
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: group_G4_sqrtd_L16 (encoder=group_G4_sqrtd, init=sqrt_d, layer=16)
+======================================================================
+    SQRT(D) init: scale_b = log(64.0) = 4.1589 (exp=64.0, mismatch=10.2x)
+    Parameters: 134,238,216
+
+  Training group_G4_sqrtd/L16 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 4.1589 (exp=64.0)
+    [group_G4_sqrtd/L16] step   200/12207 | loss=37.4 | L0=67 | FVE=0.0278 | dead=0.008 | a=-0.0008±0.0000 | b=4.158(exp=63.9) | 0.8M tok | ETA 1.5h
+    [group_G4_sqrtd/L16] Checkpoint saved at 2% (244 steps)
+    [group_G4_sqrtd/L16] step   400/12207 | loss=32.7 | L0=59 | FVE=0.0750 | dead=0.010 | a=-0.0013±0.0000 | b=4.156(exp=63.8) | 1.6M tok | ETA 1.5h
+    [group_G4_sqrtd/L16] step   600/12207 | loss=28.2 | L0=63 | FVE=0.2024 | dead=0.080 | a=-0.0020±0.0001 | b=4.153(exp=63.6) | 2.5M tok | ETA 1.3h
+    [group_G4_sqrtd/L16] Checkpoint saved at 5% (610 steps)
+    [group_G4_sqrtd/L16] step   800/12207 | loss=26.1 | L0=80 | FVE=0.2684 | dead=0.163 | a=-0.0027±0.0001 | b=4.150(exp=63.4) | 3.3M tok | ETA 1.3h
+    [group_G4_sqrtd/L16] step  1000/12207 | loss=25.0 | L0=80 | FVE=0.2976 | dead=0.778 | a=-0.0031±0.0001 | b=4.147(exp=63.3) | 4.1M tok | ETA 1.3h
+    [group_G4_sqrtd/L16] step  1200/12207 | loss=24.3 | L0=80 | FVE=0.3150 | dead=0.971 | a=-0.0032±0.0001 | b=4.145(exp=63.1) | 4.9M tok | ETA 1.2h
+    [group_G4_sqrtd/L16] Checkpoint saved at 10% (1220 steps)
+    [group_G4_sqrtd/L16] step  1400/12207 | loss=24.1 | L0=80 | FVE=0.3225 | dead=0.982 | a=-0.0033±0.0002 | b=4.142(exp=62.9) | 5.7M tok | ETA 1.2h
+    [group_G4_sqrtd/L16] step  1600/12207 | loss=24.1 | L0=80 | FVE=0.3204 | dead=0.983 | a=-0.0034±0.0002 | b=4.139(exp=62.8) | 6.6M tok | ETA 1.2h
+    [group_G4_sqrtd/L16] step  1800/12207 | loss=23.9 | L0=80 | FVE=0.3269 | dead=0.985 | a=-0.0035±0.0002 | b=4.137(exp=62.6) | 7.4M tok | ETA 1.2h
+    [group_G4_sqrtd/L16] step  2000/12207 | loss=23.8 | L0=80 | FVE=0.3287 | dead=0.986 | a=-0.0036±0.0002 | b=4.134(exp=62.5) | 8.2M tok | ETA 1.2h
+    [group_G4_sqrtd/L16] step  2200/12207 | loss=24.1 | L0=80 | FVE=0.3231 | dead=0.988 | a=-0.0037±0.0003 | b=4.132(exp=62.3) | 9.0M tok | ETA 1.1h
+    [group_G4_sqrtd/L16] step  2400/12207 | loss=23.8 | L0=80 | FVE=0.3327 | dead=0.989 | a=-0.0039±0.0003 | b=4.129(exp=62.1) | 9.8M tok | ETA 1.1h
+    [group_G4_sqrtd/L16] Checkpoint saved at 20% (2441 steps)
+    [group_G4_sqrtd/L16] step  2600/12207 | loss=23.6 | L0=80 | FVE=0.3329 | dead=0.989 | a=-0.0040±0.0003 | b=4.127(exp=62.0) | 10.6M tok | ETA 1.1h
+    [group_G4_sqrtd/L16] step  2800/12207 | loss=23.4 | L0=80 | FVE=0.3371 | dead=0.989 | a=-0.0041±0.0004 | b=4.124(exp=61.8) | 11.5M tok | ETA 1.0h
+    [group_G4_sqrtd/L16] step  3000/12207 | loss=23.6 | L0=80 | FVE=0.3357 | dead=0.988 | a=-0.0043±0.0004 | b=4.122(exp=61.7) | 12.3M tok | ETA 1.0h
+    [group_G4_sqrtd/L16] step  3200/12207 | loss=23.7 | L0=80 | FVE=0.3324 | dead=0.989 | a=-0.0045±0.0005 | b=4.120(exp=61.5) | 13.1M tok | ETA 1.0h
+    [group_G4_sqrtd/L16] step  3400/12207 | loss=23.4 | L0=80 | FVE=0.3348 | dead=0.989 | a=-0.0047±0.0005 | b=4.117(exp=61.4) | 13.9M tok | ETA 1.0h
+    [group_G4_sqrtd/L16] step  3600/12207 | loss=23.4 | L0=80 | FVE=0.3361 | dead=0.989 | a=-0.0049±0.0006 | b=4.115(exp=61.2) | 14.7M tok | ETA 1.0h
+    [group_G4_sqrtd/L16] step  3800/12207 | loss=23.5 | L0=80 | FVE=0.3330 | dead=0.989 | a=-0.0051±0.0006 | b=4.112(exp=61.1) | 15.6M tok | ETA 0.9h
+    [group_G4_sqrtd/L16] step  4000/12207 | loss=23.5 | L0=80 | FVE=0.3368 | dead=0.989 | a=-0.0053±0.0007 | b=4.110(exp=61.0) | 16.4M tok | ETA 0.9h
+    [group_G4_sqrtd/L16] step  4200/12207 | loss=23.4 | L0=80 | FVE=0.3394 | dead=0.989 | a=-0.0056±0.0007 | b=4.108(exp=60.8) | 17.2M tok | ETA 0.9h
+    [group_G4_sqrtd/L16] step  4400/12207 | loss=23.8 | L0=80 | FVE=0.3316 | dead=0.989 | a=-0.0058±0.0008 | b=4.106(exp=60.7) | 18.0M tok | ETA 0.9h
+    [group_G4_sqrtd/L16] step  4600/12207 | loss=23.5 | L0=80 | FVE=0.3384 | dead=0.989 | a=-0.0061±0.0009 | b=4.104(exp=60.6) | 18.8M tok | ETA 0.8h
+    [group_G4_sqrtd/L16] step  4800/12207 | loss=23.7 | L0=80 | FVE=0.3407 | dead=0.989 | a=-0.0064±0.0009 | b=4.101(exp=60.4) | 19.7M tok | ETA 0.8h
+    [group_G4_sqrtd/L16] Checkpoint saved at 40% (4882 steps)
+    [group_G4_sqrtd/L16] step  5000/12207 | loss=23.3 | L0=80 | FVE=0.3418 | dead=0.990 | a=-0.0067±0.0010 | b=4.099(exp=60.3) | 20.5M tok | ETA 0.8h
+    [group_G4_sqrtd/L16] step  5200/12207 | loss=23.4 | L0=80 | FVE=0.3393 | dead=0.990 | a=-0.0070±0.0011 | b=4.097(exp=60.2) | 21.3M tok | ETA 0.8h
+    [group_G4_sqrtd/L16] step  5400/12207 | loss=23.6 | L0=80 | FVE=0.3379 | dead=0.990 | a=-0.0074±0.0012 | b=4.095(exp=60.1) | 22.1M tok | ETA 0.8h
+    [group_G4_sqrtd/L16] step  5600/12207 | loss=23.4 | L0=80 | FVE=0.3387 | dead=0.990 | a=-0.0077±0.0013 | b=4.093(exp=59.9) | 22.9M tok | ETA 0.7h
+    [group_G4_sqrtd/L16] step  5800/12207 | loss=23.3 | L0=80 | FVE=0.3399 | dead=0.990 | a=-0.0081±0.0014 | b=4.091(exp=59.8) | 23.8M tok | ETA 0.7h
+    [group_G4_sqrtd/L16] step  6000/12207 | loss=23.5 | L0=80 | FVE=0.3390 | dead=0.990 | a=-0.0085±0.0015 | b=4.090(exp=59.7) | 24.6M tok | ETA 0.7h
+    [group_G4_sqrtd/L16] step  6200/12207 | loss=23.3 | L0=80 | FVE=0.3406 | dead=0.990 | a=-0.0088±0.0015 | b=4.088(exp=59.6) | 25.4M tok | ETA 0.7h
+    [group_G4_sqrtd/L16] step  6400/12207 | loss=23.3 | L0=80 | FVE=0.3422 | dead=0.990 | a=-0.0092±0.0016 | b=4.086(exp=59.5) | 26.2M tok | ETA 0.6h
+    [group_G4_sqrtd/L16] step  6600/12207 | loss=23.3 | L0=80 | FVE=0.3383 | dead=0.989 | a=-0.0097±0.0017 | b=4.084(exp=59.4) | 27.0M tok | ETA 0.6h
+    [group_G4_sqrtd/L16] step  6800/12207 | loss=23.0 | L0=80 | FVE=0.3430 | dead=0.989 | a=-0.0101±0.0018 | b=4.083(exp=59.3) | 27.9M tok | ETA 0.6h
+    [group_G4_sqrtd/L16] step  7000/12207 | loss=23.3 | L0=80 | FVE=0.3406 | dead=0.990 | a=-0.0105±0.0019 | b=4.081(exp=59.2) | 28.7M tok | ETA 0.6h
+    [group_G4_sqrtd/L16] step  7200/12207 | loss=23.4 | L0=80 | FVE=0.3344 | dead=0.990 | a=-0.0109±0.0020 | b=4.080(exp=59.1) | 29.5M tok | ETA 0.6h
+    [group_G4_sqrtd/L16] Checkpoint saved at 60% (7324 steps)
+    [group_G4_sqrtd/L16] step  7400/12207 | loss=23.4 | L0=80 | FVE=0.3392 | dead=0.990 | a=-0.0113±0.0021 | b=4.078(exp=59.0) | 30.3M tok | ETA 0.5h
+    [group_G4_sqrtd/L16] step  7600/12207 | loss=23.3 | L0=80 | FVE=0.3392 | dead=0.990 | a=-0.0118±0.0022 | b=4.077(exp=59.0) | 31.1M tok | ETA 0.5h
+    [group_G4_sqrtd/L16] step  7800/12207 | loss=23.2 | L0=80 | FVE=0.3421 | dead=0.990 | a=-0.0122±0.0023 | b=4.075(exp=58.9) | 31.9M tok | ETA 0.5h
+    [group_G4_sqrtd/L16] step  8000/12207 | loss=23.3 | L0=80 | FVE=0.3439 | dead=0.990 | a=-0.0126±0.0024 | b=4.074(exp=58.8) | 32.8M tok | ETA 0.5h
+    [group_G4_sqrtd/L16] step  8200/12207 | loss=23.3 | L0=80 | FVE=0.3404 | dead=0.990 | a=-0.0130±0.0025 | b=4.073(exp=58.7) | 33.6M tok | ETA 0.4h
+    [group_G4_sqrtd/L16] step  8400/12207 | loss=23.1 | L0=80 | FVE=0.3443 | dead=0.990 | a=-0.0134±0.0026 | b=4.072(exp=58.7) | 34.4M tok | ETA 0.4h
+    [group_G4_sqrtd/L16] step  8600/12207 | loss=23.2 | L0=80 | FVE=0.3450 | dead=0.990 | a=-0.0138±0.0027 | b=4.071(exp=58.6) | 35.2M tok | ETA 0.4h
+    [group_G4_sqrtd/L16] step  8800/12207 | loss=23.5 | L0=80 | FVE=0.3385 | dead=0.990 | a=-0.0142±0.0028 | b=4.070(exp=58.5) | 36.0M tok | ETA 0.4h
+    [group_G4_sqrtd/L16] step  9000/12207 | loss=23.1 | L0=80 | FVE=0.3442 | dead=0.990 | a=-0.0145±0.0029 | b=4.069(exp=58.5) | 36.9M tok | ETA 0.4h
+    [group_G4_sqrtd/L16] step  9200/12207 | loss=23.2 | L0=80 | FVE=0.3423 | dead=0.990 | a=-0.0149±0.0030 | b=4.068(exp=58.4) | 37.7M tok | ETA 0.3h
+    [group_G4_sqrtd/L16] step  9400/12207 | loss=23.5 | L0=80 | FVE=0.3369 | dead=0.990 | a=-0.0152±0.0031 | b=4.067(exp=58.4) | 38.5M tok | ETA 0.3h
+    [group_G4_sqrtd/L16] step  9600/12207 | loss=23.2 | L0=80 | FVE=0.3414 | dead=0.990 | a=-0.0155±0.0032 | b=4.066(exp=58.3) | 39.3M tok | ETA 0.3h
+    [group_G4_sqrtd/L16] Checkpoint saved at 80% (9765 steps)
+    [group_G4_sqrtd/L16] step  9800/12207 | loss=23.3 | L0=80 | FVE=0.3418 | dead=0.990 | a=-0.0158±0.0032 | b=4.065(exp=58.3) | 40.1M tok | ETA 0.3h
+    [group_G4_sqrtd/L16] step 10000/12207 | loss=22.9 | L0=80 | FVE=0.3435 | dead=0.990 | a=-0.0160±0.0033 | b=4.065(exp=58.3) | 41.0M tok | ETA 0.2h
+    [group_G4_sqrtd/L16] step 10200/12207 | loss=23.2 | L0=80 | FVE=0.3430 | dead=0.990 | a=-0.0162±0.0034 | b=4.064(exp=58.2) | 41.8M tok | ETA 0.2h
+    [group_G4_sqrtd/L16] step 10400/12207 | loss=23.1 | L0=80 | FVE=0.3429 | dead=0.990 | a=-0.0164±0.0034 | b=4.064(exp=58.2) | 42.6M tok | ETA 0.2h
+    [group_G4_sqrtd/L16] step 10600/12207 | loss=23.3 | L0=80 | FVE=0.3437 | dead=0.990 | a=-0.0166±0.0035 | b=4.063(exp=58.2) | 43.4M tok | ETA 0.2h
+    [group_G4_sqrtd/L16] step 10800/12207 | loss=23.2 | L0=80 | FVE=0.3418 | dead=0.990 | a=-0.0167±0.0035 | b=4.063(exp=58.2) | 44.2M tok | ETA 0.2h
+    [group_G4_sqrtd/L16] step 11000/12207 | loss=23.3 | L0=80 | FVE=0.3419 | dead=0.990 | a=-0.0169±0.0035 | b=4.063(exp=58.1) | 45.1M tok | ETA 0.1h
+    [group_G4_sqrtd/L16] step 11200/12207 | loss=23.1 | L0=80 | FVE=0.3417 | dead=0.990 | a=-0.0170±0.0036 | b=4.063(exp=58.1) | 45.9M tok | ETA 0.1h
+    [group_G4_sqrtd/L16] step 11400/12207 | loss=23.4 | L0=80 | FVE=0.3401 | dead=0.990 | a=-0.0170±0.0036 | b=4.062(exp=58.1) | 46.7M tok | ETA 0.1h
+    [group_G4_sqrtd/L16] step 11600/12207 | loss=23.2 | L0=80 | FVE=0.3414 | dead=0.990 | a=-0.0171±0.0036 | b=4.062(exp=58.1) | 47.5M tok | ETA 0.1h
+    [group_G4_sqrtd/L16] step 11800/12207 | loss=23.3 | L0=80 | FVE=0.3437 | dead=0.990 | a=-0.0171±0.0036 | b=4.062(exp=58.1) | 48.3M tok | ETA 0.0h
+    [group_G4_sqrtd/L16] step 12000/12207 | loss=23.4 | L0=80 | FVE=0.3394 | dead=0.990 | a=-0.0171±0.0036 | b=4.062(exp=58.1) | 49.2M tok | ETA 0.0h
+    [group_G4_sqrtd/L16] step 12200/12207 | loss=23.4 | L0=80 | FVE=0.3407 | dead=0.990 | a=-0.0171±0.0036 | b=4.062(exp=58.1) | 50.0M tok | ETA 0.0h
+    [group_G4_sqrtd/L16] step 12207/12207 | loss=23.3 | L0=80 | FVE=0.3385 | dead=0.990 | a=-0.0171±0.0036 | b=4.062(exp=58.1) | 50.0M tok | ETA 0.0h
+    [group_G4_sqrtd/L16] Checkpoint saved at 100% (12207 steps)
+    [group_G4_sqrtd/L16] Done in 1.4h (4877s)
+    Checkpoint 2%: FVE=0.0118, dead=0.000, alive=16384
+    Checkpoint 5%: FVE=0.1972, dead=0.000, alive=16383
+    Checkpoint 10%: FVE=0.3039, dead=0.058, alive=15441
+    Checkpoint 20%: FVE=0.3203, dead=0.511, alive=8013
+    Checkpoint 40%: FVE=0.3266, dead=0.806, alive=3176
+    Checkpoint 60%: FVE=0.3309, dead=0.868, alive=2155
+    Checkpoint 80%: FVE=0.3334, dead=0.909, alive=1485
+
+  Full evaluation -- group_G4_sqrtd_L16
+    [group_G4_sqrtd/L16] FVE=0.3360 | dead=0.914 | alive=1416/16384 | L0=81
+
+    Ablation [group_G4_sqrtd/L16] (100 feats, 200 samples)...
+    [group_G4_sqrtd/L16] 323 alive features (of 16384)
+      feat 11187 | n=200 | cos->KL=0.509 | inner->KL=0.439 | SAE->KL=0.407
+      feat 10948 | n=200 | cos->KL=0.671 | inner->KL=0.585 | SAE->KL=0.433
+      feat  4428 | n=200 | cos->KL=0.423 | inner->KL=0.381 | SAE->KL=0.129
+      feat 14370 | n=200 | cos->KL=0.743 | inner->KL=0.724 | SAE->KL=0.699
+      feat  1023 | n=200 | cos->KL=0.657 | inner->KL=0.636 | SAE->KL=0.636
+      feat  1311 | n=200 | cos->KL=0.554 | inner->KL=0.517 | SAE->KL=0.569
+      feat  9978 | n=200 | cos->KL=0.147 | inner->KL=0.121 | SAE->KL=0.058
+      feat  1103 | n=200 | cos->KL=0.673 | inner->KL=0.664 | SAE->KL=0.523
+    [group_G4_sqrtd/L16] Summary (100 features): cos->KL=0.5929 | SAE->KL=0.5497 | cos>inner: 76/100
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: group_G4_norm_L16 (encoder=group_G4_norm, init=norm_adaptive, layer=16)
+======================================================================
+    NORM-ADAPTIVE init: scale_b = log(6.3) = 1.8329 (exp=6.3)
+    Parameters: 134,238,216
+
+  Training group_G4_norm/L16 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 1.8329 (exp=6.3)
+    [group_G4_norm/L16] step   200/12207 | loss=26.9 | L0=80 | FVE=0.2451 | dead=0.115 | a=0.0003±0.0003 | b=1.833(exp=6.3) | 0.8M tok | ETA 1.5h
+    [group_G4_norm/L16] Checkpoint saved at 2% (244 steps)
+    [group_G4_norm/L16] step   400/12207 | loss=19.7 | L0=80 | FVE=0.4421 | dead=0.709 | a=0.0197±0.0022 | b=1.850(exp=6.4) | 1.6M tok | ETA 1.5h
+    [group_G4_norm/L16] step   600/12207 | loss=16.6 | L0=80 | FVE=0.5307 | dead=0.747 | a=0.0589±0.0089 | b=1.886(exp=6.6) | 2.5M tok | ETA 1.3h
+    [group_G4_norm/L16] Checkpoint saved at 5% (610 steps)
+    [group_G4_norm/L16] step   800/12207 | loss=15.7 | L0=80 | FVE=0.5568 | dead=0.767 | a=0.0784±0.0124 | b=1.901(exp=6.7) | 3.3M tok | ETA 1.3h
+    [group_G4_norm/L16] step  1000/12207 | loss=15.7 | L0=80 | FVE=0.5578 | dead=0.771 | a=0.0816±0.0146 | b=1.898(exp=6.7) | 4.1M tok | ETA 1.3h
+    [group_G4_norm/L16] step  1200/12207 | loss=14.6 | L0=80 | FVE=0.5885 | dead=0.776 | a=0.0792±0.0164 | b=1.890(exp=6.6) | 4.9M tok | ETA 1.2h
+    [group_G4_norm/L16] Checkpoint saved at 10% (1220 steps)
+    [group_G4_norm/L16] step  1400/12207 | loss=14.5 | L0=80 | FVE=0.5918 | dead=0.774 | a=0.0739±0.0177 | b=1.877(exp=6.5) | 5.7M tok | ETA 1.2h
+    [group_G4_norm/L16] step  1600/12207 | loss=14.9 | L0=80 | FVE=0.5789 | dead=0.776 | a=0.0679±0.0191 | b=1.864(exp=6.4) | 6.6M tok | ETA 1.2h
+    [group_G4_norm/L16] step  1800/12207 | loss=14.2 | L0=80 | FVE=0.6007 | dead=0.774 | a=0.0628±0.0201 | b=1.850(exp=6.4) | 7.4M tok | ETA 1.2h
+    [group_G4_norm/L16] step  2000/12207 | loss=14.3 | L0=80 | FVE=0.5956 | dead=0.773 | a=0.0569±0.0212 | b=1.834(exp=6.3) | 8.2M tok | ETA 1.2h
+    [group_G4_norm/L16] step  2200/12207 | loss=14.9 | L0=80 | FVE=0.5811 | dead=0.772 | a=0.0524±0.0220 | b=1.820(exp=6.2) | 9.0M tok | ETA 1.1h
+    [group_G4_norm/L16] step  2400/12207 | loss=14.0 | L0=80 | FVE=0.6074 | dead=0.772 | a=0.0483±0.0230 | b=1.805(exp=6.1) | 9.8M tok | ETA 1.1h
+    [group_G4_norm/L16] Checkpoint saved at 20% (2441 steps)
+    [group_G4_norm/L16] step  2600/12207 | loss=14.0 | L0=80 | FVE=0.6024 | dead=0.772 | a=0.0439±0.0240 | b=1.788(exp=6.0) | 10.6M tok | ETA 1.1h
+    [group_G4_norm/L16] step  2800/12207 | loss=13.6 | L0=80 | FVE=0.6153 | dead=0.770 | a=0.0431±0.0249 | b=1.775(exp=5.9) | 11.5M tok | ETA 1.0h
+    [group_G4_norm/L16] step  3000/12207 | loss=13.8 | L0=80 | FVE=0.6111 | dead=0.770 | a=0.0397±0.0259 | b=1.759(exp=5.8) | 12.3M tok | ETA 1.0h
+    [group_G4_norm/L16] step  3200/12207 | loss=14.2 | L0=80 | FVE=0.5990 | dead=0.770 | a=0.0379±0.0271 | b=1.743(exp=5.7) | 13.1M tok | ETA 1.0h
+    [group_G4_norm/L16] step  3400/12207 | loss=13.6 | L0=80 | FVE=0.6139 | dead=0.768 | a=0.0376±0.0280 | b=1.729(exp=5.6) | 13.9M tok | ETA 1.0h
+    [group_G4_norm/L16] step  3600/12207 | loss=13.7 | L0=80 | FVE=0.6117 | dead=0.767 | a=0.0365±0.0293 | b=1.713(exp=5.5) | 14.7M tok | ETA 1.0h
+    [group_G4_norm/L16] step  3800/12207 | loss=14.1 | L0=80 | FVE=0.5997 | dead=0.766 | a=0.0363±0.0303 | b=1.698(exp=5.5) | 15.6M tok | ETA 0.9h
+    [group_G4_norm/L16] step  4000/12207 | loss=13.5 | L0=80 | FVE=0.6177 | dead=0.764 | a=0.0380±0.0312 | b=1.684(exp=5.4) | 16.4M tok | ETA 0.9h
+    [group_G4_norm/L16] step  4200/12207 | loss=13.7 | L0=80 | FVE=0.6138 | dead=0.763 | a=0.0376±0.0324 | b=1.668(exp=5.3) | 17.2M tok | ETA 0.9h
+    [group_G4_norm/L16] step  4400/12207 | loss=14.2 | L0=80 | FVE=0.5993 | dead=0.763 | a=0.0398±0.0336 | b=1.655(exp=5.2) | 18.0M tok | ETA 0.9h
+    [group_G4_norm/L16] step  4600/12207 | loss=13.5 | L0=80 | FVE=0.6187 | dead=0.759 | a=0.0413±0.0343 | b=1.641(exp=5.2) | 18.8M tok | ETA 0.8h
+    [group_G4_norm/L16] step  4800/12207 | loss=13.8 | L0=80 | FVE=0.6148 | dead=0.758 | a=0.0422±0.0355 | b=1.627(exp=5.1) | 19.7M tok | ETA 0.8h
+    [group_G4_norm/L16] Checkpoint saved at 40% (4882 steps)
+    [group_G4_norm/L16] step  5000/12207 | loss=13.3 | L0=80 | FVE=0.6246 | dead=0.755 | a=0.0456±0.0362 | b=1.615(exp=5.0) | 20.5M tok | ETA 0.8h
+    [group_G4_norm/L16] step  5200/12207 | loss=13.5 | L0=80 | FVE=0.6189 | dead=0.753 | a=0.0461±0.0372 | b=1.601(exp=5.0) | 21.3M tok | ETA 0.8h
+    [group_G4_norm/L16] step  5400/12207 | loss=13.8 | L0=80 | FVE=0.6120 | dead=0.749 | a=0.0472±0.0383 | b=1.588(exp=4.9) | 22.1M tok | ETA 0.8h
+    [group_G4_norm/L16] step  5600/12207 | loss=13.3 | L0=80 | FVE=0.6226 | dead=0.747 | a=0.0512±0.0390 | b=1.578(exp=4.8) | 22.9M tok | ETA 0.7h
+    [group_G4_norm/L16] step  5800/12207 | loss=13.4 | L0=80 | FVE=0.6187 | dead=0.744 | a=0.0518±0.0400 | b=1.565(exp=4.8) | 23.8M tok | ETA 0.7h
+    [group_G4_norm/L16] step  6000/12207 | loss=13.8 | L0=80 | FVE=0.6106 | dead=0.742 | a=0.0544±0.0408 | b=1.555(exp=4.7) | 24.6M tok | ETA 0.7h
+    [group_G4_norm/L16] step  6200/12207 | loss=13.3 | L0=80 | FVE=0.6235 | dead=0.739 | a=0.0574±0.0414 | b=1.545(exp=4.7) | 25.4M tok | ETA 0.7h
+    [group_G4_norm/L16] step  6400/12207 | loss=13.4 | L0=80 | FVE=0.6213 | dead=0.736 | a=0.0586±0.0424 | b=1.534(exp=4.6) | 26.2M tok | ETA 0.6h
+    [group_G4_norm/L16] step  6600/12207 | loss=13.7 | L0=80 | FVE=0.6105 | dead=0.734 | a=0.0613±0.0431 | b=1.525(exp=4.6) | 27.0M tok | ETA 0.6h
+    [group_G4_norm/L16] step  6800/12207 | loss=13.1 | L0=80 | FVE=0.6261 | dead=0.731 | a=0.0633±0.0437 | b=1.517(exp=4.6) | 27.9M tok | ETA 0.6h
+    [group_G4_norm/L16] step  7000/12207 | loss=13.4 | L0=80 | FVE=0.6204 | dead=0.727 | a=0.0649±0.0443 | b=1.508(exp=4.5) | 28.7M tok | ETA 0.6h
+    [group_G4_norm/L16] step  7200/12207 | loss=13.6 | L0=80 | FVE=0.6130 | dead=0.725 | a=0.0686±0.0448 | b=1.503(exp=4.5) | 29.5M tok | ETA 0.6h
+    [group_G4_norm/L16] Checkpoint saved at 60% (7324 steps)
+    [group_G4_norm/L16] step  7400/12207 | loss=13.3 | L0=80 | FVE=0.6248 | dead=0.722 | a=0.0692±0.0454 | b=1.495(exp=4.5) | 30.3M tok | ETA 0.5h
+    [group_G4_norm/L16] step  7600/12207 | loss=13.4 | L0=80 | FVE=0.6199 | dead=0.719 | a=0.0709±0.0460 | b=1.488(exp=4.4) | 31.1M tok | ETA 0.5h
+    [group_G4_norm/L16] step  7800/12207 | loss=13.1 | L0=80 | FVE=0.6284 | dead=0.716 | a=0.0737±0.0462 | b=1.483(exp=4.4) | 31.9M tok | ETA 0.5h
+    [group_G4_norm/L16] step  8000/12207 | loss=13.2 | L0=80 | FVE=0.6267 | dead=0.714 | a=0.0751±0.0466 | b=1.478(exp=4.4) | 32.8M tok | ETA 0.5h
+    [group_G4_norm/L16] step  8200/12207 | loss=13.4 | L0=80 | FVE=0.6195 | dead=0.712 | a=0.0763±0.0469 | b=1.473(exp=4.4) | 33.6M tok | ETA 0.4h
+    [group_G4_norm/L16] step  8400/12207 | loss=13.0 | L0=80 | FVE=0.6310 | dead=0.709 | a=0.0787±0.0471 | b=1.469(exp=4.3) | 34.4M tok | ETA 0.4h
+    [group_G4_norm/L16] step  8600/12207 | loss=13.2 | L0=80 | FVE=0.6277 | dead=0.707 | a=0.0804±0.0473 | b=1.465(exp=4.3) | 35.2M tok | ETA 0.4h
+    [group_G4_norm/L16] step  8800/12207 | loss=13.5 | L0=80 | FVE=0.6194 | dead=0.705 | a=0.0821±0.0475 | b=1.462(exp=4.3) | 36.0M tok | ETA 0.4h
+    [group_G4_norm/L16] step  9000/12207 | loss=13.1 | L0=80 | FVE=0.6299 | dead=0.704 | a=0.0841±0.0475 | b=1.460(exp=4.3) | 36.9M tok | ETA 0.4h
+    [group_G4_norm/L16] step  9200/12207 | loss=13.2 | L0=80 | FVE=0.6249 | dead=0.702 | a=0.0849±0.0477 | b=1.457(exp=4.3) | 37.7M tok | ETA 0.3h
+    [group_G4_norm/L16] step  9400/12207 | loss=13.5 | L0=80 | FVE=0.6190 | dead=0.701 | a=0.0865±0.0478 | b=1.455(exp=4.3) | 38.5M tok | ETA 0.3h
+    [group_G4_norm/L16] step  9600/12207 | loss=13.2 | L0=80 | FVE=0.6249 | dead=0.700 | a=0.0871±0.0479 | b=1.452(exp=4.3) | 39.3M tok | ETA 0.3h
+    [group_G4_norm/L16] Checkpoint saved at 80% (9765 steps)
+    [group_G4_norm/L16] step  9800/12207 | loss=13.3 | L0=80 | FVE=0.6238 | dead=0.699 | a=0.0878±0.0480 | b=1.450(exp=4.3) | 40.1M tok | ETA 0.3h
+    [group_G4_norm/L16] step 10000/12207 | loss=13.0 | L0=80 | FVE=0.6274 | dead=0.697 | a=0.0889±0.0482 | b=1.449(exp=4.3) | 41.0M tok | ETA 0.2h
+    [group_G4_norm/L16] step 10200/12207 | loss=13.1 | L0=80 | FVE=0.6282 | dead=0.696 | a=0.0895±0.0482 | b=1.448(exp=4.3) | 41.8M tok | ETA 0.2h
+    [group_G4_norm/L16] step 10400/12207 | loss=13.3 | L0=80 | FVE=0.6227 | dead=0.697 | a=0.0899±0.0483 | b=1.447(exp=4.2) | 42.6M tok | ETA 0.2h
+    [group_G4_norm/L16] step 10600/12207 | loss=13.2 | L0=80 | FVE=0.6266 | dead=0.695 | a=0.0906±0.0484 | b=1.446(exp=4.2) | 43.4M tok | ETA 0.2h
+    [group_G4_norm/L16] step 10800/12207 | loss=13.2 | L0=80 | FVE=0.6258 | dead=0.695 | a=0.0909±0.0485 | b=1.445(exp=4.2) | 44.2M tok | ETA 0.2h
+    [group_G4_norm/L16] step 11000/12207 | loss=13.3 | L0=80 | FVE=0.6254 | dead=0.695 | a=0.0911±0.0485 | b=1.444(exp=4.2) | 45.1M tok | ETA 0.1h
+    [group_G4_norm/L16] step 11200/12207 | loss=13.2 | L0=80 | FVE=0.6240 | dead=0.695 | a=0.0912±0.0485 | b=1.444(exp=4.2) | 45.9M tok | ETA 0.1h
+    [group_G4_norm/L16] step 11400/12207 | loss=13.2 | L0=80 | FVE=0.6257 | dead=0.694 | a=0.0913±0.0485 | b=1.444(exp=4.2) | 46.7M tok | ETA 0.1h
+    [group_G4_norm/L16] step 11600/12207 | loss=13.2 | L0=80 | FVE=0.6250 | dead=0.694 | a=0.0914±0.0485 | b=1.443(exp=4.2) | 47.5M tok | ETA 0.1h
+    [group_G4_norm/L16] step 11800/12207 | loss=13.2 | L0=80 | FVE=0.6267 | dead=0.694 | a=0.0914±0.0486 | b=1.443(exp=4.2) | 48.3M tok | ETA 0.0h
+    [group_G4_norm/L16] step 12000/12207 | loss=13.3 | L0=80 | FVE=0.6240 | dead=0.694 | a=0.0914±0.0486 | b=1.443(exp=4.2) | 49.2M tok | ETA 0.0h
+    [group_G4_norm/L16] step 12200/12207 | loss=13.3 | L0=80 | FVE=0.6249 | dead=0.694 | a=0.0914±0.0486 | b=1.443(exp=4.2) | 50.0M tok | ETA 0.0h
+    [group_G4_norm/L16] step 12207/12207 | loss=13.3 | L0=80 | FVE=0.6237 | dead=0.694 | a=0.0914±0.0486 | b=1.443(exp=4.2) | 50.0M tok | ETA 0.0h
+    [group_G4_norm/L16] Checkpoint saved at 100% (12207 steps)
+    [group_G4_norm/L16] Done in 1.4h (4889s)
+    Checkpoint 2%: FVE=0.2838, dead=0.003, alive=16327
+    Checkpoint 5%: FVE=0.4987, dead=0.032, alive=15855
+    Checkpoint 10%: FVE=0.5574, dead=0.149, alive=13943
+    Checkpoint 20%: FVE=0.5808, dead=0.316, alive=11204
+    Checkpoint 40%: FVE=0.5956, dead=0.460, alive=8851
+    Checkpoint 60%: FVE=0.6080, dead=0.544, alive=7463
+    Checkpoint 80%: FVE=0.6166, dead=0.588, alive=6745
+
+  Full evaluation -- group_G4_norm_L16
+    [group_G4_norm/L16] FVE=0.6193 | dead=0.594 | alive=6650/16384 | L0=80
+
+    Ablation [group_G4_norm/L16] (100 feats, 200 samples)...
+    [group_G4_norm/L16] 5262 alive features (of 16384)
+      feat  3672 | n=200 | cos->KL=0.613 | inner->KL=0.560 | SAE->KL=0.551
+      feat  1974 | n=200 | cos->KL=0.522 | inner->KL=0.464 | SAE->KL=0.407
+      feat  2092 | n=200 | cos->KL=0.606 | inner->KL=0.551 | SAE->KL=0.471
+      feat 13886 | n=200 | cos->KL=0.718 | inner->KL=0.668 | SAE->KL=0.629
+      feat  1339 | n=200 | cos->KL=0.617 | inner->KL=0.590 | SAE->KL=0.545
+      feat  7334 | n=200 | cos->KL=0.509 | inner->KL=0.455 | SAE->KL=0.459
+      feat  1686 | n=200 | cos->KL=0.665 | inner->KL=0.643 | SAE->KL=0.574
+      feat   392 | n=200 | cos->KL=0.655 | inner->KL=0.633 | SAE->KL=0.575
+    [group_G4_norm/L16] Summary (100 features): cos->KL=0.6249 | SAE->KL=0.5229 | cos>inner: 94/100
+  Results saved to experiments/exp39_results.json
+
+  === L16 COMPLETE ===
+  Variant              | Init         |    FVE |  Dead% |  Alive |  cos>inn |  scale_a | scale_b(exp)
+  ---------------------+--------------+--------+--------+--------+----------+----------+-------------
+  standard             | none         | 0.6139 |  69.0% |   5077 |  91/100  |      N/A |          N/A
+  adaptive_sqrtd       | sqrt_d       | 0.3399 |  92.0% |   1307 |  78/100  |  -0.0174 |         58.1
+  adaptive_norm        | norm_adaptive | 0.6201 |  59.2% |   6677 |  94/100  |   0.1022 |          4.2
+  group_G4_sqrtd       | sqrt_d       | 0.3360 |  91.4% |   1416 |  76/100  |  -0.0171 |         58.1
+  group_G4_norm        | norm_adaptive | 0.6193 |  59.4% |   6650 |  94/100  |   0.0914 |          4.2
+
+######################################################################
+  LAYER 24 (mean_norm=18.0, mismatch=3.6x)
+######################################################################
+
+======================================================================
+  RUN: standard_L24 (encoder=standard, init=none, layer=24)
+======================================================================
+    Standard encoder (no scale parameter)
+    Parameters: 134,238,208
+
+  Training standard/L24 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    [standard/L24] step   200/12207 | loss=239.9 | L0=80 | FVE=0.1658 | dead=0.817 | 0.8M tok | ETA 2.1h
+    [standard/L24] Checkpoint saved at 2% (244 steps)
+    [standard/L24] step   400/12207 | loss=181.8 | L0=80 | FVE=0.3634 | dead=0.818 | 1.6M tok | ETA 2.0h
+    [standard/L24] step   600/12207 | loss=148.5 | L0=80 | FVE=0.4805 | dead=0.798 | 2.5M tok | ETA 1.7h
+    [standard/L24] Checkpoint saved at 5% (610 steps)
+    [standard/L24] step   800/12207 | loss=138.6 | L0=80 | FVE=0.5114 | dead=0.782 | 3.3M tok | ETA 1.7h
+    [standard/L24] step  1000/12207 | loss=136.1 | L0=80 | FVE=0.5223 | dead=0.767 | 4.1M tok | ETA 1.8h
+    [standard/L24] step  1200/12207 | loss=124.2 | L0=80 | FVE=0.5659 | dead=0.745 | 4.9M tok | ETA 1.6h
+    [standard/L24] Checkpoint saved at 10% (1220 steps)
+    [standard/L24] step  1400/12207 | loss=123.2 | L0=80 | FVE=0.5714 | dead=0.731 | 5.7M tok | ETA 1.6h
+    [standard/L24] step  1600/12207 | loss=127.2 | L0=80 | FVE=0.5575 | dead=0.718 | 6.6M tok | ETA 1.6h
+    [standard/L24] step  1800/12207 | loss=115.2 | L0=80 | FVE=0.6001 | dead=0.702 | 7.4M tok | ETA 1.5h
+    [standard/L24] step  2000/12207 | loss=116.2 | L0=80 | FVE=0.5954 | dead=0.693 | 8.2M tok | ETA 1.5h
+    [standard/L24] step  2200/12207 | loss=123.2 | L0=80 | FVE=0.5667 | dead=0.682 | 9.0M tok | ETA 1.5h
+    [standard/L24] step  2400/12207 | loss=112.0 | L0=80 | FVE=0.6098 | dead=0.673 | 9.8M tok | ETA 1.4h
+    [standard/L24] Checkpoint saved at 20% (2441 steps)
+    [standard/L24] step  2600/12207 | loss=113.6 | L0=80 | FVE=0.6034 | dead=0.664 | 10.6M tok | ETA 1.4h
+    [standard/L24] step  2800/12207 | loss=106.8 | L0=80 | FVE=0.6258 | dead=0.656 | 11.5M tok | ETA 1.4h
+    [standard/L24] step  3000/12207 | loss=108.2 | L0=80 | FVE=0.6213 | dead=0.652 | 12.3M tok | ETA 1.4h
+    [standard/L24] step  3200/12207 | loss=112.2 | L0=80 | FVE=0.6042 | dead=0.648 | 13.1M tok | ETA 1.3h
+    [standard/L24] step  3400/12207 | loss=105.8 | L0=80 | FVE=0.6277 | dead=0.639 | 13.9M tok | ETA 1.3h
+    [standard/L24] step  3600/12207 | loss=107.8 | L0=80 | FVE=0.6224 | dead=0.634 | 14.7M tok | ETA 1.3h
+    [standard/L24] step  3800/12207 | loss=113.0 | L0=80 | FVE=0.6038 | dead=0.630 | 15.6M tok | ETA 1.2h
+    [standard/L24] step  4000/12207 | loss=106.0 | L0=80 | FVE=0.6302 | dead=0.627 | 16.4M tok | ETA 1.2h
+    [standard/L24] step  4200/12207 | loss=107.0 | L0=80 | FVE=0.6277 | dead=0.623 | 17.2M tok | ETA 1.2h
+    [standard/L24] step  4400/12207 | loss=113.1 | L0=80 | FVE=0.6045 | dead=0.619 | 18.0M tok | ETA 1.2h
+    [standard/L24] step  4600/12207 | loss=105.3 | L0=80 | FVE=0.6336 | dead=0.616 | 18.8M tok | ETA 1.1h
+    [standard/L24] step  4800/12207 | loss=107.6 | L0=80 | FVE=0.6274 | dead=0.614 | 19.7M tok | ETA 1.1h
+    [standard/L24] Checkpoint saved at 40% (4882 steps)
+    [standard/L24] step  5000/12207 | loss=101.6 | L0=80 | FVE=0.6443 | dead=0.611 | 20.5M tok | ETA 1.0h
+    [standard/L24] step  5200/12207 | loss=104.5 | L0=80 | FVE=0.6321 | dead=0.609 | 21.3M tok | ETA 1.0h
+    [standard/L24] step  5400/12207 | loss=108.4 | L0=80 | FVE=0.6215 | dead=0.608 | 22.1M tok | ETA 1.0h
+    [standard/L24] step  5600/12207 | loss=101.5 | L0=80 | FVE=0.6420 | dead=0.605 | 22.9M tok | ETA 1.0h
+    [standard/L24] step  5800/12207 | loss=104.5 | L0=80 | FVE=0.6345 | dead=0.603 | 23.8M tok | ETA 0.9h
+    [standard/L24] step  6000/12207 | loss=109.3 | L0=80 | FVE=0.6195 | dead=0.602 | 24.6M tok | ETA 0.9h
+    [standard/L24] step  6200/12207 | loss=101.7 | L0=80 | FVE=0.6415 | dead=0.600 | 25.4M tok | ETA 0.9h
+    [standard/L24] step  6400/12207 | loss=104.1 | L0=80 | FVE=0.6322 | dead=0.599 | 26.2M tok | ETA 0.8h
+    [standard/L24] step  6600/12207 | loss=109.5 | L0=80 | FVE=0.6152 | dead=0.596 | 27.0M tok | ETA 0.8h
+    [standard/L24] step  6800/12207 | loss=102.1 | L0=80 | FVE=0.6383 | dead=0.595 | 27.9M tok | ETA 0.8h
+    [standard/L24] step  7000/12207 | loss=105.4 | L0=80 | FVE=0.6294 | dead=0.594 | 28.7M tok | ETA 0.8h
+    [standard/L24] step  7200/12207 | loss=108.1 | L0=80 | FVE=0.6198 | dead=0.592 | 29.5M tok | ETA 0.7h
+    [standard/L24] Checkpoint saved at 60% (7324 steps)
+    [standard/L24] step  7400/12207 | loss=103.6 | L0=80 | FVE=0.6361 | dead=0.591 | 30.3M tok | ETA 0.7h
+    [standard/L24] step  7600/12207 | loss=105.3 | L0=80 | FVE=0.6293 | dead=0.590 | 31.1M tok | ETA 0.7h
+    [standard/L24] step  7800/12207 | loss=102.5 | L0=80 | FVE=0.6394 | dead=0.590 | 31.9M tok | ETA 0.6h
+    [standard/L24] step  8000/12207 | loss=103.5 | L0=80 | FVE=0.6367 | dead=0.589 | 32.8M tok | ETA 0.6h
+    [standard/L24] step  8200/12207 | loss=107.3 | L0=80 | FVE=0.6288 | dead=0.587 | 33.6M tok | ETA 0.6h
+    [standard/L24] step  8400/12207 | loss=102.2 | L0=80 | FVE=0.6419 | dead=0.585 | 34.4M tok | ETA 0.6h
+    [standard/L24] step  8600/12207 | loss=103.1 | L0=80 | FVE=0.6374 | dead=0.584 | 35.2M tok | ETA 0.5h
+    [standard/L24] step  8800/12207 | loss=108.1 | L0=80 | FVE=0.6255 | dead=0.582 | 36.0M tok | ETA 0.5h
+    [standard/L24] step  9000/12207 | loss=103.6 | L0=80 | FVE=0.6373 | dead=0.582 | 36.9M tok | ETA 0.5h
+    [standard/L24] step  9200/12207 | loss=104.3 | L0=80 | FVE=0.6323 | dead=0.583 | 37.7M tok | ETA 0.4h
+    [standard/L24] step  9400/12207 | loss=106.5 | L0=80 | FVE=0.6273 | dead=0.581 | 38.5M tok | ETA 0.4h
+    [standard/L24] step  9600/12207 | loss=104.4 | L0=80 | FVE=0.6336 | dead=0.581 | 39.3M tok | ETA 0.4h
+    [standard/L24] Checkpoint saved at 80% (9765 steps)
+    [standard/L24] step  9800/12207 | loss=104.8 | L0=80 | FVE=0.6340 | dead=0.581 | 40.1M tok | ETA 0.4h
+    [standard/L24] step 10000/12207 | loss=103.0 | L0=80 | FVE=0.6341 | dead=0.580 | 41.0M tok | ETA 0.3h
+    [standard/L24] step 10200/12207 | loss=104.1 | L0=80 | FVE=0.6326 | dead=0.580 | 41.8M tok | ETA 0.3h
+    [standard/L24] step 10400/12207 | loss=104.9 | L0=80 | FVE=0.6349 | dead=0.580 | 42.6M tok | ETA 0.3h
+    [standard/L24] step 10600/12207 | loss=104.2 | L0=80 | FVE=0.6343 | dead=0.580 | 43.4M tok | ETA 0.2h
+    [standard/L24] step 10800/12207 | loss=105.4 | L0=80 | FVE=0.6319 | dead=0.580 | 44.2M tok | ETA 0.2h
+    [standard/L24] step 11000/12207 | loss=104.8 | L0=80 | FVE=0.6319 | dead=0.580 | 45.1M tok | ETA 0.2h
+    [standard/L24] step 11200/12207 | loss=103.4 | L0=80 | FVE=0.6344 | dead=0.579 | 45.9M tok | ETA 0.1h
+    [standard/L24] step 11400/12207 | loss=105.4 | L0=80 | FVE=0.6287 | dead=0.579 | 46.7M tok | ETA 0.1h
+    [standard/L24] step 11600/12207 | loss=105.4 | L0=80 | FVE=0.6291 | dead=0.579 | 47.5M tok | ETA 0.1h
+    [standard/L24] step 11800/12207 | loss=105.0 | L0=80 | FVE=0.6330 | dead=0.580 | 48.3M tok | ETA 0.1h
+    [standard/L24] step 12000/12207 | loss=104.9 | L0=80 | FVE=0.6308 | dead=0.578 | 49.2M tok | ETA 0.0h
+    [standard/L24] step 12200/12207 | loss=105.1 | L0=80 | FVE=0.6327 | dead=0.579 | 50.0M tok | ETA 0.0h
+    [standard/L24] step 12207/12207 | loss=104.7 | L0=80 | FVE=0.6292 | dead=0.579 | 50.0M tok | ETA 0.0h
+    [standard/L24] Checkpoint saved at 100% (12207 steps)
+    [standard/L24] Done in 1.8h (6437s)
+    Checkpoint 2%: FVE=0.1995, dead=0.726, alive=4482
+    Checkpoint 5%: FVE=0.4327, dead=0.670, alive=5400
+    Checkpoint 10%: FVE=0.5231, dead=0.634, alive=5995
+    Checkpoint 20%: FVE=0.5712, dead=0.611, alive=6377
+    Checkpoint 40%: FVE=0.6011, dead=0.583, alive=6832
+    Checkpoint 60%: FVE=0.6152, dead=0.574, alive=6983
+    Checkpoint 80%: FVE=0.6236, dead=0.539, alive=7547
+
+  Full evaluation -- standard_L24
+    [standard/L24] FVE=0.6268 | dead=0.528 | alive=7734/16384 | L0=81
+
+    Ablation [standard/L24] (100 feats, 200 samples)...
+    [standard/L24] 7019 alive features (of 16384)
+      feat 14240 | n=200 | cos->KL=0.489 | inner->KL=0.411 | SAE->KL=0.399
+      feat   985 | n=200 | cos->KL=0.485 | inner->KL=0.492 | SAE->KL=0.455
+      feat  2202 | n=200 | cos->KL=0.407 | inner->KL=0.361 | SAE->KL=0.346
+      feat  9459 | n=200 | cos->KL=0.326 | inner->KL=0.261 | SAE->KL=0.240
+      feat  4428 | n=200 | cos->KL=0.568 | inner->KL=0.501 | SAE->KL=0.410
+      feat 13616 | n=200 | cos->KL=0.322 | inner->KL=0.332 | SAE->KL=0.254
+      feat  1951 | n=200 | cos->KL=0.543 | inner->KL=0.526 | SAE->KL=0.532
+      feat  8176 | n=200 | cos->KL=0.272 | inner->KL=0.225 | SAE->KL=0.131
+    [standard/L24] Summary (100 features): cos->KL=0.4871 | SAE->KL=0.4412 | cos>inner: 76/100
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: adaptive_sqrtd_L24 (encoder=adaptive_sqrtd, init=sqrt_d, layer=24)
+======================================================================
+    SQRT(D) init: scale_b = log(64.0) = 4.1589 (exp=64.0, mismatch=3.6x)
+    Parameters: 134,238,210
+
+  Training adaptive_sqrtd/L24 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 4.1589 (exp=64.0)
+    [adaptive_sqrtd/L24] step   200/12207 | loss=255.3 | L0=80 | FVE=0.1420 | dead=0.096 | a=-0.0010 | b=4.157(exp=63.9) | 0.8M tok | ETA 2.1h
+    [adaptive_sqrtd/L24] Checkpoint saved at 2% (244 steps)
+    [adaptive_sqrtd/L24] step   400/12207 | loss=195.5 | L0=80 | FVE=0.3156 | dead=0.031 | a=-0.0017 | b=4.156(exp=63.8) | 1.6M tok | ETA 2.0h
+    [adaptive_sqrtd/L24] step   600/12207 | loss=167.6 | L0=80 | FVE=0.4145 | dead=0.512 | a=-0.0030 | b=4.152(exp=63.6) | 2.5M tok | ETA 1.7h
+    [adaptive_sqrtd/L24] Checkpoint saved at 5% (610 steps)
+    [adaptive_sqrtd/L24] step   800/12207 | loss=158.1 | L0=80 | FVE=0.4431 | dead=0.786 | a=-0.0045 | b=4.148(exp=63.3) | 3.3M tok | ETA 1.8h
+    [adaptive_sqrtd/L24] step  1000/12207 | loss=157.1 | L0=80 | FVE=0.4489 | dead=0.848 | a=-0.0060 | b=4.144(exp=63.1) | 4.1M tok | ETA 1.8h
+    [adaptive_sqrtd/L24] step  1200/12207 | loss=147.1 | L0=80 | FVE=0.4863 | dead=0.864 | a=-0.0076 | b=4.140(exp=62.8) | 4.9M tok | ETA 1.6h
+    [adaptive_sqrtd/L24] Checkpoint saved at 10% (1220 steps)
+    [adaptive_sqrtd/L24] step  1400/12207 | loss=146.8 | L0=80 | FVE=0.4896 | dead=0.869 | a=-0.0093 | b=4.136(exp=62.5) | 5.7M tok | ETA 1.6h
+    [adaptive_sqrtd/L24] step  1600/12207 | loss=152.0 | L0=80 | FVE=0.4714 | dead=0.873 | a=-0.0112 | b=4.131(exp=62.3) | 6.6M tok | ETA 1.6h
+    [adaptive_sqrtd/L24] step  1800/12207 | loss=141.2 | L0=80 | FVE=0.5101 | dead=0.875 | a=-0.0132 | b=4.127(exp=62.0) | 7.4M tok | ETA 1.5h
+    [adaptive_sqrtd/L24] step  2000/12207 | loss=142.3 | L0=80 | FVE=0.5050 | dead=0.876 | a=-0.0154 | b=4.122(exp=61.7) | 8.2M tok | ETA 1.5h
+    [adaptive_sqrtd/L24] step  2200/12207 | loss=151.3 | L0=80 | FVE=0.4681 | dead=0.873 | a=-0.0177 | b=4.118(exp=61.4) | 9.0M tok | ETA 1.5h
+    [adaptive_sqrtd/L24] step  2400/12207 | loss=140.0 | L0=80 | FVE=0.5125 | dead=0.874 | a=-0.0202 | b=4.113(exp=61.1) | 9.8M tok | ETA 1.5h
+    [adaptive_sqrtd/L24] Checkpoint saved at 20% (2441 steps)
+    [adaptive_sqrtd/L24] step  2600/12207 | loss=140.8 | L0=80 | FVE=0.5084 | dead=0.874 | a=-0.0228 | b=4.108(exp=60.8) | 10.6M tok | ETA 1.4h
+    [adaptive_sqrtd/L24] step  2800/12207 | loss=135.0 | L0=80 | FVE=0.5273 | dead=0.874 | a=-0.0256 | b=4.102(exp=60.5) | 11.5M tok | ETA 1.4h
+    [adaptive_sqrtd/L24] step  3000/12207 | loss=136.7 | L0=80 | FVE=0.5220 | dead=0.874 | a=-0.0285 | b=4.097(exp=60.2) | 12.3M tok | ETA 1.4h
+    [adaptive_sqrtd/L24] step  3200/12207 | loss=140.5 | L0=80 | FVE=0.5048 | dead=0.874 | a=-0.0316 | b=4.092(exp=59.8) | 13.1M tok | ETA 1.3h
+    [adaptive_sqrtd/L24] step  3400/12207 | loss=135.2 | L0=80 | FVE=0.5243 | dead=0.874 | a=-0.0348 | b=4.086(exp=59.5) | 13.9M tok | ETA 1.3h
+    [adaptive_sqrtd/L24] step  3600/12207 | loss=136.6 | L0=80 | FVE=0.5215 | dead=0.875 | a=-0.0381 | b=4.080(exp=59.2) | 14.7M tok | ETA 1.3h
+    [adaptive_sqrtd/L24] step  3800/12207 | loss=142.7 | L0=80 | FVE=0.4998 | dead=0.873 | a=-0.0416 | b=4.075(exp=58.8) | 15.6M tok | ETA 1.3h
+    [adaptive_sqrtd/L24] step  4000/12207 | loss=135.9 | L0=80 | FVE=0.5260 | dead=0.872 | a=-0.0452 | b=4.069(exp=58.5) | 16.4M tok | ETA 1.2h
+    [adaptive_sqrtd/L24] step  4200/12207 | loss=136.5 | L0=80 | FVE=0.5249 | dead=0.873 | a=-0.0489 | b=4.063(exp=58.1) | 17.2M tok | ETA 1.2h
+    [adaptive_sqrtd/L24] step  4400/12207 | loss=143.9 | L0=80 | FVE=0.4968 | dead=0.872 | a=-0.0527 | b=4.057(exp=57.8) | 18.0M tok | ETA 1.2h
+    [adaptive_sqrtd/L24] step  4600/12207 | loss=135.3 | L0=80 | FVE=0.5295 | dead=0.872 | a=-0.0566 | b=4.051(exp=57.4) | 18.8M tok | ETA 1.1h
+    [adaptive_sqrtd/L24] step  4800/12207 | loss=137.4 | L0=80 | FVE=0.5244 | dead=0.872 | a=-0.0606 | b=4.045(exp=57.1) | 19.7M tok | ETA 1.1h
+    [adaptive_sqrtd/L24] Checkpoint saved at 40% (4882 steps)
+    [adaptive_sqrtd/L24] step  5000/12207 | loss=131.4 | L0=80 | FVE=0.5403 | dead=0.871 | a=-0.0646 | b=4.039(exp=56.8) | 20.5M tok | ETA 1.1h
+    [adaptive_sqrtd/L24] step  5200/12207 | loss=133.7 | L0=80 | FVE=0.5294 | dead=0.871 | a=-0.0688 | b=4.032(exp=56.4) | 21.3M tok | ETA 1.0h
+    [adaptive_sqrtd/L24] step  5400/12207 | loss=138.0 | L0=80 | FVE=0.5181 | dead=0.871 | a=-0.0729 | b=4.026(exp=56.0) | 22.1M tok | ETA 1.0h
+    [adaptive_sqrtd/L24] step  5600/12207 | loss=130.8 | L0=80 | FVE=0.5387 | dead=0.870 | a=-0.0769 | b=4.020(exp=55.7) | 22.9M tok | ETA 1.0h
+    [adaptive_sqrtd/L24] step  5800/12207 | loss=133.7 | L0=80 | FVE=0.5326 | dead=0.870 | a=-0.0811 | b=4.014(exp=55.4) | 23.8M tok | ETA 0.9h
+    [adaptive_sqrtd/L24] step  6000/12207 | loss=139.4 | L0=80 | FVE=0.5146 | dead=0.869 | a=-0.0851 | b=4.008(exp=55.0) | 24.6M tok | ETA 0.9h
+    [adaptive_sqrtd/L24] step  6200/12207 | loss=130.9 | L0=80 | FVE=0.5384 | dead=0.870 | a=-0.0890 | b=4.002(exp=54.7) | 25.4M tok | ETA 0.9h
+    [adaptive_sqrtd/L24] step  6400/12207 | loss=132.8 | L0=80 | FVE=0.5310 | dead=0.868 | a=-0.0930 | b=3.996(exp=54.4) | 26.2M tok | ETA 0.9h
+    [adaptive_sqrtd/L24] step  6600/12207 | loss=139.5 | L0=80 | FVE=0.5099 | dead=0.866 | a=-0.0967 | b=3.990(exp=54.1) | 27.0M tok | ETA 0.8h
+    [adaptive_sqrtd/L24] step  6800/12207 | loss=130.3 | L0=80 | FVE=0.5384 | dead=0.866 | a=-0.1005 | b=3.985(exp=53.8) | 27.9M tok | ETA 0.8h
+    [adaptive_sqrtd/L24] step  7000/12207 | loss=134.7 | L0=80 | FVE=0.5266 | dead=0.865 | a=-0.1040 | b=3.979(exp=53.5) | 28.7M tok | ETA 0.8h
+    [adaptive_sqrtd/L24] step  7200/12207 | loss=138.1 | L0=80 | FVE=0.5145 | dead=0.864 | a=-0.1070 | b=3.974(exp=53.2) | 29.5M tok | ETA 0.7h
+    [adaptive_sqrtd/L24] Checkpoint saved at 60% (7324 steps)
+    [adaptive_sqrtd/L24] step  7400/12207 | loss=132.0 | L0=80 | FVE=0.5365 | dead=0.862 | a=-0.1104 | b=3.969(exp=52.9) | 30.3M tok | ETA 0.7h
+    [adaptive_sqrtd/L24] step  7600/12207 | loss=133.8 | L0=80 | FVE=0.5288 | dead=0.861 | a=-0.1133 | b=3.964(exp=52.7) | 31.1M tok | ETA 0.7h
+    [adaptive_sqrtd/L24] step  7800/12207 | loss=130.3 | L0=80 | FVE=0.5414 | dead=0.859 | a=-0.1160 | b=3.960(exp=52.5) | 31.9M tok | ETA 0.6h
+    [adaptive_sqrtd/L24] step  8000/12207 | loss=131.3 | L0=80 | FVE=0.5389 | dead=0.858 | a=-0.1188 | b=3.955(exp=52.2) | 32.8M tok | ETA 0.6h
+    [adaptive_sqrtd/L24] step  8200/12207 | loss=136.0 | L0=80 | FVE=0.5293 | dead=0.857 | a=-0.1211 | b=3.951(exp=52.0) | 33.6M tok | ETA 0.6h
+    [adaptive_sqrtd/L24] step  8400/12207 | loss=129.4 | L0=80 | FVE=0.5467 | dead=0.855 | a=-0.1230 | b=3.948(exp=51.8) | 34.4M tok | ETA 0.6h
+    [adaptive_sqrtd/L24] step  8600/12207 | loss=130.2 | L0=80 | FVE=0.5420 | dead=0.855 | a=-0.1249 | b=3.944(exp=51.6) | 35.2M tok | ETA 0.5h
+    [adaptive_sqrtd/L24] step  8800/12207 | loss=136.6 | L0=80 | FVE=0.5265 | dead=0.853 | a=-0.1266 | b=3.941(exp=51.5) | 36.0M tok | ETA 0.5h
+    [adaptive_sqrtd/L24] step  9000/12207 | loss=130.4 | L0=80 | FVE=0.5434 | dead=0.851 | a=-0.1282 | b=3.938(exp=51.3) | 36.9M tok | ETA 0.5h
+    [adaptive_sqrtd/L24] step  9200/12207 | loss=131.3 | L0=80 | FVE=0.5372 | dead=0.850 | a=-0.1297 | b=3.935(exp=51.2) | 37.7M tok | ETA 0.4h
+    [adaptive_sqrtd/L24] step  9400/12207 | loss=134.4 | L0=80 | FVE=0.5297 | dead=0.849 | a=-0.1307 | b=3.933(exp=51.0) | 38.5M tok | ETA 0.4h
+    [adaptive_sqrtd/L24] step  9600/12207 | loss=131.1 | L0=80 | FVE=0.5402 | dead=0.848 | a=-0.1319 | b=3.930(exp=50.9) | 39.3M tok | ETA 0.4h
+    [adaptive_sqrtd/L24] Checkpoint saved at 80% (9765 steps)
+    [adaptive_sqrtd/L24] step  9800/12207 | loss=131.6 | L0=80 | FVE=0.5405 | dead=0.846 | a=-0.1328 | b=3.928(exp=50.8) | 40.1M tok | ETA 0.4h
+    [adaptive_sqrtd/L24] step 10000/12207 | loss=129.0 | L0=80 | FVE=0.5416 | dead=0.844 | a=-0.1335 | b=3.926(exp=50.7) | 41.0M tok | ETA 0.3h
+    [adaptive_sqrtd/L24] step 10200/12207 | loss=130.7 | L0=80 | FVE=0.5388 | dead=0.844 | a=-0.1343 | b=3.925(exp=50.6) | 41.8M tok | ETA 0.3h
+    [adaptive_sqrtd/L24] step 10400/12207 | loss=131.9 | L0=80 | FVE=0.5407 | dead=0.842 | a=-0.1348 | b=3.923(exp=50.6) | 42.6M tok | ETA 0.3h
+    [adaptive_sqrtd/L24] step 10600/12207 | loss=130.4 | L0=80 | FVE=0.5422 | dead=0.841 | a=-0.1350 | b=3.922(exp=50.5) | 43.4M tok | ETA 0.2h
+    [adaptive_sqrtd/L24] step 10800/12207 | loss=132.2 | L0=80 | FVE=0.5382 | dead=0.840 | a=-0.1354 | b=3.921(exp=50.5) | 44.2M tok | ETA 0.2h
+    [adaptive_sqrtd/L24] step 11000/12207 | loss=131.5 | L0=80 | FVE=0.5381 | dead=0.840 | a=-0.1356 | b=3.921(exp=50.4) | 45.1M tok | ETA 0.2h
+    [adaptive_sqrtd/L24] step 11200/12207 | loss=129.3 | L0=80 | FVE=0.5428 | dead=0.841 | a=-0.1359 | b=3.920(exp=50.4) | 45.9M tok | ETA 0.1h
+    [adaptive_sqrtd/L24] step 11400/12207 | loss=131.8 | L0=80 | FVE=0.5357 | dead=0.839 | a=-0.1361 | b=3.919(exp=50.4) | 46.7M tok | ETA 0.1h
+    [adaptive_sqrtd/L24] step 11600/12207 | loss=132.1 | L0=80 | FVE=0.5353 | dead=0.839 | a=-0.1362 | b=3.919(exp=50.4) | 47.5M tok | ETA 0.1h
+    [adaptive_sqrtd/L24] step 11800/12207 | loss=131.3 | L0=80 | FVE=0.5412 | dead=0.839 | a=-0.1362 | b=3.919(exp=50.4) | 48.3M tok | ETA 0.1h
+    [adaptive_sqrtd/L24] step 12000/12207 | loss=131.4 | L0=80 | FVE=0.5375 | dead=0.839 | a=-0.1363 | b=3.919(exp=50.4) | 49.2M tok | ETA 0.0h
+    [adaptive_sqrtd/L24] step 12200/12207 | loss=131.9 | L0=80 | FVE=0.5392 | dead=0.838 | a=-0.1363 | b=3.919(exp=50.3) | 50.0M tok | ETA 0.0h
+    [adaptive_sqrtd/L24] step 12207/12207 | loss=130.6 | L0=80 | FVE=0.5378 | dead=0.838 | a=-0.1363 | b=3.919(exp=50.3) | 50.0M tok | ETA 0.0h
+    [adaptive_sqrtd/L24] Checkpoint saved at 100% (12207 steps)
+    [adaptive_sqrtd/L24] Done in 1.8h (6486s)
+    Checkpoint 2%: FVE=0.1743, dead=0.000, alive=16384
+    Checkpoint 5%: FVE=0.3694, dead=0.000, alive=16384
+    Checkpoint 10%: FVE=0.4422, dead=0.028, alive=15931
+    Checkpoint 20%: FVE=0.4722, dead=0.239, alive=12475
+    Checkpoint 40%: FVE=0.4934, dead=0.500, alive=8199
+    Checkpoint 60%: FVE=0.5110, dead=0.535, alive=7614
+    Checkpoint 80%: FVE=0.5272, dead=0.540, alive=7530
+
+  Full evaluation -- adaptive_sqrtd_L24
+    [adaptive_sqrtd/L24] FVE=0.5339 | dead=0.541 | alive=7522/16384 | L0=82
+
+    Ablation [adaptive_sqrtd/L24] (100 feats, 200 samples)...
+    [adaptive_sqrtd/L24] 3555 alive features (of 16384)
+      feat  6935 | n=200 | cos->KL=0.526 | inner->KL=0.490 | SAE->KL=0.499
+      feat  5577 | n=200 | cos->KL=0.397 | inner->KL=0.290 | SAE->KL=0.155
+      feat 11062 | n=200 | cos->KL=0.334 | inner->KL=0.302 | SAE->KL=0.242
+      feat  2299 | n=200 | cos->KL=0.390 | inner->KL=0.382 | SAE->KL=0.341
+      feat  9685 | n=200 | cos->KL=0.423 | inner->KL=0.360 | SAE->KL=0.305
+      feat  5239 | n=200 | cos->KL=-0.204 | inner->KL=-0.214 | SAE->KL=-0.063
+      feat  2882 | n=200 | cos->KL=0.672 | inner->KL=0.666 | SAE->KL=0.719
+      feat 11946 | n=200 | cos->KL=0.665 | inner->KL=0.704 | SAE->KL=0.738
+    [adaptive_sqrtd/L24] Summary (100 features): cos->KL=0.5089 | SAE->KL=0.4733 | cos>inner: 76/100
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: adaptive_norm_L24 (encoder=adaptive_norm, init=norm_adaptive, layer=24)
+======================================================================
+    NORM-ADAPTIVE init: scale_b = log(18.0) = 2.8883 (exp=18.0)
+    Parameters: 134,238,210
+
+  Training adaptive_norm/L24 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 2.8883 (exp=18.0)
+    [adaptive_norm/L24] step   200/12207 | loss=216.5 | L0=80 | FVE=0.2440 | dead=0.039 | a=0.0016 | b=2.889(exp=18.0) | 0.8M tok | ETA 2.1h
+    [adaptive_norm/L24] Checkpoint saved at 2% (244 steps)
+    [adaptive_norm/L24] step   400/12207 | loss=156.3 | L0=80 | FVE=0.4525 | dead=0.409 | a=0.0126 | b=2.897(exp=18.1) | 1.6M tok | ETA 2.0h
+    [adaptive_norm/L24] step   600/12207 | loss=122.7 | L0=80 | FVE=0.5709 | dead=0.518 | a=0.0311 | b=2.911(exp=18.4) | 2.5M tok | ETA 1.7h
+    [adaptive_norm/L24] Checkpoint saved at 5% (610 steps)
+    [adaptive_norm/L24] step   800/12207 | loss=116.2 | L0=80 | FVE=0.5904 | dead=0.560 | a=0.0359 | b=2.909(exp=18.3) | 3.3M tok | ETA 1.8h
+    [adaptive_norm/L24] step  1000/12207 | loss=117.2 | L0=80 | FVE=0.5887 | dead=0.569 | a=0.0342 | b=2.900(exp=18.2) | 4.1M tok | ETA 1.8h
+    [adaptive_norm/L24] step  1200/12207 | loss=106.1 | L0=80 | FVE=0.6292 | dead=0.564 | a=0.0314 | b=2.888(exp=18.0) | 4.9M tok | ETA 1.6h
+    [adaptive_norm/L24] Checkpoint saved at 10% (1220 steps)
+    [adaptive_norm/L24] step  1400/12207 | loss=107.0 | L0=80 | FVE=0.6280 | dead=0.559 | a=0.0271 | b=2.875(exp=17.7) | 5.7M tok | ETA 1.6h
+    [adaptive_norm/L24] step  1600/12207 | loss=112.4 | L0=80 | FVE=0.6091 | dead=0.557 | a=0.0234 | b=2.861(exp=17.5) | 6.6M tok | ETA 1.6h
+    [adaptive_norm/L24] step  1800/12207 | loss=101.7 | L0=80 | FVE=0.6470 | dead=0.554 | a=0.0209 | b=2.848(exp=17.3) | 7.4M tok | ETA 1.5h
+    [adaptive_norm/L24] step  2000/12207 | loss=103.5 | L0=80 | FVE=0.6398 | dead=0.552 | a=0.0173 | b=2.833(exp=17.0) | 8.2M tok | ETA 1.5h
+    [adaptive_norm/L24] step  2200/12207 | loss=112.1 | L0=80 | FVE=0.6056 | dead=0.550 | a=0.0155 | b=2.819(exp=16.8) | 9.0M tok | ETA 1.5h
+    [adaptive_norm/L24] step  2400/12207 | loss=100.9 | L0=80 | FVE=0.6486 | dead=0.548 | a=0.0131 | b=2.803(exp=16.5) | 9.8M tok | ETA 1.5h
+    [adaptive_norm/L24] Checkpoint saved at 20% (2441 steps)
+    [adaptive_norm/L24] step  2600/12207 | loss=102.5 | L0=80 | FVE=0.6420 | dead=0.545 | a=0.0106 | b=2.787(exp=16.2) | 10.6M tok | ETA 1.4h
+    [adaptive_norm/L24] step  2800/12207 | loss=96.5 | L0=80 | FVE=0.6619 | dead=0.542 | a=0.0118 | b=2.773(exp=16.0) | 11.5M tok | ETA 1.4h
+    [adaptive_norm/L24] step  3000/12207 | loss=98.7 | L0=80 | FVE=0.6548 | dead=0.538 | a=0.0098 | b=2.757(exp=15.7) | 12.3M tok | ETA 1.4h
+    [adaptive_norm/L24] step  3200/12207 | loss=102.9 | L0=80 | FVE=0.6370 | dead=0.537 | a=0.0080 | b=2.740(exp=15.5) | 13.1M tok | ETA 1.3h
+    [adaptive_norm/L24] step  3400/12207 | loss=96.6 | L0=80 | FVE=0.6599 | dead=0.532 | a=0.0094 | b=2.726(exp=15.3) | 13.9M tok | ETA 1.3h
+    [adaptive_norm/L24] step  3600/12207 | loss=98.7 | L0=80 | FVE=0.6542 | dead=0.529 | a=0.0091 | b=2.710(exp=15.0) | 14.7M tok | ETA 1.3h
+    [adaptive_norm/L24] step  3800/12207 | loss=104.4 | L0=80 | FVE=0.6337 | dead=0.526 | a=0.0088 | b=2.694(exp=14.8) | 15.6M tok | ETA 1.3h
+    [adaptive_norm/L24] step  4000/12207 | loss=97.1 | L0=80 | FVE=0.6611 | dead=0.522 | a=0.0113 | b=2.681(exp=14.6) | 16.4M tok | ETA 1.2h
+    [adaptive_norm/L24] step  4200/12207 | loss=98.2 | L0=80 | FVE=0.6582 | dead=0.517 | a=0.0112 | b=2.665(exp=14.4) | 17.2M tok | ETA 1.2h
+    [adaptive_norm/L24] step  4400/12207 | loss=105.0 | L0=80 | FVE=0.6327 | dead=0.512 | a=0.0129 | b=2.652(exp=14.2) | 18.0M tok | ETA 1.2h
+    [adaptive_norm/L24] step  4600/12207 | loss=96.8 | L0=80 | FVE=0.6633 | dead=0.505 | a=0.0146 | b=2.638(exp=14.0) | 18.8M tok | ETA 1.1h
+    [adaptive_norm/L24] step  4800/12207 | loss=99.2 | L0=80 | FVE=0.6565 | dead=0.502 | a=0.0149 | b=2.624(exp=13.8) | 19.7M tok | ETA 1.1h
+    [adaptive_norm/L24] Checkpoint saved at 40% (4882 steps)
+    [adaptive_norm/L24] step  5000/12207 | loss=93.3 | L0=80 | FVE=0.6736 | dead=0.495 | a=0.0175 | b=2.612(exp=13.6) | 20.5M tok | ETA 1.1h
+    [adaptive_norm/L24] step  5200/12207 | loss=96.2 | L0=80 | FVE=0.6615 | dead=0.490 | a=0.0179 | b=2.598(exp=13.4) | 21.3M tok | ETA 1.0h
+    [adaptive_norm/L24] step  5400/12207 | loss=100.2 | L0=80 | FVE=0.6500 | dead=0.487 | a=0.0185 | b=2.585(exp=13.3) | 22.1M tok | ETA 1.0h
+    [adaptive_norm/L24] step  5600/12207 | loss=93.2 | L0=80 | FVE=0.6711 | dead=0.479 | a=0.0219 | b=2.574(exp=13.1) | 22.9M tok | ETA 1.0h
+    [adaptive_norm/L24] step  5800/12207 | loss=96.1 | L0=80 | FVE=0.6641 | dead=0.475 | a=0.0222 | b=2.562(exp=13.0) | 23.8M tok | ETA 0.9h
+    [adaptive_norm/L24] step  6000/12207 | loss=101.0 | L0=80 | FVE=0.6481 | dead=0.470 | a=0.0235 | b=2.551(exp=12.8) | 24.6M tok | ETA 0.9h
+    [adaptive_norm/L24] step  6200/12207 | loss=93.3 | L0=80 | FVE=0.6709 | dead=0.462 | a=0.0265 | b=2.541(exp=12.7) | 25.4M tok | ETA 0.9h
+    [adaptive_norm/L24] step  6400/12207 | loss=95.5 | L0=80 | FVE=0.6626 | dead=0.455 | a=0.0270 | b=2.530(exp=12.6) | 26.2M tok | ETA 0.9h
+    [adaptive_norm/L24] step  6600/12207 | loss=101.3 | L0=80 | FVE=0.6441 | dead=0.448 | a=0.0292 | b=2.522(exp=12.4) | 27.0M tok | ETA 0.8h
+    [adaptive_norm/L24] step  6800/12207 | loss=93.5 | L0=80 | FVE=0.6688 | dead=0.440 | a=0.0307 | b=2.513(exp=12.3) | 27.9M tok | ETA 0.8h
+    [adaptive_norm/L24] step  7000/12207 | loss=96.9 | L0=80 | FVE=0.6593 | dead=0.438 | a=0.0319 | b=2.505(exp=12.2) | 28.7M tok | ETA 0.8h
+    [adaptive_norm/L24] step  7200/12207 | loss=100.4 | L0=80 | FVE=0.6472 | dead=0.434 | a=0.0352 | b=2.499(exp=12.2) | 29.5M tok | ETA 0.7h
+    [adaptive_norm/L24] Checkpoint saved at 60% (7324 steps)
+    [adaptive_norm/L24] step  7400/12207 | loss=94.9 | L0=80 | FVE=0.6666 | dead=0.427 | a=0.0354 | b=2.491(exp=12.1) | 30.3M tok | ETA 0.7h
+    [adaptive_norm/L24] step  7600/12207 | loss=96.7 | L0=80 | FVE=0.6596 | dead=0.426 | a=0.0369 | b=2.484(exp=12.0) | 31.1M tok | ETA 0.7h
+    [adaptive_norm/L24] step  7800/12207 | loss=94.0 | L0=80 | FVE=0.6693 | dead=0.419 | a=0.0388 | b=2.479(exp=11.9) | 31.9M tok | ETA 0.6h
+    [adaptive_norm/L24] step  8000/12207 | loss=95.0 | L0=80 | FVE=0.6664 | dead=0.414 | a=0.0393 | b=2.473(exp=11.9) | 32.8M tok | ETA 0.6h
+    [adaptive_norm/L24] step  8200/12207 | loss=98.7 | L0=80 | FVE=0.6583 | dead=0.411 | a=0.0405 | b=2.468(exp=11.8) | 33.6M tok | ETA 0.6h
+    [adaptive_norm/L24] step  8400/12207 | loss=93.3 | L0=80 | FVE=0.6730 | dead=0.406 | a=0.0425 | b=2.464(exp=11.8) | 34.4M tok | ETA 0.6h
+    [adaptive_norm/L24] step  8600/12207 | loss=94.6 | L0=80 | FVE=0.6672 | dead=0.403 | a=0.0433 | b=2.460(exp=11.7) | 35.2M tok | ETA 0.5h
+    [adaptive_norm/L24] step  8800/12207 | loss=99.9 | L0=80 | FVE=0.6539 | dead=0.399 | a=0.0444 | b=2.456(exp=11.7) | 36.0M tok | ETA 0.5h
+    [adaptive_norm/L24] step  9000/12207 | loss=94.7 | L0=80 | FVE=0.6683 | dead=0.394 | a=0.0454 | b=2.453(exp=11.6) | 36.9M tok | ETA 0.5h
+    [adaptive_norm/L24] step  9200/12207 | loss=95.6 | L0=80 | FVE=0.6629 | dead=0.392 | a=0.0457 | b=2.450(exp=11.6) | 37.7M tok | ETA 0.4h
+    [adaptive_norm/L24] step  9400/12207 | loss=98.1 | L0=80 | FVE=0.6567 | dead=0.387 | a=0.0470 | b=2.448(exp=11.6) | 38.5M tok | ETA 0.4h
+    [adaptive_norm/L24] step  9600/12207 | loss=95.6 | L0=80 | FVE=0.6646 | dead=0.385 | a=0.0473 | b=2.445(exp=11.5) | 39.3M tok | ETA 0.4h
+    [adaptive_norm/L24] Checkpoint saved at 80% (9765 steps)
+    [adaptive_norm/L24] step  9800/12207 | loss=96.3 | L0=80 | FVE=0.6639 | dead=0.385 | a=0.0478 | b=2.443(exp=11.5) | 40.1M tok | ETA 0.4h
+    [adaptive_norm/L24] step 10000/12207 | loss=94.2 | L0=80 | FVE=0.6651 | dead=0.381 | a=0.0484 | b=2.441(exp=11.5) | 41.0M tok | ETA 0.3h
+    [adaptive_norm/L24] step 10200/12207 | loss=95.5 | L0=80 | FVE=0.6630 | dead=0.379 | a=0.0485 | b=2.440(exp=11.5) | 41.8M tok | ETA 0.3h
+    [adaptive_norm/L24] step 10400/12207 | loss=96.4 | L0=80 | FVE=0.6643 | dead=0.379 | a=0.0489 | b=2.438(exp=11.5) | 42.6M tok | ETA 0.3h
+    [adaptive_norm/L24] step 10600/12207 | loss=95.5 | L0=80 | FVE=0.6647 | dead=0.377 | a=0.0494 | b=2.438(exp=11.4) | 43.4M tok | ETA 0.2h
+    [adaptive_norm/L24] step 10800/12207 | loss=96.8 | L0=80 | FVE=0.6616 | dead=0.377 | a=0.0495 | b=2.437(exp=11.4) | 44.2M tok | ETA 0.2h
+    [adaptive_norm/L24] step 11000/12207 | loss=96.6 | L0=80 | FVE=0.6607 | dead=0.377 | a=0.0497 | b=2.436(exp=11.4) | 45.1M tok | ETA 0.2h
+    [adaptive_norm/L24] step 11200/12207 | loss=94.9 | L0=80 | FVE=0.6644 | dead=0.376 | a=0.0496 | b=2.436(exp=11.4) | 45.9M tok | ETA 0.1h
+    [adaptive_norm/L24] step 11400/12207 | loss=96.8 | L0=80 | FVE=0.6591 | dead=0.374 | a=0.0497 | b=2.435(exp=11.4) | 46.7M tok | ETA 0.1h
+    [adaptive_norm/L24] step 11600/12207 | loss=96.8 | L0=80 | FVE=0.6595 | dead=0.374 | a=0.0498 | b=2.435(exp=11.4) | 47.5M tok | ETA 0.1h
+    [adaptive_norm/L24] step 11800/12207 | loss=96.4 | L0=80 | FVE=0.6633 | dead=0.377 | a=0.0498 | b=2.435(exp=11.4) | 48.3M tok | ETA 0.1h
+    [adaptive_norm/L24] step 12000/12207 | loss=96.3 | L0=80 | FVE=0.6612 | dead=0.372 | a=0.0498 | b=2.435(exp=11.4) | 49.2M tok | ETA 0.0h
+    [adaptive_norm/L24] step 12200/12207 | loss=96.5 | L0=80 | FVE=0.6626 | dead=0.375 | a=0.0498 | b=2.435(exp=11.4) | 50.0M tok | ETA 0.0h
+    [adaptive_norm/L24] step 12207/12207 | loss=96.3 | L0=80 | FVE=0.6590 | dead=0.374 | a=0.0498 | b=2.435(exp=11.4) | 50.0M tok | ETA 0.0h
+    [adaptive_norm/L24] Checkpoint saved at 100% (12207 steps)
+    [adaptive_norm/L24] Done in 1.8h (6503s)
+    Checkpoint 2%: FVE=0.2657, dead=0.000, alive=16384
+    Checkpoint 5%: FVE=0.5124, dead=0.001, alive=16372
+    Checkpoint 10%: FVE=0.5806, dead=0.066, alive=15295
+    Checkpoint 20%: FVE=0.6088, dead=0.199, alive=13125
+    Checkpoint 40%: FVE=0.6293, dead=0.284, alive=11733
+    Checkpoint 60%: FVE=0.6433, dead=0.310, alive=11305
+    Checkpoint 80%: FVE=0.6533, dead=0.294, alive=11561
+
+  Full evaluation -- adaptive_norm_L24
+    [adaptive_norm/L24] FVE=0.6570 | dead=0.282 | alive=11761/16384 | L0=81
+
+    Ablation [adaptive_norm/L24] (100 feats, 200 samples)...
+    [adaptive_norm/L24] 10780 alive features (of 16384)
+      feat  6180 | n=200 | cos->KL=0.310 | inner->KL=0.215 | SAE->KL=0.203
+      feat   862 | n=200 | cos->KL=0.511 | inner->KL=0.491 | SAE->KL=0.479
+      feat 13009 | n=200 | cos->KL=0.459 | inner->KL=0.442 | SAE->KL=0.439
+      feat 16158 | n=200 | cos->KL=0.540 | inner->KL=0.525 | SAE->KL=0.294
+      feat   777 | n=200 | cos->KL=0.421 | inner->KL=0.346 | SAE->KL=0.345
+      feat 15886 | n=200 | cos->KL=0.360 | inner->KL=0.286 | SAE->KL=0.207
+      feat 12773 | n=200 | cos->KL=0.548 | inner->KL=0.590 | SAE->KL=0.483
+      feat 16242 | n=200 | cos->KL=0.508 | inner->KL=0.483 | SAE->KL=0.571
+    [adaptive_norm/L24] Summary (100 features): cos->KL=0.4892 | SAE->KL=0.4244 | cos>inner: 88/100
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: group_G4_sqrtd_L24 (encoder=group_G4_sqrtd, init=sqrt_d, layer=24)
+======================================================================
+    SQRT(D) init: scale_b = log(64.0) = 4.1589 (exp=64.0, mismatch=3.6x)
+    Parameters: 134,238,216
+
+  Training group_G4_sqrtd/L24 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 4.1589 (exp=64.0)
+    [group_G4_sqrtd/L24] step   200/12207 | loss=255.3 | L0=80 | FVE=0.1420 | dead=0.096 | a=-0.0010±0.0000 | b=4.157(exp=63.9) | 0.8M tok | ETA 2.1h
+    [group_G4_sqrtd/L24] Checkpoint saved at 2% (244 steps)
+    [group_G4_sqrtd/L24] step   400/12207 | loss=195.5 | L0=80 | FVE=0.3156 | dead=0.031 | a=-0.0017±0.0000 | b=4.156(exp=63.8) | 1.6M tok | ETA 2.0h
+    [group_G4_sqrtd/L24] step   600/12207 | loss=167.5 | L0=80 | FVE=0.4148 | dead=0.509 | a=-0.0030±0.0002 | b=4.152(exp=63.6) | 2.5M tok | ETA 1.7h
+    [group_G4_sqrtd/L24] Checkpoint saved at 5% (610 steps)
+    [group_G4_sqrtd/L24] step   800/12207 | loss=158.0 | L0=80 | FVE=0.4433 | dead=0.779 | a=-0.0045±0.0003 | b=4.148(exp=63.3) | 3.3M tok | ETA 1.8h
+    [group_G4_sqrtd/L24] step  1000/12207 | loss=157.0 | L0=80 | FVE=0.4491 | dead=0.847 | a=-0.0060±0.0004 | b=4.144(exp=63.1) | 4.1M tok | ETA 1.8h
+    [group_G4_sqrtd/L24] step  1200/12207 | loss=147.0 | L0=80 | FVE=0.4864 | dead=0.863 | a=-0.0076±0.0005 | b=4.140(exp=62.8) | 4.9M tok | ETA 1.6h
+    [group_G4_sqrtd/L24] Checkpoint saved at 10% (1220 steps)
+    [group_G4_sqrtd/L24] step  1400/12207 | loss=146.4 | L0=80 | FVE=0.4910 | dead=0.868 | a=-0.0093±0.0006 | b=4.136(exp=62.5) | 5.7M tok | ETA 1.6h
+    [group_G4_sqrtd/L24] step  1600/12207 | loss=151.7 | L0=80 | FVE=0.4727 | dead=0.873 | a=-0.0112±0.0008 | b=4.131(exp=62.3) | 6.6M tok | ETA 1.6h
+    [group_G4_sqrtd/L24] step  1800/12207 | loss=141.1 | L0=80 | FVE=0.5104 | dead=0.874 | a=-0.0133±0.0009 | b=4.127(exp=62.0) | 7.4M tok | ETA 1.5h
+    [group_G4_sqrtd/L24] step  2000/12207 | loss=142.0 | L0=80 | FVE=0.5059 | dead=0.873 | a=-0.0154±0.0011 | b=4.122(exp=61.7) | 8.2M tok | ETA 1.5h
+    [group_G4_sqrtd/L24] step  2200/12207 | loss=151.3 | L0=80 | FVE=0.4681 | dead=0.872 | a=-0.0178±0.0012 | b=4.117(exp=61.4) | 9.0M tok | ETA 1.5h
+    [group_G4_sqrtd/L24] step  2400/12207 | loss=139.7 | L0=80 | FVE=0.5135 | dead=0.874 | a=-0.0202±0.0014 | b=4.113(exp=61.1) | 9.8M tok | ETA 1.5h
+    [group_G4_sqrtd/L24] Checkpoint saved at 20% (2441 steps)
+    [group_G4_sqrtd/L24] step  2600/12207 | loss=141.0 | L0=80 | FVE=0.5077 | dead=0.874 | a=-0.0229±0.0016 | b=4.108(exp=60.8) | 10.6M tok | ETA 1.4h
+    [group_G4_sqrtd/L24] step  2800/12207 | loss=134.7 | L0=80 | FVE=0.5282 | dead=0.873 | a=-0.0256±0.0018 | b=4.102(exp=60.5) | 11.5M tok | ETA 1.4h
+    [group_G4_sqrtd/L24] step  3000/12207 | loss=136.6 | L0=80 | FVE=0.5222 | dead=0.874 | a=-0.0285±0.0020 | b=4.097(exp=60.2) | 12.3M tok | ETA 1.4h
+    [group_G4_sqrtd/L24] step  3200/12207 | loss=140.3 | L0=80 | FVE=0.5053 | dead=0.875 | a=-0.0316±0.0022 | b=4.092(exp=59.8) | 13.1M tok | ETA 1.4h
+    [group_G4_sqrtd/L24] step  3400/12207 | loss=134.9 | L0=80 | FVE=0.5254 | dead=0.874 | a=-0.0348±0.0025 | b=4.086(exp=59.5) | 13.9M tok | ETA 1.3h
+    [group_G4_sqrtd/L24] step  3600/12207 | loss=136.4 | L0=80 | FVE=0.5220 | dead=0.875 | a=-0.0382±0.0028 | b=4.080(exp=59.2) | 14.7M tok | ETA 1.3h
+    [group_G4_sqrtd/L24] step  3800/12207 | loss=142.5 | L0=80 | FVE=0.5005 | dead=0.873 | a=-0.0416±0.0030 | b=4.075(exp=58.8) | 15.6M tok | ETA 1.3h
+    [group_G4_sqrtd/L24] step  4000/12207 | loss=135.9 | L0=80 | FVE=0.5259 | dead=0.873 | a=-0.0452±0.0032 | b=4.069(exp=58.5) | 16.4M tok | ETA 1.2h
+    [group_G4_sqrtd/L24] step  4200/12207 | loss=136.5 | L0=80 | FVE=0.5249 | dead=0.873 | a=-0.0489±0.0035 | b=4.063(exp=58.1) | 17.2M tok | ETA 1.2h
+    [group_G4_sqrtd/L24] step  4400/12207 | loss=143.9 | L0=80 | FVE=0.4969 | dead=0.873 | a=-0.0527±0.0038 | b=4.057(exp=57.8) | 18.0M tok | ETA 1.2h
+    [group_G4_sqrtd/L24] step  4600/12207 | loss=135.2 | L0=80 | FVE=0.5298 | dead=0.872 | a=-0.0566±0.0040 | b=4.051(exp=57.5) | 18.8M tok | ETA 1.1h
+    [group_G4_sqrtd/L24] step  4800/12207 | loss=137.3 | L0=80 | FVE=0.5247 | dead=0.872 | a=-0.0605±0.0043 | b=4.045(exp=57.1) | 19.7M tok | ETA 1.1h
+    [group_G4_sqrtd/L24] Checkpoint saved at 40% (4882 steps)
+    [group_G4_sqrtd/L24] step  5000/12207 | loss=131.3 | L0=80 | FVE=0.5404 | dead=0.871 | a=-0.0645±0.0045 | b=4.039(exp=56.8) | 20.5M tok | ETA 1.1h
+    [group_G4_sqrtd/L24] step  5200/12207 | loss=133.8 | L0=80 | FVE=0.5289 | dead=0.871 | a=-0.0686±0.0049 | b=4.033(exp=56.4) | 21.3M tok | ETA 1.0h
+    [group_G4_sqrtd/L24] step  5400/12207 | loss=137.9 | L0=80 | FVE=0.5185 | dead=0.871 | a=-0.0727±0.0051 | b=4.026(exp=56.1) | 22.1M tok | ETA 1.0h
+    [group_G4_sqrtd/L24] step  5600/12207 | loss=130.9 | L0=80 | FVE=0.5382 | dead=0.871 | a=-0.0767±0.0055 | b=4.020(exp=55.7) | 22.9M tok | ETA 1.0h
+    [group_G4_sqrtd/L24] step  5800/12207 | loss=133.8 | L0=80 | FVE=0.5322 | dead=0.870 | a=-0.0809±0.0058 | b=4.014(exp=55.4) | 23.8M tok | ETA 0.9h
+    [group_G4_sqrtd/L24] step  6000/12207 | loss=139.4 | L0=80 | FVE=0.5147 | dead=0.870 | a=-0.0849±0.0061 | b=4.008(exp=55.0) | 24.6M tok | ETA 0.9h
+    [group_G4_sqrtd/L24] step  6200/12207 | loss=130.9 | L0=80 | FVE=0.5385 | dead=0.870 | a=-0.0888±0.0064 | b=4.002(exp=54.7) | 25.4M tok | ETA 0.9h
+    [group_G4_sqrtd/L24] step  6400/12207 | loss=133.0 | L0=80 | FVE=0.5305 | dead=0.868 | a=-0.0927±0.0067 | b=3.996(exp=54.4) | 26.2M tok | ETA 0.9h
+    [group_G4_sqrtd/L24] step  6600/12207 | loss=139.5 | L0=80 | FVE=0.5097 | dead=0.867 | a=-0.0965±0.0070 | b=3.991(exp=54.1) | 27.0M tok | ETA 0.8h
+    [group_G4_sqrtd/L24] step  6800/12207 | loss=130.6 | L0=80 | FVE=0.5374 | dead=0.866 | a=-0.1002±0.0073 | b=3.985(exp=53.8) | 27.9M tok | ETA 0.8h
+    [group_G4_sqrtd/L24] step  7000/12207 | loss=134.6 | L0=80 | FVE=0.5271 | dead=0.865 | a=-0.1037±0.0076 | b=3.980(exp=53.5) | 28.7M tok | ETA 0.8h
+    [group_G4_sqrtd/L24] step  7200/12207 | loss=138.3 | L0=80 | FVE=0.5139 | dead=0.865 | a=-0.1067±0.0079 | b=3.975(exp=53.2) | 29.5M tok | ETA 0.7h
+    [group_G4_sqrtd/L24] Checkpoint saved at 60% (7324 steps)
+    [group_G4_sqrtd/L24] step  7400/12207 | loss=132.1 | L0=80 | FVE=0.5361 | dead=0.863 | a=-0.1101±0.0082 | b=3.969(exp=53.0) | 30.3M tok | ETA 0.7h
+    [group_G4_sqrtd/L24] step  7600/12207 | loss=133.9 | L0=80 | FVE=0.5288 | dead=0.862 | a=-0.1130±0.0085 | b=3.965(exp=52.7) | 31.1M tok | ETA 0.7h
+    [group_G4_sqrtd/L24] step  7800/12207 | loss=130.5 | L0=80 | FVE=0.5410 | dead=0.860 | a=-0.1157±0.0088 | b=3.960(exp=52.5) | 31.9M tok | ETA 0.6h
+    [group_G4_sqrtd/L24] step  8000/12207 | loss=131.3 | L0=80 | FVE=0.5389 | dead=0.860 | a=-0.1184±0.0092 | b=3.956(exp=52.2) | 32.8M tok | ETA 0.6h
+    [group_G4_sqrtd/L24] step  8200/12207 | loss=136.4 | L0=80 | FVE=0.5282 | dead=0.858 | a=-0.1208±0.0095 | b=3.952(exp=52.0) | 33.6M tok | ETA 0.6h
+    [group_G4_sqrtd/L24] step  8400/12207 | loss=129.5 | L0=80 | FVE=0.5463 | dead=0.856 | a=-0.1226±0.0098 | b=3.948(exp=51.8) | 34.4M tok | ETA 0.6h
+    [group_G4_sqrtd/L24] step  8600/12207 | loss=130.5 | L0=80 | FVE=0.5408 | dead=0.854 | a=-0.1246±0.0101 | b=3.945(exp=51.7) | 35.2M tok | ETA 0.5h
+    [group_G4_sqrtd/L24] step  8800/12207 | loss=136.8 | L0=80 | FVE=0.5258 | dead=0.853 | a=-0.1262±0.0103 | b=3.941(exp=51.5) | 36.0M tok | ETA 0.5h
+    [group_G4_sqrtd/L24] step  9000/12207 | loss=130.3 | L0=80 | FVE=0.5437 | dead=0.851 | a=-0.1278±0.0106 | b=3.938(exp=51.3) | 36.9M tok | ETA 0.5h
+    [group_G4_sqrtd/L24] step  9200/12207 | loss=131.2 | L0=80 | FVE=0.5375 | dead=0.850 | a=-0.1294±0.0109 | b=3.935(exp=51.2) | 37.7M tok | ETA 0.4h
+    [group_G4_sqrtd/L24] step  9400/12207 | loss=134.3 | L0=80 | FVE=0.5299 | dead=0.848 | a=-0.1304±0.0110 | b=3.933(exp=51.1) | 38.5M tok | ETA 0.4h
+    [group_G4_sqrtd/L24] step  9600/12207 | loss=131.1 | L0=80 | FVE=0.5400 | dead=0.846 | a=-0.1316±0.0112 | b=3.931(exp=50.9) | 39.3M tok | ETA 0.4h
+    [group_G4_sqrtd/L24] Checkpoint saved at 80% (9765 steps)
+    [group_G4_sqrtd/L24] step  9800/12207 | loss=131.6 | L0=80 | FVE=0.5404 | dead=0.846 | a=-0.1325±0.0114 | b=3.929(exp=50.8) | 40.1M tok | ETA 0.4h
+    [group_G4_sqrtd/L24] step 10000/12207 | loss=128.7 | L0=80 | FVE=0.5428 | dead=0.844 | a=-0.1332±0.0116 | b=3.927(exp=50.7) | 41.0M tok | ETA 0.3h
+    [group_G4_sqrtd/L24] step 10200/12207 | loss=130.6 | L0=80 | FVE=0.5392 | dead=0.844 | a=-0.1340±0.0118 | b=3.925(exp=50.7) | 41.8M tok | ETA 0.3h
+    [group_G4_sqrtd/L24] step 10400/12207 | loss=131.7 | L0=80 | FVE=0.5413 | dead=0.843 | a=-0.1345±0.0119 | b=3.924(exp=50.6) | 42.6M tok | ETA 0.3h
+    [group_G4_sqrtd/L24] step 10600/12207 | loss=129.9 | L0=80 | FVE=0.5439 | dead=0.841 | a=-0.1348±0.0120 | b=3.923(exp=50.5) | 43.4M tok | ETA 0.2h
+    [group_G4_sqrtd/L24] step 10800/12207 | loss=131.9 | L0=80 | FVE=0.5390 | dead=0.841 | a=-0.1351±0.0121 | b=3.922(exp=50.5) | 44.2M tok | ETA 0.2h
+    [group_G4_sqrtd/L24] step 11000/12207 | loss=131.6 | L0=80 | FVE=0.5378 | dead=0.841 | a=-0.1353±0.0122 | b=3.921(exp=50.5) | 45.1M tok | ETA 0.2h
+    [group_G4_sqrtd/L24] step 11200/12207 | loss=129.2 | L0=80 | FVE=0.5431 | dead=0.840 | a=-0.1357±0.0122 | b=3.920(exp=50.4) | 45.9M tok | ETA 0.1h
+    [group_G4_sqrtd/L24] step 11400/12207 | loss=131.7 | L0=80 | FVE=0.5362 | dead=0.839 | a=-0.1358±0.0122 | b=3.920(exp=50.4) | 46.7M tok | ETA 0.1h
+    [group_G4_sqrtd/L24] step 11600/12207 | loss=131.7 | L0=80 | FVE=0.5366 | dead=0.840 | a=-0.1359±0.0123 | b=3.920(exp=50.4) | 47.5M tok | ETA 0.1h
+    [group_G4_sqrtd/L24] step 11800/12207 | loss=131.3 | L0=80 | FVE=0.5412 | dead=0.840 | a=-0.1360±0.0123 | b=3.920(exp=50.4) | 48.3M tok | ETA 0.1h
+    [group_G4_sqrtd/L24] step 12000/12207 | loss=131.4 | L0=80 | FVE=0.5375 | dead=0.839 | a=-0.1360±0.0123 | b=3.919(exp=50.4) | 49.2M tok | ETA 0.0h
+    [group_G4_sqrtd/L24] step 12200/12207 | loss=131.8 | L0=80 | FVE=0.5393 | dead=0.840 | a=-0.1360±0.0123 | b=3.919(exp=50.4) | 50.0M tok | ETA 0.0h
+    [group_G4_sqrtd/L24] step 12207/12207 | loss=130.6 | L0=80 | FVE=0.5378 | dead=0.840 | a=-0.1360±0.0123 | b=3.919(exp=50.4) | 50.0M tok | ETA 0.0h
+    [group_G4_sqrtd/L24] Checkpoint saved at 100% (12207 steps)
+    [group_G4_sqrtd/L24] Done in 1.8h (6510s)
+    Checkpoint 2%: FVE=0.1743, dead=0.000, alive=16384
+    Checkpoint 5%: FVE=0.3693, dead=0.000, alive=16384
+    Checkpoint 10%: FVE=0.4422, dead=0.026, alive=15960
+    Checkpoint 20%: FVE=0.4724, dead=0.232, alive=12585
+    Checkpoint 40%: FVE=0.4932, dead=0.509, alive=8045
+    Checkpoint 60%: FVE=0.5104, dead=0.557, alive=7255
+    Checkpoint 80%: FVE=0.5275, dead=0.560, alive=7207
+
+  Full evaluation -- group_G4_sqrtd_L24
+    [group_G4_sqrtd/L24] FVE=0.5343 | dead=0.552 | alive=7340/16384 | L0=82
+
+    Ablation [group_G4_sqrtd/L24] (100 feats, 200 samples)...
+    [group_G4_sqrtd/L24] 3505 alive features (of 16384)
+      feat  6935 | n=200 | cos->KL=0.441 | inner->KL=0.342 | SAE->KL=0.382
+      feat  5577 | n=200 | cos->KL=0.393 | inner->KL=0.389 | SAE->KL=0.206
+      feat 10395 | n=200 | cos->KL=0.566 | inner->KL=0.510 | SAE->KL=0.570
+      feat 11062 | n=200 | cos->KL=0.420 | inner->KL=0.340 | SAE->KL=0.249
+      feat 11884 | n=200 | cos->KL=0.488 | inner->KL=0.304 | SAE->KL=0.464
+      feat 13904 | n=200 | cos->KL=0.269 | inner->KL=0.229 | SAE->KL=0.123
+      feat  5220 | n=200 | cos->KL=0.402 | inner->KL=0.359 | SAE->KL=0.389
+      feat  7728 | n=200 | cos->KL=0.414 | inner->KL=0.382 | SAE->KL=0.412
+    [group_G4_sqrtd/L24] Summary (100 features): cos->KL=0.5083 | SAE->KL=0.4757 | cos>inner: 76/100
+  Results saved to experiments/exp39_results.json
+
+======================================================================
+  RUN: group_G4_norm_L24 (encoder=group_G4_norm, init=norm_adaptive, layer=24)
+======================================================================
+    NORM-ADAPTIVE init: scale_b = log(18.0) = 2.8883 (exp=18.0)
+    Parameters: 134,238,216
+
+  Training group_G4_norm/L24 | d_sae=16384, k=80, lr=0.0003, 50,000,000 tokens, 12207 steps
+    scale_b init = 2.8883 (exp=18.0)
+    [group_G4_norm/L24] step   200/12207 | loss=216.5 | L0=80 | FVE=0.2441 | dead=0.037 | a=0.0016±0.0014 | b=2.889(exp=18.0) | 0.8M tok | ETA 2.1h
+    [group_G4_norm/L24] Checkpoint saved at 2% (244 steps)
+    [group_G4_norm/L24] step   400/12207 | loss=156.4 | L0=80 | FVE=0.4524 | dead=0.403 | a=0.0116±0.0046 | b=2.897(exp=18.1) | 1.6M tok | ETA 2.0h
+    [group_G4_norm/L24] step   600/12207 | loss=122.6 | L0=80 | FVE=0.5713 | dead=0.515 | a=0.0292±0.0043 | b=2.909(exp=18.3) | 2.5M tok | ETA 1.7h
+    [group_G4_norm/L24] Checkpoint saved at 5% (610 steps)
+    [group_G4_norm/L24] step   800/12207 | loss=116.0 | L0=80 | FVE=0.5909 | dead=0.555 | a=0.0342±0.0038 | b=2.908(exp=18.3) | 3.3M tok | ETA 1.8h
+    [group_G4_norm/L24] step  1000/12207 | loss=117.0 | L0=80 | FVE=0.5894 | dead=0.562 | a=0.0327±0.0037 | b=2.899(exp=18.2) | 4.1M tok | ETA 1.8h
+    [group_G4_norm/L24] step  1200/12207 | loss=106.1 | L0=80 | FVE=0.6293 | dead=0.558 | a=0.0300±0.0037 | b=2.889(exp=18.0) | 4.9M tok | ETA 1.6h
+    [group_G4_norm/L24] Checkpoint saved at 10% (1220 steps)
+    [group_G4_norm/L24] step  1400/12207 | loss=106.7 | L0=80 | FVE=0.6288 | dead=0.556 | a=0.0258±0.0038 | b=2.876(exp=17.7) | 5.7M tok | ETA 1.7h
+    [group_G4_norm/L24] step  1600/12207 | loss=112.3 | L0=80 | FVE=0.6095 | dead=0.553 | a=0.0219±0.0039 | b=2.863(exp=17.5) | 6.6M tok | ETA 1.7h
+    [group_G4_norm/L24] step  1800/12207 | loss=101.7 | L0=80 | FVE=0.6471 | dead=0.550 | a=0.0193±0.0038 | b=2.850(exp=17.3) | 7.4M tok | ETA 1.6h
+    [group_G4_norm/L24] step  2000/12207 | loss=103.2 | L0=80 | FVE=0.6407 | dead=0.548 | a=0.0156±0.0040 | b=2.836(exp=17.0) | 8.2M tok | ETA 1.6h
+    [group_G4_norm/L24] step  2200/12207 | loss=111.9 | L0=80 | FVE=0.6066 | dead=0.544 | a=0.0136±0.0038 | b=2.822(exp=16.8) | 9.0M tok | ETA 1.5h
+    [group_G4_norm/L24] step  2400/12207 | loss=100.7 | L0=80 | FVE=0.6492 | dead=0.542 | a=0.0110±0.0037 | b=2.807(exp=16.6) | 9.8M tok | ETA 1.5h
+    [group_G4_norm/L24] Checkpoint saved at 20% (2441 steps)
+    [group_G4_norm/L24] step  2600/12207 | loss=102.4 | L0=80 | FVE=0.6424 | dead=0.539 | a=0.0084±0.0037 | b=2.792(exp=16.3) | 10.6M tok | ETA 1.5h
+    [group_G4_norm/L24] step  2800/12207 | loss=96.3 | L0=80 | FVE=0.6625 | dead=0.535 | a=0.0092±0.0038 | b=2.779(exp=16.1) | 11.5M tok | ETA 1.4h
+    [group_G4_norm/L24] step  3000/12207 | loss=98.5 | L0=80 | FVE=0.6553 | dead=0.534 | a=0.0070±0.0038 | b=2.763(exp=15.9) | 12.3M tok | ETA 1.4h
+    [group_G4_norm/L24] step  3200/12207 | loss=102.8 | L0=80 | FVE=0.6374 | dead=0.532 | a=0.0052±0.0037 | b=2.747(exp=15.6) | 13.1M tok | ETA 1.4h
+    [group_G4_norm/L24] step  3400/12207 | loss=96.3 | L0=80 | FVE=0.6609 | dead=0.527 | a=0.0062±0.0038 | b=2.734(exp=15.4) | 13.9M tok | ETA 1.3h
+    [group_G4_norm/L24] step  3600/12207 | loss=98.5 | L0=80 | FVE=0.6548 | dead=0.525 | a=0.0059±0.0037 | b=2.719(exp=15.2) | 14.7M tok | ETA 1.3h
+    [group_G4_norm/L24] step  3800/12207 | loss=104.2 | L0=80 | FVE=0.6345 | dead=0.522 | a=0.0055±0.0039 | b=2.704(exp=14.9) | 15.6M tok | ETA 1.3h
+    [group_G4_norm/L24] step  4000/12207 | loss=97.0 | L0=80 | FVE=0.6617 | dead=0.516 | a=0.0076±0.0039 | b=2.691(exp=14.7) | 16.4M tok | ETA 1.2h
+    [group_G4_norm/L24] step  4200/12207 | loss=98.1 | L0=80 | FVE=0.6585 | dead=0.512 | a=0.0073±0.0041 | b=2.676(exp=14.5) | 17.2M tok | ETA 1.2h
+    [group_G4_norm/L24] step  4400/12207 | loss=104.9 | L0=80 | FVE=0.6331 | dead=0.510 | a=0.0089±0.0043 | b=2.663(exp=14.3) | 18.0M tok | ETA 1.2h
+    [group_G4_norm/L24] step  4600/12207 | loss=96.7 | L0=80 | FVE=0.6636 | dead=0.504 | a=0.0103±0.0045 | b=2.650(exp=14.2) | 18.8M tok | ETA 1.1h
+    [group_G4_norm/L24] step  4800/12207 | loss=99.1 | L0=80 | FVE=0.6569 | dead=0.501 | a=0.0106±0.0047 | b=2.636(exp=14.0) | 19.7M tok | ETA 1.1h
+    [group_G4_norm/L24] Checkpoint saved at 40% (4882 steps)
+    [group_G4_norm/L24] step  5000/12207 | loss=93.3 | L0=80 | FVE=0.6734 | dead=0.492 | a=0.0131±0.0048 | b=2.625(exp=13.8) | 20.5M tok | ETA 1.1h
+    [group_G4_norm/L24] step  5200/12207 | loss=96.1 | L0=80 | FVE=0.6616 | dead=0.489 | a=0.0133±0.0050 | b=2.611(exp=13.6) | 21.3M tok | ETA 1.0h
+    [group_G4_norm/L24] step  5400/12207 | loss=100.1 | L0=80 | FVE=0.6503 | dead=0.486 | a=0.0139±0.0054 | b=2.599(exp=13.4) | 22.1M tok | ETA 1.0h
+    [group_G4_norm/L24] step  5600/12207 | loss=93.2 | L0=80 | FVE=0.6711 | dead=0.478 | a=0.0170±0.0055 | b=2.589(exp=13.3) | 22.9M tok | ETA 1.0h
+    [group_G4_norm/L24] step  5800/12207 | loss=96.0 | L0=80 | FVE=0.6643 | dead=0.473 | a=0.0172±0.0057 | b=2.576(exp=13.2) | 23.8M tok | ETA 0.9h
+    [group_G4_norm/L24] step  6000/12207 | loss=101.1 | L0=80 | FVE=0.6480 | dead=0.466 | a=0.0183±0.0058 | b=2.566(exp=13.0) | 24.6M tok | ETA 0.9h
+    [group_G4_norm/L24] step  6200/12207 | loss=93.2 | L0=80 | FVE=0.6713 | dead=0.459 | a=0.0211±0.0060 | b=2.557(exp=12.9) | 25.4M tok | ETA 0.9h
+    [group_G4_norm/L24] step  6400/12207 | loss=95.5 | L0=80 | FVE=0.6626 | dead=0.455 | a=0.0215±0.0063 | b=2.547(exp=12.8) | 26.2M tok | ETA 0.9h
+    [group_G4_norm/L24] step  6600/12207 | loss=101.2 | L0=80 | FVE=0.6444 | dead=0.450 | a=0.0235±0.0063 | b=2.538(exp=12.7) | 27.0M tok | ETA 0.8h
+    [group_G4_norm/L24] step  6800/12207 | loss=93.6 | L0=80 | FVE=0.6684 | dead=0.443 | a=0.0248±0.0065 | b=2.530(exp=12.5) | 27.9M tok | ETA 0.8h
+    [group_G4_norm/L24] step  7000/12207 | loss=97.1 | L0=80 | FVE=0.6589 | dead=0.440 | a=0.0260±0.0068 | b=2.522(exp=12.4) | 28.7M tok | ETA 0.8h
+    [group_G4_norm/L24] step  7200/12207 | loss=100.3 | L0=80 | FVE=0.6473 | dead=0.430 | a=0.0292±0.0069 | b=2.516(exp=12.4) | 29.5M tok | ETA 0.7h
+    [group_G4_norm/L24] Checkpoint saved at 60% (7324 steps)
+    [group_G4_norm/L24] step  7400/12207 | loss=94.7 | L0=80 | FVE=0.6672 | dead=0.425 | a=0.0293±0.0071 | b=2.508(exp=12.3) | 30.3M tok | ETA 0.7h
+    [group_G4_norm/L24] step  7600/12207 | loss=96.7 | L0=80 | FVE=0.6594 | dead=0.423 | a=0.0308±0.0074 | b=2.502(exp=12.2) | 31.1M tok | ETA 0.7h
+    [group_G4_norm/L24] step  7800/12207 | loss=93.9 | L0=80 | FVE=0.6696 | dead=0.416 | a=0.0327±0.0075 | b=2.497(exp=12.1) | 31.9M tok | ETA 0.6h
+    [group_G4_norm/L24] step  8000/12207 | loss=94.9 | L0=80 | FVE=0.6668 | dead=0.413 | a=0.0332±0.0078 | b=2.491(exp=12.1) | 32.8M tok | ETA 0.6h
+    [group_G4_norm/L24] step  8200/12207 | loss=98.6 | L0=80 | FVE=0.6587 | dead=0.410 | a=0.0344±0.0079 | b=2.487(exp=12.0) | 33.6M tok | ETA 0.6h
+    [group_G4_norm/L24] step  8400/12207 | loss=93.2 | L0=80 | FVE=0.6734 | dead=0.404 | a=0.0364±0.0081 | b=2.484(exp=12.0) | 34.4M tok | ETA 0.6h
+    [group_G4_norm/L24] step  8600/12207 | loss=94.5 | L0=80 | FVE=0.6675 | dead=0.400 | a=0.0373±0.0083 | b=2.480(exp=11.9) | 35.2M tok | ETA 0.5h
+    [group_G4_norm/L24] step  8800/12207 | loss=99.8 | L0=80 | FVE=0.6541 | dead=0.397 | a=0.0384±0.0085 | b=2.476(exp=11.9) | 36.0M tok | ETA 0.5h
+    [group_G4_norm/L24] step  9000/12207 | loss=94.7 | L0=80 | FVE=0.6683 | dead=0.393 | a=0.0394±0.0086 | b=2.473(exp=11.9) | 36.9M tok | ETA 0.5h
+    [group_G4_norm/L24] step  9200/12207 | loss=95.6 | L0=80 | FVE=0.6631 | dead=0.392 | a=0.0398±0.0089 | b=2.470(exp=11.8) | 37.7M tok | ETA 0.4h
+    [group_G4_norm/L24] step  9400/12207 | loss=98.0 | L0=80 | FVE=0.6569 | dead=0.387 | a=0.0411±0.0089 | b=2.468(exp=11.8) | 38.5M tok | ETA 0.4h
+    [group_G4_norm/L24] step  9600/12207 | loss=95.7 | L0=80 | FVE=0.6644 | dead=0.385 | a=0.0412±0.0090 | b=2.466(exp=11.8) | 39.3M tok | ETA 0.4h
+    [group_G4_norm/L24] Checkpoint saved at 80% (9765 steps)
+    [group_G4_norm/L24] step  9800/12207 | loss=96.1 | L0=80 | FVE=0.6645 | dead=0.385 | a=0.0418±0.0091 | b=2.464(exp=11.8) | 40.1M tok | ETA 0.4h
+    [group_G4_norm/L24] step 10000/12207 | loss=94.2 | L0=80 | FVE=0.6654 | dead=0.381 | a=0.0423±0.0091 | b=2.463(exp=11.7) | 41.0M tok | ETA 0.3h
+    [group_G4_norm/L24] step 10200/12207 | loss=95.3 | L0=80 | FVE=0.6635 | dead=0.379 | a=0.0424±0.0091 | b=2.461(exp=11.7) | 41.8M tok | ETA 0.3h
+    [group_G4_norm/L24] step 10400/12207 | loss=96.4 | L0=80 | FVE=0.6645 | dead=0.379 | a=0.0427±0.0092 | b=2.460(exp=11.7) | 42.6M tok | ETA 0.3h
+    [group_G4_norm/L24] step 10600/12207 | loss=95.5 | L0=80 | FVE=0.6647 | dead=0.378 | a=0.0432±0.0092 | b=2.459(exp=11.7) | 43.4M tok | ETA 0.2h
+    [group_G4_norm/L24] step 10800/12207 | loss=96.7 | L0=80 | FVE=0.6621 | dead=0.377 | a=0.0433±0.0093 | b=2.458(exp=11.7) | 44.2M tok | ETA 0.2h
+    [group_G4_norm/L24] step 11000/12207 | loss=96.5 | L0=80 | FVE=0.6610 | dead=0.376 | a=0.0435±0.0093 | b=2.458(exp=11.7) | 45.1M tok | ETA 0.2h
+    [group_G4_norm/L24] step 11200/12207 | loss=94.8 | L0=80 | FVE=0.6647 | dead=0.376 | a=0.0434±0.0093 | b=2.457(exp=11.7) | 45.9M tok | ETA 0.1h
+    [group_G4_norm/L24] step 11400/12207 | loss=96.7 | L0=80 | FVE=0.6595 | dead=0.375 | a=0.0434±0.0094 | b=2.457(exp=11.7) | 46.7M tok | ETA 0.1h
+    [group_G4_norm/L24] step 11600/12207 | loss=96.8 | L0=80 | FVE=0.6594 | dead=0.375 | a=0.0435±0.0093 | b=2.457(exp=11.7) | 47.5M tok | ETA 0.1h
+    [group_G4_norm/L24] step 11800/12207 | loss=96.3 | L0=80 | FVE=0.6636 | dead=0.377 | a=0.0435±0.0094 | b=2.457(exp=11.7) | 48.3M tok | ETA 0.1h
+    [group_G4_norm/L24] step 12000/12207 | loss=96.2 | L0=80 | FVE=0.6614 | dead=0.374 | a=0.0435±0.0094 | b=2.457(exp=11.7) | 49.2M tok | ETA 0.0h
+    [group_G4_norm/L24] step 12200/12207 | loss=96.5 | L0=80 | FVE=0.6627 | dead=0.378 | a=0.0435±0.0094 | b=2.457(exp=11.7) | 50.0M tok | ETA 0.0h
+    [group_G4_norm/L24] step 12207/12207 | loss=96.2 | L0=80 | FVE=0.6596 | dead=0.376 | a=0.0435±0.0094 | b=2.457(exp=11.7) | 50.0M tok | ETA 0.0h
+    [group_G4_norm/L24] Checkpoint saved at 100% (12207 steps)
+    [group_G4_norm/L24] Done in 1.8h (6530s)
+    Checkpoint 2%: FVE=0.2657, dead=0.000, alive=16384
+    Checkpoint 5%: FVE=0.5125, dead=0.001, alive=16374
+    Checkpoint 10%: FVE=0.5812, dead=0.063, alive=15350
+    Checkpoint 20%: FVE=0.6092, dead=0.210, alive=12944
+    Checkpoint 40%: FVE=0.6292, dead=0.291, alive=11610
+    Checkpoint 60%: FVE=0.6434, dead=0.314, alive=11238
+    Checkpoint 80%: FVE=0.6533, dead=0.312, alive=11273
+
+  Full evaluation -- group_G4_norm_L24
+    [group_G4_norm/L24] FVE=0.6570 | dead=0.301 | alive=11446/16384 | L0=81
+
+    Ablation [group_G4_norm/L24] (100 feats, 200 samples)...
+    [group_G4_norm/L24] 10699 alive features (of 16384)
+      feat 11362 | n=200 | cos->KL=0.387 | inner->KL=0.215 | SAE->KL=0.228
+      feat  5097 | n=200 | cos->KL=-0.461 | inner->KL=-0.443 | SAE->KL=-0.382
+      feat 13009 | n=200 | cos->KL=0.543 | inner->KL=0.487 | SAE->KL=0.445
+      feat 16158 | n=200 | cos->KL=0.379 | inner->KL=0.337 | SAE->KL=0.173
+      feat  2977 | n=200 | cos->KL=0.586 | inner->KL=0.610 | SAE->KL=0.507
+      feat  1241 | n=200 | cos->KL=0.249 | inner->KL=0.263 | SAE->KL=0.285
+      feat  1743 | n=200 | cos->KL=0.559 | inner->KL=0.526 | SAE->KL=0.472
+      feat  5936 | n=200 | cos->KL=0.640 | inner->KL=0.618 | SAE->KL=0.677
+    [group_G4_norm/L24] Summary (100 features): cos->KL=0.4645 | SAE->KL=0.3972 | cos>inner: 87/100
+  Results saved to experiments/exp39_results.json
+
+  === L24 COMPLETE ===
+  Variant              | Init         |    FVE |  Dead% |  Alive |  cos>inn |  scale_a | scale_b(exp)
+  ---------------------+--------------+--------+--------+--------+----------+----------+-------------
+  standard             | none         | 0.6268 |  52.8% |   7734 |  76/100  |      N/A |          N/A
+  adaptive_sqrtd       | sqrt_d       | 0.5339 |  54.1% |   7522 |  76/100  |  -0.1363 |         50.3
+  adaptive_norm        | norm_adaptive | 0.6570 |  28.2% |  11761 |  88/100  |   0.0498 |         11.4
+  group_G4_sqrtd       | sqrt_d       | 0.5343 |  55.2% |   7340 |  76/100  |  -0.1360 |         50.4
+  group_G4_norm        | norm_adaptive | 0.6570 |  30.1% |  11446 |  87/100  |   0.0435 |         11.7
+
+======================================================================
+  EXP39 FINAL SUMMARY
+======================================================================
+
+  --- Layer 8 (norm=2.3, mismatch=28.0x) ---
+  Variant              | Init         |    FVE |  Dead% |  Alive |  cos>inn |      a |   b(exp)
+  standard             | none         | 0.6101 |  58.9% |   6731 |  81/100  |    N/A |      N/A
+  adaptive_sqrtd       | sqrt_d       | 0.0588 |  64.7% |   5779 |   3/5    | -0.001 |     59.3
+  adaptive_norm        | norm_adaptive | 0.6289 |  40.2% |   9794 |  82/100  |  0.371 |      1.3
+  group_G4_sqrtd       | sqrt_d       | 0.0588 |  65.8% |   5611 |   3/5    | -0.001 |     59.3
+  group_G4_norm        | norm_adaptive | 0.6287 |  39.9% |   9851 |  87/100  |  0.355 |      1.3
+
+  --- Layer 16 (norm=6.3, mismatch=10.2x) ---
+  Variant              | Init         |    FVE |  Dead% |  Alive |  cos>inn |      a |   b(exp)
+  standard             | none         | 0.6139 |  69.0% |   5077 |  91/100  |    N/A |      N/A
+  adaptive_sqrtd       | sqrt_d       | 0.3399 |  92.0% |   1307 |  78/100  | -0.017 |     58.1
+  adaptive_norm        | norm_adaptive | 0.6201 |  59.2% |   6677 |  94/100  |  0.102 |      4.2
+  group_G4_sqrtd       | sqrt_d       | 0.3360 |  91.4% |   1416 |  76/100  | -0.017 |     58.1
+  group_G4_norm        | norm_adaptive | 0.6193 |  59.4% |   6650 |  94/100  |  0.091 |      4.2
+
+  --- Layer 24 (norm=18.0, mismatch=3.6x) ---
+  Variant              | Init         |    FVE |  Dead% |  Alive |  cos>inn |      a |   b(exp)
+  standard             | none         | 0.6268 |  52.8% |   7734 |  76/100  |    N/A |      N/A
+  adaptive_sqrtd       | sqrt_d       | 0.5339 |  54.1% |   7522 |  76/100  | -0.136 |     50.3
+  adaptive_norm        | norm_adaptive | 0.6570 |  28.2% |  11761 |  88/100  |  0.050 |     11.4
+  group_G4_sqrtd       | sqrt_d       | 0.5343 |  55.2% |   7340 |  76/100  | -0.136 |     50.4
+  group_G4_norm        | norm_adaptive | 0.6570 |  30.1% |  11446 |  87/100  |  0.043 |     11.7
+
+  INIT DISAMBIGUATION (sqrt(d) vs norm-adaptive):
+    adaptive/L8: FVE diff=+0.5701, dead diff=-24.5pp, alive ratio=1.69x → norm
+    group_G4/L8: FVE diff=+0.5699, dead diff=-25.9pp, alive ratio=1.76x → norm
+    adaptive/L16: FVE diff=+0.2802, dead diff=-32.8pp, alive ratio=5.11x → norm
+    group_G4/L16: FVE diff=+0.2833, dead diff=-31.9pp, alive ratio=4.70x → norm
+    adaptive/L24: FVE diff=+0.1230, dead diff=-25.9pp, alive ratio=1.56x → norm
+    group_G4/L24: FVE diff=+0.1227, dead diff=-25.1pp, alive ratio=1.56x → norm
+
+  HYPOTHESIS CHECK:
+    L8: MIXED: sqrtd_fve=0.059, norm_fve=0.629, std_fve=0.610
+    L16: H2 SUPPORTED: both inits work at 50M
+    L24: H2 SUPPORTED: both inits work at 50M
+
+Results: experiments/exp39_results.json
+Done!
