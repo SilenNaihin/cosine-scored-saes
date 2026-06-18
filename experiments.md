@@ -112,3 +112,9 @@ All experiments conducted during this research, with results summaries.
 | 58c | Norm-Detector Characterization | 86.3% of standard's unmatched features fire on Q4; 48× activation magnitude |
 | 59 | Gradient Equalization | Loss reweighting closes only 1.9–6.8% of gap; forward pass is the lever |
 | 60 | Decoder Geometry | Cosine: lower MMC (0.293 vs 0.311), 2.5× fewer tight pairs at 16× expansion |
+
+## Camera-Ready Revision (Exp 61+)
+
+| # | Name | Key Result |
+|---|------|-----------|
+| 62 | Headline Interp (multi-seed) + Causal | PLANNED, blocked on exp61 ckpts: 1000 feat × 3 seeds auto-interp on recommended variants (replaces exp33/exp40); + A4 causal-cleanliness eval spec |
