@@ -28,5 +28,10 @@ recipe. exp53 has the right variants at 500M but only n=200, single seed. This p
 principled, multi-seed number to own the claim.
 
 ## Results
-_Pending run. Outputs: `exp62a_results_{hf,box8_seed*}.json`, aggregate
-`exp62a_results.json`; A4 results per `a4_causal_spec.md`._
+_62a RUNNING (2026-06-22): launched on h100-dev-box-4 GPU1, `--source hf` single-seed,
+tmux `exp62a_collect`, work area `/mnt/work/cosine-scored-saes` (root disk full; everything
+on /mnt). Phase 1 (collect) in progress: Qwen3-8B loaded, streaming FineWeb (skip 200k docs).
+Then Phase 2 `--score` (needs AWS Bedrock creds) and Phase 3 `--aggregate`._
+
+_Outputs: `exp62a_results_{hf,box8_seed*}.json`, aggregate `exp62a_results.json`;
+A4 results per `a4_causal_spec.md`._
