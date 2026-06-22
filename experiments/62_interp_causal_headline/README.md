@@ -28,10 +28,14 @@ recipe. exp53 has the right variants at 500M but only n=200, single seed. This p
 principled, multi-seed number to own the claim.
 
 ## Results
-_62a RUNNING (2026-06-22): launched on h100-dev-box-4 GPU1, `--source hf` single-seed,
-tmux `exp62a_collect`, work area `/mnt/work/cosine-scored-saes` (root disk full; everything
-on /mnt). Phase 1 (collect) in progress: Qwen3-8B loaded, streaming FineWeb (skip 200k docs).
-Then Phase 2 `--score` (needs AWS Bedrock creds) and Phase 3 `--aggregate`._
+_62a RUNNING (2026-06-22) on h100-dev-box-4, `--source hf` single-seed, work area
+`/mnt/work/cosine-scored-saes` (root disk full; everything on /mnt)._
+- **Phase 1 (collect): DONE** (GPU1, EXIT 0). 3000 features (1000/arm, stratified 250/500/250).
+  Per-feature alive 18,655/65,536 (28.5%), matching exp53. Contexts: `exp62a_contexts_hf.json`.
+- **Phase 2 (score): IN PROGRESS** (tmux `exp62a_score`, CPU + Bedrock Sonnet-4-6 via litellm,
+  `PYTHONPATH=/mnt/work/pylibs`). ~8s/feature => ~6-7h for 3000. Incremental save every 10
+  features (resumable). Log `/mnt/work/exp62a_score.log`. Output `exp62a_results_hf.json`.
+- **Phase 3 (aggregate): pending** — `--source hf --aggregate` once scoring finishes.
 
-_Outputs: `exp62a_results_{hf,box8_seed*}.json`, aggregate `exp62a_results.json`;
-A4 results per `a4_causal_spec.md`._
+_Then: pull `exp62a_results_hf.json` back, write `analysis.md`, feed B5 (headline interp
+table) + Chat 3's B8 abstract. A4 results per `a4_causal_spec.md` (Chat 1 runs separately)._
