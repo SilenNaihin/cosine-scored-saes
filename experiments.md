@@ -112,6 +112,7 @@ All experiments conducted during this research, with results summaries.
 | 58c | Norm-Detector Characterization | 86.3% of standard's unmatched features fire on Q4; 48× activation magnitude |
 | 59 | Gradient Equalization | Loss reweighting closes only 1.9–6.8% of gap; forward pass is the lever |
 | 60 | Decoder Geometry | Cosine: lower MMC (0.293 vs 0.311), 2.5× fewer tight pairs at 16× expansion |
+| 61 | Multi-Seed 500M | n=3 seeds at headline: FVE matched ±0.0002; top-1 gap stable +14.1% (global) / +14.6% (per-feature); a seed-invariant |
 
 ## Camera-Ready Revision (Exp 61+)
 

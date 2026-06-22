@@ -1,0 +1,28 @@
+{
+  "experiment": "exp61_multiseed_500m",
+  "description": "Multi-seed replication of the exp40 500M headline (Qwen3-8B L18, d_sae=65536, BatchTopK k=80, aux-on) at seeds 123 and 456. Combined with the published seed-42 run (exp40) for n=3.",
+  "setting": {"model": "Qwen/Qwen3-8B", "layer": 18, "d_sae": 65536, "k": 80, "n_train_tokens": 500000000},
+  "note": "Probing recovered post-hoc (exp61_saebench_posthoc.py) with per-seed sae_name + output_dir + force_rerun, so each seed is an independent SAEBench computation (distinct eval_ids).",
+  "per_seed": {
+    "seed123": {
+      "standard_L18":      {"fve": 0.7704, "dead_frac": 0.00012, "top_1": 0.6637, "top_2": 0.7471, "top_5": 0.7907},
+      "adaptive_l2_L18":   {"fve": 0.7690, "dead_frac": 0.00000, "scale_a_final": 0.2584, "top_1": 0.8102, "top_2": 0.8481, "top_5": 0.8933},
+      "perfeature_l2_L18": {"fve": 0.7705, "dead_frac": 0.00002, "scale_a_mean": 0.0759, "top_1": 0.8270, "top_2": 0.8563, "top_5": 0.8923}
+    },
+    "seed456": {
+      "standard_L18":      {"fve": 0.7702, "dead_frac": 0.00020, "top_1": 0.6700, "top_2": 0.7341, "top_5": 0.7775},
+      "adaptive_l2_L18":   {"fve": 0.7689, "dead_frac": 0.00000, "scale_a_final": 0.2567, "top_1": 0.8141, "top_2": 0.8600, "top_5": 0.8944},
+      "perfeature_l2_L18": {"fve": 0.7705, "dead_frac": 0.00000, "scale_a_mean": 0.0757, "top_1": 0.7964, "top_2": 0.8322, "top_5": 0.8900}
+    }
+  },
+  "published_seed42": {
+    "standard_L18":      {"fve": 0.770, "top_1": 0.667},
+    "adaptive_l2_L18":   {"fve": 0.769, "scale_a_final": 0.258, "top_1": 0.800},
+    "perfeature_l2_L18": {"fve": 0.771, "scale_a_mean": 0.076, "top_1": 0.815}
+  },
+  "n3_summary": {
+    "standard":   {"fve_mean": 0.7702, "fve_sd": 0.0002, "top1_mean": 0.6669, "top1_sd": 0.0026},
+    "global_a":   {"fve_mean": 0.7690, "fve_sd": 0.0000, "top1_mean": 0.8081, "top1_sd": 0.0059, "a_mean": 0.2577, "a_sd": 0.0007, "top1_gap_pp": 14.1},
+    "perfeature": {"fve_mean": 0.7707, "fve_sd": 0.0002, "top1_mean": 0.8128, "top1_sd": 0.0126, "a_mean": 0.0759, "a_sd": 0.0001, "top1_gap_pp": 14.6}
+  }
+}

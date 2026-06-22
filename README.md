@@ -2,6 +2,10 @@
 
 Code supplement for **"Size Doesn't Matter: Cosine-Scored Sparse Autoencoders"**.
 
+## Abstract
+
+Sparse autoencoders (SAEs) detect features via inner product, so a feature's activation scales with both its directional alignment and the input's norm. Under BatchTopK, high-norm tokens inflate all pre-activations simultaneously, claiming dictionary slots regardless of content alignment. This matters because sublayer normalization has already discarded the magnitude the score measures, so the encoder detects a quantity the model does not read. We replace the score with a learned blend of cosine similarity and input magnitude, letting the optimizer choose how much norm to use; a per-feature extension lets each feature decide independently. In both regimes, training is free to recover inner product but never does, with no feature ever choosing more than half-magnitude dependence. At matched reconstruction, the cosine encoder learns features that align with human-recognizable concepts far more often than standard, filling dictionary slots that inner product wastes on norm detectors. Loss reweighting that equalizes gradients barely closes the gap, confirming forward-pass score geometry as the lever. The advantage is not universal across tasks or depths, but we believe cosine scoring should be the default for dictionary learning on normalized representations.
+
 ## Overview
 
 Standard sparse autoencoders (SAEs) score features by inner product: a feature's activation scales with both its directional alignment and the input token's norm. In models with pre-layer RMSNorm, downstream sublayers strip magnitude before reading the residual stream — so the inner-product score encodes information the model has already discarded. Under BatchTopK selection, this causes high-norm tokens to inflate all pre-activations, driving ~86% of features to converge to norm detectors rather than content encoders.
@@ -42,6 +46,7 @@ cosine-scored-saes/
 - **SAE training:** BatchTopK (k=80), Adam (lr=5e-5), aux-k dead-feature loss (α=1/32), decoder unit-norm + gradient projection, 500M FineWeb tokens
 - **Evaluation:** SAEBench (sparse probing, absorption, SCR, TPP, core metrics)
 - **Reference SAE:** [adamkarvonen/qwen3-8b-saes](https://huggingface.co/adamkarvonen/qwen3-8b-saes)
+- **Our SAEs:** [Silen/cosine-scored-saes-qwen3-8b](https://huggingface.co/Silen/cosine-scored-saes-qwen3-8b) — the 500M-token headline checkpoints (standard, global-`a`, per-feature) at Qwen3-8B layer 18, `d_sae=65,536`.
 
 ## Architecture
 
@@ -53,6 +58,28 @@ Cosine:    s_i(x) = e^b · ||x_c||^a · cos(x_c, w_i) + b_i
 ```
 
 where `a` interpolates between pure cosine (a=0) and inner product (a=1), and `b` is a global scale. Encoder rows are unit-normalized. A per-feature extension parameterizes `a_i = a_base + δ_i`.
+
+## Recommendations
+
+**Architecture choice.**
+
+- **Adaptive Cosine SAE:** 0% dead with the auxiliary loss at 500M; one extra `log‖x_c‖` + `exp` per token; +13.3% top-1.
+- **Per-Feature Adaptive Cosine SAE:** highest top-1 at 500M (+14.9%); 83% dead at 50M / L27.
+- **Magnitude-Bypass SAE:** largest cos-vs-inner score difference; 4.3% persistent dead with the auxiliary loss.
+- **Standard:** top-1 0.915 on amazon_sentiment.
+
+**Initialization.** Default `b = log√d_model`, `a = 0`. If `mean‖x_train − b_dec‖` is more than ~2× from `√d_model`, switch `b` to `log(mean‖x‖)` (required for Mistral-class models with `‖x‖ ≈ 6`).
+
+**Sparsity, loss, training-time monitoring.** Keep BatchTopK; keep the auxiliary loss for production use. The auxiliary loss has no effect on Magnitude-Bypass SAE at 5M (gradients through bounded `[0, 1]` activations are too small); the rescue effect emerges between 5M and 500M. During the first 5% of training, monitor `a` (or the `{a_i}` histogram): `a` stuck near 0 with norm-adaptive init at large data means revert to `√d` init; `a` drifting toward 1 means reconsider initialization.
+
+**Before deploying.** Verify that the eval activation-norm distribution matches training. Cosine FVE drops 4.5–5.8% under Uniform(0.5, 2.0) norm noise vs. 1.8–3.4% for Standard (see Limitations).
+
+**Out of scope.**
+
+- Shallow layers of small models (cos > inner < 50%).
+- Deep LayerNorm models without RMSNorm-equivalent geometry.
+- Tasks where magnitude is the operative signal (sentiment intensity, perplexity surprise).
+- QK-normalized attention, per-head normalization, and nGPT: not tested.
 
 ## Reproducing
 
