@@ -1,7 +1,11 @@
 # Experiment 62: Headline interpretability (multi-seed) + causal-cleanliness eval
 
-Camera-ready items **B5 (Tier 1)** and **A4**. **STATUS: planned, BLOCKED on exp61's saved
-500M L18 checkpoints (A1 multi-seed, box-8, ETA ~2026-06-19).**
+Camera-ready items **B5 (Tier 1)** and **A4**. **STATUS: ready to run (2026-06-22).** The 500M
+L18 headline checkpoints are published at
+[Silen/cosine-scored-saes-qwen3-8b](https://huggingface.co/Silen/cosine-scored-saes-qwen3-8b)
+and verified to load into exp53's SAE classes (0 missing/unexpected keys, step=244140).
+`exp62a` defaults to `--source hf` (single published seed); `--source box8` runs the 3-seed
+version off exp61's per-seed checkpoints.
 
 Two parts:
 - **62a (auto-interp, Chat 4 runs):** re-run exp53's describe-then-predict at 1000 features/arm
@@ -24,5 +28,5 @@ recipe. exp53 has the right variants at 500M but only n=200, single seed. This p
 principled, multi-seed number to own the claim.
 
 ## Results
-_Pending checkpoints (exp61). Outputs: `exp62a_results_seed{42,123,456}.json`,
-aggregate `exp62a_results.json`; A4 results per `a4_causal_spec.md`._
+_Pending run. Outputs: `exp62a_results_{hf,box8_seed*}.json`, aggregate
+`exp62a_results.json`; A4 results per `a4_causal_spec.md`._

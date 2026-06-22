@@ -1,6 +1,13 @@
 # Experiment 62 — Headline interpretability (multi-seed) + causal-cleanliness eval
 
-Camera-ready item B5 (Tier 1) + A4. **Blocked on exp61's saved 500M L18 checkpoints (ETA ~2026-06-19).**
+Camera-ready item B5 (Tier 1) + A4. **UNBLOCKED 2026-06-22:** the 500M L18 headline
+checkpoints are published at https://huggingface.co/Silen/cosine-scored-saes-qwen3-8b
+(standard / global-a / perfeature; verified to load cleanly into exp53's SAE classes,
+0 missing/unexpected keys, step=244140 = 500M tokens). NOTE: HF publishes ONE checkpoint
+per variant (best of seeds 123/456), so the HF source gives single-seed auto-interp; a
+true 3-seed auto-interp needs exp61's per-seed checkpoints off box-8 (`--source box8`).
+The multi-seed FVE + sparse-probing table is ALREADY on the HF card (A1 done); only
+auto-interp is still missing, which is what 62a produces.
 
 ## Motivation
 The paper's headline auto-interp story currently fuses two mismatched runs under one citation:
