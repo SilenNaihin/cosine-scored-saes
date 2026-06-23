@@ -1,0 +1,104 @@
+{
+  "config": {
+    "source": "hf",
+    "runs": [
+      "hf"
+    ],
+    "arms": [
+      "standard",
+      "adaptive_l2",
+      "perfeature_l2"
+    ],
+    "n_features_per_sae": 1000,
+    "model": "Qwen/Qwen3-8B",
+    "layer": 18,
+    "tokens": "500M",
+    "d_sae": 65536,
+    "k": 80,
+    "protocol": "describe-then-predict (>=50% accuracy)",
+    "judge": "bedrock/us.anthropic.claude-sonnet-4-6",
+    "checkpoints": "Silen/cosine-scored-saes-qwen3-8b",
+    "replaces": [
+      "exp33 (50M/L27/200)",
+      "exp40 (100M/no_C/>=4)"
+    ]
+  },
+  "interpretability_rate": {
+    "standard": {
+      "n_runs": 1,
+      "mean": 0.201,
+      "sd": 0.0,
+      "values": [
+        0.201
+      ]
+    },
+    "adaptive_l2": {
+      "n_runs": 1,
+      "mean": 0.213,
+      "sd": 0.0,
+      "values": [
+        0.213
+      ]
+    },
+    "perfeature_l2": {
+      "n_runs": 1,
+      "mean": 0.192,
+      "sd": 0.0,
+      "values": [
+        0.192
+      ]
+    }
+  },
+  "low_freq_rate": {
+    "standard": {
+      "n_runs": 1,
+      "mean": 0.22310756972111553,
+      "sd": 0.0,
+      "values": [
+        0.22310756972111553
+      ]
+    },
+    "adaptive_l2": {
+      "n_runs": 1,
+      "mean": 0.24302788844621515,
+      "sd": 0.0,
+      "values": [
+        0.24302788844621515
+      ]
+    },
+    "perfeature_l2": {
+      "n_runs": 1,
+      "mean": 0.2350597609561753,
+      "sd": 0.0,
+      "values": [
+        0.2350597609561753
+      ]
+    }
+  },
+  "alive_count": {
+    "standard": {
+      "n_runs": 1,
+      "mean": 17320,
+      "sd": 0.0,
+      "values": [
+        17320
+      ]
+    },
+    "adaptive_l2": {
+      "n_runs": 1,
+      "mean": 17814,
+      "sd": 0.0,
+      "values": [
+        17814
+      ]
+    },
+    "perfeature_l2": {
+      "n_runs": 1,
+      "mean": 18655,
+      "sd": 0.0,
+      "values": [
+        18655
+      ]
+    }
+  }
+}

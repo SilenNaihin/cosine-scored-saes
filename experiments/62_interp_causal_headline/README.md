@@ -27,15 +27,19 @@ is exp33's (50M/L27/200, rates 40.0/37.0). Neither is our recommended variant at
 recipe. exp53 has the right variants at 500M but only n=200, single seed. This produces one
 principled, multi-seed number to own the claim.
 
-## Results
-_62a RUNNING (2026-06-22) on h100-dev-box-4, `--source hf` single-seed, work area
-`/mnt/work/cosine-scored-saes` (root disk full; everything on /mnt)._
-- **Phase 1 (collect): DONE** (GPU1, EXIT 0). 3000 features (1000/arm, stratified 250/500/250).
-  Per-feature alive 18,655/65,536 (28.5%), matching exp53. Contexts: `exp62a_contexts_hf.json`.
-- **Phase 2 (score): IN PROGRESS** (tmux `exp62a_score`, CPU + Bedrock Sonnet-4-6 via litellm,
-  `PYTHONPATH=/mnt/work/pylibs`). ~8s/feature => ~6-7h for 3000. Incremental save every 10
-  features (resumable). Log `/mnt/work/exp62a_score.log`. Output `exp62a_results_hf.json`.
-- **Phase 3 (aggregate): pending** — `--source hf --aggregate` once scoring finishes.
+## Results (62a DONE 2026-06-22; see `analysis.md`)
+1000 features/arm, single seed (HF publishes one ckpt/variant), Sonnet-4-6, >=50% threshold.
 
-_Then: pull `exp62a_results_hf.json` back, write `analysis.md`, feed B5 (headline interp
-table) + Chat 3's B8 abstract. A4 results per `a4_causal_spec.md` (Chat 1 runs separately)._
+| Arm | Interp rate | Low-freq | High-freq | Alive |
+|-----|:-:|:-:|:-:|:-:|
+| Standard | 20.1% | 22.3% | 14.8% | 17,320 |
+| Global `a` | 21.3% | 24.3% | 18.0% | 17,814 |
+| Per-feature | 19.2% | 23.5% | 14.3% | 18,655 |
+
+- **Per-feature quality MATCHED at scale** (2.1-pt band across arms; alive matched). Headline =
+  discovery/volume, not per-feature legibility. Replaces mislabeled exp40 + exp33 numbers.
+- **exp53's frequency crossover does NOT replicate** at n=1000 (was n=200 noise). Paper
+  sub-claim built on it must be softened/dropped.
+- Single seed only; `--source box8` (exp61 per-seed ckpts) would add CIs if needed.
+
+_A4 (causal) per `a4_causal_spec.md` — Chat 1 runs separately._

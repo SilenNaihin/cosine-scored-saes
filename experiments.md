@@ -118,4 +118,4 @@ All experiments conducted during this research, with results summaries.
 
 | # | Name | Key Result |
 |---|------|-----------|
-| 62 | Headline Interp (multi-seed) + Causal | PLANNED, blocked on exp61 ckpts: 1000 feat × 3 seeds auto-interp on recommended variants (replaces exp33/exp40); + A4 causal-cleanliness eval spec |
+| 62 | Headline Interp + Causal (`62_interp_causal_headline`) | 62a DONE (1000 feat, single-seed HF ckpts): per-feature interp MATCHED at scale (std 20.1 / global 21.3 / per-feature 19.2%); advantage is discovery/volume not legibility; exp53 freq-crossover does NOT replicate. Replaces exp33/exp40. A4 causal spec ready (Chat 1 runs). |
