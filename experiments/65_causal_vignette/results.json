@@ -1,0 +1,313 @@
+{
+  "config": {
+    "model": "Qwen/Qwen3-8B",
+    "layer": 18,
+    "ckpt_dir": "checkpoints/exp61_seed123"
+  },
+  "concepts": {
+    "python_code": {
+      "standard": {
+        "k_sweep": [
+          {
+            "K": 1,
+            "on_kl": 0.004827086996738217,
+            "off_kl": -1.0471344717188913e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 9.634807586669922,
+            "feature_ids": [
+              33643
+            ]
+          },
+          {
+            "K": 3,
+            "on_kl": 0.011147058906499297,
+            "off_kl": -1.0471344717188913e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 8.367655754089355,
+            "feature_ids": [
+              33643,
+              20117,
+              21369
+            ]
+          },
+          {
+            "K": 5,
+            "on_kl": 0.6336266512422298,
+            "off_kl": -1.0471344717188913e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 7.476621150970459,
+            "feature_ids": [
+              33643,
+              20117,
+              21369,
+              50795,
+              45724
+            ]
+          },
+          {
+            "K": 10,
+            "on_kl": 2.268773956084624,
+            "off_kl": -1.0471344717188913e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 5.960962772369385,
+            "feature_ids": [
+              33643,
+              20117,
+              21369,
+              50795,
+              45724,
+              26706,
+              380,
+              10064,
+              49108,
+              11081
+            ]
+          },
+          {
+            "K": 20,
+            "on_kl": 2.724628998321714,
+            "off_kl": -1.0471344717188913e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 4.467138767242432,
+            "feature_ids": null
+          },
+          {
+            "K": 50,
+            "on_kl": 3.159682633250486,
+            "off_kl": 4.1165988113789355e-05,
+            "precision": 76754.68944208552,
+            "mean_selectivity_gap": 2.9385416507720947,
+            "feature_ids": null
+          }
+        ]
+      },
+      "perfeature_l2": {
+        "k_sweep": [
+          {
+            "K": 1,
+            "on_kl": 0.008728701245996718,
+            "off_kl": -1.0471344717188913e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 8.453339576721191,
+            "feature_ids": [
+              5819
+            ]
+          },
+          {
+            "K": 3,
+            "on_kl": 0.018933220938561136,
+            "off_kl": -1.0471344717188913e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 7.475259304046631,
+            "feature_ids": [
+              5819,
+              33722,
+              46970
+            ]
+          },
+          {
+            "K": 5,
+            "on_kl": 0.05298216967130429,
+            "off_kl": -1.0471344717188913e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 6.727679252624512,
+            "feature_ids": [
+              5819,
+              33722,
+              46970,
+              40448,
+              45724
+            ]
+          },
+          {
+            "K": 10,
+            "on_kl": 0.0478346625539416,
+            "off_kl": -1.0471344717188913e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 5.778481483459473,
+            "feature_ids": [
+              5819,
+              33722,
+              46970,
+              40448,
+              45724,
+              7114,
+              1543,
+              1518,
+              29581,
+              36803
+            ]
+          },
+          {
+            "K": 20,
+            "on_kl": 1.325399987984565,
+            "off_kl": -1.0471344717188913e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 4.690425395965576,
+            "feature_ids": null
+          },
+          {
+            "K": 50,
+            "on_kl": 2.551033329818165,
+            "off_kl": 1.5663001067878213e-05,
+            "precision": 162870.02208343337,
+            "mean_selectivity_gap": 3.0195672512054443,
+            "feature_ids": null
+          }
+        ]
+      }
+    },
+    "french_language": {
+      "standard": {
+        "k_sweep": [
+          {
+            "K": 1,
+            "on_kl": 0.4596370406448841,
+            "off_kl": -1.0850045782717643e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 11.059367179870605,
+            "feature_ids": [
+              12767
+            ]
+          },
+          {
+            "K": 3,
+            "on_kl": 0.6047383040189743,
+            "off_kl": 2.114689523295965e-05,
+            "precision": 28597.025584939125,
+            "mean_selectivity_gap": 6.765361785888672,
+            "feature_ids": [
+              12767,
+              11880,
+              38853
+            ]
+          },
+          {
+            "K": 5,
+            "on_kl": 1.054436294734478,
+            "off_kl": 2.114689523295965e-05,
+            "precision": 49862.46364388418,
+            "mean_selectivity_gap": 5.666574478149414,
+            "feature_ids": [
+              12767,
+              11880,
+              38853,
+              28884,
+              1067
+            ]
+          },
+          {
+            "K": 10,
+            "on_kl": 2.2686939984560013,
+            "off_kl": 2.114689523295965e-05,
+            "precision": 107282.60453666995,
+            "mean_selectivity_gap": 4.529726028442383,
+            "feature_ids": [
+              12767,
+              11880,
+              38853,
+              28884,
+              1067,
+              5161,
+              44341,
+              59308,
+              47365,
+              45926
+            ]
+          },
+          {
+            "K": 20,
+            "on_kl": 2.3393401145935058,
+            "off_kl": 0.0020771968993358314,
+            "precision": 1126.2004653201113,
+            "mean_selectivity_gap": 3.589714527130127,
+            "feature_ids": null
+          },
+          {
+            "K": 50,
+            "on_kl": 2.0798466563224793,
+            "off_kl": 0.008529348392039537,
+            "precision": 243.84590249163764,
+            "mean_selectivity_gap": 2.326425075531006,
+            "feature_ids": null
+          }
+        ]
+      },
+      "perfeature_l2": {
+        "k_sweep": [
+          {
+            "K": 1,
+            "on_kl": 0.04979100488126278,
+            "off_kl": -1.0850045782717643e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 9.008386611938477,
+            "feature_ids": [
+              41692
+            ]
+          },
+          {
+            "K": 3,
+            "on_kl": 0.17831848710775375,
+            "off_kl": -1.0850045782717643e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 5.862610340118408,
+            "feature_ids": [
+              41692,
+              27432,
+              13503
+            ]
+          },
+          {
+            "K": 5,
+            "on_kl": 0.7563512552529573,
+            "off_kl": -1.0850045782717643e-05,
+            "precision": Infinity,
+            "mean_selectivity_gap": 4.974624156951904,
+            "feature_ids": [
+              41692,
+              27432,
+              13503,
+              47327,
+              44341
+            ]
+          },
+          {
+            "K": 10,
+            "on_kl": 1.5454953461885452,
+            "off_kl": 1.4393994570127689e-05,
+            "precision": 107370.8440460274,
+            "mean_selectivity_gap": 4.149641036987305,
+            "feature_ids": [
+              41692,
+              27432,
+              13503,
+              47327,
+              44341,
+              15853,
+              47312,
+              292,
+              12812,
+              4319
+            ]
+          },
+          {
+            "K": 20,
+            "on_kl": 2.0144839823246,
+            "off_kl": 0.0014271856343839318,
+            "precision": 1411.5080293631077,
+            "mean_selectivity_gap": 3.357693910598755,
+            "feature_ids": null
+          },
+          {
+            "K": 50,
+            "on_kl": 3.0003943741321564,
+            "off_kl": 0.006711768615059554,
+            "precision": 447.0348348123937,
+            "mean_selectivity_gap": 2.281618118286133,
+            "feature_ids": null
+          }
+        ]
+      }
+    }
+  }
+}
