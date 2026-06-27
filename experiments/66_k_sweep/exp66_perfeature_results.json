@@ -1,0 +1,79 @@
+{
+  "config": {
+    "layer": 18,
+    "d_sae": 65536,
+    "n_train_tokens": 50000000,
+    "ks": [
+      10,
+      20,
+      40,
+      80,
+      160
+    ],
+    "arms": [
+      "perfeature_l2"
+    ]
+  },
+  "runs": {
+    "perfeature_l2_k10": {
+      "arm": "perfeature_l2",
+      "k": 10,
+      "reconstruction": {
+        "fve": 0.4320990635292794,
+        "cos_recon": 0.8200369120376259,
+        "mean_l0": 9.99799312173771,
+        "dead_frac": 0.983642578125,
+        "alive_count": 1072
+      },
+      "checkpoint": "checkpoints/exp66/perfeature_l2_L18_k10_final.pt"
+    },
+    "perfeature_l2_k20": {
+      "arm": "perfeature_l2",
+      "k": 20,
+      "reconstruction": {
+        "fve": 0.5568149154024682,
+        "cos_recon": 0.8626634439524022,
+        "mean_l0": 19.969637713632416,
+        "dead_frac": 0.9264984130859375,
+        "alive_count": 4817
+      },
+      "checkpoint": "checkpoints/exp66/perfeature_l2_L18_k20_final.pt"
+    },
+    "perfeature_l2_k40": {
+      "arm": "perfeature_l2",
+      "k": 40,
+      "reconstruction": {
+        "fve": 0.6665993180915837,
+        "cos_recon": 0.8981732453392131,
+        "mean_l0": 39.97778578400002,
+        "dead_frac": 0.220672607421875,
+        "alive_count": 51074
+      },
+      "checkpoint": "checkpoints/exp66/perfeature_l2_L18_k40_final.pt"
+    },
+    "perfeature_l2_k80": {
+      "arm": "perfeature_l2",
+      "k": 80,
+      "reconstruction": {
+        "fve": 0.725760869510637,
+        "cos_recon": 0.9170393663760705,
+        "mean_l0": 80.00022573480831,
+        "dead_frac": 3.0517578125e-05,
+        "alive_count": 65534
+      },
+      "checkpoint": "checkpoints/exp66/perfeature_l2_L18_k80_final.pt"
+    },
+    "perfeature_l2_k160": {
+      "arm": "perfeature_l2",
+      "k": 160,
+      "reconstruction": {
+        "fve": 0.7682529969224947,
+        "cos_recon": 0.9304542276729947,
+        "mean_l0": 160.0901098495374,
+        "dead_frac": 0.0,
+        "alive_count": 65536
+      },
+      "checkpoint": "checkpoints/exp66/perfeature_l2_L18_k160_final.pt"
+    }
+  }
+}

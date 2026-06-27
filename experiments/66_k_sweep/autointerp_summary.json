@@ -1,0 +1,42 @@
+{
+  "perfeature_l2_k10": {
+    "k": 10,
+    "arm": "perfeature_l2",
+    "n_features": 200,
+    "n_interpretable": 99,
+    "interpretable_rate": 0.495,
+    "alive_count": 993
+  },
+  "perfeature_l2_k20": {
+    "k": 20,
+    "arm": "perfeature_l2",
+    "n_features": 200,
+    "n_interpretable": 88,
+    "interpretable_rate": 0.44,
+    "alive_count": 3356
+  },
+  "perfeature_l2_k40": {
+    "k": 40,
+    "arm": "perfeature_l2",
+    "n_features": 200,
+    "n_interpretable": 65,
+    "interpretable_rate": 0.325,
+    "alive_count": 7455
+  },
+  "perfeature_l2_k80": {
+    "k": 80,
+    "arm": "perfeature_l2",
+    "n_features": 200,
+    "n_interpretable": 60,
+    "interpretable_rate": 0.3,
+    "alive_count": 12683
+  },
+  "perfeature_l2_k160": {
+    "k": 160,
+    "arm": "perfeature_l2",
+    "n_features": 200,
+    "n_interpretable": 43,
+    "interpretable_rate": 0.215,
+    "alive_count": 37885
+  }
+}

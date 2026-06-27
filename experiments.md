@@ -114,6 +114,7 @@ All experiments conducted during this research, with results summaries.
 | 60 | Decoder Geometry | Cosine: lower MMC (0.293 vs 0.311), 2.5× fewer tight pairs at 16× expansion |
 | 61 | Multi-Seed 500M | n=3 seeds at headline: FVE matched ±0.0002; top-1 gap stable +14.1% (global) / +14.6% (per-feature); a seed-invariant |
 | 65 | Salient-Concept Control | Both arms cleanly represent salient concepts (Python/French); cosine advantage is aggregate, not single-concept |
+| 66 | Sparsity-Budget Sweep | k∈{10..160}: probing advantage robust (+8 to +11.4%) at all k; auto-interp parity holds at all k |
 
 ## Camera-Ready Revision (Exp 61+)
 

@@ -1,0 +1,39 @@
+{
+  "runs": {
+    "perfeature_l2_k10": {
+      "arm": "perfeature_l2",
+      "k": 10,
+      "top_1": 0.7328875,
+      "top_2": 0.76714375,
+      "top_5": 0.81793125
+    },
+    "perfeature_l2_k20": {
+      "arm": "perfeature_l2",
+      "k": 20,
+      "top_1": 0.782,
+      "top_2": 0.8244,
+      "top_5": 0.86114375
+    },
+    "perfeature_l2_k40": {
+      "arm": "perfeature_l2",
+      "k": 40,
+      "top_1": 0.7922374999999999,
+      "top_2": 0.8340875,
+      "top_5": 0.8949625
+    },
+    "perfeature_l2_k80": {
+      "arm": "perfeature_l2",
+      "k": 80,
+      "top_1": 0.81635,
+      "top_2": 0.8506,
+      "top_5": 0.8927375
+    },
+    "perfeature_l2_k160": {
+      "arm": "perfeature_l2",
+      "k": 160,
+      "top_1": 0.78836875,
+      "top_2": 0.8587499999999999,
+      "top_5": 0.889825
+    }
+  }
+}
