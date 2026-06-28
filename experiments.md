@@ -112,13 +112,17 @@ All experiments conducted during this research, with results summaries.
 | 58c | Norm-Detector Characterization | 86.3% of standard's unmatched features fire on Q4; 48× activation magnitude |
 | 59 | Gradient Equalization | Loss reweighting closes only 1.9–6.8% of gap; forward pass is the lever |
 | 60 | Decoder Geometry | Cosine: lower MMC (0.293 vs 0.311), 2.5× fewer tight pairs at 16× expansion |
-| 61 | Multi-Seed 500M | n=3 seeds at headline: FVE matched ±0.0002; top-1 gap stable +14.1% (global) / +14.6% (per-feature); a seed-invariant |
-| 65 | Salient-Concept Control | Both arms cleanly represent salient concepts (Python/French); cosine advantage is aggregate, not single-concept |
-| 66 | Sparsity-Budget Sweep | k∈{10..160}: probing advantage robust (+8 to +11.4%) at all k; auto-interp parity holds at all k |
-| 67 | Scaling-Matrix Reseed | 27 cells (1.7B/4B/8B × 4/8/16× × 3 seeds): model dim drives the gap (+5.3/+11.7/+9.2 row means), expansion flat |
 
 ## Camera-Ready Revision (Exp 61+)
 
+Reviewer-driven experiments for the ICML 2026 camera-ready (multi-seed, selectors, causal, sparsity, scaling).
+
 | # | Name | Key Result |
 |---|------|-----------|
-| 62 | Headline Interp + Causal (`62_interp_causal_headline`) | 62a DONE (1000 feat, single-seed HF ckpts): per-feature interp MATCHED at scale (std 20.1 / global 21.3 / per-feature 19.2%); advantage is discovery/volume not legibility; exp53 freq-crossover does NOT replicate. Replaces exp33/exp40. A4 causal spec ready (Chat 1 runs). |
+| 61 | Multi-Seed 500M | n=3 seeds {42,123,456} at headline: FVE matched ±0.0002; top-1 gap stable +14.1% (global) / +14.6% (per-feature); learned a seed-invariant |
+| 62 | Headline Interp + Causal | 1000 feat, 500M HF ckpts: per-feature interp MATCHED at scale (std 20.1 / global 21.3 / per-feature 19.2%); advantage is discovery/volume not legibility; exp53 freq-crossover does not replicate |
+| 63 | Other Selectors | Cosine advantage survives beyond BatchTopK: per-token TopK +5–7% (0.802 vs 0.731), AbsTopK +12–14% (0.812–0.827 vs 0.690) top-1; reflects inner-product scoring in general |
+| 64 | Score Swap | Inference swap: probing tracks the READ-time score (norm channel), FVE is baked into trained weights (destroyed by swap both directions); continued-training swap barely reorganizes the dictionary (Jaccard ~0.998) |
+| 65 | Salient-Concept Control | Both arms cleanly represent salient concepts (Python/French); cosine advantage is aggregate over many features, not any single concept |
+| 66 | Sparsity-Budget Sweep | k∈{10..160}: probing advantage robust (+8 to +11.4%) at all k; auto-interp parity holds at all k |
+| 67 | Scaling-Matrix Reseed | 27 cells (1.7B/4B/8B × 4/8/16× × 3 seeds): model dim drives the gap (+5.3/+11.7/+9.2 row means), expansion flat |
