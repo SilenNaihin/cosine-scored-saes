@@ -115,6 +115,7 @@ All experiments conducted during this research, with results summaries.
 | 61 | Multi-Seed 500M | n=3 seeds at headline: FVE matched ±0.0002; top-1 gap stable +14.1% (global) / +14.6% (per-feature); a seed-invariant |
 | 65 | Salient-Concept Control | Both arms cleanly represent salient concepts (Python/French); cosine advantage is aggregate, not single-concept |
 | 66 | Sparsity-Budget Sweep | k∈{10..160}: probing advantage robust (+8 to +11.4%) at all k; auto-interp parity holds at all k |
+| 67 | Scaling-Matrix Reseed | 27 cells (1.7B/4B/8B × 4/8/16× × 3 seeds): model dim drives the gap (+5.3/+11.7/+9.2 row means), expansion flat |
 
 ## Camera-Ready Revision (Exp 61+)
 
