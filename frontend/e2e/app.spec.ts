@@ -65,6 +65,8 @@ test.describe("Cosine-Scored SAEs — single-page article", () => {
     await expect(page.getByText(/Figure 6\./)).toBeVisible();
     const accent = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue("--color-cos").trim());
     expect(accent.toLowerCase()).toBe("#7c3aed");
+    await expect(page.locator("link[rel='icon']")).toHaveAttribute("href", /%237C3AED/i);
+    await expect(page.locator("meta[name='theme-color']")).toHaveAttribute("content", "#7C3AED");
     const html = await page.locator("body").evaluate((el) => el.innerHTML);
     expect(html).not.toContain("#b8543d");
     expect(html).not.toContain("184,84,61");

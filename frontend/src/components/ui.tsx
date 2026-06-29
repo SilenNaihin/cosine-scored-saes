@@ -28,7 +28,7 @@ export function Figure({
       id={`fig-${n}`}
       className={cn(
         "my-9 scroll-mt-20",
-        wide && "lg:w-[min(960px,92vw)] lg:-translate-x-[calc((min(960px,92vw)-100%)/2)]"
+        wide && "lg:relative lg:left-1/2 lg:w-[min(960px,calc(100vw-2.5rem))] lg:-translate-x-1/2"
       )}
     >
       <div className="rounded-md border border-rule bg-white/40">{children}</div>
