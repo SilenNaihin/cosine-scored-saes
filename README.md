@@ -4,9 +4,9 @@ Code supplement for **"Size Doesn't Matter: Cosine-Scored Sparse Autoencoders"**
 
 **Spotlight** at the ICML 2026 Mechanistic Interpretability Workshop. Paper and reviews: [OpenReview](https://openreview.net/forum?id=7ZmZhrlbnu).
 
-![Cosine SAEs at a glance](assets/fig_hero.png)
+![The cosine encoder: architecture and headline results](assets/fig_architecture_composite.png)
 
-*Cosine scoring wins per-task sparse probing (+14.6% mean top-1); standard inner-product SAEs fire disproportionately on high-norm tokens and blow up reconstruction size, while cosine features track content instead.*
+*The cosine encoder swaps the inner-product score `⟨w_i, x_c⟩` for `e^b · ‖x_c‖^a · cos(x_c, w_i)` with unit-normalized encoder rows. At matched reconstruction (FVE 0.770 vs 0.771), it improves sparse-probing top-1 by +14.6%; the learned norm-dependence converges to `a ≈ 0.26` (global), far below inner product.*
 
 ## Abstract
 
@@ -45,9 +45,9 @@ cosine-scored-saes/
 
 *Qwen3-8B, layer 18, 500M FineWeb tokens, d_sae=65,536, BatchTopK k=80.*
 
-The advantage generalizes across model families and layer depths; it is strongest in shallow-to-mid layers and narrows (but largely holds) in the deepest layers.
+![Cosine SAEs win on probing because standard features fire on token norm](assets/fig_hero.png)
 
-![Cosine vs inner-product win rate across models and depths](assets/fig4_cross_model_heatmap.png)
+*Cosine scoring wins per-task sparse probing (+14.6% mean top-1); standard inner-product SAEs fire disproportionately on high-norm tokens (29% gap) and inflate reconstruction size (9.5×), while cosine features track content instead.*
 
 ## Models and SAEs
 
