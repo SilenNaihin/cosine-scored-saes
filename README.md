@@ -2,6 +2,12 @@
 
 Code supplement for **"Size Doesn't Matter: Cosine-Scored Sparse Autoencoders"**.
 
+**Spotlight** at the ICML 2026 Mechanistic Interpretability Workshop. Paper and reviews: [OpenReview](https://openreview.net/forum?id=7ZmZhrlbnu).
+
+![Cosine SAEs at a glance](assets/fig_hero.png)
+
+*Cosine scoring wins per-task sparse probing (+14.6% mean top-1); standard inner-product SAEs fire disproportionately on high-norm tokens and blow up reconstruction size, while cosine features track content instead.*
+
 ## Abstract
 
 Sparse autoencoders (SAEs) detect features via inner product, so a feature's activation scales with both its directional alignment and the input's norm. Under BatchTopK, high-norm tokens inflate all pre-activations simultaneously, claiming dictionary slots regardless of content alignment. This matters because sublayer normalization has already discarded the magnitude the score measures, so the encoder detects a quantity the model does not read. We replace the score with a learned blend of cosine similarity and input magnitude, letting the optimizer choose how much norm to use; a per-feature extension lets each feature decide independently. In both regimes, training is free to recover inner product but never does, with no feature ever choosing more than half-magnitude dependence. At matched reconstruction, the cosine encoder learns features that align with human-recognizable concepts far more often than standard, filling dictionary slots that inner product wastes on norm detectors. Loss reweighting that equalizes gradients barely closes the gap, confirming forward-pass score geometry as the lever. The advantage is not universal across tasks or depths, but we believe cosine scoring should be the default for dictionary learning on normalized representations.
@@ -38,6 +44,10 @@ cosine-scored-saes/
 | Per-feature interpretability | 82.1% | 80.1% | matched (p=0.88) |
 
 *Qwen3-8B, layer 18, 500M FineWeb tokens, d_sae=65,536, BatchTopK k=80.*
+
+The advantage generalizes across model families and layer depths; it is strongest in shallow-to-mid layers and narrows (but largely holds) in the deepest layers.
+
+![Cosine vs inner-product win rate across models and depths](assets/fig4_cross_model_heatmap.png)
 
 ## Models and SAEs
 
@@ -95,6 +105,21 @@ sae-bench  # for SAEBench evaluations
 ## Experiment Progression
 
 See [experiments.md](experiments.md) for the full experiment index with results summaries.
+
+## Bottom Line
+
+The advantage is not universal across tasks or depths, but the inner-product score measures a magnitude the model has already normalized away; on representations with pre-layer RMSNorm, that magnitude is wasted dictionary capacity. **We recommend cosine scoring as the default for dictionary learning on normalized representations**, with the per-feature adaptive variant when discovery and sparse-probing quality matter most.
+
+## Citation
+
+```bibtex
+@inproceedings{cosine-scored-saes-2026,
+  title     = {Size Doesn't Matter: Cosine-Scored Sparse Autoencoders},
+  booktitle = {ICML 2026 Mechanistic Interpretability Workshop (Spotlight)},
+  year      = {2026},
+  url       = {https://openreview.net/forum?id=7ZmZhrlbnu}
+}
+```
 
 ## License
 
