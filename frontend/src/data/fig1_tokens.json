@@ -1,0 +1,25 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "layer": 18,
+  "feature": 15189,
+  "encoder": "inner-product (standard) SAE",
+  "concept": "descriptive verbs",
+  "learnedA": 0.257,
+  "k": 5,
+  "xDomain": [0.16, 0.28],
+  "yDomain": [72, 127],
+  "note": "One real layer-18 standard-SAE feature. x = cosine of a token's residual to the feature direction; y = ‖residual‖. The feature aligns with descriptive verbs (high cosine, low norm). It keeps its top-5 by ‖x‖^a·cos. At a=0 (cosine) / the learned a≈0.26 it keeps the verbs; at a=1 (inner product) high-norm nouns it aligns with less (computing, learning, rain) crowd in. Values via experiments/modal_app.py::build_fig1.",
+  "tokens": [
+    { "t": " consists", "cos": 0.268, "norm": 76, "k": "content" },
+    { "t": " found", "cos": 0.26, "norm": 81, "k": "content" },
+    { "t": " tells", "cos": 0.253, "norm": 78, "k": "content" },
+    { "t": " caused", "cos": 0.251, "norm": 90, "k": "content" },
+    { "t": " uses", "cos": 0.25, "norm": 86, "k": "content" },
+    { "t": " trained", "cos": 0.249, "norm": 89, "k": "content" },
+    { "t": " powerhouse", "cos": 0.221, "norm": 115, "k": "junk" },
+    { "t": " change", "cos": 0.205, "norm": 114, "k": "junk" },
+    { "t": " learning", "cos": 0.192, "norm": 119, "k": "junk" },
+    { "t": " computing", "cos": 0.187, "norm": 123, "k": "junk" },
+    { "t": " rain", "cos": 0.182, "norm": 119, "k": "junk" }
+  ]
+}

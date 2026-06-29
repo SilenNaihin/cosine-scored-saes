@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #fdfdfc;       /* near-white, a hair warm */
+  --color-ink: #181818;         /* near-black body text + Standard series */
+  --color-soft: #474745;        /* secondary text */
+  --color-muted: #6b6b69;       /* captions / labels */
+  --color-rule: #e9e8e3;        /* hairlines */
+  --color-cos: #7C3AED;         /* purple — Cosine series + accent */
+  --color-cos-soft: #8B5CF6;
+  --color-wash: #F7F4FF;        /* faint purple panel fill */
+
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-serif);
+    font-size: 19px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--color-cos) 22%, transparent);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.2;
+  }
+  a {
+    color: var(--color-cos);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+/* article prose rhythm */
+.prose p {
+  margin: 0 0 1.1em;
+}
+.prose h2 {
+  font-size: 1.55rem;
+  margin: 2.4em 0 0.7em;
+  letter-spacing: -0.01em;
+}
+.prose h3 {
+  font-size: 1.18rem;
+  margin: 1.8em 0 0.5em;
+}
+.prose ul, .prose ol {
+  margin: 0 0 1.1em;
+  padding-left: 1.4em;
+}
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li { margin: 0.25em 0; }
+.prose li::marker { color: var(--color-muted); }
+.prose blockquote {
+  margin: 1.4em 0;
+  padding-left: 1em;
+  border-left: 2px solid var(--color-cos);
+  color: var(--color-soft);
+  font-style: italic;
+}
+.prose code {
+  font-size: 0.85em;
+  background: var(--color-wash);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+.prose .detail-note {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.72em;
+  color: var(--color-cos);
+  border-bottom: 1px dotted color-mix(in oklab, var(--color-cos) 70%, transparent);
+  cursor: help;
+  white-space: nowrap;
+  outline: none;
+}
+.prose .detail-note:focus-visible {
+  border-bottom-style: solid;
+}
+.prose .detail-bubble {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  z-index: 30;
+  display: none;
+  width: min(310px, 78vw);
+  transform: translateX(-50%);
+  white-space: normal;
+  border: 1px solid var(--color-rule);
+  border-radius: 6px;
+  background: var(--color-paper);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.12);
+  color: var(--color-soft);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  line-height: 1.45;
+  padding: 9px 10px;
+}
+.prose .detail-note:hover .detail-bubble,
+.prose .detail-note:focus .detail-bubble,
+.prose .detail-note:focus-within .detail-bubble {
+  display: block;
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin: 2.5em 0;
+}
+
+/* KaTeX: keep inline math at body scale; center display math */
+.katex { font-size: 1.04em; }
+.katex-block {
+  display: block;
+  margin: 1.2em 0;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.katex-block .katex { font-size: 1.1em; }
+
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-thumb { background: #d8d5cc; border-radius: 99px; border: 3px solid var(--color-paper); }
+::-webkit-scrollbar-thumb:hover { background: #c4c0b4; }

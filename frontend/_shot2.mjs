@@ -1,0 +1,14 @@
+import { chromium } from "playwright";
+const url = process.argv[2];
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 1024, height: 1500 } });
+await p.goto(url, { waitUntil: "networkidle" });
+const fig = p.locator("figure").first();
+await fig.scrollIntoViewIfNeeded();
+const slider = p.locator('input[type=range]').first();
+await slider.fill("1"); await p.waitForTimeout(150);
+await p.screenshot({ path: "/tmp/fig1_a1.png", clip: await fig.boundingBox() });
+await slider.fill("0"); await p.waitForTimeout(150);
+await p.screenshot({ path: "/tmp/fig1_a0.png", clip: await fig.boundingBox() });
+console.log("OK");
+await b.close();
