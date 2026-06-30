@@ -51,20 +51,24 @@ export function ProbeWin() {
   const wins = race.filter((r) => r.c > r.s).length;
 
   const headline = (() => {
-    if (hover !== null) {
-      const r = race[hover];
-      const dpp = (r.c - r.s) * 100;
-      return r.c >= r.s ? (
-        <>Cosine wins <b>{r.d.label}</b> ({r.d.name}) by <Num>+{dpp.toFixed(1)} pp</Num>.</>
-      ) : (
-        <>Standard wins <b>{r.d.label}</b> ({r.d.name}) by <Num>+{Math.abs(dpp).toFixed(1)} pp</Num> — magnitude carries the signal here.</>
-      );
-    }
     if (mode === "shared")
       return <>Restricted to features <i>both</i> encoders learn, the gap nearly vanishes — <Num>+{matchedGapPp.toFixed(1)} pp</Num>.</>;
     if (mode === "unique")
       return <>Most of the win — <Num>{uniquePct}%</Num> — comes from features only the cosine encoder learns.</>;
     return <>Across the full dictionary the cosine probe reads the concept <Num>+{fullGapPp.toFixed(1)} pp</Num> more often, and wins <Num>{wins} of {race.length}</Num> datasets.</>;
+  })();
+
+  const hoverSummary = (() => {
+    if (hover !== null) {
+      const r = race[hover];
+      const dpp = (r.c - r.s) * 100;
+      return r.c >= r.s ? (
+        <><b>{r.d.label}</b>: cosine <Num>+{dpp.toFixed(1)} pp</Num></>
+      ) : (
+        <><b>{r.d.label}</b>: standard <Num>+{Math.abs(dpp).toFixed(1)} pp</Num></>
+      );
+    }
+    return <><Num>{wins} of {race.length}</Num> datasets favor cosine; sentiment is the exception.</>;
   })();
 
   return (
@@ -122,6 +126,9 @@ export function ProbeWin() {
           <div className="rounded-md border border-rule bg-white/50 px-4 py-3">
             <div className="font-sans text-[12px] uppercase tracking-[0.14em] text-muted mb-2.5">
               Per-dataset top-1 · cosine wins {wins} of {race.length}
+            </div>
+            <div className="mb-2 min-h-5 font-sans text-[12.5px] leading-snug text-muted">
+              {hoverSummary}
             </div>
             <div className="space-y-1">
               {race.map((r, ri) => (
