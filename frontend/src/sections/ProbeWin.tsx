@@ -87,7 +87,7 @@ export function ProbeWin() {
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-4">
           <Toggle options={["top-1", "top-2", "top-5"]} value={k} onChange={(v) => setK(v as K)} label="probe" />
           <Toggle options={["full", "shared", "unique"]} value={mode} onChange={(v) => setMode(v as Mode)} label="dictionary" />
-          <span className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-rule bg-wash/70 px-2.5 py-1 font-sans text-[12px] text-soft">
+          <span className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-rule bg-wash/70 px-2.5 py-1 font-sans text-[12px] text-soft lg:ml-auto lg:w-auto">
             <span className="size-1.5 rounded-full bg-cos" /> matched reconstruction · FVE ≈ {HEADLINE.headline.fve}
           </span>
         </div>
@@ -108,16 +108,16 @@ export function ProbeWin() {
             sharedTo={mode === "unique" ? cosShared : undefined}
           />
           {/* gap bracket */}
-          <div className="mt-3 flex items-center gap-2 pl-[112px]">
+          <div className="mt-3 flex flex-wrap items-start gap-x-2 gap-y-1 sm:pl-[112px]">
             <span className="inline-block h-px w-6 bg-cos" />
-            <span className="font-sans text-[13px] font-semibold text-cos">
+            <span className="shrink-0 whitespace-nowrap font-sans text-[13px] font-semibold text-cos">
               +<CountUp value={gapShown} format={(v) => v.toFixed(1)} /> pp
             </span>
-            <span className="font-sans text-[12.5px] text-muted">{headline}</span>
+            <span className="min-w-[12rem] flex-1 font-sans text-[12.5px] text-muted">{headline}</span>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-[1.35fr_1fr] gap-4 mt-4">
+        <div className="grid gap-4 mt-4 lg:grid-cols-[1.35fr_1fr]">
           {/* ── Part 2 — dataset race ─────────────────────────────────── */}
           <div className="rounded-md border border-rule bg-white/50 px-4 py-3">
             <div className="font-sans text-[12px] uppercase tracking-[0.14em] text-muted mb-2.5">
@@ -188,12 +188,12 @@ function ScoreRow({
 }) {
   const split = base !== undefined && sharedTo !== undefined;
   return (
-    <div className="flex items-center gap-3">
-      <div className="w-[100px] shrink-0">
+    <div className="grid grid-cols-[1fr_auto] gap-x-3 gap-y-1 sm:flex sm:items-center sm:gap-3">
+      <div className="min-w-0 sm:w-[100px] sm:shrink-0">
         <div className="font-sans font-semibold text-[14px] leading-tight" style={{ color }}>{label}</div>
         <div className="font-sans text-[11px] text-muted leading-tight">{sub}</div>
       </div>
-      <div className="relative flex-1 h-7 rounded bg-wash overflow-hidden">
+      <div className="relative col-span-2 h-7 overflow-hidden rounded bg-wash sm:col-span-1 sm:flex-1">
         {split ? (
           <>
             {/* base (shared) up to sharedTo */}
@@ -210,7 +210,7 @@ function ScoreRow({
           <AnimatedBar pct={pctOf(value)} color={color} className="absolute inset-y-0 left-0" rounded={false} />
         )}
       </div>
-      <span className="w-14 shrink-0 text-right font-mono text-[13px]" style={{ color }}>
+      <span className="row-start-1 col-start-2 shrink-0 text-right font-mono text-[13px] sm:row-auto sm:col-auto sm:w-14" style={{ color }}>
         <CountUp value={value} format={fmtAcc} />
       </span>
     </div>
