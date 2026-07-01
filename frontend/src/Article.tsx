@@ -139,18 +139,57 @@ function Header() {
       <h1 className="text-[2.6rem] leading-[1.08] tracking-[-0.02em] font-sans font-semibold">
         Size Doesn't Matter:<br />Cosine-Scored Sparse Autoencoders
       </h1>
-      <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-y-3 gap-x-6 font-sans text-[14px] border-t border-rule pt-4">
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 font-sans text-[14px] border-t border-rule pt-4">
         <Field label="Authors" value={<>Silen Naihin<br />Lev Stambler</>} />
-        <Field label="Base model" value={<>Qwen3-8B · layer 18<br />d<sub>SAE</sub> = 65,536</>} />
-        <Field label="Resources" value={
-          <span className="flex flex-col gap-0.5">
-            <a href={HEADLINE.arxiv} target="_blank" rel="noreferrer">arXiv ↗</a>
-            <a href={HEADLINE.hf} target="_blank" rel="noreferrer">Checkpoints ↗</a>
-            <a href={HEADLINE.code} target="_blank" rel="noreferrer">Code ↗</a>
-          </span>
-        } />
+        <Field label="Base model" value={<>Qwen3-8B · layer 18 · 500M tokens<br />d<sub>SAE</sub> = 65,536</>} />
+      </div>
+      <div className="mt-5 flex flex-wrap gap-2.5 font-sans">
+        <a
+          href={HEADLINE.code}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2.5 text-[15px] font-medium text-paper no-underline transition-colors hover:bg-cos"
+        >
+          <GitHubIcon />
+          <span>Star on GitHub</span>
+        </a>
+        <a
+          href={HEADLINE.arxiv}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-md border border-rule px-4 py-2.5 text-[15px] font-medium text-ink no-underline transition-colors hover:border-cos hover:text-cos"
+        >
+          <span>arXiv</span>
+          <span aria-hidden>↗</span>
+        </a>
+        <a
+          href={HEADLINE.hf}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-md border border-rule px-4 py-2.5 text-[15px] font-medium text-ink no-underline transition-colors hover:border-cos hover:text-cos"
+        >
+          <span>Checkpoints</span>
+          <span aria-hidden>↗</span>
+        </a>
+        <a
+          href={HEADLINE.code}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-md border border-rule px-4 py-2.5 text-[15px] font-medium text-ink no-underline transition-colors hover:border-cos hover:text-cos"
+        >
+          <span>Code</span>
+          <span aria-hidden>↗</span>
+        </a>
       </div>
     </header>
+  );
+}
+
+function GitHubIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden>
+      <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 014 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/>
+    </svg>
   );
 }
 

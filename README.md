@@ -2,7 +2,7 @@
 
 Code supplement for **"Size Doesn't Matter: Cosine-Scored Sparse Autoencoders"**.
 
-**Spotlight** at the ICML 2026 Mechanistic Interpretability Workshop. Paper and reviews: [OpenReview](https://openreview.net/forum?id=7ZmZhrlbnu).
+**Spotlight** at the ICML 2026 Mechanistic Interpretability Workshop. Interactive article: [silennaihin.github.io/cosine-scored-saes](https://silennaihin.github.io/cosine-scored-saes/) · Paper and reviews: [OpenReview](https://openreview.net/forum?id=7ZmZhrlbnu).
 
 ![The cosine encoder: architecture and headline results](assets/fig_architecture_composite.png)
 
